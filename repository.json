@@ -1,0 +1,6 @@
+{
+  "name": "client-php",
+  "description": "Pipedrive client for PHP based apps",
+  "owner": "Pipedrive",
+  "type": "library"
+}
