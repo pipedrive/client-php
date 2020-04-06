@@ -123,7 +123,7 @@ class Data29 implements JsonSerializable
     /**
      * The last delivery time of the Webhook
      * @maps last_delivery_time
-     * @factory \Pipedrive\Utils\DateTimeHelper::fromSimpleDate
+     * @factory \Pipedrive\Utils\DateTimeHelper::fromRfc3339DateTime
      * @var \DateTime|null $lastDeliveryTime public property
      */
     public $lastDeliveryTime;
@@ -212,7 +212,7 @@ class Data29 implements JsonSerializable
         $json['additional_data']    = $this->additionalData;
         $json['remove_reason']      = $this->removeReason;
         $json['last_delivery_time'] = isset($this->lastDeliveryTime) ?
-            DateTimeHelper::toSimpleDate($this->lastDeliveryTime) : null;
+            DateTimeHelper::toRfc3339DateTime($this->lastDeliveryTime) : null;
         $json['last_http_status']   = $this->lastHttpStatus;
         $json['admin_id']           = $this->adminId;
 
