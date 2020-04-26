@@ -115,9 +115,11 @@ class StagesController extends BaseController
         $_queryBuilder = '/stages';
 
         //process optional query parameters
-        APIHelper::appendUrlWithQueryParameters($_queryBuilder, array (
+        if ($pipelineId) {
+          APIHelper::appendUrlWithQueryParameters($_queryBuilder, array(
             'pipeline_id' => $pipelineId,
-        ));
+          ));
+        }
 
         //validate and preprocess url
         $_queryUrl = APIHelper::cleanUrl(Configuration::getBaseUri() . $_queryBuilder);
