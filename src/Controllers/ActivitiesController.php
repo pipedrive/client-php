@@ -226,7 +226,7 @@ class ActivitiesController extends BaseController
             'subject'      => $this->val($options, 'subject'),
             'type'         => $this->val($options, 'type'),
             'done'       => APIHelper::prepareFormFields($this->val($options, 'done')),
-            'due_date'   => DateTimeHelper::toSimpleDate($due_date),
+            'due_date'   => DateTimeHelper::toSimpleDate($this->val($options, 'due_date')),
             'due_time'     => $this->val($options, 'dueTime'),
             'duration'     => $this->val($options, 'duration'),
             'user_id'      => $this->val($options, 'userId'),
