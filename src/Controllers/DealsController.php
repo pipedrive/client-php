@@ -646,6 +646,13 @@ class DealsController extends BaseController
             'visible_to' => APIHelper::prepareFormFields($this->val($options, 'visibleTo'))
         );
 
+        //add custom fields
+        foreach ($options as $key => $value) {
+          if (!in_array($key, array('id', 'title', 'value', 'currency', 'user_id', 'person_id', 'org_id', 'stage_id', 'status', 'probability', 'lost_reason', 'visible_to'))) {
+            $_parameters[$key] = $this->val($options, $key);
+          }
+        }
+
         //call on-before Http callback
         $_httpRequest = new HttpRequest(HttpMethod::PUT, $_headers, $_queryUrl, $_parameters);
         if ($this->getHttpCallBack() != null) {

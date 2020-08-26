@@ -447,6 +447,13 @@ class PersonsController extends BaseController
             'visible_to' => APIHelper::prepareFormFields($this->val($options, 'visibleTo'))
         );
 
+        //add custom fields
+        foreach ($options as $key => $value) {
+          if (!in_array($key, array('id', 'name', 'owner_id', 'org_id', 'email', 'phone', 'visible_to'))) {
+            $_parameters[$key] = $this->val($options, $key);
+          }
+        }
+
         //call on-before Http callback
         $_httpRequest = new HttpRequest(HttpMethod::PUT, $_headers, $_queryUrl, $_parameters);
         if ($this->getHttpCallBack() != null) {
