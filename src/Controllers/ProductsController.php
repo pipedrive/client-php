@@ -395,6 +395,13 @@ class ProductsController extends BaseController
             'prices'      => $this->val($options, 'prices')
         );
 
+        //add custom fields
+        foreach($options as $key => $value) {
+            if (!in_array($key, array('id','name','code','unit','tax','active_flag','visible_to','owner_id','prices'))) {
+                $_parameters[$key] = $this->val($options, $key);
+            }
+        }
+
         //call on-before Http callback
         $_httpRequest = new HttpRequest(HttpMethod::PUT, $_headers, $_queryUrl, $_parameters);
         if ($this->getHttpCallBack() != null) {
