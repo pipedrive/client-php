@@ -167,6 +167,73 @@ class PersonsController extends BaseController
     }
 
     /**
+     * Searches all Persons by name, email, phone, notes and/or custom fields. Found Persons can be filtered by Organization ID.
+     *
+     * @param  array  $options    Array with all options for search
+     * @param string  $options['term']            Search term to look for
+     * @param integer $options['fields']          (optional) A comma-separated string array. The fields to perform the search from. Defaults to all of them.
+     * @param integer $options['exact_match']     (optional) When enabled, only full exact matches against the given term are returned. It is not case sensitive.
+     * @param integer $options['organization_id'] (optional) Will filter Deals by the provided Organization ID. The upper limit of found Deals associated with the Organization is 2000.
+     * @param integer $options['include_fields']  (optional) Supports including optional fields in the results which are not provided by default.
+     * @param integer $options['start']           (optional) Pagination start
+     * @param integer $options['limit']           (optional) Items shown per page     
+     *                                            
+     * @return void response from the API call
+     * @throws APIException Thrown if API call fails
+     */
+    public function searchPersons(
+        $options
+    ) {
+        //check or get oauth token
+        OAuthManager::getInstance()->checkAuthorization();
+
+        //prepare query string for API call
+        $_queryBuilder = '/persons/search';
+
+        //process optional query parameters
+        APIHelper::appendUrlWithQueryParameters($_queryBuilder, array (
+            'term'            => $this->val($options, 'term'),
+            'fields'          => $this->val($options, 'fields'),
+            'exact_match'     => $this->val($options, 'exact_match'),
+            'organization_id' => $this->val($options, 'organization_id'),
+            'include_fields'  => $this->val($options, 'include_fields'),
+            'start'           => $this->val($options, 'start', 0),
+            'limit'           => $this->val($options, 'limit'),
+        ));
+
+        //validate and preprocess url
+        $_queryUrl = APIHelper::cleanUrl(Configuration::getBaseUri() . $_queryBuilder);
+
+        //prepare headers
+        $_headers = array (
+            'user-agent'    => BaseController::USER_AGENT,
+            'Authorization' => sprintf('Bearer %1$s', Configuration::$oAuthToken->accessToken)
+        );
+
+        //call on-before Http callback
+        $_httpRequest = new HttpRequest(HttpMethod::GET, $_headers, $_queryUrl);
+        if ($this->getHttpCallBack() != null) {
+            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
+        }
+
+        //and invoke the API call request to fetch the response
+        $response = Request::get($_queryUrl, $_headers);
+
+        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
+        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
+
+        //call on-after Http callback
+        if ($this->getHttpCallBack() != null) {
+            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
+        }
+
+        //handle errors defined at the API level
+        $this->validateResponse($_httpResponse, $_httpContext);
+
+        return CamelCaseHelper::keysToCamelCase($response->body);
+    }
+    
+    /**
      * Adds a new person. Note that you can supply additional custom fields along with the request that are
      * not described here. These custom fields are different for each Pipedrive account and can be
      * recognized by long hashes as keys. To determine which custom fields exists, fetch the personFields
