@@ -288,6 +288,7 @@ You can change the PHPUnit test configuration in the `phpunit.xml` file.
 * [FiltersController](#filters_controller)
 * [GlobalMessagesController](#global_messages_controller)
 * [GoalsController](#goals_controller)
+* [ItemSearchController](#item_search_controller)
 * [MailMessagesController](#mail_messages_controller)
 * [MailThreadsController](#mail_threads_controller)
 * [NoteFieldsController](#note_fields_controller)
@@ -2895,6 +2896,52 @@ $goals->getResultOfAGoal($collect);
 
 ```
 
+
+[Back to List of Controllers](#list_of_controllers)
+
+## <a name="item_search_controller"></a>![Class: ](https://apidocs.io/img/class.png ".ItemSearchController") ItemSearchController
+
+### Get singleton instance
+
+The singleton instance of the ```ItemSearchController``` class can be accessed from the API Client.
+
+```php
+$itemSearch = $client->getItemSearch();
+```
+
+
+### <a name="perform_a_search_from_multiple_item_types"></a>![Method: ](https://apidocs.io/img/method.png ".ItemSearchController.performASearchFromMultipleItemTypes") performASearchFromMultipleItemTypes
+
+> Perform a search from multiple item types
+
+
+```php
+function performASearchFromMultipleItemTypes($options)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| term |  ``` Required ```  | Search term to look for, minimum 2 characters. |
+| itemTypes |  ``` Optional ```  | A comma-separated string array. The type of items to perform the search from. Defaults to all. |
+| fields |  ``` Optional ```  | A comma-separated string array. The fields to perform the search from. Defaults to all. |
+| searchForRelatedItems |  ``` Optional ```  | When enabled, the response will include up to 100 newest related Leads and 100 newest related Deals for each found Person and Organization and up to 100 newest related Persons for each found Organization. |
+| exactMatch |  ``` Optional ```  | When enabled, only full exact matches against the given term are returned. It is not case sensitive. |
+| includeFields |  ``` Optional ```  | A comma-separated string array. Supports including optional fields in the results which are not provided by default.|
+| start |  ``` Optional ```  | Pagination start |
+| limit |  ``` Optional ```  | Items shown per page |
+
+
+#### Example Usage
+
+```php
+$term = 'term';
+$collect['term'] = $term;
+
+$results = $searchResults->performASearchFromMultipleItemTypes($collect);
+
+```
 
 [Back to List of Controllers](#list_of_controllers)
 
