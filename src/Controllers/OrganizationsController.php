@@ -193,8 +193,6 @@ class OrganizationsController extends BaseController
             'term'        => $this->val($options, 'term'),
             'fields'  => $this->val($options, 'fields'),
             'exact_match' => $this->val($options, 'exactMatch'),
-            'organization_id'   => $this->val($options, 'organizationId'),
-            'include_fields'   => $this->val($options, 'includeFields'),
             'start'       => $this->val($options, 'start', 0),
             'limit'       => $this->val($options, 'limit'),
         ));
