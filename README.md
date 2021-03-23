@@ -2943,6 +2943,40 @@ $results = $searchResults->performASearchFromMultipleItemTypes($collect);
 
 ```
 
+### <a name="perform_a_search_using_a_specific_field_from_an_item_type"></a>![Method: ](https://apidocs.io/img/method.png ".ItemSearchController.performASearchUsingASpecificFieldFromAnItemType") performASearchUsingASpecificFieldFromAnItemType
+
+> Perform a search using a specific field from an item type
+
+
+```php
+function performASearchUsingASpecificFieldFromAnItemType($options)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| term |  ``` Required ```  | The search term to look for. Minimum 2 characters (or 1 if using exact_match). |
+| fieldType |  ``` Required ```  | The type of the field to perform the search from |
+| fieldKey |  ``` Required ```  | The key of the field to search from. The field key can be obtained by fetching the list of the fields using any of the fields' API GET methods (dealFields, personFields, etc.). |
+| exactMatch |  ``` Optional ```  | When enabled, only full exact matches against the given term are returned. The search is case sensitive. |
+| returnItemIds |  ``` Optional ```  | Whether to return the IDs of the matching items or not. When not set or set to 0 or false, only distinct values of the searched field are returned. When set to 1 or true, the ID of each found item is returned. |
+| start |  ``` Optional ```  | Pagination start |
+| limit |  ``` Optional ```  | Items shown per page |
+
+
+#### Example Usage
+
+```php
+
+$collect['term'] = 'term';
+$collect['fieldType'] = 'dealField';
+$collect['fieldKey'] = 'title';
+
+$results = $searchResults->performASearchUsingASpecificFieldFromAnItemType($collect);
+
+```
+
 [Back to List of Controllers](#list_of_controllers)
 
 ## <a name="mail_messages_controller"></a>![Class: ](https://apidocs.io/img/class.png ".MailMessagesController") MailMessagesController

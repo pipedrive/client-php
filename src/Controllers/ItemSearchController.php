@@ -115,6 +115,73 @@ class ItemSearchController extends BaseController
     }
 
     /**
+     * Performs a search from the values of a specific field. Results can either be the distinct values of the field (useful for searching autocomplete field values), or the IDs of actual items (Deals, Persons, Organizations or Products).
+     *
+     * @param  array  $options    Array with all options for search
+     * @param string  $options['term']        The search term to look for. Minimum 2 characters (or 1 if using exact_match).
+     * @param string  $options['fieldType']   The type of the field to perform the search from
+     * @param string  $options['fieldKey']    The key of the field to search from. The field key can be obtained by fetching the list of the fields using any of the fields' API GET methods (dealFields, personFields, etc.).
+     * @param bool    $options['exactMatch']  (optional) When enabled, only full exact matches against the given term are returned. The search is case sensitive
+     * @param bool    $options['returnItemIds']  (optional) Whether to return the IDs of the matching items or not. When not set or set to 0 or false, only distinct values of the searched field are returned. When set to 1 or true, the ID of each found item is returned.
+     * @param integer $options['start']       (optional) Pagination start
+     * @param integer $options['limit']       (optional) Items shown per page
+     *
+     * @return void response from the API call
+     * @throws APIException Thrown if API call fails
+     */
+    public function performASearchUsingASpecificFieldFromAnItemType(
+        $options
+    ) {
+        //check or get oauth token
+        OAuthManager::getInstance()->checkAuthorization();
+
+        //prepare query string for API call
+        $_queryBuilder = '/itemSearch/field';
+
+        //process optional query parameters
+        APIHelper::appendUrlWithQueryParameters($_queryBuilder, array (
+            'term'        => $this->val($options, 'term'),
+            'field_type'  => $this->val($options, 'fieldType'),
+            'exact_match' => $this->val($options, 'exactMatch'),
+            'field_key'   => $this->val($options, 'fieldKey'),
+            'return_item_ids'   => $this->val($options, 'returnItemIds'),
+            'start'       => $this->val($options, 'start', 0),
+            'limit'       => $this->val($options, 'limit'),
+        ));
+
+        //validate and preprocess url
+        $_queryUrl = APIHelper::cleanUrl(Configuration::getBaseUri() . $_queryBuilder);
+
+        //prepare headers
+        $_headers = array (
+            'user-agent'    => BaseController::USER_AGENT,
+            'Authorization' => sprintf('Bearer %1$s', Configuration::$oAuthToken->accessToken)
+        );
+
+        //call on-before Http callback
+        $_httpRequest = new HttpRequest(HttpMethod::GET, $_headers, $_queryUrl);
+        if ($this->getHttpCallBack() != null) {
+            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
+        }
+
+        //and invoke the API call request to fetch the response
+        $response = Request::get($_queryUrl, $_headers);
+
+        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
+        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
+
+        //call on-after Http callback
+        if ($this->getHttpCallBack() != null) {
+            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
+        }
+
+        //handle errors defined at the API level
+        $this->validateResponse($_httpResponse, $_httpContext);
+
+        return CamelCaseHelper::keysToCamelCase($response->body);
+    }
+
+    /**
     * Array access utility method
      * @param  array          $arr         Array of values to read from
      * @param  string         $key         Key to get the value from the array
