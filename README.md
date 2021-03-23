@@ -3959,6 +3959,36 @@ $organizations->getAllOrganizations($collect);
 
 ```
 
+### <a name="search_organizations"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationsController.searchOrganizations") searchOrganizations
+
+> Searches all Organizations by name, address, notes and/or custom fields. This endpoint is a wrapper of /v1/itemSearch with a narrower OAuth scope.
+
+
+```php
+function searchOrganizations($options)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| term |  ``` Required ```  | The search term to look for. Minimum 2 characters (or 1 if using exact_match). |
+| fields |  ``` Optional ```  | A comma-separated string array. The fields to perform the search from. Defaults to all of them. |
+| exactMatch |  ``` Optional ```  | When enabled, only full exact matches against the given term are returned. It is not case sensitive. |
+| start |  ``` Optional ```  | Pagination start. Note that the pagination is based on main results and does not include related items when using search_for_related_items parameter. |
+| limit |  ``` Optional ```  | Items shown per page |
+
+
+#### Example Usage
+
+```php
+$term = 'term';
+$collect['term'] = $term;
+
+$results = $organizations->searchOrganizations($collect);
+
+```
+
 
 ### <a name="add_an_organization"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationsController.addAnOrganization") addAnOrganization
 
