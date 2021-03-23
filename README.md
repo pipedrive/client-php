@@ -6180,6 +6180,37 @@ $result = $products->getAllProducts($collect);
 
 ```
 
+### <a name="search_products"></a>![Method: ](https://apidocs.io/img/method.png ".ProductsController.searchProducts") searchProducts
+
+> Searches all Products by name, code and/or custom fields. This endpoint is a wrapper of /v1/itemSearch with a narrower OAuth scope.
+
+
+```php
+function searchProducts($options)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| term |  ``` Required ```  | The search term to look for. Minimum 2 characters (or 1 if using exact_match). |
+| fields |  ``` Optional ```  | A comma-separated string array. The fields to perform the search from. Defaults to all of them. |
+| exactMatch |  ``` Optional ```  | When enabled, only full exact matches against the given term are returned. It is not case sensitive. |
+| includeFields |  ``` Optional ```  | Supports including optional fields in the results which are not provided by default. |
+| start |  ``` Optional ```  | Pagination start. Note that the pagination is based on main results and does not include related items when using search_for_related_items parameter. |
+| limit |  ``` Optional ```  | Items shown per page |
+
+
+#### Example Usage
+
+```php
+$term = 'term';
+$collect['term'] = $term;
+
+$results = $products->searchProducts($collect);
+
+```
+
 
 ### <a name="add_a_product"></a>![Method: ](https://apidocs.io/img/method.png ".ProductsController.addAProduct") addAProduct
 
