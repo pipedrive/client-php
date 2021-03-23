@@ -2939,7 +2939,7 @@ function performASearchFromMultipleItemTypes($options)
 $term = 'term';
 $collect['term'] = $term;
 
-$results = $searchResults->performASearchFromMultipleItemTypes($collect);
+$results = $itemSearch->performASearchFromMultipleItemTypes($collect);
 
 ```
 
@@ -2973,7 +2973,7 @@ $collect['term'] = 'term';
 $collect['fieldType'] = 'dealField';
 $collect['fieldKey'] = 'title';
 
-$results = $searchResults->performASearchUsingASpecificFieldFromAnItemType($collect);
+$results = $itemSearch->performASearchUsingASpecificFieldFromAnItemType($collect);
 
 ```
 
