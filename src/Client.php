@@ -286,6 +286,14 @@ class Client
         return Controllers\WebhooksController::getInstance();
     }
     /**
+     * Singleton access to ItemSearch controller
+     * @return Controllers\ItemSearchController The *Singleton* instance
+     */
+    public function getItemSearch()
+    {
+        return Controllers\ItemSearchController::getInstance();
+    }
+    /**
      * Singleton access to OAuthAuthorization controller
      * @return Controllers\OAuthAuthorizationController The *Singleton* instance
      */

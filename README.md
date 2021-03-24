@@ -288,6 +288,7 @@ You can change the PHPUnit test configuration in the `phpunit.xml` file.
 * [FiltersController](#filters_controller)
 * [GlobalMessagesController](#global_messages_controller)
 * [GoalsController](#goals_controller)
+* [ItemSearchController](#item_search_controller)
 * [MailMessagesController](#mail_messages_controller)
 * [MailThreadsController](#mail_threads_controller)
 * [NoteFieldsController](#note_fields_controller)
@@ -1126,6 +1127,40 @@ $collect['ownedByYou'] = $ownedByYou;
 
 
 $result = $deals->getAllDeals($collect);
+
+```
+
+### <a name="search_deals"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.searchDeals") searchDeals
+
+> Searches all Deals by title, notes and/or custom fields. This endpoint is a wrapper of /v1/itemSearch with a narrower OAuth scope. Found Deals can be filtered by Person ID and Organization ID.
+
+
+```php
+function searchDeals($options)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| term |  ``` Required ```  | The search term to look for. Minimum 2 characters (or 1 if using exact_match). |
+| fields |  ``` Optional ```  | A comma-separated string array. The fields to perform the search from. Defaults to all of them. |
+| exactMatch |  ``` Optional ```  | When enabled, only full exact matches against the given term are returned. It is not case sensitive. |
+| personId |  ``` Optional ```  | Will filter Deals by the provided Person ID. The upper limit of found Deals associated with the Person is 2000. |
+| organizationId |  ``` Optional ```  | Will filter Deals by the provided Organization ID. The upper limit of found Deals associated with the Organization is 2000. |
+| status |  ``` Optional ```  | Will filter Deals by the provided specific status. open = Open, won = Won, lost = Lost. The upper limit of found Deals associated with the status is 2000. |
+| includeFields |  ``` Optional ```  | Supports including optional fields in the results which are not provided by default. |
+| start |  ``` Optional ```  | Pagination start. Note that the pagination is based on main results and does not include related items when using search_for_related_items parameter. |
+| limit |  ``` Optional ```  | Items shown per page |
+
+
+#### Example Usage
+
+```php
+$term = 'term';
+$collect['term'] = $term;
+
+$results = $deals->searchDeals($collect);
 
 ```
 
@@ -2898,6 +2933,86 @@ $goals->getResultOfAGoal($collect);
 
 [Back to List of Controllers](#list_of_controllers)
 
+## <a name="item_search_controller"></a>![Class: ](https://apidocs.io/img/class.png ".ItemSearchController") ItemSearchController
+
+### Get singleton instance
+
+The singleton instance of the ```ItemSearchController``` class can be accessed from the API Client.
+
+```php
+$itemSearch = $client->getItemSearch();
+```
+
+
+### <a name="perform_a_search_from_multiple_item_types"></a>![Method: ](https://apidocs.io/img/method.png ".ItemSearchController.performASearchFromMultipleItemTypes") performASearchFromMultipleItemTypes
+
+> Perform a search from multiple item types
+
+
+```php
+function performASearchFromMultipleItemTypes($options)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| term |  ``` Required ```  | Search term to look for, minimum 2 characters. |
+| itemTypes |  ``` Optional ```  | A comma-separated string array. The type of items to perform the search from. Defaults to all. |
+| fields |  ``` Optional ```  | A comma-separated string array. The fields to perform the search from. Defaults to all. |
+| searchForRelatedItems |  ``` Optional ```  | When enabled, the response will include up to 100 newest related Leads and 100 newest related Deals for each found Person and Organization and up to 100 newest related Persons for each found Organization. |
+| exactMatch |  ``` Optional ```  | When enabled, only full exact matches against the given term are returned. It is not case sensitive. |
+| includeFields |  ``` Optional ```  | A comma-separated string array. Supports including optional fields in the results which are not provided by default.|
+| start |  ``` Optional ```  | Pagination start |
+| limit |  ``` Optional ```  | Items shown per page |
+
+
+#### Example Usage
+
+```php
+$term = 'term';
+$collect['term'] = $term;
+
+$results = $itemSearch->performASearchFromMultipleItemTypes($collect);
+
+```
+
+### <a name="perform_a_search_using_a_specific_field_from_an_item_type"></a>![Method: ](https://apidocs.io/img/method.png ".ItemSearchController.performASearchUsingASpecificFieldFromAnItemType") performASearchUsingASpecificFieldFromAnItemType
+
+> Perform a search using a specific field from an item type
+
+
+```php
+function performASearchUsingASpecificFieldFromAnItemType($options)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| term |  ``` Required ```  | The search term to look for. Minimum 2 characters (or 1 if using exact_match). |
+| fieldType |  ``` Required ```  | The type of the field to perform the search from |
+| fieldKey |  ``` Required ```  | The key of the field to search from. The field key can be obtained by fetching the list of the fields using any of the fields' API GET methods (dealFields, personFields, etc.). |
+| exactMatch |  ``` Optional ```  | When enabled, only full exact matches against the given term are returned. The search is case sensitive. |
+| returnItemIds |  ``` Optional ```  | Whether to return the IDs of the matching items or not. When not set or set to 0 or false, only distinct values of the searched field are returned. When set to 1 or true, the ID of each found item is returned. |
+| start |  ``` Optional ```  | Pagination start |
+| limit |  ``` Optional ```  | Items shown per page |
+
+
+#### Example Usage
+
+```php
+
+$collect['term'] = 'term';
+$collect['fieldType'] = 'dealField';
+$collect['fieldKey'] = 'title';
+
+$results = $itemSearch->performASearchUsingASpecificFieldFromAnItemType($collect);
+
+```
+
+[Back to List of Controllers](#list_of_controllers)
+
 ## <a name="mail_messages_controller"></a>![Class: ](https://apidocs.io/img/class.png ".MailMessagesController") MailMessagesController
 
 ### Get singleton instance
@@ -3844,6 +3959,36 @@ $organizations->getAllOrganizations($collect);
 
 ```
 
+### <a name="search_organizations"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationsController.searchOrganizations") searchOrganizations
+
+> Searches all Organizations by name, address, notes and/or custom fields. This endpoint is a wrapper of /v1/itemSearch with a narrower OAuth scope.
+
+
+```php
+function searchOrganizations($options)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| term |  ``` Required ```  | The search term to look for. Minimum 2 characters (or 1 if using exact_match). |
+| fields |  ``` Optional ```  | A comma-separated string array. The fields to perform the search from. Defaults to all of them. |
+| exactMatch |  ``` Optional ```  | When enabled, only full exact matches against the given term are returned. It is not case sensitive. |
+| start |  ``` Optional ```  | Pagination start. Note that the pagination is based on main results and does not include related items when using search_for_related_items parameter. |
+| limit |  ``` Optional ```  | Items shown per page |
+
+
+#### Example Usage
+
+```php
+$term = 'term';
+$collect['term'] = $term;
+
+$results = $organizations->searchOrganizations($collect);
+
+```
+
 
 ### <a name="add_an_organization"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationsController.addAnOrganization") addAnOrganization
 
@@ -4781,6 +4926,38 @@ $collect['sort'] = $sort;
 
 
 $persons->getAllPersons($collect);
+
+```
+
+### <a name="search_persons"></a>![Method: ](https://apidocs.io/img/method.png ".PersonsController.searchPersons") searchPersons
+
+> Searches all Persons by name, email, phone, notes and/or custom fields. This endpoint is a wrapper of /v1/itemSearch with a narrower OAuth scope. Found Persons can be filtered by Organization ID.
+
+
+```php
+function searchPersons($options)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| term |  ``` Required ```  | The search term to look for. Minimum 2 characters (or 1 if using exact_match). |
+| fields |  ``` Optional ```  | A comma-separated string array. The fields to perform the search from. Defaults to all of them. |
+| exactMatch |  ``` Optional ```  | When enabled, only full exact matches against the given term are returned. It is not case sensitive. |
+| organizationId |  ``` Optional ```  | Will filter Deals by the provided Organization ID. The upper limit of found Deals associated with the Organization is 2000. |
+| includeFields |  ``` Optional ```  | Supports including optional fields in the results which are not provided by default. |
+| start |  ``` Optional ```  | Pagination start. Note that the pagination is based on main results and does not include related items when using search_for_related_items parameter. |
+| limit |  ``` Optional ```  | Items shown per page |
+
+
+#### Example Usage
+
+```php
+$term = 'term';
+$collect['term'] = $term;
+
+$results = $persons->searchPersons($collect);
 
 ```
 
@@ -6000,6 +6177,37 @@ $collect['limit'] = $limit;
 
 
 $result = $products->getAllProducts($collect);
+
+```
+
+### <a name="search_products"></a>![Method: ](https://apidocs.io/img/method.png ".ProductsController.searchProducts") searchProducts
+
+> Searches all Products by name, code and/or custom fields. This endpoint is a wrapper of /v1/itemSearch with a narrower OAuth scope.
+
+
+```php
+function searchProducts($options)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| term |  ``` Required ```  | The search term to look for. Minimum 2 characters (or 1 if using exact_match). |
+| fields |  ``` Optional ```  | A comma-separated string array. The fields to perform the search from. Defaults to all of them. |
+| exactMatch |  ``` Optional ```  | When enabled, only full exact matches against the given term are returned. It is not case sensitive. |
+| includeFields |  ``` Optional ```  | Supports including optional fields in the results which are not provided by default. |
+| start |  ``` Optional ```  | Pagination start. Note that the pagination is based on main results and does not include related items when using search_for_related_items parameter. |
+| limit |  ``` Optional ```  | Items shown per page |
+
+
+#### Example Usage
+
+```php
+$term = 'term';
+$collect['term'] = $term;
+
+$results = $products->searchProducts($collect);
 
 ```
 
