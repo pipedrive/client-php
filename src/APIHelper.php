@@ -64,7 +64,10 @@ class APIHelper
         if (is_null($queryBuilder) || !is_string($queryBuilder)) {
             throw new InvalidArgumentException('Given value for parameter "queryBuilder" is invalid.');
         }
-        if (is_null($parameters)) {
+        $parameters = array_filter($parameters, function($value) {
+            return isset($value);
+        });
+        if (empty($parameters)) {
             return;
         }
         //does the query string already has parameters
