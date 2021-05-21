@@ -65,9 +65,9 @@ class APIHelper
             throw new InvalidArgumentException('Given value for parameter "queryBuilder" is invalid.');
         }
 
-		if (is_null($parameters)) {
-			return;
-		}
+        if (is_null($parameters)) {
+            return;
+        }
 
         $parameters = array_filter($parameters, function($value) {
             return isset($value);
