@@ -289,69 +289,6 @@ class PersonsController extends BaseController
     }
 
     /**
-     * Searches all persons by their name.
-     *
-     * @param  array  $options    Array with all options for search
-     * @param string  $options['term']            Search term to look for
-     * @param integer $options['orgId']           (optional) ID of the organization person is associated with.
-     * @param integer $options['start']           (optional) Pagination start
-     * @param integer $options['limit']           (optional) Items shown per page
-     * @param int     $options['searchByEmail']   (optional) When enabled, term will only be matched against email
-     *                                            addresses of people. Default: false
-     * @return void response from the API call
-     * @throws APIException Thrown if API call fails
-     */
-    public function findPersonsByName(
-        $options
-    ) {
-        //check or get oauth token
-        OAuthManager::getInstance()->checkAuthorization();
-
-        //prepare query string for API call
-        $_queryBuilder = '/persons/find';
-
-        //process optional query parameters
-        APIHelper::appendUrlWithQueryParameters($_queryBuilder, array (
-            'term'            => $this->val($options, 'term'),
-            'org_id'          => $this->val($options, 'orgId'),
-            'start'           => $this->val($options, 'start', 0),
-            'limit'           => $this->val($options, 'limit'),
-            'search_by_email' => $this->val($options, 'searchByEmail'),
-        ));
-
-        //validate and preprocess url
-        $_queryUrl = APIHelper::cleanUrl(Configuration::getBaseUri() . $_queryBuilder);
-
-        //prepare headers
-        $_headers = array (
-            'user-agent'    => BaseController::USER_AGENT,
-            'Authorization' => sprintf('Bearer %1$s', Configuration::$oAuthToken->accessToken)
-        );
-
-        //call on-before Http callback
-        $_httpRequest = new HttpRequest(HttpMethod::GET, $_headers, $_queryUrl);
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        //and invoke the API call request to fetch the response
-        $response = Request::get($_queryUrl, $_headers);
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        //handle errors defined at the API level
-        $this->validateResponse($_httpResponse, $_httpContext);
-
-        return CamelCaseHelper::keysToCamelCase($response->body);
-    }
-
-    /**
      * Marks a person as deleted.
      *
      * @param integer $id ID of a person
