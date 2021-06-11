@@ -239,67 +239,6 @@ class DealsController extends BaseController
     }
 
     /**
-     * Searches all deals by their title.
-     *
-     * @param  array  $options    Array with all options for search
-     * @param string  $options['term']      Search term to look for
-     * @param integer $options['personId']  (optional) ID of the person the Deal is associated with.
-     * @param integer $options['orgId']     (optional) ID of the organization the Deal is associated with.
-     * @return mixed response from the API call
-     * @throws APIException Thrown if API call fails
-     */
-    public function findDealsByName(
-        $options
-    ) {
-        //check or get oauth token
-        OAuthManager::getInstance()->checkAuthorization();
-
-        //prepare query string for API call
-        $_queryBuilder = '/deals/find';
-
-        //process optional query parameters
-        APIHelper::appendUrlWithQueryParameters($_queryBuilder, array (
-            'term'      => $this->val($options, 'term'),
-            'person_id' => $this->val($options, 'personId'),
-            'org_id'    => $this->val($options, 'orgId'),
-        ));
-
-        //validate and preprocess url
-        $_queryUrl = APIHelper::cleanUrl(Configuration::getBaseUri() . $_queryBuilder);
-
-        //prepare headers
-        $_headers = array (
-            'user-agent'    => BaseController::USER_AGENT,
-            'Accept'        => 'application/json',
-            'Authorization' => sprintf('Bearer %1$s', Configuration::$oAuthToken->accessToken)
-        );
-
-        //call on-before Http callback
-        $_httpRequest = new HttpRequest(HttpMethod::GET, $_headers, $_queryUrl);
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        //and invoke the API call request to fetch the response
-        $response = Request::get($_queryUrl, $_headers);
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        //handle errors defined at the API level
-        $this->validateResponse($_httpResponse, $_httpContext);
-
-        $mapper = $this->getJsonMapper();
-
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\GetDealsByName');
-    }
-
-    /**
      * Returns summary of all the deals.
      *
      * @param  array  $options    Array with all options for search

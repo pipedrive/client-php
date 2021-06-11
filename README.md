@@ -1192,43 +1192,6 @@ $result = $deals->addADeal($body);
 ```
 
 
-### <a name="find_deals_by_name"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.findDealsByName") findDealsByName
-
-> Searches all deals by their title.
-
-
-```php
-function findDealsByName($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| term |  ``` Required ```  | Search term to look for |
-| personId |  ``` Optional ```  | ID of the person the Deal is associated with. |
-| orgId |  ``` Optional ```  | ID of the organization the Deal is associated with. |
-
-
-
-#### Example Usage
-
-```php
-$term = 'term';
-$collect['term'] = $term;
-
-$personId = 119;
-$collect['personId'] = $personId;
-
-$orgId = 119;
-$collect['orgId'] = $orgId;
-
-
-$result = $deals->findDealsByName($collect);
-
-```
-
-
 ### <a name="get_deals_summary"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.getDealsSummary") getDealsSummary
 
 > Returns summary of all the deals.
@@ -4016,44 +3979,6 @@ $organizations->addAnOrganization($body);
 
 ```
 
-
-### <a name="find_organizations_by_name"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationsController.findOrganizationsByName") findOrganizationsByName
-
-> Searches all organizations by their name.
-
-
-```php
-function findOrganizationsByName($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| term |  ``` Required ```  | Search term to look for |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-
-#### Example Usage
-
-```php
-$term = 'term';
-$collect['term'] = $term;
-
-$start = 0;
-$collect['start'] = $start;
-
-$limit = 69;
-$collect['limit'] = $limit;
-
-
-$organizations->findOrganizationsByName($collect);
-
-```
-
-
 ### <a name="delete_an_organization"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationsController.deleteAnOrganization") deleteAnOrganization
 
 > Marks an organization as deleted.
@@ -4985,51 +4910,6 @@ function addAPerson($body = null)
 $body = array('key' => 'value');
 
 $persons->addAPerson($body);
-
-```
-
-
-### <a name="find_persons_by_name"></a>![Method: ](https://apidocs.io/img/method.png ".PersonsController.findPersonsByName") findPersonsByName
-
-> Searches all persons by their name.
-
-
-```php
-function findPersonsByName($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| term |  ``` Required ```  | Search term to look for |
-| orgId |  ``` Optional ```  | ID of the organization person is associated with. |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-| searchByEmail |  ``` Optional ```  | When enabled, term will only be matched against email addresses of people. Default: false |
-
-
-
-#### Example Usage
-
-```php
-$term = 'term';
-$collect['term'] = $term;
-
-$orgId = 233;
-$collect['orgId'] = $orgId;
-
-$start = 0;
-$collect['start'] = $start;
-
-$limit = 233;
-$collect['limit'] = $limit;
-
-$searchByEmail = int::ENUM_0;
-$collect['searchByEmail'] = $searchByEmail;
-
-
-$persons->findPersonsByName($collect);
 
 ```
 
@@ -6239,47 +6119,6 @@ $products->addAProduct($body);
 ```
 
 
-### <a name="find_products_by_name"></a>![Method: ](https://apidocs.io/img/method.png ".ProductsController.findProductsByName") findProductsByName
-
-> Returns data about the products that were found. If currency was set in request, prices in that currency are served back.
-
-
-```php
-function findProductsByName($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| term |  ``` Required ```  | Search term to look for, minimum 3 characters. |
-| currency |  ``` Optional ```  | Currency code in which prices should be returned in. If omitted, prices in user's default currency will be returned. |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-
-#### Example Usage
-
-```php
-$term = 'term';
-$collect['term'] = $term;
-
-$currency = 'currency';
-$collect['currency'] = $currency;
-
-$start = 0;
-$collect['start'] = $start;
-
-$limit = 19;
-$collect['limit'] = $limit;
-
-
-$result = $products->findProductsByName($collect);
-
-```
-
-
 ### <a name="delete_a_product"></a>![Method: ](https://apidocs.io/img/method.png ".ProductsController.deleteAProduct") deleteAProduct
 
 > Marks a product as deleted.
@@ -7017,120 +6856,6 @@ $collect['value'] = $value;
 
 
 $result = $roles->addOrUpdateRoleSetting($collect);
-
-```
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="search_results_controller"></a>![Class: ](https://apidocs.io/img/class.png ".SearchResultsController") SearchResultsController
-
-### Get singleton instance
-
-The singleton instance of the ``` SearchResultsController ``` class can be accessed from the API Client.
-
-```php
-$searchResults = $client->getSearchResults();
-```
-
-### <a name="get_perform_a_search"></a>![Method: ](https://apidocs.io/img/method.png ".SearchResultsController.getPerformASearch") getPerformASearch
-
-> Performs a search across the account and returns SearchResults.
-
-
-```php
-function getPerformASearch($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| term |  ``` Required ```  | Search term to look for, minimum 2 characters. |
-| itemType |  ``` Optional ```  | Search for items of exact type. If omitted, all types of items are searched. |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-| exactMatch |  ``` Optional ```  | When enabled, only full exact matches against the given term are returned. The minimum 2 character limit for the term is discarded when exact_match is enabled. It will only work if search term is 30 characters or less. |
-
-
-
-#### Example Usage
-
-```php
-$term = 'term';
-$collect['term'] = $term;
-
-$itemType = string::DEAL;
-$collect['itemType'] = $itemType;
-
-$start = 0;
-$collect['start'] = $start;
-
-$limit = 19;
-$collect['limit'] = $limit;
-
-$exactMatch = int::ENUM_0;
-$collect['exactMatch'] = $exactMatch;
-
-
-$searchResults->getPerformASearch($collect);
-
-```
-
-
-### <a name="get_perform_a_search_using_a_specific_field_value"></a>![Method: ](https://apidocs.io/img/method.png ".SearchResultsController.getPerformASearchUsingASpecificFieldValue") getPerformASearchUsingASpecificFieldValue
-
-> Performs a search from a specific field's values. Results can be either the distinct values of the field (useful for searching autocomplete field values), or actual items IDs (deals, persons, organizations or products). Works only with the following field types: varchar, varchar_auto, double, address, text, phone, date.
-
-
-```php
-function getPerformASearchUsingASpecificFieldValue($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| term |  ``` Required ```  | Search term to look for, minimum 2 characters. |
-| fieldType |  ``` Required ```  | Type of the field to perform the search from. |
-| fieldKey |  ``` Required ```  | Key of the field to search from. Field key can be obtained by fetching the list of fields using any of fields API GET methods (dealFields, personFields, ..). |
-| exactMatch |  ``` Optional ```  | When enabled, only full exact matches against the given term are returned. By default, term can be present anywhere in the resulting field values to be considered a match. The minimum 2 character limit for the term is discarded when exact_match is enabled. |
-| returnFieldKey |  ``` Optional ```  | Name of the field in search results from which the search was performed. When omitted, 'value' will be used. You may want to set this parameter to match the field_key. |
-| returnItemIds |  ``` Optional ```  | Whether to return matching items IDs in search results. When omitted or set to 0, only distinct values of the searched field are returned. When enabled, the return_field_key parameter is ignored and the results include the searched field as its own key. |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-
-#### Example Usage
-
-```php
-$term = 'term';
-$collect['term'] = $term;
-
-$fieldType = string::DEALFIELD;
-$collect['fieldType'] = $fieldType;
-
-$fieldKey = 'field_key';
-$collect['fieldKey'] = $fieldKey;
-
-$exactMatch = int::ENUM_0;
-$collect['exactMatch'] = $exactMatch;
-
-$returnFieldKey = 'return_field_key';
-$collect['returnFieldKey'] = $returnFieldKey;
-
-$returnItemIds = int::ENUM_0;
-$collect['returnItemIds'] = $returnItemIds;
-
-$start = 0;
-$collect['start'] = $start;
-
-$limit = 19;
-$collect['limit'] = $limit;
-
-
-$searchResults->getPerformASearchUsingASpecificFieldValue($collect);
 
 ```
 
