@@ -186,6 +186,7 @@ class NotesController extends BaseController
             'user_id'                     => $this->val($options, 'userId'),
             'deal_id'                     => $this->val($options, 'dealId'),
             'person_id'                   => $this->val($options, 'personId'),
+            'lead_id'                     => $this->val($options, 'leadId'),
             'org_id'                      => $this->val($options, 'orgId'),
             'add_time'                    => $this->val($options, 'addTime'),
             'pinned_to_deal_flag'       => APIHelper::prepareFormFields($this->val($options, 'pinnedToDealFlag')),
