@@ -50,12 +50,14 @@ class NotesController extends BaseController
      * @param  array  $options    Array with all options for search
      * @param integer  $options['userId']                      (optional) ID of the user whose notes to fetch. If
      *                                                         omitted, notes by all users will be returned.
+     * @param string  $options['leadId']                       (optional) ID of the lead which notes to fetch. If
+     *                                                         omitted, notes about all leads will be returned.
      * @param integer  $options['dealId']                      (optional) ID of the deal which notes to fetch. If
-     *                                                         omitted, notes about all deals with be returned.
+     *                                                         omitted, notes about all deals will be returned.
      * @param integer  $options['personId']                    (optional) ID of the person whose notes to fetch. If
-     *                                                         omitted, notes about all persons with be returned.
+     *                                                         omitted, notes about all persons will be returned.
      * @param integer  $options['orgId']                       (optional) ID of the organization which notes to fetch.
-     *                                                         If omitted, notes about all organizations with be
+     *                                                         If omitted, notes about all organizations will be
      *                                                         returned.
      * @param integer  $options['start']                       (optional) Pagination start
      * @param integer  $options['limit']                       (optional) Items shown per page
@@ -68,6 +70,8 @@ class NotesController extends BaseController
      *                                                         to fetch from.
      * @param DateTime $options['endDate']                     (optional) Date in format of YYYY-MM-DD until which
      *                                                         notes to fetch to.
+     * @param int      $options['pinnedToLeadFlag']            (optional) If set, then results are filtered by note to
+     *                                                         lead pinning state.
      * @param int      $options['pinnedToDealFlag']            (optional) If set, then results are filtered by note to
      *                                                         deal pinning state.
      * @param int      $options['pinnedToOrganizationFlag']    (optional) If set, then results are filtered by note to
@@ -89,6 +93,7 @@ class NotesController extends BaseController
         //process optional query parameters
         APIHelper::appendUrlWithQueryParameters($_queryBuilder, array (
             'user_id'                     => $this->val($options, 'userId'),
+            'lead_id'                     => $this->val($options, 'leadId'),
             'deal_id'                     => $this->val($options, 'dealId'),
             'person_id'                   => $this->val($options, 'personId'),
             'org_id'                      => $this->val($options, 'orgId'),
@@ -97,6 +102,7 @@ class NotesController extends BaseController
             'sort'                        => $this->val($options, 'sort'),
             'start_date'                  => DateTimeHelper::toSimpleDate($this->val($options, 'startDate')),
             'end_date'                    => DateTimeHelper::toSimpleDate($this->val($options, 'endDate')),
+            'pinned_to_lead_flag'         => $this->val($options, 'pinnedToLeadFlag'),
             'pinned_to_deal_flag'         => $this->val($options, 'pinnedToDealFlag'),
             'pinned_to_organization_flag' => $this->val($options, 'pinnedToOrganizationFlag'),
             'pinned_to_person_flag'       => $this->val($options, 'pinnedToPersonFlag'),
@@ -145,6 +151,7 @@ class NotesController extends BaseController
      *                                                        sanitization on the back-end.
      * @param integer $options['userId']                      (optional) ID of the user who will be marked as the
      *                                                        author of this note. Only an admin can change the author.
+     * @param string $options['leadId']                       (optional) ID of the lead the note will be attached to.
      * @param integer $options['dealId']                      (optional) ID of the deal the note will be attached to.
      * @param integer $options['personId']                    (optional) ID of the person this note will be attached to.
      * @param integer $options['orgId']                       (optional) ID of the organization this note will be
@@ -152,6 +159,8 @@ class NotesController extends BaseController
      * @param string  $options['addTime']                     (optional) Optional creation date & time of the Note in
      *                                                        UTC. Can be set in the past or in the future. Requires
      *                                                        admin user API token. Format: YYYY-MM-DD HH:MM:SS
+     * @param int     $options['pinnedToLeadFlag']            (optional) If set, then results are filtered by note to
+     *                                                        lead pinning state (lead_id is also required).
      * @param int     $options['pinnedToDealFlag']            (optional) If set, then results are filtered by note to
      *                                                        deal pinning state (deal_id is also required).
      * @param int     $options['pinnedToOrganizationFlag']    (optional) If set, then results are filtered by note to
@@ -184,10 +193,12 @@ class NotesController extends BaseController
         $_parameters = array (
             'content'                     => $this->val($options, 'content'),
             'user_id'                     => $this->val($options, 'userId'),
+            'lead_id'                     => $this->val($options, 'leadId'),
             'deal_id'                     => $this->val($options, 'dealId'),
             'person_id'                   => $this->val($options, 'personId'),
             'org_id'                      => $this->val($options, 'orgId'),
             'add_time'                    => $this->val($options, 'addTime'),
+            'pinned_to_lead_flag'       => APIHelper::prepareFormFields($this->val($options, 'pinnedToLeadFlag')),
             'pinned_to_deal_flag'       => APIHelper::prepareFormFields($this->val($options, 'pinnedToDealFlag')),
             'pinned_to_organization_flag' => APIHelper::prepareFormFields($this->val($options, 'pinnedToOrganizationFlag')),
             'pinned_to_person_flag'     => APIHelper::prepareFormFields($this->val($options, 'pinnedToPersonFlag'))
@@ -339,6 +350,7 @@ class NotesController extends BaseController
      *                                                        sanitization on the back-end.
      * @param integer $options['userId']                      (optional) ID of the user who will be marked as the
      *                                                        author of this note. Only an admin can change the author.
+     * @param string $options['leadId']                       (optional) ID of the lead the note will be attached to.
      * @param integer $options['dealId']                      (optional) ID of the deal the note will be attached to.
      * @param integer $options['personId']                    (optional) ID of the person this note will be attached to.
      * @param integer $options['orgId']                       (optional) ID of the organization this note will be
@@ -346,6 +358,8 @@ class NotesController extends BaseController
      * @param string  $options['addTime']                     (optional) Optional creation date & time of the Note in
      *                                                        UTC. Can be set in the past or in the future. Requires
      *                                                        admin user API token. Format: YYYY-MM-DD HH:MM:SS
+     * @param int     $options['pinnedToLeadFlag']            (optional) If set, then results are filtered by note to
+     *                                                        lead pinning state (lead_id is also required).
      * @param int     $options['pinnedToDealFlag']            (optional) If set, then results are filtered by note to
      *                                                        deal pinning state (deal_id is also required).
      * @param int     $options['pinnedToOrganizationFlag']    (optional) If set, then results are filtered by note to
@@ -383,10 +397,12 @@ class NotesController extends BaseController
         $_parameters = array (
             'content'                     => $this->val($options, 'content'),
             'user_id'                     => $this->val($options, 'userId'),
+            'lead_id'                     => $this->val($options, 'leadId'),
             'deal_id'                     => $this->val($options, 'dealId'),
             'person_id'                   => $this->val($options, 'personId'),
             'org_id'                      => $this->val($options, 'orgId'),
             'add_time'                    => $this->val($options, 'addTime'),
+            'pinned_to_lead_flag'       => APIHelper::prepareFormFields($this->val($options, 'pinnedToLeadFlag')),
             'pinned_to_deal_flag'       => APIHelper::prepareFormFields($this->val($options, 'pinnedToDealFlag')),
             'pinned_to_organization_flag' => APIHelper::prepareFormFields($this->val($options, 'pinnedToOrganizationFlag')),
             'pinned_to_person_flag'     => APIHelper::prepareFormFields($this->val($options, 'pinnedToPersonFlag'))
