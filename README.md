@@ -3250,14 +3250,16 @@ function getAllNotes($options)
 | Parameter | Tags | Description |
 |-----------|------|-------------|
 | userId |  ``` Optional ```  | ID of the user whose notes to fetch. If omitted, notes by all users will be returned. |
-| dealId |  ``` Optional ```  | ID of the deal which notes to fetch. If omitted, notes about all deals with be returned. |
-| personId |  ``` Optional ```  | ID of the person whose notes to fetch. If omitted, notes about all persons with be returned. |
-| orgId |  ``` Optional ```  | ID of the organization which notes to fetch. If omitted, notes about all organizations with be returned. |
+| leadId |  ``` Optional ```  | ID of the lead which notes to fetch. If omitted, notes about all leads will be returned. |
+| dealId |  ``` Optional ```  | ID of the deal which notes to fetch. If omitted, notes about all deals will be returned. |
+| personId |  ``` Optional ```  | ID of the person whose notes to fetch. If omitted, notes about all persons will be returned. |
+| orgId |  ``` Optional ```  | ID of the organization which notes to fetch. If omitted, notes about all organizations will be returned. |
 | start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
 | limit |  ``` Optional ```  | Items shown per page |
 | sort |  ``` Optional ```  | Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, content, add_time, update_time. |
 | startDate |  ``` Optional ```  | Date in format of YYYY-MM-DD from which notes to fetch from. |
 | endDate |  ``` Optional ```  | Date in format of YYYY-MM-DD until which notes to fetch to. |
+| pinnedToLeadlFlag |  ``` Optional ```  | If set, then results are filtered by note to lead pinning state. |
 | pinnedToDealFlag |  ``` Optional ```  | If set, then results are filtered by note to deal pinning state. |
 | pinnedToOrganizationFlag |  ``` Optional ```  | If set, then results are filtered by note to organization pinning state. |
 | pinnedToPersonFlag |  ``` Optional ```  | If set, then results are filtered by note to person pinning state. |
@@ -3269,6 +3271,9 @@ function getAllNotes($options)
 ```php
 $userId = 69;
 $collect['userId'] = $userId;
+
+$leadId = 'adf21080-0e10-11eb-879b-05d71fb426ec';
+$collect['leadId'] = $leadId;
 
 $dealId = 69;
 $collect['dealId'] = $dealId;
@@ -3293,6 +3298,9 @@ $collect['startDate'] = $startDate;
 
 $endDate = date("D M d, Y G:i");
 $collect['endDate'] = $endDate;
+
+$pinnedToLeadFlag = int::ENUM_0;
+$collect['pinnedToLeadFlag'] = $pinnedToLeadFlag;
 
 $pinnedToDealFlag = int::ENUM_0;
 $collect['pinnedToDealFlag'] = $pinnedToDealFlag;
@@ -3324,10 +3332,12 @@ function addANote($options)
 |-----------|------|-------------|
 | content |  ``` Required ```  | Content of the note in HTML format. Subject to sanitization on the back-end. |
 | userId |  ``` Optional ```  | ID of the user who will be marked as the author of this note. Only an admin can change the author. |
+| leadId |  ``` Optional ```  | ID of the lead the note will be attached to. |
 | dealId |  ``` Optional ```  | ID of the deal the note will be attached to. |
 | personId |  ``` Optional ```  | ID of the person this note will be attached to. |
 | orgId |  ``` Optional ```  | ID of the organization this note will be attached to. |
 | addTime |  ``` Optional ```  | Optional creation date & time of the Note in UTC. Can be set in the past or in the future. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS |
+| pinnedToLeadFlag |  ``` Optional ```  | If set, then results are filtered by note to lead pinning state (lead_id is also required). |
 | pinnedToDealFlag |  ``` Optional ```  | If set, then results are filtered by note to deal pinning state (deal_id is also required). |
 | pinnedToOrganizationFlag |  ``` Optional ```  | If set, then results are filtered by note to organization pinning state (org_id is also required). |
 | pinnedToPersonFlag |  ``` Optional ```  | If set, then results are filtered by note to person pinning state (person_id is also required). |
@@ -3343,6 +3353,9 @@ $collect['content'] = $content;
 $userId = 69;
 $collect['userId'] = $userId;
 
+$leadId = 'adf21080-0e10-11eb-879b-05d71fb426ec';
+$collect['leadId'] = $leadId;
+
 $dealId = 69;
 $collect['dealId'] = $dealId;
 
@@ -3354,6 +3367,9 @@ $collect['orgId'] = $orgId;
 
 $addTime = 'add_time';
 $collect['addTime'] = $addTime;
+
+$pinnedToLeadFlag = int::ENUM_0;
+$collect['pinnedToLeadFlag'] = $pinnedToLeadFlag;
 
 $pinnedToDealFlag = int::ENUM_0;
 $collect['pinnedToDealFlag'] = $pinnedToDealFlag;
@@ -3440,10 +3456,12 @@ function updateANote($options)
 | id |  ``` Required ```  | ID of the note |
 | content |  ``` Required ```  | Content of the note in HTML format. Subject to sanitization on the back-end. |
 | userId |  ``` Optional ```  | ID of the user who will be marked as the author of this note. Only an admin can change the author. |
+| leadId |  ``` Optional ```  | ID of the lead the note will be attached to. |
 | dealId |  ``` Optional ```  | ID of the deal the note will be attached to. |
 | personId |  ``` Optional ```  | ID of the person this note will be attached to. |
 | orgId |  ``` Optional ```  | ID of the organization this note will be attached to. |
 | addTime |  ``` Optional ```  | Optional creation date & time of the Note in UTC. Can be set in the past or in the future. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS |
+| pinnedToLeadFlag |  ``` Optional ```  | If set, then results are filtered by note to lead pinning state (lead_id is also required). |
 | pinnedToDealFlag |  ``` Optional ```  | If set, then results are filtered by note to deal pinning state (deal_id is also required). |
 | pinnedToOrganizationFlag |  ``` Optional ```  | If set, then results are filtered by note to organization pinning state (org_id is also required). |
 | pinnedToPersonFlag |  ``` Optional ```  | If set, then results are filtered by note to person pinning state (person_id is also required). |
@@ -3462,6 +3480,9 @@ $collect['content'] = $content;
 $userId = 69;
 $collect['userId'] = $userId;
 
+$leadId = 'adf21080-0e10-11eb-879b-05d71fb426ec';
+$collect['leadId'] = $leadId;
+
 $dealId = 69;
 $collect['dealId'] = $dealId;
 
@@ -3473,6 +3494,9 @@ $collect['orgId'] = $orgId;
 
 $addTime = 'add_time';
 $collect['addTime'] = $addTime;
+
+$pinnedToLeadFlag = int::ENUM_0;
+$collect['pinnedToLeadFlag'] = $pinnedToLeadFlag;
 
 $pinnedToDealFlag = int::ENUM_0;
 $collect['pinnedToDealFlag'] = $pinnedToDealFlag;
