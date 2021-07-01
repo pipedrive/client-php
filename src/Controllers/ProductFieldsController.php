@@ -18,6 +18,7 @@ use Pipedrive\Http\HttpMethod;
 use Pipedrive\Http\HttpContext;
 use Pipedrive\OAuthManager;
 use Pipedrive\Servers;
+use Pipedrive\Utils\CamelCaseHelper;
 use Unirest\Request;
 
 /**
@@ -96,7 +97,7 @@ class ProductFieldsController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\DeleteMultipleProductFieldsResponse');
+        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\DeleteMultipleProductFieldsResponse'));
     }
 
     /**
@@ -145,7 +146,7 @@ class ProductFieldsController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\GetAllProductFieldsResponse');
+        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\GetAllProductFieldsResponse'));
     }
 
     /**
@@ -202,7 +203,7 @@ class ProductFieldsController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\GetProductFieldResponse');
+        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\GetProductFieldResponse'));
     }
 
     /**
@@ -268,7 +269,7 @@ class ProductFieldsController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\DeleteProductFieldResponse');
+        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\DeleteProductFieldResponse'));
     }
 
     /**
@@ -332,7 +333,7 @@ class ProductFieldsController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\GetProductFieldResponse');
+        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\GetProductFieldResponse'));
     }
 
     /**
@@ -401,7 +402,7 @@ class ProductFieldsController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\GetProductFieldResponse');
+        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\GetProductFieldResponse'));
     }
 
 

@@ -98,7 +98,7 @@ class DealsController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\DeleteMultipleDeals');
+        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\DeleteMultipleDeals'));
     }
 
     /**
@@ -176,7 +176,7 @@ class DealsController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\GetDeals');
+        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\GetDeals'));
     }
 
     /**
@@ -235,7 +235,7 @@ class DealsController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\GetAddedDeal');
+        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\GetAddedDeal'));
     }
 
     /**
@@ -301,7 +301,7 @@ class DealsController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\GetDealsSummary');
+        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\GetDealsSummary'));
     }
 
     /**
@@ -393,7 +393,7 @@ class DealsController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\GetDealsTimeline');
+        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\GetDealsTimeline'));
     }
 
     /**
@@ -449,7 +449,7 @@ class DealsController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\DeleteDeal');
+        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\DeleteDeal'));
     }
 
     /**
@@ -510,7 +510,7 @@ class DealsController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\GetDeal');
+        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\GetDeal'));
     }
 
     /**
@@ -607,7 +607,7 @@ class DealsController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\GetAddedDeal');
+        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\GetAddedDeal'));
     }
 
     /**
@@ -730,7 +730,7 @@ class DealsController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\GetDuplicatedDeal');
+        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\GetDuplicatedDeal'));
     }
 
     /**
@@ -980,7 +980,7 @@ class DealsController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\AddedDealFollower');
+        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\AddedDealFollower'));
     }
 
     /**
@@ -1039,7 +1039,7 @@ class DealsController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\DeleteDealFollower');
+        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\DeleteDealFollower'));
     }
 
     /**
@@ -1166,7 +1166,7 @@ class DealsController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\GetMergedDeal');
+        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\GetMergedDeal'));
     }
 
     /**
@@ -1347,7 +1347,7 @@ class DealsController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\DeleteDealParticipant');
+        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\DeleteDealParticipant'));
     }
 
     /**
@@ -1590,7 +1590,7 @@ class DealsController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\GetAddProductAttachementDetails');
+        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\GetAddProductAttachementDetails'));
     }
 
     /**
@@ -1677,7 +1677,7 @@ class DealsController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\GetProductAttachementDetails');
+        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\GetProductAttachementDetails'));
     }
 
     /**
@@ -1738,7 +1738,7 @@ class DealsController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\DeleteDealProduct');
+        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\DeleteDealProduct'));
     }
 
     /**

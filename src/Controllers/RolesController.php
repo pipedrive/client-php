@@ -18,6 +18,7 @@ use Pipedrive\Http\HttpMethod;
 use Pipedrive\Http\HttpContext;
 use Pipedrive\OAuthManager;
 use Pipedrive\Servers;
+use Pipedrive\Utils\CamelCaseHelper;
 use Unirest\Request;
 
 /**
@@ -99,7 +100,7 @@ class RolesController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\GetRoles');
+        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\GetRoles'));
     }
 
     /**
@@ -154,7 +155,7 @@ class RolesController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\PostRoles');
+        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\PostRoles'));
     }
 
     /**
@@ -210,7 +211,7 @@ class RolesController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\DeleteRole');
+        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\DeleteRole'));
     }
 
     /**
@@ -266,7 +267,7 @@ class RolesController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\GetRole');
+        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\GetRole'));
     }
 
     /**
@@ -331,7 +332,7 @@ class RolesController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\PutRole');
+        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\PutRole'));
     }
 
     /**
@@ -394,7 +395,7 @@ class RolesController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\DeleteRoleAssignment');
+        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\DeleteRoleAssignment'));
     }
 
     /**
@@ -459,7 +460,7 @@ class RolesController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\GetRoleAssignments');
+        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\GetRoleAssignments'));
     }
 
     /**
@@ -522,7 +523,7 @@ class RolesController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\PostRoleAssignment');
+        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\PostRoleAssignment'));
     }
 
     /**
@@ -587,7 +588,7 @@ class RolesController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\GetRoleSubroles');
+        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\GetRoleSubroles'));
     }
 
     /**
@@ -643,7 +644,7 @@ class RolesController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\GetRoleSettings');
+        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\GetRoleSettings'));
     }
 
     /**
@@ -708,7 +709,7 @@ class RolesController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\PostRoleSettings');
+        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\PostRoleSettings'));
     }
 
 

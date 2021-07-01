@@ -18,6 +18,7 @@ use Pipedrive\Http\HttpMethod;
 use Pipedrive\Http\HttpContext;
 use Pipedrive\OAuthManager;
 use Pipedrive\Servers;
+use Pipedrive\Utils\CamelCaseHelper;
 use Unirest\Request;
 
 /**
@@ -99,7 +100,7 @@ class TeamsController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\Teams');
+        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\Teams'));
     }
 
     /**
@@ -167,7 +168,7 @@ class TeamsController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\Teams');
+        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\Teams'));
     }
 
     /**
@@ -238,7 +239,7 @@ class TeamsController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\Teams');
+        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\Teams'));
     }
 
     /**
@@ -312,7 +313,7 @@ class TeamsController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\Teams');
+        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\Teams'));
     }
 
     /**
@@ -376,7 +377,7 @@ class TeamsController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\UserIDs');
+        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\UserIDs'));
     }
 
     /**
@@ -451,7 +452,7 @@ class TeamsController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\UserIDs');
+        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\UserIDs'));
     }
 
     /**
@@ -526,7 +527,7 @@ class TeamsController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\UserIDs');
+        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\UserIDs'));
     }
 
     /**
@@ -591,7 +592,7 @@ class TeamsController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\Teams');
+        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\Teams'));
     }
 
 

@@ -18,6 +18,7 @@ use Pipedrive\Http\HttpMethod;
 use Pipedrive\Http\HttpContext;
 use Pipedrive\OAuthManager;
 use Pipedrive\Servers;
+use Pipedrive\Utils\CamelCaseHelper;
 use Unirest\Request;
 
 /**
@@ -39,7 +40,7 @@ class WebhooksController extends BaseController
         if (null === static::$instance) {
             static::$instance = new static();
         }
-        
+
         return static::$instance;
     }
 
@@ -94,7 +95,7 @@ class WebhooksController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\WebhooksResponse');
+        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\WebhooksResponse'));
     }
 
     /**
@@ -186,7 +187,7 @@ class WebhooksController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\WebhooksResponse1');
+        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\WebhooksResponse1'));
     }
 
     /**
@@ -255,7 +256,7 @@ class WebhooksController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\Schema1');
+        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\Schema1'));
     }
 
 
