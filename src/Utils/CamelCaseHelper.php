@@ -6,6 +6,10 @@ class CamelCaseHelper
 {
     public static function keysToCamelCase($input)
     {
+        if ($input instanceof \DateTime) {
+            return $input;
+        }
+
         if (is_object($input)) {
             $className = get_class($input);
             $obj = new $className;
