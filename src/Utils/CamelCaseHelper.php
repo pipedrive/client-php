@@ -6,7 +6,11 @@ class CamelCaseHelper
 {
     public static function keysToCamelCase($input)
     {
-        $obj = new \stdClass();
+        if (is_object($input)) {
+            $className = get_class($input);
+            $obj = new $className;
+        }
+
         $arr = [];
 
         foreach ($input as $key => $value) {
@@ -18,11 +22,12 @@ class CamelCaseHelper
                 $key
             );
 
-            if (is_array($value) || is_object($value))
+            if (is_array($value) || is_object($value)) {
                 $value = CamelCaseHelper::keysToCamelCase($value);
+            }
 
             if (is_object($input)) {
-               $obj->{$key} = $value;
+                $obj->{$key} = $value;
             } else {
                 $arr[$key] = $value;
             }
