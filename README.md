@@ -19,7 +19,7 @@ Or simply add it to your composer.json dependences and run `composer update`:
 
 ```json
 "require": {
-    "pipedrive/pipedrive": "^2.0"
+    "pipedrive/pipedrive": "^3.0"
 }
 ```
 
