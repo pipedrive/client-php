@@ -11,8 +11,15 @@ class CamelCaseHelper
         }
 
         if (is_object($input)) {
-            $className = get_class($input);
-            $obj = new $className;
+            // If the input object is not an instance of any SDK model then use the JsonSerializer class
+            // so that json_encode() would use snake_case keys from the raw response.
+            // Otherwise, use the mapped model class where the snake_case keys are assigned by generated code.
+            if ($input instanceof \stdClass) {
+                $obj = new JsonSerializer($input);
+            } else {
+                $className = get_class($input);
+                $obj = new $className;
+            }
         }
 
         $arr = [];
