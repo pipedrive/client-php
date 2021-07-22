@@ -281,6 +281,7 @@ You can change the PHPUnit test configuration in the `phpunit.xml` file.
 * [ActivitiesController](#activities_controller)
 * [ActivityFieldsController](#activity_fields_controller)
 * [ActivityTypesController](#activity_types_controller)
+* [CallLogsController](#call_logs_controller)
 * [CurrenciesController](#currencies_controller)
 * [DealFieldsController](#deal_fields_controller)
 * [DealsController](#deals_controller)
@@ -805,6 +806,192 @@ $activityTypes->updateEditActivityType($collect);
 
 ```
 
+
+[Back to List of Controllers](#list_of_controllers)
+
+## <a name="call_logs_controller"></a>![Class: ](https://apidocs.io/img/class.png ".CallLogsController") CallLogsController
+
+### Get singleton instance
+
+The singleton instance of the ``` CallLogsController ``` class can be accessed from the API Client.
+
+```php
+$callLogs = $client->getCallLogs();
+```
+
+### <a name="get_all_call_logs_assigned_to_a_particular_user"></a>![Method: ](https://apidocs.io/img/method.png ".CallLogsController.getAllCallLogsAssignedToAParticularUser") getAllCallLogsAssignedToAParticularUser
+
+> Returns all call logs assigned to a particular user
+
+
+```php
+function getAllCallLogsAssignedToAParticularUser($options)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| start |  ``` Optional ```  ``` DefaultValue ```  | For pagination, the position that represents the first result for the page |
+| limit |  ``` Optional ```  | For pagination, the limit of entries to be returned |
+
+#### Example Usage
+
+```php
+$start = 0;
+$options['start'] = $start;
+
+$limit = 119;
+$options['limit'] = $limit;
+
+$callLogs->getAllCallLogsAssignedToAParticularUser($options);
+
+```
+
+### <a name="get_details_of_a_call_log"></a>![Method: ](https://apidocs.io/img/method.png ".CallLogsController.getDetailsOfACallLog") getDetailsOfACallLog
+
+> Returns details of a specific call log
+
+
+```php
+function getDetailsOfACallLog($id)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| id |  ``` Required ```  | ID of the field |
+
+#### Example Usage
+
+```php
+$id = 1;
+
+$callLogs->getDetailsOfACallLog($id);
+
+```
+
+### <a name="add_a_call_log"></a>![Method: ](https://apidocs.io/img/method.png ".CallLogsController.addACallLog") addACallLog
+
+> Adds a new call log
+
+
+```php
+function addACallLog($collect)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| user_id |  ```optional```  | The ID of the owner of the call log |
+| activity_id |  ```optional```  | If specified, this activity will be converted into a call log, with the information provided. When this field is used, you don't need to specify deal_id, person_id or org_id, as they will be ignored in favor of the values already available in the activity. |
+| subject|  ```optional```  | Name of the activity this call is attached to |
+| duration|  ```optional```  | Call duration in seconds |
+| outcome|  ```required```  | Describes the outcome of the call |
+| from_phone_number|  ```optional```  | The number that made the call |
+| to_phone_number|  ```required```  | The number called |
+| start_time|  ```required```  | The date and time of the start of the call in UTC. Format: YYYY-MM-DD HH:MM:SS. |
+| end_time |  ```required```  | The date and time of the end of the call in UTC. Format: YYYY-MM-DD HH:MM:SS. |
+| person_id |  ```optional```  | The ID of the Person this call is associated with |
+| org_id |  ```optional```  | The ID of the Organization this call is associated with |
+| deal_id |  ```optional```  | The ID of the Deal this call is associated with |
+
+#### Example Usage
+
+```php
+
+$subject = 'subject';
+$collect['subject'] = $subject;
+
+$duration = 60;
+$collect['duration'] = $duration;
+
+$outcome = 'connected'
+$collect['outcome'] = $connected;
+
+$fromPhoneNumber = '+55 555 5555';
+$collect['from_phone_number'] = $fromPhoneNumber;
+
+$fromPhoneNumber = '+55 555 5556';
+$collect['to_phone_number'] = $fromPhoneNumber;
+
+$startTime = '2021-01-30 22:30:00';
+$collect['start_time'] = $startTime;
+
+$endTime = '2021-01-30 22:31:00';
+$collect['end_time'] = $endTime;
+
+$personId = 1;
+$collect['person_id'] = $personId;
+
+$orgId = 1;
+$collect['org_id'] = $orgId;
+
+$dealId = 1;
+$collect['deal_id'] = $dealId;
+
+$note = 'note';
+$collect['note'] = $note;
+
+$callLogs->addACallLog($collect);
+
+```
+
+### <a name="attach_an_audio_file_to_the_call_log"></a>![Method: ](https://apidocs.io/img/method.png ".CallLogsController.attachAnAudioFileToTheCallLog") attachAnAudioFileToTheCallLog
+
+> Adds an audio recording to the call log. That audio can be played by those who have access to the call log object.
+
+
+```php
+function attachAnAudioFileToTheCallLog($id, $collect)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| id |  ```required```  | The ID received when you create the call log |
+| file |  ```required```  | Audio file supported by the HTML5 specification |
+
+#### Example Usage
+
+```php
+
+$id = 'id';
+
+$file = "PathToFile";
+$collect['file'] = $file;
+
+$callLogs->attachAnAudioFileToTheCallLog($id, $collect);
+
+```
+
+### <a name="delete_a_call_log"></a>![Method: ](https://apidocs.io/img/method.png ".CallLogsController.deleteACallLog") deleteACallLog
+
+> Deletes a call log. If there is an audio recording attached to it, it will also be deleted. The related activity will not be removed by this request. If you want to remove the related activities, please use the endpoint which is specific for activities.
+
+
+```php
+function deleteACallLog($id)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| id |  ```required```  | ID of the callLog |
+
+#### Example Usage
+
+```php
+
+$id = 'id';
+
+$callLogs->deleteACallLog($id);
+
+```
 
 [Back to List of Controllers](#list_of_controllers)
 

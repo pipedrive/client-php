@@ -12,7 +12,7 @@ use JsonSerializable;
 /**
  * @todo Write general description for this model
  */
-class GetCallLogs implements JsonSerializable
+class GetCallLog implements JsonSerializable
 {
     /**
      * If the response is successful or not
@@ -27,24 +27,15 @@ class GetCallLogs implements JsonSerializable
     public $data;
 
     /**
-     * @todo Write general description for this property
-     * @maps additional_data
-     * @var \Pipedrive\Models\AdditionalData3|null $additionalData public property
-     */
-    public $additionalData;
-
-    /**
      * Constructor to set initial or default values of member properties
      * @param bool            $success        Initialization value for $this->success
      * @param Data21          $data           Initialization value for $this->data
-     * @param AdditionalData3 $additionalData Initialization value for $this->additionalData
      */
     public function __construct()
     {
-        if (4 == func_num_args()) {
+        if (2 == func_num_args()) {
             $this->success        = func_get_arg(0);
             $this->data           = func_get_arg(1);
-            $this->additionalData = func_get_arg(2);
         }
     }
 
@@ -57,7 +48,6 @@ class GetCallLogs implements JsonSerializable
         $json = array();
         $json['success']         = $this->success;
         $json['data']            = $this->data;
-        $json['additional_data'] = $this->additionalData;
 
         return $json;
     }

@@ -12,7 +12,7 @@ use JsonSerializable;
 /**
  * @todo Write general description for this model
  */
-class GetCallLog implements JsonSerializable
+class GetAddedCallLog implements JsonSerializable
 {
     /**
      * If the response is successful or not
