@@ -53,7 +53,9 @@ class CallLogsController extends BaseController
      * @throws APIException Thrown if API call fails
      */
     public function getAllCallLogsAssignedToAParticularUser(
-        $options
+        $options = [
+            'start' => 1
+        ]
     ) {
         //check or get oauth token
         OAuthManager::getInstance()->checkAuthorization();
@@ -223,12 +225,13 @@ class CallLogsController extends BaseController
     }
 
     /**
-     * Adds an audio recording to the call log. That audio can be played 
+     * Adds an audio recording to the call log. That audio can be played
      * by those who have access to the call log object.
      *
      * @param integer $id The ID received when you create the call log
      * @param  array  $options    Array with all options for search
      * @param string  $options['file']        Audio file supported by the HTML5 specification
+     * @param string  $options['mime_type']        The MIME type of the audio file supported by the HTML5 specification
      * @return void response from the API call
      * @throws APIException Thrown if API call fails
      */
@@ -250,15 +253,17 @@ class CallLogsController extends BaseController
         //validate and preprocess url
         $_queryUrl = APIHelper::cleanUrl(Configuration::getBaseUri() . $_queryBuilder);
 
+        echo $this->val($options, 'mime_type');
+
         //prepare headers
         $_headers = array (
             'user-agent'    => BaseController::USER_AGENT,
-            'Authorization' => sprintf('Bearer %1$s', Configuration::$oAuthToken->accessToken)
+            'Authorization' => sprintf('Bearer %1$s', Configuration::$oAuthToken->accessToken),
         );
 
         //prepare parameters
         $_parameters = array (
-            'file'      => Request\Body::File($this->val($options, 'file')),
+            'file'      => Request\Body::File($this->val($options, 'file'), $this->val($options, 'mime_type')),
         );
 
         //call on-before Http callback
