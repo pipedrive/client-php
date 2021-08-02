@@ -19,6 +19,7 @@ use Pipedrive\Http\HttpMethod;
 use Pipedrive\Http\HttpContext;
 use Pipedrive\OAuthManager;
 use Pipedrive\Servers;
+use Pipedrive\Utils\CamelCaseHelper;
 use Unirest\Request;
 
 /**
@@ -140,7 +141,7 @@ class NotesController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\GetNotes');
+        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\GetNotes'));
     }
 
     /**
@@ -226,7 +227,7 @@ class NotesController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\PostNote');
+        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\PostNote'));
     }
 
     /**
@@ -282,7 +283,7 @@ class NotesController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\DeleteNote');
+        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\DeleteNote'));
     }
 
     /**
@@ -338,7 +339,7 @@ class NotesController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\PostNote');
+        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\PostNote'));
     }
 
     /**
@@ -430,7 +431,7 @@ class NotesController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\PostNote');
+        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\PostNote'));
     }
 
 
