@@ -4994,7 +4994,7 @@ $persons->getDetailsOfAPerson($id);
 
 ### <a name="update_a_person"></a>![Method: ](https://apidocs.io/img/method.png ".PersonsController.updateAPerson") updateAPerson
 
-> Updates the properties of a person. For more information on how to update a person, see <a href="https://pipedrive.readme.io/docs/updating-a-person" target="_blank" rel="noopener noreferrer">this tutorial</a>.
+> Updates the properties of a person. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the personFields and look for 'key' values. For more information on how to update a person, see <a href="https://pipedrive.readme.io/docs/updating-a-person" target="_blank" rel="noopener noreferrer">this tutorial</a>.
 
 
 ```php
