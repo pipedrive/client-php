@@ -954,6 +954,7 @@ function attachAnAudioFileToTheCallLog($id, $collect)
 |-----------|------|-------------|
 | id |  ```required```  | The ID received when you create the call log |
 | file |  ```required```  | Audio file supported by the HTML5 specification |
+| mime_type | ```required``` | The mime type of the file, according to html5 standards (eg.: audio/wave for a .wav file )|
 
 #### Example Usage
 

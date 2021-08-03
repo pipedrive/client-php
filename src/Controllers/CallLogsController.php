@@ -251,8 +251,6 @@ class CallLogsController extends BaseController
         //validate and preprocess url
         $_queryUrl = APIHelper::cleanUrl(Configuration::getBaseUri() . $_queryBuilder);
 
-        echo $this->val($options, 'mime_type');
-
         //prepare headers
         $_headers = array (
             'user-agent'    => BaseController::USER_AGENT,
