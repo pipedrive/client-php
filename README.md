@@ -832,7 +832,7 @@ function getAllCallLogsAssignedToAParticularUser($options)
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| start |  ``` Optional ```  ``` DefaultValue ```  | For pagination, the position that represents the first result for the page |
+| start |  ``` Optional ```  | For pagination, the position that represents the first result for the page |
 | limit |  ``` Optional ```  | For pagination, the limit of entries to be returned |
 
 #### Example Usage

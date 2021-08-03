@@ -53,9 +53,7 @@ class CallLogsController extends BaseController
      * @throws APIException Thrown if API call fails
      */
     public function getAllCallLogsAssignedToAParticularUser(
-        $options = [
-            'start' => 1
-        ]
+        $options
     ) {
         //check or get oauth token
         OAuthManager::getInstance()->checkAuthorization();
