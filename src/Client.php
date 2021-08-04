@@ -54,6 +54,14 @@ class Client
         return Controllers\ActivityTypesController::getInstance();
     }
     /**
+     * Singleton access to CallLogs controller
+     * @return Controllers\CallLogsController The *Singleton* instance
+     */
+    public function getCallLogs()
+    {
+        return Controllers\CallLogsController::getInstance();
+    }
+    /**
      * Singleton access to Currencies controller
      * @return Controllers\CurrenciesController The *Singleton* instance
      */
