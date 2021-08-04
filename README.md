@@ -1350,7 +1350,7 @@ $result = $deals->getDetailsOfADeal($id);
 
 ### <a name="update_a_deal"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.updateADeal") updateADeal
 
-> Updates the properties of a deal. For more information on how to update a deal, see <a href="https://pipedrive.readme.io/docs/updating-a-deal" target="_blank" rel="noopener noreferrer">this tutorial</a>.
+> Updates the properties of a deal. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the dealFields and look for 'key' values. For more information on how to update a deal, see <a href="https://pipedrive.readme.io/docs/updating-a-deal" target="_blank" rel="noopener noreferrer">this tutorial</a>.
 
 
 ```php
@@ -4059,7 +4059,7 @@ $organizations->getDetailsOfAnOrganization($id);
 
 ### <a name="update_an_organization"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationsController.updateAnOrganization") updateAnOrganization
 
-> Updates the properties of an organization.
+> Updates the properties of an organization. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the organizationFields and look for 'key' values.
 
 
 ```php

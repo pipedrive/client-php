@@ -397,7 +397,12 @@ class OrganizationsController extends BaseController
     /**
      * Updates the properties of an organization.
      *
-     * @param  array  $options    Array with all options for search
+     * Note that you can supply additional custom fields along with the request
+     * that are not described here. These custom fields are different for each Pipedrive account and can be
+     * recognized by long hashes as keys. To determine which custom fields exists, fetch the
+     * organizationFields and look for 'key' values.
+     *
+     * @param array   $options               Array with all options for search
      * @param integer $options['id']         ID of the organization
      * @param string  $options['name']       (optional) Organization name
      * @param integer $options['ownerId']    (optional) ID of the user who will be marked as the owner of this
@@ -406,7 +411,7 @@ class OrganizationsController extends BaseController
      *                                       set to the default visibility setting of this item type for the authorized
      *                                       user.<dl class=\"fields-list\"><dt>1</dt><dd>Owner &amp; followers
      *                                       (private)</dd><dt>3</dt><dd>Entire company (shared)</dd></dl>
-     * @return void response from the API call
+     * @return mixed response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function updateAnOrganization(
@@ -419,9 +424,9 @@ class OrganizationsController extends BaseController
         $_queryBuilder = '/organizations/{id}';
 
         //process optional query parameters
-        $_queryBuilder = APIHelper::appendUrlWithTemplateParameters($_queryBuilder, array (
-            'id'         => $this->val($options, 'id'),
-            ));
+        $_queryBuilder = APIHelper::appendUrlWithTemplateParameters($_queryBuilder, array(
+            'id' => $this->val($options, 'id'),
+        ));
 
         //validate and preprocess url
         $_queryUrl = APIHelper::cleanUrl(Configuration::getBaseUri() . $_queryBuilder);
@@ -429,24 +434,18 @@ class OrganizationsController extends BaseController
         //prepare headers
         $_headers = array (
             'user-agent'    => BaseController::USER_AGENT,
+            'Accept'        => 'application/json',
             'Authorization' => sprintf('Bearer %1$s', Configuration::$oAuthToken->accessToken)
         );
 
-        //prepare parameters
-        $_parameters = array (
-            'name'       => $this->val($options, 'name'),
-            'owner_id'   => $this->val($options, 'ownerId'),
-            'visible_to' => APIHelper::prepareFormFields($this->val($options, 'visibleTo'))
-        );
-
         //call on-before Http callback
-        $_httpRequest = new HttpRequest(HttpMethod::PUT, $_headers, $_queryUrl, $_parameters);
+        $_httpRequest = new HttpRequest(HttpMethod::PUT, $_headers, $_queryUrl, $options);
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
 
         //and invoke the API call request to fetch the response
-        $response = Request::put($_queryUrl, $_headers, Request\Body::Form($_parameters));
+        $response = Request::put($_queryUrl, $_headers, Request\Body::Json($options));
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
