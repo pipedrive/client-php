@@ -401,7 +401,12 @@ class PersonsController extends BaseController
      * href="https://pipedrive.readme.io/docs/updating-a-person" target="_blank" rel="noopener
      * noreferrer">this tutorial</a>.
      *
-     * @param  array  $options    Array with all options for search
+     * Note that you can supply additional custom fields along with the request that are
+     * not described here. These custom fields are different for each Pipedrive account and can be
+     * recognized by long hashes as keys. To determine which custom fields exists, fetch the personFields
+     * and look for 'key' values.
+     *
+     * @param array   $options               Array with all options for search
      * @param integer $options['id']         ID of a person
      * @param string  $options['name']       (optional) Person name
      * @param integer $options['ownerId']    (optional) ID of the user who will be marked as the owner of this person.
@@ -429,8 +434,8 @@ class PersonsController extends BaseController
 
         //process optional query parameters
         $_queryBuilder = APIHelper::appendUrlWithTemplateParameters($_queryBuilder, array (
-            'id'         => $this->val($options, 'id'),
-            ));
+            'id' => $this->val($options, 'id'),
+        ));
 
         //validate and preprocess url
         $_queryUrl = APIHelper::cleanUrl(Configuration::getBaseUri() . $_queryBuilder);
@@ -438,27 +443,18 @@ class PersonsController extends BaseController
         //prepare headers
         $_headers = array (
             'user-agent'    => BaseController::USER_AGENT,
+            'content-type'  => 'application/json; charset=utf-8',
             'Authorization' => sprintf('Bearer %1$s', Configuration::$oAuthToken->accessToken)
         );
 
-        //prepare parameters
-        $_parameters = array (
-            'name'       => $this->val($options, 'name'),
-            'owner_id'   => $this->val($options, 'ownerId'),
-            'org_id'     => $this->val($options, 'orgId'),
-            'email'    => array_values($this->val($options, 'email')),
-            'phone'    => array_values($this->val($options, 'phone')),
-            'visible_to' => APIHelper::prepareFormFields($this->val($options, 'visibleTo'))
-        );
-
         //call on-before Http callback
-        $_httpRequest = new HttpRequest(HttpMethod::PUT, $_headers, $_queryUrl, $_parameters);
+        $_httpRequest = new HttpRequest(HttpMethod::PUT, $_headers, $_queryUrl, $options);
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
 
         //and invoke the API call request to fetch the response
-        $response = Request::put($_queryUrl, $_headers, Request\Body::Form($_parameters));
+        $response = Request::put($_queryUrl, $_headers, Request\Body::Json($options));
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);

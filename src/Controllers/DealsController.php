@@ -518,7 +518,12 @@ class DealsController extends BaseController
      * //pipedrive.readme.io/docs/updating-a-deal" target="_blank" rel="noopener noreferrer">this
      * tutorial</a>.
      *
-     * @param  array  $options    Array with all options for search
+     * Note that you can supply additional custom fields along with the request that are
+     * not described here. These custom fields are different for each Pipedrive account and can be
+     * recognized by long hashes as keys. To determine which custom fields exists, fetch the dealFields and
+     * look for 'key' values.
+     *
+     * @param array   $options                Array with all options for search
      * @param integer $options['id']          ID of the deal
      * @param string  $options['title']       (optional) Deal title
      * @param string  $options['value']       (optional) Value of the deal. If omitted, value will be set to 0.
@@ -556,9 +561,9 @@ class DealsController extends BaseController
         $_queryBuilder = '/deals/{id}';
 
         //process optional query parameters
-        $_queryBuilder = APIHelper::appendUrlWithTemplateParameters($_queryBuilder, array (
-            'id'          => $this->val($options, 'id'),
-            ));
+        $_queryBuilder = APIHelper::appendUrlWithTemplateParameters($_queryBuilder, array(
+            'id' => $this->val($options, 'id'),
+        ));
 
         //validate and preprocess url
         $_queryUrl = APIHelper::cleanUrl(Configuration::getBaseUri() . $_queryBuilder);
@@ -566,33 +571,18 @@ class DealsController extends BaseController
         //prepare headers
         $_headers = array (
             'user-agent'    => BaseController::USER_AGENT,
-            'Accept'        => 'application/json',
+            'content-type'  => 'application/json; charset=utf-8',
             'Authorization' => sprintf('Bearer %1$s', Configuration::$oAuthToken->accessToken)
         );
 
-        //prepare parameters
-        $_parameters = array (
-            'title'       => $this->val($options, 'title'),
-            'value'       => $this->val($options, 'value'),
-            'currency'    => $this->val($options, 'currency'),
-            'user_id'     => $this->val($options, 'userId'),
-            'person_id'   => $this->val($options, 'personId'),
-            'org_id'      => $this->val($options, 'orgId'),
-            'stage_id'    => $this->val($options, 'stageId'),
-            'status'    => APIHelper::prepareFormFields($this->val($options, 'status')),
-            'probability' => $this->val($options, 'probability'),
-            'lost_reason' => $this->val($options, 'lostReason'),
-            'visible_to' => APIHelper::prepareFormFields($this->val($options, 'visibleTo'))
-        );
-
         //call on-before Http callback
-        $_httpRequest = new HttpRequest(HttpMethod::PUT, $_headers, $_queryUrl, $_parameters);
+        $_httpRequest = new HttpRequest(HttpMethod::PUT, $_headers, $_queryUrl, $options);
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
 
         //and invoke the API call request to fetch the response
-        $response = Request::put($_queryUrl, $_headers, Request\Body::Form($_parameters));
+        $response = Request::put($_queryUrl, $_headers, Request\Body::Json($options));
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
