@@ -23,14 +23,14 @@ class GetDealsTimeline implements JsonSerializable
     /**
      * Open and won Deals grouped into periods by defined interval, amount and date-type dealField
      * (field_key)
-     * @var \Pipedrive\Models\Data25|null $data public property
+     * @var \Pipedrive\Models\Data25[]|null $data public property
      */
     public $data;
 
     /**
      * Constructor to set initial or default values of member properties
      * @param bool   $success Initialization value for $this->success
-     * @param Data25 $data    Initialization value for $this->data
+     * @param Data25[] $data    Initialization value for $this->data
      */
     public function __construct()
     {
