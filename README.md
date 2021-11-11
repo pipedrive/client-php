@@ -1553,14 +1553,15 @@ function updateADeal($options)
 | title |  ``` Optional ```  | Deal title |
 | value |  ``` Optional ```  | Value of the deal. If omitted, value will be set to 0. |
 | currency |  ``` Optional ```  | Currency of the deal. Accepts a 3-character currency code. If omitted, currency will be set to the default currency of the authorized user. |
-| userId |  ``` Optional ```  | ID of the user who will be marked as the owner of this deal. If omitted, the authorized user ID will be used. |
-| personId |  ``` Optional ```  | ID of the person this deal will be associated with |
-| orgId |  ``` Optional ```  | ID of the organization this deal will be associated with |
-| stageId |  ``` Optional ```  | ID of the stage this deal will be placed in a pipeline (note that you can't supply the ID of the pipeline as this will be assigned automatically based on stage_id). If omitted, the deal will be placed in the first stage of the default pipeline. |
+| user_id |  ``` Optional ```  | ID of the user who will be marked as the owner of this deal. If omitted, the authorized user ID will be used. |
+| person_id |  ``` Optional ```  | ID of the person this deal will be associated with |
+| org_id |  ``` Optional ```  | ID of the organization this deal will be associated with |
+| stage_id |  ``` Optional ```  | ID of the stage this deal will be placed in a pipeline (note that you can't supply the ID of the pipeline as this will be assigned automatically based on stage_id). If omitted, the deal will be placed in the first stage of the default pipeline. |
 | status |  ``` Optional ```  | open = Open, won = Won, lost = Lost, deleted = Deleted. If omitted, status will be set to open. |
+| expected_close_date |  ``` Optional ```  | The expected close date of the Deal. In ISO 8601 format: YYYY-MM-DD. |
 | probability |  ``` Optional ```  | Deal success probability percentage. Used/shown only when deal_probability for the pipeline of the deal is enabled. |
-| lostReason |  ``` Optional ```  | Optional message about why the deal was lost (to be used when status=lost) |
-| visibleTo |  ``` Optional ```  | Visibility of the deal. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<dl class="fields-list"><dt>1</dt><dd>Owner &amp; followers (private)</dd><dt>3</dt><dd>Entire company (shared)</dd></dl> |
+| lost_reason |  ``` Optional ```  | Optional message about why the deal was lost (to be used when status=lost) |
+| visible_to |  ``` Optional ```  | Visibility of the deal. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<dl class="fields-list"><dt>1</dt><dd>Owner &amp; followers (private)</dd><dt>3</dt><dd>Entire company (shared)</dd></dl> |
 
 
 
@@ -1580,16 +1581,16 @@ $currency = 'currency';
 $collect['currency'] = $currency;
 
 $userId = 27;
-$collect['userId'] = $userId;
+$collect['user_id'] = $userId;
 
 $personId = 27;
-$collect['personId'] = $personId;
+$collect['person_id'] = $personId;
 
 $orgId = 27;
-$collect['orgId'] = $orgId;
+$collect['org_id'] = $orgId;
 
 $stageId = 27;
-$collect['stageId'] = $stageId;
+$collect['stage_id'] = $stageId;
 
 $status = string::OPEN;
 $collect['status'] = $status;
@@ -1598,10 +1599,10 @@ $probability = 27.9633801840075;
 $collect['probability'] = $probability;
 
 $lostReason = 'lost_reason';
-$collect['lostReason'] = $lostReason;
+$collect['lost_reason'] = $lostReason;
 
 $visibleTo = int::ENUM_1;
-$collect['visibleTo'] = $visibleTo;
+$collect['visible_to'] = $visibleTo;
 
 
 $result = $deals->updateADeal($collect);
