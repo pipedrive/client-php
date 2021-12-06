@@ -6307,7 +6307,7 @@ $results = $products->searchProducts($collect);
 
 ### <a name="add_a_product"></a>![Method: ](https://apidocs.io/img/method.png ".ProductsController.addAProduct") addAProduct
 
-> Adds a new product to the products inventory. For more information on how to add a product, see <a href="https://pipedrive.readme.io/docs/adding-a-product" target="_blank" rel="noopener noreferrer">this tutorial</a>.
+> Adds a new product to the products inventory. For more information on how to add a product, see <a href="https://pipedrive.readme.io/docs/adding-a-product" target="_blank" rel="noopener noreferrer">this tutorial</a>. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the productFields and look for 'key' values.
 
 
 ```php
@@ -6388,7 +6388,7 @@ $products->getOneProduct($id);
 
 ### <a name="update_a_product"></a>![Method: ](https://apidocs.io/img/method.png ".ProductsController.updateAProduct") updateAProduct
 
-> Updates product data.
+> Updates product data. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the productFields and look for 'key' values.
 
 
 ```php

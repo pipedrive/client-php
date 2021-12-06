@@ -381,29 +381,18 @@ class ProductsController extends BaseController
         $_headers = array (
             'user-agent'    => BaseController::USER_AGENT,
             'Accept'        => 'application/json',
+            'content-type'  => 'application/json; charset=utf-8',
             'Authorization' => sprintf('Bearer %1$s', Configuration::$oAuthToken->accessToken)
         );
 
-        //prepare parameters
-        $_parameters = array (
-            'name'        => $this->val($options, 'name'),
-            'code'        => $this->val($options, 'code'),
-            'unit'        => $this->val($options, 'unit'),
-            'tax'         => $this->val($options, 'tax'),
-            'active_flag' => APIHelper::prepareFormFields($this->val($options, 'activeFlag')),
-            'visible_to' => APIHelper::prepareFormFields($this->val($options, 'visibleTo')),
-            'owner_id'    => $this->val($options, 'ownerId'),
-            'prices'      => $this->val($options, 'prices')
-        );
-
         //call on-before Http callback
-        $_httpRequest = new HttpRequest(HttpMethod::PUT, $_headers, $_queryUrl, $_parameters);
+        $_httpRequest = new HttpRequest(HttpMethod::PUT, $_headers, $_queryUrl, $options);
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
 
         //and invoke the API call request to fetch the response
-        $response = Request::put($_queryUrl, $_headers, Request\Body::Form($_parameters));
+        $response = Request::put($_queryUrl, $_headers, Request\Body::Json($options));
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -650,19 +639,14 @@ class ProductsController extends BaseController
             'Authorization' => sprintf('Bearer %1$s', Configuration::$oAuthToken->accessToken)
         );
 
-        //prepare parameters
-        $_parameters = array (
-            'user_id' => $this->val($options, 'userId')
-        );
-
         //call on-before Http callback
-        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl, $_parameters);
+        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl, $options);
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
 
         //and invoke the API call request to fetch the response
-        $response = Request::post($_queryUrl, $_headers, Request\Body::Form($_parameters));
+        $response = Request::post($_queryUrl, $_headers, Request\Body::Json($options));
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
