@@ -416,7 +416,9 @@ class ProductsController extends BaseController
         //handle errors defined at the API level
         $this->validateResponse($_httpResponse, $_httpContext);
 
-        return CamelCaseHelper::keysToCamelCase($response->body);
+        $mapper = $this->getJsonMapper();
+
+        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\Product'));
     }
 
     /**
