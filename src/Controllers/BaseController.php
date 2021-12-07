@@ -24,7 +24,7 @@ class BaseController
      * User-agent to be sent with API calls
      * @var string
      */
-    const USER_AGENT = 'Pipedrive-SDK-PHP-3.3.0';
+    const USER_AGENT = 'Pipedrive-SDK-PHP-4.0.0';
 
     /**
      * HttpCallBack instance associated with this controller
