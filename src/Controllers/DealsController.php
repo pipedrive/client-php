@@ -174,9 +174,7 @@ class DealsController extends BaseController
         //handle errors defined at the API level
         $this->validateResponse($_httpResponse, $_httpContext);
 
-        $mapper = $this->getJsonMapper();
-
-        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\GetDeals'));
+        return CamelCaseHelper::keysToCamelCase($response->body);
     }
 
     /**
@@ -508,9 +506,7 @@ class DealsController extends BaseController
         //handle errors defined at the API level
         $this->validateResponse($_httpResponse, $_httpContext);
 
-        $mapper = $this->getJsonMapper();
-
-        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\GetDeal'));
+        return CamelCaseHelper::keysToCamelCase($response->body);
     }
 
     /**
