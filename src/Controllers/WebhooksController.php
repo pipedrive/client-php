@@ -224,7 +224,7 @@ class WebhooksController extends BaseController
         );
 
         //call on-before Http callback
-        $_httpRequest = new HttpRequest(HttpMethod::DELETE, $_headers, $_queryUrl, );
+        $_httpRequest = new HttpRequest(HttpMethod::DELETE, $_headers, $_queryUrl);
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
