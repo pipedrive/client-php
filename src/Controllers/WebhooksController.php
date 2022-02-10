@@ -143,7 +143,8 @@ class WebhooksController extends BaseController
         $_headers = array (
             'user-agent'       => BaseController::USER_AGENT,
             'Accept'           => 'application/json',
-            'Authorization' => sprintf('Bearer %1$s', Configuration::$oAuthToken->accessToken)
+            'Authorization' => sprintf('Bearer %1$s', Configuration::$oAuthToken->accessToken),
+            'Content-Type' => 'application/json'
         );
 
         //prepare parameters
@@ -163,7 +164,7 @@ class WebhooksController extends BaseController
         }
 
         //and invoke the API call request to fetch the response
-        $response = Request::post($_queryUrl, $_headers, Request\Body::Form($_parameters));
+        $response = Request::post($_queryUrl, $_headers, Request\Body::json($_parameters));
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -218,7 +219,8 @@ class WebhooksController extends BaseController
         $_headers = array (
             'user-agent'    => BaseController::USER_AGENT,
             'Accept'        => 'application/json',
-            'Authorization' => sprintf('Bearer %1$s', Configuration::$oAuthToken->accessToken)
+            'Authorization' => sprintf('Bearer %1$s', Configuration::$oAuthToken->accessToken),
+            'Content-Type' => 'application/json'
         );
 
         //call on-before Http callback
@@ -228,7 +230,7 @@ class WebhooksController extends BaseController
         }
 
         //and invoke the API call request to fetch the response
-        $response = Request::delete($_queryUrl, $_headers);
+        $response = Request::delete($_queryUrl, $_headers, Request\Body::json(array()));
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
