@@ -606,7 +606,7 @@ class DealsController extends BaseController
      * @param int     $options['done']    (optional) Whether the activity is done or not. 0 = Not done, 1 = Done. If
      *                                    omitted returns both Done and Not done activities.
      * @param string  $options['exclude'] (optional) A comma-separated string of activity IDs to exclude from result
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function listActivitiesAssociatedWithADeal(
@@ -734,7 +734,7 @@ class DealsController extends BaseController
      *                                                  keys are supported (no nested keys). Supported fields: id,
      *                                                  user_id, deal_id, person_id, org_id, product_id, add_time,
      *                                                  update_time, file_name, file_type, file_size, comment.
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function listFilesAttachedToADeal(
@@ -798,7 +798,7 @@ class DealsController extends BaseController
      * @param integer $options['id']    ID of the deal
      * @param integer $options['start'] (optional) Pagination start
      * @param integer $options['limit'] (optional) Items shown per page
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function listUpdatesAboutADeal(
@@ -857,7 +857,7 @@ class DealsController extends BaseController
      * Lists the followers of a deal.
      *
      * @param integer $id ID of the deal
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function listFollowersOfADeal(
@@ -1035,7 +1035,7 @@ class DealsController extends BaseController
      * @param integer $options['id']    ID of the deal
      * @param integer $options['start'] (optional) Pagination start
      * @param integer $options['limit'] (optional) Items shown per page
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function listMailMessagesAssociatedWithADeal(
@@ -1162,7 +1162,7 @@ class DealsController extends BaseController
      * @param integer $options['id']    ID of the deal
      * @param integer $options['start'] (optional) Pagination start
      * @param integer $options['limit'] (optional) Items shown per page
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function listParticipantsOfADeal(
@@ -1223,7 +1223,7 @@ class DealsController extends BaseController
      * @param  array  $options    Array with all options for search
      * @param integer $options['id']        ID of the deal
      * @param integer $options['personId']  ID of the person
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function addAParticipantToADeal(
@@ -1340,7 +1340,7 @@ class DealsController extends BaseController
      * List users permitted to access a deal
      *
      * @param integer $id ID of the deal
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function listPermittedUsers(
@@ -1397,7 +1397,7 @@ class DealsController extends BaseController
      * @param integer $options['id']    ID of the deal
      * @param integer $options['start'] (optional) Pagination start
      * @param integer $options['limit'] (optional) Items shown per page
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function listAllPersonsAssociatedWithADeal(
@@ -1461,7 +1461,7 @@ class DealsController extends BaseController
      * @param integer $options['limit']                (optional) Items shown per page
      * @param int     $options['includeProductData']   (optional) Whether to fetch product data along with each
      *                                                 attached product (1) or not (0, default).
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function listProductsAttachedToADeal(
@@ -1741,7 +1741,7 @@ class DealsController extends BaseController
      * @param integer $options['start']       (optional) Pagination start. Note that the pagination is based on main results and does not include related items when using search_for_related_items parameter.
      * @param integer $options['limit']       (optional) Items shown per page
      *
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function searchDeals(

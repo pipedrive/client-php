@@ -48,7 +48,7 @@ class PersonFieldsController extends BaseController
      * Marks multiple fields as deleted.
      *
      * @param string $ids Comma-separated field IDs to delete
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function deleteMultiplePersonFieldsInBulk(
@@ -100,7 +100,7 @@ class PersonFieldsController extends BaseController
     /**
      * Returns data about all person fields
      *
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function getAllPersonFields()
@@ -149,7 +149,7 @@ class PersonFieldsController extends BaseController
      * tutorial</a>.
      *
      * @param object $body (optional) TODO: type description here
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function addANewPersonField(
@@ -203,7 +203,7 @@ class PersonFieldsController extends BaseController
      * tutorial</a>.
      *
      * @param integer $id ID of the field
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function deleteAPersonField(
@@ -256,7 +256,7 @@ class PersonFieldsController extends BaseController
      * Returns data about a specific person field.
      *
      * @param integer $id ID of the field
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function getOnePersonField(
@@ -318,7 +318,7 @@ class PersonFieldsController extends BaseController
      *                                    be supplied and already existing items must have their ID supplied. New items
      *                                    only require a label. Example: [{"id":123,"label":"Existing Item"},{"label":
      *                                    "New Item"}]
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function updateAPersonField(

@@ -48,7 +48,7 @@ class ActivityTypesController extends BaseController
      * Marks multiple activity types as deleted.
      *
      * @param string $ids Comma-separated activity type IDs to delete
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function deleteMultipleActivityTypesInBulk(
@@ -100,7 +100,7 @@ class ActivityTypesController extends BaseController
     /**
      * Returns all activity types
      *
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function getAllActivityTypes()
@@ -152,7 +152,7 @@ class ActivityTypesController extends BaseController
      * @param string $options['iconKey']  Icon graphic to use for representing this activity type.
      * @param string $options['color']    (optional) A designated color for the activity type in 6-character HEX format
      *                                    (e.g. FFFFFF for white, 000000 for black).
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function addNewActivityType(
@@ -207,7 +207,7 @@ class ActivityTypesController extends BaseController
      * Marks an activity type as deleted.
      *
      * @param integer $id ID of the activity type
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function deleteAnActivityType(
@@ -267,7 +267,7 @@ class ActivityTypesController extends BaseController
      *                                     format (e.g. FFFFFF for white, 000000 for black).
      * @param integer $options['orderNr']  (optional) An order number for this activity type. Order numbers should be
      *                                     used to order the types in the activity type selections.
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function updateEditActivityType(

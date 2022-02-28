@@ -48,7 +48,7 @@ class OrganizationFieldsController extends BaseController
      * Marks multiple fields as deleted.
      *
      * @param string $ids Comma-separated field IDs to delete
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function deleteMultipleOrganizationFieldsInBulk(
@@ -100,7 +100,7 @@ class OrganizationFieldsController extends BaseController
     /**
      * Returns data about all organization fields
      *
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function getAllOrganizationFields()
@@ -149,7 +149,7 @@ class OrganizationFieldsController extends BaseController
      * tutorial</a>.
      *
      * @param object $body (optional) TODO: type description here
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function addANewOrganizationField(
@@ -203,7 +203,7 @@ class OrganizationFieldsController extends BaseController
      * tutorial</a>.
      *
      * @param integer $id ID of the field
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function deleteAnOrganizationField(
@@ -256,7 +256,7 @@ class OrganizationFieldsController extends BaseController
      * Returns data about a specific organization field.
      *
      * @param integer $id ID of the field
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function getOneOrganizationField(
@@ -318,7 +318,7 @@ class OrganizationFieldsController extends BaseController
      *                                    be supplied and already existing items must have their ID supplied. New items
      *                                    only require a label. Example: [{"id":123,"label":"Existing Item"},{"label":
      *                                    "New Item"}]
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function updateAnOrganizationField(

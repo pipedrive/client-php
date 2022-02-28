@@ -49,7 +49,7 @@ class CallLogsController extends BaseController
      * @param  array  $options    Array with all options for search
      * @param integer $options['limit']                 (optional) For pagination, the limit of entries to be returned
      * @param integer $options['start']                 (optional) For pagination, the position that represents the first result for the page
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function getAllCallLogsAssignedToAParticularUser(
@@ -230,7 +230,7 @@ class CallLogsController extends BaseController
      * @param  array  $options    Array with all options for search
      * @param string  $options['file']        Audio file supported by the HTML5 specification
      * @param string  $options['mime_type']        The MIME type of the audio file supported by the HTML5 specification
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function attachAnAudioFileToTheCallLog(

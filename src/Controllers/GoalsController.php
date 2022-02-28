@@ -49,7 +49,7 @@ class GoalsController extends BaseController
      * Adds a new goal.
      *
      * @param object $body (optional) TODO: type description here
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function addANewGoal(
@@ -138,7 +138,7 @@ class GoalsController extends BaseController
      *                                                              provided too.
      * @param DateTime $options['periodEnd']                        (optional) End date of the period for which to find
      *                                                              goals. Date in format of YYYY-MM-DD.
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function findGoals(
@@ -229,7 +229,7 @@ class GoalsController extends BaseController
      * @param string $options['interval']         (optional) Date when the goal starts and ends. It requires the
      *                                            following JSON structure: { "start": "2019-01-01", "end": "2022-12-
      *                                            31" }. Date in format of YYYY-MM-DD.
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function updateExistingGoal(
@@ -292,7 +292,7 @@ class GoalsController extends BaseController
      * Marks goal as deleted.
      *
      * @param string $id ID of the goal to be deleted.
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function deleteExistingGoal(
@@ -350,7 +350,7 @@ class GoalsController extends BaseController
      *                                          format of YYYY-MM-DD.
      * @param DateTime $options['periodEnd']    End date of the period for which to find progress of a goal. Date in
      *                                          format of YYYY-MM-DD.
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function getResultOfAGoal(

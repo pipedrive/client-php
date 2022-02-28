@@ -49,7 +49,7 @@ class ActivitiesController extends BaseController
      * Marks multiple activities as deleted.
      *
      * @param string $ids Comma-separated IDs that will be deleted
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function deleteMultipleActivitiesInBulk(
@@ -118,7 +118,7 @@ class ActivitiesController extends BaseController
      *                                        to.
      * @param int      $options['done']       (optional) Whether the activity is done or not. 0 = Not done, 1 = Done.
      *                                        If omitted returns both Done and Not done activities.
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function getAllActivitiesAssignedToAParticularUser(
@@ -200,7 +200,7 @@ class ActivitiesController extends BaseController
      * @param integer  $options['orgId']        (optional) ID of the organization this activity will be associated
      *                                          with
      * @param string   $options['note']         (optional) Note of the activity (HTML format)
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function addAnActivity(
@@ -264,7 +264,7 @@ class ActivitiesController extends BaseController
      * Deletes an activity.
      *
      * @param integer $id ID of the activity
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function deleteAnActivity(
@@ -317,7 +317,7 @@ class ActivitiesController extends BaseController
      * Returns details of a specific activity.
      *
      * @param integer $id ID of the activity
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function getDetailsOfAnActivity(
@@ -392,7 +392,7 @@ class ActivitiesController extends BaseController
      * @param integer  $options['orgId']        (optional) ID of the organization this activity will be associated
      *                                          with
      * @param string   $options['note']         (optional) Note of the activity (HTML format)
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function updateEditAnActivity(

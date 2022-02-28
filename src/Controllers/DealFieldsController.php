@@ -48,7 +48,7 @@ class DealFieldsController extends BaseController
      * Marks multiple fields as deleted.
      *
      * @param string $ids Comma-separated field IDs to delete
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function deleteMultipleDealFieldsInBulk(
@@ -103,7 +103,7 @@ class DealFieldsController extends BaseController
      * @param  array  $options    Array with all options for search
      * @param integer $options['start'] (optional) Pagination start
      * @param integer $options['limit'] (optional) Items shown per page
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function getAllDealFields(
@@ -159,7 +159,7 @@ class DealFieldsController extends BaseController
      * tutorial</a>.
      *
      * @param object $body (optional) TODO: type description here
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function addANewDealField(
@@ -213,7 +213,7 @@ class DealFieldsController extends BaseController
      * tutorial</a>.
      *
      * @param integer $id ID of the field
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function deleteADealField(
@@ -266,7 +266,7 @@ class DealFieldsController extends BaseController
      * Returns data about a specific deal field.
      *
      * @param integer $id ID of the field
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function getOneDealField(
@@ -326,7 +326,7 @@ class DealFieldsController extends BaseController
      * @param string  $options['options'] (optional) When field_type is either set or enum, possible options must be
      *                                    supplied as a JSON-encoded sequential array, for example: ["red","blue",
      *                                    "lilac"]
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function updateADealField(

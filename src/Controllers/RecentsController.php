@@ -53,7 +53,7 @@ class RecentsController extends BaseController
      *                                            (optional)
      * @param integer $options['start']           (optional) Pagination start
      * @param integer $options['limit']           (optional) Items shown per page
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function getRecents(

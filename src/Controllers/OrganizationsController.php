@@ -48,7 +48,7 @@ class OrganizationsController extends BaseController
      * Marks multiple organizations as deleted.
      *
      * @param string $ids Comma-separated IDs that will be deleted
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function deleteMultipleOrganizationsInBulk(
@@ -111,7 +111,7 @@ class OrganizationsController extends BaseController
      * @param string  $options['sort']       (optional) Field names and sorting mode separated by a comma (field_name_1
      *                                       ASC, field_name_2 DESC). Only first-level field keys are supported (no
      *                                       nested keys).
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function getAllOrganizations(
@@ -176,7 +176,7 @@ class OrganizationsController extends BaseController
      * @param integer $options['start']       (optional) Pagination start. Note that the pagination is based on main results and does not include related items when using search_for_related_items parameter.
      * @param integer $options['limit']       (optional) Items shown per page
      *
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function searchOrganizations(
@@ -238,7 +238,7 @@ class OrganizationsController extends BaseController
      * noreferrer">this tutorial</a>.
      *
      * @param object $body (optional) TODO: type description here
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function addAnOrganization(
@@ -290,7 +290,7 @@ class OrganizationsController extends BaseController
      * Marks an organization as deleted.
      *
      * @param integer $id ID of the organization
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function deleteAnOrganization(
@@ -345,7 +345,7 @@ class OrganizationsController extends BaseController
      * resulting data. These hashes can be mapped against the 'key' value of organizationFields.
      *
      * @param integer $id ID of the organization
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function getDetailsOfAnOrganization(
@@ -471,7 +471,7 @@ class OrganizationsController extends BaseController
      * @param int     $options['done']    (optional) Whether the activity is done or not. 0 = Not done, 1 = Done. If
      *                                    omitted returns both Done and Not done activities.
      * @param string  $options['exclude'] (optional) A comma-separated string of activity IDs to exclude from result
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function listActivitiesAssociatedWithAnOrganization(
@@ -546,7 +546,7 @@ class OrganizationsController extends BaseController
      *                                                     related to the organization. Indirect relations include
      *                                                     relations through custom, organization-type fields and
      *                                                     through persons of the given organization.
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function listDealsAssociatedWithAnOrganization(
@@ -619,7 +619,7 @@ class OrganizationsController extends BaseController
      *                                                  keys are supported (no nested keys). Supported fields: id,
      *                                                  user_id, deal_id, person_id, org_id, product_id, add_time,
      *                                                  update_time, file_name, file_type, file_size, comment.
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function listFilesAttachedToAnOrganization(
@@ -683,7 +683,7 @@ class OrganizationsController extends BaseController
      * @param integer $options['id']    ID of the organization
      * @param integer $options['start'] (optional) Pagination start
      * @param integer $options['limit'] (optional) Items shown per page
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function listUpdatesAboutAnOrganization(
@@ -742,7 +742,7 @@ class OrganizationsController extends BaseController
      * Lists the followers of an organization.
      *
      * @param integer $id ID of the organization
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function listFollowersOfAnOrganization(
@@ -797,7 +797,7 @@ class OrganizationsController extends BaseController
      * @param  array  $options    Array with all options for search
      * @param integer $options['id']      ID of the organization
      * @param integer $options['userId']  ID of the user
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function addAFollowerToAnOrganization(
@@ -859,7 +859,7 @@ class OrganizationsController extends BaseController
      * @param  array  $options    Array with all options for search
      * @param integer $options['id']          ID of the organization
      * @param integer $options['followerId']  ID of the follower
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function deleteAFollowerFromAnOrganization(
@@ -916,7 +916,7 @@ class OrganizationsController extends BaseController
      * @param integer $options['id']    ID of the organization
      * @param integer $options['start'] (optional) Pagination start
      * @param integer $options['limit'] (optional) Items shown per page
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function listMailMessagesAssociatedWithAnOrganization(
@@ -979,7 +979,7 @@ class OrganizationsController extends BaseController
      * @param  array  $options    Array with all options for search
      * @param integer $options['id']            ID of the organization
      * @param integer $options['mergeWithId']   ID of the organization that the organization will be merged with
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function updateMergeTwoOrganizations(
@@ -1037,7 +1037,7 @@ class OrganizationsController extends BaseController
      * List users permitted to access an organization
      *
      * @param integer $id ID of the organization
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function listPermittedUsers(
@@ -1093,7 +1093,7 @@ class OrganizationsController extends BaseController
      * @param integer $options['id']    ID of the organization
      * @param integer $options['start'] (optional) Pagination start
      * @param integer $options['limit'] (optional) Items shown per page
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function listPersonsOfAnOrganization(

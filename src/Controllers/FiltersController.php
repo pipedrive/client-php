@@ -48,7 +48,7 @@ class FiltersController extends BaseController
      * Marks multiple filters as deleted.
      *
      * @param string $ids Comma-separated filter IDs to delete
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function deleteMultipleFiltersInBulk(
@@ -101,7 +101,7 @@ class FiltersController extends BaseController
      * Returns data about all filters
      *
      * @param string $type (optional) Types of filters to fetch
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function getAllFilters(
@@ -174,7 +174,7 @@ class FiltersController extends BaseController
      *                                      LIKE '%$'". To get a better understanding of how filters work try creating
      *                                      them directly from the Pipedrive application.
      * @param string $options['type']       Type of filter to create.
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function addANewFilter(
@@ -232,7 +232,7 @@ class FiltersController extends BaseController
      * used, see <a href="https://pipedrive.readme.io/docs/adding-a-filter" target="_blank" rel="noopener
      * noreferrer">this tutorial</a>.
      *
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function getAllFilterHelpers()
@@ -279,7 +279,7 @@ class FiltersController extends BaseController
      * Marks a filter as deleted.
      *
      * @param integer $id ID of the filter
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function deleteAFilter(
@@ -332,7 +332,7 @@ class FiltersController extends BaseController
      * Returns data about a specific filter. Note that this also returns the condition lines of the filter.
      *
      * @param integer $id ID of the filter
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function getOneFilter(
@@ -400,7 +400,7 @@ class FiltersController extends BaseController
      *                                       LIKE '%$'". To get a better understanding of how filters work try creating
      *                                       them directly from the Pipedrive application.
      * @param string  $options['name']       (optional) Filter name
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function updateFilter(
