@@ -421,7 +421,7 @@ class UsersController extends BaseController
      * synced in to Pipedrive when using the built-in Mailbox.
      *
      * @param integer $id ID of the user
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function listBlacklistedEmailAddressesOfAUser(
@@ -477,7 +477,7 @@ class UsersController extends BaseController
      * @param integer $options['id']      ID of the user
      * @param string  $options['address'] Email address to blacklist (can contain \\* for wildcards, e.g. \\*@example.
      *                                    com, or john\\*@ex\\*.com)
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function addBlacklistedEmailAddressForAUser(
@@ -596,7 +596,7 @@ class UsersController extends BaseController
      * List aggregated permissions over all assigned permission sets for a user
      *
      * @param integer $id ID of the user
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function listUserPermissions(
@@ -651,7 +651,7 @@ class UsersController extends BaseController
      * @param  array  $options    Array with all options for search
      * @param integer $options['id']      ID of the user
      * @param integer $options['roleId']  ID of the role
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function deleteARoleAssignment(
@@ -712,7 +712,7 @@ class UsersController extends BaseController
      * @param integer $options['id']    ID of the user
      * @param integer $options['start'] (optional) Pagination start
      * @param integer $options['limit'] (optional) Items shown per page
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function listRoleAssignments(
@@ -773,7 +773,7 @@ class UsersController extends BaseController
      * @param  array  $options    Array with all options for search
      * @param integer $options['id']      ID of the user
      * @param integer $options['roleId']  ID of the role
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function addRoleAssignment(
@@ -831,7 +831,7 @@ class UsersController extends BaseController
      * List settings of user's assigned role
      *
      * @param integer $id ID of the user
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function listUserRoleSettings(

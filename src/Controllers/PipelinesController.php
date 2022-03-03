@@ -48,7 +48,7 @@ class PipelinesController extends BaseController
     /**
      * Returns data about all pipelines
      *
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function getAllPipelines()
@@ -100,7 +100,7 @@ class PipelinesController extends BaseController
      * @param integer $options['orderNr']          (optional) Defines pipelines order. First order(order_nr=0) is the
      *                                             default pipeline.
      * @param int     $options['active']           (optional) TODO: type description here
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function addANewPipeline(
@@ -156,7 +156,7 @@ class PipelinesController extends BaseController
      * Marks a pipeline as deleted.
      *
      * @param integer $id ID of the pipeline
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function deleteAPipeline(
@@ -217,7 +217,7 @@ class PipelinesController extends BaseController
      *                                                    amounts in the given currency per each stage. You may also
      *                                                    set this parameter to 'default_currency' in which case users
      *                                                    default currency is used.
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function getOnePipeline(
@@ -281,7 +281,7 @@ class PipelinesController extends BaseController
      * @param integer $options['orderNr']          (optional) Defines pipelines order. First order(order_nr=0) is the
      *                                             default pipeline.
      * @param int     $options['active']           (optional) TODO: type description here
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function updateEditAPipeline(
@@ -347,7 +347,7 @@ class PipelinesController extends BaseController
      * @param DateTime $options['endDate']    End of the period. Date in format of YYYY-MM-DD.
      * @param integer  $options['userId']     (optional) ID of the user who's pipeline metrics statistics to fetch. If
      *                                        omitted, the authorized user will be used.
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function getDealsConversionRatesInPipeline(
@@ -429,7 +429,7 @@ class PipelinesController extends BaseController
      *                                                    per each stage. You may also set this parameter to
      *                                                    'default_currency' in which case users default currency is
      *                                                    used. Only works when get_summary parameter flag is enabled.
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function getDealsInAPipeline(
@@ -499,7 +499,7 @@ class PipelinesController extends BaseController
      * @param DateTime $options['endDate']    End of the period. Date in format of YYYY-MM-DD.
      * @param integer  $options['userId']     (optional) ID of the user who's pipeline statistics to fetch. If omitted,
      *                                        the authorized user will be used.
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function getDealsMovementsInPipeline(

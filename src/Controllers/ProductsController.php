@@ -121,7 +121,7 @@ class ProductsController extends BaseController
      * @param integer $options['start']       (optional) Pagination start. Note that the pagination is based on main results and does not include related items when using search_for_related_items parameter.
      * @param integer $options['limit']       (optional) Items shown per page
      *
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function searchProducts(
@@ -181,7 +181,7 @@ class ProductsController extends BaseController
      * noreferrer">this tutorial</a>.
      *
      * @param object $body (optional) TODO: type description here
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function addAProduct(
@@ -233,7 +233,7 @@ class ProductsController extends BaseController
      * Marks a product as deleted.
      *
      * @param integer $id ID of the product
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function deleteAProduct(
@@ -286,7 +286,7 @@ class ProductsController extends BaseController
      * Returns data about a specific product.
      *
      * @param integer $id ID of the product
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function getOneProduct(
@@ -489,7 +489,7 @@ class ProductsController extends BaseController
      *                                                  keys are supported (no nested keys). Supported fields: id,
      *                                                  user_id, deal_id, person_id, org_id, product_id, add_time,
      *                                                  update_time, file_name, file_type, file_size, comment.
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function listFilesAttachedToAProduct(

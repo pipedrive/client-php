@@ -48,7 +48,7 @@ class PersonsController extends BaseController
      * Marks multiple persons as deleted.
      *
      * @param string $ids (optional) Comma-separated IDs that will be deleted
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function deleteMultiplePersonsInBulk(
@@ -112,7 +112,7 @@ class PersonsController extends BaseController
      * @param string  $options['sort']       (optional) Field names and sorting mode separated by a comma (field_name_1
      *                                       ASC, field_name_2 DESC). Only first-level field keys are supported (no
      *                                       nested keys).
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function getAllPersons(
@@ -178,7 +178,7 @@ class PersonsController extends BaseController
      * @param integer $options['start']       (optional) Pagination start. Note that the pagination is based on main results and does not include related items when using search_for_related_items parameter.
      * @param integer $options['limit']       (optional) Items shown per page
      *
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function searchPersons(
@@ -240,7 +240,7 @@ class PersonsController extends BaseController
      * and look for 'key' values.
      *
      * @param object $body (optional) TODO: type description here
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function addAPerson(
@@ -292,7 +292,7 @@ class PersonsController extends BaseController
      * Marks a person as deleted.
      *
      * @param integer $id ID of a person
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function deleteAPerson(
@@ -347,7 +347,7 @@ class PersonsController extends BaseController
      * resulting data. These hashes can be mapped against the 'key' value of personFields.
      *
      * @param integer $id ID of a person
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function getDetailsOfAPerson(
@@ -420,7 +420,7 @@ class PersonsController extends BaseController
      *                                       the default visibility setting of this item type for the authorized user.
      *                                       <dl class="fields-list"><dt>1</dt><dd>Owner &amp; followers
      *                                       (private)</dd><dt>3</dt><dd>Entire company (shared)</dd></dl>
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function updateAPerson(
@@ -480,7 +480,7 @@ class PersonsController extends BaseController
      * @param int     $options['done']    (optional) Whether the activity is done or not. 0 = Not done, 1 = Done. If
      *                                    omitted returns both Done and Not done activities.
      * @param string  $options['exclude'] (optional) A comma-separated string of activity IDs to exclude from result
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function listActivitiesAssociatedWithAPerson(
@@ -549,7 +549,7 @@ class PersonsController extends BaseController
      * @param string  $options['sort']   (optional) Field names and sorting mode separated by a comma (field_name_1 ASC,
      *                                   field_name_2 DESC). Only first-level field keys are supported (no nested
      *                                   keys).
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function listDealsAssociatedWithAPerson(
@@ -621,7 +621,7 @@ class PersonsController extends BaseController
      *                                                  keys are supported (no nested keys). Supported fields: id,
      *                                                  user_id, deal_id, person_id, org_id, product_id, add_time,
      *                                                  update_time, file_name, file_type, file_size, comment.
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function listFilesAttachedToAPerson(
@@ -685,7 +685,7 @@ class PersonsController extends BaseController
      * @param integer $options['id']    ID of a person
      * @param integer $options['start'] (optional) Pagination start
      * @param integer $options['limit'] (optional) Items shown per page
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function listUpdatesAboutAPerson(
@@ -744,7 +744,7 @@ class PersonsController extends BaseController
      * Lists the followers of a person.
      *
      * @param integer $id ID of a person
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function listFollowersOfAPerson(
@@ -799,7 +799,7 @@ class PersonsController extends BaseController
      * @param  array  $options    Array with all options for search
      * @param integer $options['id']      ID of a person
      * @param integer $options['userId']  ID of the user
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function addAFollowerToAPerson(
@@ -859,7 +859,7 @@ class PersonsController extends BaseController
      * @param  array  $options    Array with all options for search
      * @param integer $options['id']          ID of a person
      * @param integer $options['followerId']  ID of the follower
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function deletesAFollowerFromAPerson(
@@ -916,7 +916,7 @@ class PersonsController extends BaseController
      * @param integer $options['id']    ID of a person
      * @param integer $options['start'] (optional) Pagination start
      * @param integer $options['limit'] (optional) Items shown per page
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function listMailMessagesAssociatedWithAPerson(
@@ -979,7 +979,7 @@ class PersonsController extends BaseController
      * @param  array  $options    Array with all options for search
      * @param integer $options['id']            ID of a person
      * @param integer $options['mergeWithId']   ID of the person that the person will be merged with
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function updateMergeTwoPersons(
@@ -1037,7 +1037,7 @@ class PersonsController extends BaseController
      * List users permitted to access a person
      *
      * @param integer $id ID of a person
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function listPermittedUsers(
@@ -1090,7 +1090,7 @@ class PersonsController extends BaseController
      * Delete person picture
      *
      * @param integer $id ID of a person
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function deletePersonPicture(
@@ -1152,7 +1152,7 @@ class PersonsController extends BaseController
      * @param integer $options['cropY']       (optional) Y coordinate to where start cropping form (in pixels)
      * @param integer $options['cropWidth']   (optional) Width of cropping area (in pixels)
      * @param integer $options['cropHeight']  (optional) Height of cropping area (in pixels)
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function addPersonPicture(
@@ -1217,7 +1217,7 @@ class PersonsController extends BaseController
      * @param integer $options['id']    ID of a person
      * @param integer $options['start'] (optional) Pagination start
      * @param integer $options['limit'] (optional) Items shown per page
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function listProductsAssociatedWithAPerson(

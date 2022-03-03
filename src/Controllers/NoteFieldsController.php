@@ -47,7 +47,7 @@ class NoteFieldsController extends BaseController
     /**
      * Return list of all fields for note
      *
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function getAllFieldsForANote()

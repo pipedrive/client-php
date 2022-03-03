@@ -58,7 +58,7 @@ class FilesController extends BaseController
      *                                                  keys are supported (no nested keys). Supported fields: id,
      *                                                  user_id, deal_id, person_id, org_id, product_id, add_time,
      *                                                  update_time, file_name, file_type, file_size, comment.
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function getAllFiles(
@@ -124,7 +124,7 @@ class FilesController extends BaseController
      * @param integer $options['productId']   (optional) ID of the product to associate file(s) with
      * @param integer $options['activityId']  (optional) ID of the activity to associate file(s) with
      * @param integer $options['noteId']      (optional) ID of the note to associate file(s) with
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function addFile(
@@ -191,7 +191,7 @@ class FilesController extends BaseController
      * @param integer $options['itemId']          ID of the item to associate the file with
      * @param string  $options['remoteLocation']  The location type to send the file to. Only googledrive is supported
      *                                            at the moment.
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function createARemoteFileAndLinkItToAnItem(
@@ -255,7 +255,7 @@ class FilesController extends BaseController
      * @param string  $options['remoteId']        The remote item id
      * @param string  $options['remoteLocation']  The location type to send the file to. Only googledrive is supported
      *                                            at the moment.
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function createLinkARemoteFileToAnItem(
@@ -311,7 +311,7 @@ class FilesController extends BaseController
      * Marks a file as deleted.
      *
      * @param integer $id ID of the file
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function deleteAFile(
@@ -364,7 +364,7 @@ class FilesController extends BaseController
      * Returns data about a specific file.
      *
      * @param integer $id ID of the file
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function getOneFile(
@@ -420,7 +420,7 @@ class FilesController extends BaseController
      * @param integer $options['id']          ID of the file
      * @param string  $options['name']        (optional) Visible name of the file
      * @param string  $options['description'] (optional) Description of the file
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function updateFileDetails(
@@ -479,7 +479,7 @@ class FilesController extends BaseController
      * Initializes a file download.
      *
      * @param integer $id ID of the file
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function getDownloadOneFile(

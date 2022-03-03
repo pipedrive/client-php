@@ -58,7 +58,7 @@ class ItemSearchController extends BaseController
      * @param integer $options['start']       (optional) Pagination start. Note that the pagination is based on main results and does not include related items when using search_for_related_items parameter.
      * @param integer $options['limit']       (optional) Items shown per page
      *
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function performASearchFromMultipleItemTypes(
@@ -126,7 +126,7 @@ class ItemSearchController extends BaseController
      * @param integer $options['start']       (optional) Pagination start
      * @param integer $options['limit']       (optional) Items shown per page
      *
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function performASearchUsingASpecificFieldFromAnItemType(

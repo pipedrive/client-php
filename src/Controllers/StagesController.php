@@ -48,7 +48,7 @@ class StagesController extends BaseController
      * Marks multiple stages as deleted.
      *
      * @param string $ids Comma-separated stage IDs to delete
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function deleteMultipleStagesInBulk(
@@ -102,7 +102,7 @@ class StagesController extends BaseController
      *
      * @param integer $pipelineId  (optional) ID of the pipeline to fetch stages for. If omitted, stages for all
      *                             pipelines will be fetched.
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function getAllStages(
@@ -155,7 +155,7 @@ class StagesController extends BaseController
      * Adds a new stage, returns the ID upon success.
      *
      * @param object $body (optional) TODO: type description here
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function addANewStage(
@@ -207,7 +207,7 @@ class StagesController extends BaseController
      * Marks a stage as deleted.
      *
      * @param integer $id ID of the stage
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function deleteAStage(
@@ -260,7 +260,7 @@ class StagesController extends BaseController
      * Returns data about a specific stage
      *
      * @param integer $id ID of the stage
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function getOneStage(
@@ -315,7 +315,7 @@ class StagesController extends BaseController
      * @param  array  $options    Array with all options for search
      * @param integer $options['id']   ID of the stage
      * @param object  $options['body'] (optional) TODO: type description here
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function updateStageDetails(
@@ -382,7 +382,7 @@ class StagesController extends BaseController
      *                                      instead, deals owned by everyone will be returned.
      * @param integer $options['start']     (optional) Pagination start
      * @param integer $options['limit']     (optional) Items shown per page
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function getDealsInAStage(

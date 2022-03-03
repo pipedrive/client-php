@@ -48,7 +48,7 @@ class OrganizationRelationshipsController extends BaseController
      * Gets all of the relationships for a supplied organization id.
      *
      * @param integer $orgId  ID of the organization to get relationships for
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function getAllRelationshipsForOrganization(
@@ -101,7 +101,7 @@ class OrganizationRelationshipsController extends BaseController
      * Creates and returns an organization relationship.
      *
      * @param object $body (optional) TODO: type description here
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function createAnOrganizationRelationship(
@@ -153,7 +153,7 @@ class OrganizationRelationshipsController extends BaseController
      * Deletes an organization relationship and returns the deleted id.
      *
      * @param integer $id ID of the organization relationship
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function deleteAnOrganizationRelationship(
@@ -208,7 +208,7 @@ class OrganizationRelationshipsController extends BaseController
      * @param  array  $options    Array with all options for search
      * @param integer $options['id']     ID of the organization relationship
      * @param integer $options['orgId']  (optional) ID of the base organization for the returned calculated values
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function getOneOrganizationRelationship(
@@ -275,7 +275,7 @@ class OrganizationRelationshipsController extends BaseController
      *                                              daughter.
      * @param integer $options['relLinkedOrgId']    (optional) The linked organization in this relationship. If type is
      *                                              'parent', then the linked organization is the daughter.
-     * @return void response from the API call
+     * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function updateAnOrganizationRelationship(
