@@ -1,6 +1,7 @@
 # Ignore dev/testing files for distribution builds
 /tests export-ignore
-CODEOWNERS export-ignore
 .gitattributes export-ignore
 .gitignore export-ignore
 phpunit.xml export-ignore
+CODEOWNERS export-ignore
+repository.json export-ignore
