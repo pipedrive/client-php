@@ -50,6 +50,8 @@ class NotesController extends BaseController
      * @param  array  $options    Array with all options for search
      * @param integer  $options['userId']                      (optional) ID of the user whose notes to fetch. If
      *                                                         omitted, notes by all users will be returned.
+     * @param string  $options['leadId']                       (optional) The ID of the lead which notes to fetch. If
+     *                                                         omitted, notes about all leads will be returned.
      * @param integer  $options['dealId']                      (optional) ID of the deal which notes to fetch. If
      *                                                         omitted, notes about all deals with be returned.
      * @param integer  $options['personId']                    (optional) ID of the person whose notes to fetch. If
@@ -89,6 +91,7 @@ class NotesController extends BaseController
         //process optional query parameters
         APIHelper::appendUrlWithQueryParameters($_queryBuilder, array (
             'user_id'                     => $this->val($options, 'userId'),
+            'lead_id'                     => $this->val($options, 'leadId'),
             'deal_id'                     => $this->val($options, 'dealId'),
             'person_id'                   => $this->val($options, 'personId'),
             'org_id'                      => $this->val($options, 'orgId'),
@@ -145,6 +148,7 @@ class NotesController extends BaseController
      *                                                        sanitization on the back-end.
      * @param integer $options['userId']                      (optional) ID of the user who will be marked as the
      *                                                        author of this note. Only an admin can change the author.
+     * @param string  $options['leadId']                      (optional) ID of the lead the note will be attached to.
      * @param integer $options['dealId']                      (optional) ID of the deal the note will be attached to.
      * @param integer $options['personId']                    (optional) ID of the person this note will be attached to.
      * @param integer $options['orgId']                       (optional) ID of the organization this note will be
@@ -184,6 +188,7 @@ class NotesController extends BaseController
         $_parameters = array (
             'content'                     => $this->val($options, 'content'),
             'user_id'                     => $this->val($options, 'userId'),
+            'lead_id'                     => $this->val($options, 'leadId'),
             'deal_id'                     => $this->val($options, 'dealId'),
             'person_id'                   => $this->val($options, 'personId'),
             'org_id'                      => $this->val($options, 'orgId'),
@@ -339,6 +344,7 @@ class NotesController extends BaseController
      *                                                        sanitization on the back-end.
      * @param integer $options['userId']                      (optional) ID of the user who will be marked as the
      *                                                        author of this note. Only an admin can change the author.
+     * @param string  $options['leadId']                      (optional) ID of the lead the note will be attached to.
      * @param integer $options['dealId']                      (optional) ID of the deal the note will be attached to.
      * @param integer $options['personId']                    (optional) ID of the person this note will be attached to.
      * @param integer $options['orgId']                       (optional) ID of the organization this note will be
@@ -383,6 +389,7 @@ class NotesController extends BaseController
         $_parameters = array (
             'content'                     => $this->val($options, 'content'),
             'user_id'                     => $this->val($options, 'userId'),
+            'lead_id'                     => $this->val($options, 'leadId'),
             'deal_id'                     => $this->val($options, 'dealId'),
             'person_id'                   => $this->val($options, 'personId'),
             'org_id'                      => $this->val($options, 'orgId'),

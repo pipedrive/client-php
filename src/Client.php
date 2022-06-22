@@ -110,6 +110,14 @@ class Client
         return Controllers\GoalsController::getInstance();
     }
     /**
+     * Singleton access to Leads controller
+     * @return Controllers\LeadsController The *Singleton* instance
+     */
+    public function getLeads()
+    {
+        return Controllers\LeadsController::getInstance();
+    }
+    /**
      * Singleton access to MailMessages controller
      * @return Controllers\MailMessagesController The *Singleton* instance
      */

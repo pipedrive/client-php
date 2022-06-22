@@ -29,6 +29,13 @@ class Note implements JsonSerializable
     public $userId;
 
     /**
+     * ID of the lead the note will be attached to.
+     * @maps lead_id
+     * @var string|null $leadId public property
+     */
+    public $leadId;
+
+    /**
      * ID of the deal the note will be attached to.
      * @maps deal_id
      * @var integer|null $dealId public property
@@ -82,6 +89,7 @@ class Note implements JsonSerializable
      * Constructor to set initial or default values of member properties
      * @param string  $content                  Initialization value for $this->content
      * @param integer $userId                   Initialization value for $this->userId
+     * @param string  $leadId                   Initialization value for $this->leadId
      * @param integer $dealId                   Initialization value for $this->dealId
      * @param integer $personId                 Initialization value for $this->personId
      * @param integer $orgId                    Initialization value for $this->orgId
@@ -92,16 +100,17 @@ class Note implements JsonSerializable
      */
     public function __construct()
     {
-        if (9 == func_num_args()) {
+        if (10 == func_num_args()) {
             $this->content                  = func_get_arg(0);
             $this->userId                   = func_get_arg(1);
-            $this->dealId                   = func_get_arg(2);
-            $this->personId                 = func_get_arg(3);
-            $this->orgId                    = func_get_arg(4);
-            $this->addTime                  = func_get_arg(5);
-            $this->pinnedToDealFlag         = func_get_arg(6);
-            $this->pinnedToOrganizationFlag = func_get_arg(7);
-            $this->pinnedToPersonFlag       = func_get_arg(8);
+            $this->leadId                   = func_get_arg(2);
+            $this->dealId                   = func_get_arg(3);
+            $this->personId                 = func_get_arg(4);
+            $this->orgId                    = func_get_arg(5);
+            $this->addTime                  = func_get_arg(6);
+            $this->pinnedToDealFlag         = func_get_arg(7);
+            $this->pinnedToOrganizationFlag = func_get_arg(8);
+            $this->pinnedToPersonFlag       = func_get_arg(9);
         }
     }
 
@@ -114,6 +123,7 @@ class Note implements JsonSerializable
         $json = array();
         $json['content']                     = $this->content;
         $json['user_id']                     = $this->userId;
+        $json['lead_id']                     = $this->leadId;
         $json['deal_id']                     = $this->dealId;
         $json['person_id']                   = $this->personId;
         $json['org_id']                      = $this->orgId;
