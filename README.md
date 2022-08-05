@@ -4852,15 +4852,24 @@ $personFields->deleteMultiplePersonFieldsInBulk($ids);
 ```php
 function getAllPersonFields()
 ```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start     |
+| limit |  ``` Optional ``` | Items shown per page |
 
 #### Example Usage
 
 ```php
+$start = 0;
+$collect['start'] = $start;
 
-$personFields->getAllPersonFields();
+$limit = 69;
+$collect['limit'] = $limit;
 
+$personFields->getAllPersonFields($collect);
 ```
-
 
 ### <a name="add_a_new_person_field"></a>![Method: ](https://apidocs.io/img/method.png ".PersonFieldsController.addANewPersonField") addANewPersonField
 

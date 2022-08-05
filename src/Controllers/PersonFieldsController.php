@@ -103,13 +103,20 @@ class PersonFieldsController extends BaseController
      * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
-    public function getAllPersonFields()
-    {
+    public function getAllPersonFields(
+        $options
+    ) {
         //check or get oauth token
         OAuthManager::getInstance()->checkAuthorization();
 
         //prepare query string for API call
         $_queryBuilder = '/personFields';
+
+        //process optional query parameters
+        APIHelper::appendUrlWithQueryParameters($_queryBuilder, array (
+            'start'      => $this->val($options, 'start', 0),
+            'limit'      => $this->val($options, 'limit'),
+        ));
 
         //validate and preprocess url
         $_queryUrl = APIHelper::cleanUrl(Configuration::getBaseUri() . $_queryBuilder);
