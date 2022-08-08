@@ -46,11 +46,15 @@ class PersonFieldsControllerTest extends \PHPUnit_Framework_TestCase
      */
     public function testTestGetAllPersonFields()
     {
+        // Parameters for the API call
+        $input = array();
+        $input['start'] = 0;
+        $input['limit'] = null;
 
         // Set callback and perform API call
         self::$controller->setHttpCallBack($this->httpResponse);
         try {
-            self::$controller->getAllPersonFields();
+            self::$controller->getAllPersonFields($input);
         } catch (APIException $e) {
         }
 

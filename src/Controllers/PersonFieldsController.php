@@ -100,16 +100,25 @@ class PersonFieldsController extends BaseController
     /**
      * Returns data about all person fields
      *
+     * @param integer $options['limit']                 (optional) For pagination, the limit of entries to be returned
+     * @param integer $options['start']                 (optional) For pagination, the position that represents the first result for the page
      * @return \Pipedrive\Utils\JsonSerializer response from the API call
      * @throws APIException Thrown if API call fails
      */
-    public function getAllPersonFields()
-    {
+    public function getAllPersonFields(
+        $options = array()
+    ) {
         //check or get oauth token
         OAuthManager::getInstance()->checkAuthorization();
 
         //prepare query string for API call
         $_queryBuilder = '/personFields';
+
+        //process optional query parameters
+        APIHelper::appendUrlWithQueryParameters($_queryBuilder, array (
+            'start'      => $this->val($options, 'start', 0),
+            'limit'      => $this->val($options, 'limit'),
+        ));
 
         //validate and preprocess url
         $_queryUrl = APIHelper::cleanUrl(Configuration::getBaseUri() . $_queryBuilder);

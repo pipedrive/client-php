@@ -6,7 +6,11 @@ class CamelCaseHelper
 {
     public static function keysToCamelCase($input)
     {
-        if ($input instanceof \DateTime) {
+        if (is_null($input)) {
+            return null;
+        }
+        
+        if ($input instanceof \DateTime || is_string($input)) {
             return $input;
         }
 
