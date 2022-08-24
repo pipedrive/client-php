@@ -1,6 +1,7 @@
 {
   "name": "client-php",
   "description": "Pipedrive client for PHP based apps",
-  "owner": "GRAVITY",
-  "type": "library"
+  "owner": "Gravity",
+  "type": "library",
+  "status": "released"
 }
