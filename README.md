@@ -563,6 +563,7 @@ function updateEditAnActivity($options)
 | participants |  ``` Optional ```  | List of multiple persons (participants) this activity will be associated with. If omitted, single participant from person_id field is used. It requires a structure as follows: [{"person_id":1,"primary_flag":true}] |
 | orgId |  ``` Optional ```  | ID of the organization this activity will be associated with |
 | note |  ``` Optional ```  | Note of the activity (HTML format) |
+| busyFlag |  ``` Optional ```  | Set the activity as 'Busy' or 'Free'. If the flag is set to true, your customers will not be able to book that time slot through any Scheduler links. The flag can also be unset by never setting it or overriding it with null. When the value of the flag is unset (null), the flag defaults to 'Busy' if it has a time set, and 'Free' if it is an all-day event without specified time. Format: true/false |
 
 
 

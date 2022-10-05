@@ -432,7 +432,8 @@ class ActivitiesController extends BaseController
             'person_id'    => $this->val($options, 'personId'),
             'participants' => $this->val($options, 'participants'),
             'org_id'       => $this->val($options, 'orgId'),
-            'note'         => $this->val($options, 'note')
+            'note'         => $this->val($options, 'note'),
+            'busy_flag'    => $this->val($options, 'busyFlag')
         );
 
         //call on-before Http callback
