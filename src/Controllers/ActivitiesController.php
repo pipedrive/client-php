@@ -225,8 +225,8 @@ class ActivitiesController extends BaseController
         $_parameters = array (
             'subject'      => $this->val($options, 'subject'),
             'type'         => $this->val($options, 'type'),
-            'done'       => APIHelper::prepareFormFields($this->val($options, 'done')),
-            'due_date'   => DateTimeHelper::toSimpleDate($this->val($options, 'dueDate')),
+            'done'         => APIHelper::prepareFormFields($this->val($options, 'done')),
+            'due_date'     => DateTimeHelper::toSimpleDate($this->val($options, 'dueDate')),
             'due_time'     => $this->val($options, 'dueTime'),
             'duration'     => $this->val($options, 'duration'),
             'user_id'      => $this->val($options, 'userId'),
@@ -234,7 +234,8 @@ class ActivitiesController extends BaseController
             'person_id'    => $this->val($options, 'personId'),
             'participants' => $this->val($options, 'participants'),
             'org_id'       => $this->val($options, 'orgId'),
-            'note'         => $this->val($options, 'note')
+            'note'         => $this->val($options, 'note'),
+            'busy_flag'    => $this->val($options, 'busyFlag')
         );
 
         //call on-before Http callback
@@ -431,7 +432,8 @@ class ActivitiesController extends BaseController
             'person_id'    => $this->val($options, 'personId'),
             'participants' => $this->val($options, 'participants'),
             'org_id'       => $this->val($options, 'orgId'),
-            'note'         => $this->val($options, 'note')
+            'note'         => $this->val($options, 'note'),
+            'busy_flag'    => $this->val($options, 'busyFlag')
         );
 
         //call on-before Http callback
