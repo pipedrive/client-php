@@ -2139,7 +2139,7 @@ $deals->listProductsAttachedToADeal($collect);
 ```
 
 
-### <a name="add_a_product_to_the_deal_eventually_creating_a_new_item_called_a_deal_product"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.addAProductToTheDealEventuallyCreatingANewItemCalledADealProduct") addAProductToTheDealEventuallyCreatingANewItemCalledADealProduct
+### <a name="add_a_product_to_the_deal_eventually_creating_a_new_item_called_a_deal_product"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.addAProductToTheDealEventuallyCreatingANewItemCalledADealProduct") addAProductToTheDealEventuallyCreatingANewItemCalledADealProduct <br>_alias_ `addAProductToADeal`
 
 > Adds a product to the deal.
 
@@ -2153,8 +2153,7 @@ function addAProductToTheDealEventuallyCreatingANewItemCalledADealProduct($optio
 | Parameter | Tags | Description |
 |-----------|------|-------------|
 | id |  ``` Required ```  | ID of the deal |
-| body |  ``` Optional ```  | TODO: Add a parameter description |
-
+| body |  ``` Required ```  | [Body object](https://developers.pipedrive.com/docs/api/v1/Deals#addDealProduct) that has all required body parameters |
 
 
 #### Example Usage
