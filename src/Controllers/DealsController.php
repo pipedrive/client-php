@@ -1608,6 +1608,9 @@ class DealsController extends BaseController
      * @return mixed response from the API call
      * @throws APIException Thrown if API call fails
      */
+    public function updateTheProductAttachedToADeal($options) {
+        return $this->updateProductAttachmentDetailsOfTheDealProductAProductAlreadyAttachedToADeal($options);
+    }
     public function updateProductAttachmentDetailsOfTheDealProductAProductAlreadyAttachedToADeal(
         $options
     ) {
@@ -1635,6 +1638,7 @@ class DealsController extends BaseController
 
         //prepare parameters
         $_parameters = array (
+            'product_id'            => $this->val($options, 'productId'),
             'item_price'            => $this->val($options, 'itemPrice'),
             'quantity'              => $this->val($options, 'quantity'),
             'discount_percentage'   => $this->val($options, 'discountPercentage'),
