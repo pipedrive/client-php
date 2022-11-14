@@ -2145,7 +2145,8 @@ $deals->listProductsAttachedToADeal($collect);
 
 
 ```php
-function addAProductToTheDealEventuallyCreatingANewItemCalledADealProduct($options)
+function addAProductToADeal($options);
+function addAProductToTheDealEventuallyCreatingANewItemCalledADealProduct($options);
 ```
 
 #### Parameters
@@ -2165,8 +2166,9 @@ $collect['id'] = $id;
 $body = array('key' => 'value');
 $collect['body'] = $body;
 
-
-$result = $deals->addAProductToTheDealEventuallyCreatingANewItemCalledADealProduct($collect);
+$result = $deals->addAProductToADeal($collect);
+// OR
+// $result = $deals->addAProductToTheDealEventuallyCreatingANewItemCalledADealProduct($collect);
 
 ```
 
@@ -2177,7 +2179,8 @@ $result = $deals->addAProductToTheDealEventuallyCreatingANewItemCalledADealProdu
 
 
 ```php
-function updateProductAttachmentDetailsOfTheDealProductAProductAlreadyAttachedToADeal($options)
+function updateTheProductAttachedToADeal($options);
+function updateProductAttachmentDetailsOfTheDealProductAProductAlreadyAttachedToADeal($options);
 ```
 
 #### Parameters
@@ -2230,8 +2233,9 @@ $collect['comments'] = $comments;
 $enabledFlag = int::ENUM_0;
 $collect['enabledFlag'] = $enabledFlag;
 
-
-$result = $deals->updateProductAttachmentDetailsOfTheDealProductAProductAlreadyAttachedToADeal($collect);
+$result = $deals->updateTheProductAttachedToADeal($collect);
+// OR
+// $result = $deals->updateProductAttachmentDetailsOfTheDealProductAProductAlreadyAttachedToADeal($collect);
 
 ```
 
