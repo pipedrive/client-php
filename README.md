@@ -2139,13 +2139,14 @@ $deals->listProductsAttachedToADeal($collect);
 ```
 
 
-### <a name="add_a_product_to_the_deal_eventually_creating_a_new_item_called_a_deal_product"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.addAProductToTheDealEventuallyCreatingANewItemCalledADealProduct") addAProductToTheDealEventuallyCreatingANewItemCalledADealProduct
+### <a name="add_a_product_to_the_deal_eventually_creating_a_new_item_called_a_deal_product"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.addAProductToTheDealEventuallyCreatingANewItemCalledADealProduct") addAProductToTheDealEventuallyCreatingANewItemCalledADealProduct <br>_alias_ `addAProductToADeal`
 
 > Adds a product to the deal.
 
 
 ```php
-function addAProductToTheDealEventuallyCreatingANewItemCalledADealProduct($options)
+function addAProductToADeal($options);
+function addAProductToTheDealEventuallyCreatingANewItemCalledADealProduct($options);
 ```
 
 #### Parameters
@@ -2153,8 +2154,7 @@ function addAProductToTheDealEventuallyCreatingANewItemCalledADealProduct($optio
 | Parameter | Tags | Description |
 |-----------|------|-------------|
 | id |  ``` Required ```  | ID of the deal |
-| body |  ``` Optional ```  | TODO: Add a parameter description |
-
+| body |  ``` Required ```  | [Body object](https://developers.pipedrive.com/docs/api/v1/Deals#addDealProduct) that has all required body parameters |
 
 
 #### Example Usage
@@ -2166,19 +2166,21 @@ $collect['id'] = $id;
 $body = array('key' => 'value');
 $collect['body'] = $body;
 
-
-$result = $deals->addAProductToTheDealEventuallyCreatingANewItemCalledADealProduct($collect);
+$result = $deals->addAProductToADeal($collect);
+// OR
+// $result = $deals->addAProductToTheDealEventuallyCreatingANewItemCalledADealProduct($collect);
 
 ```
 
 
-### <a name="update_product_attachment_details_of_the_deal_product_a_product_already_attached_to_a_deal"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.updateProductAttachmentDetailsOfTheDealProductAProductAlreadyAttachedToADeal") updateProductAttachmentDetailsOfTheDealProductAProductAlreadyAttachedToADeal
+### <a name="update_product_attachment_details_of_the_deal_product_a_product_already_attached_to_a_deal"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.updateProductAttachmentDetailsOfTheDealProductAProductAlreadyAttachedToADeal") updateProductAttachmentDetailsOfTheDealProductAProductAlreadyAttachedToADeal <br>_alias_ `updateTheProductAttachedToADeal`
 
 > Updates product attachment details.
 
 
 ```php
-function updateProductAttachmentDetailsOfTheDealProductAProductAlreadyAttachedToADeal($options)
+function updateTheProductAttachedToADeal($options);
+function updateProductAttachmentDetailsOfTheDealProductAProductAlreadyAttachedToADeal($options);
 ```
 
 #### Parameters
@@ -2186,9 +2188,10 @@ function updateProductAttachmentDetailsOfTheDealProductAProductAlreadyAttachedTo
 | Parameter | Tags | Description |
 |-----------|------|-------------|
 | id |  ``` Required ```  | ID of the deal |
-| productAttachmentId |  ``` Required ```  | ID of the deal-product (the ID of the product attached to the deal) |
-| itemPrice |  ``` Optional ```  | Price at which this product will be added to the deal |
-| quantity |  ``` Optional ```  | Quantity – e.g. how many items of this product will be added to the deal |
+| productAttachmentId |  ``` Required ```  | The ID of the deal-product (the ID of the product attached to the deal) |
+| productId |  ``` Required ```  | The ID of the product to use |
+| itemPrice |  ``` Required ```  | Price at which this product will be added to the deal |
+| quantity |  ``` Required ```  | Quantity – e.g. how many items of this product will be added to the deal |
 | discountPercentage |  ``` Optional ```  | Discount %. If omitted, will be set to 0 |
 | duration |  ``` Optional ```  | Duration of the product (when product durations are not enabled for the company or if omitted, defaults to 1) |
 | productVariationId |  ``` Optional ```  | ID of the product variation to use. When omitted, no variation will be used. |
@@ -2205,6 +2208,9 @@ $collect['id'] = $id;
 
 $productAttachmentId = 27;
 $collect['productAttachmentId'] = $productAttachmentId;
+
+$productId = 2;
+$collect['productId'] = $productId;
 
 $itemPrice = 27.9633801840075;
 $collect['itemPrice'] = $itemPrice;
@@ -2227,8 +2233,9 @@ $collect['comments'] = $comments;
 $enabledFlag = int::ENUM_0;
 $collect['enabledFlag'] = $enabledFlag;
 
-
-$result = $deals->updateProductAttachmentDetailsOfTheDealProductAProductAlreadyAttachedToADeal($collect);
+$result = $deals->updateTheProductAttachedToADeal($collect);
+// OR
+// $result = $deals->updateProductAttachmentDetailsOfTheDealProductAProductAlreadyAttachedToADeal($collect);
 
 ```
 
