@@ -261,10 +261,11 @@ class DealsController extends BaseController
 
         //process optional query parameters
         APIHelper::appendUrlWithQueryParameters($_queryBuilder, array (
-            'status'    => $this->val($options, 'status'),
-            'filter_id' => $this->val($options, 'filterId'),
-            'user_id'   => $this->val($options, 'userId'),
-            'stage_id'  => $this->val($options, 'stageId'),
+            'status'        => $this->val($options, 'status'),
+            'filter_id'     => $this->val($options, 'filterId'),
+            'user_id'       => $this->val($options, 'userId'),
+            'stage_id'      => $this->val($options, 'stageId'),
+            'pipeline_id'   => $this->val($options, 'pipelineId'),
         ));
 
         //validate and preprocess url
