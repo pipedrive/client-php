@@ -24,7 +24,7 @@ class ProductField implements JsonSerializable
     /**
      * When field_type is either set or enum, possible options must be supplied as a JSON-encoded
      * sequential array, for example: ["red","blue","lilac"]
-     * @var string|null $options public property
+     * @var array|null $options public property
      */
     public $options;
 
