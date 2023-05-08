@@ -217,6 +217,7 @@ class DealsControllerTest extends \PHPUnit_Framework_TestCase
         $input['filterId'] = null;
         $input['userId'] = null;
         $input['stageId'] = null;
+        $input['pipelineId'] = null;
 
         // Set callback and perform API call
         $result = null;
