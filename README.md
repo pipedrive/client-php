@@ -1401,6 +1401,7 @@ function getDealsSummary($options)
 | filterId |  ``` Optional ```  | user_id will not be considered. Only deals matching the given filter will be returned. |
 | userId |  ``` Optional ```  | Only deals matching the given user will be returned. user_id will not be considered if you use filter_id. |
 | stageId |  ``` Optional ```  | Only deals within the given stage will be returned. |
+| pipelineId |  ``` Optional ```  | Only deals within the given pipeline will be returned. |
 
 
 
