@@ -1,0 +1,11 @@
+# # AllOrganizationsGetResponseAllOfRelatedObjects
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**organization** | [**\Pipedrive\Model\RelatedOrganizationData**](RelatedOrganizationData.md) |  | [optional]
+**user** | [**\Pipedrive\Model\RelatedUserData**](RelatedUserData.md) |  | [optional]
+**picture** | [**\Pipedrive\Model\RelatedPictureData**](RelatedPictureData.md) |  | [optional]
+
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

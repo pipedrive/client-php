@@ -1,0 +1,12 @@
+# # RoleAssignmentAllOf
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**user_id** | **int** | The user ID | [optional]
+**role_id** | **int** | The role ID | [optional]
+**active_flag** | **bool** | Whether the role is active or not | [optional]
+**type** | **string** | The assignment type | [optional]
+
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

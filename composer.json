@@ -15,20 +15,30 @@
     "homepage": "https://github.com/pipedrive/client-php",
     "license": "MIT",
     "require": {
-        "php": ">=5.4.0",
+        "php": "^7.4 || ^8.0",
         "ext-curl": "*",
         "ext-json": "*",
         "ext-mbstring": "*",
-        "mashape/unirest-php": "~3.0.1",
-        "apimatic/jsonmapper": "~1.3.0"
+        "guzzlehttp/guzzle": "^7.3",
+        "guzzlehttp/psr7": "^2.0"
     },
     "require-dev": {
-        "squizlabs/php_codesniffer": "^2.7",
-        "phpunit/phpunit": "4.8.*"
+        "pestphp/pest": "^1.23",
+        "phpstan/phpstan": "^1.10"
     },
     "autoload": {
-        "psr-4": {
-            "Pipedrive\\": "src/"
+        "psr-4": { "Pipedrive\\" : "lib/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "Pipedrive\\Tests\\Unit\\" : "test/" }
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
         }
+    },
+    "scripts": {
+        "test": "./vendor/bin/pest",
+        "analyse": "./vendor/bin/phpstan analyse"
     }
 }
