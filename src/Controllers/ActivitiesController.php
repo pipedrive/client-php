@@ -192,6 +192,7 @@ class ActivitiesController extends BaseController
      * @param integer  $options['userId']       (optional) ID of the user whom the activity will be assigned to. If
      *                                          omitted, the activity will be assigned to the authorized user.
      * @param integer  $options['dealId']       (optional) ID of the deal this activity will be associated with
+     * @param integer  $options['leadId']       (optional) ID of the lead this activity will be associated with
      * @param integer  $options['personId']     (optional) ID of the person this activity will be associated with
      * @param string   $options['participants'] (optional) List of multiple persons (participants) this activity will
      *                                          be associated with. If omitted, single participant from person_id field
@@ -231,6 +232,7 @@ class ActivitiesController extends BaseController
             'duration'     => $this->val($options, 'duration'),
             'user_id'      => $this->val($options, 'userId'),
             'deal_id'      => $this->val($options, 'dealId'),
+            'lead_id'      => $this->val($options, 'leadId'),
             'person_id'    => $this->val($options, 'personId'),
             'participants' => $this->val($options, 'participants'),
             'org_id'       => $this->val($options, 'orgId'),
