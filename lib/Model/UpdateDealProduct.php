@@ -264,9 +264,6 @@ class UpdateDealProduct implements ModelInterface, ArrayAccess, JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['product_id'] === null) {
-            $invalidProperties[] = "'product_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -285,7 +282,7 @@ class UpdateDealProduct implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets product_id
      *
-     * @return int
+     * @return int|null
      */
     public function getProductId()
     {
@@ -295,7 +292,7 @@ class UpdateDealProduct implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets product_id
      *
-     * @param int $product_id The ID of the product to use
+     * @param int|null $product_id The ID of the product to use
      *
      * @return self
      */

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**product_id** | **int** | The ID of the product to use |
+**product_id** | **int** | The ID of the product to use | [optional]
 **item_price** | **float** | The price at which this product will be added to the deal | [optional]
 **quantity** | **int** | How many items of this product will be added to the deal | [optional]
 **discount_percentage** | **float** | The discount %. If omitted, will be set to 0. | [optional] [default to 0]
