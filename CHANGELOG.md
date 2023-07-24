@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [5.0.0-beta.1](https://github.com/pipedrive/client-php/compare/5.0.0-beta.0...5.0.0-beta.1) (2023-07-24)
+
+### Changed
+- Added list of searchable custom field types to persons, organizations, products and deals search endpoints descriptions.
+- Changed `product_id` body parameter to be optional for Update Deal Product endpoint
+- Schemas for `call-logs` as they only included `base-response` without additional properties in the response schema
+
 ## [5.0.0-beta.0](https://github.com/pipedrive/client-php/compare/4.0.10...5.0.0-beta.0) (2023-06-14)
 
 ### Changed
