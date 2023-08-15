@@ -790,7 +790,7 @@ class OrganizationItem implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets label
      *
-     * @param int|null $label The ID of the label
+     * @param int|null $label The label assigned to the organization
      *
      * @return self
      */
@@ -838,7 +838,7 @@ class OrganizationItem implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets cc_email
      *
-     * @param string|null $cc_email The BCC email of the organization
+     * @param string|null $cc_email The BCC email associated with the organization
      *
      * @return self
      */

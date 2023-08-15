@@ -1391,7 +1391,7 @@ class ActivitiesApi
      * @param  string|null $since The time boundary that points to the start of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field. (optional)
      * @param  string|null $until The time boundary that points to the end of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field. (optional)
      * @param  int|null $user_id The ID of the user whose activities will be fetched. If omitted, all activities are returned. (optional)
-     * @param  \Pipedrive\Model\NumberBoolean|null $done Whether the activity is done or not. 0 &#x3D; Not done, 1 &#x3D; Done. If omitted, returns both done and not done activities. (optional)
+     * @param  bool|null $done Whether the activity is done or not. &#x60;false&#x60; &#x3D; Not done, &#x60;true&#x60; &#x3D; Done. If omitted, returns both done and not done activities. (optional)
      * @param  string|null $type The type of the activity, can be one type or multiple types separated by a comma. This is in correlation with the &#x60;key_string&#x60; parameter of ActivityTypes. (optional)
      *
      * @throws ApiException on non-2xx response
@@ -1414,7 +1414,7 @@ class ActivitiesApi
      * @param  string|null $since The time boundary that points to the start of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field. (optional)
      * @param  string|null $until The time boundary that points to the end of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field. (optional)
      * @param  int|null $user_id The ID of the user whose activities will be fetched. If omitted, all activities are returned. (optional)
-     * @param  \Pipedrive\Model\NumberBoolean|null $done Whether the activity is done or not. 0 &#x3D; Not done, 1 &#x3D; Done. If omitted, returns both done and not done activities. (optional)
+     * @param  bool|null $done Whether the activity is done or not. &#x60;false&#x60; &#x3D; Not done, &#x60;true&#x60; &#x3D; Done. If omitted, returns both done and not done activities. (optional)
      * @param  string|null $type The type of the activity, can be one type or multiple types separated by a comma. This is in correlation with the &#x60;key_string&#x60; parameter of ActivityTypes. (optional)
      *
      * @throws ApiException on non-2xx response
@@ -1542,7 +1542,7 @@ class ActivitiesApi
      * @param  string|null $since The time boundary that points to the start of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field. (optional)
      * @param  string|null $until The time boundary that points to the end of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field. (optional)
      * @param  int|null $user_id The ID of the user whose activities will be fetched. If omitted, all activities are returned. (optional)
-     * @param  \Pipedrive\Model\NumberBoolean|null $done Whether the activity is done or not. 0 &#x3D; Not done, 1 &#x3D; Done. If omitted, returns both done and not done activities. (optional)
+     * @param  bool|null $done Whether the activity is done or not. &#x60;false&#x60; &#x3D; Not done, &#x60;true&#x60; &#x3D; Done. If omitted, returns both done and not done activities. (optional)
      * @param  string|null $type The type of the activity, can be one type or multiple types separated by a comma. This is in correlation with the &#x60;key_string&#x60; parameter of ActivityTypes. (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
@@ -1568,7 +1568,7 @@ class ActivitiesApi
      * @param  string|null $since The time boundary that points to the start of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field. (optional)
      * @param  string|null $until The time boundary that points to the end of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field. (optional)
      * @param  int|null $user_id The ID of the user whose activities will be fetched. If omitted, all activities are returned. (optional)
-     * @param  \Pipedrive\Model\NumberBoolean|null $done Whether the activity is done or not. 0 &#x3D; Not done, 1 &#x3D; Done. If omitted, returns both done and not done activities. (optional)
+     * @param  bool|null $done Whether the activity is done or not. &#x60;false&#x60; &#x3D; Not done, &#x60;true&#x60; &#x3D; Done. If omitted, returns both done and not done activities. (optional)
      * @param  string|null $type The type of the activity, can be one type or multiple types separated by a comma. This is in correlation with the &#x60;key_string&#x60; parameter of ActivityTypes. (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
@@ -1621,7 +1621,7 @@ class ActivitiesApi
      * @param  string|null $since The time boundary that points to the start of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field. (optional)
      * @param  string|null $until The time boundary that points to the end of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field. (optional)
      * @param  int|null $user_id The ID of the user whose activities will be fetched. If omitted, all activities are returned. (optional)
-     * @param  \Pipedrive\Model\NumberBoolean|null $done Whether the activity is done or not. 0 &#x3D; Not done, 1 &#x3D; Done. If omitted, returns both done and not done activities. (optional)
+     * @param  bool|null $done Whether the activity is done or not. &#x60;false&#x60; &#x3D; Not done, &#x60;true&#x60; &#x3D; Done. If omitted, returns both done and not done activities. (optional)
      * @param  string|null $type The type of the activity, can be one type or multiple types separated by a comma. This is in correlation with the &#x60;key_string&#x60; parameter of ActivityTypes. (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException

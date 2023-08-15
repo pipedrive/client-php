@@ -1,4 +1,5 @@
 .gitignore
+.openapi-generator-ignore
 .php_cs
 .travis.yml
 MIGRATION-5.x.md
@@ -405,6 +406,8 @@ docs/Model/GoalType.md
 docs/Model/GoalsResponseComponent.md
 docs/Model/IconKey.md
 docs/Model/InlineResponse200.md
+docs/Model/InlineResponse2001.md
+docs/Model/InlineResponse2002.md
 docs/Model/InlineResponse400.md
 docs/Model/InlineResponse4001.md
 docs/Model/InlineResponse4001AdditionalData.md
@@ -577,6 +580,8 @@ docs/Model/OrganizationSearchResponseAllOf.md
 docs/Model/OrganizationSearchResponseAllOfData.md
 docs/Model/OrganizationUpdateResponse.md
 docs/Model/OrganizationUpdateResponseAllOf.md
+docs/Model/OrganizationsCollectionResponseObject.md
+docs/Model/OrganizationsCollectionResponseObjectAllOf.md
 docs/Model/OrganizationsDeleteResponse.md
 docs/Model/OrganizationsDeleteResponseData.md
 docs/Model/OrganizationsMergeResponse.md
@@ -617,6 +622,7 @@ docs/Model/PersonSearchItemItemOwner.md
 docs/Model/PersonSearchResponse.md
 docs/Model/PersonSearchResponseAllOf.md
 docs/Model/PersonSearchResponseAllOfData.md
+docs/Model/PersonsCollectionResponseObject.md
 docs/Model/PictureData.md
 docs/Model/PictureDataPictures.md
 docs/Model/PictureDataWithID.md
@@ -1181,6 +1187,8 @@ lib/Model/GoalType.php
 lib/Model/GoalsResponseComponent.php
 lib/Model/IconKey.php
 lib/Model/InlineResponse200.php
+lib/Model/InlineResponse2001.php
+lib/Model/InlineResponse2002.php
 lib/Model/InlineResponse400.php
 lib/Model/InlineResponse4001.php
 lib/Model/InlineResponse4001AdditionalData.php
@@ -1354,6 +1362,8 @@ lib/Model/OrganizationSearchResponseAllOf.php
 lib/Model/OrganizationSearchResponseAllOfData.php
 lib/Model/OrganizationUpdateResponse.php
 lib/Model/OrganizationUpdateResponseAllOf.php
+lib/Model/OrganizationsCollectionResponseObject.php
+lib/Model/OrganizationsCollectionResponseObjectAllOf.php
 lib/Model/OrganizationsDeleteResponse.php
 lib/Model/OrganizationsDeleteResponseData.php
 lib/Model/OrganizationsMergeResponse.php
@@ -1394,6 +1404,7 @@ lib/Model/PersonSearchItemItemOwner.php
 lib/Model/PersonSearchResponse.php
 lib/Model/PersonSearchResponseAllOf.php
 lib/Model/PersonSearchResponseAllOfData.php
+lib/Model/PersonsCollectionResponseObject.php
 lib/Model/PictureData.php
 lib/Model/PictureDataPictures.php
 lib/Model/PictureDataWithID.php

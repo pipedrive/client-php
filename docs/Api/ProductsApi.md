@@ -658,7 +658,7 @@ $apiInstance = new Pipedrive\Api\ProductsApi(
 $user_id = 56; // int | If supplied, only products owned by the given user will be returned
 $filter_id = 56; // int | The ID of the filter to use
 $ids = array(56); // int[] | An array of integers with the IDs of the products that should be returned in the response
-$first_char = 'first_char_example'; // string | If supplied, only products whose name starts with the specified letter will be returned (case insensitive)
+$first_char = 'first_char_example'; // string | If supplied, only products whose name starts with the specified letter will be returned (case-insensitive)
 $get_summary = True; // bool | If supplied, the response will return the total numbers of products in the `additional_data.summary.total_count` property
 $start = 0; // int | Pagination start
 $limit = 56; // int | Items shown per page
@@ -678,7 +678,7 @@ Name | Type | Description  | Notes
  **user_id** | **int**| If supplied, only products owned by the given user will be returned | [optional]
  **filter_id** | **int**| The ID of the filter to use | [optional]
  **ids** | [**int[]**](../Model/int.md)| An array of integers with the IDs of the products that should be returned in the response | [optional]
- **first_char** | **string**| If supplied, only products whose name starts with the specified letter will be returned (case insensitive) | [optional]
+ **first_char** | **string**| If supplied, only products whose name starts with the specified letter will be returned (case-insensitive) | [optional]
  **get_summary** | **bool**| If supplied, the response will return the total numbers of products in the &#x60;additional_data.summary.total_count&#x60; property | [optional]
  **start** | **int**| Pagination start | [optional] [default to 0]
  **limit** | **int**| Items shown per page | [optional]

@@ -1,6 +1,6 @@
 <?php
 /**
- * BaseOrganizationItemFields
+ * OrganizationsCollectionResponseObjectAllOf
  *
  * PHP version 7.3
  *
@@ -34,7 +34,7 @@ use JsonSerializable;
 use Pipedrive\ObjectSerializer;
 
 /**
- * BaseOrganizationItemFields Class Doc Comment
+ * OrganizationsCollectionResponseObjectAllOf Class Doc Comment
  *
  * @category Class
  * @package  Pipedrive
@@ -44,7 +44,7 @@ use Pipedrive\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class BaseOrganizationItemFields implements ModelInterface, ArrayAccess, JsonSerializable
+class OrganizationsCollectionResponseObjectAllOf implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -53,7 +53,7 @@ class BaseOrganizationItemFields implements ModelInterface, ArrayAccess, JsonSer
       *
       * @var string
       */
-    protected static string $openAPIModelName = 'BaseOrganizationItemFields';
+    protected static string $openAPIModelName = 'OrganizationsCollectionResponseObject_allOf';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -64,18 +64,14 @@ class BaseOrganizationItemFields implements ModelInterface, ArrayAccess, JsonSer
       */
     protected static array $openAPITypes = [
         'id' => 'int',
-        'company_id' => 'int',
-        'owner_id' => '\Pipedrive\Model\Owner',
-        'name' => 'string',
         'active_flag' => 'bool',
-        'picture_id' => '\Pipedrive\Model\PictureDataWithValue',
-        'country_code' => 'string',
-        'first_char' => 'string',
-        'add_time' => 'string',
+        'owner_id' => 'int',
+        'name' => 'string',
         'update_time' => 'string',
+        'delete_time' => 'string',
+        'add_time' => 'string',
         'visible_to' => 'string',
         'label' => 'int',
-        'owner_name' => 'string',
         'cc_email' => 'string'
     ];
 
@@ -88,18 +84,14 @@ class BaseOrganizationItemFields implements ModelInterface, ArrayAccess, JsonSer
       */
     protected static $openAPIFormats = [
         'id' => null,
-        'company_id' => null,
+        'active_flag' => null,
         'owner_id' => null,
         'name' => null,
-        'active_flag' => null,
-        'picture_id' => null,
-        'country_code' => null,
-        'first_char' => null,
-        'add_time' => null,
         'update_time' => null,
+        'delete_time' => null,
+        'add_time' => null,
         'visible_to' => null,
         'label' => null,
-        'owner_name' => null,
         'cc_email' => null
     ];
 
@@ -135,18 +127,14 @@ class BaseOrganizationItemFields implements ModelInterface, ArrayAccess, JsonSer
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'company_id' => 'company_id',
+        'active_flag' => 'active_flag',
         'owner_id' => 'owner_id',
         'name' => 'name',
-        'active_flag' => 'active_flag',
-        'picture_id' => 'picture_id',
-        'country_code' => 'country_code',
-        'first_char' => 'first_char',
-        'add_time' => 'add_time',
         'update_time' => 'update_time',
+        'delete_time' => 'delete_time',
+        'add_time' => 'add_time',
         'visible_to' => 'visible_to',
         'label' => 'label',
-        'owner_name' => 'owner_name',
         'cc_email' => 'cc_email'
     ];
 
@@ -157,18 +145,14 @@ class BaseOrganizationItemFields implements ModelInterface, ArrayAccess, JsonSer
      */
     protected static $setters = [
         'id' => 'setId',
-        'company_id' => 'setCompanyId',
+        'active_flag' => 'setActiveFlag',
         'owner_id' => 'setOwnerId',
         'name' => 'setName',
-        'active_flag' => 'setActiveFlag',
-        'picture_id' => 'setPictureId',
-        'country_code' => 'setCountryCode',
-        'first_char' => 'setFirstChar',
-        'add_time' => 'setAddTime',
         'update_time' => 'setUpdateTime',
+        'delete_time' => 'setDeleteTime',
+        'add_time' => 'setAddTime',
         'visible_to' => 'setVisibleTo',
         'label' => 'setLabel',
-        'owner_name' => 'setOwnerName',
         'cc_email' => 'setCcEmail'
     ];
 
@@ -179,18 +163,14 @@ class BaseOrganizationItemFields implements ModelInterface, ArrayAccess, JsonSer
      */
     protected static $getters = [
         'id' => 'getId',
-        'company_id' => 'getCompanyId',
+        'active_flag' => 'getActiveFlag',
         'owner_id' => 'getOwnerId',
         'name' => 'getName',
-        'active_flag' => 'getActiveFlag',
-        'picture_id' => 'getPictureId',
-        'country_code' => 'getCountryCode',
-        'first_char' => 'getFirstChar',
-        'add_time' => 'getAddTime',
         'update_time' => 'getUpdateTime',
+        'delete_time' => 'getDeleteTime',
+        'add_time' => 'getAddTime',
         'visible_to' => 'getVisibleTo',
         'label' => 'getLabel',
-        'owner_name' => 'getOwnerName',
         'cc_email' => 'getCcEmail'
     ];
 
@@ -262,18 +242,14 @@ class BaseOrganizationItemFields implements ModelInterface, ArrayAccess, JsonSer
     public function __construct(array $data = null)
     {
         $this->container['id'] = $data['id'] ?? null;
-        $this->container['company_id'] = $data['company_id'] ?? null;
+        $this->container['active_flag'] = $data['active_flag'] ?? null;
         $this->container['owner_id'] = $data['owner_id'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
-        $this->container['active_flag'] = $data['active_flag'] ?? null;
-        $this->container['picture_id'] = $data['picture_id'] ?? null;
-        $this->container['country_code'] = $data['country_code'] ?? null;
-        $this->container['first_char'] = $data['first_char'] ?? null;
-        $this->container['add_time'] = $data['add_time'] ?? null;
         $this->container['update_time'] = $data['update_time'] ?? null;
+        $this->container['delete_time'] = $data['delete_time'] ?? null;
+        $this->container['add_time'] = $data['add_time'] ?? null;
         $this->container['visible_to'] = $data['visible_to'] ?? null;
         $this->container['label'] = $data['label'] ?? null;
-        $this->container['owner_name'] = $data['owner_name'] ?? null;
         $this->container['cc_email'] = $data['cc_email'] ?? null;
     }
 
@@ -328,25 +304,25 @@ class BaseOrganizationItemFields implements ModelInterface, ArrayAccess, JsonSer
     }
 
     /**
-     * Gets company_id
+     * Gets active_flag
      *
-     * @return int|null
+     * @return bool|null
      */
-    public function getCompanyId()
+    public function getActiveFlag()
     {
-        return $this->container['company_id'];
+        return $this->container['active_flag'];
     }
 
     /**
-     * Sets company_id
+     * Sets active_flag
      *
-     * @param int|null $company_id The ID of the company related to the organization
+     * @param bool|null $active_flag Whether the organization is active or not
      *
      * @return self
      */
-    public function setCompanyId($company_id): self
+    public function setActiveFlag($active_flag): self
     {
-        $this->container['company_id'] = $company_id;
+        $this->container['active_flag'] = $active_flag;
 
         return $this;
     }
@@ -354,7 +330,7 @@ class BaseOrganizationItemFields implements ModelInterface, ArrayAccess, JsonSer
     /**
      * Gets owner_id
      *
-     * @return \Pipedrive\Model\Owner|null
+     * @return int|null
      */
     public function getOwnerId()
     {
@@ -364,7 +340,7 @@ class BaseOrganizationItemFields implements ModelInterface, ArrayAccess, JsonSer
     /**
      * Sets owner_id
      *
-     * @param \Pipedrive\Model\Owner|null $owner_id owner_id
+     * @param int|null $owner_id The ID of the owner
      *
      * @return self
      */
@@ -400,97 +376,49 @@ class BaseOrganizationItemFields implements ModelInterface, ArrayAccess, JsonSer
     }
 
     /**
-     * Gets active_flag
-     *
-     * @return bool|null
-     */
-    public function getActiveFlag()
-    {
-        return $this->container['active_flag'];
-    }
-
-    /**
-     * Sets active_flag
-     *
-     * @param bool|null $active_flag Whether the organization is active or not
-     *
-     * @return self
-     */
-    public function setActiveFlag($active_flag): self
-    {
-        $this->container['active_flag'] = $active_flag;
-
-        return $this;
-    }
-
-    /**
-     * Gets picture_id
-     *
-     * @return \Pipedrive\Model\PictureDataWithValue|null
-     */
-    public function getPictureId()
-    {
-        return $this->container['picture_id'];
-    }
-
-    /**
-     * Sets picture_id
-     *
-     * @param \Pipedrive\Model\PictureDataWithValue|null $picture_id picture_id
-     *
-     * @return self
-     */
-    public function setPictureId($picture_id): self
-    {
-        $this->container['picture_id'] = $picture_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets country_code
+     * Gets update_time
      *
      * @return string|null
      */
-    public function getCountryCode()
+    public function getUpdateTime()
     {
-        return $this->container['country_code'];
+        return $this->container['update_time'];
     }
 
     /**
-     * Sets country_code
+     * Sets update_time
      *
-     * @param string|null $country_code The country code of the organization
+     * @param string|null $update_time The last updated date and time of the organization. Format: YYYY-MM-DD HH:MM:SS
      *
      * @return self
      */
-    public function setCountryCode($country_code): self
+    public function setUpdateTime($update_time): self
     {
-        $this->container['country_code'] = $country_code;
+        $this->container['update_time'] = $update_time;
 
         return $this;
     }
 
     /**
-     * Gets first_char
+     * Gets delete_time
      *
      * @return string|null
      */
-    public function getFirstChar()
+    public function getDeleteTime()
     {
-        return $this->container['first_char'];
+        return $this->container['delete_time'];
     }
 
     /**
-     * Sets first_char
+     * Sets delete_time
      *
-     * @param string|null $first_char The first character of the organization name
+     * @param string|null $delete_time The date and time this organization was deleted. Format: YYYY-MM-DD HH:MM:SS
      *
      * @return self
      */
-    public function setFirstChar($first_char): self
+    public function setDeleteTime($delete_time): self
     {
-        $this->container['first_char'] = $first_char;
+        $this->container['delete_time'] = $delete_time;
 
         return $this;
     }
@@ -508,37 +436,13 @@ class BaseOrganizationItemFields implements ModelInterface, ArrayAccess, JsonSer
     /**
      * Sets add_time
      *
-     * @param string|null $add_time The creation date and time of the organization
+     * @param string|null $add_time The date and time when the organization was added/created. Format: YYYY-MM-DD HH:MM:SS
      *
      * @return self
      */
     public function setAddTime($add_time): self
     {
         $this->container['add_time'] = $add_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets update_time
-     *
-     * @return string|null
-     */
-    public function getUpdateTime()
-    {
-        return $this->container['update_time'];
-    }
-
-    /**
-     * Sets update_time
-     *
-     * @param string|null $update_time The last updated date and time of the organization
-     *
-     * @return self
-     */
-    public function setUpdateTime($update_time): self
-    {
-        $this->container['update_time'] = $update_time;
 
         return $this;
     }
@@ -587,30 +491,6 @@ class BaseOrganizationItemFields implements ModelInterface, ArrayAccess, JsonSer
     public function setLabel($label): self
     {
         $this->container['label'] = $label;
-
-        return $this;
-    }
-
-    /**
-     * Gets owner_name
-     *
-     * @return string|null
-     */
-    public function getOwnerName()
-    {
-        return $this->container['owner_name'];
-    }
-
-    /**
-     * Sets owner_name
-     *
-     * @param string|null $owner_name The name of the organization owner
-     *
-     * @return self
-     */
-    public function setOwnerName($owner_name): self
-    {
-        $this->container['owner_name'] = $owner_name;
 
         return $this;
     }

@@ -324,7 +324,7 @@ $limit = 100; // int | For pagination, the limit of entries to be returned. If n
 $since = 'since_example'; // string | The time boundary that points to the start of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the `update_time` field.
 $until = 'until_example'; // string | The time boundary that points to the end of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the `update_time` field.
 $user_id = 56; // int | The ID of the user whose activities will be fetched. If omitted, all activities are returned.
-$done = new \Pipedrive\Model\\Pipedrive\Model\NumberBoolean(); // \Pipedrive\Model\NumberBoolean | Whether the activity is done or not. 0 = Not done, 1 = Done. If omitted, returns both done and not done activities.
+$done = True; // bool | Whether the activity is done or not. `false` = Not done, `true` = Done. If omitted, returns both done and not done activities.
 $type = 'type_example'; // string | The type of the activity, can be one type or multiple types separated by a comma. This is in correlation with the `key_string` parameter of ActivityTypes.
 
 try {
@@ -344,7 +344,7 @@ Name | Type | Description  | Notes
  **since** | **string**| The time boundary that points to the start of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field. | [optional]
  **until** | **string**| The time boundary that points to the end of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field. | [optional]
  **user_id** | **int**| The ID of the user whose activities will be fetched. If omitted, all activities are returned. | [optional]
- **done** | [**\Pipedrive\Model\NumberBoolean**](../Model/.md)| Whether the activity is done or not. 0 &#x3D; Not done, 1 &#x3D; Done. If omitted, returns both done and not done activities. | [optional]
+ **done** | **bool**| Whether the activity is done or not. &#x60;false&#x60; &#x3D; Not done, &#x60;true&#x60; &#x3D; Done. If omitted, returns both done and not done activities. | [optional]
  **type** | **string**| The type of the activity, can be one type or multiple types separated by a comma. This is in correlation with the &#x60;key_string&#x60; parameter of ActivityTypes. | [optional]
 
 ### Return type

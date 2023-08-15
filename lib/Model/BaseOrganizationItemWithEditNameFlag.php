@@ -778,7 +778,7 @@ class BaseOrganizationItemWithEditNameFlag implements ModelInterface, ArrayAcces
     /**
      * Sets label
      *
-     * @param int|null $label The ID of the label
+     * @param int|null $label The label assigned to the organization
      *
      * @return self
      */
@@ -826,7 +826,7 @@ class BaseOrganizationItemWithEditNameFlag implements ModelInterface, ArrayAcces
     /**
      * Sets cc_email
      *
-     * @param string|null $cc_email The BCC email of the organization
+     * @param string|null $cc_email The BCC email associated with the organization
      *
      * @return self
      */

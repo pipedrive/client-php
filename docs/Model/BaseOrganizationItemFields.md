@@ -15,8 +15,8 @@ Name | Type | Description | Notes
 **add_time** | **string** | The creation date and time of the organization | [optional]
 **update_time** | **string** | The last updated date and time of the organization | [optional]
 **visible_to** | **string** | The visibility group ID of who can see the organization | [optional]
-**label** | **int** | The ID of the label | [optional]
+**label** | **int** | The label assigned to the organization | [optional]
 **owner_name** | **string** | The name of the organization owner | [optional]
-**cc_email** | **string** | The BCC email of the organization | [optional]
+**cc_email** | **string** | The BCC email associated with the organization | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

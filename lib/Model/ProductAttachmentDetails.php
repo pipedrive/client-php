@@ -66,12 +66,14 @@ class ProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSeria
         'product_id' => 'int',
         'item_price' => 'float',
         'quantity' => 'int',
-        'discount_percentage' => 'float',
+        'discount' => 'float',
+        'discount_type' => 'string',
         'duration' => 'float',
         'duration_unit' => 'string',
         'product_variation_id' => 'int',
         'comments' => 'string',
         'tax' => 'float',
+        'tax_method' => 'string',
         'enabled_flag' => 'bool',
         'id' => 'int',
         'company_id' => 'int',
@@ -96,12 +98,14 @@ class ProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSeria
         'product_id' => null,
         'item_price' => null,
         'quantity' => null,
-        'discount_percentage' => null,
+        'discount' => null,
+        'discount_type' => null,
         'duration' => null,
         'duration_unit' => null,
         'product_variation_id' => null,
         'comments' => null,
         'tax' => null,
+        'tax_method' => null,
         'enabled_flag' => null,
         'id' => null,
         'company_id' => null,
@@ -149,12 +153,14 @@ class ProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSeria
         'product_id' => 'product_id',
         'item_price' => 'item_price',
         'quantity' => 'quantity',
-        'discount_percentage' => 'discount_percentage',
+        'discount' => 'discount',
+        'discount_type' => 'discount_type',
         'duration' => 'duration',
         'duration_unit' => 'duration_unit',
         'product_variation_id' => 'product_variation_id',
         'comments' => 'comments',
         'tax' => 'tax',
+        'tax_method' => 'tax_method',
         'enabled_flag' => 'enabled_flag',
         'id' => 'id',
         'company_id' => 'company_id',
@@ -177,12 +183,14 @@ class ProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSeria
         'product_id' => 'setProductId',
         'item_price' => 'setItemPrice',
         'quantity' => 'setQuantity',
-        'discount_percentage' => 'setDiscountPercentage',
+        'discount' => 'setDiscount',
+        'discount_type' => 'setDiscountType',
         'duration' => 'setDuration',
         'duration_unit' => 'setDurationUnit',
         'product_variation_id' => 'setProductVariationId',
         'comments' => 'setComments',
         'tax' => 'setTax',
+        'tax_method' => 'setTaxMethod',
         'enabled_flag' => 'setEnabledFlag',
         'id' => 'setId',
         'company_id' => 'setCompanyId',
@@ -205,12 +213,14 @@ class ProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSeria
         'product_id' => 'getProductId',
         'item_price' => 'getItemPrice',
         'quantity' => 'getQuantity',
-        'discount_percentage' => 'getDiscountPercentage',
+        'discount' => 'getDiscount',
+        'discount_type' => 'getDiscountType',
         'duration' => 'getDuration',
         'duration_unit' => 'getDurationUnit',
         'product_variation_id' => 'getProductVariationId',
         'comments' => 'getComments',
         'tax' => 'getTax',
+        'tax_method' => 'getTaxMethod',
         'enabled_flag' => 'getEnabledFlag',
         'id' => 'getId',
         'company_id' => 'getCompanyId',
@@ -271,6 +281,42 @@ class ProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSeria
         return self::$openAPIModelName;
     }
 
+    const DISCOUNT_TYPE_PERCENTAGE = 'percentage';
+    const DISCOUNT_TYPE_AMOUNT = 'amount';
+    const TAX_METHOD_EXCLUSIVE = 'exclusive';
+    const TAX_METHOD_INCLUSIVE = 'inclusive';
+    const TAX_METHOD_NONE = 'none';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @phpstan-return  array<string|int>
+     * @phpsalm-return  array<string|int>
+     * @return (string|int)[]
+     */
+    public function getDiscountTypeAllowableValues(): array
+    {
+        return [
+            self::DISCOUNT_TYPE_PERCENTAGE,
+            self::DISCOUNT_TYPE_AMOUNT,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @phpstan-return  array<string|int>
+     * @phpsalm-return  array<string|int>
+     * @return (string|int)[]
+     */
+    public function getTaxMethodAllowableValues(): array
+    {
+        return [
+            self::TAX_METHOD_EXCLUSIVE,
+            self::TAX_METHOD_INCLUSIVE,
+            self::TAX_METHOD_NONE,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -294,12 +340,14 @@ class ProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSeria
         $this->container['product_id'] = $data['product_id'] ?? null;
         $this->container['item_price'] = $data['item_price'] ?? null;
         $this->container['quantity'] = $data['quantity'] ?? null;
-        $this->container['discount_percentage'] = $data['discount_percentage'] ?? 0;
+        $this->container['discount'] = $data['discount'] ?? 0;
+        $this->container['discount_type'] = $data['discount_type'] ?? 'percentage';
         $this->container['duration'] = $data['duration'] ?? 1;
         $this->container['duration_unit'] = $data['duration_unit'] ?? null;
         $this->container['product_variation_id'] = $data['product_variation_id'] ?? null;
         $this->container['comments'] = $data['comments'] ?? null;
         $this->container['tax'] = $data['tax'] ?? null;
+        $this->container['tax_method'] = $data['tax_method'] ?? null;
         $this->container['enabled_flag'] = $data['enabled_flag'] ?? true;
         $this->container['id'] = $data['id'] ?? null;
         $this->container['company_id'] = $data['company_id'] ?? null;
@@ -333,6 +381,24 @@ class ProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSeria
         if ($this->container['quantity'] === null) {
             $invalidProperties[] = "'quantity' can't be null";
         }
+        $allowedValues = $this->getDiscountTypeAllowableValues();
+        if (!is_null($this->container['discount_type']) && !in_array($this->container['discount_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'discount_type', must be one of '%s'",
+                $this->container['discount_type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getTaxMethodAllowableValues();
+        if (!is_null($this->container['tax_method']) && !in_array($this->container['tax_method'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'tax_method', must be one of '%s'",
+                $this->container['tax_method'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -421,25 +487,59 @@ class ProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSeria
     }
 
     /**
-     * Gets discount_percentage
+     * Gets discount
      *
      * @return float|null
      */
-    public function getDiscountPercentage()
+    public function getDiscount()
     {
-        return $this->container['discount_percentage'];
+        return $this->container['discount'];
     }
 
     /**
-     * Sets discount_percentage
+     * Sets discount
      *
-     * @param float|null $discount_percentage The discount %. If omitted, will be set to 0.
+     * @param float|null $discount The value of the discount. The `discount_type` field can be used to specify whether the value is an amount or a percentage.
      *
      * @return self
      */
-    public function setDiscountPercentage($discount_percentage): self
+    public function setDiscount($discount): self
     {
-        $this->container['discount_percentage'] = $discount_percentage;
+        $this->container['discount'] = $discount;
+
+        return $this;
+    }
+
+    /**
+     * Gets discount_type
+     *
+     * @return string|null
+     */
+    public function getDiscountType()
+    {
+        return $this->container['discount_type'];
+    }
+
+    /**
+     * Sets discount_type
+     *
+     * @param string|null $discount_type The type of the discount's value.
+     *
+     * @return self
+     */
+    public function setDiscountType($discount_type): self
+    {
+        $allowedValues = $this->getDiscountTypeAllowableValues();
+        if (!is_null($discount_type) && !in_array($discount_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'discount_type', must be one of '%s'",
+                    $discount_type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['discount_type'] = $discount_type;
 
         return $this;
     }
@@ -560,6 +660,40 @@ class ProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSeria
     public function setTax($tax): self
     {
         $this->container['tax'] = $tax;
+
+        return $this;
+    }
+
+    /**
+     * Gets tax_method
+     *
+     * @return string|null
+     */
+    public function getTaxMethod()
+    {
+        return $this->container['tax_method'];
+    }
+
+    /**
+     * Sets tax_method
+     *
+     * @param string|null $tax_method The tax option to be applied to the products. When using `inclusive`, the tax percentage will already be included in the price. When using `exclusive`, the tax will not be included in the price. When using `none`, no tax will be added. Use the `tax` field for defining the tax percentage amount. By default, the user setting value for tax options will be used. Changing this in one product affects the rest of the products attached to the deal.
+     *
+     * @return self
+     */
+    public function setTaxMethod($tax_method): self
+    {
+        $allowedValues = $this->getTaxMethodAllowableValues();
+        if (!is_null($tax_method) && !in_array($tax_method, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'tax_method', must be one of '%s'",
+                    $tax_method,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['tax_method'] = $tax_method;
 
         return $this;
     }

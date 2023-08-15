@@ -5171,7 +5171,7 @@ class PersonsApi
      *
      * @param  int|null $user_id If supplied, only persons owned by the given user will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;user_id&#x60; when both are supplied. (optional)
      * @param  int|null $filter_id The ID of the filter to use (optional)
-     * @param  string|null $first_char If supplied, only persons whose name starts with the specified letter will be returned (case insensitive) (optional)
+     * @param  string|null $first_char If supplied, only persons whose name starts with the specified letter will be returned (case-insensitive) (optional)
      * @param  int|0 $start Pagination start (optional, default to 0)
      * @param  int|null $limit Items shown per page (optional)
      * @param  string|null $sort The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). (optional)
@@ -5193,7 +5193,7 @@ class PersonsApi
      *
      * @param  int|null $user_id If supplied, only persons owned by the given user will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;user_id&#x60; when both are supplied. (optional)
      * @param  int|null $filter_id The ID of the filter to use (optional)
-     * @param  string|null $first_char If supplied, only persons whose name starts with the specified letter will be returned (case insensitive) (optional)
+     * @param  string|null $first_char If supplied, only persons whose name starts with the specified letter will be returned (case-insensitive) (optional)
      * @param  int|0 $start Pagination start (optional, default to 0)
      * @param  int|null $limit Items shown per page (optional)
      * @param  string|null $sort The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). (optional)
@@ -5299,7 +5299,7 @@ class PersonsApi
      *
      * @param  int|null $user_id If supplied, only persons owned by the given user will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;user_id&#x60; when both are supplied. (optional)
      * @param  int|null $filter_id The ID of the filter to use (optional)
-     * @param  string|null $first_char If supplied, only persons whose name starts with the specified letter will be returned (case insensitive) (optional)
+     * @param  string|null $first_char If supplied, only persons whose name starts with the specified letter will be returned (case-insensitive) (optional)
      * @param  int|0 $start Pagination start (optional, default to 0)
      * @param  int|null $limit Items shown per page (optional)
      * @param  string|null $sort The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). (optional)
@@ -5324,7 +5324,7 @@ class PersonsApi
      *
      * @param  int|null $user_id If supplied, only persons owned by the given user will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;user_id&#x60; when both are supplied. (optional)
      * @param  int|null $filter_id The ID of the filter to use (optional)
-     * @param  string|null $first_char If supplied, only persons whose name starts with the specified letter will be returned (case insensitive) (optional)
+     * @param  string|null $first_char If supplied, only persons whose name starts with the specified letter will be returned (case-insensitive) (optional)
      * @param  int|0 $start Pagination start (optional, default to 0)
      * @param  int|null $limit Items shown per page (optional)
      * @param  string|null $sort The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). (optional)
@@ -5376,7 +5376,7 @@ class PersonsApi
      *
      * @param  int|null $user_id If supplied, only persons owned by the given user will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;user_id&#x60; when both are supplied. (optional)
      * @param  int|null $filter_id The ID of the filter to use (optional)
-     * @param  string|null $first_char If supplied, only persons whose name starts with the specified letter will be returned (case insensitive) (optional)
+     * @param  string|null $first_char If supplied, only persons whose name starts with the specified letter will be returned (case-insensitive) (optional)
      * @param  int|0 $start Pagination start (optional, default to 0)
      * @param  int|null $limit Items shown per page (optional)
      * @param  string|null $sort The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). (optional)
@@ -5441,6 +5441,381 @@ class PersonsApi
         }
         if ($sort !== null) {
             $queryParams['sort'] = $sort;
+        }
+
+
+
+
+        /* @phpstan-ignore-next-line */
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            /* @phpstan-ignore-next-line */
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = Utils::jsonEncode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('api_token');
+        if ($apiKey !== null) {
+            $queryParams['api_token'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            // If access token is expired
+            if ($this->config->isRefreshPossible() && $this->config->getExpiresAt() <= time()) {
+                $this->config->refreshToken();
+            }
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = Query::build($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getPersonsCollection
+     *
+     * Get all persons (BETA)
+     *
+     * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
+     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
+     * @param  string|null $since The time boundary that points to the start of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field. (optional)
+     * @param  string|null $until The time boundary that points to the end of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field. (optional)
+     * @param  int|null $owner_id If supplied, only persons owned by the given user will be returned (optional)
+     * @param  string|null $first_char If supplied, only persons whose name starts with the specified letter will be returned (case-insensitive) (optional)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException|GuzzleException
+     * @return \Pipedrive\Model\InlineResponse2002|\Pipedrive\Model\FailResponse
+     */
+    public function getPersonsCollection($cursor = null, $limit = null, $since = null, $until = null, $owner_id = null, $first_char = null)
+    {
+        list($response) = $this->getPersonsCollectionWithHttpInfo($cursor, $limit, $since, $until, $owner_id, $first_char);
+        return $response;
+    }
+
+    /**
+     * Operation getPersonsCollectionWithHttpInfo
+     *
+     * Get all persons (BETA)
+     *
+     * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
+     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
+     * @param  string|null $since The time boundary that points to the start of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field. (optional)
+     * @param  string|null $until The time boundary that points to the end of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field. (optional)
+     * @param  int|null $owner_id If supplied, only persons owned by the given user will be returned (optional)
+     * @param  string|null $first_char If supplied, only persons whose name starts with the specified letter will be returned (case-insensitive) (optional)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException|GuzzleException
+     * @return array<mixed> of \Pipedrive\Model\InlineResponse2002|\Pipedrive\Model\FailResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getPersonsCollectionWithHttpInfo($cursor = null, $limit = null, $since = null, $until = null, $owner_id = null, $first_char = null)
+    {
+        $request = $this->getPersonsCollectionRequest($cursor, $limit, $since, $until, $owner_id, $first_char);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                if ($e->getCode() === 401 && $this->config->isRefreshPossible()) {
+                    $this->config->refreshToken();
+                    $request = $this->getPersonsCollectionRequest($cursor, $limit, $since, $until, $owner_id, $first_char);
+                    $response = $this->client->send($request, $options);
+                } else {
+                    throw new ApiException(
+                        "[{$e->getCode()}] {$e->getMessage()}",
+                        (int) $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    );
+                }
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    /* @phpstan-ignore-next-line */
+                    if ('\Pipedrive\Model\InlineResponse2002' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\InlineResponse2002', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    /* @phpstan-ignore-next-line */
+                    if ('\Pipedrive\Model\FailResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\FailResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            /* @phpstan-ignore-next-line */
+            if ('\Pipedrive\Model\InlineResponse2002' === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, '\Pipedrive\Model\InlineResponse2002', []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pipedrive\Model\InlineResponse2002',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pipedrive\Model\FailResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getPersonsCollectionAsync
+     *
+     * Get all persons (BETA)
+     *
+     * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
+     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
+     * @param  string|null $since The time boundary that points to the start of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field. (optional)
+     * @param  string|null $until The time boundary that points to the end of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field. (optional)
+     * @param  int|null $owner_id If supplied, only persons owned by the given user will be returned (optional)
+     * @param  string|null $first_char If supplied, only persons whose name starts with the specified letter will be returned (case-insensitive) (optional)
+     *
+     * @throws InvalidArgumentException|OAuthProviderException
+     * @return PromiseInterface
+     */
+    public function getPersonsCollectionAsync($cursor = null, $limit = null, $since = null, $until = null, $owner_id = null, $first_char = null): PromiseInterface
+    {
+        return $this->getPersonsCollectionAsyncWithHttpInfo($cursor, $limit, $since, $until, $owner_id, $first_char)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getPersonsCollectionAsyncWithHttpInfo
+     *
+     * Get all persons (BETA)
+     *
+     * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
+     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
+     * @param  string|null $since The time boundary that points to the start of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field. (optional)
+     * @param  string|null $until The time boundary that points to the end of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field. (optional)
+     * @param  int|null $owner_id If supplied, only persons owned by the given user will be returned (optional)
+     * @param  string|null $first_char If supplied, only persons whose name starts with the specified letter will be returned (case-insensitive) (optional)
+     *
+     * @throws InvalidArgumentException|OAuthProviderException
+     * @return PromiseInterface
+     */
+    public function getPersonsCollectionAsyncWithHttpInfo($cursor = null, $limit = null, $since = null, $until = null, $owner_id = null, $first_char = null): PromiseInterface
+    {
+        $returnType = '\Pipedrive\Model\InlineResponse2002';
+        $request = $this->getPersonsCollectionRequest($cursor, $limit, $since, $until, $owner_id, $first_char);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    /* @phpstan-ignore-next-line */
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getPersonsCollection'
+     *
+     * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
+     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
+     * @param  string|null $since The time boundary that points to the start of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field. (optional)
+     * @param  string|null $until The time boundary that points to the end of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field. (optional)
+     * @param  int|null $owner_id If supplied, only persons owned by the given user will be returned (optional)
+     * @param  string|null $first_char If supplied, only persons whose name starts with the specified letter will be returned (case-insensitive) (optional)
+     *
+     * @throws InvalidArgumentException|OAuthProviderException
+     * @return Request
+     */
+    public function getPersonsCollectionRequest($cursor = null, $limit = null, $since = null, $until = null, $owner_id = null, $first_char = null): Request
+    {
+
+        $resourcePath = '/persons/collection';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($cursor)) {
+            $cursor = ObjectSerializer::serializeCollection($cursor, '', true);
+        }
+        if ($cursor !== null) {
+            $queryParams['cursor'] = $cursor;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($limit)) {
+            $limit = ObjectSerializer::serializeCollection($limit, '', true);
+        }
+        if ($limit !== null) {
+            $queryParams['limit'] = $limit;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($since)) {
+            $since = ObjectSerializer::serializeCollection($since, '', true);
+        }
+        if ($since !== null) {
+            $queryParams['since'] = $since;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($until)) {
+            $until = ObjectSerializer::serializeCollection($until, '', true);
+        }
+        if ($until !== null) {
+            $queryParams['until'] = $until;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($owner_id)) {
+            $owner_id = ObjectSerializer::serializeCollection($owner_id, '', true);
+        }
+        if ($owner_id !== null) {
+            $queryParams['owner_id'] = $owner_id;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($first_char)) {
+            $first_char = ObjectSerializer::serializeCollection($first_char, '', true);
+        }
+        if ($first_char !== null) {
+            $queryParams['first_char'] = $first_char;
         }
 
 

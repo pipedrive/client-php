@@ -69,7 +69,8 @@ class ProductListItem implements ModelInterface, ArrayAccess, JsonSerializable
         'product_id' => 'int',
         'product_variation_id' => 'int',
         'item_price' => 'int',
-        'discount_percentage' => 'int',
+        'discount' => 'float',
+        'discount_type' => 'string',
         'duration' => 'int',
         'duration_unit' => 'string',
         'sum_no_discount' => 'float',
@@ -81,6 +82,7 @@ class ProductListItem implements ModelInterface, ArrayAccess, JsonSerializable
         'comments' => 'string',
         'active_flag' => 'bool',
         'tax' => 'float',
+        'tax_method' => 'string',
         'name' => 'string',
         'sum_formatted' => 'string',
         'quantity_formatted' => 'string',
@@ -102,7 +104,8 @@ class ProductListItem implements ModelInterface, ArrayAccess, JsonSerializable
         'product_id' => null,
         'product_variation_id' => null,
         'item_price' => null,
-        'discount_percentage' => null,
+        'discount' => null,
+        'discount_type' => null,
         'duration' => null,
         'duration_unit' => null,
         'sum_no_discount' => null,
@@ -114,6 +117,7 @@ class ProductListItem implements ModelInterface, ArrayAccess, JsonSerializable
         'comments' => null,
         'active_flag' => null,
         'tax' => null,
+        'tax_method' => null,
         'name' => null,
         'sum_formatted' => null,
         'quantity_formatted' => null,
@@ -158,7 +162,8 @@ class ProductListItem implements ModelInterface, ArrayAccess, JsonSerializable
         'product_id' => 'product_id',
         'product_variation_id' => 'product_variation_id',
         'item_price' => 'item_price',
-        'discount_percentage' => 'discount_percentage',
+        'discount' => 'discount',
+        'discount_type' => 'discount_type',
         'duration' => 'duration',
         'duration_unit' => 'duration_unit',
         'sum_no_discount' => 'sum_no_discount',
@@ -170,6 +175,7 @@ class ProductListItem implements ModelInterface, ArrayAccess, JsonSerializable
         'comments' => 'comments',
         'active_flag' => 'active_flag',
         'tax' => 'tax',
+        'tax_method' => 'tax_method',
         'name' => 'name',
         'sum_formatted' => 'sum_formatted',
         'quantity_formatted' => 'quantity_formatted',
@@ -189,7 +195,8 @@ class ProductListItem implements ModelInterface, ArrayAccess, JsonSerializable
         'product_id' => 'setProductId',
         'product_variation_id' => 'setProductVariationId',
         'item_price' => 'setItemPrice',
-        'discount_percentage' => 'setDiscountPercentage',
+        'discount' => 'setDiscount',
+        'discount_type' => 'setDiscountType',
         'duration' => 'setDuration',
         'duration_unit' => 'setDurationUnit',
         'sum_no_discount' => 'setSumNoDiscount',
@@ -201,6 +208,7 @@ class ProductListItem implements ModelInterface, ArrayAccess, JsonSerializable
         'comments' => 'setComments',
         'active_flag' => 'setActiveFlag',
         'tax' => 'setTax',
+        'tax_method' => 'setTaxMethod',
         'name' => 'setName',
         'sum_formatted' => 'setSumFormatted',
         'quantity_formatted' => 'setQuantityFormatted',
@@ -220,7 +228,8 @@ class ProductListItem implements ModelInterface, ArrayAccess, JsonSerializable
         'product_id' => 'getProductId',
         'product_variation_id' => 'getProductVariationId',
         'item_price' => 'getItemPrice',
-        'discount_percentage' => 'getDiscountPercentage',
+        'discount' => 'getDiscount',
+        'discount_type' => 'getDiscountType',
         'duration' => 'getDuration',
         'duration_unit' => 'getDurationUnit',
         'sum_no_discount' => 'getSumNoDiscount',
@@ -232,6 +241,7 @@ class ProductListItem implements ModelInterface, ArrayAccess, JsonSerializable
         'comments' => 'getComments',
         'active_flag' => 'getActiveFlag',
         'tax' => 'getTax',
+        'tax_method' => 'getTaxMethod',
         'name' => 'getName',
         'sum_formatted' => 'getSumFormatted',
         'quantity_formatted' => 'getQuantityFormatted',
@@ -286,6 +296,42 @@ class ProductListItem implements ModelInterface, ArrayAccess, JsonSerializable
         return self::$openAPIModelName;
     }
 
+    const DISCOUNT_TYPE_PERCENTAGE = 'percentage';
+    const DISCOUNT_TYPE_AMOUNT = 'amount';
+    const TAX_METHOD_EXCLUSIVE = 'exclusive';
+    const TAX_METHOD_INCLUSIVE = 'inclusive';
+    const TAX_METHOD_NONE = 'none';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @phpstan-return  array<string|int>
+     * @phpsalm-return  array<string|int>
+     * @return (string|int)[]
+     */
+    public function getDiscountTypeAllowableValues(): array
+    {
+        return [
+            self::DISCOUNT_TYPE_PERCENTAGE,
+            self::DISCOUNT_TYPE_AMOUNT,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @phpstan-return  array<string|int>
+     * @phpsalm-return  array<string|int>
+     * @return (string|int)[]
+     */
+    public function getTaxMethodAllowableValues(): array
+    {
+        return [
+            self::TAX_METHOD_EXCLUSIVE,
+            self::TAX_METHOD_INCLUSIVE,
+            self::TAX_METHOD_NONE,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -312,7 +358,8 @@ class ProductListItem implements ModelInterface, ArrayAccess, JsonSerializable
         $this->container['product_id'] = $data['product_id'] ?? null;
         $this->container['product_variation_id'] = $data['product_variation_id'] ?? null;
         $this->container['item_price'] = $data['item_price'] ?? null;
-        $this->container['discount_percentage'] = $data['discount_percentage'] ?? null;
+        $this->container['discount'] = $data['discount'] ?? 0;
+        $this->container['discount_type'] = $data['discount_type'] ?? 'percentage';
         $this->container['duration'] = $data['duration'] ?? null;
         $this->container['duration_unit'] = $data['duration_unit'] ?? null;
         $this->container['sum_no_discount'] = $data['sum_no_discount'] ?? null;
@@ -324,6 +371,7 @@ class ProductListItem implements ModelInterface, ArrayAccess, JsonSerializable
         $this->container['comments'] = $data['comments'] ?? null;
         $this->container['active_flag'] = $data['active_flag'] ?? null;
         $this->container['tax'] = $data['tax'] ?? null;
+        $this->container['tax_method'] = $data['tax_method'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
         $this->container['sum_formatted'] = $data['sum_formatted'] ?? null;
         $this->container['quantity_formatted'] = $data['quantity_formatted'] ?? null;
@@ -341,6 +389,24 @@ class ProductListItem implements ModelInterface, ArrayAccess, JsonSerializable
     public function listInvalidProperties(): array
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getDiscountTypeAllowableValues();
+        if (!is_null($this->container['discount_type']) && !in_array($this->container['discount_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'discount_type', must be one of '%s'",
+                $this->container['discount_type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getTaxMethodAllowableValues();
+        if (!is_null($this->container['tax_method']) && !in_array($this->container['tax_method'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'tax_method', must be one of '%s'",
+                $this->container['tax_method'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -502,25 +568,59 @@ class ProductListItem implements ModelInterface, ArrayAccess, JsonSerializable
     }
 
     /**
-     * Gets discount_percentage
+     * Gets discount
      *
-     * @return int|null
+     * @return float|null
      */
-    public function getDiscountPercentage()
+    public function getDiscount()
     {
-        return $this->container['discount_percentage'];
+        return $this->container['discount'];
     }
 
     /**
-     * Sets discount_percentage
+     * Sets discount
      *
-     * @param int|null $discount_percentage The discount percentage of the product
+     * @param float|null $discount The value of the discount. The `discount_type` field can be used to specify whether the value is an amount or a percentage.
      *
      * @return self
      */
-    public function setDiscountPercentage($discount_percentage): self
+    public function setDiscount($discount): self
     {
-        $this->container['discount_percentage'] = $discount_percentage;
+        $this->container['discount'] = $discount;
+
+        return $this;
+    }
+
+    /**
+     * Gets discount_type
+     *
+     * @return string|null
+     */
+    public function getDiscountType()
+    {
+        return $this->container['discount_type'];
+    }
+
+    /**
+     * Sets discount_type
+     *
+     * @param string|null $discount_type The type of the discount's value.
+     *
+     * @return self
+     */
+    public function setDiscountType($discount_type): self
+    {
+        $allowedValues = $this->getDiscountTypeAllowableValues();
+        if (!is_null($discount_type) && !in_array($discount_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'discount_type', must be one of '%s'",
+                    $discount_type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['discount_type'] = $discount_type;
 
         return $this;
     }
@@ -785,6 +885,40 @@ class ProductListItem implements ModelInterface, ArrayAccess, JsonSerializable
     public function setTax($tax): self
     {
         $this->container['tax'] = $tax;
+
+        return $this;
+    }
+
+    /**
+     * Gets tax_method
+     *
+     * @return string|null
+     */
+    public function getTaxMethod()
+    {
+        return $this->container['tax_method'];
+    }
+
+    /**
+     * Sets tax_method
+     *
+     * @param string|null $tax_method The tax option to be applied to the products. When using `inclusive`, the tax percentage will already be included in the price. When using `exclusive`, the tax will not be included in the price. When using `none`, no tax will be added. Use the `tax` field for defining the tax percentage amount. By default, the user setting value for tax options will be used. Changing this in one product affects the rest of the products attached to the deal.
+     *
+     * @return self
+     */
+    public function setTaxMethod($tax_method): self
+    {
+        $allowedValues = $this->getTaxMethodAllowableValues();
+        if (!is_null($tax_method) && !in_array($tax_method, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'tax_method', must be one of '%s'",
+                    $tax_method,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['tax_method'] = $tax_method;
 
         return $this;
     }

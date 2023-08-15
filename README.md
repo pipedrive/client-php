@@ -459,6 +459,7 @@ Class | Method | HTTP request | Description
 *OrganizationsApi* | [**getOrganizationUpdates**](docs/Api/OrganizationsApi.md#getorganizationupdates) | **GET** /organizations/{id}/flow | List updates about an organization
 *OrganizationsApi* | [**getOrganizationUsers**](docs/Api/OrganizationsApi.md#getorganizationusers) | **GET** /organizations/{id}/permittedUsers | List permitted users
 *OrganizationsApi* | [**getOrganizations**](docs/Api/OrganizationsApi.md#getorganizations) | **GET** /organizations | Get all organizations
+*OrganizationsApi* | [**getOrganizationsCollection**](docs/Api/OrganizationsApi.md#getorganizationscollection) | **GET** /organizations/collection | Get all organizations (BETA)
 *OrganizationsApi* | [**mergeOrganizations**](docs/Api/OrganizationsApi.md#mergeorganizations) | **PUT** /organizations/{id}/merge | Merge two organizations
 *OrganizationsApi* | [**searchOrganization**](docs/Api/OrganizationsApi.md#searchorganization) | **GET** /organizations/search | Search organizations
 *OrganizationsApi* | [**updateOrganization**](docs/Api/OrganizationsApi.md#updateorganization) | **PUT** /organizations/{id} | Update an organization
@@ -488,6 +489,7 @@ Class | Method | HTTP request | Description
 *PersonsApi* | [**getPersonUpdates**](docs/Api/PersonsApi.md#getpersonupdates) | **GET** /persons/{id}/flow | List updates about a person
 *PersonsApi* | [**getPersonUsers**](docs/Api/PersonsApi.md#getpersonusers) | **GET** /persons/{id}/permittedUsers | List permitted users
 *PersonsApi* | [**getPersons**](docs/Api/PersonsApi.md#getpersons) | **GET** /persons | Get all persons
+*PersonsApi* | [**getPersonsCollection**](docs/Api/PersonsApi.md#getpersonscollection) | **GET** /persons/collection | Get all persons (BETA)
 *PersonsApi* | [**mergePersons**](docs/Api/PersonsApi.md#mergepersons) | **PUT** /persons/{id}/merge | Merge two persons
 *PersonsApi* | [**searchPersons**](docs/Api/PersonsApi.md#searchpersons) | **GET** /persons/search | Search persons
 *PersonsApi* | [**updatePerson**](docs/Api/PersonsApi.md#updateperson) | **PUT** /persons/{id} | Update a person
@@ -929,6 +931,8 @@ Class | Method | HTTP request | Description
  - [GoalsResponseComponent](docs/Model/GoalsResponseComponent.md)
  - [IconKey](docs/Model/IconKey.md)
  - [InlineResponse200](docs/Model/InlineResponse200.md)
+ - [InlineResponse2001](docs/Model/InlineResponse2001.md)
+ - [InlineResponse2002](docs/Model/InlineResponse2002.md)
  - [InlineResponse400](docs/Model/InlineResponse400.md)
  - [InlineResponse4001](docs/Model/InlineResponse4001.md)
  - [InlineResponse4001AdditionalData](docs/Model/InlineResponse4001AdditionalData.md)
@@ -1101,6 +1105,8 @@ Class | Method | HTTP request | Description
  - [OrganizationSearchResponseAllOfData](docs/Model/OrganizationSearchResponseAllOfData.md)
  - [OrganizationUpdateResponse](docs/Model/OrganizationUpdateResponse.md)
  - [OrganizationUpdateResponseAllOf](docs/Model/OrganizationUpdateResponseAllOf.md)
+ - [OrganizationsCollectionResponseObject](docs/Model/OrganizationsCollectionResponseObject.md)
+ - [OrganizationsCollectionResponseObjectAllOf](docs/Model/OrganizationsCollectionResponseObjectAllOf.md)
  - [OrganizationsDeleteResponse](docs/Model/OrganizationsDeleteResponse.md)
  - [OrganizationsDeleteResponseData](docs/Model/OrganizationsDeleteResponseData.md)
  - [OrganizationsMergeResponse](docs/Model/OrganizationsMergeResponse.md)
@@ -1141,6 +1147,7 @@ Class | Method | HTTP request | Description
  - [PersonSearchResponse](docs/Model/PersonSearchResponse.md)
  - [PersonSearchResponseAllOf](docs/Model/PersonSearchResponseAllOf.md)
  - [PersonSearchResponseAllOfData](docs/Model/PersonSearchResponseAllOfData.md)
+ - [PersonsCollectionResponseObject](docs/Model/PersonsCollectionResponseObject.md)
  - [PictureData](docs/Model/PictureData.md)
  - [PictureDataPictures](docs/Model/PictureDataPictures.md)
  - [PictureDataWithID](docs/Model/PictureDataWithID.md)
