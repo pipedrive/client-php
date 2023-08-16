@@ -1,0 +1,10 @@
+parameters:
+    paths:
+        - lib
+    level: 8
+    ignoreErrors:
+    excludePaths:
+    checkAlwaysTrueStrictComparison: false
+    treatPhpDocTypesAsCertain: false
+    checkGenericClassInNonGenericObjectType: false
+    reportUnmatchedIgnoredErrors: false

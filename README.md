@@ -1,81 +1,115 @@
 # Pipedrive client for PHP based apps
-Pipedrive is a sales pipeline software that gets you organized. It's a powerful sales CRM with effortless sales pipeline management. See www.pipedrive.com for details.
 
-This is the official Pipedrive API wrapper-client for PHP based apps, distributed by Pipedrive Inc freely under the MIT licence. It provides convenient access to the Pipedrive API, allowing you to operate with objects such as Deals, Persons, Organizations, Products and much more.
+Pipedrive is a global sales-first CRM and intelligent revenue management platform for small businesses. Check out www.pipedrive.com for more details.
 
-> ⚠️ Version 1 is the initial release of our official php client. It provides its users access to our API in a convenient way using either API tokens or OAuth2.
+This is the official Pipedrive API wrapper-client for PHP based apps, distributed by Pipedrive Inc freely under the MIT licence. It provides convenient access to the Pipedrive API, allowing you to operate with entities such as deals, persons, organizations, products and more.
+
+> ⚠️ With version 5 of the SDK, we have moved to an open-source SDK generator called [OpenAPI Generator](https://openapi-generator.tech). This enables us to better respond to any issues you might have with our SDK.
 >
-> Please use the [issues page](https://github.com/pipedrive/client-php/issues) for reporting bugs or leaving feedback. Keep in mind most of the code is [automatically generated](https://github.com/pipedrive/client-php/#contributing).
+> Please use the [issues page](https://github.com/pipedrive/client-php/issues) for reporting bugs or feedback.
 
-## Installation
+## Installation and usage
 
-You can install the package via `composer require` command:
+### Requirements
 
-```shell
-composer require pipedrive/pipedrive
-```
+PHP 7.4+ and later.
 
-Or simply add it to your composer.json dependences and run `composer update`:
+### Composer
+
+To install the bindings via [Composer](https://getcomposer.org/), add the following to `composer.json`:
 
 ```json
-"require": {
-    "pipedrive/pipedrive": "^3.0"
+{
+  "require": {
+    "pipedrive/pipedrive": "^5@beta"
+  }
 }
 ```
 
-## API Documentation
+Then run `composer install`.
 
-The Pipedrive REST API documentation can be found at https://developers.pipedrive.com/v1
+Or running the `composer require` command
+```shell
+composer require pipedrive/pipedrive:^5@beta
+```
 
-## Licence
+### Manual Installation
 
-This Pipedrive API client is distributed under the MIT licence.
+Download the files and include `autoload.php`:
 
-## How to use
+```php
+<?php
+require_once('/path/to/pipedrive/vendor/autoload.php');
+```
+
+## Tests
+
+To run the unit tests:
+
+```bash
+composer install
+composer test
+```
+
+## Getting started
+
+Please follow the [installation procedure](#installation--usage) and then run the following:
 
 ### With a pre-set API token
 
 ```php
 <?php
 
-require_once __DIR__.'/vendor/autoload.php';
+use Pipedrive\Configuration;
 
-session_start();
+require_once('/path/to/client/vendor/autoload.php');
 
-// Client configuration
-$apiToken = 'YOUR_API_TOKEN_HERE';
+// Configure API key authorization: api_key
+$config = (new Pipedrive\Configuration())->setApiKey('api_token', 'YOUR_API_KEY');
 
-$client = new Pipedrive\Client(null, null, null, $apiToken); // First 3 parameters are for OAuth2
+$apiInstance = new Pipedrive\Api\ActivitiesApi(
+// If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+// This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 
 try {
-    $response = $client->getUsers()->getCurrentUserData();
+    $result = $apiInstance->activitiesGet();
     echo '<pre>';
-    var_dump($response);
+    print_r($result);
     echo '</pre>';
-} catch (\Pipedrive\APIException $e) {
-    echo $e;
+} catch (Exception $e) {
+    echo 'Exception when calling ActivitiesApi->activitiesDelete: ', $e->getMessage(), PHP_EOL;
 }
+
+?>
 ```
 
-### With OAuth 2
+### With OAuth 2.0
 
-In order to setup authentication in the API client, you need the following information.
+In order to setup authentication in the API client, you need the following information:
 
 | Parameter | Description |
 |-----------|-------------|
-| oAuthClientId | OAuth 2 Client ID |
-| oAuthClientSecret | OAuth 2 Client Secret |
-| oAuthRedirectUri | OAuth 2 Redirection endpoint or Callback Uri |
+| oAuthClientId | OAuth 2.0 Client ID |
+| oAuthClientSecret | OAuth 2.0 Client Secret |
+| oAuthRedirectUri | OAuth 2.0 Redirection endpoint or Callback Uri |
 
 
-API client can be initialized as following:
+The API client can be initialized as following:
 
 ```php
 $oAuthClientId = 'oAuthClientId'; // OAuth 2 Client ID
 $oAuthClientSecret = 'oAuthClientSecret'; // OAuth 2 Client Secret
 $oAuthRedirectUri = 'https://example.com/oauth/callback'; // OAuth 2 Redirection endpoint or Callback Uri
 
-$client = new Pipedrive\Client($oAuthClientId, $oAuthClientSecret, $oAuthRedirectUri);
+$config = (new Pipedrive\Configuration());
+$config->setClientId($oAuthClientId);
+$config->setClientSecret($oAuthClientSecret);
+$config->setOauthRedirectUri($oAuthRedirectUri);
+
+$dealsApiInstance = new DealsApi(null, $config);
 ```
 
 You must now authorize the client.
@@ -83,19 +117,19 @@ You must now authorize the client.
 ### Authorizing your client
 
 Your application must obtain user authorization before it can execute an endpoint call.
-The SDK uses *OAuth 2.0 authorization* to obtain a user's consent to perform an API request on user's behalf.
+The SDK uses *OAuth 2.0 authorization* to obtain a user's consent to perform an API request on the user's behalf.
 
 #### 1. Obtain user consent
 
-To obtain user's consent, you must redirect the user to the authorization page. The `buildAuthorizationUrl()` method creates the URL to the authorization page.
+To obtain user consent, you must redirect the user to the authorization page. The `getAuthorizationPageUrl()` method creates the URL to the authorization page when you have clientID and OAuthRedirect set in $config
 ```php
-$authUrl = $client->auth()->buildAuthorizationUrl();
+$authUrl = $config->getAuthorizationPageUrl();
 header('Location: ' . filter_var($authUrl, FILTER_SANITIZE_URL));
 ```
 
 #### 2. Handle the OAuth server response
 
-Once the user responds to the consent request, the OAuth 2.0 server responds to your application's access request by redirecting the user to the redirect URI specified set in `Configuration`.
+Once the user responds to the consent request, the OAuth 2.0 server responds to your application's access request by redirecting the user to the redirect URI specified in `Configuration`.
 
 If the user approves the request, the authorization code will be sent as the `code` query string:
 
@@ -115,21 +149,21 @@ After the server receives the code, it can exchange this for an *access token*. 
 
 ```php
 try {
-    $client->auth()->authorize($_GET['code']);
-} catch (Pipedrive\Exceptions\OAuthProviderException $ex) {
+    $config->authorize($_GET['code']);
+} catch (Exception $ex) {
     // handle exception
 }
 ```
 
-### Refreshing token
+### Refreshing the token
 
 An access token may expire after sometime. To extend its lifetime, you must refresh the token.
 
 ```php
-if ($client->auth()->isTokenExpired()) {
+if ($configuration->getExpiresAt() < time()) {
     try {
-        $client->auth()->refreshToken();
-    } catch (Pipedrive\Exceptions\OAuthProviderException $ex) {
+        $config->refreshToken();
+    } catch (Exception $ex) {
         // handle exception
     }
 }
@@ -141,20 +175,19 @@ If a token expires, the SDK will attempt to automatically refresh the token befo
 
 It is recommended that you store the access token for reuse.
 
-You can store the access token in the `$_SESSION` global:
+You can store the access token in the `$_SESSION` global or any other persistent storage:
 
 ```php
 // store token
-$_SESSION['access_token'] = Pipedrive\Configuration::$oAuthToken;
+$_SESSION['access_token'] = $config->getAccessToken();
 ```
 
-However, since the the SDK will attempt to automatically refresh the token when it expires, it is recommended that you register a *token update callback* to detect any change to the access token.
+However, since the SDK will attempt to automatically refresh the token when it expires, it is recommended that you register a *token update callback* to detect any change to the access token.
 
 ```php
-Pipedrive\Configuration::$oAuthTokenUpdateCallback = function($token) {
-    // use session or some other way to persist the $token
-    $_SESSION['access_token'] = $token;
-};
+$config->setOAuthTokenUpdateCallback(function ($token) {
+    $_SESSION['token'] = $token;
+});
 ```
 
 The token update callback will be fired upon authorization as well as token refresh.
@@ -165,16 +198,42 @@ To authorize a client from a stored access token, just set the access token in `
 
 ```php
 // load token later...
-Pipedrive\Configuration::$oAuthToken = $_SESSION['access_token'];
+$config->setAccessToken($_SESSION['token']->access_token);
+
+// If you want to set all of the OAuth2 related fields at once from the token gotten from Pipedrive OAuth server
+// you can use the updateOAuthRelatedFields() function
+$config->updateOAuthRelatedFields($_SESSION['token']);
+// This will set the access token, expiresIn, expiresAt, scope and host attributes in the Configuration class
+// In order to get automatic access token refreshing, you will still need the client ID, client secret and redirectURI
 
 // Set other configuration, then instantiate client
-$client = new Pipedrive\Client();
+$activitiesApiInstance = new ActivitiesApi(null, $config);
 ```
 
-### Complete example with OAuth2
+### Revoke token
 
-In this example, the `index.php` will first check if an access token is available for the user. If one is not set,
-it redirects the user to `authcallback.php` which will obtain an access token and redirect the user back to the `index.php` page.
+When there is a need for an application to indicate to the authorization server that user token should be invalidated, use the `revokeToken` method with provided `hint` argument value:
+
+```php
+$config = (new Pipedrive\Configuration());
+$config->updateOAuthRelatedFields(/* ... */);
+```
+
+When configuration is set, just call the method:
+
+```php
+// this will revoke all user tokens
+$config->revokeToken('refresh_token');
+
+/* OR */
+
+// this will revoke only access token
+$config->revokeToken('access_token');
+```
+
+### Complete example with OAuth
+
+In this example, the `index.php` will first check if an access token is available for the user. If one is not set, it redirects the user to `authcallback.php` which will obtain an access token and redirect the user back to the `index.php` page.
 Now that an access token is set, `index.php` can use the client to make authorized calls to the server.
 
 #### `index.php`
@@ -182,41 +241,36 @@ Now that an access token is set, `index.php` can use the client to make authoriz
 ```php
 <?php
 
-require_once __DIR__.'/vendor/autoload.php';
+use Pipedrive\Api\DealsApi;
+use Pipedrive\Configuration;
+
+require_once('../../sdks/php/vendor/autoload.php');
 
 session_start();
 
-// Client configuration
-$oAuthClientId = 'oAuthClientId';
-$oAuthClientSecret = 'oAuthClientSecret';
-$oAuthRedirectUri = 'http://' . $_SERVER['HTTP_HOST'] . '/authcallback.php';
+$config = (new Pipedrive\Configuration());
+$config->setOauthRedirectUri('http://' . $_SERVER['HTTP_HOST'] . '/authcallback.php');
+$config->setClientSecret('YOUR_CLIENT_SECRET');
+$config->setClientId('YOUR_CLIENT_ID');
 
-$client = new Pipedrive\Client($oAuthClientId, $oAuthClientSecret, $oAuthRedirectUri);
-
-// callback stores token for reuse when token is updated
-Pipedrive\Configuration::$oAuthTokenUpdateCallback = function($token) {
-    $_SESSION['access_token'] = $token;
-};
+//$usersApiInstance = new UsersApi(null, $config);
+$dealsApiInstance = new DealsApi(null, $config);
 
 // check if a token is available
-if (isset($_SESSION['access_token']) && $_SESSION['access_token']) {
+if (isset($_SESSION['token']) && $_SESSION['token']) {
     // set access token in configuration
-    Pipedrive\Configuration::$oAuthToken = $_SESSION['access_token'];
+    $config->updateOAuthRelatedFields($_SESSION['token']);
 
     try {
-        $response = $client->getUsers()->getCurrentUserData();
+        $dealsResponse = $dealsApiInstance->getDeals();
         echo '<pre>';
-        var_dump($response);
+        print_r($dealsResponse);
         echo '</pre>';
-    } catch (\Pipedrive\APIException $e) {
-        echo $e;
+    } catch (Exception $e) {
+        echo 'Exception when trying to get user info', $e, PHP_EOL;
     }
-
-    // now you can use $client to make endpoint calls
-    // client will automatically refresh the token when it expires and call the token update callback
 } else {
-    // redirect user to a page that handles authorization
-    header('Location: ' . filter_var($oAuthRedirectUri, FILTER_SANITIZE_URL));
+    header('Location: ' . filter_var($config->getAuthorizationPageUrl(), FILTER_SANITIZE_URL));
 }
 ```
 
@@ -224,8085 +278,1088 @@ if (isset($_SESSION['access_token']) && $_SESSION['access_token']) {
 
 ```php
 <?php
-require_once __DIR__.'/vendor/autoload.php';
+require_once('../../sdks/php/vendor/autoload.php');
+
+use Pipedrive\Configuration;
 
 session_start();
 
-// Client configuration
-$oAuthClientId = 'oAuthClientId';
-$oAuthClientSecret = 'oAuthClientSecret';
-$oAuthRedirectUri = 'http://' . $_SERVER['HTTP_HOST'] . '/authcallback.php';
+$config = (new Pipedrive\Configuration());
 
-$client = new Pipedrive\Client($oAuthClientId, $oAuthClientSecret, $oAuthRedirectUri);
+$config->setOauthRedirectUri('http://' . $_SERVER['HTTP_HOST'] . '/authcallback.php');
+$config->setClientSecret('YOUR_CLIENT_SECRET');
+$config->setClientId('YOUR_CLIENT_ID');
+$config->setAuthorizationPageUrl('https://oauth.pipedrive.com/oauth/authorize?client_id=YOUR_CLIENT_ID&redirect_uri=http%3A%2F%2Flocalhost%3A8081%2Fauthcallback.php');
 
-// callback stores token for reuse when token is updated
-Pipedrive\Configuration::$oAuthTokenUpdateCallback = function($token) {
-    $_SESSION['access_token'] = $token;
-};
+$config->setOAuthTokenUpdateCallback(function ($token) {
+    $_SESSION['token'] = $token;
+});
 
-if (! isset($_GET['code'])) {
-    // if authorization code is absent, redirect to authorization page
-    $authUrl = $client->auth()->buildAuthorizationUrl();
-    header('Location: ' . filter_var($authUrl, FILTER_SANITIZE_URL));
+// if authorization code is absent, redirect to authorization page
+if (!isset($_GET['code'])) {
+    header('Location: ' . filter_var($config->getAuthorizationPageUrl(), FILTER_SANITIZE_URL));
 } else {
     try {
-        // authorize client (calls token update callback as well)
-        $token = $client->auth()->authorize($_GET['code']);
+        $config->authorize($_GET['code']);
 
         // resume user activity
         $redirect_uri = 'http://' . $_SERVER['HTTP_HOST'] . '/';
         header('Location: ' . filter_var($redirect_uri, FILTER_SANITIZE_URL));
-    } catch (Pipedrive\Exceptions\OAuthProviderException $ex) {
-        // handle exception
+    } catch (Exception $ex) {
+        print_r($ex);
     }
 }
 ```
-
-## Contributing
-- Run tests
-- Open a pull request
-
-Please be aware that most of the code is auto-generated. You are welcome to suggest changes and report bugs. However, any updates will have to be implemented in the underlying generator.
-
-## How to Test
-
-Unit tests in this SDK can be run using PHPUnit. 
-
-1. First install the dependencies using composer including the `require-dev` dependencies.
-2. Run `vendor\bin\phpunit --verbose` from commandline to execute tests. If you have 
-   installed PHPUnit globally, run tests using `phpunit --verbose` instead.
-
-You can change the PHPUnit test configuration in the `phpunit.xml` file.
-
-# Class Reference
-
-## <a name="list_of_controllers"></a>List of Controllers
-
-* [ActivitiesController](#activities_controller)
-* [ActivityFieldsController](#activity_fields_controller)
-* [ActivityTypesController](#activity_types_controller)
-* [CallLogsController](#call_logs_controller)
-* [CurrenciesController](#currencies_controller)
-* [DealFieldsController](#deal_fields_controller)
-* [DealsController](#deals_controller)
-* [FilesController](#files_controller)
-* [FiltersController](#filters_controller)
-* [GlobalMessagesController](#global_messages_controller)
-* [GoalsController](#goals_controller)
-* [ItemSearchController](#item_search_controller)
-* [MailMessagesController](#mail_messages_controller)
-* [MailThreadsController](#mail_threads_controller)
-* [NoteFieldsController](#note_fields_controller)
-* [NotesController](#notes_controller)
-* [OrganizationFieldsController](#organization_fields_controller)
-* [OrganizationRelationshipsController](#organization_relationships_controller)
-* [OrganizationsController](#organizations_controller)
-* [PermissionSetsController](#permission_sets_controller)
-* [PersonFieldsController](#person_fields_controller)
-* [PersonsController](#persons_controller)
-* [PipelinesController](#pipelines_controller)
-* [ProductFieldsController](#product_fields_controller)
-* [ProductsController](#products_controller)
-* [RecentsController](#recents_controller)
-* [RolesController](#roles_controller)
-* [SearchResultsController](#search_results_controller)
-* [StagesController](#stages_controller)
-* [TeamsController](#teams_controller)
-* [UserConnectionsController](#user_connections_controller)
-* [UserSettingsController](#user_settings_controller)
-* [UsersController](#users_controller)
-* [WebhooksController](#webhooks_controller)
-
-## <a name="activities_controller"></a>![Class: ](https://apidocs.io/img/class.png ".ActivitiesController") ActivitiesController
-
-### Get singleton instance
-
-The singleton instance of the ``` ActivitiesController ``` class can be accessed from the API Client.
-
-```php
-$activities = $client->getActivities();
-```
-
-### <a name="delete_multiple_activities_in_bulk"></a>![Method: ](https://apidocs.io/img/method.png ".ActivitiesController.deleteMultipleActivitiesInBulk") deleteMultipleActivitiesInBulk
-
-> Marks multiple activities as deleted.
-
-
-```php
-function deleteMultipleActivitiesInBulk($ids)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| ids |  ``` Required ```  | Comma-separated IDs that will be deleted |
-
-
-
-#### Example Usage
-
-```php
-$ids = 'ids';
-
-$activities->deleteMultipleActivitiesInBulk($ids);
-
-```
-
-
-### <a name="get_all_activities_assigned_to_a_particular_user"></a>![Method: ](https://apidocs.io/img/method.png ".ActivitiesController.getAllActivitiesAssignedToAParticularUser") getAllActivitiesAssignedToAParticularUser
-
-> Returns all activities assigned to a particular user.
-
-
-```php
-function getAllActivitiesAssignedToAParticularUser($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| userId |  ``` Optional ```  | ID of the user whose activities will be fetched. If omitted, the user associated with the API token will be used. If 0, activities for all company users will be fetched based on the permission sets. |
-| filterId |  ``` Optional ```  | ID of the filter to use (will narrow down results if used together with user_id parameter). |
-| type |  ``` Optional ```  | Type of the activity, can be one type or multiple types separated by a comma. This is in correlation with the key_string parameter of ActivityTypes. |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-| startDate |  ``` Optional ```  | Date in format of YYYY-MM-DD from which activities to fetch from. |
-| endDate |  ``` Optional ```  | Date in format of YYYY-MM-DD until which activities to fetch to. |
-| done |  ``` Optional ```  | Whether the activity is done or not. 0 = Not done, 1 = Done. If omitted returns both Done and Not done activities. |
-
-
-
-#### Example Usage
-
-```php
-$userId = 119;
-$collect['userId'] = $userId;
-
-$filterId = 119;
-$collect['filterId'] = $filterId;
-
-$type = 'type';
-$collect['type'] = $type;
-
-$start = 0;
-$collect['start'] = $start;
-
-$limit = 119;
-$collect['limit'] = $limit;
-
-$startDate = date("D M d, Y G:i");
-$collect['startDate'] = $startDate;
-
-$endDate = date("D M d, Y G:i");
-$collect['endDate'] = $endDate;
-
-$done = int::ENUM_0;
-$collect['done'] = $done;
-
-
-$activities->getAllActivitiesAssignedToAParticularUser($collect);
-
-```
-
-
-### <a name="add_an_activity"></a>![Method: ](https://apidocs.io/img/method.png ".ActivitiesController.addAnActivity") addAnActivity
-
-> Adds a new activity. Includes more_activities_scheduled_in_context property in response's additional_data which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data). For more information on how to add an activity, see <a href="https://pipedrive.readme.io/docs/adding-an-activity" target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```php
-function addAnActivity($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| subject |  ``` Required ```  | Subject of the activity |
-| type |  ``` Required ```  | Type of the activity. This is in correlation with the key_string parameter of ActivityTypes. |
-| done |  ``` Optional ```  | Whether the activity is done or not. 0 = Not done, 1 = Done |
-| dueDate |  ``` Optional ```  | Due date of the activity. Format: YYYY-MM-DD |
-| dueTime |  ``` Optional ```  | Due time of the activity in UTC. Format: HH:MM |
-| duration |  ``` Optional ```  | Duration of the activity. Format: HH:MM |
-| userId |  ``` Optional ```  | ID of the user whom the activity will be assigned to. If omitted, the activity will be assigned to the authorized user. |
-| dealId |  ``` Optional ```  | ID of the deal this activity will be associated with |
-| personId |  ``` Optional ```  | ID of the person this activity will be associated with |
-| participants |  ``` Optional ```  | List of multiple persons (participants) this activity will be associated with. If omitted, single participant from person_id field is used. It requires a structure as follows: [{"person_id":1,"primary_flag":true}] |
-| orgId |  ``` Optional ```  | ID of the organization this activity will be associated with |
-| note |  ``` Optional ```  | Note of the activity (HTML format) |
-| busyFlag |  ``` Optional ```  | Set the activity as 'Busy' or 'Free'. If the flag is set to true, your customers will not be able to book that time slot through any Scheduler links. The flag can also be unset by never setting it or overriding it with null. When the value of the flag is unset (null), the flag defaults to 'Busy' if it has a time set, and 'Free' if it is an all-day event without specified time. Format: true/false |
-
-
-
-#### Example Usage
-
-```php
-$subject = 'subject';
-$collect['subject'] = $subject;
-
-$type = 'type';
-$collect['type'] = $type;
-
-$done = int::ENUM_0;
-$collect['done'] = $done;
-
-$dueDate = date("D M d, Y G:i");
-$collect['dueDate'] = $dueDate;
-
-$dueTime = 'due_time';
-$collect['dueTime'] = $dueTime;
-
-$duration = 'duration';
-$collect['duration'] = $duration;
-
-$userId = 119;
-$collect['userId'] = $userId;
-
-$dealId = 119;
-$collect['dealId'] = $dealId;
-
-$personId = 119;
-$collect['personId'] = $personId;
-
-$participants = 'participants';
-$collect['participants'] = $participants;
-
-$orgId = 119;
-$collect['orgId'] = $orgId;
-
-$note = 'note';
-$collect['note'] = $note;
-
-$busyFlag = true;
-$collect['busyFlag'] = $busyFlag;
-
-$activities->addAnActivity($collect);
-
-```
-
-
-### <a name="delete_an_activity"></a>![Method: ](https://apidocs.io/img/method.png ".ActivitiesController.deleteAnActivity") deleteAnActivity
-
-> Deletes an activity.
-
-
-```php
-function deleteAnActivity($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the activity |
-
-
-
-#### Example Usage
-
-```php
-$id = 119;
-
-$activities->deleteAnActivity($id);
-
-```
-
-
-### <a name="get_details_of_an_activity"></a>![Method: ](https://apidocs.io/img/method.png ".ActivitiesController.getDetailsOfAnActivity") getDetailsOfAnActivity
-
-> Returns details of a specific activity.
-
-
-```php
-function getDetailsOfAnActivity($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the activity |
-
-
-
-#### Example Usage
-
-```php
-$id = 119;
-
-$activities->getDetailsOfAnActivity($id);
-
-```
-
-
-### <a name="update_edit_an_activity"></a>![Method: ](https://apidocs.io/img/method.png ".ActivitiesController.updateEditAnActivity") updateEditAnActivity
-
-> Modifies an activity. Includes more_activities_scheduled_in_context property in response's additional_data which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data).
-
-
-```php
-function updateEditAnActivity($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the activity |
-| subject |  ``` Required ```  | Subject of the activity |
-| type |  ``` Required ```  | Type of the activity. This is in correlation with the key_string parameter of ActivityTypes. |
-| done |  ``` Optional ```  | TODO: Add a parameter description |
-| dueDate |  ``` Optional ```  | Due date of the activity. Format: YYYY-MM-DD |
-| dueTime |  ``` Optional ```  | Due time of the activity in UTC. Format: HH:MM |
-| duration |  ``` Optional ```  | Duration of the activity. Format: HH:MM |
-| userId |  ``` Optional ```  | ID of the user whom the activity will be assigned to. If omitted, the activity will be assigned to the authorized user. |
-| dealId |  ``` Optional ```  | ID of the deal this activity will be associated with |
-| personId |  ``` Optional ```  | ID of the person this activity will be associated with |
-| participants |  ``` Optional ```  | List of multiple persons (participants) this activity will be associated with. If omitted, single participant from person_id field is used. It requires a structure as follows: [{"person_id":1,"primary_flag":true}] |
-| orgId |  ``` Optional ```  | ID of the organization this activity will be associated with |
-| note |  ``` Optional ```  | Note of the activity (HTML format) |
-| busyFlag |  ``` Optional ```  | Set the activity as 'Busy' or 'Free'. If the flag is set to true, your customers will not be able to book that time slot through any Scheduler links. The flag can also be unset by never setting it or overriding it with null. When the value of the flag is unset (null), the flag defaults to 'Busy' if it has a time set, and 'Free' if it is an all-day event without specified time. Format: true/false |
-
-
-
-#### Example Usage
-
-```php
-$id = 119;
-$collect['id'] = $id;
-
-$subject = 'subject';
-$collect['subject'] = $subject;
-
-$type = 'type';
-$collect['type'] = $type;
-
-$done = int::ENUM_0;
-$collect['done'] = $done;
-
-$dueDate = date("D M d, Y G:i");
-$collect['dueDate'] = $dueDate;
-
-$dueTime = 'due_time';
-$collect['dueTime'] = $dueTime;
-
-$duration = 'duration';
-$collect['duration'] = $duration;
-
-$userId = 119;
-$collect['userId'] = $userId;
-
-$dealId = 119;
-$collect['dealId'] = $dealId;
-
-$personId = 119;
-$collect['personId'] = $personId;
-
-$participants = 'participants';
-$collect['participants'] = $participants;
-
-$orgId = 119;
-$collect['orgId'] = $orgId;
-
-$note = 'note';
-$collect['note'] = $note;
-
-
-$activities->updateEditAnActivity($collect);
-
-```
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="activity_fields_controller"></a>![Class: ](https://apidocs.io/img/class.png ".ActivityFieldsController") ActivityFieldsController
-
-### Get singleton instance
-
-The singleton instance of the ``` ActivityFieldsController ``` class can be accessed from the API Client.
-
-```php
-$activityFields = $client->getActivityFields();
-```
-
-### <a name="get_all_fields_for_an_activity"></a>![Method: ](https://apidocs.io/img/method.png ".ActivityFieldsController.getAllFieldsForAnActivity") getAllFieldsForAnActivity
-
-> Return list of all fields for activity
-
-
-```php
-function getAllFieldsForAnActivity()
-```
-
-#### Example Usage
-
-```php
-
-$activityFields->getAllFieldsForAnActivity();
-
-```
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="activity_types_controller"></a>![Class: ](https://apidocs.io/img/class.png ".ActivityTypesController") ActivityTypesController
-
-### Get singleton instance
-
-The singleton instance of the ``` ActivityTypesController ``` class can be accessed from the API Client.
-
-```php
-$activityTypes = $client->getActivityTypes();
-```
-
-### <a name="delete_multiple_activity_types_in_bulk"></a>![Method: ](https://apidocs.io/img/method.png ".ActivityTypesController.deleteMultipleActivityTypesInBulk") deleteMultipleActivityTypesInBulk
-
-> Marks multiple activity types as deleted.
-
-
-```php
-function deleteMultipleActivityTypesInBulk($ids)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| ids |  ``` Required ```  | Comma-separated activity type IDs to delete |
-
-
-
-#### Example Usage
-
-```php
-$ids = 'ids';
-
-$activityTypes->deleteMultipleActivityTypesInBulk($ids);
-
-```
-
-
-### <a name="get_all_activity_types"></a>![Method: ](https://apidocs.io/img/method.png ".ActivityTypesController.getAllActivityTypes") getAllActivityTypes
-
-> Returns all activity types
-
-
-```php
-function getAllActivityTypes()
-```
-
-#### Example Usage
-
-```php
-
-$activityTypes->getAllActivityTypes();
-
-```
-
-
-### <a name="add_new_activity_type"></a>![Method: ](https://apidocs.io/img/method.png ".ActivityTypesController.addNewActivityType") addNewActivityType
-
-> Adds a new activity type, returns the ID, the key_string and the order number of the newly added activity type upon success.
-
-
-```php
-function addNewActivityType($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| name |  ``` Required ```  | Name of the activity type |
-| iconKey |  ``` Required ```  | Icon graphic to use for representing this activity type. |
-| color |  ``` Optional ```  | A designated color for the activity type in 6-character HEX format (e.g. FFFFFF for white, 000000 for black). |
-
-
-
-#### Example Usage
-
-```php
-$name = 'name';
-$collect['name'] = $name;
-
-$iconKey = string::TASK;
-$collect['iconKey'] = $iconKey;
-
-$color = 'color';
-$collect['color'] = $color;
-
-
-$activityTypes->addNewActivityType($collect);
-
-```
-
-
-### <a name="delete_an_activity_type"></a>![Method: ](https://apidocs.io/img/method.png ".ActivityTypesController.deleteAnActivityType") deleteAnActivityType
-
-> Marks an activity type as deleted.
-
-
-```php
-function deleteAnActivityType($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the activity type |
-
-
-
-#### Example Usage
-
-```php
-$id = 119;
-
-$activityTypes->deleteAnActivityType($id);
-
-```
-
-
-### <a name="update_edit_activity_type"></a>![Method: ](https://apidocs.io/img/method.png ".ActivityTypesController.updateEditActivityType") updateEditActivityType
-
-> Updates an activity type.
-
-
-```php
-function updateEditActivityType($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the activity type |
-| name |  ``` Optional ```  | Name of the activity type |
-| iconKey |  ``` Optional ```  | Icon graphic to use for representing this activity type. |
-| color |  ``` Optional ```  | A designated color for the activity type in 6-character HEX format (e.g. FFFFFF for white, 000000 for black). |
-| orderNr |  ``` Optional ```  | An order number for this activity type. Order numbers should be used to order the types in the activity type selections. |
-
-
-
-#### Example Usage
-
-```php
-$id = 119;
-$collect['id'] = $id;
-
-$name = 'name';
-$collect['name'] = $name;
-
-$iconKey = string::TASK;
-$collect['iconKey'] = $iconKey;
-
-$color = 'color';
-$collect['color'] = $color;
-
-$orderNr = 119;
-$collect['orderNr'] = $orderNr;
-
-
-$activityTypes->updateEditActivityType($collect);
-
-```
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="call_logs_controller"></a>![Class: ](https://apidocs.io/img/class.png ".CallLogsController") CallLogsController
-
-### Get singleton instance
-
-The singleton instance of the ``` CallLogsController ``` class can be accessed from the API Client.
-
-```php
-$callLogs = $client->getCallLogs();
-```
-
-### <a name="get_all_call_logs_assigned_to_a_particular_user"></a>![Method: ](https://apidocs.io/img/method.png ".CallLogsController.getAllCallLogsAssignedToAParticularUser") getAllCallLogsAssignedToAParticularUser
-
-> Returns all call logs assigned to a particular user
-
-
-```php
-function getAllCallLogsAssignedToAParticularUser($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| start |  ``` Optional ```  | For pagination, the position that represents the first result for the page |
-| limit |  ``` Optional ```  | For pagination, the limit of entries to be returned |
-
-#### Example Usage
-
-```php
-$start = 0;
-$options['start'] = $start;
-
-$limit = 119;
-$options['limit'] = $limit;
-
-$callLogs->getAllCallLogsAssignedToAParticularUser($options);
-
-```
-
-### <a name="get_details_of_a_call_log"></a>![Method: ](https://apidocs.io/img/method.png ".CallLogsController.getDetailsOfACallLog") getDetailsOfACallLog
-
-> Returns details of a specific call log
-
-
-```php
-function getDetailsOfACallLog($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the field |
-
-#### Example Usage
-
-```php
-$id = 1;
-
-$callLogs->getDetailsOfACallLog($id);
-
-```
-
-### <a name="add_a_call_log"></a>![Method: ](https://apidocs.io/img/method.png ".CallLogsController.addACallLog") addACallLog
-
-> Adds a new call log
-
-
-```php
-function addACallLog($collect)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| user_id |  ```optional```  | The ID of the owner of the call log |
-| activity_id |  ```optional```  | If specified, this activity will be converted into a call log, with the information provided. When this field is used, you don't need to specify deal_id, person_id or org_id, as they will be ignored in favor of the values already available in the activity. |
-| subject|  ```optional```  | Name of the activity this call is attached to |
-| duration|  ```optional```  | Call duration in seconds |
-| outcome|  ```required```  | Describes the outcome of the call |
-| from_phone_number|  ```optional```  | The number that made the call |
-| to_phone_number|  ```required```  | The number called |
-| start_time|  ```required```  | The date and time of the start of the call in UTC. Format: YYYY-MM-DD HH:MM:SS. |
-| end_time |  ```required```  | The date and time of the end of the call in UTC. Format: YYYY-MM-DD HH:MM:SS. |
-| person_id |  ```optional```  | The ID of the Person this call is associated with |
-| org_id |  ```optional```  | The ID of the Organization this call is associated with |
-| deal_id |  ```optional```  | The ID of the Deal this call is associated with |
-
-#### Example Usage
-
-```php
-
-$subject = 'subject';
-$collect['subject'] = $subject;
-
-$duration = 60;
-$collect['duration'] = $duration;
-
-$outcome = 'connected'
-$collect['outcome'] = $connected;
-
-$fromPhoneNumber = '+55 555 5555';
-$collect['from_phone_number'] = $fromPhoneNumber;
-
-$fromPhoneNumber = '+55 555 5556';
-$collect['to_phone_number'] = $fromPhoneNumber;
-
-$startTime = '2021-01-30 22:30:00';
-$collect['start_time'] = $startTime;
-
-$endTime = '2021-01-30 22:31:00';
-$collect['end_time'] = $endTime;
-
-$personId = 1;
-$collect['person_id'] = $personId;
-
-$orgId = 1;
-$collect['org_id'] = $orgId;
-
-$dealId = 1;
-$collect['deal_id'] = $dealId;
-
-$note = 'note';
-$collect['note'] = $note;
-
-$callLogs->addACallLog($collect);
-
-```
-
-### <a name="attach_an_audio_file_to_the_call_log"></a>![Method: ](https://apidocs.io/img/method.png ".CallLogsController.attachAnAudioFileToTheCallLog") attachAnAudioFileToTheCallLog
-
-> Adds an audio recording to the call log. That audio can be played by those who have access to the call log object.
-
-
-```php
-function attachAnAudioFileToTheCallLog($id, $collect)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ```required```  | The ID received when you create the call log |
-| file |  ```required```  | Audio file supported by the HTML5 specification |
-| mime_type | ```required``` | The mime type of the file, according to html5 standards (eg.: audio/wave for a .wav file )|
-
-#### Example Usage
-
-```php
-
-$id = 'id';
-
-$file = "PathToFile";
-$collect['file'] = $file;
-
-$callLogs->attachAnAudioFileToTheCallLog($id, $collect);
-
-```
-
-### <a name="delete_a_call_log"></a>![Method: ](https://apidocs.io/img/method.png ".CallLogsController.deleteACallLog") deleteACallLog
-
-> Deletes a call log. If there is an audio recording attached to it, it will also be deleted. The related activity will not be removed by this request. If you want to remove the related activities, please use the endpoint which is specific for activities.
-
-
-```php
-function deleteACallLog($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ```required```  | ID of the callLog |
-
-#### Example Usage
-
-```php
-
-$id = 'id';
-
-$callLogs->deleteACallLog($id);
-
-```
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="currencies_controller"></a>![Class: ](https://apidocs.io/img/class.png ".CurrenciesController") CurrenciesController
-
-### Get singleton instance
-
-The singleton instance of the ``` CurrenciesController ``` class can be accessed from the API Client.
-
-```php
-$currencies = $client->getCurrencies();
-```
-
-### <a name="get_all_supported_currencies"></a>![Method: ](https://apidocs.io/img/method.png ".CurrenciesController.getAllSupportedCurrencies") getAllSupportedCurrencies
-
-> Returns all supported currencies in given account which should be used when saving monetary values with other objects. The 'code' parameter of the returning objects is the currency code according to ISO 4217 for all non-custom currencies.
-
-
-```php
-function getAllSupportedCurrencies($term = null)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| term |  ``` Optional ```  | Optional search term that is searched for from currency's name and/or code. |
-
-
-
-#### Example Usage
-
-```php
-$term = 'term';
-
-$result = $currencies->getAllSupportedCurrencies($term);
-
-```
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="deal_fields_controller"></a>![Class: ](https://apidocs.io/img/class.png ".DealFieldsController") DealFieldsController
-
-### Get singleton instance
-
-The singleton instance of the ``` DealFieldsController ``` class can be accessed from the API Client.
-
-```php
-$dealFields = $client->getDealFields();
-```
-
-### <a name="delete_multiple_deal_fields_in_bulk"></a>![Method: ](https://apidocs.io/img/method.png ".DealFieldsController.deleteMultipleDealFieldsInBulk") deleteMultipleDealFieldsInBulk
-
-> Marks multiple fields as deleted.
-
-
-```php
-function deleteMultipleDealFieldsInBulk($ids)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| ids |  ``` Required ```  | Comma-separated field IDs to delete |
-
-
-
-#### Example Usage
-
-```php
-$ids = 'ids';
-
-$dealFields->deleteMultipleDealFieldsInBulk($ids);
-
-```
-
-
-### <a name="get_all_deal_fields"></a>![Method: ](https://apidocs.io/img/method.png ".DealFieldsController.getAllDealFields") getAllDealFields
-
-> Returns data about all fields deals can have
-
-
-```php
-function getAllDealFields($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-
-#### Example Usage
-
-```php
-$start = 0;
-$collect['start'] = $start;
-
-$limit = 119;
-$collect['limit'] = $limit;
-
-
-$dealFields->getAllDealFields($collect);
-
-```
-
-
-### <a name="add_a_new_deal_field"></a>![Method: ](https://apidocs.io/img/method.png ".DealFieldsController.addANewDealField") addANewDealField
-
-> Adds a new deal field. For more information on adding a new custom field, see <a href="https://pipedrive.readme.io/docs/adding-a-new-custom-field" target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```php
-function addANewDealField($body = null)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| body |  ``` Optional ```  | TODO: Add a parameter description |
-
-
-
-#### Example Usage
-
-```php
-$body = array('key' => 'value');
-
-$dealFields->addANewDealField($body);
-
-```
-
-
-### <a name="delete_a_deal_field"></a>![Method: ](https://apidocs.io/img/method.png ".DealFieldsController.deleteADealField") deleteADealField
-
-> Marks a field as deleted. For more information on how to delete a custom field, see <a href="https://pipedrive.readme.io/docs/deleting-a-custom-field" target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```php
-function deleteADealField($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the field |
-
-
-
-#### Example Usage
-
-```php
-$id = 119;
-
-$dealFields->deleteADealField($id);
-
-```
-
-
-### <a name="get_one_deal_field"></a>![Method: ](https://apidocs.io/img/method.png ".DealFieldsController.getOneDealField") getOneDealField
-
-> Returns data about a specific deal field.
-
-
-```php
-function getOneDealField($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the field |
-
-
-
-#### Example Usage
-
-```php
-$id = 119;
-
-$dealFields->getOneDealField($id);
-
-```
-
-
-### <a name="update_a_deal_field"></a>![Method: ](https://apidocs.io/img/method.png ".DealFieldsController.updateADealField") updateADealField
-
-> Updates a deal field. See an example of updating custom fields’ values in <a href=" https://pipedrive.readme.io/docs/updating-custom-field-value " target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```php
-function updateADealField($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the field |
-| name |  ``` Required ```  | Name of the field |
-| options |  ``` Optional ```  | When field_type is either set or enum, possible options must be supplied as a JSON-encoded sequential array, for example: ["red","blue","lilac"] |
-
-
-
-#### Example Usage
-
-```php
-$id = 119;
-$collect['id'] = $id;
-
-$name = 'name';
-$collect['name'] = $name;
-
-$options = 'options';
-$collect['options'] = $options;
-
-
-$dealFields->updateADealField($collect);
-
-```
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="deals_controller"></a>![Class: ](https://apidocs.io/img/class.png ".DealsController") DealsController
-
-### Get singleton instance
-
-The singleton instance of the ``` DealsController ``` class can be accessed from the API Client.
-
-```php
-$deals = $client->getDeals();
-```
-
-### <a name="delete_multiple_deals_in_bulk"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.deleteMultipleDealsInBulk") deleteMultipleDealsInBulk
-
-> Marks multiple deals as deleted.
-
-
-```php
-function deleteMultipleDealsInBulk($ids)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| ids |  ``` Required ```  | Comma-separated IDs that will be deleted |
-
-
-
-#### Example Usage
-
-```php
-$ids = 'ids';
-
-$result = $deals->deleteMultipleDealsInBulk($ids);
-
-```
-
-
-### <a name="get_all_deals"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.getAllDeals") getAllDeals
-
-> Returns all deals. For more information on how to get all deals, see <a href="https://pipedrive.readme.io/docs/getting-all-deals" target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```php
-function getAllDeals($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| userId |  ``` Optional ```  | If supplied, only deals matching the given user will be returned. |
-| filterId |  ``` Optional ```  | ID of the filter to use |
-| stageId |  ``` Optional ```  | If supplied, only deals within the given stage will be returned. |
-| status |  ``` Optional ```  ``` DefaultValue ```  | Only fetch deals with specific status. If omitted, all not deleted deals are fetched. |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-| sort |  ``` Optional ```  | Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys). |
-| ownedByYou |  ``` Optional ```  | When supplied, only deals owned by you are returned. However filter_id takes precedence over owned_by_you when both are supplied. |
-
-
-
-#### Example Usage
-
-```php
-$userId = 119;
-$collect['userId'] = $userId;
-
-$filterId = 119;
-$collect['filterId'] = $filterId;
-
-$stageId = 119;
-$collect['stageId'] = $stageId;
-
-$status = string::ALL_NOT_DELETED;
-$collect['status'] = $status;
-
-$start = 0;
-$collect['start'] = $start;
-
-$limit = 119;
-$collect['limit'] = $limit;
-
-$sort = 'sort';
-$collect['sort'] = $sort;
-
-$ownedByYou = int::ENUM_0;
-$collect['ownedByYou'] = $ownedByYou;
-
-
-$result = $deals->getAllDeals($collect);
-
-```
-
-### <a name="search_deals"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.searchDeals") searchDeals
-
-> Searches all Deals by title, notes and/or custom fields. This endpoint is a wrapper of /v1/itemSearch with a narrower OAuth scope. Found Deals can be filtered by Person ID and Organization ID.
-
-
-```php
-function searchDeals($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| term |  ``` Required ```  | The search term to look for. Minimum 2 characters (or 1 if using exact_match). |
-| fields |  ``` Optional ```  | A comma-separated string array. The fields to perform the search from. Defaults to all of them. |
-| exactMatch |  ``` Optional ```  | When enabled, only full exact matches against the given term are returned. It is not case sensitive. |
-| personId |  ``` Optional ```  | Will filter Deals by the provided Person ID. The upper limit of found Deals associated with the Person is 2000. |
-| organizationId |  ``` Optional ```  | Will filter Deals by the provided Organization ID. The upper limit of found Deals associated with the Organization is 2000. |
-| status |  ``` Optional ```  | Will filter Deals by the provided specific status. open = Open, won = Won, lost = Lost. The upper limit of found Deals associated with the status is 2000. |
-| includeFields |  ``` Optional ```  | Supports including optional fields in the results which are not provided by default. |
-| start |  ``` Optional ```  | Pagination start. Note that the pagination is based on main results and does not include related items when using search_for_related_items parameter. |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-#### Example Usage
-
-```php
-$term = 'term';
-$collect['term'] = $term;
-
-$results = $deals->searchDeals($collect);
-
-```
-
-
-### <a name="add_a_deal"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.addADeal") addADeal
-
-> Adds a new deal. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the dealFields and look for 'key' values. For more information on how to add a deal, see <a href="https://pipedrive.readme.io/docs/creating-a-deal" target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```php
-function addADeal($body = null)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| body |  ``` Optional ```  | TODO: Add a parameter description |
-
-
-
-#### Example Usage
-
-```php
-$body = array('key' => 'value');
-
-$result = $deals->addADeal($body);
-
-```
-
-
-### <a name="get_deals_summary"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.getDealsSummary") getDealsSummary
-
-> Returns summary of all the deals.
-
-
-```php
-function getDealsSummary($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| status |  ``` Optional ```  | Only fetch deals with specific status. open = Open, won = Won, lost = Lost |
-| filterId |  ``` Optional ```  | user_id will not be considered. Only deals matching the given filter will be returned. |
-| userId |  ``` Optional ```  | Only deals matching the given user will be returned. user_id will not be considered if you use filter_id. |
-| stageId |  ``` Optional ```  | Only deals within the given stage will be returned. |
-| pipelineId |  ``` Optional ```  | Only deals within the given pipeline will be returned. |
-
-
-
-#### Example Usage
-
-```php
-$status = string::OPEN;
-$collect['status'] = $status;
-
-$filterId = 119;
-$collect['filterId'] = $filterId;
-
-$userId = 119;
-$collect['userId'] = $userId;
-
-$stageId = 119;
-$collect['stageId'] = $stageId;
-
-
-$result = $deals->getDealsSummary($collect);
-
-```
-
-
-### <a name="get_deals_timeline"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.getDealsTimeline") getDealsTimeline
-
-> Returns open and won deals, grouped by defined interval of time set in a date-type dealField (field_key) — e.g. when month is the chosen interval, and 3 months are asked starting from  January 1st, 2012, deals are returned grouped into 3 groups — January, February and March — based on the value of the given field_key.
-
-
-```php
-function getDealsTimeline($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| startDate |  ``` Required ```  | Date where first interval starts. Format: YYYY-MM-DD |
-| interval |  ``` Required ```  | Type of interval.<dl class="fields-list"><dt>day</dt><dd>Day</dd><dt>week</dt><dd>A full week (7 days) starting from start_date</dd><dt>month</dt><dd>A full month (depending on the number of days in given month) starting from start_date</dd><dt>quarter</dt><dd>A full quarter (3 months) starting from start_date</dd></dl> |
-| amount |  ``` Required ```  | Number of given intervals, starting from start_date, to fetch. E.g. 3 (months). |
-| fieldKey |  ``` Required ```  | The name of the date field by which to get deals by. |
-| userId |  ``` Optional ```  | If supplied, only deals matching the given user will be returned. |
-| pipelineId |  ``` Optional ```  | If supplied, only deals matching the given pipeline will be returned. |
-| filterId |  ``` Optional ```  | If supplied, only deals matching the given filter will be returned. |
-| excludeDeals |  ``` Optional ```  | Whether to exclude deals list (1) or not (0). Note that when deals are excluded, the timeline summary (counts and values) is still returned. |
-| totalsConvertCurrency |  ``` Optional ```  | 3-letter currency code of any of the supported currencies. When supplied, totals_converted is returned per each interval which contains the currency-converted total amounts in the given currency. You may also set this parameter to 'default_currency' in which case users default currency is used. |
-
-
-
-#### Example Usage
-
-```php
-$startDate = date("D M d, Y G:i");
-$collect['startDate'] = $startDate;
-
-$interval = string::DAY;
-$collect['interval'] = $interval;
-
-$amount = 119;
-$collect['amount'] = $amount;
-
-$fieldKey = 'field_key';
-$collect['fieldKey'] = $fieldKey;
-
-$userId = 119;
-$collect['userId'] = $userId;
-
-$pipelineId = 119;
-$collect['pipelineId'] = $pipelineId;
-
-$filterId = 119;
-$collect['filterId'] = $filterId;
-
-$excludeDeals = int::ENUM_0;
-$collect['excludeDeals'] = $excludeDeals;
-
-$totalsConvertCurrency = 'totals_convert_currency';
-$collect['totalsConvertCurrency'] = $totalsConvertCurrency;
-
-
-$result = $deals->getDealsTimeline($collect);
-
-```
-
-
-### <a name="delete_a_deal"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.deleteADeal") deleteADeal
-
-> Marks a deal as deleted.
-
-
-```php
-function deleteADeal($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the deal |
-
-
-
-#### Example Usage
-
-```php
-$id = 119;
-
-$result = $deals->deleteADeal($id);
-
-```
-
-
-### <a name="get_details_of_a_deal"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.getDetailsOfADeal") getDetailsOfADeal
-
-> Returns details of a specific deal. Note that this also returns some additional fields which are not present when asking for all deals – such as deal age and stay in pipeline stages. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the 'key' value of dealFields. For more information on how to get all details of a deal, see <a href="https://pipedrive.readme.io/docs/getting-details-of-a-deal" target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```php
-function getDetailsOfADeal($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the deal |
-
-
-
-#### Example Usage
-
-```php
-$id = 119;
-
-$result = $deals->getDetailsOfADeal($id);
-
-```
-
-
-### <a name="update_a_deal"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.updateADeal") updateADeal
-
-> Updates the properties of a deal. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the dealFields and look for 'key' values. For more information on how to update a deal, see <a href="https://pipedrive.readme.io/docs/updating-a-deal" target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```php
-function updateADeal($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the deal |
-| title |  ``` Optional ```  | Deal title |
-| value |  ``` Optional ```  | Value of the deal. If omitted, value will be set to 0. |
-| currency |  ``` Optional ```  | Currency of the deal. Accepts a 3-character currency code. If omitted, currency will be set to the default currency of the authorized user. |
-| user_id |  ``` Optional ```  | ID of the user who will be marked as the owner of this deal. If omitted, the authorized user ID will be used. |
-| person_id |  ``` Optional ```  | ID of the person this deal will be associated with |
-| org_id |  ``` Optional ```  | ID of the organization this deal will be associated with |
-| stage_id |  ``` Optional ```  | ID of the stage this deal will be placed in a pipeline (note that you can't supply the ID of the pipeline as this will be assigned automatically based on stage_id). If omitted, the deal will be placed in the first stage of the default pipeline. |
-| status |  ``` Optional ```  | open = Open, won = Won, lost = Lost, deleted = Deleted. If omitted, status will be set to open. |
-| expected_close_date |  ``` Optional ```  | The expected close date of the Deal. In ISO 8601 format: YYYY-MM-DD. |
-| probability |  ``` Optional ```  | Deal success probability percentage. Used/shown only when deal_probability for the pipeline of the deal is enabled. |
-| lost_reason |  ``` Optional ```  | Optional message about why the deal was lost (to be used when status=lost) |
-| visible_to |  ``` Optional ```  | Visibility of the deal. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<dl class="fields-list"><dt>1</dt><dd>Owner &amp; followers (private)</dd><dt>3</dt><dd>Entire company (shared)</dd></dl> |
-
-
-
-#### Example Usage
-
-```php
-$id = 27;
-$collect['id'] = $id;
-
-$title = 'title';
-$collect['title'] = $title;
-
-$value = 'value';
-$collect['value'] = $value;
-
-$currency = 'currency';
-$collect['currency'] = $currency;
-
-$userId = 27;
-$collect['user_id'] = $userId;
-
-$personId = 27;
-$collect['person_id'] = $personId;
-
-$orgId = 27;
-$collect['org_id'] = $orgId;
-
-$stageId = 27;
-$collect['stage_id'] = $stageId;
-
-$status = string::OPEN;
-$collect['status'] = $status;
-
-$probability = 27.9633801840075;
-$collect['probability'] = $probability;
-
-$lostReason = 'lost_reason';
-$collect['lost_reason'] = $lostReason;
-
-$visibleTo = int::ENUM_1;
-$collect['visible_to'] = $visibleTo;
-
-
-$result = $deals->updateADeal($collect);
-
-```
-
-
-### <a name="list_activities_associated_with_a_deal"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.listActivitiesAssociatedWithADeal") listActivitiesAssociatedWithADeal
-
-> Lists activities associated with a deal.
-
-
-```php
-function listActivitiesAssociatedWithADeal($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the deal |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-| done |  ``` Optional ```  | Whether the activity is done or not. 0 = Not done, 1 = Done. If omitted returns both Done and Not done activities. |
-| exclude |  ``` Optional ```  | A comma-separated string of activity IDs to exclude from result |
-
-
-
-#### Example Usage
-
-```php
-$id = 27;
-$collect['id'] = $id;
-
-$start = 0;
-$collect['start'] = $start;
-
-$limit = 27;
-$collect['limit'] = $limit;
-
-$done = int::ENUM_0;
-$collect['done'] = $done;
-
-$exclude = 'exclude';
-$collect['exclude'] = $exclude;
-
-
-$deals->listActivitiesAssociatedWithADeal($collect);
-
-```
-
-
-### <a name="create_duplicate_deal"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.createDuplicateDeal") createDuplicateDeal
-
-> Duplicate a deal
-
-
-```php
-function createDuplicateDeal($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the deal |
-
-
-
-#### Example Usage
-
-```php
-$id = 27;
-
-$result = $deals->createDuplicateDeal($id);
-
-```
-
-
-### <a name="list_files_attached_to_a_deal"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.listFilesAttachedToADeal") listFilesAttachedToADeal
-
-> Lists files associated with a deal.
-
-
-```php
-function listFilesAttachedToADeal($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the deal |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-| includeDeletedFiles |  ``` Optional ```  | When enabled, the list of files will also include deleted files. Please note that trying to download these files will not work. |
-| sort |  ``` Optional ```  | Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment. |
-
-
-
-#### Example Usage
-
-```php
-$id = 27;
-$collect['id'] = $id;
-
-$start = 0;
-$collect['start'] = $start;
-
-$limit = 27;
-$collect['limit'] = $limit;
-
-$includeDeletedFiles = int::ENUM_0;
-$collect['includeDeletedFiles'] = $includeDeletedFiles;
-
-$sort = 'sort';
-$collect['sort'] = $sort;
-
-
-$deals->listFilesAttachedToADeal($collect);
-
-```
-
-
-### <a name="list_updates_about_a_deal"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.listUpdatesAboutADeal") listUpdatesAboutADeal
-
-> Lists updates about a deal.
-
-
-```php
-function listUpdatesAboutADeal($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the deal |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-
-#### Example Usage
-
-```php
-$id = 27;
-$collect['id'] = $id;
-
-$start = 0;
-$collect['start'] = $start;
-
-$limit = 27;
-$collect['limit'] = $limit;
-
-
-$deals->listUpdatesAboutADeal($collect);
-
-```
-
-
-### <a name="list_followers_of_a_deal"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.listFollowersOfADeal") listFollowersOfADeal
-
-> Lists the followers of a deal.
-
-
-```php
-function listFollowersOfADeal($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the deal |
-
-
-
-#### Example Usage
-
-```php
-$id = 27;
-
-$deals->listFollowersOfADeal($id);
-
-```
-
-
-### <a name="add_a_follower_to_a_deal"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.addAFollowerToADeal") addAFollowerToADeal
-
-> Adds a follower to a deal.
-
-
-```php
-function addAFollowerToADeal($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the deal |
-| userId |  ``` Required ```  | ID of the user |
-
-
-
-#### Example Usage
-
-```php
-$id = 27;
-$collect['id'] = $id;
-
-$userId = 27;
-$collect['userId'] = $userId;
-
-
-$result = $deals->addAFollowerToADeal($collect);
-
-```
-
-
-### <a name="delete_a_follower_from_a_deal"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.deleteAFollowerFromADeal") deleteAFollowerFromADeal
-
-> Deletes a follower from a deal.
-
-
-```php
-function deleteAFollowerFromADeal($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the deal |
-| followerId |  ``` Required ```  | ID of the follower |
-
-
-
-#### Example Usage
-
-```php
-$id = 27;
-$collect['id'] = $id;
-
-$followerId = 27;
-$collect['followerId'] = $followerId;
-
-
-$result = $deals->deleteAFollowerFromADeal($collect);
-
-```
-
-
-### <a name="list_mail_messages_associated_with_a_deal"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.listMailMessagesAssociatedWithADeal") listMailMessagesAssociatedWithADeal
-
-> Lists mail messages associated with a deal.
-
-
-```php
-function listMailMessagesAssociatedWithADeal($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the deal |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-
-#### Example Usage
-
-```php
-$id = 27;
-$collect['id'] = $id;
-
-$start = 0;
-$collect['start'] = $start;
-
-$limit = 27;
-$collect['limit'] = $limit;
-
-
-$deals->listMailMessagesAssociatedWithADeal($collect);
-
-```
-
-
-### <a name="update_merge_two_deals"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.updateMergeTwoDeals") updateMergeTwoDeals
-
-> Merges a deal with another deal. For more information on how to merge two deals, see <a href="https://pipedrive.readme.io/docs/merging-two-deals" target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```php
-function updateMergeTwoDeals($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the deal |
-| mergeWithId |  ``` Required ```  | ID of the deal that the deal will be merged with |
-
-
-
-#### Example Usage
-
-```php
-$id = 27;
-$collect['id'] = $id;
-
-$mergeWithId = 27;
-$collect['mergeWithId'] = $mergeWithId;
-
-
-$result = $deals->updateMergeTwoDeals($collect);
-
-```
-
-
-### <a name="list_participants_of_a_deal"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.listParticipantsOfADeal") listParticipantsOfADeal
-
-> Lists participants associated with a deal.
-
-
-```php
-function listParticipantsOfADeal($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the deal |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-
-#### Example Usage
-
-```php
-$id = 27;
-$collect['id'] = $id;
-
-$start = 0;
-$collect['start'] = $start;
-
-$limit = 27;
-$collect['limit'] = $limit;
-
-
-$deals->listParticipantsOfADeal($collect);
-
-```
-
-
-### <a name="add_a_participant_to_a_deal"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.addAParticipantToADeal") addAParticipantToADeal
-
-> Adds a participant to a deal.
-
-
-```php
-function addAParticipantToADeal($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the deal |
-| personId |  ``` Required ```  | ID of the person |
-
-
-
-#### Example Usage
-
-```php
-$id = 27;
-$collect['id'] = $id;
-
-$personId = 27;
-$collect['personId'] = $personId;
-
-
-$deals->addAParticipantToADeal($collect);
-
-```
-
-
-### <a name="delete_a_participant_from_a_deal"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.deleteAParticipantFromADeal") deleteAParticipantFromADeal
-
-> Deletes a participant from a deal.
-
-
-```php
-function deleteAParticipantFromADeal($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the deal |
-| dealParticipantId |  ``` Required ```  | ID of the deal participant |
-
-
-
-#### Example Usage
-
-```php
-$id = 27;
-$collect['id'] = $id;
-
-$dealParticipantId = 27;
-$collect['dealParticipantId'] = $dealParticipantId;
-
-
-$result = $deals->deleteAParticipantFromADeal($collect);
-
-```
-
-
-### <a name="list_permitted_users"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.listPermittedUsers") listPermittedUsers
-
-> List users permitted to access a deal
-
-
-```php
-function listPermittedUsers($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the deal |
-
-
-
-#### Example Usage
-
-```php
-$id = 27;
-
-$deals->listPermittedUsers($id);
-
-```
-
-
-### <a name="list_all_persons_associated_with_a_deal"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.listAllPersonsAssociatedWithADeal") listAllPersonsAssociatedWithADeal
-
-> Lists all persons associated with a deal, regardless of whether the person is the primary contact of the deal, or added as a participant.
-
-
-```php
-function listAllPersonsAssociatedWithADeal($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the deal |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-
-#### Example Usage
-
-```php
-$id = 27;
-$collect['id'] = $id;
-
-$start = 0;
-$collect['start'] = $start;
-
-$limit = 27;
-$collect['limit'] = $limit;
-
-
-$deals->listAllPersonsAssociatedWithADeal($collect);
-
-```
-
-
-### <a name="list_products_attached_to_a_deal"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.listProductsAttachedToADeal") listProductsAttachedToADeal
-
-> Lists products attached to a deal.
-
-
-```php
-function listProductsAttachedToADeal($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the deal |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-| includeProductData |  ``` Optional ```  | Whether to fetch product data along with each attached product (1) or not (0, default). |
-
-
-
-#### Example Usage
-
-```php
-$id = 27;
-$collect['id'] = $id;
-
-$start = 0;
-$collect['start'] = $start;
-
-$limit = 27;
-$collect['limit'] = $limit;
-
-$includeProductData = int::ENUM_0;
-$collect['includeProductData'] = $includeProductData;
-
-
-$deals->listProductsAttachedToADeal($collect);
-
-```
-
-
-### <a name="add_a_product_to_the_deal_eventually_creating_a_new_item_called_a_deal_product"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.addAProductToTheDealEventuallyCreatingANewItemCalledADealProduct") addAProductToTheDealEventuallyCreatingANewItemCalledADealProduct <br>_alias_ `addAProductToADeal`
-
-> Adds a product to the deal.
-
-
-```php
-function addAProductToADeal($options);
-function addAProductToTheDealEventuallyCreatingANewItemCalledADealProduct($options);
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the deal |
-| body |  ``` Required ```  | [Body object](https://developers.pipedrive.com/docs/api/v1/Deals#addDealProduct) that has all required body parameters |
-
-
-#### Example Usage
-
-```php
-$id = 27;
-$collect['id'] = $id;
-
-$body = array('key' => 'value');
-$collect['body'] = $body;
-
-$result = $deals->addAProductToADeal($collect);
-// OR
-// $result = $deals->addAProductToTheDealEventuallyCreatingANewItemCalledADealProduct($collect);
-
-```
-
-
-### <a name="update_product_attachment_details_of_the_deal_product_a_product_already_attached_to_a_deal"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.updateProductAttachmentDetailsOfTheDealProductAProductAlreadyAttachedToADeal") updateProductAttachmentDetailsOfTheDealProductAProductAlreadyAttachedToADeal <br>_alias_ `updateTheProductAttachedToADeal`
-
-> Updates product attachment details.
-
-
-```php
-function updateTheProductAttachedToADeal($options);
-function updateProductAttachmentDetailsOfTheDealProductAProductAlreadyAttachedToADeal($options);
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the deal |
-| productAttachmentId |  ``` Required ```  | The ID of the deal-product (the ID of the product attached to the deal) |
-| productId |  ``` Required ```  | The ID of the product to use |
-| itemPrice |  ``` Required ```  | Price at which this product will be added to the deal |
-| quantity |  ``` Required ```  | Quantity – e.g. how many items of this product will be added to the deal |
-| discountPercentage |  ``` Optional ```  | Discount %. If omitted, will be set to 0 |
-| duration |  ``` Optional ```  | Duration of the product (when product durations are not enabled for the company or if omitted, defaults to 1) |
-| productVariationId |  ``` Optional ```  | ID of the product variation to use. When omitted, no variation will be used. |
-| comments |  ``` Optional ```  | Any textual comment associated with this product-deal attachment. Visible and editable in the application UI. |
-| enabledFlag |  ``` Optional ```  | Whether the product is enabled on the deal or not. This makes it possible to add products to a deal with specific price and discount criteria - but keep them disabled, which refrains them from being included in deal price calculation. When omitted, the product will be marked as enabled by default. |
-
-
-
-#### Example Usage
-
-```php
-$id = 27;
-$collect['id'] = $id;
-
-$productAttachmentId = 27;
-$collect['productAttachmentId'] = $productAttachmentId;
-
-$productId = 2;
-$collect['productId'] = $productId;
-
-$itemPrice = 27.9633801840075;
-$collect['itemPrice'] = $itemPrice;
-
-$quantity = 27;
-$collect['quantity'] = $quantity;
-
-$discountPercentage = 27.9633801840075;
-$collect['discountPercentage'] = $discountPercentage;
-
-$duration = 27.9633801840075;
-$collect['duration'] = $duration;
-
-$productVariationId = 27;
-$collect['productVariationId'] = $productVariationId;
-
-$comments = 'comments';
-$collect['comments'] = $comments;
-
-$enabledFlag = int::ENUM_0;
-$collect['enabledFlag'] = $enabledFlag;
-
-$result = $deals->updateTheProductAttachedToADeal($collect);
-// OR
-// $result = $deals->updateProductAttachmentDetailsOfTheDealProductAProductAlreadyAttachedToADeal($collect);
-
-```
-
-
-### <a name="delete_an_attached_product_from_a_deal"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.deleteAnAttachedProductFromADeal") deleteAnAttachedProductFromADeal
-
-> Deletes a product attachment from a deal, using the product_attachment_id.
-
-
-```php
-function deleteAnAttachedProductFromADeal($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the deal |
-| productAttachmentId |  ``` Required ```  | Product attachment ID. This is returned as product_attachment_id after attaching a product to a deal or as id when listing the products attached to a deal. |
-
-
-
-#### Example Usage
-
-```php
-$id = 27;
-$collect['id'] = $id;
-
-$productAttachmentId = 27;
-$collect['productAttachmentId'] = $productAttachmentId;
-
-
-$result = $deals->deleteAnAttachedProductFromADeal($collect);
-
-```
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="files_controller"></a>![Class: ](https://apidocs.io/img/class.png ".FilesController") FilesController
-
-### Get singleton instance
-
-The singleton instance of the ``` FilesController ``` class can be accessed from the API Client.
-
-```php
-$files = $client->getFiles();
-```
-
-### <a name="get_all_files"></a>![Method: ](https://apidocs.io/img/method.png ".FilesController.getAllFiles") getAllFiles
-
-> Returns data about all files.
-
-
-```php
-function getAllFiles($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-| includeDeletedFiles |  ``` Optional ```  | When enabled, the list of files will also include deleted files. Please note that trying to download these files will not work. |
-| sort |  ``` Optional ```  | Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment. |
-
-
-
-#### Example Usage
-
-```php
-$start = 0;
-$collect['start'] = $start;
-
-$limit = 27;
-$collect['limit'] = $limit;
-
-$includeDeletedFiles = int::ENUM_0;
-$collect['includeDeletedFiles'] = $includeDeletedFiles;
-
-$sort = 'sort';
-$collect['sort'] = $sort;
-
-
-$files->getAllFiles($collect);
-
-```
-
-
-### <a name="add_file"></a>![Method: ](https://apidocs.io/img/method.png ".FilesController.addFile") addFile
-
-> Lets you upload a file and associate it with Deal, Person, Organization, Activity or Product. For more information on how to add a file, see <a href="https://pipedrive.readme.io/docs/adding-a-file" target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```php
-function addFile($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| file |  ``` Required ```  | A single file, supplied in the multipart/form-data encoding and contained within the given boundaries. |
-| dealId |  ``` Optional ```  | ID of the deal to associate file(s) with |
-| personId |  ``` Optional ```  | ID of the person to associate file(s) with |
-| orgId |  ``` Optional ```  | ID of the organization to associate file(s) with |
-| productId |  ``` Optional ```  | ID of the product to associate file(s) with |
-| activityId |  ``` Optional ```  | ID of the activity to associate file(s) with |
-| noteId |  ``` Optional ```  | ID of the note to associate file(s) with |
-
-
-
-#### Example Usage
-
-```php
-$file = "PathToFile";
-$collect['file'] = $file;
-
-$dealId = 27;
-$collect['dealId'] = $dealId;
-
-$personId = 27;
-$collect['personId'] = $personId;
-
-$orgId = 27;
-$collect['orgId'] = $orgId;
-
-$productId = 27;
-$collect['productId'] = $productId;
-
-$activityId = 27;
-$collect['activityId'] = $activityId;
-
-$noteId = 27;
-$collect['noteId'] = $noteId;
-
-
-$files->addFile($collect);
-
-```
-
-
-### <a name="create_a_remote_file_and_link_it_to_an_item"></a>![Method: ](https://apidocs.io/img/method.png ".FilesController.createARemoteFileAndLinkItToAnItem") createARemoteFileAndLinkItToAnItem
-
-> Creates a new empty file in the remote location (googledrive) that will be linked to the item you supply. For more information on how to add a remote file, see <a href="https://pipedrive.readme.io/docs/adding-a-remote-file" target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```php
-function createARemoteFileAndLinkItToAnItem($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| fileType |  ``` Required ```  | The file type |
-| title |  ``` Required ```  | The title of the file |
-| itemType |  ``` Required ```  | The item type |
-| itemId |  ``` Required ```  | ID of the item to associate the file with |
-| remoteLocation |  ``` Required ```  | The location type to send the file to. Only googledrive is supported at the moment. |
-
-
-
-#### Example Usage
-
-```php
-$fileType = string::GDOC;
-$collect['fileType'] = $fileType;
-
-$title = 'title';
-$collect['title'] = $title;
-
-$itemType = string::DEAL;
-$collect['itemType'] = $itemType;
-
-$itemId = 27;
-$collect['itemId'] = $itemId;
-
-$remoteLocation = string::GOOGLEDRIVE;
-$collect['remoteLocation'] = $remoteLocation;
-
-
-$files->createARemoteFileAndLinkItToAnItem($collect);
-
-```
-
-
-### <a name="create_link_a_remote_file_to_an_item"></a>![Method: ](https://apidocs.io/img/method.png ".FilesController.createLinkARemoteFileToAnItem") createLinkARemoteFileToAnItem
-
-> Links an existing remote file (googledrive) to the item you supply. For more information on how to link a remote file, see <a href="https://pipedrive.readme.io/docs/adding-a-remote-file" target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```php
-function createLinkARemoteFileToAnItem($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| itemType |  ``` Required ```  | The item type |
-| itemId |  ``` Required ```  | ID of the item to associate the file with |
-| remoteId |  ``` Required ```  | The remote item id |
-| remoteLocation |  ``` Required ```  | The location type to send the file to. Only googledrive is supported at the moment. |
-
-
-
-#### Example Usage
-
-```php
-$itemType = string::DEAL;
-$collect['itemType'] = $itemType;
-
-$itemId = 27;
-$collect['itemId'] = $itemId;
-
-$remoteId = 'remote_id';
-$collect['remoteId'] = $remoteId;
-
-$remoteLocation = string::GOOGLEDRIVE;
-$collect['remoteLocation'] = $remoteLocation;
-
-
-$files->createLinkARemoteFileToAnItem($collect);
-
-```
-
-
-### <a name="delete_a_file"></a>![Method: ](https://apidocs.io/img/method.png ".FilesController.deleteAFile") deleteAFile
-
-> Marks a file as deleted.
-
-
-```php
-function deleteAFile($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the file |
-
-
-
-#### Example Usage
-
-```php
-$id = 27;
-
-$files->deleteAFile($id);
-
-```
-
-
-### <a name="get_one_file"></a>![Method: ](https://apidocs.io/img/method.png ".FilesController.getOneFile") getOneFile
-
-> Returns data about a specific file.
-
-
-```php
-function getOneFile($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the file |
-
-
-
-#### Example Usage
-
-```php
-$id = 27;
-
-$files->getOneFile($id);
-
-```
-
-
-### <a name="update_file_details"></a>![Method: ](https://apidocs.io/img/method.png ".FilesController.updateFileDetails") updateFileDetails
-
-> Updates the properties of a file.
-
-
-```php
-function updateFileDetails($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the file |
-| name |  ``` Optional ```  | Visible name of the file |
-| description |  ``` Optional ```  | Description of the file |
-
-
-
-#### Example Usage
-
-```php
-$id = 27;
-$collect['id'] = $id;
-
-$name = 'name';
-$collect['name'] = $name;
-
-$description = 'description';
-$collect['description'] = $description;
-
-
-$files->updateFileDetails($collect);
-
-```
-
-
-### <a name="get_download_one_file"></a>![Method: ](https://apidocs.io/img/method.png ".FilesController.getDownloadOneFile") getDownloadOneFile
-
-> Initializes a file download.
-
-
-```php
-function getDownloadOneFile($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the file |
-
-
-
-#### Example Usage
-
-```php
-$id = 27;
-
-$files->getDownloadOneFile($id);
-
-```
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="filters_controller"></a>![Class: ](https://apidocs.io/img/class.png ".FiltersController") FiltersController
-
-### Get singleton instance
-
-The singleton instance of the ``` FiltersController ``` class can be accessed from the API Client.
-
-```php
-$filters = $client->getFilters();
-```
-
-### <a name="delete_multiple_filters_in_bulk"></a>![Method: ](https://apidocs.io/img/method.png ".FiltersController.deleteMultipleFiltersInBulk") deleteMultipleFiltersInBulk
-
-> Marks multiple filters as deleted.
-
-
-```php
-function deleteMultipleFiltersInBulk($ids)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| ids |  ``` Required ```  | Comma-separated filter IDs to delete |
-
-
-
-#### Example Usage
-
-```php
-$ids = 'ids';
-
-$filters->deleteMultipleFiltersInBulk($ids);
-
-```
-
-
-### <a name="get_all_filters"></a>![Method: ](https://apidocs.io/img/method.png ".FiltersController.getAllFilters") getAllFilters
-
-> Returns data about all filters
-
-
-```php
-function getAllFilters($type = null)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| type |  ``` Optional ```  | Types of filters to fetch |
-
-
-
-#### Example Usage
-
-```php
-$type = string::DEALS;
-
-$filters->getAllFilters($type);
-
-```
-
-
-### <a name="add_a_new_filter"></a>![Method: ](https://apidocs.io/img/method.png ".FiltersController.addANewFilter") addANewFilter
-
-> Adds a new filter, returns the ID upon success. Note that in the conditions json object only one first-level condition group is supported, and it must be glued with 'AND', and only two second level condition groups are supported of which one must be glued with 'AND' and the second with 'OR'. Other combinations do not work (yet) but the syntax supports introducing them in future. For more information on how to add a new filter, see <a href="https://pipedrive.readme.io/docs/adding-a-filter" target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```php
-function addANewFilter($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| name |  ``` Required ```  | Filter name |
-| conditions |  ``` Required ```  | Filter conditions as a JSON object. It requires a minimum structure as follows: {"glue":"and","conditions":[{"glue":"and","conditions": [CONDITION_OBJECTS]},{"glue":"or","conditions":[CONDITION_OBJECTS]}]}. Replace CONDITION_OBJECTS with JSON objects of the following structure: {"object":"","field_id":"", "operator":"","value":"", "extra_value":""} or leave the array empty. Depending on the object type you should use another API endpoint to get field_id. There are five types of objects you can choose from: "person", "deal", "organization", "product", "activity" and you can use these types of operators depending on what type of a field you have: "IS NOT NULL", "IS NULL", "<=", ">=", "<", ">", "!=", "=", "LIKE '%$%'", "NOT LIKE '%$%'", "LIKE '$%'", "NOT LIKE '$%'", "LIKE '%$'", "NOT LIKE '%$'". To get a better understanding of how filters work try creating them directly from the Pipedrive application. |
-| type |  ``` Required ```  | Type of filter to create. |
-
-
-
-#### Example Usage
-
-```php
-$name = 'name';
-$collect['name'] = $name;
-
-$conditions = 'conditions';
-$collect['conditions'] = $conditions;
-
-$type = string::DEALS;
-$collect['type'] = $type;
-
-
-$filters->addANewFilter($collect);
-
-```
-
-
-### <a name="get_all_filter_helpers"></a>![Method: ](https://apidocs.io/img/method.png ".FiltersController.getAllFilterHelpers") getAllFilterHelpers
-
-> Returns all supported filter helpers. It helps to know what conditions and helpers are available when you want to <a href="/docs/api/v1/#!/Filters/post_filters">add</a> or <a href="/docs/api/v1/#!/Filters/put_filters_id">update</a> filters. For more information on how filter’s helpers can be used, see <a href="https://pipedrive.readme.io/docs/adding-a-filter" target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```php
-function getAllFilterHelpers()
-```
-
-#### Example Usage
-
-```php
-
-$filters->getAllFilterHelpers();
-
-```
-
-
-### <a name="delete_a_filter"></a>![Method: ](https://apidocs.io/img/method.png ".FiltersController.deleteAFilter") deleteAFilter
-
-> Marks a filter as deleted.
-
-
-```php
-function deleteAFilter($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the filter |
-
-
-
-#### Example Usage
-
-```php
-$id = 27;
-
-$filters->deleteAFilter($id);
-
-```
-
-
-### <a name="get_one_filter"></a>![Method: ](https://apidocs.io/img/method.png ".FiltersController.getOneFilter") getOneFilter
-
-> Returns data about a specific filter. Note that this also returns the condition lines of the filter.
-
-
-```php
-function getOneFilter($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the filter |
-
-
-
-#### Example Usage
-
-```php
-$id = 27;
-
-$filters->getOneFilter($id);
-
-```
-
-
-### <a name="update_filter"></a>![Method: ](https://apidocs.io/img/method.png ".FiltersController.updateFilter") updateFilter
-
-> Updates existing filter.
-
-
-```php
-function updateFilter($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the filter |
-| conditions |  ``` Required ```  | Filter conditions as a JSON object. It requires a minimum structure as follows: {"glue":"and","conditions":[{"glue":"and","conditions": [CONDITION_OBJECTS]},{"glue":"or","conditions":[CONDITION_OBJECTS]}]}. Replace CONDITION_OBJECTS with JSON objects of the following structure: {"object":"","field_id":"", "operator":"","value":"", "extra_value":""} or leave the array empty. Depending on the object type you should use another API endpoint to get field_id. There are five types of objects you can choose from: "person", "deal", "organization", "product", "activity" and you can use these types of operators depending on what type of a field you have: "IS NOT NULL", "IS NULL", "<=", ">=", "<", ">", "!=", "=", "LIKE '%$%'", "NOT LIKE '%$%'", "LIKE '$%'", "NOT LIKE '$%'", "LIKE '%$'", "NOT LIKE '%$'". To get a better understanding of how filters work try creating them directly from the Pipedrive application. |
-| name |  ``` Optional ```  | Filter name |
-
-
-
-#### Example Usage
-
-```php
-$id = 27;
-$collect['id'] = $id;
-
-$conditions = 'conditions';
-$collect['conditions'] = $conditions;
-
-$name = 'name';
-$collect['name'] = $name;
-
-
-$filters->updateFilter($collect);
-
-```
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="global_messages_controller"></a>![Class: ](https://apidocs.io/img/class.png ".GlobalMessagesController") GlobalMessagesController
-
-### Get singleton instance
-
-The singleton instance of the ``` GlobalMessagesController ``` class can be accessed from the API Client.
-
-```php
-$globalMessages = $client->getGlobalMessages();
-```
-
-### <a name="get_global_messages"></a>![Method: ](https://apidocs.io/img/method.png ".GlobalMessagesController.getGlobalMessages") getGlobalMessages
-
-> Returns data about global messages to display for the authorized user.
-
-
-```php
-function getGlobalMessages($limit = 1)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| limit |  ``` Optional ```  ``` DefaultValue ```  | Number of messages to get from 1 to 100. The message number 1 is returned by default. |
-
-
-
-#### Example Usage
-
-```php
-$limit = 1;
-
-$result = $globalMessages->getGlobalMessages($limit);
-
-```
-
-
-### <a name="delete_dismiss_a_global_message"></a>![Method: ](https://apidocs.io/img/method.png ".GlobalMessagesController.deleteDismissAGlobalMessage") deleteDismissAGlobalMessage
-
-> Removes global message from being shown, if message is dismissible
-
-
-```php
-function deleteDismissAGlobalMessage($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of global message to be dismissed. |
-
-
-
-#### Example Usage
-
-```php
-$id = 27;
-
-$result = $globalMessages->deleteDismissAGlobalMessage($id);
-
-```
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="goals_controller"></a>![Class: ](https://apidocs.io/img/class.png ".GoalsController") GoalsController
-
-### Get singleton instance
-
-The singleton instance of the ``` GoalsController ``` class can be accessed from the API Client.
-
-```php
-$goals = $client->getGoals();
-```
-
-### <a name="add_a_new_goal"></a>![Method: ](https://apidocs.io/img/method.png ".GoalsController.addANewGoal") addANewGoal
-
-> Adds a new goal.
-
-
-```php
-function addANewGoal($body = null)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| body |  ``` Optional ```  | TODO: Add a parameter description |
-
-
-
-#### Example Usage
-
-```php
-$body = array('key' => 'value');
-
-$goals->addANewGoal($body);
-
-```
-
-
-### <a name="find_goals"></a>![Method: ](https://apidocs.io/img/method.png ".GoalsController.findGoals") findGoals
-
-> Returns data about goals based on criteria. For searching, append `{searchField}={searchValue}` to the URL, where `searchField` can be any one of the lowest-level fields in dot-notation (e.g. `type.params.pipeline_id`; `title`). `searchValue` should be the value you are looking for on that field. Additionally, `is_active=<true|false>` can be provided to search for only active/inactive goals. When providing `period.start`, `period.end` must also be provided and vice versa.
-
-
-```php
-function findGoals($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| typeName |  ``` Optional ```  | Type of the goal. If provided, everyone's goals will be returned. |
-| title |  ``` Optional ```  | Title of the goal. |
-| isActive |  ``` Optional ```  ``` DefaultValue ```  | Whether goal is active or not. |
-| assigneeId |  ``` Optional ```  | ID of the user who's goal to fetch. When omitted, only your goals will be returned. |
-| assigneeType |  ``` Optional ```  | Type of the goal's assignee. If provided, everyone's goals will be returned. |
-| expectedOutcomeTarget |  ``` Optional ```  | Numeric value of the outcome. If provided, everyone's goals will be returned. |
-| expectedOutcomeTrackingMetric |  ``` Optional ```  | Tracking metric of the expected outcome of the goal. If provided, everyone's goals will be returned. |
-| expectedOutcomeCurrencyId |  ``` Optional ```  | Numeric ID of the goal's currency. Only applicable to goals with `expected_outcome.tracking_metric` with value `sum`. If provided, everyone's goals will be returned. |
-| typeParamsPipelineId |  ``` Optional ```  | ID of the pipeline or `null` for all pipelines. If provided, everyone's goals will be returned. |
-| typeParamsStageId |  ``` Optional ```  | ID of the stage. Applicable to only `deals_progressed` type of goals. If provided, everyone's goals will be returned. |
-| typeParamsActivityTypeId |  ``` Optional ```  | ID of the activity type. Applicable to only `activities_completed` or `activities_added` types of goals. If provided, everyone's goals will be returned. |
-| periodStart |  ``` Optional ```  | Start date of the period for which to find goals. Date in format of YYYY-MM-DD. When `period.start` is provided, `period.end` must be provided too. |
-| periodEnd |  ``` Optional ```  | End date of the period for which to find goals. Date in format of YYYY-MM-DD. |
-
-
-
-#### Example Usage
-
-```php
-$typeName = string::DEALS_WON;
-$collect['typeName'] = $typeName;
-
-$title = 'title';
-$collect['title'] = $title;
-
-$isActive = true;
-$collect['isActive'] = $isActive;
-
-$assigneeId = 27;
-$collect['assigneeId'] = $assigneeId;
-
-$assigneeType = string::PERSON;
-$collect['assigneeType'] = $assigneeType;
-
-$expectedOutcomeTarget = 27.9633801840075;
-$collect['expectedOutcomeTarget'] = $expectedOutcomeTarget;
-
-$expectedOutcomeTrackingMetric = string::QUANTITY;
-$collect['expectedOutcomeTrackingMetric'] = $expectedOutcomeTrackingMetric;
-
-$expectedOutcomeCurrencyId = 27;
-$collect['expectedOutcomeCurrencyId'] = $expectedOutcomeCurrencyId;
-
-$typeParamsPipelineId = 27;
-$collect['typeParamsPipelineId'] = $typeParamsPipelineId;
-
-$typeParamsStageId = 27;
-$collect['typeParamsStageId'] = $typeParamsStageId;
-
-$typeParamsActivityTypeId = 27;
-$collect['typeParamsActivityTypeId'] = $typeParamsActivityTypeId;
-
-$periodStart = date("D M d, Y G:i");
-$collect['periodStart'] = $periodStart;
-
-$periodEnd = date("D M d, Y G:i");
-$collect['periodEnd'] = $periodEnd;
-
-
-$goals->findGoals($collect);
-
-```
-
-
-### <a name="update_existing_goal"></a>![Method: ](https://apidocs.io/img/method.png ".GoalsController.updateExistingGoal") updateExistingGoal
-
-> Updates existing goal.
-
-
-```php
-function updateExistingGoal($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the goal to be updated. |
-| title |  ``` Optional ```  | Title of the goal. |
-| assignee |  ``` Optional ```  | Who is this goal assigned to. It requires the following JSON structure: { "id": "1", "type": "person" }. `type` can be either `person`, `company` or `team`. ID of the assignee person, company or team. |
-| type |  ``` Optional ```  | Type of the goal. It requires the following JSON structure: { "name": "deals_started", "params": { "pipeline_id": 1 } }. Type can be one of: `deals_won`,`deals_progressed`,`activities_completed`,`activities_added` or `deals_started`. `params` can include `pipeline_id`, `stage_id` or `activity_type_id`. `stage_id` is related to only `deals_progressed` type of goals and `activity_type_id` to `activities_completed` or `activities_added` types of goals. To track goal in all pipelines set `pipeline_id` as `null`. |
-| expectedOutcome |  ``` Optional ```  | Expected outcome of the goal. Expected outcome can be tracked either by `quantity` or by `sum`. It requires the following JSON structure: { "target": "50", "tracking_metric": "quantity" } or { "target": "50", "tracking_metric": "sum", "currency_id": 1 }. `currency_id` should only be added to `sum` type of goals. |
-| duration |  ``` Optional ```  | Date when the goal starts and ends. It requires the following JSON structure: { "start": "2019-01-01", "end": "2022-12-31" }. Date in format of YYYY-MM-DD. |
-| interval |  ``` Optional ```  | Date when the goal starts and ends. It requires the following JSON structure: { "start": "2019-01-01", "end": "2022-12-31" }. Date in format of YYYY-MM-DD. |
-
-
-
-#### Example Usage
-
-```php
-$id = 'id';
-$collect['id'] = $id;
-
-$title = 'title';
-$collect['title'] = $title;
-
-$assignee = array('key' => 'value');
-$collect['assignee'] = $assignee;
-
-$type = array('key' => 'value');
-$collect['type'] = $type;
-
-$expectedOutcome = array('key' => 'value');
-$collect['expectedOutcome'] = $expectedOutcome;
-
-$duration = array('key' => 'value');
-$collect['duration'] = $duration;
-
-$interval = string::WEEKLY;
-$collect['interval'] = $interval;
-
-
-$goals->updateExistingGoal($collect);
-
-```
-
-
-### <a name="delete_existing_goal"></a>![Method: ](https://apidocs.io/img/method.png ".GoalsController.deleteExistingGoal") deleteExistingGoal
-
-> Marks goal as deleted.
-
-
-```php
-function deleteExistingGoal($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the goal to be deleted. |
-
-
-
-#### Example Usage
-
-```php
-$id = 'id';
-
-$goals->deleteExistingGoal($id);
-
-```
-
-
-### <a name="get_result_of_a_goal"></a>![Method: ](https://apidocs.io/img/method.png ".GoalsController.getResultOfAGoal") getResultOfAGoal
-
-> Gets progress of a goal for specified period.
-
-
-```php
-function getResultOfAGoal($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the goal that the results are looked for. |
-| periodStart |  ``` Required ```  | Start date of the period for which to find progress of a goal. Date in format of YYYY-MM-DD. |
-| periodEnd |  ``` Required ```  | End date of the period for which to find progress of a goal. Date in format of YYYY-MM-DD. |
-
-
-
-#### Example Usage
-
-```php
-$id = 'id';
-$collect['id'] = $id;
-
-$periodStart = date("D M d, Y G:i");
-$collect['periodStart'] = $periodStart;
-
-$periodEnd = date("D M d, Y G:i");
-$collect['periodEnd'] = $periodEnd;
-
-
-$goals->getResultOfAGoal($collect);
-
-```
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="item_search_controller"></a>![Class: ](https://apidocs.io/img/class.png ".ItemSearchController") ItemSearchController
-
-### Get singleton instance
-
-The singleton instance of the ```ItemSearchController``` class can be accessed from the API Client.
-
-```php
-$itemSearch = $client->getItemSearch();
-```
-
-
-### <a name="perform_a_search_from_multiple_item_types"></a>![Method: ](https://apidocs.io/img/method.png ".ItemSearchController.performASearchFromMultipleItemTypes") performASearchFromMultipleItemTypes
-
-> Perform a search from multiple item types
-
-
-```php
-function performASearchFromMultipleItemTypes($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| term |  ``` Required ```  | Search term to look for, minimum 2 characters. |
-| itemTypes |  ``` Optional ```  | A comma-separated string array. The type of items to perform the search from. Defaults to all. |
-| fields |  ``` Optional ```  | A comma-separated string array. The fields to perform the search from. Defaults to all. |
-| searchForRelatedItems |  ``` Optional ```  | When enabled, the response will include up to 100 newest related Leads and 100 newest related Deals for each found Person and Organization and up to 100 newest related Persons for each found Organization. |
-| exactMatch |  ``` Optional ```  | When enabled, only full exact matches against the given term are returned. It is not case sensitive. |
-| includeFields |  ``` Optional ```  | A comma-separated string array. Supports including optional fields in the results which are not provided by default.|
-| start |  ``` Optional ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-#### Example Usage
-
-```php
-$term = 'term';
-$collect['term'] = $term;
-
-$results = $itemSearch->performASearchFromMultipleItemTypes($collect);
-
-```
-
-### <a name="perform_a_search_using_a_specific_field_from_an_item_type"></a>![Method: ](https://apidocs.io/img/method.png ".ItemSearchController.performASearchUsingASpecificFieldFromAnItemType") performASearchUsingASpecificFieldFromAnItemType
-
-> Perform a search using a specific field from an item type
-
-
-```php
-function performASearchUsingASpecificFieldFromAnItemType($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| term |  ``` Required ```  | The search term to look for. Minimum 2 characters (or 1 if using exact_match). |
-| fieldType |  ``` Required ```  | The type of the field to perform the search from |
-| fieldKey |  ``` Required ```  | The key of the field to search from. The field key can be obtained by fetching the list of the fields using any of the fields' API GET methods (dealFields, personFields, etc.). |
-| exactMatch |  ``` Optional ```  | When enabled, only full exact matches against the given term are returned. The search is case sensitive. |
-| returnItemIds |  ``` Optional ```  | Whether to return the IDs of the matching items or not. When not set or set to 0 or false, only distinct values of the searched field are returned. When set to 1 or true, the ID of each found item is returned. |
-| start |  ``` Optional ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-#### Example Usage
-
-```php
-
-$collect['term'] = 'term';
-$collect['fieldType'] = 'dealField';
-$collect['fieldKey'] = 'title';
-
-$results = $itemSearch->performASearchUsingASpecificFieldFromAnItemType($collect);
-
-```
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="mail_messages_controller"></a>![Class: ](https://apidocs.io/img/class.png ".MailMessagesController") MailMessagesController
-
-### Get singleton instance
-
-The singleton instance of the ``` MailMessagesController ``` class can be accessed from the API Client.
-
-```php
-$mailMessages = $client->getMailMessages();
-```
-
-### <a name="get_one_mail_message"></a>![Method: ](https://apidocs.io/img/method.png ".MailMessagesController.getOneMailMessage") getOneMailMessage
-
-> Returns data about specific mail message.
-
-
-```php
-function getOneMailMessage($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the mail message to fetch. |
-| includeBody |  ``` Optional ```  | Whether to include full message body or not. 0 = Don't include, 1 = Include |
-
-
-
-#### Example Usage
-
-```php
-$id = 27;
-$collect['id'] = $id;
-
-$includeBody = int::ENUM_0;
-$collect['includeBody'] = $includeBody;
-
-
-$result = $mailMessages->getOneMailMessage($collect);
-
-```
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="mail_threads_controller"></a>![Class: ](https://apidocs.io/img/class.png ".MailThreadsController") MailThreadsController
-
-### Get singleton instance
-
-The singleton instance of the ``` MailThreadsController ``` class can be accessed from the API Client.
-
-```php
-$mailThreads = $client->getMailThreads();
-```
-
-### <a name="get_mail_threads"></a>![Method: ](https://apidocs.io/img/method.png ".MailThreadsController.getMailThreads") getMailThreads
-
-> Returns mail threads in specified folder ordered by most recent message within.
-
-
-```php
-function getMailThreads($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| folder |  ``` Required ```  ``` DefaultValue ```  | Type of folder to fetch. |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-
-#### Example Usage
-
-```php
-$folder = string::INBOX;
-$collect['folder'] = $folder;
-
-$start = 0;
-$collect['start'] = $start;
-
-$limit = 27;
-$collect['limit'] = $limit;
-
-
-$result = $mailThreads->getMailThreads($collect);
-
-```
-
-
-### <a name="delete_mail_thread"></a>![Method: ](https://apidocs.io/img/method.png ".MailThreadsController.deleteMailThread") deleteMailThread
-
-> Marks mail thread as deleted.
-
-
-```php
-function deleteMailThread($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the mail thread |
-
-
-
-#### Example Usage
-
-```php
-$id = 27;
-
-$result = $mailThreads->deleteMailThread($id);
-
-```
-
-
-### <a name="get_one_mail_thread"></a>![Method: ](https://apidocs.io/img/method.png ".MailThreadsController.getOneMailThread") getOneMailThread
-
-> Returns specific mail thread.
-
-
-```php
-function getOneMailThread($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the mail thread |
-
-
-
-#### Example Usage
-
-```php
-$id = 27;
-
-$result = $mailThreads->getOneMailThread($id);
-
-```
-
-
-### <a name="update_mail_thread_details"></a>![Method: ](https://apidocs.io/img/method.png ".MailThreadsController.updateMailThreadDetails") updateMailThreadDetails
-
-> Updates the properties of a mail thread.
-
-
-```php
-function updateMailThreadDetails($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the mail thread |
-| dealId |  ``` Optional ```  | ID of the deal this thread is associated with |
-| sharedFlag |  ``` Optional ```  | TODO: Add a parameter description |
-| readFlag |  ``` Optional ```  | TODO: Add a parameter description |
-| archivedFlag |  ``` Optional ```  | TODO: Add a parameter description |
-
-
-
-#### Example Usage
-
-```php
-$id = 27;
-$collect['id'] = $id;
-
-$dealId = 27;
-$collect['dealId'] = $dealId;
-
-$sharedFlag = int::ENUM_0;
-$collect['sharedFlag'] = $sharedFlag;
-
-$readFlag = int::ENUM_0;
-$collect['readFlag'] = $readFlag;
-
-$archivedFlag = int::ENUM_0;
-$collect['archivedFlag'] = $archivedFlag;
-
-
-$result = $mailThreads->updateMailThreadDetails($collect);
-
-```
-
-
-### <a name="get_all_mail_messages_of_mail_thread"></a>![Method: ](https://apidocs.io/img/method.png ".MailThreadsController.getAllMailMessagesOfMailThread") getAllMailMessagesOfMailThread
-
-> Get mail messages inside specified mail thread.
-
-
-```php
-function getAllMailMessagesOfMailThread($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the mail thread |
-
-
-
-#### Example Usage
-
-```php
-$id = 27;
-
-$result = $mailThreads->getAllMailMessagesOfMailThread($id);
-
-```
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="note_fields_controller"></a>![Class: ](https://apidocs.io/img/class.png ".NoteFieldsController") NoteFieldsController
-
-### Get singleton instance
-
-The singleton instance of the ``` NoteFieldsController ``` class can be accessed from the API Client.
-
-```php
-$noteFields = $client->getNoteFields();
-```
-
-### <a name="get_all_fields_for_a_note"></a>![Method: ](https://apidocs.io/img/method.png ".NoteFieldsController.getAllFieldsForANote") getAllFieldsForANote
-
-> Return list of all fields for note
-
-
-```php
-function getAllFieldsForANote()
-```
-
-#### Example Usage
-
-```php
-
-$noteFields->getAllFieldsForANote();
-
-```
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="notes_controller"></a>![Class: ](https://apidocs.io/img/class.png ".NotesController") NotesController
-
-### Get singleton instance
-
-The singleton instance of the ``` NotesController ``` class can be accessed from the API Client.
-
-```php
-$notes = $client->getNotes();
-```
-
-### <a name="get_all_notes"></a>![Method: ](https://apidocs.io/img/method.png ".NotesController.getAllNotes") getAllNotes
-
-> Returns all notes.
-
-
-```php
-function getAllNotes($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| userId |  ``` Optional ```  | ID of the user whose notes to fetch. If omitted, notes by all users will be returned. |
-| leadId |  ``` Optional ```  | ID of the lead which notes to fetch. If omitted, notes about all leads will be returned. |
-| dealId |  ``` Optional ```  | ID of the deal which notes to fetch. If omitted, notes about all deals will be returned. |
-| personId |  ``` Optional ```  | ID of the person whose notes to fetch. If omitted, notes about all persons will be returned. |
-| orgId |  ``` Optional ```  | ID of the organization which notes to fetch. If omitted, notes about all organizations will be returned. |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-| sort |  ``` Optional ```  | Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, content, add_time, update_time. |
-| startDate |  ``` Optional ```  | Date in format of YYYY-MM-DD from which notes to fetch from. |
-| endDate |  ``` Optional ```  | Date in format of YYYY-MM-DD until which notes to fetch to. |
-| pinnedToLeadlFlag |  ``` Optional ```  | If set, then results are filtered by note to lead pinning state. |
-| pinnedToDealFlag |  ``` Optional ```  | If set, then results are filtered by note to deal pinning state. |
-| pinnedToOrganizationFlag |  ``` Optional ```  | If set, then results are filtered by note to organization pinning state. |
-| pinnedToPersonFlag |  ``` Optional ```  | If set, then results are filtered by note to person pinning state. |
-
-
-
-#### Example Usage
-
-```php
-$userId = 69;
-$collect['userId'] = $userId;
-
-$leadId = 'adf21080-0e10-11eb-879b-05d71fb426ec';
-$collect['leadId'] = $leadId;
-
-$dealId = 69;
-$collect['dealId'] = $dealId;
-
-$personId = 69;
-$collect['personId'] = $personId;
-
-$orgId = 69;
-$collect['orgId'] = $orgId;
-
-$start = 0;
-$collect['start'] = $start;
-
-$limit = 69;
-$collect['limit'] = $limit;
-
-$sort = 'sort';
-$collect['sort'] = $sort;
-
-$startDate = date("D M d, Y G:i");
-$collect['startDate'] = $startDate;
-
-$endDate = date("D M d, Y G:i");
-$collect['endDate'] = $endDate;
-
-$pinnedToLeadFlag = int::ENUM_0;
-$collect['pinnedToLeadFlag'] = $pinnedToLeadFlag;
-
-$pinnedToDealFlag = int::ENUM_0;
-$collect['pinnedToDealFlag'] = $pinnedToDealFlag;
-
-$pinnedToOrganizationFlag = int::ENUM_0;
-$collect['pinnedToOrganizationFlag'] = $pinnedToOrganizationFlag;
-
-$pinnedToPersonFlag = int::ENUM_0;
-$collect['pinnedToPersonFlag'] = $pinnedToPersonFlag;
-
-
-$result = $notes->getAllNotes($collect);
-
-```
-
-
-### <a name="add_a_note"></a>![Method: ](https://apidocs.io/img/method.png ".NotesController.addANote") addANote
-
-> Adds a new note.
-
-
-```php
-function addANote($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| content |  ``` Required ```  | Content of the note in HTML format. Subject to sanitization on the back-end. |
-| userId |  ``` Optional ```  | ID of the user who will be marked as the author of this note. Only an admin can change the author. |
-| leadId |  ``` Optional ```  | ID of the lead the note will be attached to. |
-| dealId |  ``` Optional ```  | ID of the deal the note will be attached to. |
-| personId |  ``` Optional ```  | ID of the person this note will be attached to. |
-| orgId |  ``` Optional ```  | ID of the organization this note will be attached to. |
-| addTime |  ``` Optional ```  | Optional creation date & time of the Note in UTC. Can be set in the past or in the future. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS |
-| pinnedToLeadFlag |  ``` Optional ```  | If set, then results are filtered by note to lead pinning state (lead_id is also required). |
-| pinnedToDealFlag |  ``` Optional ```  | If set, then results are filtered by note to deal pinning state (deal_id is also required). |
-| pinnedToOrganizationFlag |  ``` Optional ```  | If set, then results are filtered by note to organization pinning state (org_id is also required). |
-| pinnedToPersonFlag |  ``` Optional ```  | If set, then results are filtered by note to person pinning state (person_id is also required). |
-
-
-
-#### Example Usage
-
-```php
-$content = 'content';
-$collect['content'] = $content;
-
-$userId = 69;
-$collect['userId'] = $userId;
-
-$leadId = 'adf21080-0e10-11eb-879b-05d71fb426ec';
-$collect['leadId'] = $leadId;
-
-$dealId = 69;
-$collect['dealId'] = $dealId;
-
-$personId = 69;
-$collect['personId'] = $personId;
-
-$orgId = 69;
-$collect['orgId'] = $orgId;
-
-$addTime = 'add_time';
-$collect['addTime'] = $addTime;
-
-$pinnedToLeadFlag = int::ENUM_0;
-$collect['pinnedToLeadFlag'] = $pinnedToLeadFlag;
-
-$pinnedToDealFlag = int::ENUM_0;
-$collect['pinnedToDealFlag'] = $pinnedToDealFlag;
-
-$pinnedToOrganizationFlag = int::ENUM_0;
-$collect['pinnedToOrganizationFlag'] = $pinnedToOrganizationFlag;
-
-$pinnedToPersonFlag = int::ENUM_0;
-$collect['pinnedToPersonFlag'] = $pinnedToPersonFlag;
-
-
-$result = $notes->addANote($collect);
-
-```
-
-
-### <a name="delete_a_note"></a>![Method: ](https://apidocs.io/img/method.png ".NotesController.deleteANote") deleteANote
-
-> Deletes a specific note.
-
-
-```php
-function deleteANote($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the note |
-
-
-
-#### Example Usage
-
-```php
-$id = 69;
-
-$result = $notes->deleteANote($id);
-
-```
-
-
-### <a name="get_one_note"></a>![Method: ](https://apidocs.io/img/method.png ".NotesController.getOneNote") getOneNote
-
-> Returns details about a specific note.
-
-
-```php
-function getOneNote($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the note |
-
-
-
-#### Example Usage
-
-```php
-$id = 69;
-
-$result = $notes->getOneNote($id);
-
-```
-
-
-### <a name="update_a_note"></a>![Method: ](https://apidocs.io/img/method.png ".NotesController.updateANote") updateANote
-
-> Updates a note.
-
-
-```php
-function updateANote($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the note |
-| content |  ``` Required ```  | Content of the note in HTML format. Subject to sanitization on the back-end. |
-| userId |  ``` Optional ```  | ID of the user who will be marked as the author of this note. Only an admin can change the author. |
-| leadId |  ``` Optional ```  | ID of the lead the note will be attached to. |
-| dealId |  ``` Optional ```  | ID of the deal the note will be attached to. |
-| personId |  ``` Optional ```  | ID of the person this note will be attached to. |
-| orgId |  ``` Optional ```  | ID of the organization this note will be attached to. |
-| addTime |  ``` Optional ```  | Optional creation date & time of the Note in UTC. Can be set in the past or in the future. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS |
-| pinnedToLeadFlag |  ``` Optional ```  | If set, then results are filtered by note to lead pinning state (lead_id is also required). |
-| pinnedToDealFlag |  ``` Optional ```  | If set, then results are filtered by note to deal pinning state (deal_id is also required). |
-| pinnedToOrganizationFlag |  ``` Optional ```  | If set, then results are filtered by note to organization pinning state (org_id is also required). |
-| pinnedToPersonFlag |  ``` Optional ```  | If set, then results are filtered by note to person pinning state (person_id is also required). |
-
-
-
-#### Example Usage
-
-```php
-$id = 69;
-$collect['id'] = $id;
-
-$content = 'content';
-$collect['content'] = $content;
-
-$userId = 69;
-$collect['userId'] = $userId;
-
-$leadId = 'adf21080-0e10-11eb-879b-05d71fb426ec';
-$collect['leadId'] = $leadId;
-
-$dealId = 69;
-$collect['dealId'] = $dealId;
-
-$personId = 69;
-$collect['personId'] = $personId;
-
-$orgId = 69;
-$collect['orgId'] = $orgId;
-
-$addTime = 'add_time';
-$collect['addTime'] = $addTime;
-
-$pinnedToLeadFlag = int::ENUM_0;
-$collect['pinnedToLeadFlag'] = $pinnedToLeadFlag;
-
-$pinnedToDealFlag = int::ENUM_0;
-$collect['pinnedToDealFlag'] = $pinnedToDealFlag;
-
-$pinnedToOrganizationFlag = int::ENUM_0;
-$collect['pinnedToOrganizationFlag'] = $pinnedToOrganizationFlag;
-
-$pinnedToPersonFlag = int::ENUM_0;
-$collect['pinnedToPersonFlag'] = $pinnedToPersonFlag;
-
-
-$result = $notes->updateANote($collect);
-
-```
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="organization_fields_controller"></a>![Class: ](https://apidocs.io/img/class.png ".OrganizationFieldsController") OrganizationFieldsController
-
-### Get singleton instance
-
-The singleton instance of the ``` OrganizationFieldsController ``` class can be accessed from the API Client.
-
-```php
-$organizationFields = $client->getOrganizationFields();
-```
-
-### <a name="delete_multiple_organization_fields_in_bulk"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationFieldsController.deleteMultipleOrganizationFieldsInBulk") deleteMultipleOrganizationFieldsInBulk
-
-> Marks multiple fields as deleted.
-
-
-```php
-function deleteMultipleOrganizationFieldsInBulk($ids)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| ids |  ``` Required ```  | Comma-separated field IDs to delete |
-
-
-
-#### Example Usage
-
-```php
-$ids = 'ids';
-
-$organizationFields->deleteMultipleOrganizationFieldsInBulk($ids);
-
-```
-
-
-### <a name="get_all_organization_fields"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationFieldsController.getAllOrganizationFields") getAllOrganizationFields
-
-> Returns data about all organization fields
-
-
-```php
-function getAllOrganizationFields()
-```
-
-#### Example Usage
-
-```php
-
-$organizationFields->getAllOrganizationFields();
-
-```
-
-
-### <a name="add_a_new_organization_field"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationFieldsController.addANewOrganizationField") addANewOrganizationField
-
-> Adds a new organization field. For more information on adding a new custom field, see <a href="https://pipedrive.readme.io/docs/adding-a-new-custom-field" target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```php
-function addANewOrganizationField($body = null)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| body |  ``` Optional ```  | TODO: Add a parameter description |
-
-
-
-#### Example Usage
-
-```php
-$body = array('key' => 'value');
-
-$organizationFields->addANewOrganizationField($body);
-
-```
-
-
-### <a name="delete_an_organization_field"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationFieldsController.deleteAnOrganizationField") deleteAnOrganizationField
-
-> Marks a field as deleted. For more information on how to delete a custom field, see <a href="https://pipedrive.readme.io/docs/deleting-a-custom-field" target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```php
-function deleteAnOrganizationField($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the field |
-
-
-
-#### Example Usage
-
-```php
-$id = 69;
-
-$organizationFields->deleteAnOrganizationField($id);
-
-```
-
-
-### <a name="get_one_organization_field"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationFieldsController.getOneOrganizationField") getOneOrganizationField
-
-> Returns data about a specific organization field.
-
-
-```php
-function getOneOrganizationField($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the field |
-
-
-
-#### Example Usage
-
-```php
-$id = 69;
-
-$organizationFields->getOneOrganizationField($id);
-
-```
-
-
-### <a name="update_an_organization_field"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationFieldsController.updateAnOrganizationField") updateAnOrganizationField
-
-> Updates an organization field. See an example of updating custom fields’ values in <a href=" https://pipedrive.readme.io/docs/updating-custom-field-value " target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```php
-function updateAnOrganizationField($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the field |
-| name |  ``` Required ```  | Name of the field |
-| options |  ``` Optional ```  | When field_type is either set or enum, possible options must be supplied as a JSON-encoded sequential array of objects. All active items must be supplied and already existing items must have their ID supplied. New items only require a label. Example: [{"id":123,"label":"Existing Item"},{"label":"New Item"}] |
-
-
-
-#### Example Usage
-
-```php
-$id = 69;
-$collect['id'] = $id;
-
-$name = 'name';
-$collect['name'] = $name;
-
-$options = 'options';
-$collect['options'] = $options;
-
-
-$organizationFields->updateAnOrganizationField($collect);
-
-```
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="organization_relationships_controller"></a>![Class: ](https://apidocs.io/img/class.png ".OrganizationRelationshipsController") OrganizationRelationshipsController
-
-### Get singleton instance
-
-The singleton instance of the ``` OrganizationRelationshipsController ``` class can be accessed from the API Client.
-
-```php
-$organizationRelationships = $client->getOrganizationRelationships();
-```
-
-### <a name="get_all_relationships_for_organization"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationRelationshipsController.getAllRelationshipsForOrganization") getAllRelationshipsForOrganization
-
-> Gets all of the relationships for a supplied organization id.
-
-
-```php
-function getAllRelationshipsForOrganization($orgId)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| orgId |  ``` Required ```  | ID of the organization to get relationships for |
-
-
-
-#### Example Usage
-
-```php
-$orgId = 69;
-
-$organizationRelationships->getAllRelationshipsForOrganization($orgId);
-
-```
-
-
-### <a name="create_an_organization_relationship"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationRelationshipsController.createAnOrganizationRelationship") createAnOrganizationRelationship
-
-> Creates and returns an organization relationship.
-
-
-```php
-function createAnOrganizationRelationship($body = null)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| body |  ``` Optional ```  | TODO: Add a parameter description |
-
-
-
-#### Example Usage
-
-```php
-$body = array('key' => 'value');
-
-$organizationRelationships->createAnOrganizationRelationship($body);
-
-```
-
-
-### <a name="delete_an_organization_relationship"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationRelationshipsController.deleteAnOrganizationRelationship") deleteAnOrganizationRelationship
-
-> Deletes an organization relationship and returns the deleted id.
-
-
-```php
-function deleteAnOrganizationRelationship($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the organization relationship |
-
-
-
-#### Example Usage
-
-```php
-$id = 69;
-
-$organizationRelationships->deleteAnOrganizationRelationship($id);
-
-```
-
-
-### <a name="get_one_organization_relationship"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationRelationshipsController.getOneOrganizationRelationship") getOneOrganizationRelationship
-
-> Finds and returns an organization relationship from its ID.
-
-
-```php
-function getOneOrganizationRelationship($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the organization relationship |
-| orgId |  ``` Optional ```  | ID of the base organization for the returned calculated values |
-
-
-
-#### Example Usage
-
-```php
-$id = 69;
-$collect['id'] = $id;
-
-$orgId = 69;
-$collect['orgId'] = $orgId;
-
-
-$organizationRelationships->getOneOrganizationRelationship($collect);
-
-```
-
-
-### <a name="update_an_organization_relationship"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationRelationshipsController.updateAnOrganizationRelationship") updateAnOrganizationRelationship
-
-> Updates and returns an organization relationship.
-
-
-```php
-function updateAnOrganizationRelationship($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the organization relationship |
-| orgId |  ``` Optional ```  | ID of the base organization for the returned calculated values |
-| type |  ``` Optional ```  | The type of organization relationship. |
-| relOwnerOrgId |  ``` Optional ```  | The owner of this relationship. If type is 'parent', then the owner is the parent and the linked organization is the daughter. |
-| relLinkedOrgId |  ``` Optional ```  | The linked organization in this relationship. If type is 'parent', then the linked organization is the daughter. |
-
-
-
-#### Example Usage
-
-```php
-$id = 69;
-$collect['id'] = $id;
-
-$orgId = 69;
-$collect['orgId'] = $orgId;
-
-$type = string::PARENT;
-$collect['type'] = $type;
-
-$relOwnerOrgId = 69;
-$collect['relOwnerOrgId'] = $relOwnerOrgId;
-
-$relLinkedOrgId = 69;
-$collect['relLinkedOrgId'] = $relLinkedOrgId;
-
-
-$organizationRelationships->updateAnOrganizationRelationship($collect);
-
-```
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="organizations_controller"></a>![Class: ](https://apidocs.io/img/class.png ".OrganizationsController") OrganizationsController
-
-### Get singleton instance
-
-The singleton instance of the ``` OrganizationsController ``` class can be accessed from the API Client.
-
-```php
-$organizations = $client->getOrganizations();
-```
-
-### <a name="delete_multiple_organizations_in_bulk"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationsController.deleteMultipleOrganizationsInBulk") deleteMultipleOrganizationsInBulk
-
-> Marks multiple organizations as deleted.
-
-
-```php
-function deleteMultipleOrganizationsInBulk($ids)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| ids |  ``` Required ```  | Comma-separated IDs that will be deleted |
-
-
-
-#### Example Usage
-
-```php
-$ids = 'ids';
-
-$organizations->deleteMultipleOrganizationsInBulk($ids);
-
-```
-
-
-### <a name="get_all_organizations"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationsController.getAllOrganizations") getAllOrganizations
-
-> Returns all organizations
-
-
-```php
-function getAllOrganizations($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| userId |  ``` Optional ```  | If supplied, only organizations owned by the given user will be returned. |
-| filterId |  ``` Optional ```  | ID of the filter to use |
-| firstChar |  ``` Optional ```  | If supplied, only organizations whose name starts with the specified letter will be returned (case insensitive). |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-| sort |  ``` Optional ```  | Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys). |
-
-
-
-#### Example Usage
-
-```php
-$userId = 69;
-$collect['userId'] = $userId;
-
-$filterId = 69;
-$collect['filterId'] = $filterId;
-
-$firstChar = 'first_char';
-$collect['firstChar'] = $firstChar;
-
-$start = 0;
-$collect['start'] = $start;
-
-$limit = 69;
-$collect['limit'] = $limit;
-
-$sort = 'sort';
-$collect['sort'] = $sort;
-
-
-$organizations->getAllOrganizations($collect);
-
-```
-
-### <a name="search_organizations"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationsController.searchOrganizations") searchOrganizations
-
-> Searches all Organizations by name, address, notes and/or custom fields. This endpoint is a wrapper of /v1/itemSearch with a narrower OAuth scope.
-
-
-```php
-function searchOrganizations($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| term |  ``` Required ```  | The search term to look for. Minimum 2 characters (or 1 if using exact_match). |
-| fields |  ``` Optional ```  | A comma-separated string array. The fields to perform the search from. Defaults to all of them. |
-| exactMatch |  ``` Optional ```  | When enabled, only full exact matches against the given term are returned. It is not case sensitive. |
-| start |  ``` Optional ```  | Pagination start. Note that the pagination is based on main results and does not include related items when using search_for_related_items parameter. |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-#### Example Usage
-
-```php
-$term = 'term';
-$collect['term'] = $term;
-
-$results = $organizations->searchOrganizations($collect);
-
-```
-
-
-### <a name="add_an_organization"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationsController.addAnOrganization") addAnOrganization
-
-> Adds a new organization. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the organizationFields and look for 'key' values. For more information on how to add an organization, see <a href="https://pipedrive.readme.io/docs/adding-an-organization" target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```php
-function addAnOrganization($body = null)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| body |  ``` Optional ```  | TODO: Add a parameter description |
-
-
-
-#### Example Usage
-
-```php
-$body = array('key' => 'value');
-
-$organizations->addAnOrganization($body);
-
-```
-
-### <a name="delete_an_organization"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationsController.deleteAnOrganization") deleteAnOrganization
-
-> Marks an organization as deleted.
-
-
-```php
-function deleteAnOrganization($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the organization |
-
-
-
-#### Example Usage
-
-```php
-$id = 69;
-
-$organizations->deleteAnOrganization($id);
-
-```
-
-
-### <a name="get_details_of_an_organization"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationsController.getDetailsOfAnOrganization") getDetailsOfAnOrganization
-
-> Returns details of an organization. Note that this also returns some additional fields which are not present when asking for all organizations. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the 'key' value of organizationFields.
-
-
-```php
-function getDetailsOfAnOrganization($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the organization |
-
-
-
-#### Example Usage
-
-```php
-$id = 69;
-
-$organizations->getDetailsOfAnOrganization($id);
-
-```
-
-
-### <a name="update_an_organization"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationsController.updateAnOrganization") updateAnOrganization
-
-> Updates the properties of an organization. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the organizationFields and look for 'key' values.
-
-
-```php
-function updateAnOrganization($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the organization |
-| name |  ``` Optional ```  | Organization name |
-| ownerId |  ``` Optional ```  | ID of the user who will be marked as the owner of this organization. When omitted, the authorized user ID will be used. |
-| visibleTo |  ``` Optional ```  | Visibility of the organization. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<dl class=\"fields-list\"><dt>1</dt><dd>Owner &amp; followers (private)</dd><dt>3</dt><dd>Entire company (shared)</dd></dl> |
-
-
-
-#### Example Usage
-
-```php
-$id = 69;
-$collect['id'] = $id;
-
-$name = 'name';
-$collect['name'] = $name;
-
-$ownerId = 69;
-$collect['ownerId'] = $ownerId;
-
-$visibleTo = int::ENUM_1;
-$collect['visibleTo'] = $visibleTo;
-
-
-$organizations->updateAnOrganization($collect);
-
-```
-
-
-### <a name="list_activities_associated_with_an_organization"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationsController.listActivitiesAssociatedWithAnOrganization") listActivitiesAssociatedWithAnOrganization
-
-> Lists activities associated with an organization.
-
-
-```php
-function listActivitiesAssociatedWithAnOrganization($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the organization |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-| done |  ``` Optional ```  | Whether the activity is done or not. 0 = Not done, 1 = Done. If omitted returns both Done and Not done activities. |
-| exclude |  ``` Optional ```  | A comma-separated string of activity IDs to exclude from result |
-
-
-
-#### Example Usage
-
-```php
-$id = 69;
-$collect['id'] = $id;
-
-$start = 0;
-$collect['start'] = $start;
-
-$limit = 69;
-$collect['limit'] = $limit;
-
-$done = int::ENUM_0;
-$collect['done'] = $done;
-
-$exclude = 'exclude';
-$collect['exclude'] = $exclude;
-
-
-$organizations->listActivitiesAssociatedWithAnOrganization($collect);
-
-```
-
-
-### <a name="list_deals_associated_with_an_organization"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationsController.listDealsAssociatedWithAnOrganization") listDealsAssociatedWithAnOrganization
-
-> Lists deals associated with an organization.
-
-
-```php
-function listDealsAssociatedWithAnOrganization($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the organization |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-| status |  ``` Optional ```  ``` DefaultValue ```  | Only fetch deals with specific status. If omitted, all not deleted deals are fetched. |
-| sort |  ``` Optional ```  | Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys). |
-| onlyPrimaryAssociation |  ``` Optional ```  | If set, only deals that are directly associated to the organization are fetched. If not set (default), all deals are fetched that are either directly or indirectly related to the organization. Indirect relations include relations through custom, organization-type fields and through persons of the given organization. |
-
-
-
-#### Example Usage
-
-```php
-$id = 69;
-$collect['id'] = $id;
-
-$start = 0;
-$collect['start'] = $start;
-
-$limit = 69;
-$collect['limit'] = $limit;
-
-$status = string::ALL_NOT_DELETED;
-$collect['status'] = $status;
-
-$sort = 'sort';
-$collect['sort'] = $sort;
-
-$onlyPrimaryAssociation = int::ENUM_0;
-$collect['onlyPrimaryAssociation'] = $onlyPrimaryAssociation;
-
-
-$organizations->listDealsAssociatedWithAnOrganization($collect);
-
-```
-
-
-### <a name="list_files_attached_to_an_organization"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationsController.listFilesAttachedToAnOrganization") listFilesAttachedToAnOrganization
-
-> Lists files associated with an organization.
-
-
-```php
-function listFilesAttachedToAnOrganization($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the organization |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-| includeDeletedFiles |  ``` Optional ```  | When enabled, the list of files will also include deleted files. Please note that trying to download these files will not work. |
-| sort |  ``` Optional ```  | Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment. |
-
-
-
-#### Example Usage
-
-```php
-$id = 69;
-$collect['id'] = $id;
-
-$start = 0;
-$collect['start'] = $start;
-
-$limit = 69;
-$collect['limit'] = $limit;
-
-$includeDeletedFiles = int::ENUM_0;
-$collect['includeDeletedFiles'] = $includeDeletedFiles;
-
-$sort = 'sort';
-$collect['sort'] = $sort;
-
-
-$organizations->listFilesAttachedToAnOrganization($collect);
-
-```
-
-
-### <a name="list_updates_about_an_organization"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationsController.listUpdatesAboutAnOrganization") listUpdatesAboutAnOrganization
-
-> Lists updates about an organization.
-
-
-```php
-function listUpdatesAboutAnOrganization($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the organization |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-
-#### Example Usage
-
-```php
-$id = 69;
-$collect['id'] = $id;
-
-$start = 0;
-$collect['start'] = $start;
-
-$limit = 69;
-$collect['limit'] = $limit;
-
-
-$organizations->listUpdatesAboutAnOrganization($collect);
-
-```
-
-
-### <a name="list_followers_of_an_organization"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationsController.listFollowersOfAnOrganization") listFollowersOfAnOrganization
-
-> Lists the followers of an organization.
-
-
-```php
-function listFollowersOfAnOrganization($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the organization |
-
-
-
-#### Example Usage
-
-```php
-$id = 69;
-
-$organizations->listFollowersOfAnOrganization($id);
-
-```
-
-
-### <a name="add_a_follower_to_an_organization"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationsController.addAFollowerToAnOrganization") addAFollowerToAnOrganization
-
-> Adds a follower to an organization.
-
-
-```php
-function addAFollowerToAnOrganization($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the organization |
-| userId |  ``` Required ```  | ID of the user |
-
-
-
-#### Example Usage
-
-```php
-$id = 69;
-$collect['id'] = $id;
-
-$userId = 69;
-$collect['userId'] = $userId;
-
-
-$organizations->addAFollowerToAnOrganization($collect);
-
-```
-
-
-### <a name="delete_a_follower_from_an_organization"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationsController.deleteAFollowerFromAnOrganization") deleteAFollowerFromAnOrganization
-
-> Deletes a follower from an organization. You can retrieve the follower_id from the <a href="https://developers.pipedrive.com/docs/api/v1/#!/Organizations/get_organizations_id_followers">List followers of an organization</a> endpoint.
-
-
-```php
-function deleteAFollowerFromAnOrganization($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the organization |
-| followerId |  ``` Required ```  | ID of the follower |
-
-
-
-#### Example Usage
-
-```php
-$id = 69;
-$collect['id'] = $id;
-
-$followerId = 69;
-$collect['followerId'] = $followerId;
-
-
-$organizations->deleteAFollowerFromAnOrganization($collect);
-
-```
-
-
-### <a name="list_mail_messages_associated_with_an_organization"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationsController.listMailMessagesAssociatedWithAnOrganization") listMailMessagesAssociatedWithAnOrganization
-
-> Lists mail messages associated with an organization.
-
-
-```php
-function listMailMessagesAssociatedWithAnOrganization($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the organization |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-
-#### Example Usage
-
-```php
-$id = 69;
-$collect['id'] = $id;
-
-$start = 0;
-$collect['start'] = $start;
-
-$limit = 69;
-$collect['limit'] = $limit;
-
-
-$organizations->listMailMessagesAssociatedWithAnOrganization($collect);
-
-```
-
-
-### <a name="update_merge_two_organizations"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationsController.updateMergeTwoOrganizations") updateMergeTwoOrganizations
-
-> Merges an organization with another organization. For more information on how to merge two organizations, see <a href="https://pipedrive.readme.io/docs/merging-two-organizations" target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```php
-function updateMergeTwoOrganizations($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the organization |
-| mergeWithId |  ``` Required ```  | ID of the organization that the organization will be merged with |
-
-
-
-#### Example Usage
-
-```php
-$id = 69;
-$collect['id'] = $id;
-
-$mergeWithId = 69;
-$collect['mergeWithId'] = $mergeWithId;
-
-
-$organizations->updateMergeTwoOrganizations($collect);
-
-```
-
-
-### <a name="list_permitted_users"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationsController.listPermittedUsers") listPermittedUsers
-
-> List users permitted to access an organization
-
-
-```php
-function listPermittedUsers($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the organization |
-
-
-
-#### Example Usage
-
-```php
-$id = 69;
-
-$organizations->listPermittedUsers($id);
-
-```
-
-
-### <a name="list_persons_of_an_organization"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationsController.listPersonsOfAnOrganization") listPersonsOfAnOrganization
-
-> Lists persons associated with an organization.
-
-
-```php
-function listPersonsOfAnOrganization($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the organization |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-
-#### Example Usage
-
-```php
-$id = 69;
-$collect['id'] = $id;
-
-$start = 0;
-$collect['start'] = $start;
-
-$limit = 69;
-$collect['limit'] = $limit;
-
-
-$organizations->listPersonsOfAnOrganization($collect);
-
-```
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="permission_sets_controller"></a>![Class: ](https://apidocs.io/img/class.png ".PermissionSetsController") PermissionSetsController
-
-### Get singleton instance
-
-The singleton instance of the ``` PermissionSetsController ``` class can be accessed from the API Client.
-
-```php
-$permissionSets = $client->getPermissionSets();
-```
-
-### <a name="get_all_permission_sets"></a>![Method: ](https://apidocs.io/img/method.png ".PermissionSetsController.getAllPermissionSets") getAllPermissionSets
-
-> Get all Permission Sets
-
-
-```php
-function getAllPermissionSets()
-```
-
-#### Example Usage
-
-```php
-
-$result = $permissionSets->getAllPermissionSets();
-
-```
-
-#### Errors
-
-| Error Code | Error Description |
-|------------|-------------------|
-| 404 | If the User ID has no assignments, then it will return NotFound |
-
-
-
-### <a name="get_one_permission_set"></a>![Method: ](https://apidocs.io/img/method.png ".PermissionSetsController.getOnePermissionSet") getOnePermissionSet
-
-> Get one Permission Set
-
-
-```php
-function getOnePermissionSet($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the permission set |
-
-
-
-#### Example Usage
-
-```php
-$id = 69;
-
-$result = $permissionSets->getOnePermissionSet($id);
-
-```
-
-#### Errors
-
-| Error Code | Error Description |
-|------------|-------------------|
-| 404 | If the User ID has no assignments, then it will return NotFound |
-
-
-
-### <a name="list_permission_set_assignments"></a>![Method: ](https://apidocs.io/img/method.png ".PermissionSetsController.listPermissionSetAssignments") listPermissionSetAssignments
-
-> The list of assignments for a Permission Set
-
-
-```php
-function listPermissionSetAssignments($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the permission set |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-
-#### Example Usage
-
-```php
-$id = 69;
-$collect['id'] = $id;
-
-$start = 0;
-$collect['start'] = $start;
-
-$limit = 69;
-$collect['limit'] = $limit;
-
-
-$result = $permissionSets->listPermissionSetAssignments($collect);
-
-```
-
-#### Errors
-
-| Error Code | Error Description |
-|------------|-------------------|
-| 404 | If the User ID has no assignments, then it will return NotFound |
-
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="person_fields_controller"></a>![Class: ](https://apidocs.io/img/class.png ".PersonFieldsController") PersonFieldsController
-
-### Get singleton instance
-
-The singleton instance of the ``` PersonFieldsController ``` class can be accessed from the API Client.
-
-```php
-$personFields = $client->getPersonFields();
-```
-
-### <a name="delete_multiple_person_fields_in_bulk"></a>![Method: ](https://apidocs.io/img/method.png ".PersonFieldsController.deleteMultiplePersonFieldsInBulk") deleteMultiplePersonFieldsInBulk
-
-> Marks multiple fields as deleted.
-
-
-```php
-function deleteMultiplePersonFieldsInBulk($ids)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| ids |  ``` Required ```  | Comma-separated field IDs to delete |
-
-
-
-#### Example Usage
-
-```php
-$ids = 'ids';
-
-$personFields->deleteMultiplePersonFieldsInBulk($ids);
-
-```
-
-
-### <a name="get_all_person_fields"></a>![Method: ](https://apidocs.io/img/method.png ".PersonFieldsController.getAllPersonFields") getAllPersonFields
-
-> Returns data about all person fields
-
-
-```php
-function getAllPersonFields()
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start     |
-| limit |  ``` Optional ``` | Items shown per page |
-
-#### Example Usage
-
-```php
-$start = 0;
-$collect['start'] = $start;
-
-$limit = 69;
-$collect['limit'] = $limit;
-
-$personFields->getAllPersonFields($collect);
-```
-
-### <a name="add_a_new_person_field"></a>![Method: ](https://apidocs.io/img/method.png ".PersonFieldsController.addANewPersonField") addANewPersonField
-
-> Adds a new person field. For more information on adding a new custom field, see <a href="https://pipedrive.readme.io/docs/adding-a-new-custom-field" target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```php
-function addANewPersonField($body = null)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| body |  ``` Optional ```  | TODO: Add a parameter description |
-
-
-
-#### Example Usage
-
-```php
-$body = array('key' => 'value');
-
-$personFields->addANewPersonField($body);
-
-```
-
-
-### <a name="delete_a_person_field"></a>![Method: ](https://apidocs.io/img/method.png ".PersonFieldsController.deleteAPersonField") deleteAPersonField
-
-> Marks a field as deleted. For more information on how to delete a custom field, see <a href="https://pipedrive.readme.io/docs/deleting-a-custom-field" target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```php
-function deleteAPersonField($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the field |
-
-
-
-#### Example Usage
-
-```php
-$id = 69;
-
-$personFields->deleteAPersonField($id);
-
-```
-
-
-### <a name="get_one_person_field"></a>![Method: ](https://apidocs.io/img/method.png ".PersonFieldsController.getOnePersonField") getOnePersonField
-
-> Returns data about a specific person field.
-
-
-```php
-function getOnePersonField($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the field |
-
-
-
-#### Example Usage
-
-```php
-$id = 69;
-
-$personFields->getOnePersonField($id);
-
-```
-
-
-### <a name="update_a_person_field"></a>![Method: ](https://apidocs.io/img/method.png ".PersonFieldsController.updateAPersonField") updateAPersonField
-
-> Updates a person field. See an example of updating custom fields’ values in <a href="https://pipedrive.readme.io/docs/updating-custom-field-value" target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```php
-function updateAPersonField($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the field |
-| name |  ``` Required ```  | Name of the field |
-| options |  ``` Optional ```  | When field_type is either set or enum, possible options must be supplied as a JSON-encoded sequential array of objects. All active items must be supplied and already existing items must have their ID supplied. New items only require a label. Example: [{"id":123,"label":"Existing Item"},{"label":"New Item"}] |
-
-
-
-#### Example Usage
-
-```php
-$id = 69;
-$collect['id'] = $id;
-
-$name = 'name';
-$collect['name'] = $name;
-
-$options = 'options';
-$collect['options'] = $options;
-
-
-$personFields->updateAPersonField($collect);
-
-```
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="persons_controller"></a>![Class: ](https://apidocs.io/img/class.png ".PersonsController") PersonsController
-
-### Get singleton instance
-
-The singleton instance of the ``` PersonsController ``` class can be accessed from the API Client.
-
-```php
-$persons = $client->getPersons();
-```
-
-### <a name="delete_multiple_persons_in_bulk"></a>![Method: ](https://apidocs.io/img/method.png ".PersonsController.deleteMultiplePersonsInBulk") deleteMultiplePersonsInBulk
-
-> Marks multiple persons as deleted.
-
-
-```php
-function deleteMultiplePersonsInBulk($ids = null)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| ids |  ``` Optional ```  | Comma-separated IDs that will be deleted |
-
-
-
-#### Example Usage
-
-```php
-$ids = 'ids';
-
-$persons->deleteMultiplePersonsInBulk($ids);
-
-```
-
-
-### <a name="get_all_persons"></a>![Method: ](https://apidocs.io/img/method.png ".PersonsController.getAllPersons") getAllPersons
-
-> Returns all persons
-
-
-```php
-function getAllPersons($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| userId |  ``` Optional ```  | If supplied, only persons owned by the given user will be returned. |
-| filterId |  ``` Optional ```  | ID of the filter to use. |
-| firstChar |  ``` Optional ```  | If supplied, only persons whose name starts with the specified letter will be returned (case insensitive). |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-| sort |  ``` Optional ```  | Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys). |
-
-
-
-#### Example Usage
-
-```php
-$userId = 233;
-$collect['userId'] = $userId;
-
-$filterId = 233;
-$collect['filterId'] = $filterId;
-
-$firstChar = 'first_char';
-$collect['firstChar'] = $firstChar;
-
-$start = 0;
-$collect['start'] = $start;
-
-$limit = 233;
-$collect['limit'] = $limit;
-
-$sort = 'sort';
-$collect['sort'] = $sort;
-
-
-$persons->getAllPersons($collect);
-
-```
-
-### <a name="search_persons"></a>![Method: ](https://apidocs.io/img/method.png ".PersonsController.searchPersons") searchPersons
-
-> Searches all Persons by name, email, phone, notes and/or custom fields. This endpoint is a wrapper of /v1/itemSearch with a narrower OAuth scope. Found Persons can be filtered by Organization ID.
-
-
-```php
-function searchPersons($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| term |  ``` Required ```  | The search term to look for. Minimum 2 characters (or 1 if using exact_match). |
-| fields |  ``` Optional ```  | A comma-separated string array. The fields to perform the search from. Defaults to all of them. |
-| exactMatch |  ``` Optional ```  | When enabled, only full exact matches against the given term are returned. It is not case sensitive. |
-| organizationId |  ``` Optional ```  | Will filter Deals by the provided Organization ID. The upper limit of found Deals associated with the Organization is 2000. |
-| includeFields |  ``` Optional ```  | Supports including optional fields in the results which are not provided by default. |
-| start |  ``` Optional ```  | Pagination start. Note that the pagination is based on main results and does not include related items when using search_for_related_items parameter. |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-#### Example Usage
-
-```php
-$term = 'term';
-$collect['term'] = $term;
-
-$results = $persons->searchPersons($collect);
-
-```
-
-
-### <a name="add_a_person"></a>![Method: ](https://apidocs.io/img/method.png ".PersonsController.addAPerson") addAPerson
-
-> Adds a new person. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the personFields and look for 'key' values.
-
-
-```php
-function addAPerson($body = null)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| body |  ``` Optional ```  | TODO: Add a parameter description |
-
-
-
-#### Example Usage
-
-```php
-$body = array('key' => 'value');
-
-$persons->addAPerson($body);
-
-```
-
-
-### <a name="delete_a_person"></a>![Method: ](https://apidocs.io/img/method.png ".PersonsController.deleteAPerson") deleteAPerson
-
-> Marks a person as deleted.
-
-
-```php
-function deleteAPerson($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of a person |
-
-
-
-#### Example Usage
-
-```php
-$id = 233;
-
-$persons->deleteAPerson($id);
-
-```
-
-
-### <a name="get_details_of_a_person"></a>![Method: ](https://apidocs.io/img/method.png ".PersonsController.getDetailsOfAPerson") getDetailsOfAPerson
-
-> Returns details of a person. Note that this also returns some additional fields which are not present when asking for all persons. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the 'key' value of personFields.
-
-
-```php
-function getDetailsOfAPerson($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of a person |
-
-
-
-#### Example Usage
-
-```php
-$id = 233;
-
-$persons->getDetailsOfAPerson($id);
-
-```
-
-
-### <a name="update_a_person"></a>![Method: ](https://apidocs.io/img/method.png ".PersonsController.updateAPerson") updateAPerson
-
-> Updates the properties of a person. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the personFields and look for 'key' values. For more information on how to update a person, see <a href="https://pipedrive.readme.io/docs/updating-a-person" target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```php
-function updateAPerson($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of a person |
-| name |  ``` Optional ```  | Person name |
-| ownerId |  ``` Optional ```  | ID of the user who will be marked as the owner of this person. When omitted, the authorized user ID will be used. |
-| orgId |  ``` Optional ```  | ID of the organization this person will belong to. |
-| email |  ``` Optional ```  ``` Collection ```  | Email addresses (one or more) associated with the person, presented in the same manner as received by GET request of a person. |
-| phone |  ``` Optional ```  ``` Collection ```  | Phone numbers (one or more) associated with the person, presented in the same manner as received by GET request of a person. |
-| visibleTo |  ``` Optional ```  | Visibility of the person. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<dl class="fields-list"><dt>1</dt><dd>Owner &amp; followers (private)</dd><dt>3</dt><dd>Entire company (shared)</dd></dl> |
-
-
-
-#### Example Usage
-
-```php
-$id = 233;
-$collect['id'] = $id;
-
-$name = 'name';
-$collect['name'] = $name;
-
-$ownerId = 233;
-$collect['ownerId'] = $ownerId;
-
-$orgId = 233;
-$collect['orgId'] = $orgId;
-
-$email = array('email');
-$collect['email'] = $email;
-
-$phone = array('phone');
-$collect['phone'] = $phone;
-
-$visibleTo = int::ENUM_1;
-$collect['visibleTo'] = $visibleTo;
-
-
-$persons->updateAPerson($collect);
-
-```
-
-
-### <a name="list_activities_associated_with_a_person"></a>![Method: ](https://apidocs.io/img/method.png ".PersonsController.listActivitiesAssociatedWithAPerson") listActivitiesAssociatedWithAPerson
-
-> Lists activities associated with a person.
-
-
-```php
-function listActivitiesAssociatedWithAPerson($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of a person |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-| done |  ``` Optional ```  | Whether the activity is done or not. 0 = Not done, 1 = Done. If omitted returns both Done and Not done activities. |
-| exclude |  ``` Optional ```  | A comma-separated string of activity IDs to exclude from result |
-
-
-
-#### Example Usage
-
-```php
-$id = 233;
-$collect['id'] = $id;
-
-$start = 0;
-$collect['start'] = $start;
-
-$limit = 233;
-$collect['limit'] = $limit;
-
-$done = int::ENUM_0;
-$collect['done'] = $done;
-
-$exclude = 'exclude';
-$collect['exclude'] = $exclude;
-
-
-$persons->listActivitiesAssociatedWithAPerson($collect);
-
-```
-
-
-### <a name="list_deals_associated_with_a_person"></a>![Method: ](https://apidocs.io/img/method.png ".PersonsController.listDealsAssociatedWithAPerson") listDealsAssociatedWithAPerson
-
-> Lists deals associated with a person.
-
-
-```php
-function listDealsAssociatedWithAPerson($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of a person |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-| status |  ``` Optional ```  ``` DefaultValue ```  | Only fetch deals with specific status. If omitted, all not deleted deals are fetched. |
-| sort |  ``` Optional ```  | Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys). |
-
-
-
-#### Example Usage
-
-```php
-$id = 233;
-$collect['id'] = $id;
-
-$start = 0;
-$collect['start'] = $start;
-
-$limit = 233;
-$collect['limit'] = $limit;
-
-$status = string::ALL_NOT_DELETED;
-$collect['status'] = $status;
-
-$sort = 'sort';
-$collect['sort'] = $sort;
-
-
-$persons->listDealsAssociatedWithAPerson($collect);
-
-```
-
-
-### <a name="list_files_attached_to_a_person"></a>![Method: ](https://apidocs.io/img/method.png ".PersonsController.listFilesAttachedToAPerson") listFilesAttachedToAPerson
-
-> Lists files associated with a person.
-
-
-```php
-function listFilesAttachedToAPerson($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of a person |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-| includeDeletedFiles |  ``` Optional ```  | When enabled, the list of files will also include deleted files. Please note that trying to download these files will not work. |
-| sort |  ``` Optional ```  | Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment. |
-
-
-
-#### Example Usage
-
-```php
-$id = 233;
-$collect['id'] = $id;
-
-$start = 0;
-$collect['start'] = $start;
-
-$limit = 233;
-$collect['limit'] = $limit;
-
-$includeDeletedFiles = int::ENUM_0;
-$collect['includeDeletedFiles'] = $includeDeletedFiles;
-
-$sort = 'sort';
-$collect['sort'] = $sort;
-
-
-$persons->listFilesAttachedToAPerson($collect);
-
-```
-
-
-### <a name="list_updates_about_a_person"></a>![Method: ](https://apidocs.io/img/method.png ".PersonsController.listUpdatesAboutAPerson") listUpdatesAboutAPerson
-
-> Lists updates about a person.
-
-
-```php
-function listUpdatesAboutAPerson($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of a person |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-
-#### Example Usage
-
-```php
-$id = 233;
-$collect['id'] = $id;
-
-$start = 0;
-$collect['start'] = $start;
-
-$limit = 233;
-$collect['limit'] = $limit;
-
-
-$persons->listUpdatesAboutAPerson($collect);
-
-```
-
-
-### <a name="list_followers_of_a_person"></a>![Method: ](https://apidocs.io/img/method.png ".PersonsController.listFollowersOfAPerson") listFollowersOfAPerson
-
-> Lists the followers of a person.
-
-
-```php
-function listFollowersOfAPerson($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of a person |
-
-
-
-#### Example Usage
-
-```php
-$id = 233;
-
-$persons->listFollowersOfAPerson($id);
-
-```
-
-
-### <a name="add_a_follower_to_a_person"></a>![Method: ](https://apidocs.io/img/method.png ".PersonsController.addAFollowerToAPerson") addAFollowerToAPerson
-
-> Adds a follower to a person.
-
-
-```php
-function addAFollowerToAPerson($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of a person |
-| userId |  ``` Required ```  | ID of the user |
-
-
-
-#### Example Usage
-
-```php
-$id = 19;
-$collect['id'] = $id;
-
-$userId = 19;
-$collect['userId'] = $userId;
-
-
-$persons->addAFollowerToAPerson($collect);
-
-```
-
-
-### <a name="deletes_a_follower_from_a_person"></a>![Method: ](https://apidocs.io/img/method.png ".PersonsController.deletesAFollowerFromAPerson") deletesAFollowerFromAPerson
-
-> Delete a follower from a person
-
-
-```php
-function deletesAFollowerFromAPerson($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of a person |
-| followerId |  ``` Required ```  | ID of the follower |
-
-
-
-#### Example Usage
-
-```php
-$id = 19;
-$collect['id'] = $id;
-
-$followerId = 19;
-$collect['followerId'] = $followerId;
-
-
-$persons->deletesAFollowerFromAPerson($collect);
-
-```
-
-
-### <a name="list_mail_messages_associated_with_a_person"></a>![Method: ](https://apidocs.io/img/method.png ".PersonsController.listMailMessagesAssociatedWithAPerson") listMailMessagesAssociatedWithAPerson
-
-> Lists mail messages associated with a person.
-
-
-```php
-function listMailMessagesAssociatedWithAPerson($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of a person |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-
-#### Example Usage
-
-```php
-$id = 19;
-$collect['id'] = $id;
-
-$start = 0;
-$collect['start'] = $start;
-
-$limit = 19;
-$collect['limit'] = $limit;
-
-
-$persons->listMailMessagesAssociatedWithAPerson($collect);
-
-```
-
-
-### <a name="update_merge_two_persons"></a>![Method: ](https://apidocs.io/img/method.png ".PersonsController.updateMergeTwoPersons") updateMergeTwoPersons
-
-> Merges a person with another person. For more information on how to merge two persons, see <a href="https://pipedrive.readme.io/docs/merging-two-persons" target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```php
-function updateMergeTwoPersons($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of a person |
-| mergeWithId |  ``` Required ```  | ID of the person that the person will be merged with |
-
-
-
-#### Example Usage
-
-```php
-$id = 19;
-$collect['id'] = $id;
-
-$mergeWithId = 19;
-$collect['mergeWithId'] = $mergeWithId;
-
-
-$persons->updateMergeTwoPersons($collect);
-
-```
-
-
-### <a name="list_permitted_users"></a>![Method: ](https://apidocs.io/img/method.png ".PersonsController.listPermittedUsers") listPermittedUsers
-
-> List users permitted to access a person
-
-
-```php
-function listPermittedUsers($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of a person |
-
-
-
-#### Example Usage
-
-```php
-$id = 19;
-
-$persons->listPermittedUsers($id);
-
-```
-
-
-### <a name="delete_person_picture"></a>![Method: ](https://apidocs.io/img/method.png ".PersonsController.deletePersonPicture") deletePersonPicture
-
-> Delete person picture
-
-
-```php
-function deletePersonPicture($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of a person |
-
-
-
-#### Example Usage
-
-```php
-$id = 19;
-
-$persons->deletePersonPicture($id);
-
-```
-
-
-### <a name="add_person_picture"></a>![Method: ](https://apidocs.io/img/method.png ".PersonsController.addPersonPicture") addPersonPicture
-
-> Add a picture to a person. If a picture is already set, the old picture will be replaced. Added image (or the cropping parameters supplied with the request) should have an equal width and height and should be at least 128 pixels. GIF, JPG and PNG are accepted. All added images will be resized to 128 and 512 pixel wide squares.
-
-
-```php
-function addPersonPicture($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of a person |
-| file |  ``` Required ```  | One image supplied in the multipart/form-data encoding. |
-| cropX |  ``` Optional ```  | X coordinate to where start cropping form (in pixels) |
-| cropY |  ``` Optional ```  | Y coordinate to where start cropping form (in pixels) |
-| cropWidth |  ``` Optional ```  | Width of cropping area (in pixels) |
-| cropHeight |  ``` Optional ```  | Height of cropping area (in pixels) |
-
-
-
-#### Example Usage
-
-```php
-$id = 19;
-$collect['id'] = $id;
-
-$file = "PathToFile";
-$collect['file'] = $file;
-
-$cropX = 19;
-$collect['cropX'] = $cropX;
-
-$cropY = 19;
-$collect['cropY'] = $cropY;
-
-$cropWidth = 19;
-$collect['cropWidth'] = $cropWidth;
-
-$cropHeight = 19;
-$collect['cropHeight'] = $cropHeight;
-
-
-$persons->addPersonPicture($collect);
-
-```
-
-
-### <a name="list_products_associated_with_a_person"></a>![Method: ](https://apidocs.io/img/method.png ".PersonsController.listProductsAssociatedWithAPerson") listProductsAssociatedWithAPerson
-
-> Lists products associated with a person.
-
-
-```php
-function listProductsAssociatedWithAPerson($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of a person |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-
-#### Example Usage
-
-```php
-$id = 19;
-$collect['id'] = $id;
-
-$start = 0;
-$collect['start'] = $start;
-
-$limit = 19;
-$collect['limit'] = $limit;
-
-
-$persons->listProductsAssociatedWithAPerson($collect);
-
-```
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="pipelines_controller"></a>![Class: ](https://apidocs.io/img/class.png ".PipelinesController") PipelinesController
-
-### Get singleton instance
-
-The singleton instance of the ``` PipelinesController ``` class can be accessed from the API Client.
-
-```php
-$pipelines = $client->getPipelines();
-```
-
-### <a name="get_all_pipelines"></a>![Method: ](https://apidocs.io/img/method.png ".PipelinesController.getAllPipelines") getAllPipelines
-
-> Returns data about all pipelines
-
-
-```php
-function getAllPipelines()
-```
-
-#### Example Usage
-
-```php
-
-$pipelines->getAllPipelines();
-
-```
-
-
-### <a name="add_a_new_pipeline"></a>![Method: ](https://apidocs.io/img/method.png ".PipelinesController.addANewPipeline") addANewPipeline
-
-> Adds a new pipeline
-
-
-```php
-function addANewPipeline($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| name |  ``` Optional ```  | Name of the pipeline |
-| dealProbability |  ``` Optional ```  | TODO: Add a parameter description |
-| orderNr |  ``` Optional ```  | Defines pipelines order. First order(order_nr=0) is the default pipeline. |
-| active |  ``` Optional ```  | TODO: Add a parameter description |
-
-
-
-#### Example Usage
-
-```php
-$name = 'name';
-$collect['name'] = $name;
-
-$dealProbability = int::ENUM_0;
-$collect['dealProbability'] = $dealProbability;
-
-$orderNr = 19;
-$collect['orderNr'] = $orderNr;
-
-$active = int::ENUM_0;
-$collect['active'] = $active;
-
-
-$pipelines->addANewPipeline($collect);
-
-```
-
-
-### <a name="delete_a_pipeline"></a>![Method: ](https://apidocs.io/img/method.png ".PipelinesController.deleteAPipeline") deleteAPipeline
-
-> Marks a pipeline as deleted.
-
-
-```php
-function deleteAPipeline($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the pipeline |
-
-
-
-#### Example Usage
-
-```php
-$id = 19;
-
-$pipelines->deleteAPipeline($id);
-
-```
-
-
-### <a name="get_one_pipeline"></a>![Method: ](https://apidocs.io/img/method.png ".PipelinesController.getOnePipeline") getOnePipeline
-
-> Returns data about a specific pipeline. Also returns the summary of the deals in this pipeline across its stages.
-
-
-```php
-function getOnePipeline($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the pipeline |
-| totalsConvertCurrency |  ``` Optional ```  | 3-letter currency code of any of the supported currencies. When supplied, per_stages_converted is returned in deals_summary which contains the currency-converted total amounts in the given currency per each stage. You may also set this parameter to 'default_currency' in which case users default currency is used. |
-
-
-
-#### Example Usage
-
-```php
-$id = 19;
-$collect['id'] = $id;
-
-$totalsConvertCurrency = 'totals_convert_currency';
-$collect['totalsConvertCurrency'] = $totalsConvertCurrency;
-
-
-$pipelines->getOnePipeline($collect);
-
-```
-
-
-### <a name="update_edit_a_pipeline"></a>![Method: ](https://apidocs.io/img/method.png ".PipelinesController.updateEditAPipeline") updateEditAPipeline
-
-> Updates pipeline properties
-
-
-```php
-function updateEditAPipeline($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the pipeline |
-| name |  ``` Optional ```  | Name of the pipeline |
-| dealProbability |  ``` Optional ```  | TODO: Add a parameter description |
-| orderNr |  ``` Optional ```  | Defines pipelines order. First order(order_nr=0) is the default pipeline. |
-| active |  ``` Optional ```  | TODO: Add a parameter description |
-
-
-
-#### Example Usage
-
-```php
-$id = 19;
-$collect['id'] = $id;
-
-$name = 'name';
-$collect['name'] = $name;
-
-$dealProbability = int::ENUM_0;
-$collect['dealProbability'] = $dealProbability;
-
-$orderNr = 19;
-$collect['orderNr'] = $orderNr;
-
-$active = int::ENUM_0;
-$collect['active'] = $active;
-
-
-$pipelines->updateEditAPipeline($collect);
-
-```
-
-
-### <a name="get_deals_conversion_rates_in_pipeline"></a>![Method: ](https://apidocs.io/img/method.png ".PipelinesController.getDealsConversionRatesInPipeline") getDealsConversionRatesInPipeline
-
-> Returns all stage-to-stage conversion and pipeline-to-close rates for given time period.
-
-
-```php
-function getDealsConversionRatesInPipeline($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the pipeline |
-| startDate |  ``` Required ```  | Start of the period. Date in format of YYYY-MM-DD. |
-| endDate |  ``` Required ```  | End of the period. Date in format of YYYY-MM-DD. |
-| userId |  ``` Optional ```  | ID of the user who's pipeline metrics statistics to fetch. If omitted, the authorized user will be used. |
-
-
-
-#### Example Usage
-
-```php
-$id = 19;
-$collect['id'] = $id;
-
-$startDate = date("D M d, Y G:i");
-$collect['startDate'] = $startDate;
-
-$endDate = date("D M d, Y G:i");
-$collect['endDate'] = $endDate;
-
-$userId = 19;
-$collect['userId'] = $userId;
-
-
-$pipelines->getDealsConversionRatesInPipeline($collect);
-
-```
-
-
-### <a name="get_deals_in_a_pipeline"></a>![Method: ](https://apidocs.io/img/method.png ".PipelinesController.getDealsInAPipeline") getDealsInAPipeline
-
-> Lists deals in a specific pipeline across all its stages
-
-
-```php
-function getDealsInAPipeline($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the pipeline |
-| filterId |  ``` Optional ```  | If supplied, only deals matching the given filter will be returned. |
-| userId |  ``` Optional ```  | If supplied, filter_id will not be considered and only deals owned by the given user will be returned. If omitted, deals owned by the authorized user will be returned. |
-| everyone |  ``` Optional ```  | If supplied, filter_id and user_id will not be considered – instead, deals owned by everyone will be returned. |
-| stageId |  ``` Optional ```  | If supplied, only deals within the given stage will be returned. |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-| getSummary |  ``` Optional ```  | Whether to include summary of the pipeline in the additional_data or not. |
-| totalsConvertCurrency |  ``` Optional ```  | 3-letter currency code of any of the supported currencies. When supplied, per_stages_converted is returned inside deals_summary inside additional_data which contains the currency-converted total amounts in the given currency per each stage. You may also set this parameter to 'default_currency' in which case users default currency is used. Only works when get_summary parameter flag is enabled. |
-
-
-
-#### Example Usage
-
-```php
-$id = 19;
-$collect['id'] = $id;
-
-$filterId = 19;
-$collect['filterId'] = $filterId;
-
-$userId = 19;
-$collect['userId'] = $userId;
-
-$everyone = int::ENUM_0;
-$collect['everyone'] = $everyone;
-
-$stageId = 19;
-$collect['stageId'] = $stageId;
-
-$start = 0;
-$collect['start'] = $start;
-
-$limit = 19;
-$collect['limit'] = $limit;
-
-$getSummary = int::ENUM_0;
-$collect['getSummary'] = $getSummary;
-
-$totalsConvertCurrency = 'totals_convert_currency';
-$collect['totalsConvertCurrency'] = $totalsConvertCurrency;
-
-
-$pipelines->getDealsInAPipeline($collect);
-
-```
-
-
-### <a name="get_deals_movements_in_pipeline"></a>![Method: ](https://apidocs.io/img/method.png ".PipelinesController.getDealsMovementsInPipeline") getDealsMovementsInPipeline
-
-> Returns statistics for deals movements for given time period.
-
-
-```php
-function getDealsMovementsInPipeline($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the pipeline |
-| startDate |  ``` Required ```  | Start of the period. Date in format of YYYY-MM-DD. |
-| endDate |  ``` Required ```  | End of the period. Date in format of YYYY-MM-DD. |
-| userId |  ``` Optional ```  | ID of the user who's pipeline statistics to fetch. If omitted, the authorized user will be used. |
-
-
-
-#### Example Usage
-
-```php
-$id = 19;
-$collect['id'] = $id;
-
-$startDate = date("D M d, Y G:i");
-$collect['startDate'] = $startDate;
-
-$endDate = date("D M d, Y G:i");
-$collect['endDate'] = $endDate;
-
-$userId = 19;
-$collect['userId'] = $userId;
-
-
-$pipelines->getDealsMovementsInPipeline($collect);
-
-```
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="product_fields_controller"></a>![Class: ](https://apidocs.io/img/class.png ".ProductFieldsController") ProductFieldsController
-
-### Get singleton instance
-
-The singleton instance of the ``` ProductFieldsController ``` class can be accessed from the API Client.
-
-```php
-$productFields = $client->getProductFields();
-```
-
-### <a name="delete_multiple_product_fields_in_bulk"></a>![Method: ](https://apidocs.io/img/method.png ".ProductFieldsController.deleteMultipleProductFieldsInBulk") deleteMultipleProductFieldsInBulk
-
-> Marks multiple fields as deleted.
-
-
-```php
-function deleteMultipleProductFieldsInBulk($ids)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| ids |  ``` Required ```  | Comma-separated field IDs to delete |
-
-
-
-#### Example Usage
-
-```php
-$ids = 'ids';
-
-$result = $productFields->deleteMultipleProductFieldsInBulk($ids);
-
-```
-
-
-### <a name="get_all_product_fields"></a>![Method: ](https://apidocs.io/img/method.png ".ProductFieldsController.getAllProductFields") getAllProductFields
-
-> Returns data about all product fields
-
-
-```php
-function getAllProductFields()
-```
-
-#### Example Usage
-
-```php
-
-$result = $productFields->getAllProductFields();
-
-```
-
-
-### <a name="add_a_new_product_field"></a>![Method: ](https://apidocs.io/img/method.png ".ProductFieldsController.addANewProductField") addANewProductField
-
-> Adds a new product field. For more information on adding a new custom field, see <a href="https://pipedrive.readme.io/docs/adding-a-new-custom-field" target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```php
-function addANewProductField($body = null)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| body |  ``` Optional ```  | TODO: Add a parameter description |
-
-
-
-#### Example Usage
-
-```php
-$body = array('key' => 'value');
-
-$result = $productFields->addANewProductField($body);
-
-```
-
-
-### <a name="delete_a_product_field"></a>![Method: ](https://apidocs.io/img/method.png ".ProductFieldsController.deleteAProductField") deleteAProductField
-
-> Marks a field as deleted. For more information on how to delete a custom field, see <a href="https://pipedrive.readme.io/docs/deleting-a-custom-field" target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```php
-function deleteAProductField($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the Product Field |
-
-
-
-#### Example Usage
-
-```php
-$id = 19;
-
-$result = $productFields->deleteAProductField($id);
-
-```
-
-#### Errors
-
-| Error Code | Error Description |
-|------------|-------------------|
-| 410 | The Product Field with the specified ID does not exist or is inaccessible |
-
-
-
-### <a name="get_one_product_field"></a>![Method: ](https://apidocs.io/img/method.png ".ProductFieldsController.getOneProductField") getOneProductField
-
-> Returns data about a specific product field.
-
-
-```php
-function getOneProductField($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the Product Field |
-
-
-
-#### Example Usage
-
-```php
-$id = 19;
-
-$result = $productFields->getOneProductField($id);
-
-```
-
-#### Errors
-
-| Error Code | Error Description |
-|------------|-------------------|
-| 410 | The Product Field with the specified ID does not exist or is inaccessible |
-
-
-
-### <a name="update_a_product_field"></a>![Method: ](https://apidocs.io/img/method.png ".ProductFieldsController.updateAProductField") updateAProductField
-
-> Updates a product field. See an example of updating custom fields’ values in <a href=" https://pipedrive.readme.io/docs/updating-custom-field-value " target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```php
-function updateAProductField($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the Product Field |
-| name |  ``` Required ```  | Name of the field |
-| options |  ``` Optional ```  | When field_type is either set or enum, possible options must be supplied as a JSON-encoded sequential array, for example: ["red","blue","lilac"] |
-
-
-
-#### Example Usage
-
-```php
-$id = 19;
-$collect['id'] = $id;
-
-$name = 'name';
-$collect['name'] = $name;
-
-$options = 'options';
-$collect['options'] = $options;
-
-
-$result = $productFields->updateAProductField($collect);
-
-```
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="products_controller"></a>![Class: ](https://apidocs.io/img/class.png ".ProductsController") ProductsController
-
-### Get singleton instance
-
-The singleton instance of the ``` ProductsController ``` class can be accessed from the API Client.
-
-```php
-$products = $client->getProducts();
-```
-
-### <a name="get_all_products"></a>![Method: ](https://apidocs.io/img/method.png ".ProductsController.getAllProducts") getAllProducts
-
-> Returns data about all products.
-
-
-```php
-function getAllProducts($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| userId |  ``` Optional ```  | If supplied, only products owned by the given user will be returned. |
-| filterId |  ``` Optional ```  | ID of the filter to use |
-| firstChar |  ``` Optional ```  | If supplied, only products whose name starts with the specified letter will be returned (case insensitive). |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-
-#### Example Usage
-
-```php
-$userId = 19;
-$collect['userId'] = $userId;
-
-$filterId = 19;
-$collect['filterId'] = $filterId;
-
-$firstChar = 'first_char';
-$collect['firstChar'] = $firstChar;
-
-$start = 0;
-$collect['start'] = $start;
-
-$limit = 19;
-$collect['limit'] = $limit;
-
-
-$result = $products->getAllProducts($collect);
-
-```
-
-### <a name="search_products"></a>![Method: ](https://apidocs.io/img/method.png ".ProductsController.searchProducts") searchProducts
-
-> Searches all Products by name, code and/or custom fields. This endpoint is a wrapper of /v1/itemSearch with a narrower OAuth scope.
-
-
-```php
-function searchProducts($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| term |  ``` Required ```  | The search term to look for. Minimum 2 characters (or 1 if using exact_match). |
-| fields |  ``` Optional ```  | A comma-separated string array. The fields to perform the search from. Defaults to all of them. |
-| exactMatch |  ``` Optional ```  | When enabled, only full exact matches against the given term are returned. It is not case sensitive. |
-| includeFields |  ``` Optional ```  | Supports including optional fields in the results which are not provided by default. |
-| start |  ``` Optional ```  | Pagination start. Note that the pagination is based on main results and does not include related items when using search_for_related_items parameter. |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-#### Example Usage
-
-```php
-$term = 'term';
-$collect['term'] = $term;
-
-$results = $products->searchProducts($collect);
-
-```
-
-
-### <a name="add_a_product"></a>![Method: ](https://apidocs.io/img/method.png ".ProductsController.addAProduct") addAProduct
-
-> Adds a new product to the products inventory. For more information on how to add a product, see <a href="https://pipedrive.readme.io/docs/adding-a-product" target="_blank" rel="noopener noreferrer">this tutorial</a>. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the productFields and look for 'key' values.
-
-
-```php
-function addAProduct($body = null)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| body |  ``` Optional ```  | TODO: Add a parameter description |
-
-
-
-#### Example Usage
-
-```php
-$body = array('key' => 'value');
-
-$products->addAProduct($body);
-
-```
-
-
-### <a name="delete_a_product"></a>![Method: ](https://apidocs.io/img/method.png ".ProductsController.deleteAProduct") deleteAProduct
-
-> Marks a product as deleted.
-
-
-```php
-function deleteAProduct($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the product |
-
-
-
-#### Example Usage
-
-```php
-$id = 19;
-
-$products->deleteAProduct($id);
-
-```
-
-
-### <a name="get_one_product"></a>![Method: ](https://apidocs.io/img/method.png ".ProductsController.getOneProduct") getOneProduct
-
-> Returns data about a specific product.
-
-
-```php
-function getOneProduct($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the product |
-
-
-
-#### Example Usage
-
-```php
-$id = 19;
-
-$products->getOneProduct($id);
-
-```
-
-
-### <a name="update_a_product"></a>![Method: ](https://apidocs.io/img/method.png ".ProductsController.updateAProduct") updateAProduct
-
-> Updates product data. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the productFields and look for 'key' values.
-
-
-```php
-function updateAProduct($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the product |
-| name |  ``` Optional ```  | Name of the product. |
-| code |  ``` Optional ```  | Product code. |
-| unit |  ``` Optional ```  | Unit in which this product is sold |
-| tax |  ``` Optional ```  | Tax percentage |
-| activeFlag |  ``` Optional ```  | Whether this product will be made active or not. |
-| visibleTo |  ``` Optional ```  | Visibility of the product. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<dl class="fields-list"><dt>1</dt><dd>Owner &amp; followers (private)</dd><dt>3</dt><dd>Entire company (shared)</dd></dl> |
-| ownerId |  ``` Optional ```  | ID of the user who will be marked as the owner of this product. When omitted, the authorized user ID will be used. |
-| prices |  ``` Optional ```  | Array of objects, each containing: currency (string), price (number), cost (number, optional), overhead_cost (number, optional). Note that there can only be one price per product per currency. When 'prices' is omitted altogether, no prices will be set up for the product. |
-
-
-
-#### Example Usage
-
-```php
-$id = 19;
-$collect['id'] = $id;
-
-$name = 'name';
-$collect['name'] = $name;
-
-$code = 'code';
-$collect['code'] = $code;
-
-$unit = 'unit';
-$collect['unit'] = $unit;
-
-$tax = 19.9144447454784;
-$collect['tax'] = $tax;
-
-$activeFlag = int::ENUM_0;
-$collect['activeFlag'] = $activeFlag;
-
-$visibleTo = int::ENUM_1;
-$collect['visibleTo'] = $visibleTo;
-
-$ownerId = 19;
-$collect['ownerId'] = $ownerId;
-
-$prices = 'prices';
-$collect['prices'] = $prices;
-
-
-$result = $products->updateAProduct($collect);
-
-```
-
-
-### <a name="get_deals_where_a_product_is_attached_to"></a>![Method: ](https://apidocs.io/img/method.png ".ProductsController.getDealsWhereAProductIsAttachedTo") getDealsWhereAProductIsAttachedTo
-
-> Returns data about deals that have a product attached to.
-
-
-```php
-function getDealsWhereAProductIsAttachedTo($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the product |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-| status |  ``` Optional ```  ``` DefaultValue ```  | Only fetch deals with specific status. If omitted, all not deleted deals are fetched. |
-
-
-
-#### Example Usage
-
-```php
-$id = 19;
-$collect['id'] = $id;
-
-$start = 0;
-$collect['start'] = $start;
-
-$limit = 19;
-$collect['limit'] = $limit;
-
-$status = string::ALL_NOT_DELETED;
-$collect['status'] = $status;
-
-
-$result = $products->getDealsWhereAProductIsAttachedTo($collect);
-
-```
-
-
-### <a name="list_files_attached_to_a_product"></a>![Method: ](https://apidocs.io/img/method.png ".ProductsController.listFilesAttachedToAProduct") listFilesAttachedToAProduct
-
-> Lists files associated with a product.
-
-
-```php
-function listFilesAttachedToAProduct($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the product |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-| includeDeletedFiles |  ``` Optional ```  | When enabled, the list of files will also include deleted files. Please note that trying to download these files will not work. |
-| sort |  ``` Optional ```  | Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment. |
-
-
-
-#### Example Usage
-
-```php
-$id = 19;
-$collect['id'] = $id;
-
-$start = 0;
-$collect['start'] = $start;
-
-$limit = 19;
-$collect['limit'] = $limit;
-
-$includeDeletedFiles = int::ENUM_0;
-$collect['includeDeletedFiles'] = $includeDeletedFiles;
-
-$sort = 'sort';
-$collect['sort'] = $sort;
-
-
-$products->listFilesAttachedToAProduct($collect);
-
-```
-
-
-### <a name="list_followers_of_a_product"></a>![Method: ](https://apidocs.io/img/method.png ".ProductsController.listFollowersOfAProduct") listFollowersOfAProduct
-
-> Lists the followers of a Product
-
-
-```php
-function listFollowersOfAProduct($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the product |
-
-
-
-#### Example Usage
-
-```php
-$id = 19;
-
-$result = $products->listFollowersOfAProduct($id);
-
-```
-
-
-### <a name="add_a_follower_to_a_product"></a>![Method: ](https://apidocs.io/img/method.png ".ProductsController.addAFollowerToAProduct") addAFollowerToAProduct
-
-> Adds a follower to a product.
-
-
-```php
-function addAFollowerToAProduct($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the product |
-| userId |  ``` Required ```  | ID of the user |
-
-
-
-#### Example Usage
-
-```php
-$id = 19;
-$collect['id'] = $id;
-
-$userId = 19;
-$collect['userId'] = $userId;
-
-
-$result = $products->addAFollowerToAProduct($collect);
-
-```
-
-
-### <a name="delete_a_follower_from_a_product"></a>![Method: ](https://apidocs.io/img/method.png ".ProductsController.deleteAFollowerFromAProduct") deleteAFollowerFromAProduct
-
-> Deletes a follower from a product.
-
-
-```php
-function deleteAFollowerFromAProduct($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the product |
-| followerId |  ``` Required ```  | ID of the follower |
-
-
-
-#### Example Usage
-
-```php
-$id = 19;
-$collect['id'] = $id;
-
-$followerId = 19;
-$collect['followerId'] = $followerId;
-
-
-$result = $products->deleteAFollowerFromAProduct($collect);
-
-```
-
-
-### <a name="list_permitted_users"></a>![Method: ](https://apidocs.io/img/method.png ".ProductsController.listPermittedUsers") listPermittedUsers
-
-> Lists users permitted to access a product.
-
-
-```php
-function listPermittedUsers($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the product |
-
-
-
-#### Example Usage
-
-```php
-$id = 19;
-
-$result = $products->listPermittedUsers($id);
-
-```
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="recents_controller"></a>![Class: ](https://apidocs.io/img/class.png ".RecentsController") RecentsController
-
-### Get singleton instance
-
-The singleton instance of the ``` RecentsController ``` class can be accessed from the API Client.
-
-```php
-$recents = $client->getRecents();
-```
-
-### <a name="get_recents"></a>![Method: ](https://apidocs.io/img/method.png ".RecentsController.getRecents") getRecents
-
-> Returns data about all recent changes occured after given timestamp.
-
-
-```php
-function getRecents($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| sinceTimestamp |  ``` Required ```  | Timestamp in UTC. Format: YYYY-MM-DD HH:MM:SS |
-| items |  ``` Optional ```  | Multiple selection of item types to include in query (optional) |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-
-#### Example Usage
-
-```php
-$sinceTimestamp = 'since_timestamp';
-$collect['sinceTimestamp'] = $sinceTimestamp;
-
-$items = string::ACTIVITY;
-$collect['items'] = $items;
-
-$start = 0;
-$collect['start'] = $start;
-
-$limit = 19;
-$collect['limit'] = $limit;
-
-
-$recents->getRecents($collect);
-
-```
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="roles_controller"></a>![Class: ](https://apidocs.io/img/class.png ".RolesController") RolesController
-
-### Get singleton instance
-
-The singleton instance of the ``` RolesController ``` class can be accessed from the API Client.
-
-```php
-$roles = $client->getRoles();
-```
-
-### <a name="get_all_roles"></a>![Method: ](https://apidocs.io/img/method.png ".RolesController.getAllRoles") getAllRoles
-
-> Get all roles
-
-
-```php
-function getAllRoles($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-
-#### Example Usage
-
-```php
-$start = 0;
-$collect['start'] = $start;
-
-$limit = 19;
-$collect['limit'] = $limit;
-
-
-$result = $roles->getAllRoles($collect);
-
-```
-
-
-### <a name="add_a_role"></a>![Method: ](https://apidocs.io/img/method.png ".RolesController.addARole") addARole
-
-> Add a role
-
-
-```php
-function addARole($body = null)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| body |  ``` Optional ```  | TODO: Add a parameter description |
-
-
-
-#### Example Usage
-
-```php
-$body = array('key' => 'value');
-
-$result = $roles->addARole($body);
-
-```
-
-
-### <a name="delete_a_role"></a>![Method: ](https://apidocs.io/img/method.png ".RolesController.deleteARole") deleteARole
-
-> Delete a role
-
-
-```php
-function deleteARole($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the role |
-
-
-
-#### Example Usage
-
-```php
-$id = 19;
-
-$result = $roles->deleteARole($id);
-
-```
-
-
-### <a name="get_one_role"></a>![Method: ](https://apidocs.io/img/method.png ".RolesController.getOneRole") getOneRole
-
-> Get one role
-
-
-```php
-function getOneRole($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the role |
-
-
-
-#### Example Usage
-
-```php
-$id = 19;
-
-$result = $roles->getOneRole($id);
-
-```
-
-
-### <a name="update_role_details"></a>![Method: ](https://apidocs.io/img/method.png ".RolesController.updateRoleDetails") updateRoleDetails
-
-> Update role details
-
-
-```php
-function updateRoleDetails($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the role |
-| parentRoleId |  ``` Optional ```  | The ID of the parent Role |
-| name |  ``` Optional ```  | The name of the Role |
-
-
-
-#### Example Usage
-
-```php
-$id = 19;
-$collect['id'] = $id;
-
-$parentRoleId = 19;
-$collect['parentRoleId'] = $parentRoleId;
-
-$name = 'name';
-$collect['name'] = $name;
-
-
-$result = $roles->updateRoleDetails($collect);
-
-```
-
-
-### <a name="delete_a_role_assignment"></a>![Method: ](https://apidocs.io/img/method.png ".RolesController.deleteARoleAssignment") deleteARoleAssignment
-
-> Delete assignment from a role
-
-
-```php
-function deleteARoleAssignment($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the role |
-| userId |  ``` Required ```  | ID of the user |
-
-
-
-#### Example Usage
-
-```php
-$id = 19;
-$collect['id'] = $id;
-
-$userId = 19;
-$collect['userId'] = $userId;
-
-
-$result = $roles->deleteARoleAssignment($collect);
-
-```
-
-
-### <a name="list_role_assignments"></a>![Method: ](https://apidocs.io/img/method.png ".RolesController.listRoleAssignments") listRoleAssignments
-
-> List assignments for a role
-
-
-```php
-function listRoleAssignments($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the role |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-
-#### Example Usage
-
-```php
-$id = 19;
-$collect['id'] = $id;
-
-$start = 0;
-$collect['start'] = $start;
-
-$limit = 19;
-$collect['limit'] = $limit;
-
-
-$result = $roles->listRoleAssignments($collect);
-
-```
-
-
-### <a name="add_role_assignment"></a>![Method: ](https://apidocs.io/img/method.png ".RolesController.addRoleAssignment") addRoleAssignment
-
-> Add assignment for a role
-
-
-```php
-function addRoleAssignment($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the role |
-| userId |  ``` Required ```  | ID of the user |
-
-
-
-#### Example Usage
-
-```php
-$id = 19;
-$collect['id'] = $id;
-
-$userId = 19;
-$collect['userId'] = $userId;
-
-
-$result = $roles->addRoleAssignment($collect);
-
-```
-
-
-### <a name="list_role_sub_roles"></a>![Method: ](https://apidocs.io/img/method.png ".RolesController.listRoleSubRoles") listRoleSubRoles
-
-> List role sub-roles
-
-
-```php
-function listRoleSubRoles($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the role |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-
-#### Example Usage
-
-```php
-$id = 19;
-$collect['id'] = $id;
-
-$start = 0;
-$collect['start'] = $start;
-
-$limit = 19;
-$collect['limit'] = $limit;
-
-
-$result = $roles->listRoleSubRoles($collect);
-
-```
-
-
-### <a name="list_role_settings"></a>![Method: ](https://apidocs.io/img/method.png ".RolesController.listRoleSettings") listRoleSettings
-
-> List role settings
-
-
-```php
-function listRoleSettings($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the role |
-
-
-
-#### Example Usage
-
-```php
-$id = 19;
-
-$result = $roles->listRoleSettings($id);
-
-```
-
-
-### <a name="add_or_update_role_setting"></a>![Method: ](https://apidocs.io/img/method.png ".RolesController.addOrUpdateRoleSetting") addOrUpdateRoleSetting
-
-> Add or update role setting
-
-
-```php
-function addOrUpdateRoleSetting($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the role |
-| settingKey |  ``` Required ```  | TODO: Add a parameter description |
-| value |  ``` Required ```  | Possible values for default_visibility settings: 0...1. |
-
-
-
-#### Example Usage
-
-```php
-$id = 19;
-$collect['id'] = $id;
-
-$settingKey = string::DEAL_DEFAULT_VISIBILITY;
-$collect['settingKey'] = $settingKey;
-
-$value = int::ENUM_0;
-$collect['value'] = $value;
-
-
-$result = $roles->addOrUpdateRoleSetting($collect);
-
-```
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="stages_controller"></a>![Class: ](https://apidocs.io/img/class.png ".StagesController") StagesController
-
-### Get singleton instance
-
-The singleton instance of the ``` StagesController ``` class can be accessed from the API Client.
-
-```php
-$stages = $client->getStages();
-```
-
-### <a name="delete_multiple_stages_in_bulk"></a>![Method: ](https://apidocs.io/img/method.png ".StagesController.deleteMultipleStagesInBulk") deleteMultipleStagesInBulk
-
-> Marks multiple stages as deleted.
-
-
-```php
-function deleteMultipleStagesInBulk($ids)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| ids |  ``` Required ```  | Comma-separated stage IDs to delete |
-
-
-
-#### Example Usage
-
-```php
-$ids = 'ids';
-
-$stages->deleteMultipleStagesInBulk($ids);
-
-```
-
-
-### <a name="get_all_stages"></a>![Method: ](https://apidocs.io/img/method.png ".StagesController.getAllStages") getAllStages
-
-> Returns data about all stages
-
-
-```php
-function getAllStages($pipelineId = null)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| pipelineId |  ``` Optional ```  | ID of the pipeline to fetch stages for. If omitted, stages for all pipelines will be fetched. |
-
-
-
-#### Example Usage
-
-```php
-$pipelineId = 19;
-
-$stages->getAllStages($pipelineId);
-
-```
-
-
-### <a name="add_a_new_stage"></a>![Method: ](https://apidocs.io/img/method.png ".StagesController.addANewStage") addANewStage
-
-> Adds a new stage, returns the ID upon success.
-
-
-```php
-function addANewStage($body = null)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| body |  ``` Optional ```  | TODO: Add a parameter description |
-
-
-
-#### Example Usage
-
-```php
-$body = array('key' => 'value');
-
-$stages->addANewStage($body);
-
-```
-
-
-### <a name="delete_a_stage"></a>![Method: ](https://apidocs.io/img/method.png ".StagesController.deleteAStage") deleteAStage
-
-> Marks a stage as deleted.
-
-
-```php
-function deleteAStage($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the stage |
-
-
-
-#### Example Usage
-
-```php
-$id = 19;
-
-$stages->deleteAStage($id);
-
-```
-
-
-### <a name="get_one_stage"></a>![Method: ](https://apidocs.io/img/method.png ".StagesController.getOneStage") getOneStage
-
-> Returns data about a specific stage
-
-
-```php
-function getOneStage($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the stage |
-
-
-
-#### Example Usage
-
-```php
-$id = 19;
-
-$stages->getOneStage($id);
-
-```
-
-
-### <a name="update_stage_details"></a>![Method: ](https://apidocs.io/img/method.png ".StagesController.updateStageDetails") updateStageDetails
-
-> Updates the properties of a stage.
-
-
-```php
-function updateStageDetails($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the stage |
-| body |  ``` Optional ```  | TODO: Add a parameter description |
-
-
-
-#### Example Usage
-
-```php
-$id = 19;
-$collect['id'] = $id;
-
-$body = array('key' => 'value');
-$collect['body'] = $body;
-
-
-$stages->updateStageDetails($collect);
-
-```
-
-
-### <a name="get_deals_in_a_stage"></a>![Method: ](https://apidocs.io/img/method.png ".StagesController.getDealsInAStage") getDealsInAStage
-
-> Lists deals in a specific stage
-
-
-```php
-function getDealsInAStage($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the stage |
-| filterId |  ``` Optional ```  | If supplied, only deals matching the given filter will be returned. |
-| userId |  ``` Optional ```  | If supplied, filter_id will not be considered and only deals owned by the given user will be returned. If omitted, deals owned by the authorized user will be returned. |
-| everyone |  ``` Optional ```  | If supplied, filter_id and user_id will not be considered – instead, deals owned by everyone will be returned. |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-
-#### Example Usage
-
-```php
-$id = 19;
-$collect['id'] = $id;
-
-$filterId = 19;
-$collect['filterId'] = $filterId;
-
-$userId = 19;
-$collect['userId'] = $userId;
-
-$everyone = int::ENUM_0;
-$collect['everyone'] = $everyone;
-
-$start = 0;
-$collect['start'] = $start;
-
-$limit = 19;
-$collect['limit'] = $limit;
-
-
-$stages->getDealsInAStage($collect);
-
-```
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="teams_controller"></a>![Class: ](https://apidocs.io/img/class.png ".TeamsController") TeamsController
-
-### Get singleton instance
-
-The singleton instance of the ``` TeamsController ``` class can be accessed from the API Client.
-
-```php
-$teams = $client->getTeams();
-```
-
-### <a name="get_all_teams"></a>![Method: ](https://apidocs.io/img/method.png ".TeamsController.getAllTeams") getAllTeams
-
-> Returns data about teams within the company
-
-
-```php
-function getAllTeams($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| orderBy |  ``` Optional ```  ``` DefaultValue ```  | Field name to sort returned teams by |
-| skipUsers |  ``` Optional ```  | When enabled, the teams will not include IDs of member users |
-
-
-
-#### Example Usage
-
-```php
-$orderBy = string::ID;
-$collect['orderBy'] = $orderBy;
-
-$skipUsers = int::ENUM_0;
-$collect['skipUsers'] = $skipUsers;
-
-
-$result = $teams->getAllTeams($collect);
-
-```
-
-
-### <a name="add_a_new_team"></a>![Method: ](https://apidocs.io/img/method.png ".TeamsController.addANewTeam") addANewTeam
-
-> Adds a new team to the company and returns the created object
-
-
-```php
-function addANewTeam($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| name |  ``` Required ```  | The Team name |
-| managerId |  ``` Required ```  | The Team manager ID |
-| description |  ``` Optional ```  | The Team description |
-| users |  ``` Optional ```  ``` Collection ```  | IDs of the Users that belong to the Team |
-
-
-
-#### Example Usage
-
-```php
-$name = 'name';
-$collect['name'] = $name;
-
-$managerId = 183;
-$collect['managerId'] = $managerId;
-
-$description = 'description';
-$collect['description'] = $description;
-
-$users = array(183);
-$collect['users'] = $users;
-
-
-$result = $teams->addANewTeam($collect);
-
-```
-
-#### Errors
-
-| Error Code | Error Description |
-|------------|-------------------|
-| 403 | Forbidden response |
-
-
-
-### <a name="get_a_single_team"></a>![Method: ](https://apidocs.io/img/method.png ".TeamsController.getASingleTeam") getASingleTeam
-
-> Returns data about a specific team
-
-
-```php
-function getASingleTeam($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the team |
-| skipUsers |  ``` Optional ```  | When enabled, the teams will not include IDs of member users |
-
-
-
-#### Example Usage
-
-```php
-$id = 183;
-$collect['id'] = $id;
-
-$skipUsers = int::ENUM_0;
-$collect['skipUsers'] = $skipUsers;
-
-
-$result = $teams->getASingleTeam($collect);
-
-```
-
-#### Errors
-
-| Error Code | Error Description |
-|------------|-------------------|
-| 404 | Team with specified ID does not exist or is inaccessible |
-
-
-
-### <a name="update_a_team"></a>![Method: ](https://apidocs.io/img/method.png ".TeamsController.updateATeam") updateATeam
-
-> Updates an existing team and returns the updated object
-
-
-```php
-function updateATeam($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the team |
-| body |  ``` Optional ```  | TODO: Add a parameter description |
-
-
-
-#### Example Usage
-
-```php
-$id = 183;
-$collect['id'] = $id;
-
-$body = array('key' => 'value');
-$collect['body'] = $body;
-
-
-$result = $teams->updateATeam($collect);
-
-```
-
-#### Errors
-
-| Error Code | Error Description |
-|------------|-------------------|
-| 403 | Forbidden response |
-| 404 | Team with specified ID does not exist or is inaccessible |
-
-
-
-### <a name="get_all_users_in_a_team"></a>![Method: ](https://apidocs.io/img/method.png ".TeamsController.getAllUsersInATeam") getAllUsersInATeam
-
-> Returns list of all user IDs within a team
-
-
-```php
-function getAllUsersInATeam($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the team |
-
-
-
-#### Example Usage
-
-```php
-$id = 183;
-
-$result = $teams->getAllUsersInATeam($id);
-
-```
-
-#### Errors
-
-| Error Code | Error Description |
-|------------|-------------------|
-| 404 | Team with specified ID does not exist or is inaccessible |
-
-
-
-### <a name="add_users_to_a_team"></a>![Method: ](https://apidocs.io/img/method.png ".TeamsController.addUsersToATeam") addUsersToATeam
-
-> Adds users to an existing team
-
-
-```php
-function addUsersToATeam($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the team |
-| users |  ``` Required ```  ``` Collection ```  | List of User IDs |
-
-
-
-#### Example Usage
-
-```php
-$id = 183;
-$collect['id'] = $id;
-
-$users = array(183);
-$collect['users'] = $users;
-
-
-$result = $teams->addUsersToATeam($collect);
-
-```
-
-#### Errors
-
-| Error Code | Error Description |
-|------------|-------------------|
-| 403 | Forbidden response |
-| 404 | Team with specified ID does not exist or is inaccessible |
-
-
-
-### <a name="delete_users_from_a_team"></a>![Method: ](https://apidocs.io/img/method.png ".TeamsController.deleteUsersFromATeam") deleteUsersFromATeam
-
-> Deletes users from an existing team
-
-
-```php
-function deleteUsersFromATeam($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the team |
-| users |  ``` Required ```  ``` Collection ```  | List of User IDs |
-
-
-
-#### Example Usage
-
-```php
-$id = 183;
-$collect['id'] = $id;
-
-$users = array(183);
-$collect['users'] = $users;
-
-
-$result = $teams->deleteUsersFromATeam($collect);
-
-```
-
-#### Errors
-
-| Error Code | Error Description |
-|------------|-------------------|
-| 403 | Forbidden response |
-| 404 | Team with specified ID does not exist or is inaccessible |
-
-
-
-### <a name="get_all_teams_of_a_user"></a>![Method: ](https://apidocs.io/img/method.png ".TeamsController.getAllTeamsOfAUser") getAllTeamsOfAUser
-
-> Returns data about all teams which have specified user as a member
-
-
-```php
-function getAllTeamsOfAUser($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the user |
-| orderBy |  ``` Optional ```  ``` DefaultValue ```  | Field name to sort returned teams by |
-| skipUsers |  ``` Optional ```  | When enabled, the teams will not include IDs of member users |
-
-
-
-#### Example Usage
-
-```php
-$id = 183;
-$collect['id'] = $id;
-
-$orderBy = string::ID;
-$collect['orderBy'] = $orderBy;
-
-$skipUsers = int::ENUM_0;
-$collect['skipUsers'] = $skipUsers;
-
-
-$result = $teams->getAllTeamsOfAUser($collect);
-
-```
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="user_connections_controller"></a>![Class: ](https://apidocs.io/img/class.png ".UserConnectionsController") UserConnectionsController
-
-### Get singleton instance
-
-The singleton instance of the ``` UserConnectionsController ``` class can be accessed from the API Client.
-
-```php
-$userConnections = $client->getUserConnections();
-```
-
-### <a name="get_all_user_connections"></a>![Method: ](https://apidocs.io/img/method.png ".UserConnectionsController.getAllUserConnections") getAllUserConnections
-
-> Returns data about all connections for authorized user.
-
-
-```php
-function getAllUserConnections()
-```
-
-#### Example Usage
-
-```php
-
-$result = $userConnections->getAllUserConnections();
-
-```
-
-#### Errors
-
-| Error Code | Error Description |
-|------------|-------------------|
-| 401 | Unauthorized response |
-
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="user_settings_controller"></a>![Class: ](https://apidocs.io/img/class.png ".UserSettingsController") UserSettingsController
-
-### Get singleton instance
-
-The singleton instance of the ``` UserSettingsController ``` class can be accessed from the API Client.
-
-```php
-$userSettings = $client->getUserSettings();
-```
-
-### <a name="list_settings_of_authorized_user"></a>![Method: ](https://apidocs.io/img/method.png ".UserSettingsController.listSettingsOfAuthorizedUser") listSettingsOfAuthorizedUser
-
-> Lists settings of authorized user.
-
-
-```php
-function listSettingsOfAuthorizedUser()
-```
-
-#### Example Usage
-
-```php
-
-$userSettings->listSettingsOfAuthorizedUser();
-
-```
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="users_controller"></a>![Class: ](https://apidocs.io/img/class.png ".UsersController") UsersController
-
-### Get singleton instance
-
-The singleton instance of the ``` UsersController ``` class can be accessed from the API Client.
-
-```php
-$users = $client->getUsers();
-```
-
-### <a name="get_all_users"></a>![Method: ](https://apidocs.io/img/method.png ".UsersController.getAllUsers") getAllUsers
-
-> Returns data about all users within the company
-
-
-```php
-function getAllUsers()
-```
-
-#### Example Usage
-
-```php
-
-$result = $users->getAllUsers();
-
-```
-
-
-### <a name="add_a_new_user"></a>![Method: ](https://apidocs.io/img/method.png ".UsersController.addANewUser") addANewUser
-
-> Adds a new user to the company, returns the ID upon success.
-
-
-```php
-function addANewUser($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| name |  ``` Required ```  | Name of the user |
-| email |  ``` Required ```  | Email of the user |
-| activeFlag |  ``` Required ```  | Whether the user is active or not. false = Not activated, true = Activated |
-
-
-
-#### Example Usage
-
-```php
-$name = 'name';
-$collect['name'] = $name;
-
-$email = 'email';
-$collect['email'] = $email;
-
-$activeFlag = true;
-$collect['activeFlag'] = $activeFlag;
-
-
-$result = $users->addANewUser($collect);
-
-```
-
-#### Errors
-
-| Error Code | Error Description |
-|------------|-------------------|
-| 403 | Forbidden response |
-
-
-
-### <a name="find_users_by_name"></a>![Method: ](https://apidocs.io/img/method.png ".UsersController.findUsersByName") findUsersByName
-
-> Finds users by their name.
-
-
-```php
-function findUsersByName($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| term |  ``` Required ```  | Search term to look for |
-| searchByEmail |  ``` Optional ```  | When enabled, term will only be matched against email addresses of users. Default: false |
-
-
-
-#### Example Usage
-
-```php
-$term = 'term';
-$collect['term'] = $term;
-
-$searchByEmail = int::ENUM_0;
-$collect['searchByEmail'] = $searchByEmail;
-
-
-$result = $users->findUsersByName($collect);
-
-```
-
-
-### <a name="get_current_user_data"></a>![Method: ](https://apidocs.io/img/method.png ".UsersController.getCurrentUserData") getCurrentUserData
-
-> Returns data about an authorized user within the company with bound company data: company ID, company name, and domain. Note that the 'locale' property means 'Date and number format' in the Pipedrive settings, not the chosen language.
-
-
-```php
-function getCurrentUserData()
-```
-
-#### Example Usage
-
-```php
-
-$result = $users->getCurrentUserData();
-
-```
-
-#### Errors
-
-| Error Code | Error Description |
-|------------|-------------------|
-| 401 | Unauthorized response |
-
-
-
-### <a name="get_one_user"></a>![Method: ](https://apidocs.io/img/method.png ".UsersController.getOneUser") getOneUser
-
-> Returns data about a specific user within the company
-
-
-```php
-function getOneUser($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the user |
-
-
-
-#### Example Usage
-
-```php
-$id = 183;
-
-$result = $users->getOneUser($id);
-
-```
-
-#### Errors
-
-| Error Code | Error Description |
-|------------|-------------------|
-| 404 | User with specified ID does not exist or is inaccessible |
-
-
-
-### <a name="update_user_details"></a>![Method: ](https://apidocs.io/img/method.png ".UsersController.updateUserDetails") updateUserDetails
-
-> Updates the properties of a user. Currently, only active_flag can be updated.
-
-
-```php
-function updateUserDetails($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the user |
-| activeFlag |  ``` Required ```  | Whether the user is active or not. false = Not activated, true = Activated |
-
-
-
-#### Example Usage
-
-```php
-$id = 183;
-$collect['id'] = $id;
-
-$activeFlag = true;
-$collect['activeFlag'] = $activeFlag;
-
-
-$result = $users->updateUserDetails($collect);
-
-```
-
-#### Errors
-
-| Error Code | Error Description |
-|------------|-------------------|
-| 403 | Forbidden response |
-| 404 | User with specified ID does not exist or is inaccessible |
-
-
-
-### <a name="list_blacklisted_email_addresses_of_a_user"></a>![Method: ](https://apidocs.io/img/method.png ".UsersController.listBlacklistedEmailAddressesOfAUser") listBlacklistedEmailAddressesOfAUser
-
-> Lists blacklisted email addresses of a specific user. Blacklisted emails are such that will not get synced in to Pipedrive when using the built-in Mailbox.
-
-
-```php
-function listBlacklistedEmailAddressesOfAUser($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the user |
-
-
-
-#### Example Usage
-
-```php
-$id = 183;
-
-$users->listBlacklistedEmailAddressesOfAUser($id);
-
-```
-
-
-### <a name="add_blacklisted_email_address_for_a_user"></a>![Method: ](https://apidocs.io/img/method.png ".UsersController.addBlacklistedEmailAddressForAUser") addBlacklistedEmailAddressForAUser
-
-> Add blacklisted email address for a specific user.
-
-
-```php
-function addBlacklistedEmailAddressForAUser($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the user |
-| address |  ``` Required ```  | Email address to blacklist (can contain \\* for wildcards, e.g. \\*@example.com, or john\\*@ex\\*.com) |
-
-
-
-#### Example Usage
-
-```php
-$id = 183;
-$collect['id'] = $id;
-
-$address = 'address';
-$collect['address'] = $address;
-
-
-$users->addBlacklistedEmailAddressForAUser($collect);
-
-```
-
-
-### <a name="list_followers_of_a_user"></a>![Method: ](https://apidocs.io/img/method.png ".UsersController.listFollowersOfAUser") listFollowersOfAUser
-
-> Lists followers of a specific user.
-
-
-```php
-function listFollowersOfAUser($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the user |
-
-
-
-#### Example Usage
-
-```php
-$id = 183;
-
-$result = $users->listFollowersOfAUser($id);
-
-```
-
-#### Errors
-
-| Error Code | Error Description |
-|------------|-------------------|
-| 403 | Forbidden response |
-
-
-
-### <a name="list_user_permissions"></a>![Method: ](https://apidocs.io/img/method.png ".UsersController.listUserPermissions") listUserPermissions
-
-> List aggregated permissions over all assigned permission sets for a user
-
-
-```php
-function listUserPermissions($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the user |
-
-
-
-#### Example Usage
-
-```php
-$id = 183;
-
-$users->listUserPermissions($id);
-
-```
-
-
-### <a name="delete_a_role_assignment"></a>![Method: ](https://apidocs.io/img/method.png ".UsersController.deleteARoleAssignment") deleteARoleAssignment
-
-> Delete a role assignment for a user
-
-
-```php
-function deleteARoleAssignment($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the user |
-| roleId |  ``` Required ```  | ID of the role |
-
-
-
-#### Example Usage
-
-```php
-$id = 183;
-$collect['id'] = $id;
-
-$roleId = 183;
-$collect['roleId'] = $roleId;
-
-
-$users->deleteARoleAssignment($collect);
-
-```
-
-
-### <a name="list_role_assignments"></a>![Method: ](https://apidocs.io/img/method.png ".UsersController.listRoleAssignments") listRoleAssignments
-
-> List role assignments for a user
-
-
-```php
-function listRoleAssignments($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the user |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-
-#### Example Usage
-
-```php
-$id = 183;
-$collect['id'] = $id;
-
-$start = 0;
-$collect['start'] = $start;
-
-$limit = 183;
-$collect['limit'] = $limit;
-
-
-$users->listRoleAssignments($collect);
-
-```
-
-
-### <a name="add_role_assignment"></a>![Method: ](https://apidocs.io/img/method.png ".UsersController.addRoleAssignment") addRoleAssignment
-
-> Add role assignment for a user
-
-
-```php
-function addRoleAssignment($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the user |
-| roleId |  ``` Required ```  | ID of the role |
-
-
-
-#### Example Usage
-
-```php
-$id = 183;
-$collect['id'] = $id;
-
-$roleId = 183;
-$collect['roleId'] = $roleId;
-
-
-$users->addRoleAssignment($collect);
-
-```
-
-
-### <a name="list_user_role_settings"></a>![Method: ](https://apidocs.io/img/method.png ".UsersController.listUserRoleSettings") listUserRoleSettings
-
-> List settings of user's assigned role
-
-
-```php
-function listUserRoleSettings($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the user |
-
-
-
-#### Example Usage
-
-```php
-$id = 183;
-
-$users->listUserRoleSettings($id);
-
-```
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="webhooks_controller"></a>![Class: ](https://apidocs.io/img/class.png ".WebhooksController") WebhooksController
-
-### Get singleton instance
-
-The singleton instance of the ``` WebhooksController ``` class can be accessed from the API Client.
-
-```php
-$webhooks = $client->getWebhooks();
-```
-
-### <a name="get_all_webhooks"></a>![Method: ](https://apidocs.io/img/method.png ".WebhooksController.getAllWebhooks") getAllWebhooks
-
-> Returns data about all webhooks of a company.
-
-
-```php
-function getAllWebhooks()
-```
-
-#### Example Usage
-
-```php
-
-$result = $webhooks->getAllWebhooks();
-
-```
-
-#### Errors
-
-| Error Code | Error Description |
-|------------|-------------------|
-| 401 | Unauthorized response |
-
-
-
-### <a name="create_a_new_webhook"></a>![Method: ](https://apidocs.io/img/method.png ".WebhooksController.createANewWebhook") createANewWebhook
-
-> Creates a new webhook and returns its details. Note that specifying an event which triggers the webhook combines 2 parameters - 'event_action' and 'event_object'. E.g., use '\*.\*' for getting notifications about all events, 'added.deal' for any newly added deals, 'deleted.persons' for any deleted persons, etc. See <a href="https://pipedrive.readme.io/docs/guide-for-webhooks?utm_source=api_reference">https://pipedrive.readme.io/docs/guide-for-webhooks</a> for more details.
-
-
-```php
-function createANewWebhook($options)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| subscriptionUrl |  ``` Required ```  | A full, valid, publicly accessible URL. Determines where to send the notifications. Please note that you cannot use Pipedrive API endpoints as the subscription_url. |
-| eventAction |  ``` Required ```  | Type of action to receive notifications about. Wildcard will match all supported actions. |
-| eventObject |  ``` Required ```  | Type of object to receive notifications about. Wildcard will match all supported objects. |
-| userId |  ``` Optional ```  | The ID of the user this webhook will be authorized with. If not set, current authorized user will be used. Note that this does not filter only certain user's events — rather, this specifies the user's permissions under which each event is checked. Events about objects the selected user is not entitled to access are not sent. If you want to receive notifications for all events, a top-level admin user should be used. |
-| httpAuthUser |  ``` Optional ```  | HTTP basic auth username of the subscription URL endpoint (if required). |
-| httpAuthPassword |  ``` Optional ```  | HTTP basic auth password of the subscription URL endpoint (if required). |
-
-
-
-#### Example Usage
-
-```php
-$subscriptionUrl = 'subscription_url';
-$collect['subscriptionUrl'] = $subscriptionUrl;
-
-$eventAction = string::ENUM_0;
-$collect['eventAction'] = $eventAction;
-
-$eventObject = string::ENUM_0;
-$collect['eventObject'] = $eventObject;
-
-$userId = 183;
-$collect['userId'] = $userId;
-
-$httpAuthUser = 'http_auth_user';
-$collect['httpAuthUser'] = $httpAuthUser;
-
-$httpAuthPassword = 'http_auth_password';
-$collect['httpAuthPassword'] = $httpAuthPassword;
-
-
-$result = $webhooks->createANewWebhook($collect);
-
-```
-
-#### Errors
-
-| Error Code | Error Description |
-|------------|-------------------|
-| 400 | The bad response on webhook creation |
-| 401 | Unauthorized response |
-
-
-
-### <a name="delete_existing_webhook"></a>![Method: ](https://apidocs.io/img/method.png ".WebhooksController.deleteExistingWebhook") deleteExistingWebhook
-
-> Deletes the specified webhook.
-
-
-```php
-function deleteExistingWebhook($id)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | The ID of the webhook to delete |
-
-
-
-#### Example Usage
-
-```php
-$id = 183;
-
-$result = $webhooks->deleteExistingWebhook($id);
-
-```
-
-#### Errors
-
-| Error Code | Error Description |
-|------------|-------------------|
-| 401 | Unauthorized response |
-| 403 | The webhook deletion forbidden response |
-| 404 | The webhook deletion not found response |
-
-
-
-[Back to List of Controllers](#list_of_controllers)
+## Documentation for API endpoints
+
+All URIs are relative to *https://api.pipedrive.com/v1*
+
+Class | Method | HTTP request | Description
+------------ | ------------- | ------------- | -------------
+*ActivitiesApi* | [**addActivity**](docs/Api/ActivitiesApi.md#addactivity) | **POST** /activities | Add an activity
+*ActivitiesApi* | [**deleteActivities**](docs/Api/ActivitiesApi.md#deleteactivities) | **DELETE** /activities | Delete multiple activities in bulk
+*ActivitiesApi* | [**deleteActivity**](docs/Api/ActivitiesApi.md#deleteactivity) | **DELETE** /activities/{id} | Delete an activity
+*ActivitiesApi* | [**getActivities**](docs/Api/ActivitiesApi.md#getactivities) | **GET** /activities | Get all activities assigned to a particular user
+*ActivitiesApi* | [**getActivitiesCollection**](docs/Api/ActivitiesApi.md#getactivitiescollection) | **GET** /activities/collection | Get all activities (BETA)
+*ActivitiesApi* | [**getActivity**](docs/Api/ActivitiesApi.md#getactivity) | **GET** /activities/{id} | Get details of an activity
+*ActivitiesApi* | [**updateActivity**](docs/Api/ActivitiesApi.md#updateactivity) | **PUT** /activities/{id} | Update an activity
+*ActivityFieldsApi* | [**getActivityFields**](docs/Api/ActivityFieldsApi.md#getactivityfields) | **GET** /activityFields | Get all activity fields
+*ActivityTypesApi* | [**addActivityType**](docs/Api/ActivityTypesApi.md#addactivitytype) | **POST** /activityTypes | Add new activity type
+*ActivityTypesApi* | [**deleteActivityType**](docs/Api/ActivityTypesApi.md#deleteactivitytype) | **DELETE** /activityTypes/{id} | Delete an activity type
+*ActivityTypesApi* | [**deleteActivityTypes**](docs/Api/ActivityTypesApi.md#deleteactivitytypes) | **DELETE** /activityTypes | Delete multiple activity types in bulk
+*ActivityTypesApi* | [**getActivityTypes**](docs/Api/ActivityTypesApi.md#getactivitytypes) | **GET** /activityTypes | Get all activity types
+*ActivityTypesApi* | [**updateActivityType**](docs/Api/ActivityTypesApi.md#updateactivitytype) | **PUT** /activityTypes/{id} | Update an activity type
+*BillingApi* | [**getCompanyAddons**](docs/Api/BillingApi.md#getcompanyaddons) | **GET** /billing/subscriptions/addons | Get all add-ons for a single company
+*CallLogsApi* | [**addCallLog**](docs/Api/CallLogsApi.md#addcalllog) | **POST** /callLogs | Add a call log
+*CallLogsApi* | [**addCallLogAudioFile**](docs/Api/CallLogsApi.md#addcalllogaudiofile) | **POST** /callLogs/{id}/recordings | Attach an audio file to the call log
+*CallLogsApi* | [**deleteCallLog**](docs/Api/CallLogsApi.md#deletecalllog) | **DELETE** /callLogs/{id} | Delete a call log
+*CallLogsApi* | [**getCallLog**](docs/Api/CallLogsApi.md#getcalllog) | **GET** /callLogs/{id} | Get details of a call log
+*CallLogsApi* | [**getUserCallLogs**](docs/Api/CallLogsApi.md#getusercalllogs) | **GET** /callLogs | Get all call logs assigned to a particular user
+*ChannelsApi* | [**addChannel**](docs/Api/ChannelsApi.md#addchannel) | **POST** /channels | Add a channel
+*ChannelsApi* | [**deleteChannel**](docs/Api/ChannelsApi.md#deletechannel) | **DELETE** /channels/{id} | Delete a channel
+*ChannelsApi* | [**deleteConversation**](docs/Api/ChannelsApi.md#deleteconversation) | **DELETE** /channels/{channel-id}/conversations/{conversation-id} | Delete a conversation
+*ChannelsApi* | [**receiveMessage**](docs/Api/ChannelsApi.md#receivemessage) | **POST** /channels/messages/receive | Receives an incoming message
+*CurrenciesApi* | [**getCurrencies**](docs/Api/CurrenciesApi.md#getcurrencies) | **GET** /currencies | Get all supported currencies
+*DealFieldsApi* | [**addDealField**](docs/Api/DealFieldsApi.md#adddealfield) | **POST** /dealFields | Add a new deal field
+*DealFieldsApi* | [**deleteDealField**](docs/Api/DealFieldsApi.md#deletedealfield) | **DELETE** /dealFields/{id} | Delete a deal field
+*DealFieldsApi* | [**deleteDealFields**](docs/Api/DealFieldsApi.md#deletedealfields) | **DELETE** /dealFields | Delete multiple deal fields in bulk
+*DealFieldsApi* | [**getDealField**](docs/Api/DealFieldsApi.md#getdealfield) | **GET** /dealFields/{id} | Get one deal field
+*DealFieldsApi* | [**getDealFields**](docs/Api/DealFieldsApi.md#getdealfields) | **GET** /dealFields | Get all deal fields
+*DealFieldsApi* | [**updateDealField**](docs/Api/DealFieldsApi.md#updatedealfield) | **PUT** /dealFields/{id} | Update a deal field
+*DealsApi* | [**addDeal**](docs/Api/DealsApi.md#adddeal) | **POST** /deals | Add a deal
+*DealsApi* | [**addDealFollower**](docs/Api/DealsApi.md#adddealfollower) | **POST** /deals/{id}/followers | Add a follower to a deal
+*DealsApi* | [**addDealParticipant**](docs/Api/DealsApi.md#adddealparticipant) | **POST** /deals/{id}/participants | Add a participant to a deal
+*DealsApi* | [**addDealProduct**](docs/Api/DealsApi.md#adddealproduct) | **POST** /deals/{id}/products | Add a product to a deal
+*DealsApi* | [**deleteDeal**](docs/Api/DealsApi.md#deletedeal) | **DELETE** /deals/{id} | Delete a deal
+*DealsApi* | [**deleteDealFollower**](docs/Api/DealsApi.md#deletedealfollower) | **DELETE** /deals/{id}/followers/{follower_id} | Delete a follower from a deal
+*DealsApi* | [**deleteDealParticipant**](docs/Api/DealsApi.md#deletedealparticipant) | **DELETE** /deals/{id}/participants/{deal_participant_id} | Delete a participant from a deal
+*DealsApi* | [**deleteDealProduct**](docs/Api/DealsApi.md#deletedealproduct) | **DELETE** /deals/{id}/products/{product_attachment_id} | Delete an attached product from a deal
+*DealsApi* | [**deleteDeals**](docs/Api/DealsApi.md#deletedeals) | **DELETE** /deals | Delete multiple deals in bulk
+*DealsApi* | [**duplicateDeal**](docs/Api/DealsApi.md#duplicatedeal) | **POST** /deals/{id}/duplicate | Duplicate deal
+*DealsApi* | [**getDeal**](docs/Api/DealsApi.md#getdeal) | **GET** /deals/{id} | Get details of a deal
+*DealsApi* | [**getDealActivities**](docs/Api/DealsApi.md#getdealactivities) | **GET** /deals/{id}/activities | List activities associated with a deal
+*DealsApi* | [**getDealFiles**](docs/Api/DealsApi.md#getdealfiles) | **GET** /deals/{id}/files | List files attached to a deal
+*DealsApi* | [**getDealFollowers**](docs/Api/DealsApi.md#getdealfollowers) | **GET** /deals/{id}/followers | List followers of a deal
+*DealsApi* | [**getDealMailMessages**](docs/Api/DealsApi.md#getdealmailmessages) | **GET** /deals/{id}/mailMessages | List mail messages associated with a deal
+*DealsApi* | [**getDealParticipants**](docs/Api/DealsApi.md#getdealparticipants) | **GET** /deals/{id}/participants | List participants of a deal
+*DealsApi* | [**getDealPersons**](docs/Api/DealsApi.md#getdealpersons) | **GET** /deals/{id}/persons | List all persons associated with a deal
+*DealsApi* | [**getDealProducts**](docs/Api/DealsApi.md#getdealproducts) | **GET** /deals/{id}/products | List products attached to a deal
+*DealsApi* | [**getDealUpdates**](docs/Api/DealsApi.md#getdealupdates) | **GET** /deals/{id}/flow | List updates about a deal
+*DealsApi* | [**getDealUsers**](docs/Api/DealsApi.md#getdealusers) | **GET** /deals/{id}/permittedUsers | List permitted users
+*DealsApi* | [**getDeals**](docs/Api/DealsApi.md#getdeals) | **GET** /deals | Get all deals
+*DealsApi* | [**getDealsCollection**](docs/Api/DealsApi.md#getdealscollection) | **GET** /deals/collection | Get all deals (BETA)
+*DealsApi* | [**getDealsSummary**](docs/Api/DealsApi.md#getdealssummary) | **GET** /deals/summary | Get deals summary
+*DealsApi* | [**getDealsTimeline**](docs/Api/DealsApi.md#getdealstimeline) | **GET** /deals/timeline | Get deals timeline
+*DealsApi* | [**mergeDeals**](docs/Api/DealsApi.md#mergedeals) | **PUT** /deals/{id}/merge | Merge two deals
+*DealsApi* | [**searchDeals**](docs/Api/DealsApi.md#searchdeals) | **GET** /deals/search | Search deals
+*DealsApi* | [**updateDeal**](docs/Api/DealsApi.md#updatedeal) | **PUT** /deals/{id} | Update a deal
+*DealsApi* | [**updateDealProduct**](docs/Api/DealsApi.md#updatedealproduct) | **PUT** /deals/{id}/products/{product_attachment_id} | Update the product attached to a deal
+*FilesApi* | [**addFile**](docs/Api/FilesApi.md#addfile) | **POST** /files | Add file
+*FilesApi* | [**addFileAndLinkIt**](docs/Api/FilesApi.md#addfileandlinkit) | **POST** /files/remote | Create a remote file and link it to an item
+*FilesApi* | [**deleteFile**](docs/Api/FilesApi.md#deletefile) | **DELETE** /files/{id} | Delete a file
+*FilesApi* | [**downloadFile**](docs/Api/FilesApi.md#downloadfile) | **GET** /files/{id}/download | Download one file
+*FilesApi* | [**getFile**](docs/Api/FilesApi.md#getfile) | **GET** /files/{id} | Get one file
+*FilesApi* | [**getFiles**](docs/Api/FilesApi.md#getfiles) | **GET** /files | Get all files
+*FilesApi* | [**linkFileToItem**](docs/Api/FilesApi.md#linkfiletoitem) | **POST** /files/remoteLink | Link a remote file to an item
+*FilesApi* | [**updateFile**](docs/Api/FilesApi.md#updatefile) | **PUT** /files/{id} | Update file details
+*FiltersApi* | [**addFilter**](docs/Api/FiltersApi.md#addfilter) | **POST** /filters | Add a new filter
+*FiltersApi* | [**deleteFilter**](docs/Api/FiltersApi.md#deletefilter) | **DELETE** /filters/{id} | Delete a filter
+*FiltersApi* | [**deleteFilters**](docs/Api/FiltersApi.md#deletefilters) | **DELETE** /filters | Delete multiple filters in bulk
+*FiltersApi* | [**getFilter**](docs/Api/FiltersApi.md#getfilter) | **GET** /filters/{id} | Get one filter
+*FiltersApi* | [**getFilterHelpers**](docs/Api/FiltersApi.md#getfilterhelpers) | **GET** /filters/helpers | Get all filter helpers
+*FiltersApi* | [**getFilters**](docs/Api/FiltersApi.md#getfilters) | **GET** /filters | Get all filters
+*FiltersApi* | [**updateFilter**](docs/Api/FiltersApi.md#updatefilter) | **PUT** /filters/{id} | Update filter
+*GoalsApi* | [**addGoal**](docs/Api/GoalsApi.md#addgoal) | **POST** /goals | Add a new goal
+*GoalsApi* | [**deleteGoal**](docs/Api/GoalsApi.md#deletegoal) | **DELETE** /goals/{id} | Delete existing goal
+*GoalsApi* | [**getGoalResult**](docs/Api/GoalsApi.md#getgoalresult) | **GET** /goals/{id}/results | Get result of a goal
+*GoalsApi* | [**getGoals**](docs/Api/GoalsApi.md#getgoals) | **GET** /goals/find | Find goals
+*GoalsApi* | [**updateGoal**](docs/Api/GoalsApi.md#updategoal) | **PUT** /goals/{id} | Update existing goal
+*ItemSearchApi* | [**searchItem**](docs/Api/ItemSearchApi.md#searchitem) | **GET** /itemSearch | Perform a search from multiple item types
+*ItemSearchApi* | [**searchItemByField**](docs/Api/ItemSearchApi.md#searchitembyfield) | **GET** /itemSearch/field | Perform a search using a specific field from an item type
+*LeadLabelsApi* | [**addLeadLabel**](docs/Api/LeadLabelsApi.md#addleadlabel) | **POST** /leadLabels | Add a lead label
+*LeadLabelsApi* | [**deleteLeadLabel**](docs/Api/LeadLabelsApi.md#deleteleadlabel) | **DELETE** /leadLabels/{id} | Delete a lead label
+*LeadLabelsApi* | [**getLeadLabels**](docs/Api/LeadLabelsApi.md#getleadlabels) | **GET** /leadLabels | Get all lead labels
+*LeadLabelsApi* | [**updateLeadLabel**](docs/Api/LeadLabelsApi.md#updateleadlabel) | **PATCH** /leadLabels/{id} | Update a lead label
+*LeadSourcesApi* | [**getLeadSources**](docs/Api/LeadSourcesApi.md#getleadsources) | **GET** /leadSources | Get all lead sources
+*LeadsApi* | [**addLead**](docs/Api/LeadsApi.md#addlead) | **POST** /leads | Add a lead
+*LeadsApi* | [**deleteLead**](docs/Api/LeadsApi.md#deletelead) | **DELETE** /leads/{id} | Delete a lead
+*LeadsApi* | [**getLead**](docs/Api/LeadsApi.md#getlead) | **GET** /leads/{id} | Get one lead
+*LeadsApi* | [**getLeadUsers**](docs/Api/LeadsApi.md#getleadusers) | **GET** /leads/{id}/permittedUsers | List permitted users
+*LeadsApi* | [**getLeads**](docs/Api/LeadsApi.md#getleads) | **GET** /leads | Get all leads
+*LeadsApi* | [**searchLeads**](docs/Api/LeadsApi.md#searchleads) | **GET** /leads/search | Search leads
+*LeadsApi* | [**updateLead**](docs/Api/LeadsApi.md#updatelead) | **PATCH** /leads/{id} | Update a lead
+*LegacyTeamsApi* | [**addTeam**](docs/Api/LegacyTeamsApi.md#addteam) | **POST** /legacyTeams | Add a new team
+*LegacyTeamsApi* | [**addTeamUser**](docs/Api/LegacyTeamsApi.md#addteamuser) | **POST** /legacyTeams/{id}/users | Add users to a team
+*LegacyTeamsApi* | [**deleteTeamUser**](docs/Api/LegacyTeamsApi.md#deleteteamuser) | **DELETE** /legacyTeams/{id}/users | Delete users from a team
+*LegacyTeamsApi* | [**getTeam**](docs/Api/LegacyTeamsApi.md#getteam) | **GET** /legacyTeams/{id} | Get a single team
+*LegacyTeamsApi* | [**getTeamUsers**](docs/Api/LegacyTeamsApi.md#getteamusers) | **GET** /legacyTeams/{id}/users | Get all users in a team
+*LegacyTeamsApi* | [**getTeams**](docs/Api/LegacyTeamsApi.md#getteams) | **GET** /legacyTeams | Get all teams
+*LegacyTeamsApi* | [**getUserTeams**](docs/Api/LegacyTeamsApi.md#getuserteams) | **GET** /legacyTeams/user/{id} | Get all teams of a user
+*LegacyTeamsApi* | [**updateTeam**](docs/Api/LegacyTeamsApi.md#updateteam) | **PUT** /legacyTeams/{id} | Update a team
+*MailboxApi* | [**deleteMailThread**](docs/Api/MailboxApi.md#deletemailthread) | **DELETE** /mailbox/mailThreads/{id} | Delete mail thread
+*MailboxApi* | [**getMailMessage**](docs/Api/MailboxApi.md#getmailmessage) | **GET** /mailbox/mailMessages/{id} | Get one mail message
+*MailboxApi* | [**getMailThread**](docs/Api/MailboxApi.md#getmailthread) | **GET** /mailbox/mailThreads/{id} | Get one mail thread
+*MailboxApi* | [**getMailThreadMessages**](docs/Api/MailboxApi.md#getmailthreadmessages) | **GET** /mailbox/mailThreads/{id}/mailMessages | Get all mail messages of mail thread
+*MailboxApi* | [**getMailThreads**](docs/Api/MailboxApi.md#getmailthreads) | **GET** /mailbox/mailThreads | Get mail threads
+*MailboxApi* | [**updateMailThreadDetails**](docs/Api/MailboxApi.md#updatemailthreaddetails) | **PUT** /mailbox/mailThreads/{id} | Update mail thread details
+*NoteFieldsApi* | [**getNoteFields**](docs/Api/NoteFieldsApi.md#getnotefields) | **GET** /noteFields | Get all note fields
+*NotesApi* | [**addNote**](docs/Api/NotesApi.md#addnote) | **POST** /notes | Add a note
+*NotesApi* | [**addNoteComment**](docs/Api/NotesApi.md#addnotecomment) | **POST** /notes/{id}/comments | Add a comment to a note
+*NotesApi* | [**deleteComment**](docs/Api/NotesApi.md#deletecomment) | **DELETE** /notes/{id}/comments/{commentId} | Delete a comment related to a note
+*NotesApi* | [**deleteNote**](docs/Api/NotesApi.md#deletenote) | **DELETE** /notes/{id} | Delete a note
+*NotesApi* | [**getComment**](docs/Api/NotesApi.md#getcomment) | **GET** /notes/{id}/comments/{commentId} | Get one comment
+*NotesApi* | [**getNote**](docs/Api/NotesApi.md#getnote) | **GET** /notes/{id} | Get one note
+*NotesApi* | [**getNoteComments**](docs/Api/NotesApi.md#getnotecomments) | **GET** /notes/{id}/comments | Get all comments for a note
+*NotesApi* | [**getNotes**](docs/Api/NotesApi.md#getnotes) | **GET** /notes | Get all notes
+*NotesApi* | [**updateCommentForNote**](docs/Api/NotesApi.md#updatecommentfornote) | **PUT** /notes/{id}/comments/{commentId} | Update a comment related to a note
+*NotesApi* | [**updateNote**](docs/Api/NotesApi.md#updatenote) | **PUT** /notes/{id} | Update a note
+*OrganizationFieldsApi* | [**addOrganizationField**](docs/Api/OrganizationFieldsApi.md#addorganizationfield) | **POST** /organizationFields | Add a new organization field
+*OrganizationFieldsApi* | [**deleteOrganizationField**](docs/Api/OrganizationFieldsApi.md#deleteorganizationfield) | **DELETE** /organizationFields/{id} | Delete an organization field
+*OrganizationFieldsApi* | [**deleteOrganizationFields**](docs/Api/OrganizationFieldsApi.md#deleteorganizationfields) | **DELETE** /organizationFields | Delete multiple organization fields in bulk
+*OrganizationFieldsApi* | [**getOrganizationField**](docs/Api/OrganizationFieldsApi.md#getorganizationfield) | **GET** /organizationFields/{id} | Get one organization field
+*OrganizationFieldsApi* | [**getOrganizationFields**](docs/Api/OrganizationFieldsApi.md#getorganizationfields) | **GET** /organizationFields | Get all organization fields
+*OrganizationFieldsApi* | [**updateOrganizationField**](docs/Api/OrganizationFieldsApi.md#updateorganizationfield) | **PUT** /organizationFields/{id} | Update an organization field
+*OrganizationRelationshipsApi* | [**addOrganizationRelationship**](docs/Api/OrganizationRelationshipsApi.md#addorganizationrelationship) | **POST** /organizationRelationships | Create an organization relationship
+*OrganizationRelationshipsApi* | [**deleteOrganizationRelationship**](docs/Api/OrganizationRelationshipsApi.md#deleteorganizationrelationship) | **DELETE** /organizationRelationships/{id} | Delete an organization relationship
+*OrganizationRelationshipsApi* | [**getOrganizationRelationship**](docs/Api/OrganizationRelationshipsApi.md#getorganizationrelationship) | **GET** /organizationRelationships/{id} | Get one organization relationship
+*OrganizationRelationshipsApi* | [**getOrganizationRelationships**](docs/Api/OrganizationRelationshipsApi.md#getorganizationrelationships) | **GET** /organizationRelationships | Get all relationships for organization
+*OrganizationRelationshipsApi* | [**updateOrganizationRelationship**](docs/Api/OrganizationRelationshipsApi.md#updateorganizationrelationship) | **PUT** /organizationRelationships/{id} | Update an organization relationship
+*OrganizationsApi* | [**addOrganization**](docs/Api/OrganizationsApi.md#addorganization) | **POST** /organizations | Add an organization
+*OrganizationsApi* | [**addOrganizationFollower**](docs/Api/OrganizationsApi.md#addorganizationfollower) | **POST** /organizations/{id}/followers | Add a follower to an organization
+*OrganizationsApi* | [**deleteOrganization**](docs/Api/OrganizationsApi.md#deleteorganization) | **DELETE** /organizations/{id} | Delete an organization
+*OrganizationsApi* | [**deleteOrganizationFollower**](docs/Api/OrganizationsApi.md#deleteorganizationfollower) | **DELETE** /organizations/{id}/followers/{follower_id} | Delete a follower from an organization
+*OrganizationsApi* | [**deleteOrganizations**](docs/Api/OrganizationsApi.md#deleteorganizations) | **DELETE** /organizations | Delete multiple organizations in bulk
+*OrganizationsApi* | [**getOrganization**](docs/Api/OrganizationsApi.md#getorganization) | **GET** /organizations/{id} | Get details of an organization
+*OrganizationsApi* | [**getOrganizationActivities**](docs/Api/OrganizationsApi.md#getorganizationactivities) | **GET** /organizations/{id}/activities | List activities associated with an organization
+*OrganizationsApi* | [**getOrganizationDeals**](docs/Api/OrganizationsApi.md#getorganizationdeals) | **GET** /organizations/{id}/deals | List deals associated with an organization
+*OrganizationsApi* | [**getOrganizationFiles**](docs/Api/OrganizationsApi.md#getorganizationfiles) | **GET** /organizations/{id}/files | List files attached to an organization
+*OrganizationsApi* | [**getOrganizationFollowers**](docs/Api/OrganizationsApi.md#getorganizationfollowers) | **GET** /organizations/{id}/followers | List followers of an organization
+*OrganizationsApi* | [**getOrganizationMailMessages**](docs/Api/OrganizationsApi.md#getorganizationmailmessages) | **GET** /organizations/{id}/mailMessages | List mail messages associated with an organization
+*OrganizationsApi* | [**getOrganizationPersons**](docs/Api/OrganizationsApi.md#getorganizationpersons) | **GET** /organizations/{id}/persons | List persons of an organization
+*OrganizationsApi* | [**getOrganizationUpdates**](docs/Api/OrganizationsApi.md#getorganizationupdates) | **GET** /organizations/{id}/flow | List updates about an organization
+*OrganizationsApi* | [**getOrganizationUsers**](docs/Api/OrganizationsApi.md#getorganizationusers) | **GET** /organizations/{id}/permittedUsers | List permitted users
+*OrganizationsApi* | [**getOrganizations**](docs/Api/OrganizationsApi.md#getorganizations) | **GET** /organizations | Get all organizations
+*OrganizationsApi* | [**getOrganizationsCollection**](docs/Api/OrganizationsApi.md#getorganizationscollection) | **GET** /organizations/collection | Get all organizations (BETA)
+*OrganizationsApi* | [**mergeOrganizations**](docs/Api/OrganizationsApi.md#mergeorganizations) | **PUT** /organizations/{id}/merge | Merge two organizations
+*OrganizationsApi* | [**searchOrganization**](docs/Api/OrganizationsApi.md#searchorganization) | **GET** /organizations/search | Search organizations
+*OrganizationsApi* | [**updateOrganization**](docs/Api/OrganizationsApi.md#updateorganization) | **PUT** /organizations/{id} | Update an organization
+*PermissionSetsApi* | [**getPermissionSet**](docs/Api/PermissionSetsApi.md#getpermissionset) | **GET** /permissionSets/{id} | Get one permission set
+*PermissionSetsApi* | [**getPermissionSetAssignments**](docs/Api/PermissionSetsApi.md#getpermissionsetassignments) | **GET** /permissionSets/{id}/assignments | List permission set assignments
+*PermissionSetsApi* | [**getPermissionSets**](docs/Api/PermissionSetsApi.md#getpermissionsets) | **GET** /permissionSets | Get all permission sets
+*PersonFieldsApi* | [**addPersonField**](docs/Api/PersonFieldsApi.md#addpersonfield) | **POST** /personFields | Add a new person field
+*PersonFieldsApi* | [**deletePersonField**](docs/Api/PersonFieldsApi.md#deletepersonfield) | **DELETE** /personFields/{id} | Delete a person field
+*PersonFieldsApi* | [**deletePersonFields**](docs/Api/PersonFieldsApi.md#deletepersonfields) | **DELETE** /personFields | Delete multiple person fields in bulk
+*PersonFieldsApi* | [**getPersonField**](docs/Api/PersonFieldsApi.md#getpersonfield) | **GET** /personFields/{id} | Get one person field
+*PersonFieldsApi* | [**getPersonFields**](docs/Api/PersonFieldsApi.md#getpersonfields) | **GET** /personFields | Get all person fields
+*PersonFieldsApi* | [**updatePersonField**](docs/Api/PersonFieldsApi.md#updatepersonfield) | **PUT** /personFields/{id} | Update a person field
+*PersonsApi* | [**addPerson**](docs/Api/PersonsApi.md#addperson) | **POST** /persons | Add a person
+*PersonsApi* | [**addPersonFollower**](docs/Api/PersonsApi.md#addpersonfollower) | **POST** /persons/{id}/followers | Add a follower to a person
+*PersonsApi* | [**addPersonPicture**](docs/Api/PersonsApi.md#addpersonpicture) | **POST** /persons/{id}/picture | Add person picture
+*PersonsApi* | [**deletePerson**](docs/Api/PersonsApi.md#deleteperson) | **DELETE** /persons/{id} | Delete a person
+*PersonsApi* | [**deletePersonFollower**](docs/Api/PersonsApi.md#deletepersonfollower) | **DELETE** /persons/{id}/followers/{follower_id} | Delete a follower from a person
+*PersonsApi* | [**deletePersonPicture**](docs/Api/PersonsApi.md#deletepersonpicture) | **DELETE** /persons/{id}/picture | Delete person picture
+*PersonsApi* | [**deletePersons**](docs/Api/PersonsApi.md#deletepersons) | **DELETE** /persons | Delete multiple persons in bulk
+*PersonsApi* | [**getPerson**](docs/Api/PersonsApi.md#getperson) | **GET** /persons/{id} | Get details of a person
+*PersonsApi* | [**getPersonActivities**](docs/Api/PersonsApi.md#getpersonactivities) | **GET** /persons/{id}/activities | List activities associated with a person
+*PersonsApi* | [**getPersonDeals**](docs/Api/PersonsApi.md#getpersondeals) | **GET** /persons/{id}/deals | List deals associated with a person
+*PersonsApi* | [**getPersonFiles**](docs/Api/PersonsApi.md#getpersonfiles) | **GET** /persons/{id}/files | List files attached to a person
+*PersonsApi* | [**getPersonFollowers**](docs/Api/PersonsApi.md#getpersonfollowers) | **GET** /persons/{id}/followers | List followers of a person
+*PersonsApi* | [**getPersonMailMessages**](docs/Api/PersonsApi.md#getpersonmailmessages) | **GET** /persons/{id}/mailMessages | List mail messages associated with a person
+*PersonsApi* | [**getPersonProducts**](docs/Api/PersonsApi.md#getpersonproducts) | **GET** /persons/{id}/products | List products associated with a person
+*PersonsApi* | [**getPersonUpdates**](docs/Api/PersonsApi.md#getpersonupdates) | **GET** /persons/{id}/flow | List updates about a person
+*PersonsApi* | [**getPersonUsers**](docs/Api/PersonsApi.md#getpersonusers) | **GET** /persons/{id}/permittedUsers | List permitted users
+*PersonsApi* | [**getPersons**](docs/Api/PersonsApi.md#getpersons) | **GET** /persons | Get all persons
+*PersonsApi* | [**getPersonsCollection**](docs/Api/PersonsApi.md#getpersonscollection) | **GET** /persons/collection | Get all persons (BETA)
+*PersonsApi* | [**mergePersons**](docs/Api/PersonsApi.md#mergepersons) | **PUT** /persons/{id}/merge | Merge two persons
+*PersonsApi* | [**searchPersons**](docs/Api/PersonsApi.md#searchpersons) | **GET** /persons/search | Search persons
+*PersonsApi* | [**updatePerson**](docs/Api/PersonsApi.md#updateperson) | **PUT** /persons/{id} | Update a person
+*PipelinesApi* | [**addPipeline**](docs/Api/PipelinesApi.md#addpipeline) | **POST** /pipelines | Add a new pipeline
+*PipelinesApi* | [**deletePipeline**](docs/Api/PipelinesApi.md#deletepipeline) | **DELETE** /pipelines/{id} | Delete a pipeline
+*PipelinesApi* | [**getPipeline**](docs/Api/PipelinesApi.md#getpipeline) | **GET** /pipelines/{id} | Get one pipeline
+*PipelinesApi* | [**getPipelineConversionStatistics**](docs/Api/PipelinesApi.md#getpipelineconversionstatistics) | **GET** /pipelines/{id}/conversion_statistics | Get deals conversion rates in pipeline
+*PipelinesApi* | [**getPipelineDeals**](docs/Api/PipelinesApi.md#getpipelinedeals) | **GET** /pipelines/{id}/deals | Get deals in a pipeline
+*PipelinesApi* | [**getPipelineMovementStatistics**](docs/Api/PipelinesApi.md#getpipelinemovementstatistics) | **GET** /pipelines/{id}/movement_statistics | Get deals movements in pipeline
+*PipelinesApi* | [**getPipelines**](docs/Api/PipelinesApi.md#getpipelines) | **GET** /pipelines | Get all pipelines
+*PipelinesApi* | [**updatePipeline**](docs/Api/PipelinesApi.md#updatepipeline) | **PUT** /pipelines/{id} | Update a pipeline
+*ProductFieldsApi* | [**addProductField**](docs/Api/ProductFieldsApi.md#addproductfield) | **POST** /productFields | Add a new product field
+*ProductFieldsApi* | [**deleteProductField**](docs/Api/ProductFieldsApi.md#deleteproductfield) | **DELETE** /productFields/{id} | Delete a product field
+*ProductFieldsApi* | [**deleteProductFields**](docs/Api/ProductFieldsApi.md#deleteproductfields) | **DELETE** /productFields | Delete multiple product fields in bulk
+*ProductFieldsApi* | [**getProductField**](docs/Api/ProductFieldsApi.md#getproductfield) | **GET** /productFields/{id} | Get one product field
+*ProductFieldsApi* | [**getProductFields**](docs/Api/ProductFieldsApi.md#getproductfields) | **GET** /productFields | Get all product fields
+*ProductFieldsApi* | [**updateProductField**](docs/Api/ProductFieldsApi.md#updateproductfield) | **PUT** /productFields/{id} | Update a product field
+*ProductsApi* | [**addProduct**](docs/Api/ProductsApi.md#addproduct) | **POST** /products | Add a product
+*ProductsApi* | [**addProductFollower**](docs/Api/ProductsApi.md#addproductfollower) | **POST** /products/{id}/followers | Add a follower to a product
+*ProductsApi* | [**deleteProduct**](docs/Api/ProductsApi.md#deleteproduct) | **DELETE** /products/{id} | Delete a product
+*ProductsApi* | [**deleteProductFollower**](docs/Api/ProductsApi.md#deleteproductfollower) | **DELETE** /products/{id}/followers/{follower_id} | Delete a follower from a product
+*ProductsApi* | [**getProduct**](docs/Api/ProductsApi.md#getproduct) | **GET** /products/{id} | Get one product
+*ProductsApi* | [**getProductDeals**](docs/Api/ProductsApi.md#getproductdeals) | **GET** /products/{id}/deals | Get deals where a product is attached to
+*ProductsApi* | [**getProductFiles**](docs/Api/ProductsApi.md#getproductfiles) | **GET** /products/{id}/files | List files attached to a product
+*ProductsApi* | [**getProductFollowers**](docs/Api/ProductsApi.md#getproductfollowers) | **GET** /products/{id}/followers | List followers of a product
+*ProductsApi* | [**getProductUsers**](docs/Api/ProductsApi.md#getproductusers) | **GET** /products/{id}/permittedUsers | List permitted users
+*ProductsApi* | [**getProducts**](docs/Api/ProductsApi.md#getproducts) | **GET** /products | Get all products
+*ProductsApi* | [**searchProducts**](docs/Api/ProductsApi.md#searchproducts) | **GET** /products/search | Search products
+*ProductsApi* | [**updateProduct**](docs/Api/ProductsApi.md#updateproduct) | **PUT** /products/{id} | Update a product
+*RecentsApi* | [**getRecents**](docs/Api/RecentsApi.md#getrecents) | **GET** /recents | Get recents
+*RolesApi* | [**addOrUpdateRoleSetting**](docs/Api/RolesApi.md#addorupdaterolesetting) | **POST** /roles/{id}/settings | Add or update role setting
+*RolesApi* | [**addRole**](docs/Api/RolesApi.md#addrole) | **POST** /roles | Add a role
+*RolesApi* | [**addRoleAssignment**](docs/Api/RolesApi.md#addroleassignment) | **POST** /roles/{id}/assignments | Add role assignment
+*RolesApi* | [**deleteRole**](docs/Api/RolesApi.md#deleterole) | **DELETE** /roles/{id} | Delete a role
+*RolesApi* | [**deleteRoleAssignment**](docs/Api/RolesApi.md#deleteroleassignment) | **DELETE** /roles/{id}/assignments | Delete a role assignment
+*RolesApi* | [**getRole**](docs/Api/RolesApi.md#getrole) | **GET** /roles/{id} | Get one role
+*RolesApi* | [**getRoleAssignments**](docs/Api/RolesApi.md#getroleassignments) | **GET** /roles/{id}/assignments | List role assignments
+*RolesApi* | [**getRolePipelines**](docs/Api/RolesApi.md#getrolepipelines) | **GET** /roles/{id}/pipelines | List pipeline visibility for a role
+*RolesApi* | [**getRoleSettings**](docs/Api/RolesApi.md#getrolesettings) | **GET** /roles/{id}/settings | List role settings
+*RolesApi* | [**getRoles**](docs/Api/RolesApi.md#getroles) | **GET** /roles | Get all roles
+*RolesApi* | [**updateRole**](docs/Api/RolesApi.md#updaterole) | **PUT** /roles/{id} | Update role details
+*RolesApi* | [**updateRolePipelines**](docs/Api/RolesApi.md#updaterolepipelines) | **PUT** /roles/{id}/pipelines | Update pipeline visibility for a role
+*StagesApi* | [**addStage**](docs/Api/StagesApi.md#addstage) | **POST** /stages | Add a new stage
+*StagesApi* | [**deleteStage**](docs/Api/StagesApi.md#deletestage) | **DELETE** /stages/{id} | Delete a stage
+*StagesApi* | [**deleteStages**](docs/Api/StagesApi.md#deletestages) | **DELETE** /stages | Delete multiple stages in bulk
+*StagesApi* | [**getStage**](docs/Api/StagesApi.md#getstage) | **GET** /stages/{id} | Get one stage
+*StagesApi* | [**getStageDeals**](docs/Api/StagesApi.md#getstagedeals) | **GET** /stages/{id}/deals | Get deals in a stage
+*StagesApi* | [**getStages**](docs/Api/StagesApi.md#getstages) | **GET** /stages | Get all stages
+*StagesApi* | [**updateStage**](docs/Api/StagesApi.md#updatestage) | **PUT** /stages/{id} | Update stage details
+*SubscriptionsApi* | [**addRecurringSubscription**](docs/Api/SubscriptionsApi.md#addrecurringsubscription) | **POST** /subscriptions/recurring | Add a recurring subscription
+*SubscriptionsApi* | [**addSubscriptionInstallment**](docs/Api/SubscriptionsApi.md#addsubscriptioninstallment) | **POST** /subscriptions/installment | Add an installment subscription
+*SubscriptionsApi* | [**cancelRecurringSubscription**](docs/Api/SubscriptionsApi.md#cancelrecurringsubscription) | **PUT** /subscriptions/recurring/{id}/cancel | Cancel a recurring subscription
+*SubscriptionsApi* | [**deleteSubscription**](docs/Api/SubscriptionsApi.md#deletesubscription) | **DELETE** /subscriptions/{id} | Delete a subscription
+*SubscriptionsApi* | [**findSubscriptionByDeal**](docs/Api/SubscriptionsApi.md#findsubscriptionbydeal) | **GET** /subscriptions/find/{dealId} | Find subscription by deal
+*SubscriptionsApi* | [**getSubscription**](docs/Api/SubscriptionsApi.md#getsubscription) | **GET** /subscriptions/{id} | Get details of a subscription
+*SubscriptionsApi* | [**getSubscriptionPayments**](docs/Api/SubscriptionsApi.md#getsubscriptionpayments) | **GET** /subscriptions/{id}/payments | Get all payments of a subscription
+*SubscriptionsApi* | [**updateRecurringSubscription**](docs/Api/SubscriptionsApi.md#updaterecurringsubscription) | **PUT** /subscriptions/recurring/{id} | Update a recurring subscription
+*SubscriptionsApi* | [**updateSubscriptionInstallment**](docs/Api/SubscriptionsApi.md#updatesubscriptioninstallment) | **PUT** /subscriptions/installment/{id} | Update an installment subscription
+*UserConnectionsApi* | [**getUserConnections**](docs/Api/UserConnectionsApi.md#getuserconnections) | **GET** /userConnections | Get all user connections
+*UserSettingsApi* | [**getUserSettings**](docs/Api/UserSettingsApi.md#getusersettings) | **GET** /userSettings | List settings of an authorized user
+*UsersApi* | [**addUser**](docs/Api/UsersApi.md#adduser) | **POST** /users | Add a new user
+*UsersApi* | [**findUsersByName**](docs/Api/UsersApi.md#findusersbyname) | **GET** /users/find | Find users by name
+*UsersApi* | [**getCurrentUser**](docs/Api/UsersApi.md#getcurrentuser) | **GET** /users/me | Get current user data
+*UsersApi* | [**getUser**](docs/Api/UsersApi.md#getuser) | **GET** /users/{id} | Get one user
+*UsersApi* | [**getUserFollowers**](docs/Api/UsersApi.md#getuserfollowers) | **GET** /users/{id}/followers | List followers of a user
+*UsersApi* | [**getUserPermissions**](docs/Api/UsersApi.md#getuserpermissions) | **GET** /users/{id}/permissions | List user permissions
+*UsersApi* | [**getUserRoleAssignments**](docs/Api/UsersApi.md#getuserroleassignments) | **GET** /users/{id}/roleAssignments | List role assignments
+*UsersApi* | [**getUserRoleSettings**](docs/Api/UsersApi.md#getuserrolesettings) | **GET** /users/{id}/roleSettings | List user role settings
+*UsersApi* | [**getUsers**](docs/Api/UsersApi.md#getusers) | **GET** /users | Get all users
+*UsersApi* | [**updateUser**](docs/Api/UsersApi.md#updateuser) | **PUT** /users/{id} | Update user details
+*WebhooksApi* | [**addWebhook**](docs/Api/WebhooksApi.md#addwebhook) | **POST** /webhooks | Create a new Webhook
+*WebhooksApi* | [**deleteWebhook**](docs/Api/WebhooksApi.md#deletewebhook) | **DELETE** /webhooks/{id} | Delete existing Webhook
+*WebhooksApi* | [**getWebhooks**](docs/Api/WebhooksApi.md#getwebhooks) | **GET** /webhooks | Get all Webhooks
+
+
+## Documentation for models
+
+ - [ActivityCollectionResponseObject](docs/Model/ActivityCollectionResponseObject.md)
+ - [ActivityCollectionResponseObjectAllOf](docs/Model/ActivityCollectionResponseObjectAllOf.md)
+ - [ActivityDistributionData](docs/Model/ActivityDistributionData.md)
+ - [ActivityDistributionDataActivityDistribution](docs/Model/ActivityDistributionDataActivityDistribution.md)
+ - [ActivityDistributionDataActivityDistributionASSIGNEDTOUSERID](docs/Model/ActivityDistributionDataActivityDistributionASSIGNEDTOUSERID.md)
+ - [ActivityDistributionDataActivityDistributionASSIGNEDTOUSERIDActivities](docs/Model/ActivityDistributionDataActivityDistributionASSIGNEDTOUSERIDActivities.md)
+ - [ActivityDistributionDataWithAdditionalData](docs/Model/ActivityDistributionDataWithAdditionalData.md)
+ - [ActivityInfo](docs/Model/ActivityInfo.md)
+ - [ActivityObjectFragment](docs/Model/ActivityObjectFragment.md)
+ - [ActivityPostObject](docs/Model/ActivityPostObject.md)
+ - [ActivityPostObjectAllOf](docs/Model/ActivityPostObjectAllOf.md)
+ - [ActivityPutObject](docs/Model/ActivityPutObject.md)
+ - [ActivityPutObjectAllOf](docs/Model/ActivityPutObjectAllOf.md)
+ - [ActivityRecordAdditionalData](docs/Model/ActivityRecordAdditionalData.md)
+ - [ActivityResponseObject](docs/Model/ActivityResponseObject.md)
+ - [ActivityResponseObjectAllOf](docs/Model/ActivityResponseObjectAllOf.md)
+ - [ActivityTypeBulkDeleteResponse](docs/Model/ActivityTypeBulkDeleteResponse.md)
+ - [ActivityTypeBulkDeleteResponseAllOf](docs/Model/ActivityTypeBulkDeleteResponseAllOf.md)
+ - [ActivityTypeBulkDeleteResponseAllOfData](docs/Model/ActivityTypeBulkDeleteResponseAllOfData.md)
+ - [ActivityTypeCreateRequest](docs/Model/ActivityTypeCreateRequest.md)
+ - [ActivityTypeCreateUpdateDeleteResponse](docs/Model/ActivityTypeCreateUpdateDeleteResponse.md)
+ - [ActivityTypeCreateUpdateDeleteResponseAllOf](docs/Model/ActivityTypeCreateUpdateDeleteResponseAllOf.md)
+ - [ActivityTypeListResponse](docs/Model/ActivityTypeListResponse.md)
+ - [ActivityTypeListResponseAllOf](docs/Model/ActivityTypeListResponseAllOf.md)
+ - [ActivityTypeObjectResponse](docs/Model/ActivityTypeObjectResponse.md)
+ - [ActivityTypeUpdateRequest](docs/Model/ActivityTypeUpdateRequest.md)
+ - [AddActivityResponse200](docs/Model/AddActivityResponse200.md)
+ - [AddActivityResponse200RelatedObjects](docs/Model/AddActivityResponse200RelatedObjects.md)
+ - [AddDealFollowerRequest](docs/Model/AddDealFollowerRequest.md)
+ - [AddDealParticipantRequest](docs/Model/AddDealParticipantRequest.md)
+ - [AddFile](docs/Model/AddFile.md)
+ - [AddFilterRequest](docs/Model/AddFilterRequest.md)
+ - [AddFollowerToPersonResponse](docs/Model/AddFollowerToPersonResponse.md)
+ - [AddFollowerToPersonResponseAllOf](docs/Model/AddFollowerToPersonResponseAllOf.md)
+ - [AddFollowerToPersonResponseAllOfData](docs/Model/AddFollowerToPersonResponseAllOfData.md)
+ - [AddLeadLabelRequest](docs/Model/AddLeadLabelRequest.md)
+ - [AddLeadRequest](docs/Model/AddLeadRequest.md)
+ - [AddNewPipeline](docs/Model/AddNewPipeline.md)
+ - [AddNewPipelineAllOf](docs/Model/AddNewPipelineAllOf.md)
+ - [AddNoteRequest](docs/Model/AddNoteRequest.md)
+ - [AddNoteRequestAllOf](docs/Model/AddNoteRequestAllOf.md)
+ - [AddOrUpdateGoalResponse200](docs/Model/AddOrUpdateGoalResponse200.md)
+ - [AddOrUpdateLeadLabelResponse200](docs/Model/AddOrUpdateLeadLabelResponse200.md)
+ - [AddOrUpdateRoleSettingRequest](docs/Model/AddOrUpdateRoleSettingRequest.md)
+ - [AddOrganizationFollowerRequest](docs/Model/AddOrganizationFollowerRequest.md)
+ - [AddOrganizationRelationshipRequest](docs/Model/AddOrganizationRelationshipRequest.md)
+ - [AddPersonFollowerRequest](docs/Model/AddPersonFollowerRequest.md)
+ - [AddPersonPictureResponse](docs/Model/AddPersonPictureResponse.md)
+ - [AddPersonPictureResponseAllOf](docs/Model/AddPersonPictureResponseAllOf.md)
+ - [AddPersonResponse](docs/Model/AddPersonResponse.md)
+ - [AddPersonResponseAllOf](docs/Model/AddPersonResponseAllOf.md)
+ - [AddProductAttachmentDetails](docs/Model/AddProductAttachmentDetails.md)
+ - [AddProductAttachmentDetailsAllOf](docs/Model/AddProductAttachmentDetailsAllOf.md)
+ - [AddProductFollowerRequest](docs/Model/AddProductFollowerRequest.md)
+ - [AddProductRequestBody](docs/Model/AddProductRequestBody.md)
+ - [AddRole](docs/Model/AddRole.md)
+ - [AddRoleAssignmentRequest](docs/Model/AddRoleAssignmentRequest.md)
+ - [AddTeamUserRequest](docs/Model/AddTeamUserRequest.md)
+ - [AddUserRequest](docs/Model/AddUserRequest.md)
+ - [AddWebhookRequest](docs/Model/AddWebhookRequest.md)
+ - [AddedDealFollower](docs/Model/AddedDealFollower.md)
+ - [AddedDealFollowerData](docs/Model/AddedDealFollowerData.md)
+ - [AdditionalBaseOrganizationItemInfo](docs/Model/AdditionalBaseOrganizationItemInfo.md)
+ - [AdditionalData](docs/Model/AdditionalData.md)
+ - [AdditionalDataWithCursorPagination](docs/Model/AdditionalDataWithCursorPagination.md)
+ - [AdditionalDataWithOffsetPagination](docs/Model/AdditionalDataWithOffsetPagination.md)
+ - [AdditionalDataWithPaginationDetails](docs/Model/AdditionalDataWithPaginationDetails.md)
+ - [AdditionalMergePersonInfo](docs/Model/AdditionalMergePersonInfo.md)
+ - [AdditionalPersonInfo](docs/Model/AdditionalPersonInfo.md)
+ - [AllOrganizationRelationshipsGetResponse](docs/Model/AllOrganizationRelationshipsGetResponse.md)
+ - [AllOrganizationRelationshipsGetResponseAllOf](docs/Model/AllOrganizationRelationshipsGetResponseAllOf.md)
+ - [AllOrganizationRelationshipsGetResponseAllOfRelatedObjects](docs/Model/AllOrganizationRelationshipsGetResponseAllOfRelatedObjects.md)
+ - [AllOrganizationsGetResponse](docs/Model/AllOrganizationsGetResponse.md)
+ - [AllOrganizationsGetResponseAllOf](docs/Model/AllOrganizationsGetResponseAllOf.md)
+ - [AllOrganizationsGetResponseAllOfRelatedObjects](docs/Model/AllOrganizationsGetResponseAllOfRelatedObjects.md)
+ - [ArrayPrices](docs/Model/ArrayPrices.md)
+ - [Assignee](docs/Model/Assignee.md)
+ - [BaseComment](docs/Model/BaseComment.md)
+ - [BaseCurrency](docs/Model/BaseCurrency.md)
+ - [BaseDeal](docs/Model/BaseDeal.md)
+ - [BaseFollowerItem](docs/Model/BaseFollowerItem.md)
+ - [BaseMailThread](docs/Model/BaseMailThread.md)
+ - [BaseMailThreadAllOf](docs/Model/BaseMailThreadAllOf.md)
+ - [BaseMailThreadAllOfParties](docs/Model/BaseMailThreadAllOfParties.md)
+ - [BaseMailThreadMessages](docs/Model/BaseMailThreadMessages.md)
+ - [BaseMailThreadMessagesAllOf](docs/Model/BaseMailThreadMessagesAllOf.md)
+ - [BaseNote](docs/Model/BaseNote.md)
+ - [BaseNoteDealTitle](docs/Model/BaseNoteDealTitle.md)
+ - [BaseNoteOrganization](docs/Model/BaseNoteOrganization.md)
+ - [BaseNotePerson](docs/Model/BaseNotePerson.md)
+ - [BaseOrganizationItem](docs/Model/BaseOrganizationItem.md)
+ - [BaseOrganizationItemFields](docs/Model/BaseOrganizationItemFields.md)
+ - [BaseOrganizationItemWithEditNameFlag](docs/Model/BaseOrganizationItemWithEditNameFlag.md)
+ - [BaseOrganizationItemWithEditNameFlagAllOf](docs/Model/BaseOrganizationItemWithEditNameFlagAllOf.md)
+ - [BaseOrganizationRelationshipItem](docs/Model/BaseOrganizationRelationshipItem.md)
+ - [BasePersonItem](docs/Model/BasePersonItem.md)
+ - [BasePersonItemEmail](docs/Model/BasePersonItemEmail.md)
+ - [BasePersonItemPhone](docs/Model/BasePersonItemPhone.md)
+ - [BasePipeline](docs/Model/BasePipeline.md)
+ - [BasePipelineWithSelectedFlag](docs/Model/BasePipelineWithSelectedFlag.md)
+ - [BasePipelineWithSelectedFlagAllOf](docs/Model/BasePipelineWithSelectedFlagAllOf.md)
+ - [BaseProduct](docs/Model/BaseProduct.md)
+ - [BaseResponse](docs/Model/BaseResponse.md)
+ - [BaseResponseWithStatus](docs/Model/BaseResponseWithStatus.md)
+ - [BaseResponseWithStatusAllOf](docs/Model/BaseResponseWithStatusAllOf.md)
+ - [BaseRole](docs/Model/BaseRole.md)
+ - [BaseStage](docs/Model/BaseStage.md)
+ - [BaseTeam](docs/Model/BaseTeam.md)
+ - [BaseTeamAdditionalProperties](docs/Model/BaseTeamAdditionalProperties.md)
+ - [BaseUser](docs/Model/BaseUser.md)
+ - [BaseUserMe](docs/Model/BaseUserMe.md)
+ - [BaseUserMeAllOf](docs/Model/BaseUserMeAllOf.md)
+ - [BaseUserMeAllOfLanguage](docs/Model/BaseUserMeAllOfLanguage.md)
+ - [BaseWebhook](docs/Model/BaseWebhook.md)
+ - [BasicDeal](docs/Model/BasicDeal.md)
+ - [BasicDealProduct](docs/Model/BasicDealProduct.md)
+ - [BasicGoal](docs/Model/BasicGoal.md)
+ - [BasicOrganization](docs/Model/BasicOrganization.md)
+ - [BasicPerson](docs/Model/BasicPerson.md)
+ - [BasicPersonEmail](docs/Model/BasicPersonEmail.md)
+ - [BulkDeleteResponse](docs/Model/BulkDeleteResponse.md)
+ - [BulkDeleteResponseAllOf](docs/Model/BulkDeleteResponseAllOf.md)
+ - [BulkDeleteResponseAllOfData](docs/Model/BulkDeleteResponseAllOfData.md)
+ - [CalculatedFields](docs/Model/CalculatedFields.md)
+ - [CallLogObject](docs/Model/CallLogObject.md)
+ - [CallLogResponse200](docs/Model/CallLogResponse200.md)
+ - [CallLogResponse400](docs/Model/CallLogResponse400.md)
+ - [CallLogResponse403](docs/Model/CallLogResponse403.md)
+ - [CallLogResponse404](docs/Model/CallLogResponse404.md)
+ - [CallLogResponse409](docs/Model/CallLogResponse409.md)
+ - [CallLogResponse410](docs/Model/CallLogResponse410.md)
+ - [CallLogResponse500](docs/Model/CallLogResponse500.md)
+ - [CallLogsResponse](docs/Model/CallLogsResponse.md)
+ - [CallLogsResponseAdditionalData](docs/Model/CallLogsResponseAdditionalData.md)
+ - [ChannelObject](docs/Model/ChannelObject.md)
+ - [ChannelObjectResponse](docs/Model/ChannelObjectResponse.md)
+ - [ChannelObjectResponseData](docs/Model/ChannelObjectResponseData.md)
+ - [CommentPostPutObject](docs/Model/CommentPostPutObject.md)
+ - [CommonMailThread](docs/Model/CommonMailThread.md)
+ - [CreateRemoteFileAndLinkItToItem](docs/Model/CreateRemoteFileAndLinkItToItem.md)
+ - [CreateTeam](docs/Model/CreateTeam.md)
+ - [Currencies](docs/Model/Currencies.md)
+ - [DealCollectionResponseObject](docs/Model/DealCollectionResponseObject.md)
+ - [DealCountAndActivityInfo](docs/Model/DealCountAndActivityInfo.md)
+ - [DealFlowResponse](docs/Model/DealFlowResponse.md)
+ - [DealFlowResponseAllOf](docs/Model/DealFlowResponseAllOf.md)
+ - [DealFlowResponseAllOfData](docs/Model/DealFlowResponseAllOfData.md)
+ - [DealFlowResponseAllOfRelatedObjects](docs/Model/DealFlowResponseAllOfRelatedObjects.md)
+ - [DealListActivitiesResponse](docs/Model/DealListActivitiesResponse.md)
+ - [DealListActivitiesResponseAllOf](docs/Model/DealListActivitiesResponseAllOf.md)
+ - [DealListActivitiesResponseAllOfRelatedObjects](docs/Model/DealListActivitiesResponseAllOfRelatedObjects.md)
+ - [DealNonStrict](docs/Model/DealNonStrict.md)
+ - [DealNonStrictModeFields](docs/Model/DealNonStrictModeFields.md)
+ - [DealNonStrictModeFieldsCreatorUserId](docs/Model/DealNonStrictModeFieldsCreatorUserId.md)
+ - [DealNonStrictWithDetails](docs/Model/DealNonStrictWithDetails.md)
+ - [DealNonStrictWithDetailsAllOf](docs/Model/DealNonStrictWithDetailsAllOf.md)
+ - [DealNonStrictWithDetailsAllOfAge](docs/Model/DealNonStrictWithDetailsAllOfAge.md)
+ - [DealNonStrictWithDetailsAllOfAverageTimeToWon](docs/Model/DealNonStrictWithDetailsAllOfAverageTimeToWon.md)
+ - [DealNonStrictWithDetailsAllOfStayInPipelineStages](docs/Model/DealNonStrictWithDetailsAllOfStayInPipelineStages.md)
+ - [DealOrganizationData](docs/Model/DealOrganizationData.md)
+ - [DealOrganizationDataWithId](docs/Model/DealOrganizationDataWithId.md)
+ - [DealOrganizationDataWithIdAllOf](docs/Model/DealOrganizationDataWithIdAllOf.md)
+ - [DealParticipantCountInfo](docs/Model/DealParticipantCountInfo.md)
+ - [DealParticipants](docs/Model/DealParticipants.md)
+ - [DealPersonData](docs/Model/DealPersonData.md)
+ - [DealPersonDataEmail](docs/Model/DealPersonDataEmail.md)
+ - [DealPersonDataPhone](docs/Model/DealPersonDataPhone.md)
+ - [DealPersonDataWithId](docs/Model/DealPersonDataWithId.md)
+ - [DealPersonDataWithIdAllOf](docs/Model/DealPersonDataWithIdAllOf.md)
+ - [DealProductUnitDuration](docs/Model/DealProductUnitDuration.md)
+ - [DealSearchItem](docs/Model/DealSearchItem.md)
+ - [DealSearchItemItem](docs/Model/DealSearchItemItem.md)
+ - [DealSearchItemItemOrganization](docs/Model/DealSearchItemItemOrganization.md)
+ - [DealSearchItemItemOwner](docs/Model/DealSearchItemItemOwner.md)
+ - [DealSearchItemItemPerson](docs/Model/DealSearchItemItemPerson.md)
+ - [DealSearchItemItemStage](docs/Model/DealSearchItemItemStage.md)
+ - [DealSearchResponse](docs/Model/DealSearchResponse.md)
+ - [DealSearchResponseAllOf](docs/Model/DealSearchResponseAllOf.md)
+ - [DealSearchResponseAllOfData](docs/Model/DealSearchResponseAllOfData.md)
+ - [DealStrict](docs/Model/DealStrict.md)
+ - [DealStrictModeFields](docs/Model/DealStrictModeFields.md)
+ - [DealStrictWithMergeId](docs/Model/DealStrictWithMergeId.md)
+ - [DealStrictWithMergeIdAllOf](docs/Model/DealStrictWithMergeIdAllOf.md)
+ - [DealSummary](docs/Model/DealSummary.md)
+ - [DealSummaryPerCurrency](docs/Model/DealSummaryPerCurrency.md)
+ - [DealSummaryPerCurrencyFull](docs/Model/DealSummaryPerCurrencyFull.md)
+ - [DealSummaryPerCurrencyFullCURRENCYID](docs/Model/DealSummaryPerCurrencyFullCURRENCYID.md)
+ - [DealSummaryPerStages](docs/Model/DealSummaryPerStages.md)
+ - [DealSummaryPerStagesSTAGEID](docs/Model/DealSummaryPerStagesSTAGEID.md)
+ - [DealSummaryPerStagesSTAGEIDCURRENCYID](docs/Model/DealSummaryPerStagesSTAGEIDCURRENCYID.md)
+ - [DealTitleParameter](docs/Model/DealTitleParameter.md)
+ - [DealUserData](docs/Model/DealUserData.md)
+ - [DealUserDataWithId](docs/Model/DealUserDataWithId.md)
+ - [DealUserDataWithIdAllOf](docs/Model/DealUserDataWithIdAllOf.md)
+ - [DealsCountAndActivityInfo](docs/Model/DealsCountAndActivityInfo.md)
+ - [DealsCountInfo](docs/Model/DealsCountInfo.md)
+ - [DealsMovementsInfo](docs/Model/DealsMovementsInfo.md)
+ - [DealsMovementsInfoFormattedValues](docs/Model/DealsMovementsInfoFormattedValues.md)
+ - [DealsMovementsInfoValues](docs/Model/DealsMovementsInfoValues.md)
+ - [DeleteActivitiesResponse200](docs/Model/DeleteActivitiesResponse200.md)
+ - [DeleteActivitiesResponse200Data](docs/Model/DeleteActivitiesResponse200Data.md)
+ - [DeleteActivityResponse200](docs/Model/DeleteActivityResponse200.md)
+ - [DeleteActivityResponse200Data](docs/Model/DeleteActivityResponse200Data.md)
+ - [DeleteChannelSuccess](docs/Model/DeleteChannelSuccess.md)
+ - [DeleteComment](docs/Model/DeleteComment.md)
+ - [DeleteConversationSuccess](docs/Model/DeleteConversationSuccess.md)
+ - [DeleteDeal](docs/Model/DeleteDeal.md)
+ - [DeleteDealData](docs/Model/DeleteDealData.md)
+ - [DeleteDealFollower](docs/Model/DeleteDealFollower.md)
+ - [DeleteDealFollowerData](docs/Model/DeleteDealFollowerData.md)
+ - [DeleteDealParticipant](docs/Model/DeleteDealParticipant.md)
+ - [DeleteDealParticipantData](docs/Model/DeleteDealParticipantData.md)
+ - [DeleteDealProduct](docs/Model/DeleteDealProduct.md)
+ - [DeleteDealProductData](docs/Model/DeleteDealProductData.md)
+ - [DeleteFile](docs/Model/DeleteFile.md)
+ - [DeleteFileData](docs/Model/DeleteFileData.md)
+ - [DeleteGoalResponse200](docs/Model/DeleteGoalResponse200.md)
+ - [DeleteMultipleDeals](docs/Model/DeleteMultipleDeals.md)
+ - [DeleteMultipleDealsData](docs/Model/DeleteMultipleDealsData.md)
+ - [DeleteMultipleProductFieldsResponse](docs/Model/DeleteMultipleProductFieldsResponse.md)
+ - [DeleteMultipleProductFieldsResponseData](docs/Model/DeleteMultipleProductFieldsResponseData.md)
+ - [DeleteNote](docs/Model/DeleteNote.md)
+ - [DeletePersonResponse](docs/Model/DeletePersonResponse.md)
+ - [DeletePersonResponseAllOf](docs/Model/DeletePersonResponseAllOf.md)
+ - [DeletePersonResponseAllOfData](docs/Model/DeletePersonResponseAllOfData.md)
+ - [DeletePersonsInBulkResponse](docs/Model/DeletePersonsInBulkResponse.md)
+ - [DeletePersonsInBulkResponseAllOf](docs/Model/DeletePersonsInBulkResponseAllOf.md)
+ - [DeletePersonsInBulkResponseAllOfData](docs/Model/DeletePersonsInBulkResponseAllOfData.md)
+ - [DeletePipelineResponse200](docs/Model/DeletePipelineResponse200.md)
+ - [DeletePipelineResponse200Data](docs/Model/DeletePipelineResponse200Data.md)
+ - [DeleteProductFieldResponse](docs/Model/DeleteProductFieldResponse.md)
+ - [DeleteProductFieldResponseData](docs/Model/DeleteProductFieldResponseData.md)
+ - [DeleteProductFollowerResponse](docs/Model/DeleteProductFollowerResponse.md)
+ - [DeleteProductFollowerResponseData](docs/Model/DeleteProductFollowerResponseData.md)
+ - [DeleteProductResponse](docs/Model/DeleteProductResponse.md)
+ - [DeleteProductResponseData](docs/Model/DeleteProductResponseData.md)
+ - [DeleteResponse](docs/Model/DeleteResponse.md)
+ - [DeleteResponseAllOf](docs/Model/DeleteResponseAllOf.md)
+ - [DeleteResponseAllOfData](docs/Model/DeleteResponseAllOfData.md)
+ - [DeleteRole](docs/Model/DeleteRole.md)
+ - [DeleteRoleAllOf](docs/Model/DeleteRoleAllOf.md)
+ - [DeleteRoleAllOfData](docs/Model/DeleteRoleAllOfData.md)
+ - [DeleteRoleAssignment](docs/Model/DeleteRoleAssignment.md)
+ - [DeleteRoleAssignmentAllOf](docs/Model/DeleteRoleAssignmentAllOf.md)
+ - [DeleteRoleAssignmentAllOfData](docs/Model/DeleteRoleAssignmentAllOfData.md)
+ - [DeleteRoleAssignmentRequest](docs/Model/DeleteRoleAssignmentRequest.md)
+ - [DeleteStageResponse200](docs/Model/DeleteStageResponse200.md)
+ - [DeleteStageResponse200Data](docs/Model/DeleteStageResponse200Data.md)
+ - [DeleteStagesResponse200](docs/Model/DeleteStagesResponse200.md)
+ - [DeleteStagesResponse200Data](docs/Model/DeleteStagesResponse200Data.md)
+ - [DeleteTeamUserRequest](docs/Model/DeleteTeamUserRequest.md)
+ - [Duration](docs/Model/Duration.md)
+ - [EditPipeline](docs/Model/EditPipeline.md)
+ - [EditPipelineAllOf](docs/Model/EditPipelineAllOf.md)
+ - [EmailInfo](docs/Model/EmailInfo.md)
+ - [ExpectedOutcome](docs/Model/ExpectedOutcome.md)
+ - [FailResponse](docs/Model/FailResponse.md)
+ - [Field](docs/Model/Field.md)
+ - [FieldCreateRequest](docs/Model/FieldCreateRequest.md)
+ - [FieldCreateRequestAllOf](docs/Model/FieldCreateRequestAllOf.md)
+ - [FieldResponse](docs/Model/FieldResponse.md)
+ - [FieldResponseAllOf](docs/Model/FieldResponseAllOf.md)
+ - [FieldType](docs/Model/FieldType.md)
+ - [FieldTypeAsString](docs/Model/FieldTypeAsString.md)
+ - [FieldUpdateRequest](docs/Model/FieldUpdateRequest.md)
+ - [FieldsResponse](docs/Model/FieldsResponse.md)
+ - [FieldsResponseAllOf](docs/Model/FieldsResponseAllOf.md)
+ - [FileData](docs/Model/FileData.md)
+ - [FileItem](docs/Model/FileItem.md)
+ - [FilterGetItem](docs/Model/FilterGetItem.md)
+ - [FilterType](docs/Model/FilterType.md)
+ - [FiltersBulkDeleteResponse](docs/Model/FiltersBulkDeleteResponse.md)
+ - [FiltersBulkDeleteResponseAllOf](docs/Model/FiltersBulkDeleteResponseAllOf.md)
+ - [FiltersBulkDeleteResponseAllOfData](docs/Model/FiltersBulkDeleteResponseAllOfData.md)
+ - [FiltersBulkGetResponse](docs/Model/FiltersBulkGetResponse.md)
+ - [FiltersBulkGetResponseAllOf](docs/Model/FiltersBulkGetResponseAllOf.md)
+ - [FiltersDeleteResponse](docs/Model/FiltersDeleteResponse.md)
+ - [FiltersDeleteResponseAllOf](docs/Model/FiltersDeleteResponseAllOf.md)
+ - [FiltersDeleteResponseAllOfData](docs/Model/FiltersDeleteResponseAllOfData.md)
+ - [FiltersGetResponse](docs/Model/FiltersGetResponse.md)
+ - [FiltersGetResponseAllOf](docs/Model/FiltersGetResponseAllOf.md)
+ - [FiltersPostResponse](docs/Model/FiltersPostResponse.md)
+ - [FiltersPostResponseAllOf](docs/Model/FiltersPostResponseAllOf.md)
+ - [FiltersPostResponseAllOfData](docs/Model/FiltersPostResponseAllOfData.md)
+ - [FindGoalResponse](docs/Model/FindGoalResponse.md)
+ - [FollowerData](docs/Model/FollowerData.md)
+ - [FollowerDataWithID](docs/Model/FollowerDataWithID.md)
+ - [FollowerDataWithIDAllOf](docs/Model/FollowerDataWithIDAllOf.md)
+ - [FullRole](docs/Model/FullRole.md)
+ - [FullRoleAllOf](docs/Model/FullRoleAllOf.md)
+ - [GetActivitiesCollectionResponse200](docs/Model/GetActivitiesCollectionResponse200.md)
+ - [GetActivitiesResponse200](docs/Model/GetActivitiesResponse200.md)
+ - [GetActivitiesResponse200RelatedObjects](docs/Model/GetActivitiesResponse200RelatedObjects.md)
+ - [GetActivityResponse200](docs/Model/GetActivityResponse200.md)
+ - [GetAddProductAttachementDetails](docs/Model/GetAddProductAttachementDetails.md)
+ - [GetAddUpdateStage](docs/Model/GetAddUpdateStage.md)
+ - [GetAddedDeal](docs/Model/GetAddedDeal.md)
+ - [GetAllFiles](docs/Model/GetAllFiles.md)
+ - [GetAllPersonsResponse](docs/Model/GetAllPersonsResponse.md)
+ - [GetAllPersonsResponseAllOf](docs/Model/GetAllPersonsResponseAllOf.md)
+ - [GetAllPipelines](docs/Model/GetAllPipelines.md)
+ - [GetAllPipelinesAllOf](docs/Model/GetAllPipelinesAllOf.md)
+ - [GetAllProductFieldsResponse](docs/Model/GetAllProductFieldsResponse.md)
+ - [GetComments](docs/Model/GetComments.md)
+ - [GetDeal](docs/Model/GetDeal.md)
+ - [GetDealAdditionalData](docs/Model/GetDealAdditionalData.md)
+ - [GetDeals](docs/Model/GetDeals.md)
+ - [GetDealsCollection](docs/Model/GetDealsCollection.md)
+ - [GetDealsConversionRatesInPipeline](docs/Model/GetDealsConversionRatesInPipeline.md)
+ - [GetDealsConversionRatesInPipelineAllOf](docs/Model/GetDealsConversionRatesInPipelineAllOf.md)
+ - [GetDealsConversionRatesInPipelineAllOfData](docs/Model/GetDealsConversionRatesInPipelineAllOfData.md)
+ - [GetDealsMovementsInPipeline](docs/Model/GetDealsMovementsInPipeline.md)
+ - [GetDealsMovementsInPipelineAllOf](docs/Model/GetDealsMovementsInPipelineAllOf.md)
+ - [GetDealsMovementsInPipelineAllOfData](docs/Model/GetDealsMovementsInPipelineAllOfData.md)
+ - [GetDealsMovementsInPipelineAllOfDataAverageAgeInDays](docs/Model/GetDealsMovementsInPipelineAllOfDataAverageAgeInDays.md)
+ - [GetDealsMovementsInPipelineAllOfDataAverageAgeInDaysByStages](docs/Model/GetDealsMovementsInPipelineAllOfDataAverageAgeInDaysByStages.md)
+ - [GetDealsMovementsInPipelineAllOfDataMovementsBetweenStages](docs/Model/GetDealsMovementsInPipelineAllOfDataMovementsBetweenStages.md)
+ - [GetDealsRelatedObjects](docs/Model/GetDealsRelatedObjects.md)
+ - [GetDealsSummary](docs/Model/GetDealsSummary.md)
+ - [GetDealsSummaryData](docs/Model/GetDealsSummaryData.md)
+ - [GetDealsSummaryDataValuesTotal](docs/Model/GetDealsSummaryDataValuesTotal.md)
+ - [GetDealsSummaryDataWeightedValuesTotal](docs/Model/GetDealsSummaryDataWeightedValuesTotal.md)
+ - [GetDealsTimeline](docs/Model/GetDealsTimeline.md)
+ - [GetDealsTimelineData](docs/Model/GetDealsTimelineData.md)
+ - [GetDealsTimelineDataTotals](docs/Model/GetDealsTimelineDataTotals.md)
+ - [GetDuplicatedDeal](docs/Model/GetDuplicatedDeal.md)
+ - [GetGoalResultResponse200](docs/Model/GetGoalResultResponse200.md)
+ - [GetGoalsResponse200](docs/Model/GetGoalsResponse200.md)
+ - [GetLeadLabelsResponse200](docs/Model/GetLeadLabelsResponse200.md)
+ - [GetLeadSourcesResponse200](docs/Model/GetLeadSourcesResponse200.md)
+ - [GetLeadSourcesResponse200Data](docs/Model/GetLeadSourcesResponse200Data.md)
+ - [GetLeadsResponse200](docs/Model/GetLeadsResponse200.md)
+ - [GetMergedDeal](docs/Model/GetMergedDeal.md)
+ - [GetNotes](docs/Model/GetNotes.md)
+ - [GetOneFile](docs/Model/GetOneFile.md)
+ - [GetOnePipeline](docs/Model/GetOnePipeline.md)
+ - [GetOnePipelineAllOf](docs/Model/GetOnePipelineAllOf.md)
+ - [GetOneStage](docs/Model/GetOneStage.md)
+ - [GetPersonDetailsResponse](docs/Model/GetPersonDetailsResponse.md)
+ - [GetPersonDetailsResponseAllOf](docs/Model/GetPersonDetailsResponseAllOf.md)
+ - [GetPersonDetailsResponseAllOfAdditionalData](docs/Model/GetPersonDetailsResponseAllOfAdditionalData.md)
+ - [GetProductAttachementDetails](docs/Model/GetProductAttachementDetails.md)
+ - [GetProductFieldResponse](docs/Model/GetProductFieldResponse.md)
+ - [GetRecents](docs/Model/GetRecents.md)
+ - [GetRecentsAdditionalData](docs/Model/GetRecentsAdditionalData.md)
+ - [GetRole](docs/Model/GetRole.md)
+ - [GetRoleAllOf](docs/Model/GetRoleAllOf.md)
+ - [GetRoleAllOfAdditionalData](docs/Model/GetRoleAllOfAdditionalData.md)
+ - [GetRoleAssignments](docs/Model/GetRoleAssignments.md)
+ - [GetRoleAssignmentsAllOf](docs/Model/GetRoleAssignmentsAllOf.md)
+ - [GetRolePipelines](docs/Model/GetRolePipelines.md)
+ - [GetRolePipelinesAllOf](docs/Model/GetRolePipelinesAllOf.md)
+ - [GetRolePipelinesAllOfData](docs/Model/GetRolePipelinesAllOfData.md)
+ - [GetRoleSettings](docs/Model/GetRoleSettings.md)
+ - [GetRoleSettingsAllOf](docs/Model/GetRoleSettingsAllOf.md)
+ - [GetRoles](docs/Model/GetRoles.md)
+ - [GetRolesAllOf](docs/Model/GetRolesAllOf.md)
+ - [GetStageDeals](docs/Model/GetStageDeals.md)
+ - [GetStages](docs/Model/GetStages.md)
+ - [GoalResults](docs/Model/GoalResults.md)
+ - [GoalType](docs/Model/GoalType.md)
+ - [GoalsResponseComponent](docs/Model/GoalsResponseComponent.md)
+ - [IconKey](docs/Model/IconKey.md)
+ - [InlineResponse200](docs/Model/InlineResponse200.md)
+ - [InlineResponse2001](docs/Model/InlineResponse2001.md)
+ - [InlineResponse2002](docs/Model/InlineResponse2002.md)
+ - [InlineResponse400](docs/Model/InlineResponse400.md)
+ - [InlineResponse4001](docs/Model/InlineResponse4001.md)
+ - [InlineResponse4001AdditionalData](docs/Model/InlineResponse4001AdditionalData.md)
+ - [InlineResponse400AdditionalData](docs/Model/InlineResponse400AdditionalData.md)
+ - [InlineResponse403](docs/Model/InlineResponse403.md)
+ - [InlineResponse4031](docs/Model/InlineResponse4031.md)
+ - [InlineResponse4031AdditionalData](docs/Model/InlineResponse4031AdditionalData.md)
+ - [InlineResponse403AdditionalData](docs/Model/InlineResponse403AdditionalData.md)
+ - [InlineResponse404](docs/Model/InlineResponse404.md)
+ - [InlineResponse404AdditionalData](docs/Model/InlineResponse404AdditionalData.md)
+ - [ItemSearchAdditionalData](docs/Model/ItemSearchAdditionalData.md)
+ - [ItemSearchAdditionalDataPagination](docs/Model/ItemSearchAdditionalDataPagination.md)
+ - [ItemSearchFieldResponse](docs/Model/ItemSearchFieldResponse.md)
+ - [ItemSearchFieldResponseAllOf](docs/Model/ItemSearchFieldResponseAllOf.md)
+ - [ItemSearchFieldResponseAllOfData](docs/Model/ItemSearchFieldResponseAllOfData.md)
+ - [ItemSearchItem](docs/Model/ItemSearchItem.md)
+ - [ItemSearchResponse](docs/Model/ItemSearchResponse.md)
+ - [ItemSearchResponseAllOf](docs/Model/ItemSearchResponseAllOf.md)
+ - [ItemSearchResponseAllOfData](docs/Model/ItemSearchResponseAllOfData.md)
+ - [LeadIdResponse200](docs/Model/LeadIdResponse200.md)
+ - [LeadIdResponse200Data](docs/Model/LeadIdResponse200Data.md)
+ - [LeadLabelColor](docs/Model/LeadLabelColor.md)
+ - [LeadLabelResponse](docs/Model/LeadLabelResponse.md)
+ - [LeadResponse](docs/Model/LeadResponse.md)
+ - [LeadResponse404](docs/Model/LeadResponse404.md)
+ - [LeadSearchItem](docs/Model/LeadSearchItem.md)
+ - [LeadSearchItemItem](docs/Model/LeadSearchItemItem.md)
+ - [LeadSearchItemItemOrganization](docs/Model/LeadSearchItemItemOrganization.md)
+ - [LeadSearchItemItemOwner](docs/Model/LeadSearchItemItemOwner.md)
+ - [LeadSearchItemItemPerson](docs/Model/LeadSearchItemItemPerson.md)
+ - [LeadSearchResponse](docs/Model/LeadSearchResponse.md)
+ - [LeadSearchResponseAllOf](docs/Model/LeadSearchResponseAllOf.md)
+ - [LeadSearchResponseAllOfData](docs/Model/LeadSearchResponseAllOfData.md)
+ - [LeadValue](docs/Model/LeadValue.md)
+ - [LinkRemoteFileToItem](docs/Model/LinkRemoteFileToItem.md)
+ - [ListActivitiesResponse](docs/Model/ListActivitiesResponse.md)
+ - [ListActivitiesResponseAllOf](docs/Model/ListActivitiesResponseAllOf.md)
+ - [ListDealsResponse](docs/Model/ListDealsResponse.md)
+ - [ListDealsResponseAllOf](docs/Model/ListDealsResponseAllOf.md)
+ - [ListDealsResponseAllOfRelatedObjects](docs/Model/ListDealsResponseAllOfRelatedObjects.md)
+ - [ListFilesResponse](docs/Model/ListFilesResponse.md)
+ - [ListFilesResponseAllOf](docs/Model/ListFilesResponseAllOf.md)
+ - [ListFollowersResponse](docs/Model/ListFollowersResponse.md)
+ - [ListFollowersResponseAllOf](docs/Model/ListFollowersResponseAllOf.md)
+ - [ListFollowersResponseAllOfData](docs/Model/ListFollowersResponseAllOfData.md)
+ - [ListMailMessagesResponse](docs/Model/ListMailMessagesResponse.md)
+ - [ListMailMessagesResponseAllOf](docs/Model/ListMailMessagesResponseAllOf.md)
+ - [ListMailMessagesResponseAllOfData](docs/Model/ListMailMessagesResponseAllOfData.md)
+ - [ListPermittedUsersResponse](docs/Model/ListPermittedUsersResponse.md)
+ - [ListPermittedUsersResponse1](docs/Model/ListPermittedUsersResponse1.md)
+ - [ListPermittedUsersResponse1AllOf](docs/Model/ListPermittedUsersResponse1AllOf.md)
+ - [ListPermittedUsersResponseAllOf](docs/Model/ListPermittedUsersResponseAllOf.md)
+ - [ListPermittedUsersResponseAllOfData](docs/Model/ListPermittedUsersResponseAllOfData.md)
+ - [ListPersonProductsResponse](docs/Model/ListPersonProductsResponse.md)
+ - [ListPersonProductsResponseAllOf](docs/Model/ListPersonProductsResponseAllOf.md)
+ - [ListPersonProductsResponseAllOfDEALID](docs/Model/ListPersonProductsResponseAllOfDEALID.md)
+ - [ListPersonProductsResponseAllOfData](docs/Model/ListPersonProductsResponseAllOfData.md)
+ - [ListPersonsResponse](docs/Model/ListPersonsResponse.md)
+ - [ListPersonsResponseAllOf](docs/Model/ListPersonsResponseAllOf.md)
+ - [ListPersonsResponseAllOfRelatedObjects](docs/Model/ListPersonsResponseAllOfRelatedObjects.md)
+ - [ListProductAdditionalData](docs/Model/ListProductAdditionalData.md)
+ - [ListProductAdditionalDataAllOf](docs/Model/ListProductAdditionalDataAllOf.md)
+ - [ListProductFilesResponse](docs/Model/ListProductFilesResponse.md)
+ - [ListProductFilesResponseAllOf](docs/Model/ListProductFilesResponseAllOf.md)
+ - [ListProductFollowersResponse](docs/Model/ListProductFollowersResponse.md)
+ - [ListProductFollowersResponseAllOf](docs/Model/ListProductFollowersResponseAllOf.md)
+ - [ListProductFollowersResponseAllOfData](docs/Model/ListProductFollowersResponseAllOfData.md)
+ - [ListProductsResponse](docs/Model/ListProductsResponse.md)
+ - [ListProductsResponseAllOf](docs/Model/ListProductsResponseAllOf.md)
+ - [ListProductsResponseAllOfData](docs/Model/ListProductsResponseAllOfData.md)
+ - [ListProductsResponseAllOfRelatedObjects](docs/Model/ListProductsResponseAllOfRelatedObjects.md)
+ - [MailMessage](docs/Model/MailMessage.md)
+ - [MailMessageAllOf](docs/Model/MailMessageAllOf.md)
+ - [MailMessageData](docs/Model/MailMessageData.md)
+ - [MailMessageItemForList](docs/Model/MailMessageItemForList.md)
+ - [MailMessageItemForListAllOf](docs/Model/MailMessageItemForListAllOf.md)
+ - [MailParticipant](docs/Model/MailParticipant.md)
+ - [MailServiceBaseResponse](docs/Model/MailServiceBaseResponse.md)
+ - [MailThread](docs/Model/MailThread.md)
+ - [MailThreadAllOf](docs/Model/MailThreadAllOf.md)
+ - [MailThreadDelete](docs/Model/MailThreadDelete.md)
+ - [MailThreadDeleteAllOf](docs/Model/MailThreadDeleteAllOf.md)
+ - [MailThreadDeleteAllOfData](docs/Model/MailThreadDeleteAllOfData.md)
+ - [MailThreadMessages](docs/Model/MailThreadMessages.md)
+ - [MailThreadMessagesAllOf](docs/Model/MailThreadMessagesAllOf.md)
+ - [MailThreadOne](docs/Model/MailThreadOne.md)
+ - [MailThreadOneAllOf](docs/Model/MailThreadOneAllOf.md)
+ - [MailThreadParticipant](docs/Model/MailThreadParticipant.md)
+ - [MailThreadPut](docs/Model/MailThreadPut.md)
+ - [MailThreadPutAllOf](docs/Model/MailThreadPutAllOf.md)
+ - [MarketingStatus](docs/Model/MarketingStatus.md)
+ - [MergeDealsRequest](docs/Model/MergeDealsRequest.md)
+ - [MergeOrganizationsRequest](docs/Model/MergeOrganizationsRequest.md)
+ - [MergePersonDealRelatedInfo](docs/Model/MergePersonDealRelatedInfo.md)
+ - [MergePersonItem](docs/Model/MergePersonItem.md)
+ - [MergePersonsRequest](docs/Model/MergePersonsRequest.md)
+ - [MergePersonsResponse](docs/Model/MergePersonsResponse.md)
+ - [MergePersonsResponseAllOf](docs/Model/MergePersonsResponseAllOf.md)
+ - [MessageObject](docs/Model/MessageObject.md)
+ - [MessageObjectAttachments](docs/Model/MessageObjectAttachments.md)
+ - [NewDeal](docs/Model/NewDeal.md)
+ - [NewDealAllOf](docs/Model/NewDealAllOf.md)
+ - [NewDealProduct](docs/Model/NewDealProduct.md)
+ - [NewFollowerResponse](docs/Model/NewFollowerResponse.md)
+ - [NewFollowerResponseData](docs/Model/NewFollowerResponseData.md)
+ - [NewGoal](docs/Model/NewGoal.md)
+ - [NewOrganization](docs/Model/NewOrganization.md)
+ - [NewOrganizationAllOf](docs/Model/NewOrganizationAllOf.md)
+ - [NewPerson](docs/Model/NewPerson.md)
+ - [NewPersonAllOf](docs/Model/NewPersonAllOf.md)
+ - [NewProductField](docs/Model/NewProductField.md)
+ - [Note](docs/Model/Note.md)
+ - [NoteAllOf](docs/Model/NoteAllOf.md)
+ - [NoteConnectToParams](docs/Model/NoteConnectToParams.md)
+ - [NoteCreatorUser](docs/Model/NoteCreatorUser.md)
+ - [NoteField](docs/Model/NoteField.md)
+ - [NoteFieldOptions](docs/Model/NoteFieldOptions.md)
+ - [NoteFieldsResponse](docs/Model/NoteFieldsResponse.md)
+ - [NoteFieldsResponseAllOf](docs/Model/NoteFieldsResponseAllOf.md)
+ - [NoteParams](docs/Model/NoteParams.md)
+ - [NumberBoolean](docs/Model/NumberBoolean.md)
+ - [NumberBooleanDefault0](docs/Model/NumberBooleanDefault0.md)
+ - [NumberBooleanDefault1](docs/Model/NumberBooleanDefault1.md)
+ - [ObjectPrices](docs/Model/ObjectPrices.md)
+ - [OneLeadResponse200](docs/Model/OneLeadResponse200.md)
+ - [OptionalNameObject](docs/Model/OptionalNameObject.md)
+ - [OrgAndOwnerId](docs/Model/OrgAndOwnerId.md)
+ - [OrganizationAddressInfo](docs/Model/OrganizationAddressInfo.md)
+ - [OrganizationCountAndAddressInfo](docs/Model/OrganizationCountAndAddressInfo.md)
+ - [OrganizationCountInfo](docs/Model/OrganizationCountInfo.md)
+ - [OrganizationData](docs/Model/OrganizationData.md)
+ - [OrganizationDataWithId](docs/Model/OrganizationDataWithId.md)
+ - [OrganizationDataWithIdAllOf](docs/Model/OrganizationDataWithIdAllOf.md)
+ - [OrganizationDataWithIdAndActiveFlag](docs/Model/OrganizationDataWithIdAndActiveFlag.md)
+ - [OrganizationDataWithIdAndActiveFlagAllOf](docs/Model/OrganizationDataWithIdAndActiveFlagAllOf.md)
+ - [OrganizationDeleteResponse](docs/Model/OrganizationDeleteResponse.md)
+ - [OrganizationDeleteResponseData](docs/Model/OrganizationDeleteResponseData.md)
+ - [OrganizationDetailsGetResponse](docs/Model/OrganizationDetailsGetResponse.md)
+ - [OrganizationDetailsGetResponseAllOf](docs/Model/OrganizationDetailsGetResponseAllOf.md)
+ - [OrganizationDetailsGetResponseAllOfAdditionalData](docs/Model/OrganizationDetailsGetResponseAllOfAdditionalData.md)
+ - [OrganizationFlowResponse](docs/Model/OrganizationFlowResponse.md)
+ - [OrganizationFlowResponseAllOf](docs/Model/OrganizationFlowResponseAllOf.md)
+ - [OrganizationFlowResponseAllOfData](docs/Model/OrganizationFlowResponseAllOfData.md)
+ - [OrganizationFlowResponseAllOfRelatedObjects](docs/Model/OrganizationFlowResponseAllOfRelatedObjects.md)
+ - [OrganizationFollowerDeleteResponse](docs/Model/OrganizationFollowerDeleteResponse.md)
+ - [OrganizationFollowerDeleteResponseData](docs/Model/OrganizationFollowerDeleteResponseData.md)
+ - [OrganizationFollowerItem](docs/Model/OrganizationFollowerItem.md)
+ - [OrganizationFollowerItemAllOf](docs/Model/OrganizationFollowerItemAllOf.md)
+ - [OrganizationFollowerPostResponse](docs/Model/OrganizationFollowerPostResponse.md)
+ - [OrganizationFollowersListResponse](docs/Model/OrganizationFollowersListResponse.md)
+ - [OrganizationItem](docs/Model/OrganizationItem.md)
+ - [OrganizationItemAllOf](docs/Model/OrganizationItemAllOf.md)
+ - [OrganizationPostResponse](docs/Model/OrganizationPostResponse.md)
+ - [OrganizationPostResponseAllOf](docs/Model/OrganizationPostResponseAllOf.md)
+ - [OrganizationRelationship](docs/Model/OrganizationRelationship.md)
+ - [OrganizationRelationshipDeleteResponse](docs/Model/OrganizationRelationshipDeleteResponse.md)
+ - [OrganizationRelationshipDeleteResponseAllOf](docs/Model/OrganizationRelationshipDeleteResponseAllOf.md)
+ - [OrganizationRelationshipDeleteResponseAllOfData](docs/Model/OrganizationRelationshipDeleteResponseAllOfData.md)
+ - [OrganizationRelationshipDetails](docs/Model/OrganizationRelationshipDetails.md)
+ - [OrganizationRelationshipGetResponse](docs/Model/OrganizationRelationshipGetResponse.md)
+ - [OrganizationRelationshipGetResponseAllOf](docs/Model/OrganizationRelationshipGetResponseAllOf.md)
+ - [OrganizationRelationshipPostResponse](docs/Model/OrganizationRelationshipPostResponse.md)
+ - [OrganizationRelationshipPostResponseAllOf](docs/Model/OrganizationRelationshipPostResponseAllOf.md)
+ - [OrganizationRelationshipUpdateResponse](docs/Model/OrganizationRelationshipUpdateResponse.md)
+ - [OrganizationRelationshipWithCalculatedFields](docs/Model/OrganizationRelationshipWithCalculatedFields.md)
+ - [OrganizationSearchItem](docs/Model/OrganizationSearchItem.md)
+ - [OrganizationSearchItemItem](docs/Model/OrganizationSearchItemItem.md)
+ - [OrganizationSearchResponse](docs/Model/OrganizationSearchResponse.md)
+ - [OrganizationSearchResponseAllOf](docs/Model/OrganizationSearchResponseAllOf.md)
+ - [OrganizationSearchResponseAllOfData](docs/Model/OrganizationSearchResponseAllOfData.md)
+ - [OrganizationUpdateResponse](docs/Model/OrganizationUpdateResponse.md)
+ - [OrganizationUpdateResponseAllOf](docs/Model/OrganizationUpdateResponseAllOf.md)
+ - [OrganizationsCollectionResponseObject](docs/Model/OrganizationsCollectionResponseObject.md)
+ - [OrganizationsCollectionResponseObjectAllOf](docs/Model/OrganizationsCollectionResponseObjectAllOf.md)
+ - [OrganizationsDeleteResponse](docs/Model/OrganizationsDeleteResponse.md)
+ - [OrganizationsDeleteResponseData](docs/Model/OrganizationsDeleteResponseData.md)
+ - [OrganizationsMergeResponse](docs/Model/OrganizationsMergeResponse.md)
+ - [OrganizationsMergeResponseData](docs/Model/OrganizationsMergeResponseData.md)
+ - [Owner](docs/Model/Owner.md)
+ - [OwnerAllOf](docs/Model/OwnerAllOf.md)
+ - [PaginationDetails](docs/Model/PaginationDetails.md)
+ - [PaginationDetailsAllOf](docs/Model/PaginationDetailsAllOf.md)
+ - [Params](docs/Model/Params.md)
+ - [PaymentItem](docs/Model/PaymentItem.md)
+ - [PaymentsResponse](docs/Model/PaymentsResponse.md)
+ - [PaymentsResponseAllOf](docs/Model/PaymentsResponseAllOf.md)
+ - [PermissionSets](docs/Model/PermissionSets.md)
+ - [PermissionSetsAllOf](docs/Model/PermissionSetsAllOf.md)
+ - [PermissionSetsItem](docs/Model/PermissionSetsItem.md)
+ - [PersonCountAndEmailInfo](docs/Model/PersonCountAndEmailInfo.md)
+ - [PersonCountEmailDealAndActivityInfo](docs/Model/PersonCountEmailDealAndActivityInfo.md)
+ - [PersonCountInfo](docs/Model/PersonCountInfo.md)
+ - [PersonData](docs/Model/PersonData.md)
+ - [PersonDataEmail](docs/Model/PersonDataEmail.md)
+ - [PersonDataPhone](docs/Model/PersonDataPhone.md)
+ - [PersonDataWithActiveFlag](docs/Model/PersonDataWithActiveFlag.md)
+ - [PersonDataWithActiveFlagAllOf](docs/Model/PersonDataWithActiveFlagAllOf.md)
+ - [PersonFlowResponse](docs/Model/PersonFlowResponse.md)
+ - [PersonFlowResponseAllOf](docs/Model/PersonFlowResponseAllOf.md)
+ - [PersonFlowResponseAllOfData](docs/Model/PersonFlowResponseAllOfData.md)
+ - [PersonItem](docs/Model/PersonItem.md)
+ - [PersonListProduct](docs/Model/PersonListProduct.md)
+ - [PersonNameCountAndEmailInfo](docs/Model/PersonNameCountAndEmailInfo.md)
+ - [PersonNameCountAndEmailInfoWithIds](docs/Model/PersonNameCountAndEmailInfoWithIds.md)
+ - [PersonNameCountAndEmailInfoWithIdsAllOf](docs/Model/PersonNameCountAndEmailInfoWithIdsAllOf.md)
+ - [PersonNameInfo](docs/Model/PersonNameInfo.md)
+ - [PersonNameInfoWithOrgAndOwnerId](docs/Model/PersonNameInfoWithOrgAndOwnerId.md)
+ - [PersonSearchItem](docs/Model/PersonSearchItem.md)
+ - [PersonSearchItemItem](docs/Model/PersonSearchItemItem.md)
+ - [PersonSearchItemItemOrganization](docs/Model/PersonSearchItemItemOrganization.md)
+ - [PersonSearchItemItemOwner](docs/Model/PersonSearchItemItemOwner.md)
+ - [PersonSearchResponse](docs/Model/PersonSearchResponse.md)
+ - [PersonSearchResponseAllOf](docs/Model/PersonSearchResponseAllOf.md)
+ - [PersonSearchResponseAllOfData](docs/Model/PersonSearchResponseAllOfData.md)
+ - [PersonsCollectionResponseObject](docs/Model/PersonsCollectionResponseObject.md)
+ - [PictureData](docs/Model/PictureData.md)
+ - [PictureDataPictures](docs/Model/PictureDataPictures.md)
+ - [PictureDataWithID](docs/Model/PictureDataWithID.md)
+ - [PictureDataWithIDAllOf](docs/Model/PictureDataWithIDAllOf.md)
+ - [PictureDataWithValue](docs/Model/PictureDataWithValue.md)
+ - [PictureDataWithValueAllOf](docs/Model/PictureDataWithValueAllOf.md)
+ - [Pipeline](docs/Model/Pipeline.md)
+ - [PipelineDetails](docs/Model/PipelineDetails.md)
+ - [PipelineDetailsAllOf](docs/Model/PipelineDetailsAllOf.md)
+ - [PostComment](docs/Model/PostComment.md)
+ - [PostDealParticipants](docs/Model/PostDealParticipants.md)
+ - [PostGoalResponse](docs/Model/PostGoalResponse.md)
+ - [PostNote](docs/Model/PostNote.md)
+ - [PostRoleAssignment](docs/Model/PostRoleAssignment.md)
+ - [PostRoleAssignmentAllOf](docs/Model/PostRoleAssignmentAllOf.md)
+ - [PostRoleAssignmentAllOfData](docs/Model/PostRoleAssignmentAllOfData.md)
+ - [PostRoleSettings](docs/Model/PostRoleSettings.md)
+ - [PostRoleSettingsAllOf](docs/Model/PostRoleSettingsAllOf.md)
+ - [PostRoleSettingsAllOfData](docs/Model/PostRoleSettingsAllOfData.md)
+ - [PostRoles](docs/Model/PostRoles.md)
+ - [PostRolesAllOf](docs/Model/PostRolesAllOf.md)
+ - [PostRolesAllOfData](docs/Model/PostRolesAllOfData.md)
+ - [ProductAttachementFields](docs/Model/ProductAttachementFields.md)
+ - [ProductAttachmentDetails](docs/Model/ProductAttachmentDetails.md)
+ - [ProductBaseDeal](docs/Model/ProductBaseDeal.md)
+ - [ProductField](docs/Model/ProductField.md)
+ - [ProductFieldAllOf](docs/Model/ProductFieldAllOf.md)
+ - [ProductFileItem](docs/Model/ProductFileItem.md)
+ - [ProductListItem](docs/Model/ProductListItem.md)
+ - [ProductRequest](docs/Model/ProductRequest.md)
+ - [ProductResponse](docs/Model/ProductResponse.md)
+ - [ProductSearchItem](docs/Model/ProductSearchItem.md)
+ - [ProductSearchItemItem](docs/Model/ProductSearchItemItem.md)
+ - [ProductSearchItemItemOwner](docs/Model/ProductSearchItemItemOwner.md)
+ - [ProductSearchResponse](docs/Model/ProductSearchResponse.md)
+ - [ProductSearchResponseAllOf](docs/Model/ProductSearchResponseAllOf.md)
+ - [ProductSearchResponseAllOfData](docs/Model/ProductSearchResponseAllOfData.md)
+ - [ProductWithArrayPrices](docs/Model/ProductWithArrayPrices.md)
+ - [ProductWithObjectPrices](docs/Model/ProductWithObjectPrices.md)
+ - [ProductsResponse](docs/Model/ProductsResponse.md)
+ - [PutRole](docs/Model/PutRole.md)
+ - [PutRoleAllOf](docs/Model/PutRoleAllOf.md)
+ - [PutRoleAllOfData](docs/Model/PutRoleAllOfData.md)
+ - [PutRolePipelinesBody](docs/Model/PutRolePipelinesBody.md)
+ - [RecentDataProduct](docs/Model/RecentDataProduct.md)
+ - [RecentsActivity](docs/Model/RecentsActivity.md)
+ - [RecentsActivityType](docs/Model/RecentsActivityType.md)
+ - [RecentsDeal](docs/Model/RecentsDeal.md)
+ - [RecentsFile](docs/Model/RecentsFile.md)
+ - [RecentsFilter](docs/Model/RecentsFilter.md)
+ - [RecentsNote](docs/Model/RecentsNote.md)
+ - [RecentsOrganization](docs/Model/RecentsOrganization.md)
+ - [RecentsPerson](docs/Model/RecentsPerson.md)
+ - [RecentsPipeline](docs/Model/RecentsPipeline.md)
+ - [RecentsProduct](docs/Model/RecentsProduct.md)
+ - [RecentsStage](docs/Model/RecentsStage.md)
+ - [RecentsUser](docs/Model/RecentsUser.md)
+ - [RelatedDealData](docs/Model/RelatedDealData.md)
+ - [RelatedDealDataDEALID](docs/Model/RelatedDealDataDEALID.md)
+ - [RelatedFollowerData](docs/Model/RelatedFollowerData.md)
+ - [RelatedOrganizationData](docs/Model/RelatedOrganizationData.md)
+ - [RelatedOrganizationDataWithActiveFlag](docs/Model/RelatedOrganizationDataWithActiveFlag.md)
+ - [RelatedOrganizationName](docs/Model/RelatedOrganizationName.md)
+ - [RelatedPersonData](docs/Model/RelatedPersonData.md)
+ - [RelatedPersonDataWithActiveFlag](docs/Model/RelatedPersonDataWithActiveFlag.md)
+ - [RelatedPictureData](docs/Model/RelatedPictureData.md)
+ - [RelatedUserData](docs/Model/RelatedUserData.md)
+ - [RelationshipOrganizationInfoItem](docs/Model/RelationshipOrganizationInfoItem.md)
+ - [RelationshipOrganizationInfoItemAllOf](docs/Model/RelationshipOrganizationInfoItemAllOf.md)
+ - [RelationshipOrganizationInfoItemWithActiveFlag](docs/Model/RelationshipOrganizationInfoItemWithActiveFlag.md)
+ - [RequiredNameObject](docs/Model/RequiredNameObject.md)
+ - [RequredTitleParameter](docs/Model/RequredTitleParameter.md)
+ - [ResponseCallLogObject](docs/Model/ResponseCallLogObject.md)
+ - [ResponseCallLogObjectAllOf](docs/Model/ResponseCallLogObjectAllOf.md)
+ - [RoleAssignment](docs/Model/RoleAssignment.md)
+ - [RoleAssignmentAllOf](docs/Model/RoleAssignmentAllOf.md)
+ - [RoleSettings](docs/Model/RoleSettings.md)
+ - [RolesAdditionalData](docs/Model/RolesAdditionalData.md)
+ - [RolesAdditionalDataPagination](docs/Model/RolesAdditionalDataPagination.md)
+ - [SinglePermissionSetsItem](docs/Model/SinglePermissionSetsItem.md)
+ - [SinglePermissionSetsItemAllOf](docs/Model/SinglePermissionSetsItemAllOf.md)
+ - [Stage](docs/Model/Stage.md)
+ - [StageConversions](docs/Model/StageConversions.md)
+ - [StageDetails](docs/Model/StageDetails.md)
+ - [StageWithPipelineInfo](docs/Model/StageWithPipelineInfo.md)
+ - [StageWithPipelineInfoAllOf](docs/Model/StageWithPipelineInfoAllOf.md)
+ - [SubRole](docs/Model/SubRole.md)
+ - [SubRoleAllOf](docs/Model/SubRoleAllOf.md)
+ - [SubscriptionAddonsResponse](docs/Model/SubscriptionAddonsResponse.md)
+ - [SubscriptionAddonsResponseAllOf](docs/Model/SubscriptionAddonsResponseAllOf.md)
+ - [SubscriptionInstallmentCreateRequest](docs/Model/SubscriptionInstallmentCreateRequest.md)
+ - [SubscriptionInstallmentUpdateRequest](docs/Model/SubscriptionInstallmentUpdateRequest.md)
+ - [SubscriptionItem](docs/Model/SubscriptionItem.md)
+ - [SubscriptionRecurringCancelRequest](docs/Model/SubscriptionRecurringCancelRequest.md)
+ - [SubscriptionRecurringCreateRequest](docs/Model/SubscriptionRecurringCreateRequest.md)
+ - [SubscriptionRecurringUpdateRequest](docs/Model/SubscriptionRecurringUpdateRequest.md)
+ - [SubscriptionsIdResponse](docs/Model/SubscriptionsIdResponse.md)
+ - [SubscriptionsIdResponseAllOf](docs/Model/SubscriptionsIdResponseAllOf.md)
+ - [Team](docs/Model/Team.md)
+ - [TeamAllOf](docs/Model/TeamAllOf.md)
+ - [TeamId](docs/Model/TeamId.md)
+ - [Teams](docs/Model/Teams.md)
+ - [TeamsAllOf](docs/Model/TeamsAllOf.md)
+ - [Unauthorized](docs/Model/Unauthorized.md)
+ - [UpdateActivityResponse200](docs/Model/UpdateActivityResponse200.md)
+ - [UpdateDealProduct](docs/Model/UpdateDealProduct.md)
+ - [UpdateDealRequest](docs/Model/UpdateDealRequest.md)
+ - [UpdateFile](docs/Model/UpdateFile.md)
+ - [UpdateFilterRequest](docs/Model/UpdateFilterRequest.md)
+ - [UpdateLeadLabelRequest](docs/Model/UpdateLeadLabelRequest.md)
+ - [UpdateLeadRequest](docs/Model/UpdateLeadRequest.md)
+ - [UpdateOrganization](docs/Model/UpdateOrganization.md)
+ - [UpdateOrganizationAllOf](docs/Model/UpdateOrganizationAllOf.md)
+ - [UpdatePerson](docs/Model/UpdatePerson.md)
+ - [UpdatePersonAllOf](docs/Model/UpdatePersonAllOf.md)
+ - [UpdatePersonResponse](docs/Model/UpdatePersonResponse.md)
+ - [UpdateProductField](docs/Model/UpdateProductField.md)
+ - [UpdateProductRequestBody](docs/Model/UpdateProductRequestBody.md)
+ - [UpdateProductResponse](docs/Model/UpdateProductResponse.md)
+ - [UpdateStageRequest](docs/Model/UpdateStageRequest.md)
+ - [UpdateStageRequestAllOf](docs/Model/UpdateStageRequestAllOf.md)
+ - [UpdateTeam](docs/Model/UpdateTeam.md)
+ - [UpdateTeamAllOf](docs/Model/UpdateTeamAllOf.md)
+ - [UpdateTeamWithAdditionalProperties](docs/Model/UpdateTeamWithAdditionalProperties.md)
+ - [UpdateUserRequest](docs/Model/UpdateUserRequest.md)
+ - [User](docs/Model/User.md)
+ - [UserAccess](docs/Model/UserAccess.md)
+ - [UserAllOf](docs/Model/UserAllOf.md)
+ - [UserAssignmentToPermissionSet](docs/Model/UserAssignmentToPermissionSet.md)
+ - [UserAssignmentsToPermissionSet](docs/Model/UserAssignmentsToPermissionSet.md)
+ - [UserAssignmentsToPermissionSetAllOf](docs/Model/UserAssignmentsToPermissionSetAllOf.md)
+ - [UserConnections](docs/Model/UserConnections.md)
+ - [UserConnectionsAllOf](docs/Model/UserConnectionsAllOf.md)
+ - [UserConnectionsAllOfData](docs/Model/UserConnectionsAllOfData.md)
+ - [UserData](docs/Model/UserData.md)
+ - [UserDataWithId](docs/Model/UserDataWithId.md)
+ - [UserIDs](docs/Model/UserIDs.md)
+ - [UserIDsAllOf](docs/Model/UserIDsAllOf.md)
+ - [UserMe](docs/Model/UserMe.md)
+ - [UserMeAllOf](docs/Model/UserMeAllOf.md)
+ - [UserPermissions](docs/Model/UserPermissions.md)
+ - [UserPermissionsAllOf](docs/Model/UserPermissionsAllOf.md)
+ - [UserPermissionsItem](docs/Model/UserPermissionsItem.md)
+ - [UserSettings](docs/Model/UserSettings.md)
+ - [UserSettingsAllOf](docs/Model/UserSettingsAllOf.md)
+ - [UserSettingsItem](docs/Model/UserSettingsItem.md)
+ - [Users](docs/Model/Users.md)
+ - [UsersAllOf](docs/Model/UsersAllOf.md)
+ - [VisibleTo](docs/Model/VisibleTo.md)
+ - [Webhook](docs/Model/Webhook.md)
+ - [WebhookAllOf](docs/Model/WebhookAllOf.md)
+ - [WebhookBadRequest](docs/Model/WebhookBadRequest.md)
+ - [WebhookBadRequestAllOf](docs/Model/WebhookBadRequestAllOf.md)
+ - [Webhooks](docs/Model/Webhooks.md)
+ - [WebhooksAllOf](docs/Model/WebhooksAllOf.md)
+ - [WebhooksDeleteForbiddenSchema](docs/Model/WebhooksDeleteForbiddenSchema.md)
+ - [WebhooksDeleteForbiddenSchemaAllOf](docs/Model/WebhooksDeleteForbiddenSchemaAllOf.md)
+
+
+## Documentation for authorization
+
+
+
+## api_key
+
+
+- **Type**: API key
+- **API key parameter name**: api_token
+- **Location**: URL query string
+
+
+
+
+## oauth2
+
+
+- **Type**: OAuth
+- **Flow**: accessCode
+- **Authorization URL**: https://oauth.pipedrive.com/oauth/authorize
+- **Scopes**: 
+- **base**: Read settings of the authorized user and currencies in an account
+- **deals:read**: Read most of the data about deals and related entities - deal fields, products, followers, participants; all notes, files, filters, pipelines, stages, and statistics. Does not include access to activities (except the last and next activity related to a deal)
+- **deals:full**: Create, read, update and delete deals, its participants and followers; all files, notes, and filters. It also includes read access to deal fields, pipelines, stages, and statistics. Does not include access to activities (except the last and next activity related to a deal)
+- **mail:read**: Read mail threads and messages
+- **mail:full**: Read, update and delete mail threads. Also grants read access to mail messages
+- **activities:read**: Read activities, its fields and types; all files and filters
+- **activities:full**: Create, read, update and delete activities and all files and filters. Also includes read access to activity fields and types
+- **contacts:read**: Read the data about persons and organizations, their related fields and followers; also all notes, files, filters
+- **contacts:full**: Create, read, update and delete persons and organizations and their followers; all notes, files, filters. Also grants read access to contacts-related fields
+- **products:read**: Read products, its fields, files, followers and products connected to a deal
+- **products:full**: Create, read, update and delete products and its fields; add products to deals
+- **users:read**: Read data about users (people with access to a Pipedrive account), their permissions, roles and followers
+- **recents:read**: Read all recent changes occurred in an account. Includes data about activities, activity types, deals, files, filters, notes, persons, organizations, pipelines, stages, products and users
+- **search:read**: Search across the account for deals, persons, organizations, files and products, and see details about the returned results
+- **admin**: Allows to do many things that an administrator can do in a Pipedrive company account - create, read, update and delete pipelines and its stages; deal, person and organization fields; activity types; users and permissions, etc. It also allows the app to create webhooks and fetch and delete webhooks that are created by the app
+- **leads:read**: Read data about leads and lead labels
+- **leads:full**: Create, read, update and delete leads and lead labels
+- **phone-integration**: Enables advanced call integration features like logging call duration and other metadata, and play call recordings inside Pipedrive
+- **goals:read**: Read data on all goals
+- **goals:full**: Create, read, update and delete goals
+- **video-calls**: Allows application to register as a video call integration provider and create conference links
+- **messengers-integration**: Allows application to register as a messengers integration provider and allows them to deliver incoming messages and their statuses
+
+
+## Author
+
+
+
+
+## About this package
+
+This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
+
+- API version: `1.0.0`
+- Build package: `org.openapitools.codegen.languages.PhpClientCodegen`
