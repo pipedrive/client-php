@@ -1,6 +1,6 @@
 <?php
 /**
- * BasicDeal
+ * UpdateDealParameters
  *
  * PHP version 7.3
  *
@@ -34,7 +34,7 @@ use JsonSerializable;
 use Pipedrive\ObjectSerializer;
 
 /**
- * BasicDeal Class Doc Comment
+ * UpdateDealParameters Class Doc Comment
  *
  * @category Class
  * @package  Pipedrive
@@ -44,7 +44,7 @@ use Pipedrive\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class BasicDeal implements ModelInterface, ArrayAccess, JsonSerializable
+class UpdateDealParameters implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -53,7 +53,7 @@ class BasicDeal implements ModelInterface, ArrayAccess, JsonSerializable
       *
       * @var string
       */
-    protected static string $openAPIModelName = 'BasicDeal';
+    protected static string $openAPIModelName = 'UpdateDealParameters';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -63,10 +63,14 @@ class BasicDeal implements ModelInterface, ArrayAccess, JsonSerializable
       * @phpsalm-var array<string, string>
       */
     protected static array $openAPITypes = [
-        'expected_close_date' => '\DateTime',
-        'probability' => 'float',
-        'lost_reason' => 'string',
-        'visible_to' => '\Pipedrive\Model\VisibleTo'
+        'value' => 'string',
+        'currency' => 'string',
+        'user_id' => 'int',
+        'person_id' => 'int',
+        'org_id' => 'int',
+        'pipeline_id' => 'int',
+        'stage_id' => 'int',
+        'status' => 'string'
     ];
 
     /**
@@ -77,10 +81,14 @@ class BasicDeal implements ModelInterface, ArrayAccess, JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'expected_close_date' => 'date',
-        'probability' => null,
-        'lost_reason' => null,
-        'visible_to' => null
+        'value' => null,
+        'currency' => null,
+        'user_id' => null,
+        'person_id' => null,
+        'org_id' => null,
+        'pipeline_id' => null,
+        'stage_id' => null,
+        'status' => null
     ];
 
     /**
@@ -114,10 +122,14 @@ class BasicDeal implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'expected_close_date' => 'expected_close_date',
-        'probability' => 'probability',
-        'lost_reason' => 'lost_reason',
-        'visible_to' => 'visible_to'
+        'value' => 'value',
+        'currency' => 'currency',
+        'user_id' => 'user_id',
+        'person_id' => 'person_id',
+        'org_id' => 'org_id',
+        'pipeline_id' => 'pipeline_id',
+        'stage_id' => 'stage_id',
+        'status' => 'status'
     ];
 
     /**
@@ -126,10 +138,14 @@ class BasicDeal implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'expected_close_date' => 'setExpectedCloseDate',
-        'probability' => 'setProbability',
-        'lost_reason' => 'setLostReason',
-        'visible_to' => 'setVisibleTo'
+        'value' => 'setValue',
+        'currency' => 'setCurrency',
+        'user_id' => 'setUserId',
+        'person_id' => 'setPersonId',
+        'org_id' => 'setOrgId',
+        'pipeline_id' => 'setPipelineId',
+        'stage_id' => 'setStageId',
+        'status' => 'setStatus'
     ];
 
     /**
@@ -138,10 +154,14 @@ class BasicDeal implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'expected_close_date' => 'getExpectedCloseDate',
-        'probability' => 'getProbability',
-        'lost_reason' => 'getLostReason',
-        'visible_to' => 'getVisibleTo'
+        'value' => 'getValue',
+        'currency' => 'getCurrency',
+        'user_id' => 'getUserId',
+        'person_id' => 'getPersonId',
+        'org_id' => 'getOrgId',
+        'pipeline_id' => 'getPipelineId',
+        'stage_id' => 'getStageId',
+        'status' => 'getStatus'
     ];
 
     /**
@@ -191,6 +211,27 @@ class BasicDeal implements ModelInterface, ArrayAccess, JsonSerializable
         return self::$openAPIModelName;
     }
 
+    const STATUS_OPEN = 'open';
+    const STATUS_WON = 'won';
+    const STATUS_LOST = 'lost';
+    const STATUS_DELETED = 'deleted';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @phpstan-return  array<string|int>
+     * @phpsalm-return  array<string|int>
+     * @return (string|int)[]
+     */
+    public function getStatusAllowableValues(): array
+    {
+        return [
+            self::STATUS_OPEN,
+            self::STATUS_WON,
+            self::STATUS_LOST,
+            self::STATUS_DELETED,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -211,10 +252,14 @@ class BasicDeal implements ModelInterface, ArrayAccess, JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['expected_close_date'] = $data['expected_close_date'] ?? null;
-        $this->container['probability'] = $data['probability'] ?? null;
-        $this->container['lost_reason'] = $data['lost_reason'] ?? null;
-        $this->container['visible_to'] = $data['visible_to'] ?? null;
+        $this->container['value'] = $data['value'] ?? null;
+        $this->container['currency'] = $data['currency'] ?? null;
+        $this->container['user_id'] = $data['user_id'] ?? null;
+        $this->container['person_id'] = $data['person_id'] ?? null;
+        $this->container['org_id'] = $data['org_id'] ?? null;
+        $this->container['pipeline_id'] = $data['pipeline_id'] ?? null;
+        $this->container['stage_id'] = $data['stage_id'] ?? null;
+        $this->container['status'] = $data['status'] ?? null;
     }
 
     /**
@@ -227,6 +272,15 @@ class BasicDeal implements ModelInterface, ArrayAccess, JsonSerializable
     public function listInvalidProperties(): array
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'status', must be one of '%s'",
+                $this->container['status'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -244,97 +298,203 @@ class BasicDeal implements ModelInterface, ArrayAccess, JsonSerializable
 
 
     /**
-     * Gets expected_close_date
-     *
-     * @return \DateTime|null
-     */
-    public function getExpectedCloseDate()
-    {
-        return $this->container['expected_close_date'];
-    }
-
-    /**
-     * Sets expected_close_date
-     *
-     * @param \DateTime|null $expected_close_date The expected close date of the deal. In ISO 8601 format: YYYY-MM-DD.
-     *
-     * @return self
-     */
-    public function setExpectedCloseDate($expected_close_date): self
-    {
-        $this->container['expected_close_date'] = $expected_close_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets probability
-     *
-     * @return float|null
-     */
-    public function getProbability()
-    {
-        return $this->container['probability'];
-    }
-
-    /**
-     * Sets probability
-     *
-     * @param float|null $probability The success probability percentage of the deal. Used/shown only when `deal_probability` for the pipeline of the deal is enabled.
-     *
-     * @return self
-     */
-    public function setProbability($probability): self
-    {
-        $this->container['probability'] = $probability;
-
-        return $this;
-    }
-
-    /**
-     * Gets lost_reason
+     * Gets value
      *
      * @return string|null
      */
-    public function getLostReason()
+    public function getValue()
     {
-        return $this->container['lost_reason'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets lost_reason
+     * Sets value
      *
-     * @param string|null $lost_reason The optional message about why the deal was lost (to be used when status = lost)
+     * @param string|null $value The value of the deal.
      *
      * @return self
      */
-    public function setLostReason($lost_reason): self
+    public function setValue($value): self
     {
-        $this->container['lost_reason'] = $lost_reason;
+        $this->container['value'] = $value;
 
         return $this;
     }
 
     /**
-     * Gets visible_to
+     * Gets currency
      *
-     * @return VisibleTo|null
+     * @return string|null
      */
-    public function getVisibleTo()
+    public function getCurrency()
     {
-        return $this->container['visible_to'];
+        return $this->container['currency'];
     }
 
     /**
-     * Sets visible_to
+     * Sets currency
      *
-     * @param VisibleTo|null $visible_to The visibility of the deal. If omitted, the visibility will be set to the default visibility setting of this item type for the authorized user. Read more about visibility groups <a href=\"https://support.pipedrive.com/en/article/visibility-groups\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>.<h4>Essential / Advanced plan</h4><table><tr><th style=\"width:40px\">Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers</td><tr><td>`3`</td><td>Entire company</td></tr></table><h4>Professional / Enterprise plan</h4><table><tr><th style=\"width:40px\">Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner only</td><tr><td>`3`</td><td>Owner's visibility group</td></tr><tr><td>`5`</td><td>Owner's visibility group and sub-groups</td></tr><tr><td>`7`</td><td>Entire company</td></tr></table>
+     * @param string|null $currency The currency of the deal. Accepts a 3-character currency code.
      *
      * @return self
      */
-    public function setVisibleTo($visible_to): self
+    public function setCurrency($currency): self
     {
-        $this->container['visible_to'] = $visible_to;
+        $this->container['currency'] = $currency;
+
+        return $this;
+    }
+
+    /**
+     * Gets user_id
+     *
+     * @return int|null
+     */
+    public function getUserId()
+    {
+        return $this->container['user_id'];
+    }
+
+    /**
+     * Sets user_id
+     *
+     * @param int|null $user_id The ID of the user which will be the new owner of the deal.
+     *
+     * @return self
+     */
+    public function setUserId($user_id): self
+    {
+        $this->container['user_id'] = $user_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets person_id
+     *
+     * @return int|null
+     */
+    public function getPersonId()
+    {
+        return $this->container['person_id'];
+    }
+
+    /**
+     * Sets person_id
+     *
+     * @param int|null $person_id The ID of a person which this deal will be linked to. If the person does not exist yet, it needs to be created first.
+     *
+     * @return self
+     */
+    public function setPersonId($person_id): self
+    {
+        $this->container['person_id'] = $person_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets org_id
+     *
+     * @return int|null
+     */
+    public function getOrgId()
+    {
+        return $this->container['org_id'];
+    }
+
+    /**
+     * Sets org_id
+     *
+     * @param int|null $org_id The ID of an organization which this deal will be linked to. If the organization does not exist yet, it needs to be created first.
+     *
+     * @return self
+     */
+    public function setOrgId($org_id): self
+    {
+        $this->container['org_id'] = $org_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets pipeline_id
+     *
+     * @return int|null
+     */
+    public function getPipelineId()
+    {
+        return $this->container['pipeline_id'];
+    }
+
+    /**
+     * Sets pipeline_id
+     *
+     * @param int|null $pipeline_id The ID of the pipeline this deal will be added to. By default, the deal will be added to the first stage of the specified pipeline. Please note that `pipeline_id` and `stage_id` should not be used together as `pipeline_id` will be ignored.
+     *
+     * @return self
+     */
+    public function setPipelineId($pipeline_id): self
+    {
+        $this->container['pipeline_id'] = $pipeline_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets stage_id
+     *
+     * @return int|null
+     */
+    public function getStageId()
+    {
+        return $this->container['stage_id'];
+    }
+
+    /**
+     * Sets stage_id
+     *
+     * @param int|null $stage_id The ID of the stage this deal will be added to. Please note that a pipeline will be assigned automatically based on the `stage_id`.
+     *
+     * @return self
+     */
+    public function setStageId($stage_id): self
+    {
+        $this->container['stage_id'] = $stage_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string|null
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string|null $status open = Open, won = Won, lost = Lost, deleted = Deleted.
+     *
+     * @return self
+     */
+    public function setStatus($status): self
+    {
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'status', must be one of '%s'",
+                    $status,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['status'] = $status;
 
         return $this;
     }

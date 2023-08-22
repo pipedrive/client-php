@@ -1,6 +1,6 @@
 <?php
 /**
- * NewDeal
+ * NewDealParameters
  *
  * PHP version 7.3
  *
@@ -34,7 +34,7 @@ use JsonSerializable;
 use Pipedrive\ObjectSerializer;
 
 /**
- * NewDeal Class Doc Comment
+ * NewDealParameters Class Doc Comment
  *
  * @category Class
  * @package  Pipedrive
@@ -44,7 +44,7 @@ use Pipedrive\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class NewDeal implements ModelInterface, ArrayAccess, JsonSerializable
+class NewDealParameters implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -53,7 +53,7 @@ class NewDeal implements ModelInterface, ArrayAccess, JsonSerializable
       *
       * @var string
       */
-    protected static string $openAPIModelName = 'NewDeal';
+    protected static string $openAPIModelName = 'NewDealParameters';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -63,7 +63,6 @@ class NewDeal implements ModelInterface, ArrayAccess, JsonSerializable
       * @phpsalm-var array<string, string>
       */
     protected static array $openAPITypes = [
-        'title' => 'string',
         'value' => 'string',
         'currency' => 'string',
         'user_id' => 'int',
@@ -72,11 +71,7 @@ class NewDeal implements ModelInterface, ArrayAccess, JsonSerializable
         'pipeline_id' => 'int',
         'stage_id' => 'int',
         'status' => 'string',
-        'add_time' => 'string',
-        'expected_close_date' => '\DateTime',
-        'probability' => 'float',
-        'lost_reason' => 'string',
-        'visible_to' => '\Pipedrive\Model\VisibleTo'
+        'add_time' => 'string'
     ];
 
     /**
@@ -87,7 +82,6 @@ class NewDeal implements ModelInterface, ArrayAccess, JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'title' => null,
         'value' => null,
         'currency' => null,
         'user_id' => null,
@@ -96,11 +90,7 @@ class NewDeal implements ModelInterface, ArrayAccess, JsonSerializable
         'pipeline_id' => null,
         'stage_id' => null,
         'status' => null,
-        'add_time' => null,
-        'expected_close_date' => 'date',
-        'probability' => null,
-        'lost_reason' => null,
-        'visible_to' => null
+        'add_time' => null
     ];
 
     /**
@@ -134,7 +124,6 @@ class NewDeal implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'title' => 'title',
         'value' => 'value',
         'currency' => 'currency',
         'user_id' => 'user_id',
@@ -143,11 +132,7 @@ class NewDeal implements ModelInterface, ArrayAccess, JsonSerializable
         'pipeline_id' => 'pipeline_id',
         'stage_id' => 'stage_id',
         'status' => 'status',
-        'add_time' => 'add_time',
-        'expected_close_date' => 'expected_close_date',
-        'probability' => 'probability',
-        'lost_reason' => 'lost_reason',
-        'visible_to' => 'visible_to'
+        'add_time' => 'add_time'
     ];
 
     /**
@@ -156,7 +141,6 @@ class NewDeal implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'title' => 'setTitle',
         'value' => 'setValue',
         'currency' => 'setCurrency',
         'user_id' => 'setUserId',
@@ -165,11 +149,7 @@ class NewDeal implements ModelInterface, ArrayAccess, JsonSerializable
         'pipeline_id' => 'setPipelineId',
         'stage_id' => 'setStageId',
         'status' => 'setStatus',
-        'add_time' => 'setAddTime',
-        'expected_close_date' => 'setExpectedCloseDate',
-        'probability' => 'setProbability',
-        'lost_reason' => 'setLostReason',
-        'visible_to' => 'setVisibleTo'
+        'add_time' => 'setAddTime'
     ];
 
     /**
@@ -178,7 +158,6 @@ class NewDeal implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'title' => 'getTitle',
         'value' => 'getValue',
         'currency' => 'getCurrency',
         'user_id' => 'getUserId',
@@ -187,11 +166,7 @@ class NewDeal implements ModelInterface, ArrayAccess, JsonSerializable
         'pipeline_id' => 'getPipelineId',
         'stage_id' => 'getStageId',
         'status' => 'getStatus',
-        'add_time' => 'getAddTime',
-        'expected_close_date' => 'getExpectedCloseDate',
-        'probability' => 'getProbability',
-        'lost_reason' => 'getLostReason',
-        'visible_to' => 'getVisibleTo'
+        'add_time' => 'getAddTime'
     ];
 
     /**
@@ -282,7 +257,6 @@ class NewDeal implements ModelInterface, ArrayAccess, JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['title'] = $data['title'] ?? null;
         $this->container['value'] = $data['value'] ?? null;
         $this->container['currency'] = $data['currency'] ?? null;
         $this->container['user_id'] = $data['user_id'] ?? null;
@@ -292,10 +266,6 @@ class NewDeal implements ModelInterface, ArrayAccess, JsonSerializable
         $this->container['stage_id'] = $data['stage_id'] ?? null;
         $this->container['status'] = $data['status'] ?? null;
         $this->container['add_time'] = $data['add_time'] ?? null;
-        $this->container['expected_close_date'] = $data['expected_close_date'] ?? null;
-        $this->container['probability'] = $data['probability'] ?? null;
-        $this->container['lost_reason'] = $data['lost_reason'] ?? null;
-        $this->container['visible_to'] = $data['visible_to'] ?? null;
     }
 
     /**
@@ -309,9 +279,6 @@ class NewDeal implements ModelInterface, ArrayAccess, JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['title'] === null) {
-            $invalidProperties[] = "'title' can't be null";
-        }
         $allowedValues = $this->getStatusAllowableValues();
         if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -335,30 +302,6 @@ class NewDeal implements ModelInterface, ArrayAccess, JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets title
-     *
-     * @return string
-     */
-    public function getTitle()
-    {
-        return $this->container['title'];
-    }
-
-    /**
-     * Sets title
-     *
-     * @param string $title The title of the deal
-     *
-     * @return self
-     */
-    public function setTitle($title): self
-    {
-        $this->container['title'] = $title;
-
-        return $this;
-    }
 
     /**
      * Gets value
@@ -582,102 +525,6 @@ class NewDeal implements ModelInterface, ArrayAccess, JsonSerializable
     public function setAddTime($add_time): self
     {
         $this->container['add_time'] = $add_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets expected_close_date
-     *
-     * @return \DateTime|null
-     */
-    public function getExpectedCloseDate()
-    {
-        return $this->container['expected_close_date'];
-    }
-
-    /**
-     * Sets expected_close_date
-     *
-     * @param \DateTime|null $expected_close_date The expected close date of the deal. In ISO 8601 format: YYYY-MM-DD.
-     *
-     * @return self
-     */
-    public function setExpectedCloseDate($expected_close_date): self
-    {
-        $this->container['expected_close_date'] = $expected_close_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets probability
-     *
-     * @return float|null
-     */
-    public function getProbability()
-    {
-        return $this->container['probability'];
-    }
-
-    /**
-     * Sets probability
-     *
-     * @param float|null $probability The success probability percentage of the deal. Used/shown only when `deal_probability` for the pipeline of the deal is enabled.
-     *
-     * @return self
-     */
-    public function setProbability($probability): self
-    {
-        $this->container['probability'] = $probability;
-
-        return $this;
-    }
-
-    /**
-     * Gets lost_reason
-     *
-     * @return string|null
-     */
-    public function getLostReason()
-    {
-        return $this->container['lost_reason'];
-    }
-
-    /**
-     * Sets lost_reason
-     *
-     * @param string|null $lost_reason The optional message about why the deal was lost (to be used when status = lost)
-     *
-     * @return self
-     */
-    public function setLostReason($lost_reason): self
-    {
-        $this->container['lost_reason'] = $lost_reason;
-
-        return $this;
-    }
-
-    /**
-     * Gets visible_to
-     *
-     * @return VisibleTo|null
-     */
-    public function getVisibleTo()
-    {
-        return $this->container['visible_to'];
-    }
-
-    /**
-     * Sets visible_to
-     *
-     * @param VisibleTo|null $visible_to The visibility of the deal. If omitted, the visibility will be set to the default visibility setting of this item type for the authorized user. Read more about visibility groups <a href=\"https://support.pipedrive.com/en/article/visibility-groups\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>.<h4>Essential / Advanced plan</h4><table><tr><th style=\"width:40px\">Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers</td><tr><td>`3`</td><td>Entire company</td></tr></table><h4>Professional / Enterprise plan</h4><table><tr><th style=\"width:40px\">Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner only</td><tr><td>`3`</td><td>Owner's visibility group</td></tr><tr><td>`5`</td><td>Owner's visibility group and sub-groups</td></tr><tr><td>`7`</td><td>Entire company</td></tr></table>
-     *
-     * @return self
-     */
-    public function setVisibleTo($visible_to): self
-    {
-        $this->container['visible_to'] = $visible_to;
 
         return $this;
     }
