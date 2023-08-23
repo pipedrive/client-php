@@ -72,11 +72,11 @@ class NewDeal implements ModelInterface, ArrayAccess, JsonSerializable
         'pipeline_id' => 'int',
         'stage_id' => 'int',
         'status' => 'string',
+        'add_time' => 'string',
         'expected_close_date' => '\DateTime',
         'probability' => 'float',
         'lost_reason' => 'string',
-        'visible_to' => '\Pipedrive\Model\VisibleTo',
-        'add_time' => 'string'
+        'visible_to' => '\Pipedrive\Model\VisibleTo'
     ];
 
     /**
@@ -96,11 +96,11 @@ class NewDeal implements ModelInterface, ArrayAccess, JsonSerializable
         'pipeline_id' => null,
         'stage_id' => null,
         'status' => null,
+        'add_time' => null,
         'expected_close_date' => 'date',
         'probability' => null,
         'lost_reason' => null,
-        'visible_to' => null,
-        'add_time' => null
+        'visible_to' => null
     ];
 
     /**
@@ -143,11 +143,11 @@ class NewDeal implements ModelInterface, ArrayAccess, JsonSerializable
         'pipeline_id' => 'pipeline_id',
         'stage_id' => 'stage_id',
         'status' => 'status',
+        'add_time' => 'add_time',
         'expected_close_date' => 'expected_close_date',
         'probability' => 'probability',
         'lost_reason' => 'lost_reason',
-        'visible_to' => 'visible_to',
-        'add_time' => 'add_time'
+        'visible_to' => 'visible_to'
     ];
 
     /**
@@ -165,11 +165,11 @@ class NewDeal implements ModelInterface, ArrayAccess, JsonSerializable
         'pipeline_id' => 'setPipelineId',
         'stage_id' => 'setStageId',
         'status' => 'setStatus',
+        'add_time' => 'setAddTime',
         'expected_close_date' => 'setExpectedCloseDate',
         'probability' => 'setProbability',
         'lost_reason' => 'setLostReason',
-        'visible_to' => 'setVisibleTo',
-        'add_time' => 'setAddTime'
+        'visible_to' => 'setVisibleTo'
     ];
 
     /**
@@ -187,11 +187,11 @@ class NewDeal implements ModelInterface, ArrayAccess, JsonSerializable
         'pipeline_id' => 'getPipelineId',
         'stage_id' => 'getStageId',
         'status' => 'getStatus',
+        'add_time' => 'getAddTime',
         'expected_close_date' => 'getExpectedCloseDate',
         'probability' => 'getProbability',
         'lost_reason' => 'getLostReason',
-        'visible_to' => 'getVisibleTo',
-        'add_time' => 'getAddTime'
+        'visible_to' => 'getVisibleTo'
     ];
 
     /**
@@ -291,11 +291,11 @@ class NewDeal implements ModelInterface, ArrayAccess, JsonSerializable
         $this->container['pipeline_id'] = $data['pipeline_id'] ?? null;
         $this->container['stage_id'] = $data['stage_id'] ?? null;
         $this->container['status'] = $data['status'] ?? null;
+        $this->container['add_time'] = $data['add_time'] ?? null;
         $this->container['expected_close_date'] = $data['expected_close_date'] ?? null;
         $this->container['probability'] = $data['probability'] ?? null;
         $this->container['lost_reason'] = $data['lost_reason'] ?? null;
         $this->container['visible_to'] = $data['visible_to'] ?? null;
-        $this->container['add_time'] = $data['add_time'] ?? null;
     }
 
     /**
@@ -563,6 +563,30 @@ class NewDeal implements ModelInterface, ArrayAccess, JsonSerializable
     }
 
     /**
+     * Gets add_time
+     *
+     * @return string|null
+     */
+    public function getAddTime()
+    {
+        return $this->container['add_time'];
+    }
+
+    /**
+     * Sets add_time
+     *
+     * @param string|null $add_time The optional creation date & time of the deal in UTC. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
+     *
+     * @return self
+     */
+    public function setAddTime($add_time): self
+    {
+        $this->container['add_time'] = $add_time;
+
+        return $this;
+    }
+
+    /**
      * Gets expected_close_date
      *
      * @return \DateTime|null
@@ -654,30 +678,6 @@ class NewDeal implements ModelInterface, ArrayAccess, JsonSerializable
     public function setVisibleTo($visible_to): self
     {
         $this->container['visible_to'] = $visible_to;
-
-        return $this;
-    }
-
-    /**
-     * Gets add_time
-     *
-     * @return string|null
-     */
-    public function getAddTime()
-    {
-        return $this->container['add_time'];
-    }
-
-    /**
-     * Sets add_time
-     *
-     * @param string|null $add_time The optional creation date & time of the deal in UTC. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
-     *
-     * @return self
-     */
-    public function setAddTime($add_time): self
-    {
-        $this->container['add_time'] = $add_time;
 
         return $this;
     }

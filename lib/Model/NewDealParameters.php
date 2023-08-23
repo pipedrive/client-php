@@ -1,6 +1,6 @@
 <?php
 /**
- * ProductAttachementFields
+ * NewDealParameters
  *
  * PHP version 7.3
  *
@@ -34,7 +34,7 @@ use JsonSerializable;
 use Pipedrive\ObjectSerializer;
 
 /**
- * ProductAttachementFields Class Doc Comment
+ * NewDealParameters Class Doc Comment
  *
  * @category Class
  * @package  Pipedrive
@@ -44,7 +44,7 @@ use Pipedrive\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ProductAttachementFields implements ModelInterface, ArrayAccess, JsonSerializable
+class NewDealParameters implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -53,7 +53,7 @@ class ProductAttachementFields implements ModelInterface, ArrayAccess, JsonSeria
       *
       * @var string
       */
-    protected static string $openAPIModelName = 'ProductAttachementFields';
+    protected static string $openAPIModelName = 'NewDealParameters';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -63,18 +63,15 @@ class ProductAttachementFields implements ModelInterface, ArrayAccess, JsonSeria
       * @phpsalm-var array<string, string>
       */
     protected static array $openAPITypes = [
-        'id' => 'int',
-        'company_id' => 'int',
-        'deal_id' => 'int',
-        'product_id' => 'int',
-        'duration_unit' => 'string',
-        'sum' => 'float',
+        'value' => 'string',
         'currency' => 'string',
-        'add_time' => 'string',
-        'last_edit' => 'string',
-        'active_flag' => 'bool',
-        'tax' => 'float',
-        'name' => 'string'
+        'user_id' => 'int',
+        'person_id' => 'int',
+        'org_id' => 'int',
+        'pipeline_id' => 'int',
+        'stage_id' => 'int',
+        'status' => 'string',
+        'add_time' => 'string'
     ];
 
     /**
@@ -85,18 +82,15 @@ class ProductAttachementFields implements ModelInterface, ArrayAccess, JsonSeria
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'company_id' => null,
-        'deal_id' => null,
-        'product_id' => null,
-        'duration_unit' => null,
-        'sum' => null,
+        'value' => null,
         'currency' => null,
-        'add_time' => null,
-        'last_edit' => null,
-        'active_flag' => null,
-        'tax' => null,
-        'name' => null
+        'user_id' => null,
+        'person_id' => null,
+        'org_id' => null,
+        'pipeline_id' => null,
+        'stage_id' => null,
+        'status' => null,
+        'add_time' => null
     ];
 
     /**
@@ -130,18 +124,15 @@ class ProductAttachementFields implements ModelInterface, ArrayAccess, JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'company_id' => 'company_id',
-        'deal_id' => 'deal_id',
-        'product_id' => 'product_id',
-        'duration_unit' => 'duration_unit',
-        'sum' => 'sum',
+        'value' => 'value',
         'currency' => 'currency',
-        'add_time' => 'add_time',
-        'last_edit' => 'last_edit',
-        'active_flag' => 'active_flag',
-        'tax' => 'tax',
-        'name' => 'name'
+        'user_id' => 'user_id',
+        'person_id' => 'person_id',
+        'org_id' => 'org_id',
+        'pipeline_id' => 'pipeline_id',
+        'stage_id' => 'stage_id',
+        'status' => 'status',
+        'add_time' => 'add_time'
     ];
 
     /**
@@ -150,18 +141,15 @@ class ProductAttachementFields implements ModelInterface, ArrayAccess, JsonSeria
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'company_id' => 'setCompanyId',
-        'deal_id' => 'setDealId',
-        'product_id' => 'setProductId',
-        'duration_unit' => 'setDurationUnit',
-        'sum' => 'setSum',
+        'value' => 'setValue',
         'currency' => 'setCurrency',
-        'add_time' => 'setAddTime',
-        'last_edit' => 'setLastEdit',
-        'active_flag' => 'setActiveFlag',
-        'tax' => 'setTax',
-        'name' => 'setName'
+        'user_id' => 'setUserId',
+        'person_id' => 'setPersonId',
+        'org_id' => 'setOrgId',
+        'pipeline_id' => 'setPipelineId',
+        'stage_id' => 'setStageId',
+        'status' => 'setStatus',
+        'add_time' => 'setAddTime'
     ];
 
     /**
@@ -170,18 +158,15 @@ class ProductAttachementFields implements ModelInterface, ArrayAccess, JsonSeria
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'company_id' => 'getCompanyId',
-        'deal_id' => 'getDealId',
-        'product_id' => 'getProductId',
-        'duration_unit' => 'getDurationUnit',
-        'sum' => 'getSum',
+        'value' => 'getValue',
         'currency' => 'getCurrency',
-        'add_time' => 'getAddTime',
-        'last_edit' => 'getLastEdit',
-        'active_flag' => 'getActiveFlag',
-        'tax' => 'getTax',
-        'name' => 'getName'
+        'user_id' => 'getUserId',
+        'person_id' => 'getPersonId',
+        'org_id' => 'getOrgId',
+        'pipeline_id' => 'getPipelineId',
+        'stage_id' => 'getStageId',
+        'status' => 'getStatus',
+        'add_time' => 'getAddTime'
     ];
 
     /**
@@ -231,6 +216,27 @@ class ProductAttachementFields implements ModelInterface, ArrayAccess, JsonSeria
         return self::$openAPIModelName;
     }
 
+    const STATUS_OPEN = 'open';
+    const STATUS_WON = 'won';
+    const STATUS_LOST = 'lost';
+    const STATUS_DELETED = 'deleted';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @phpstan-return  array<string|int>
+     * @phpsalm-return  array<string|int>
+     * @return (string|int)[]
+     */
+    public function getStatusAllowableValues(): array
+    {
+        return [
+            self::STATUS_OPEN,
+            self::STATUS_WON,
+            self::STATUS_LOST,
+            self::STATUS_DELETED,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -251,18 +257,15 @@ class ProductAttachementFields implements ModelInterface, ArrayAccess, JsonSeria
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = $data['id'] ?? null;
-        $this->container['company_id'] = $data['company_id'] ?? null;
-        $this->container['deal_id'] = $data['deal_id'] ?? null;
-        $this->container['product_id'] = $data['product_id'] ?? null;
-        $this->container['duration_unit'] = $data['duration_unit'] ?? null;
-        $this->container['sum'] = $data['sum'] ?? null;
+        $this->container['value'] = $data['value'] ?? null;
         $this->container['currency'] = $data['currency'] ?? null;
+        $this->container['user_id'] = $data['user_id'] ?? null;
+        $this->container['person_id'] = $data['person_id'] ?? null;
+        $this->container['org_id'] = $data['org_id'] ?? null;
+        $this->container['pipeline_id'] = $data['pipeline_id'] ?? null;
+        $this->container['stage_id'] = $data['stage_id'] ?? null;
+        $this->container['status'] = $data['status'] ?? null;
         $this->container['add_time'] = $data['add_time'] ?? null;
-        $this->container['last_edit'] = $data['last_edit'] ?? null;
-        $this->container['active_flag'] = $data['active_flag'] ?? null;
-        $this->container['tax'] = $data['tax'] ?? null;
-        $this->container['name'] = $data['name'] ?? null;
     }
 
     /**
@@ -275,6 +278,15 @@ class ProductAttachementFields implements ModelInterface, ArrayAccess, JsonSeria
     public function listInvalidProperties(): array
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'status', must be one of '%s'",
+                $this->container['status'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -292,145 +304,25 @@ class ProductAttachementFields implements ModelInterface, ArrayAccess, JsonSeria
 
 
     /**
-     * Gets id
-     *
-     * @return int|null
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param int|null $id The ID of the deal-product (the ID of the product attached to the deal)
-     *
-     * @return self
-     */
-    public function setId($id): self
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets company_id
-     *
-     * @return int|null
-     */
-    public function getCompanyId()
-    {
-        return $this->container['company_id'];
-    }
-
-    /**
-     * Sets company_id
-     *
-     * @param int|null $company_id The ID of the company
-     *
-     * @return self
-     */
-    public function setCompanyId($company_id): self
-    {
-        $this->container['company_id'] = $company_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets deal_id
-     *
-     * @return int|null
-     */
-    public function getDealId()
-    {
-        return $this->container['deal_id'];
-    }
-
-    /**
-     * Sets deal_id
-     *
-     * @param int|null $deal_id The ID of the deal
-     *
-     * @return self
-     */
-    public function setDealId($deal_id): self
-    {
-        $this->container['deal_id'] = $deal_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets product_id
-     *
-     * @return int|null
-     */
-    public function getProductId()
-    {
-        return $this->container['product_id'];
-    }
-
-    /**
-     * Sets product_id
-     *
-     * @param int|null $product_id The ID of the product
-     *
-     * @return self
-     */
-    public function setProductId($product_id): self
-    {
-        $this->container['product_id'] = $product_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets duration_unit
+     * Gets value
      *
      * @return string|null
      */
-    public function getDurationUnit()
+    public function getValue()
     {
-        return $this->container['duration_unit'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets duration_unit
+     * Sets value
      *
-     * @param string|null $duration_unit The type of the duration. (For example hourly, daily, etc.)
+     * @param string|null $value The value of the deal. If omitted, value will be set to 0.
      *
      * @return self
      */
-    public function setDurationUnit($duration_unit): self
+    public function setValue($value): self
     {
-        $this->container['duration_unit'] = $duration_unit;
-
-        return $this;
-    }
-
-    /**
-     * Gets sum
-     *
-     * @return float|null
-     */
-    public function getSum()
-    {
-        return $this->container['sum'];
-    }
-
-    /**
-     * Sets sum
-     *
-     * @param float|null $sum The sum of all the products attached to the deal
-     *
-     * @return self
-     */
-    public function setSum($sum): self
-    {
-        $this->container['sum'] = $sum;
+        $this->container['value'] = $value;
 
         return $this;
     }
@@ -448,13 +340,167 @@ class ProductAttachementFields implements ModelInterface, ArrayAccess, JsonSeria
     /**
      * Sets currency
      *
-     * @param string|null $currency The currency associated with the deal product
+     * @param string|null $currency The currency of the deal. Accepts a 3-character currency code. If omitted, currency will be set to the default currency of the authorized user.
      *
      * @return self
      */
     public function setCurrency($currency): self
     {
         $this->container['currency'] = $currency;
+
+        return $this;
+    }
+
+    /**
+     * Gets user_id
+     *
+     * @return int|null
+     */
+    public function getUserId()
+    {
+        return $this->container['user_id'];
+    }
+
+    /**
+     * Sets user_id
+     *
+     * @param int|null $user_id The ID of the user which will be the owner of the created deal. If not provided, the user making the request will be used.
+     *
+     * @return self
+     */
+    public function setUserId($user_id): self
+    {
+        $this->container['user_id'] = $user_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets person_id
+     *
+     * @return int|null
+     */
+    public function getPersonId()
+    {
+        return $this->container['person_id'];
+    }
+
+    /**
+     * Sets person_id
+     *
+     * @param int|null $person_id The ID of a person which this deal will be linked to. If the person does not exist yet, it needs to be created first. This property is required unless `org_id` is specified.
+     *
+     * @return self
+     */
+    public function setPersonId($person_id): self
+    {
+        $this->container['person_id'] = $person_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets org_id
+     *
+     * @return int|null
+     */
+    public function getOrgId()
+    {
+        return $this->container['org_id'];
+    }
+
+    /**
+     * Sets org_id
+     *
+     * @param int|null $org_id The ID of an organization which this deal will be linked to. If the organization does not exist yet, it needs to be created first. This property is required unless `person_id` is specified.
+     *
+     * @return self
+     */
+    public function setOrgId($org_id): self
+    {
+        $this->container['org_id'] = $org_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets pipeline_id
+     *
+     * @return int|null
+     */
+    public function getPipelineId()
+    {
+        return $this->container['pipeline_id'];
+    }
+
+    /**
+     * Sets pipeline_id
+     *
+     * @param int|null $pipeline_id The ID of the pipeline this deal will be added to. By default, the deal will be added to the first stage of the specified pipeline. Please note that `pipeline_id` and `stage_id` should not be used together as `pipeline_id` will be ignored.
+     *
+     * @return self
+     */
+    public function setPipelineId($pipeline_id): self
+    {
+        $this->container['pipeline_id'] = $pipeline_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets stage_id
+     *
+     * @return int|null
+     */
+    public function getStageId()
+    {
+        return $this->container['stage_id'];
+    }
+
+    /**
+     * Sets stage_id
+     *
+     * @param int|null $stage_id The ID of the stage this deal will be added to. Please note that a pipeline will be assigned automatically based on the `stage_id`. If omitted, the deal will be placed in the first stage of the default pipeline.
+     *
+     * @return self
+     */
+    public function setStageId($stage_id): self
+    {
+        $this->container['stage_id'] = $stage_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string|null
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string|null $status open = Open, won = Won, lost = Lost, deleted = Deleted. If omitted, status will be set to open.
+     *
+     * @return self
+     */
+    public function setStatus($status): self
+    {
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'status', must be one of '%s'",
+                    $status,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['status'] = $status;
 
         return $this;
     }
@@ -472,109 +518,13 @@ class ProductAttachementFields implements ModelInterface, ArrayAccess, JsonSeria
     /**
      * Sets add_time
      *
-     * @param string|null $add_time The date and time when the product was added to the deal
+     * @param string|null $add_time The optional creation date & time of the deal in UTC. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
      *
      * @return self
      */
     public function setAddTime($add_time): self
     {
         $this->container['add_time'] = $add_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets last_edit
-     *
-     * @return string|null
-     */
-    public function getLastEdit()
-    {
-        return $this->container['last_edit'];
-    }
-
-    /**
-     * Sets last_edit
-     *
-     * @param string|null $last_edit The date and time when the deal product was last edited
-     *
-     * @return self
-     */
-    public function setLastEdit($last_edit): self
-    {
-        $this->container['last_edit'] = $last_edit;
-
-        return $this;
-    }
-
-    /**
-     * Gets active_flag
-     *
-     * @return bool|null
-     */
-    public function getActiveFlag()
-    {
-        return $this->container['active_flag'];
-    }
-
-    /**
-     * Sets active_flag
-     *
-     * @param bool|null $active_flag Whether the product is active or not
-     *
-     * @return self
-     */
-    public function setActiveFlag($active_flag): self
-    {
-        $this->container['active_flag'] = $active_flag;
-
-        return $this;
-    }
-
-    /**
-     * Gets tax
-     *
-     * @return float|null
-     */
-    public function getTax()
-    {
-        return $this->container['tax'];
-    }
-
-    /**
-     * Sets tax
-     *
-     * @param float|null $tax The product tax
-     *
-     * @return self
-     */
-    public function setTax($tax): self
-    {
-        $this->container['tax'] = $tax;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string|null
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string|null $name The product name
-     *
-     * @return self
-     */
-    public function setName($name): self
-    {
-        $this->container['name'] = $name;
 
         return $this;
     }

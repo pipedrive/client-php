@@ -19,7 +19,6 @@ Name | Type | Description | Notes
 **id** | **int** | The ID of the deal-product (the ID of the product attached to the deal) | [optional]
 **company_id** | **int** | The ID of the company | [optional]
 **deal_id** | **int** | The ID of the deal | [optional]
-**sum_no_discount** | **float** | The product sum without the discount | [optional]
 **sum** | **float** | The sum of all the products attached to the deal | [optional]
 **currency** | **string** | The currency associated with the deal product | [optional]
 **add_time** | **string** | The date and time when the product was added to the deal | [optional]

@@ -78,7 +78,6 @@ class AddProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSe
         'id' => 'int',
         'company_id' => 'int',
         'deal_id' => 'int',
-        'sum_no_discount' => 'float',
         'sum' => 'float',
         'currency' => 'string',
         'add_time' => 'string',
@@ -111,7 +110,6 @@ class AddProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSe
         'id' => null,
         'company_id' => null,
         'deal_id' => null,
-        'sum_no_discount' => null,
         'sum' => null,
         'currency' => null,
         'add_time' => null,
@@ -167,7 +165,6 @@ class AddProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSe
         'id' => 'id',
         'company_id' => 'company_id',
         'deal_id' => 'deal_id',
-        'sum_no_discount' => 'sum_no_discount',
         'sum' => 'sum',
         'currency' => 'currency',
         'add_time' => 'add_time',
@@ -198,7 +195,6 @@ class AddProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSe
         'id' => 'setId',
         'company_id' => 'setCompanyId',
         'deal_id' => 'setDealId',
-        'sum_no_discount' => 'setSumNoDiscount',
         'sum' => 'setSum',
         'currency' => 'setCurrency',
         'add_time' => 'setAddTime',
@@ -229,7 +225,6 @@ class AddProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSe
         'id' => 'getId',
         'company_id' => 'getCompanyId',
         'deal_id' => 'getDealId',
-        'sum_no_discount' => 'getSumNoDiscount',
         'sum' => 'getSum',
         'currency' => 'getCurrency',
         'add_time' => 'getAddTime',
@@ -357,7 +352,6 @@ class AddProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSe
         $this->container['id'] = $data['id'] ?? null;
         $this->container['company_id'] = $data['company_id'] ?? null;
         $this->container['deal_id'] = $data['deal_id'] ?? null;
-        $this->container['sum_no_discount'] = $data['sum_no_discount'] ?? null;
         $this->container['sum'] = $data['sum'] ?? null;
         $this->container['currency'] = $data['currency'] ?? null;
         $this->container['add_time'] = $data['add_time'] ?? null;
@@ -796,30 +790,6 @@ class AddProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSe
     public function setDealId($deal_id): self
     {
         $this->container['deal_id'] = $deal_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets sum_no_discount
-     *
-     * @return float|null
-     */
-    public function getSumNoDiscount()
-    {
-        return $this->container['sum_no_discount'];
-    }
-
-    /**
-     * Sets sum_no_discount
-     *
-     * @param float|null $sum_no_discount The product sum without the discount
-     *
-     * @return self
-     */
-    public function setSumNoDiscount($sum_no_discount): self
-    {
-        $this->container['sum_no_discount'] = $sum_no_discount;
 
         return $this;
     }

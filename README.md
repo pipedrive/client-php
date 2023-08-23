@@ -16,21 +16,8 @@ PHP 7.4+ and later.
 
 ### Composer
 
-To install the bindings via [Composer](https://getcomposer.org/), add the following to `composer.json`:
-
-```json
-{
-  "require": {
-    "pipedrive/pipedrive": "^5@beta"
-  }
-}
-```
-
-Then run `composer install`.
-
-Or running the `composer require` command
 ```shell
-composer require pipedrive/pipedrive:^5@beta
+composer require pipedrive/pipedrive
 ```
 
 ### Manual Installation
@@ -1034,7 +1021,7 @@ Class | Method | HTTP request | Description
  - [MessageObject](docs/Model/MessageObject.md)
  - [MessageObjectAttachments](docs/Model/MessageObjectAttachments.md)
  - [NewDeal](docs/Model/NewDeal.md)
- - [NewDealAllOf](docs/Model/NewDealAllOf.md)
+ - [NewDealParameters](docs/Model/NewDealParameters.md)
  - [NewDealProduct](docs/Model/NewDealProduct.md)
  - [NewFollowerResponse](docs/Model/NewFollowerResponse.md)
  - [NewFollowerResponseData](docs/Model/NewFollowerResponseData.md)
@@ -1253,6 +1240,7 @@ Class | Method | HTTP request | Description
  - [TeamsAllOf](docs/Model/TeamsAllOf.md)
  - [Unauthorized](docs/Model/Unauthorized.md)
  - [UpdateActivityResponse200](docs/Model/UpdateActivityResponse200.md)
+ - [UpdateDealParameters](docs/Model/UpdateDealParameters.md)
  - [UpdateDealProduct](docs/Model/UpdateDealProduct.md)
  - [UpdateDealRequest](docs/Model/UpdateDealRequest.md)
  - [UpdateFile](docs/Model/UpdateFile.md)

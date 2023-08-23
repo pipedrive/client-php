@@ -14,7 +14,6 @@ Name | Type | Description | Notes
 **discount_type** | **string** | The type of the discount&#39;s value. | [optional] [default to 'percentage']
 **duration** | **int** | The duration of the product | [optional]
 **duration_unit** | **string** | The type of the duration. (For example hourly, daily, etc.) | [optional]
-**sum_no_discount** | **float** | The product sum without the discount | [optional]
 **sum** | **float** | The sum of all the products attached to the deal | [optional]
 **currency** | **string** | The currency associated with the deal product | [optional]
 **enabled_flag** | **bool** | Whether the product is enabled or not | [optional]
