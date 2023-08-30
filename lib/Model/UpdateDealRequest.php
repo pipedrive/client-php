@@ -364,7 +364,7 @@ class UpdateDealRequest implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets value
      *
-     * @param string|null $value The value of the deal. If omitted, value will be set to 0.
+     * @param string|null $value The value of the deal.
      *
      * @return self
      */
@@ -388,7 +388,7 @@ class UpdateDealRequest implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets currency
      *
-     * @param string|null $currency The currency of the deal. Accepts a 3-character currency code. If omitted, currency will be set to the default currency of the authorized user.
+     * @param string|null $currency The currency of the deal. Accepts a 3-character currency code.
      *
      * @return self
      */
@@ -412,7 +412,7 @@ class UpdateDealRequest implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets user_id
      *
-     * @param int|null $user_id The ID of the user which will be the owner of the created deal. If not provided, the user making the request will be used.
+     * @param int|null $user_id The ID of the user which will be the new owner of the deal.
      *
      * @return self
      */
@@ -436,7 +436,7 @@ class UpdateDealRequest implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets person_id
      *
-     * @param int|null $person_id The ID of a person which this deal will be linked to. If the person does not exist yet, it needs to be created first. This property is required unless `org_id` is specified.
+     * @param int|null $person_id The ID of a person which this deal will be linked to. If the person does not exist yet, it needs to be created first.
      *
      * @return self
      */
@@ -460,7 +460,7 @@ class UpdateDealRequest implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets org_id
      *
-     * @param int|null $org_id The ID of an organization which this deal will be linked to. If the organization does not exist yet, it needs to be created first. This property is required unless `person_id` is specified.
+     * @param int|null $org_id The ID of an organization which this deal will be linked to. If the organization does not exist yet, it needs to be created first.
      *
      * @return self
      */
@@ -508,7 +508,7 @@ class UpdateDealRequest implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets stage_id
      *
-     * @param int|null $stage_id The ID of the stage this deal will be added to. Please note that a pipeline will be assigned automatically based on the `stage_id`. If omitted, the deal will be placed in the first stage of the default pipeline.
+     * @param int|null $stage_id The ID of the stage this deal will be added to. Please note that a pipeline will be assigned automatically based on the `stage_id`.
      *
      * @return self
      */
@@ -532,7 +532,7 @@ class UpdateDealRequest implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets status
      *
-     * @param string|null $status open = Open, won = Won, lost = Lost, deleted = Deleted. If omitted, status will be set to open.
+     * @param string|null $status open = Open, won = Won, lost = Lost, deleted = Deleted.
      *
      * @return self
      */

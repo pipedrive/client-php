@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 .php_cs
 .travis.yml
 MIGRATION-5.x.md
@@ -509,7 +508,7 @@ docs/Model/MergePersonsResponseAllOf.md
 docs/Model/MessageObject.md
 docs/Model/MessageObjectAttachments.md
 docs/Model/NewDeal.md
-docs/Model/NewDealAllOf.md
+docs/Model/NewDealParameters.md
 docs/Model/NewDealProduct.md
 docs/Model/NewFollowerResponse.md
 docs/Model/NewFollowerResponseData.md
@@ -728,6 +727,7 @@ docs/Model/Teams.md
 docs/Model/TeamsAllOf.md
 docs/Model/Unauthorized.md
 docs/Model/UpdateActivityResponse200.md
+docs/Model/UpdateDealParameters.md
 docs/Model/UpdateDealProduct.md
 docs/Model/UpdateDealRequest.md
 docs/Model/UpdateFile.md
@@ -1291,7 +1291,7 @@ lib/Model/MessageObject.php
 lib/Model/MessageObjectAttachments.php
 lib/Model/ModelInterface.php
 lib/Model/NewDeal.php
-lib/Model/NewDealAllOf.php
+lib/Model/NewDealParameters.php
 lib/Model/NewDealProduct.php
 lib/Model/NewFollowerResponse.php
 lib/Model/NewFollowerResponseData.php
@@ -1510,6 +1510,7 @@ lib/Model/Teams.php
 lib/Model/TeamsAllOf.php
 lib/Model/Unauthorized.php
 lib/Model/UpdateActivityResponse200.php
+lib/Model/UpdateDealParameters.php
 lib/Model/UpdateDealProduct.php
 lib/Model/UpdateDealRequest.php
 lib/Model/UpdateFile.php
