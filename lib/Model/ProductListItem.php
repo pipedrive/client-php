@@ -73,7 +73,6 @@ class ProductListItem implements ModelInterface, ArrayAccess, JsonSerializable
         'discount_type' => 'string',
         'duration' => 'int',
         'duration_unit' => 'string',
-        'sum_no_discount' => 'float',
         'sum' => 'float',
         'currency' => 'string',
         'enabled_flag' => 'bool',
@@ -108,7 +107,6 @@ class ProductListItem implements ModelInterface, ArrayAccess, JsonSerializable
         'discount_type' => null,
         'duration' => null,
         'duration_unit' => null,
-        'sum_no_discount' => null,
         'sum' => null,
         'currency' => null,
         'enabled_flag' => null,
@@ -166,7 +164,6 @@ class ProductListItem implements ModelInterface, ArrayAccess, JsonSerializable
         'discount_type' => 'discount_type',
         'duration' => 'duration',
         'duration_unit' => 'duration_unit',
-        'sum_no_discount' => 'sum_no_discount',
         'sum' => 'sum',
         'currency' => 'currency',
         'enabled_flag' => 'enabled_flag',
@@ -199,7 +196,6 @@ class ProductListItem implements ModelInterface, ArrayAccess, JsonSerializable
         'discount_type' => 'setDiscountType',
         'duration' => 'setDuration',
         'duration_unit' => 'setDurationUnit',
-        'sum_no_discount' => 'setSumNoDiscount',
         'sum' => 'setSum',
         'currency' => 'setCurrency',
         'enabled_flag' => 'setEnabledFlag',
@@ -232,7 +228,6 @@ class ProductListItem implements ModelInterface, ArrayAccess, JsonSerializable
         'discount_type' => 'getDiscountType',
         'duration' => 'getDuration',
         'duration_unit' => 'getDurationUnit',
-        'sum_no_discount' => 'getSumNoDiscount',
         'sum' => 'getSum',
         'currency' => 'getCurrency',
         'enabled_flag' => 'getEnabledFlag',
@@ -362,7 +357,6 @@ class ProductListItem implements ModelInterface, ArrayAccess, JsonSerializable
         $this->container['discount_type'] = $data['discount_type'] ?? 'percentage';
         $this->container['duration'] = $data['duration'] ?? null;
         $this->container['duration_unit'] = $data['duration_unit'] ?? null;
-        $this->container['sum_no_discount'] = $data['sum_no_discount'] ?? null;
         $this->container['sum'] = $data['sum'] ?? null;
         $this->container['currency'] = $data['currency'] ?? null;
         $this->container['enabled_flag'] = $data['enabled_flag'] ?? null;
@@ -669,30 +663,6 @@ class ProductListItem implements ModelInterface, ArrayAccess, JsonSerializable
     public function setDurationUnit($duration_unit): self
     {
         $this->container['duration_unit'] = $duration_unit;
-
-        return $this;
-    }
-
-    /**
-     * Gets sum_no_discount
-     *
-     * @return float|null
-     */
-    public function getSumNoDiscount()
-    {
-        return $this->container['sum_no_discount'];
-    }
-
-    /**
-     * Sets sum_no_discount
-     *
-     * @param float|null $sum_no_discount The product sum without the discount
-     *
-     * @return self
-     */
-    public function setSumNoDiscount($sum_no_discount): self
-    {
-        $this->container['sum_no_discount'] = $sum_no_discount;
 
         return $this;
     }

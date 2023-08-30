@@ -16,21 +16,8 @@ PHP 7.4+ and later.
 
 ### Composer
 
-To install the bindings via [Composer](https://getcomposer.org/), add the following to `composer.json`:
-
-```json
-{
-  "require": {
-    "pipedrive/pipedrive": "^5@beta"
-  }
-}
-```
-
-Then run `composer install`.
-
-Or running the `composer require` command
 ```shell
-composer require pipedrive/pipedrive:^5@beta
+composer require pipedrive/pipedrive
 ```
 
 ### Manual Installation

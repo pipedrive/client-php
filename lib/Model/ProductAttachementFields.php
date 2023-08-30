@@ -68,7 +68,6 @@ class ProductAttachementFields implements ModelInterface, ArrayAccess, JsonSeria
         'deal_id' => 'int',
         'product_id' => 'int',
         'duration_unit' => 'string',
-        'sum_no_discount' => 'float',
         'sum' => 'float',
         'currency' => 'string',
         'add_time' => 'string',
@@ -91,7 +90,6 @@ class ProductAttachementFields implements ModelInterface, ArrayAccess, JsonSeria
         'deal_id' => null,
         'product_id' => null,
         'duration_unit' => null,
-        'sum_no_discount' => null,
         'sum' => null,
         'currency' => null,
         'add_time' => null,
@@ -137,7 +135,6 @@ class ProductAttachementFields implements ModelInterface, ArrayAccess, JsonSeria
         'deal_id' => 'deal_id',
         'product_id' => 'product_id',
         'duration_unit' => 'duration_unit',
-        'sum_no_discount' => 'sum_no_discount',
         'sum' => 'sum',
         'currency' => 'currency',
         'add_time' => 'add_time',
@@ -158,7 +155,6 @@ class ProductAttachementFields implements ModelInterface, ArrayAccess, JsonSeria
         'deal_id' => 'setDealId',
         'product_id' => 'setProductId',
         'duration_unit' => 'setDurationUnit',
-        'sum_no_discount' => 'setSumNoDiscount',
         'sum' => 'setSum',
         'currency' => 'setCurrency',
         'add_time' => 'setAddTime',
@@ -179,7 +175,6 @@ class ProductAttachementFields implements ModelInterface, ArrayAccess, JsonSeria
         'deal_id' => 'getDealId',
         'product_id' => 'getProductId',
         'duration_unit' => 'getDurationUnit',
-        'sum_no_discount' => 'getSumNoDiscount',
         'sum' => 'getSum',
         'currency' => 'getCurrency',
         'add_time' => 'getAddTime',
@@ -261,7 +256,6 @@ class ProductAttachementFields implements ModelInterface, ArrayAccess, JsonSeria
         $this->container['deal_id'] = $data['deal_id'] ?? null;
         $this->container['product_id'] = $data['product_id'] ?? null;
         $this->container['duration_unit'] = $data['duration_unit'] ?? null;
-        $this->container['sum_no_discount'] = $data['sum_no_discount'] ?? null;
         $this->container['sum'] = $data['sum'] ?? null;
         $this->container['currency'] = $data['currency'] ?? null;
         $this->container['add_time'] = $data['add_time'] ?? null;
@@ -413,30 +407,6 @@ class ProductAttachementFields implements ModelInterface, ArrayAccess, JsonSeria
     public function setDurationUnit($duration_unit): self
     {
         $this->container['duration_unit'] = $duration_unit;
-
-        return $this;
-    }
-
-    /**
-     * Gets sum_no_discount
-     *
-     * @return float|null
-     */
-    public function getSumNoDiscount()
-    {
-        return $this->container['sum_no_discount'];
-    }
-
-    /**
-     * Sets sum_no_discount
-     *
-     * @param float|null $sum_no_discount The product sum without the discount
-     *
-     * @return self
-     */
-    public function setSumNoDiscount($sum_no_discount): self
-    {
-        $this->container['sum_no_discount'] = $sum_no_discount;
 
         return $this;
     }
