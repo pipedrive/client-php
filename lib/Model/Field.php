@@ -67,7 +67,7 @@ class Field implements ModelInterface, ArrayAccess, JsonSerializable
         'key' => 'string',
         'name' => 'string',
         'order_nr' => 'int',
-        'field_type' => 'FieldTypeAsString',
+        'field_type' => '\Pipedrive\Model\FieldTypeAsString',
         'add_time' => 'string',
         'update_time' => 'string',
         'last_updated_by_user_id' => 'int',

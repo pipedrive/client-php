@@ -64,7 +64,7 @@ class GetAddProductAttachementDetails implements ModelInterface, ArrayAccess, Js
       */
     protected static array $openAPITypes = [
         'success' => 'bool',
-        'data' => 'AddProductAttachmentDetails'
+        'data' => '\Pipedrive\Model\AddProductAttachmentDetails'
     ];
 
     /**
