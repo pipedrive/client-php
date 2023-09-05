@@ -63,7 +63,7 @@ class MailThreadOneAllOf implements ModelInterface, ArrayAccess, JsonSerializabl
       * @phpsalm-var array<string, string>
       */
     protected static array $openAPITypes = [
-        'data' => 'BaseMailThread'
+        'data' => '\Pipedrive\Model\BaseMailThread'
     ];
 
     /**

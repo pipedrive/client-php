@@ -64,7 +64,7 @@ class MailThreadOne implements ModelInterface, ArrayAccess, JsonSerializable
       */
     protected static array $openAPITypes = [
         'success' => 'bool',
-        'data' => 'BaseMailThread'
+        'data' => '\Pipedrive\Model\BaseMailThread'
     ];
 
     /**

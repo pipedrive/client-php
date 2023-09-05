@@ -36,6 +36,34 @@ test('get mail threads', function () {
         ->and($result[0]->getArchivedFlag())->toBe(0);
 });
 
+
+test('get one mail thread', function () {
+    $config = new Configuration();
+
+    $mock = $this->httpMock();
+    $mock->append(
+        new Response(200, [], json_encode([
+            'data' => [
+                'id' => 42, 'archived_flag' => 0
+            ],
+        ])),
+    );
+
+    $handlerStack = HandlerStack::create($mock);
+
+    $apiInstance = new MailboxApi(
+        new Client(['handler' => $handlerStack]),
+        $config
+    );
+
+    $result = $apiInstance->getMailThread(42)->getData();
+
+    expect($mock->getLastRequest()->getUri())->toEqual('https://api.pipedrive.com/v1/mailbox/mailThreads/42')
+        ->and($result->getId())->toBe(42)
+        ->and($result->getArchivedFlag())->toBe(0);
+});
+
+
 test('put mail threads', function () {
     $config = new Configuration();
 
