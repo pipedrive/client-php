@@ -63,7 +63,7 @@ class ListProductsResponseAllOf implements ModelInterface, ArrayAccess, JsonSeri
       * @phpsalm-var array<string, string>
       */
     protected static array $openAPITypes = [
-        'data' => '\Pipedrive\Model\ListProductsResponseAllOfData',
+        'data' => '\Pipedrive\Model\ProductListItem[]',
         'additional_data' => '\Pipedrive\Model\ListProductAdditionalData',
         'related_objects' => '\Pipedrive\Model\ListProductsResponseAllOfRelatedObjects'
     ];
@@ -240,7 +240,7 @@ class ListProductsResponseAllOf implements ModelInterface, ArrayAccess, JsonSeri
     /**
      * Gets data
      *
-     * @return \Pipedrive\Model\ListProductsResponseAllOfData|null
+     * @return \Pipedrive\Model\ProductListItem[]|null
      */
     public function getData()
     {
@@ -250,7 +250,7 @@ class ListProductsResponseAllOf implements ModelInterface, ArrayAccess, JsonSeri
     /**
      * Sets data
      *
-     * @param \Pipedrive\Model\ListProductsResponseAllOfData|null $data data
+     * @param \Pipedrive\Model\ProductListItem[]|null $data The array of products
      *
      * @return self
      */

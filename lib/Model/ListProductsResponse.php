@@ -64,7 +64,7 @@ class ListProductsResponse implements ModelInterface, ArrayAccess, JsonSerializa
       */
     protected static array $openAPITypes = [
         'success' => 'bool',
-        'data' => '\Pipedrive\Model\ListProductsResponseAllOfData',
+        'data' => '\Pipedrive\Model\ProductListItem[]',
         'additional_data' => '\Pipedrive\Model\ListProductAdditionalData',
         'related_objects' => '\Pipedrive\Model\ListProductsResponseAllOfRelatedObjects'
     ];
@@ -270,7 +270,7 @@ class ListProductsResponse implements ModelInterface, ArrayAccess, JsonSerializa
     /**
      * Gets data
      *
-     * @return \Pipedrive\Model\ListProductsResponseAllOfData|null
+     * @return \Pipedrive\Model\ProductListItem[]|null
      */
     public function getData()
     {
@@ -280,7 +280,7 @@ class ListProductsResponse implements ModelInterface, ArrayAccess, JsonSerializa
     /**
      * Sets data
      *
-     * @param \Pipedrive\Model\ListProductsResponseAllOfData|null $data data
+     * @param \Pipedrive\Model\ProductListItem[]|null $data The array of products
      *
      * @return self
      */

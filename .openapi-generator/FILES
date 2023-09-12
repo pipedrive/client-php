@@ -476,7 +476,6 @@ docs/Model/ListProductFollowersResponseAllOf.md
 docs/Model/ListProductFollowersResponseAllOfData.md
 docs/Model/ListProductsResponse.md
 docs/Model/ListProductsResponseAllOf.md
-docs/Model/ListProductsResponseAllOfData.md
 docs/Model/ListProductsResponseAllOfRelatedObjects.md
 docs/Model/MailMessage.md
 docs/Model/MailMessageAllOf.md
@@ -1258,7 +1257,6 @@ lib/Model/ListProductFollowersResponseAllOf.php
 lib/Model/ListProductFollowersResponseAllOfData.php
 lib/Model/ListProductsResponse.php
 lib/Model/ListProductsResponseAllOf.php
-lib/Model/ListProductsResponseAllOfData.php
 lib/Model/ListProductsResponseAllOfRelatedObjects.php
 lib/Model/MailMessage.php
 lib/Model/MailMessageAllOf.php

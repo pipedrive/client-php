@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**\Pipedrive\Model\ListProductsResponseAllOfData**](ListProductsResponseAllOfData.md) |  | [optional]
+**data** | [**\Pipedrive\Model\ProductListItem[]**](ProductListItem.md) | The array of products | [optional]
 **additional_data** | [**\Pipedrive\Model\ListProductAdditionalData**](ListProductAdditionalData.md) |  | [optional]
 **related_objects** | [**\Pipedrive\Model\ListProductsResponseAllOfRelatedObjects**](ListProductsResponseAllOfRelatedObjects.md) |  | [optional]
 

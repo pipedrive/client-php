@@ -989,7 +989,6 @@ Class | Method | HTTP request | Description
  - [ListProductFollowersResponseAllOfData](docs/Model/ListProductFollowersResponseAllOfData.md)
  - [ListProductsResponse](docs/Model/ListProductsResponse.md)
  - [ListProductsResponseAllOf](docs/Model/ListProductsResponseAllOf.md)
- - [ListProductsResponseAllOfData](docs/Model/ListProductsResponseAllOfData.md)
  - [ListProductsResponseAllOfRelatedObjects](docs/Model/ListProductsResponseAllOfRelatedObjects.md)
  - [MailMessage](docs/Model/MailMessage.md)
  - [MailMessageAllOf](docs/Model/MailMessageAllOf.md)
