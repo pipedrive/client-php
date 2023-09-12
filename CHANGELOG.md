@@ -8,6 +8,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 - Fixed incorrect response schema for the `GET /deals/{id}/products` endpoint
 
+## [6.1.1](https://github.com/pipedrive/client-php/compare/6.1.0...6.1.1) (2023-09-12)
+
+### Changed
+- Added further details on behavior of `end_date` for `PUT /v1/subscriptions/recurring/{id}/cancel`
+
 ## [6.1.0](https://github.com/pipedrive/client-php/compare/6.0.0...6.1.0) (2023-09-05)
 
 ### Fixed
