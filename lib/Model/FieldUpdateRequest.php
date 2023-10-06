@@ -64,7 +64,7 @@ class FieldUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializabl
       */
     protected static array $openAPITypes = [
         'name' => 'string',
-        'options' => 'string',
+        'options' => 'object[]',
         'add_visible_flag' => 'bool'
     ];
 
@@ -264,7 +264,7 @@ class FieldUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Gets options
      *
-     * @return string|null
+     * @return object[]|null
      */
     public function getOptions()
     {
@@ -274,7 +274,7 @@ class FieldUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Sets options
      *
-     * @param string|null $options When `field_type` is either set or enum, possible options must be supplied as a JSON-encoded sequential array of objects. All active items must be supplied and already existing items must have their ID supplied. New items only require a label. Example: `[{\"id\":123,\"label\":\"Existing Item\"},{\"label\":\"New Item\"}]`
+     * @param object[]|null $options When `field_type` is either set or enum, possible options must be supplied as a JSON-encoded sequential array of objects. All active items must be supplied and already existing items must have their ID supplied. New items only require a label. Example: `[{\"id\":123,\"label\":\"Existing Item\"},{\"label\":\"New Item\"}]`
      *
      * @return self
      */

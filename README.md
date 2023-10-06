@@ -62,12 +62,12 @@ $apiInstance = new Pipedrive\Api\ActivitiesApi(
 );
 
 try {
-    $result = $apiInstance->activitiesGet();
+    $result = $apiInstance->getActivities();
     echo '<pre>';
     print_r($result);
     echo '</pre>';
 } catch (Exception $e) {
-    echo 'Exception when calling ActivitiesApi->activitiesDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ActivitiesApi->getActivities: ', $e->getMessage(), PHP_EOL;
 }
 
 ?>
@@ -254,7 +254,7 @@ if (isset($_SESSION['token']) && $_SESSION['token']) {
         print_r($dealsResponse);
         echo '</pre>';
     } catch (Exception $e) {
-        echo 'Exception when trying to get user info', $e, PHP_EOL;
+        echo 'Exception when trying to get deals data', $e, PHP_EOL;
     }
 } else {
     header('Location: ' . filter_var($config->getAuthorizationPageUrl(), FILTER_SANITIZE_URL));

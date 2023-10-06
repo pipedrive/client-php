@@ -64,7 +64,7 @@ class FieldCreateRequest implements ModelInterface, ArrayAccess, JsonSerializabl
       */
     protected static array $openAPITypes = [
         'name' => 'string',
-        'options' => 'string',
+        'options' => 'object[]',
         'add_visible_flag' => 'bool',
         'field_type' => '\Pipedrive\Model\FieldTypeAsString'
     ];
@@ -276,7 +276,7 @@ class FieldCreateRequest implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Gets options
      *
-     * @return string|null
+     * @return object[]|null
      */
     public function getOptions()
     {
@@ -286,7 +286,7 @@ class FieldCreateRequest implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Sets options
      *
-     * @param string|null $options When `field_type` is either set or enum, possible options must be supplied as a JSON-encoded sequential array of objects. Example: `[{\"label\":\"New Item\"}]`
+     * @param object[]|null $options When `field_type` is either set or enum, possible options must be supplied as a JSON-encoded sequential array of objects. Example: `[{\"label\":\"New Item\"}]`
      *
      * @return self
      */
