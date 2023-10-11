@@ -67,6 +67,7 @@ class BasicPerson implements ModelInterface, ArrayAccess, JsonSerializable
         'org_id' => 'int',
         'email' => '\Pipedrive\Model\BasicPersonEmail[]',
         'phone' => '\Pipedrive\Model\BasePersonItemPhone[]',
+        'label' => 'int',
         'visible_to' => '\Pipedrive\Model\VisibleTo',
         'marketing_status' => '\Pipedrive\Model\MarketingStatus',
         'add_time' => 'string'
@@ -84,6 +85,7 @@ class BasicPerson implements ModelInterface, ArrayAccess, JsonSerializable
         'org_id' => null,
         'email' => null,
         'phone' => null,
+        'label' => null,
         'visible_to' => null,
         'marketing_status' => null,
         'add_time' => null
@@ -124,6 +126,7 @@ class BasicPerson implements ModelInterface, ArrayAccess, JsonSerializable
         'org_id' => 'org_id',
         'email' => 'email',
         'phone' => 'phone',
+        'label' => 'label',
         'visible_to' => 'visible_to',
         'marketing_status' => 'marketing_status',
         'add_time' => 'add_time'
@@ -139,6 +142,7 @@ class BasicPerson implements ModelInterface, ArrayAccess, JsonSerializable
         'org_id' => 'setOrgId',
         'email' => 'setEmail',
         'phone' => 'setPhone',
+        'label' => 'setLabel',
         'visible_to' => 'setVisibleTo',
         'marketing_status' => 'setMarketingStatus',
         'add_time' => 'setAddTime'
@@ -154,6 +158,7 @@ class BasicPerson implements ModelInterface, ArrayAccess, JsonSerializable
         'org_id' => 'getOrgId',
         'email' => 'getEmail',
         'phone' => 'getPhone',
+        'label' => 'getLabel',
         'visible_to' => 'getVisibleTo',
         'marketing_status' => 'getMarketingStatus',
         'add_time' => 'getAddTime'
@@ -230,6 +235,7 @@ class BasicPerson implements ModelInterface, ArrayAccess, JsonSerializable
         $this->container['org_id'] = $data['org_id'] ?? null;
         $this->container['email'] = $data['email'] ?? null;
         $this->container['phone'] = $data['phone'] ?? null;
+        $this->container['label'] = $data['label'] ?? null;
         $this->container['visible_to'] = $data['visible_to'] ?? null;
         $this->container['marketing_status'] = $data['marketing_status'] ?? null;
         $this->container['add_time'] = $data['add_time'] ?? null;
@@ -353,6 +359,30 @@ class BasicPerson implements ModelInterface, ArrayAccess, JsonSerializable
     public function setPhone($phone): self
     {
         $this->container['phone'] = $phone;
+
+        return $this;
+    }
+
+    /**
+     * Gets label
+     *
+     * @return int|null
+     */
+    public function getLabel()
+    {
+        return $this->container['label'];
+    }
+
+    /**
+     * Sets label
+     *
+     * @param int|null $label The ID of the label.
+     *
+     * @return self
+     */
+    public function setLabel($label): self
+    {
+        $this->container['label'] = $label;
 
         return $this;
     }

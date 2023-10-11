@@ -1,4 +1,5 @@
 .gitignore
+.openapi-generator-ignore
 .php_cs
 .travis.yml
 MIGRATION-5.x.md
