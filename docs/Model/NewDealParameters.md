@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **value** | **string** | The value of the deal. If omitted, value will be set to 0. | [optional]
+**label** | **int[]** | The array of the labels IDs. | [optional]
 **currency** | **string** | The currency of the deal. Accepts a 3-character currency code. If omitted, currency will be set to the default currency of the authorized user. | [optional]
 **user_id** | **int** | The ID of the user which will be the owner of the created deal. If not provided, the user making the request will be used. | [optional]
 **person_id** | **int** | The ID of a person which this deal will be linked to. If the person does not exist yet, it needs to be created first. This property is required unless &#x60;org_id&#x60; is specified. | [optional]

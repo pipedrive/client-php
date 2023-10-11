@@ -65,6 +65,7 @@ class UpdateOrganization implements ModelInterface, ArrayAccess, JsonSerializabl
     protected static array $openAPITypes = [
         'name' => 'string',
         'owner_id' => 'int',
+        'label' => 'int',
         'visible_to' => '\Pipedrive\Model\VisibleTo'
     ];
 
@@ -78,6 +79,7 @@ class UpdateOrganization implements ModelInterface, ArrayAccess, JsonSerializabl
     protected static $openAPIFormats = [
         'name' => null,
         'owner_id' => null,
+        'label' => null,
         'visible_to' => null
     ];
 
@@ -114,6 +116,7 @@ class UpdateOrganization implements ModelInterface, ArrayAccess, JsonSerializabl
     protected static $attributeMap = [
         'name' => 'name',
         'owner_id' => 'owner_id',
+        'label' => 'label',
         'visible_to' => 'visible_to'
     ];
 
@@ -125,6 +128,7 @@ class UpdateOrganization implements ModelInterface, ArrayAccess, JsonSerializabl
     protected static $setters = [
         'name' => 'setName',
         'owner_id' => 'setOwnerId',
+        'label' => 'setLabel',
         'visible_to' => 'setVisibleTo'
     ];
 
@@ -136,6 +140,7 @@ class UpdateOrganization implements ModelInterface, ArrayAccess, JsonSerializabl
     protected static $getters = [
         'name' => 'getName',
         'owner_id' => 'getOwnerId',
+        'label' => 'getLabel',
         'visible_to' => 'getVisibleTo'
     ];
 
@@ -208,6 +213,7 @@ class UpdateOrganization implements ModelInterface, ArrayAccess, JsonSerializabl
     {
         $this->container['name'] = $data['name'] ?? null;
         $this->container['owner_id'] = $data['owner_id'] ?? null;
+        $this->container['label'] = $data['label'] ?? null;
         $this->container['visible_to'] = $data['visible_to'] ?? null;
     }
 
@@ -281,6 +287,30 @@ class UpdateOrganization implements ModelInterface, ArrayAccess, JsonSerializabl
     public function setOwnerId($owner_id): self
     {
         $this->container['owner_id'] = $owner_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets label
+     *
+     * @return int|null
+     */
+    public function getLabel()
+    {
+        return $this->container['label'];
+    }
+
+    /**
+     * Sets label
+     *
+     * @param int|null $label The ID of the label.
+     *
+     * @return self
+     */
+    public function setLabel($label): self
+    {
+        $this->container['label'] = $label;
 
         return $this;
     }

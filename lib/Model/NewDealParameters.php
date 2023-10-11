@@ -64,6 +64,7 @@ class NewDealParameters implements ModelInterface, ArrayAccess, JsonSerializable
       */
     protected static array $openAPITypes = [
         'value' => 'string',
+        'label' => 'int[]',
         'currency' => 'string',
         'user_id' => 'int',
         'person_id' => 'int',
@@ -83,6 +84,7 @@ class NewDealParameters implements ModelInterface, ArrayAccess, JsonSerializable
       */
     protected static $openAPIFormats = [
         'value' => null,
+        'label' => null,
         'currency' => null,
         'user_id' => null,
         'person_id' => null,
@@ -125,6 +127,7 @@ class NewDealParameters implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static $attributeMap = [
         'value' => 'value',
+        'label' => 'label',
         'currency' => 'currency',
         'user_id' => 'user_id',
         'person_id' => 'person_id',
@@ -142,6 +145,7 @@ class NewDealParameters implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static $setters = [
         'value' => 'setValue',
+        'label' => 'setLabel',
         'currency' => 'setCurrency',
         'user_id' => 'setUserId',
         'person_id' => 'setPersonId',
@@ -159,6 +163,7 @@ class NewDealParameters implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static $getters = [
         'value' => 'getValue',
+        'label' => 'getLabel',
         'currency' => 'getCurrency',
         'user_id' => 'getUserId',
         'person_id' => 'getPersonId',
@@ -258,6 +263,7 @@ class NewDealParameters implements ModelInterface, ArrayAccess, JsonSerializable
     public function __construct(array $data = null)
     {
         $this->container['value'] = $data['value'] ?? null;
+        $this->container['label'] = $data['label'] ?? null;
         $this->container['currency'] = $data['currency'] ?? null;
         $this->container['user_id'] = $data['user_id'] ?? null;
         $this->container['person_id'] = $data['person_id'] ?? null;
@@ -323,6 +329,30 @@ class NewDealParameters implements ModelInterface, ArrayAccess, JsonSerializable
     public function setValue($value): self
     {
         $this->container['value'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * Gets label
+     *
+     * @return int[]|null
+     */
+    public function getLabel()
+    {
+        return $this->container['label'];
+    }
+
+    /**
+     * Sets label
+     *
+     * @param int[]|null $label The array of the labels IDs.
+     *
+     * @return self
+     */
+    public function setLabel($label): self
+    {
+        $this->container['label'] = $label;
 
         return $this;
     }

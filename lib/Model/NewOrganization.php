@@ -66,6 +66,7 @@ class NewOrganization implements ModelInterface, ArrayAccess, JsonSerializable
         'name' => 'string',
         'add_time' => 'string',
         'owner_id' => 'int',
+        'label' => 'int',
         'visible_to' => '\Pipedrive\Model\VisibleTo'
     ];
 
@@ -80,6 +81,7 @@ class NewOrganization implements ModelInterface, ArrayAccess, JsonSerializable
         'name' => null,
         'add_time' => null,
         'owner_id' => null,
+        'label' => null,
         'visible_to' => null
     ];
 
@@ -117,6 +119,7 @@ class NewOrganization implements ModelInterface, ArrayAccess, JsonSerializable
         'name' => 'name',
         'add_time' => 'add_time',
         'owner_id' => 'owner_id',
+        'label' => 'label',
         'visible_to' => 'visible_to'
     ];
 
@@ -129,6 +132,7 @@ class NewOrganization implements ModelInterface, ArrayAccess, JsonSerializable
         'name' => 'setName',
         'add_time' => 'setAddTime',
         'owner_id' => 'setOwnerId',
+        'label' => 'setLabel',
         'visible_to' => 'setVisibleTo'
     ];
 
@@ -141,6 +145,7 @@ class NewOrganization implements ModelInterface, ArrayAccess, JsonSerializable
         'name' => 'getName',
         'add_time' => 'getAddTime',
         'owner_id' => 'getOwnerId',
+        'label' => 'getLabel',
         'visible_to' => 'getVisibleTo'
     ];
 
@@ -214,6 +219,7 @@ class NewOrganization implements ModelInterface, ArrayAccess, JsonSerializable
         $this->container['name'] = $data['name'] ?? null;
         $this->container['add_time'] = $data['add_time'] ?? null;
         $this->container['owner_id'] = $data['owner_id'] ?? null;
+        $this->container['label'] = $data['label'] ?? null;
         $this->container['visible_to'] = $data['visible_to'] ?? null;
     }
 
@@ -314,6 +320,30 @@ class NewOrganization implements ModelInterface, ArrayAccess, JsonSerializable
     public function setOwnerId($owner_id): self
     {
         $this->container['owner_id'] = $owner_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets label
+     *
+     * @return int|null
+     */
+    public function getLabel()
+    {
+        return $this->container['label'];
+    }
+
+    /**
+     * Sets label
+     *
+     * @param int|null $label The ID of the label.
+     *
+     * @return self
+     */
+    public function setLabel($label): self
+    {
+        $this->container['label'] = $label;
 
         return $this;
     }

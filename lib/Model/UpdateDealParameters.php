@@ -64,6 +64,7 @@ class UpdateDealParameters implements ModelInterface, ArrayAccess, JsonSerializa
       */
     protected static array $openAPITypes = [
         'value' => 'string',
+        'label' => 'int[]',
         'currency' => 'string',
         'user_id' => 'int',
         'person_id' => 'int',
@@ -82,6 +83,7 @@ class UpdateDealParameters implements ModelInterface, ArrayAccess, JsonSerializa
       */
     protected static $openAPIFormats = [
         'value' => null,
+        'label' => null,
         'currency' => null,
         'user_id' => null,
         'person_id' => null,
@@ -123,6 +125,7 @@ class UpdateDealParameters implements ModelInterface, ArrayAccess, JsonSerializa
      */
     protected static $attributeMap = [
         'value' => 'value',
+        'label' => 'label',
         'currency' => 'currency',
         'user_id' => 'user_id',
         'person_id' => 'person_id',
@@ -139,6 +142,7 @@ class UpdateDealParameters implements ModelInterface, ArrayAccess, JsonSerializa
      */
     protected static $setters = [
         'value' => 'setValue',
+        'label' => 'setLabel',
         'currency' => 'setCurrency',
         'user_id' => 'setUserId',
         'person_id' => 'setPersonId',
@@ -155,6 +159,7 @@ class UpdateDealParameters implements ModelInterface, ArrayAccess, JsonSerializa
      */
     protected static $getters = [
         'value' => 'getValue',
+        'label' => 'getLabel',
         'currency' => 'getCurrency',
         'user_id' => 'getUserId',
         'person_id' => 'getPersonId',
@@ -253,6 +258,7 @@ class UpdateDealParameters implements ModelInterface, ArrayAccess, JsonSerializa
     public function __construct(array $data = null)
     {
         $this->container['value'] = $data['value'] ?? null;
+        $this->container['label'] = $data['label'] ?? null;
         $this->container['currency'] = $data['currency'] ?? null;
         $this->container['user_id'] = $data['user_id'] ?? null;
         $this->container['person_id'] = $data['person_id'] ?? null;
@@ -317,6 +323,30 @@ class UpdateDealParameters implements ModelInterface, ArrayAccess, JsonSerializa
     public function setValue($value): self
     {
         $this->container['value'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * Gets label
+     *
+     * @return int[]|null
+     */
+    public function getLabel()
+    {
+        return $this->container['label'];
+    }
+
+    /**
+     * Sets label
+     *
+     * @param int[]|null $label Array of the deal labels IDs.
+     *
+     * @return self
+     */
+    public function setLabel($label): self
+    {
+        $this->container['label'] = $label;
 
         return $this;
     }
