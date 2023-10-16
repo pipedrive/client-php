@@ -54,6 +54,8 @@ class FilterType
 
     const ACTIVITY = 'activity';
 
+    const PROJECTS = 'projects';
+
     /**
      * Gets allowable values of the enum
      * @return (string|int)[]
@@ -66,7 +68,8 @@ class FilterType
             self::ORG,
             self::PEOPLE,
             self::PRODUCTS,
-            self::ACTIVITY
+            self::ACTIVITY,
+            self::PROJECTS
         ];
     }
 }

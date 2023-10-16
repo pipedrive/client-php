@@ -506,6 +506,24 @@ Class | Method | HTTP request | Description
 *ProductsApi* | [**getProducts**](docs/Api/ProductsApi.md#getproducts) | **GET** /products | Get all products
 *ProductsApi* | [**searchProducts**](docs/Api/ProductsApi.md#searchproducts) | **GET** /products/search | Search products
 *ProductsApi* | [**updateProduct**](docs/Api/ProductsApi.md#updateproduct) | **PUT** /products/{id} | Update a product
+*ProjectTemplatesApi* | [**getProjectTemplate**](docs/Api/ProjectTemplatesApi.md#getprojecttemplate) | **GET** /projectTemplates/{id} | Get details of a template
+*ProjectTemplatesApi* | [**getProjectTemplates**](docs/Api/ProjectTemplatesApi.md#getprojecttemplates) | **GET** /projectTemplates | Get all project templates
+*ProjectTemplatesApi* | [**getProjectsBoard**](docs/Api/ProjectTemplatesApi.md#getprojectsboard) | **GET** /projects/boards/{id} | Get details of a board
+*ProjectTemplatesApi* | [**getProjectsPhase**](docs/Api/ProjectTemplatesApi.md#getprojectsphase) | **GET** /projects/phases/{id} | Get details of a phase
+*ProjectsApi* | [**addProject**](docs/Api/ProjectsApi.md#addproject) | **POST** /projects | Add a project
+*ProjectsApi* | [**archiveProject**](docs/Api/ProjectsApi.md#archiveproject) | **POST** /projects/{id}/archive | Archive a project
+*ProjectsApi* | [**deleteProject**](docs/Api/ProjectsApi.md#deleteproject) | **DELETE** /projects/{id} | Delete a project
+*ProjectsApi* | [**getProject**](docs/Api/ProjectsApi.md#getproject) | **GET** /projects/{id} | Get details of a project
+*ProjectsApi* | [**getProjectActivities**](docs/Api/ProjectsApi.md#getprojectactivities) | **GET** /projects/{id}/activities | Returns project activities
+*ProjectsApi* | [**getProjectGroups**](docs/Api/ProjectsApi.md#getprojectgroups) | **GET** /projects/{id}/groups | Returns project groups
+*ProjectsApi* | [**getProjectPlan**](docs/Api/ProjectsApi.md#getprojectplan) | **GET** /projects/{id}/plan | Returns project plan
+*ProjectsApi* | [**getProjectTasks**](docs/Api/ProjectsApi.md#getprojecttasks) | **GET** /projects/{id}/tasks | Returns project tasks
+*ProjectsApi* | [**getProjects**](docs/Api/ProjectsApi.md#getprojects) | **GET** /projects | Get all projects
+*ProjectsApi* | [**getProjectsBoards**](docs/Api/ProjectsApi.md#getprojectsboards) | **GET** /projects/boards | Get all project boards
+*ProjectsApi* | [**getProjectsPhases**](docs/Api/ProjectsApi.md#getprojectsphases) | **GET** /projects/phases | Get project phases
+*ProjectsApi* | [**putProjectPlanActivity**](docs/Api/ProjectsApi.md#putprojectplanactivity) | **PUT** /projects/{id}/plan/activities/{activityId} | Update activity in project plan
+*ProjectsApi* | [**putProjectPlanTask**](docs/Api/ProjectsApi.md#putprojectplantask) | **PUT** /projects/{id}/plan/tasks/{taskId} | Update task in project plan
+*ProjectsApi* | [**updateProject**](docs/Api/ProjectsApi.md#updateproject) | **PUT** /projects/{id} | Update a project
 *RecentsApi* | [**getRecents**](docs/Api/RecentsApi.md#getrecents) | **GET** /recents | Get recents
 *RolesApi* | [**addOrUpdateRoleSetting**](docs/Api/RolesApi.md#addorupdaterolesetting) | **POST** /roles/{id}/settings | Add or update role setting
 *RolesApi* | [**addRole**](docs/Api/RolesApi.md#addrole) | **POST** /roles | Add a role
@@ -535,6 +553,11 @@ Class | Method | HTTP request | Description
 *SubscriptionsApi* | [**getSubscriptionPayments**](docs/Api/SubscriptionsApi.md#getsubscriptionpayments) | **GET** /subscriptions/{id}/payments | Get all payments of a subscription
 *SubscriptionsApi* | [**updateRecurringSubscription**](docs/Api/SubscriptionsApi.md#updaterecurringsubscription) | **PUT** /subscriptions/recurring/{id} | Update a recurring subscription
 *SubscriptionsApi* | [**updateSubscriptionInstallment**](docs/Api/SubscriptionsApi.md#updatesubscriptioninstallment) | **PUT** /subscriptions/installment/{id} | Update an installment subscription
+*TasksApi* | [**addTask**](docs/Api/TasksApi.md#addtask) | **POST** /tasks | Add a task
+*TasksApi* | [**deleteTask**](docs/Api/TasksApi.md#deletetask) | **DELETE** /tasks/{id} | Delete a task
+*TasksApi* | [**getTask**](docs/Api/TasksApi.md#gettask) | **GET** /tasks/{id} | Get details of a task
+*TasksApi* | [**getTasks**](docs/Api/TasksApi.md#gettasks) | **GET** /tasks | Get all tasks
+*TasksApi* | [**updateTask**](docs/Api/TasksApi.md#updatetask) | **PUT** /tasks/{id} | Update a task
 *UserConnectionsApi* | [**getUserConnections**](docs/Api/UserConnectionsApi.md#getuserconnections) | **GET** /userConnections | Get all user connections
 *UserSettingsApi* | [**getUserSettings**](docs/Api/UserSettingsApi.md#getusersettings) | **GET** /userSettings | List settings of an authorized user
 *UsersApi* | [**addUser**](docs/Api/UsersApi.md#adduser) | **POST** /users | Add a new user
@@ -609,8 +632,10 @@ Class | Method | HTTP request | Description
  - [AddProductAttachmentDetailsAllOf](docs/Model/AddProductAttachmentDetailsAllOf.md)
  - [AddProductFollowerRequest](docs/Model/AddProductFollowerRequest.md)
  - [AddProductRequestBody](docs/Model/AddProductRequestBody.md)
+ - [AddProjectResponse201](docs/Model/AddProjectResponse201.md)
  - [AddRole](docs/Model/AddRole.md)
  - [AddRoleAssignmentRequest](docs/Model/AddRoleAssignmentRequest.md)
+ - [AddTaskResponse201](docs/Model/AddTaskResponse201.md)
  - [AddTeamUserRequest](docs/Model/AddTeamUserRequest.md)
  - [AddUserRequest](docs/Model/AddUserRequest.md)
  - [AddWebhookRequest](docs/Model/AddWebhookRequest.md)
@@ -790,6 +815,9 @@ Class | Method | HTTP request | Description
  - [DeleteProductFollowerResponseData](docs/Model/DeleteProductFollowerResponseData.md)
  - [DeleteProductResponse](docs/Model/DeleteProductResponse.md)
  - [DeleteProductResponseData](docs/Model/DeleteProductResponseData.md)
+ - [DeleteProject](docs/Model/DeleteProject.md)
+ - [DeleteProjectData](docs/Model/DeleteProjectData.md)
+ - [DeleteProjectResponse200](docs/Model/DeleteProjectResponse200.md)
  - [DeleteResponse](docs/Model/DeleteResponse.md)
  - [DeleteResponseAllOf](docs/Model/DeleteResponseAllOf.md)
  - [DeleteResponseAllOfData](docs/Model/DeleteResponseAllOfData.md)
@@ -804,6 +832,9 @@ Class | Method | HTTP request | Description
  - [DeleteStageResponse200Data](docs/Model/DeleteStageResponse200Data.md)
  - [DeleteStagesResponse200](docs/Model/DeleteStagesResponse200.md)
  - [DeleteStagesResponse200Data](docs/Model/DeleteStagesResponse200Data.md)
+ - [DeleteTask](docs/Model/DeleteTask.md)
+ - [DeleteTaskData](docs/Model/DeleteTaskData.md)
+ - [DeleteTaskResponse200](docs/Model/DeleteTaskResponse200.md)
  - [DeleteTeamUserRequest](docs/Model/DeleteTeamUserRequest.md)
  - [Duration](docs/Model/Duration.md)
  - [EditPipeline](docs/Model/EditPipeline.md)
@@ -842,8 +873,10 @@ Class | Method | HTTP request | Description
  - [FollowerData](docs/Model/FollowerData.md)
  - [FollowerDataWithID](docs/Model/FollowerDataWithID.md)
  - [FollowerDataWithIDAllOf](docs/Model/FollowerDataWithIDAllOf.md)
+ - [FullProjectObject](docs/Model/FullProjectObject.md)
  - [FullRole](docs/Model/FullRole.md)
  - [FullRoleAllOf](docs/Model/FullRoleAllOf.md)
+ - [FullTaskObject](docs/Model/FullTaskObject.md)
  - [GetActivitiesCollectionResponse200](docs/Model/GetActivitiesCollectionResponse200.md)
  - [GetActivitiesResponse200](docs/Model/GetActivitiesResponse200.md)
  - [GetActivitiesResponse200RelatedObjects](docs/Model/GetActivitiesResponse200RelatedObjects.md)
@@ -897,6 +930,16 @@ Class | Method | HTTP request | Description
  - [GetPersonDetailsResponseAllOfAdditionalData](docs/Model/GetPersonDetailsResponseAllOfAdditionalData.md)
  - [GetProductAttachementDetails](docs/Model/GetProductAttachementDetails.md)
  - [GetProductFieldResponse](docs/Model/GetProductFieldResponse.md)
+ - [GetProjectBoardResponse200](docs/Model/GetProjectBoardResponse200.md)
+ - [GetProjectBoardsResponse200](docs/Model/GetProjectBoardsResponse200.md)
+ - [GetProjectGroupsResponse200](docs/Model/GetProjectGroupsResponse200.md)
+ - [GetProjectPhaseResponse200](docs/Model/GetProjectPhaseResponse200.md)
+ - [GetProjectPhasesResponse200](docs/Model/GetProjectPhasesResponse200.md)
+ - [GetProjectPlanResponse200](docs/Model/GetProjectPlanResponse200.md)
+ - [GetProjectResponse200](docs/Model/GetProjectResponse200.md)
+ - [GetProjectTemplateResponse200](docs/Model/GetProjectTemplateResponse200.md)
+ - [GetProjectTemplatesResponse200](docs/Model/GetProjectTemplatesResponse200.md)
+ - [GetProjectsResponse200](docs/Model/GetProjectsResponse200.md)
  - [GetRecents](docs/Model/GetRecents.md)
  - [GetRecentsAdditionalData](docs/Model/GetRecentsAdditionalData.md)
  - [GetRole](docs/Model/GetRole.md)
@@ -913,6 +956,8 @@ Class | Method | HTTP request | Description
  - [GetRolesAllOf](docs/Model/GetRolesAllOf.md)
  - [GetStageDeals](docs/Model/GetStageDeals.md)
  - [GetStages](docs/Model/GetStages.md)
+ - [GetTaskResponse200](docs/Model/GetTaskResponse200.md)
+ - [GetTasksResponse200](docs/Model/GetTasksResponse200.md)
  - [GoalResults](docs/Model/GoalResults.md)
  - [GoalType](docs/Model/GoalType.md)
  - [GoalsResponseComponent](docs/Model/GoalsResponseComponent.md)
@@ -1174,6 +1219,19 @@ Class | Method | HTTP request | Description
  - [ProductWithArrayPrices](docs/Model/ProductWithArrayPrices.md)
  - [ProductWithObjectPrices](docs/Model/ProductWithObjectPrices.md)
  - [ProductsResponse](docs/Model/ProductsResponse.md)
+ - [ProjectBoardObject](docs/Model/ProjectBoardObject.md)
+ - [ProjectGroupsObject](docs/Model/ProjectGroupsObject.md)
+ - [ProjectId](docs/Model/ProjectId.md)
+ - [ProjectMandatoryObjectFragment](docs/Model/ProjectMandatoryObjectFragment.md)
+ - [ProjectNotChangeableObjectFragment](docs/Model/ProjectNotChangeableObjectFragment.md)
+ - [ProjectObjectFragment](docs/Model/ProjectObjectFragment.md)
+ - [ProjectPhaseObject](docs/Model/ProjectPhaseObject.md)
+ - [ProjectPlanItemObject](docs/Model/ProjectPlanItemObject.md)
+ - [ProjectPostObject](docs/Model/ProjectPostObject.md)
+ - [ProjectPostObjectAllOf](docs/Model/ProjectPostObjectAllOf.md)
+ - [ProjectPutObject](docs/Model/ProjectPutObject.md)
+ - [ProjectPutPlanItemBodyObject](docs/Model/ProjectPutPlanItemBodyObject.md)
+ - [ProjectResponseObject](docs/Model/ProjectResponseObject.md)
  - [PutRole](docs/Model/PutRole.md)
  - [PutRoleAllOf](docs/Model/PutRoleAllOf.md)
  - [PutRoleAllOfData](docs/Model/PutRoleAllOfData.md)
@@ -1205,6 +1263,8 @@ Class | Method | HTTP request | Description
  - [RelationshipOrganizationInfoItemAllOf](docs/Model/RelationshipOrganizationInfoItemAllOf.md)
  - [RelationshipOrganizationInfoItemWithActiveFlag](docs/Model/RelationshipOrganizationInfoItemWithActiveFlag.md)
  - [RequiredNameObject](docs/Model/RequiredNameObject.md)
+ - [RequiredPostProjectParameters](docs/Model/RequiredPostProjectParameters.md)
+ - [RequiredPostTaskParameters](docs/Model/RequiredPostTaskParameters.md)
  - [RequredTitleParameter](docs/Model/RequredTitleParameter.md)
  - [ResponseCallLogObject](docs/Model/ResponseCallLogObject.md)
  - [ResponseCallLogObjectAllOf](docs/Model/ResponseCallLogObjectAllOf.md)
@@ -1232,11 +1292,20 @@ Class | Method | HTTP request | Description
  - [SubscriptionRecurringUpdateRequest](docs/Model/SubscriptionRecurringUpdateRequest.md)
  - [SubscriptionsIdResponse](docs/Model/SubscriptionsIdResponse.md)
  - [SubscriptionsIdResponseAllOf](docs/Model/SubscriptionsIdResponseAllOf.md)
+ - [TaskId](docs/Model/TaskId.md)
+ - [TaskMandatoryObjectFragment](docs/Model/TaskMandatoryObjectFragment.md)
+ - [TaskNotChangeableObjectFragment](docs/Model/TaskNotChangeableObjectFragment.md)
+ - [TaskObjectFragment](docs/Model/TaskObjectFragment.md)
+ - [TaskPostObject](docs/Model/TaskPostObject.md)
+ - [TaskPutObject](docs/Model/TaskPutObject.md)
+ - [TaskResponseObject](docs/Model/TaskResponseObject.md)
  - [Team](docs/Model/Team.md)
  - [TeamAllOf](docs/Model/TeamAllOf.md)
  - [TeamId](docs/Model/TeamId.md)
  - [Teams](docs/Model/Teams.md)
  - [TeamsAllOf](docs/Model/TeamsAllOf.md)
+ - [TemplateObject](docs/Model/TemplateObject.md)
+ - [TemplateResponseObject](docs/Model/TemplateResponseObject.md)
  - [Unauthorized](docs/Model/Unauthorized.md)
  - [UpdateActivityResponse200](docs/Model/UpdateActivityResponse200.md)
  - [UpdateDealParameters](docs/Model/UpdateDealParameters.md)
@@ -1254,12 +1323,16 @@ Class | Method | HTTP request | Description
  - [UpdateProductField](docs/Model/UpdateProductField.md)
  - [UpdateProductRequestBody](docs/Model/UpdateProductRequestBody.md)
  - [UpdateProductResponse](docs/Model/UpdateProductResponse.md)
+ - [UpdateProjectResponse200](docs/Model/UpdateProjectResponse200.md)
  - [UpdateStageRequest](docs/Model/UpdateStageRequest.md)
  - [UpdateStageRequestAllOf](docs/Model/UpdateStageRequestAllOf.md)
+ - [UpdateTaskResponse200](docs/Model/UpdateTaskResponse200.md)
  - [UpdateTeam](docs/Model/UpdateTeam.md)
  - [UpdateTeamAllOf](docs/Model/UpdateTeamAllOf.md)
  - [UpdateTeamWithAdditionalProperties](docs/Model/UpdateTeamWithAdditionalProperties.md)
  - [UpdateUserRequest](docs/Model/UpdateUserRequest.md)
+ - [UpdatedActivityPlanItem200](docs/Model/UpdatedActivityPlanItem200.md)
+ - [UpdatedTaskPlanItem200](docs/Model/UpdatedTaskPlanItem200.md)
  - [User](docs/Model/User.md)
  - [UserAccess](docs/Model/UserAccess.md)
  - [UserAllOf](docs/Model/UserAllOf.md)
@@ -1326,6 +1399,8 @@ Class | Method | HTTP request | Description
 - **contacts:full**: Create, read, update and delete persons and organizations and their followers; all notes, files, filters. Also grants read access to contacts-related fields
 - **products:read**: Read products, its fields, files, followers and products connected to a deal
 - **products:full**: Create, read, update and delete products and its fields; add products to deals
+- **projects:read**: Read projects and its fields, tasks and project templates
+- **projects:full**: Create, read, update and delete projects and its fields; add projects templates and project related tasks
 - **users:read**: Read data about users (people with access to a Pipedrive account), their permissions, roles and followers
 - **recents:read**: Read all recent changes occurred in an account. Includes data about activities, activity types, deals, files, filters, notes, persons, organizations, pipelines, stages, products and users
 - **search:read**: Search across the account for deals, persons, organizations, files and products, and see details about the returned results
