@@ -65,7 +65,7 @@ class PostDealParticipants implements ModelInterface, ArrayAccess, JsonSerializa
     protected static array $openAPITypes = [
         'success' => 'bool',
         'data' => 'PersonItem',
-        'related_objects' => '\Pipedrive\Model\GetDealsRelatedObjects'
+        'related_objects' => '\Pipedrive\Model\PostDealParticipantsRelatedObjects'
     ];
 
     /**
@@ -288,7 +288,7 @@ class PostDealParticipants implements ModelInterface, ArrayAccess, JsonSerializa
     /**
      * Gets related_objects
      *
-     * @return \Pipedrive\Model\GetDealsRelatedObjects|null
+     * @return \Pipedrive\Model\PostDealParticipantsRelatedObjects|null
      */
     public function getRelatedObjects()
     {
@@ -298,7 +298,7 @@ class PostDealParticipants implements ModelInterface, ArrayAccess, JsonSerializa
     /**
      * Sets related_objects
      *
-     * @param \Pipedrive\Model\GetDealsRelatedObjects|null $related_objects related_objects
+     * @param \Pipedrive\Model\PostDealParticipantsRelatedObjects|null $related_objects related_objects
      *
      * @return self
      */

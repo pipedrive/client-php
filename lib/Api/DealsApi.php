@@ -5751,7 +5751,7 @@ class DealsApi
      * @param  int|0 $start Pagination start (optional, default to 0)
      * @param  int|null $limit Items shown per page (optional)
      * @param  string|null $all_changes Whether to show custom field updates or not. 1 &#x3D; Include custom field changes. If omitted returns changes without custom field updates. (optional)
-     * @param  string|null $items A comma-separated string for filtering out item specific updates. (Possible values - call, activity, plannedActivity, change, note, deal, file, dealChange, personChange, organizationChange, follower, dealFollower, personFollower, organizationFollower, participant, comment, mailMessage, mailMessageWithAttachment, invoice, document, marketing_campaign_stat, marketing_status_change) (optional)
+     * @param  string|null $items A comma-separated string for filtering out item specific updates. (Possible values - call, activity, plannedActivity, change, note, deal, file, dealChange, personChange, organizationChange, follower, dealFollower, personFollower, organizationFollower, participant, comment, mailMessage, mailMessageWithAttachment, invoice, document, marketing_campaign_stat, marketing_status_change). (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
@@ -5772,7 +5772,7 @@ class DealsApi
      * @param  int|0 $start Pagination start (optional, default to 0)
      * @param  int|null $limit Items shown per page (optional)
      * @param  string|null $all_changes Whether to show custom field updates or not. 1 &#x3D; Include custom field changes. If omitted returns changes without custom field updates. (optional)
-     * @param  string|null $items A comma-separated string for filtering out item specific updates. (Possible values - call, activity, plannedActivity, change, note, deal, file, dealChange, personChange, organizationChange, follower, dealFollower, personFollower, organizationFollower, participant, comment, mailMessage, mailMessageWithAttachment, invoice, document, marketing_campaign_stat, marketing_status_change) (optional)
+     * @param  string|null $items A comma-separated string for filtering out item specific updates. (Possible values - call, activity, plannedActivity, change, note, deal, file, dealChange, personChange, organizationChange, follower, dealFollower, personFollower, organizationFollower, participant, comment, mailMessage, mailMessageWithAttachment, invoice, document, marketing_campaign_stat, marketing_status_change). (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
@@ -5877,7 +5877,7 @@ class DealsApi
      * @param  int|0 $start Pagination start (optional, default to 0)
      * @param  int|null $limit Items shown per page (optional)
      * @param  string|null $all_changes Whether to show custom field updates or not. 1 &#x3D; Include custom field changes. If omitted returns changes without custom field updates. (optional)
-     * @param  string|null $items A comma-separated string for filtering out item specific updates. (Possible values - call, activity, plannedActivity, change, note, deal, file, dealChange, personChange, organizationChange, follower, dealFollower, personFollower, organizationFollower, participant, comment, mailMessage, mailMessageWithAttachment, invoice, document, marketing_campaign_stat, marketing_status_change) (optional)
+     * @param  string|null $items A comma-separated string for filtering out item specific updates. (Possible values - call, activity, plannedActivity, change, note, deal, file, dealChange, personChange, organizationChange, follower, dealFollower, personFollower, organizationFollower, participant, comment, mailMessage, mailMessageWithAttachment, invoice, document, marketing_campaign_stat, marketing_status_change). (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
@@ -5901,7 +5901,7 @@ class DealsApi
      * @param  int|0 $start Pagination start (optional, default to 0)
      * @param  int|null $limit Items shown per page (optional)
      * @param  string|null $all_changes Whether to show custom field updates or not. 1 &#x3D; Include custom field changes. If omitted returns changes without custom field updates. (optional)
-     * @param  string|null $items A comma-separated string for filtering out item specific updates. (Possible values - call, activity, plannedActivity, change, note, deal, file, dealChange, personChange, organizationChange, follower, dealFollower, personFollower, organizationFollower, participant, comment, mailMessage, mailMessageWithAttachment, invoice, document, marketing_campaign_stat, marketing_status_change) (optional)
+     * @param  string|null $items A comma-separated string for filtering out item specific updates. (Possible values - call, activity, plannedActivity, change, note, deal, file, dealChange, personChange, organizationChange, follower, dealFollower, personFollower, organizationFollower, participant, comment, mailMessage, mailMessageWithAttachment, invoice, document, marketing_campaign_stat, marketing_status_change). (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
@@ -5952,7 +5952,7 @@ class DealsApi
      * @param  int|0 $start Pagination start (optional, default to 0)
      * @param  int|null $limit Items shown per page (optional)
      * @param  string|null $all_changes Whether to show custom field updates or not. 1 &#x3D; Include custom field changes. If omitted returns changes without custom field updates. (optional)
-     * @param  string|null $items A comma-separated string for filtering out item specific updates. (Possible values - call, activity, plannedActivity, change, note, deal, file, dealChange, personChange, organizationChange, follower, dealFollower, personFollower, organizationFollower, participant, comment, mailMessage, mailMessageWithAttachment, invoice, document, marketing_campaign_stat, marketing_status_change) (optional)
+     * @param  string|null $items A comma-separated string for filtering out item specific updates. (Possible values - call, activity, plannedActivity, change, note, deal, file, dealChange, personChange, organizationChange, follower, dealFollower, personFollower, organizationFollower, participant, comment, mailMessage, mailMessageWithAttachment, invoice, document, marketing_campaign_stat, marketing_status_change). (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
@@ -7151,7 +7151,7 @@ class DealsApi
      *
      * Get deals summary
      *
-     * @param  string|null $status Only fetch deals with a specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost (optional)
+     * @param  string|null $status Only fetch deals with a specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. (optional)
      * @param  int|null $filter_id &lt;code&gt;user_id&lt;/code&gt; will not be considered. Only deals matching the given filter will be returned. (optional)
      * @param  int|null $user_id Only deals matching the given user will be returned. &#x60;user_id&#x60; will not be considered if you use &#x60;filter_id&#x60;. (optional)
      * @param  int|null $stage_id Only deals within the given stage will be returned (optional)
@@ -7171,7 +7171,7 @@ class DealsApi
      *
      * Get deals summary
      *
-     * @param  string|null $status Only fetch deals with a specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost (optional)
+     * @param  string|null $status Only fetch deals with a specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. (optional)
      * @param  int|null $filter_id &lt;code&gt;user_id&lt;/code&gt; will not be considered. Only deals matching the given filter will be returned. (optional)
      * @param  int|null $user_id Only deals matching the given user will be returned. &#x60;user_id&#x60; will not be considered if you use &#x60;filter_id&#x60;. (optional)
      * @param  int|null $stage_id Only deals within the given stage will be returned (optional)
@@ -7275,7 +7275,7 @@ class DealsApi
      *
      * Get deals summary
      *
-     * @param  string|null $status Only fetch deals with a specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost (optional)
+     * @param  string|null $status Only fetch deals with a specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. (optional)
      * @param  int|null $filter_id &lt;code&gt;user_id&lt;/code&gt; will not be considered. Only deals matching the given filter will be returned. (optional)
      * @param  int|null $user_id Only deals matching the given user will be returned. &#x60;user_id&#x60; will not be considered if you use &#x60;filter_id&#x60;. (optional)
      * @param  int|null $stage_id Only deals within the given stage will be returned (optional)
@@ -7298,7 +7298,7 @@ class DealsApi
      *
      * Get deals summary
      *
-     * @param  string|null $status Only fetch deals with a specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost (optional)
+     * @param  string|null $status Only fetch deals with a specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. (optional)
      * @param  int|null $filter_id &lt;code&gt;user_id&lt;/code&gt; will not be considered. Only deals matching the given filter will be returned. (optional)
      * @param  int|null $user_id Only deals matching the given user will be returned. &#x60;user_id&#x60; will not be considered if you use &#x60;filter_id&#x60;. (optional)
      * @param  int|null $stage_id Only deals within the given stage will be returned (optional)
@@ -7348,7 +7348,7 @@ class DealsApi
     /**
      * Create request for operation 'getDealsSummary'
      *
-     * @param  string|null $status Only fetch deals with a specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost (optional)
+     * @param  string|null $status Only fetch deals with a specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. (optional)
      * @param  int|null $filter_id &lt;code&gt;user_id&lt;/code&gt; will not be considered. Only deals matching the given filter will be returned. (optional)
      * @param  int|null $user_id Only deals matching the given user will be returned. &#x60;user_id&#x60; will not be considered if you use &#x60;filter_id&#x60;. (optional)
      * @param  int|null $stage_id Only deals within the given stage will be returned (optional)
@@ -7479,7 +7479,7 @@ class DealsApi
      *
      * Get deals timeline
      *
-     * @param  \DateTime $start_date The date when the first interval starts. Format: YYYY-MM-DD (required)
+     * @param  \DateTime $start_date The date when the first interval starts. Format: YYYY-MM-DD. (required)
      * @param  string $interval The type of the interval&lt;table&gt;&lt;tr&gt;&lt;th&gt;Value&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;day&#x60;&lt;/td&gt;&lt;td&gt;Day&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;week&#x60;&lt;/td&gt;&lt;td&gt;A full week (7 days) starting from &#x60;start_date&#x60;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;month&#x60;&lt;/td&gt;&lt;td&gt;A full month (depending on the number of days in given month) starting from &#x60;start_date&#x60;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;quarter&#x60;&lt;/td&gt;&lt;td&gt;A full quarter (3 months) starting from &#x60;start_date&#x60;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt; (required)
      * @param  int $amount The number of given intervals, starting from &#x60;start_date&#x60;, to fetch. E.g. 3 (months). (required)
      * @param  string $field_key The date field key which deals will be retrieved from (required)
@@ -7504,7 +7504,7 @@ class DealsApi
      *
      * Get deals timeline
      *
-     * @param  \DateTime $start_date The date when the first interval starts. Format: YYYY-MM-DD (required)
+     * @param  \DateTime $start_date The date when the first interval starts. Format: YYYY-MM-DD. (required)
      * @param  string $interval The type of the interval&lt;table&gt;&lt;tr&gt;&lt;th&gt;Value&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;day&#x60;&lt;/td&gt;&lt;td&gt;Day&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;week&#x60;&lt;/td&gt;&lt;td&gt;A full week (7 days) starting from &#x60;start_date&#x60;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;month&#x60;&lt;/td&gt;&lt;td&gt;A full month (depending on the number of days in given month) starting from &#x60;start_date&#x60;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;quarter&#x60;&lt;/td&gt;&lt;td&gt;A full quarter (3 months) starting from &#x60;start_date&#x60;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt; (required)
      * @param  int $amount The number of given intervals, starting from &#x60;start_date&#x60;, to fetch. E.g. 3 (months). (required)
      * @param  string $field_key The date field key which deals will be retrieved from (required)
@@ -7613,7 +7613,7 @@ class DealsApi
      *
      * Get deals timeline
      *
-     * @param  \DateTime $start_date The date when the first interval starts. Format: YYYY-MM-DD (required)
+     * @param  \DateTime $start_date The date when the first interval starts. Format: YYYY-MM-DD. (required)
      * @param  string $interval The type of the interval&lt;table&gt;&lt;tr&gt;&lt;th&gt;Value&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;day&#x60;&lt;/td&gt;&lt;td&gt;Day&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;week&#x60;&lt;/td&gt;&lt;td&gt;A full week (7 days) starting from &#x60;start_date&#x60;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;month&#x60;&lt;/td&gt;&lt;td&gt;A full month (depending on the number of days in given month) starting from &#x60;start_date&#x60;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;quarter&#x60;&lt;/td&gt;&lt;td&gt;A full quarter (3 months) starting from &#x60;start_date&#x60;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt; (required)
      * @param  int $amount The number of given intervals, starting from &#x60;start_date&#x60;, to fetch. E.g. 3 (months). (required)
      * @param  string $field_key The date field key which deals will be retrieved from (required)
@@ -7641,7 +7641,7 @@ class DealsApi
      *
      * Get deals timeline
      *
-     * @param  \DateTime $start_date The date when the first interval starts. Format: YYYY-MM-DD (required)
+     * @param  \DateTime $start_date The date when the first interval starts. Format: YYYY-MM-DD. (required)
      * @param  string $interval The type of the interval&lt;table&gt;&lt;tr&gt;&lt;th&gt;Value&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;day&#x60;&lt;/td&gt;&lt;td&gt;Day&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;week&#x60;&lt;/td&gt;&lt;td&gt;A full week (7 days) starting from &#x60;start_date&#x60;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;month&#x60;&lt;/td&gt;&lt;td&gt;A full month (depending on the number of days in given month) starting from &#x60;start_date&#x60;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;quarter&#x60;&lt;/td&gt;&lt;td&gt;A full quarter (3 months) starting from &#x60;start_date&#x60;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt; (required)
      * @param  int $amount The number of given intervals, starting from &#x60;start_date&#x60;, to fetch. E.g. 3 (months). (required)
      * @param  string $field_key The date field key which deals will be retrieved from (required)
@@ -7696,7 +7696,7 @@ class DealsApi
     /**
      * Create request for operation 'getDealsTimeline'
      *
-     * @param  \DateTime $start_date The date when the first interval starts. Format: YYYY-MM-DD (required)
+     * @param  \DateTime $start_date The date when the first interval starts. Format: YYYY-MM-DD. (required)
      * @param  string $interval The type of the interval&lt;table&gt;&lt;tr&gt;&lt;th&gt;Value&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;day&#x60;&lt;/td&gt;&lt;td&gt;Day&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;week&#x60;&lt;/td&gt;&lt;td&gt;A full week (7 days) starting from &#x60;start_date&#x60;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;month&#x60;&lt;/td&gt;&lt;td&gt;A full month (depending on the number of days in given month) starting from &#x60;start_date&#x60;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;quarter&#x60;&lt;/td&gt;&lt;td&gt;A full quarter (3 months) starting from &#x60;start_date&#x60;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt; (required)
      * @param  int $amount The number of given intervals, starting from &#x60;start_date&#x60;, to fetch. E.g. 3 (months). (required)
      * @param  string $field_key The date field key which deals will be retrieved from (required)
