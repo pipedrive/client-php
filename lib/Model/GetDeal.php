@@ -66,7 +66,7 @@ class GetDeal implements ModelInterface, ArrayAccess, JsonSerializable
         'success' => 'bool',
         'data' => '\Pipedrive\Model\DealNonStrictWithDetails',
         'additional_data' => '\Pipedrive\Model\GetDealAdditionalData',
-        'related_objects' => '\Pipedrive\Model\GetDealsRelatedObjects'
+        'related_objects' => '\Pipedrive\Model\GetDealRelatedObjects'
     ];
 
     /**
@@ -318,7 +318,7 @@ class GetDeal implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets related_objects
      *
-     * @return \Pipedrive\Model\GetDealsRelatedObjects|null
+     * @return \Pipedrive\Model\GetDealRelatedObjects|null
      */
     public function getRelatedObjects()
     {
@@ -328,7 +328,7 @@ class GetDeal implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets related_objects
      *
-     * @param \Pipedrive\Model\GetDealsRelatedObjects|null $related_objects related_objects
+     * @param \Pipedrive\Model\GetDealRelatedObjects|null $related_objects related_objects
      *
      * @return self
      */
