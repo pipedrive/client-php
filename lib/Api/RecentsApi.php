@@ -127,7 +127,7 @@ class RecentsApi
      *
      * Get recents
      *
-     * @param  string $since_timestamp The timestamp in UTC. Format: YYYY-MM-DD HH:MM:SS (required)
+     * @param  string $since_timestamp The timestamp in UTC. Format: YYYY-MM-DD HH:MM:SS. (required)
      * @param  string|null $items Multiple selection of item types to include in the query (optional) (optional)
      * @param  int|0 $start Pagination start (optional, default to 0)
      * @param  int|null $limit Items shown per page (optional)
@@ -147,7 +147,7 @@ class RecentsApi
      *
      * Get recents
      *
-     * @param  string $since_timestamp The timestamp in UTC. Format: YYYY-MM-DD HH:MM:SS (required)
+     * @param  string $since_timestamp The timestamp in UTC. Format: YYYY-MM-DD HH:MM:SS. (required)
      * @param  string|null $items Multiple selection of item types to include in the query (optional) (optional)
      * @param  int|0 $start Pagination start (optional, default to 0)
      * @param  int|null $limit Items shown per page (optional)
@@ -251,7 +251,7 @@ class RecentsApi
      *
      * Get recents
      *
-     * @param  string $since_timestamp The timestamp in UTC. Format: YYYY-MM-DD HH:MM:SS (required)
+     * @param  string $since_timestamp The timestamp in UTC. Format: YYYY-MM-DD HH:MM:SS. (required)
      * @param  string|null $items Multiple selection of item types to include in the query (optional) (optional)
      * @param  int|0 $start Pagination start (optional, default to 0)
      * @param  int|null $limit Items shown per page (optional)
@@ -274,7 +274,7 @@ class RecentsApi
      *
      * Get recents
      *
-     * @param  string $since_timestamp The timestamp in UTC. Format: YYYY-MM-DD HH:MM:SS (required)
+     * @param  string $since_timestamp The timestamp in UTC. Format: YYYY-MM-DD HH:MM:SS. (required)
      * @param  string|null $items Multiple selection of item types to include in the query (optional) (optional)
      * @param  int|0 $start Pagination start (optional, default to 0)
      * @param  int|null $limit Items shown per page (optional)
@@ -324,7 +324,7 @@ class RecentsApi
     /**
      * Create request for operation 'getRecents'
      *
-     * @param  string $since_timestamp The timestamp in UTC. Format: YYYY-MM-DD HH:MM:SS (required)
+     * @param  string $since_timestamp The timestamp in UTC. Format: YYYY-MM-DD HH:MM:SS. (required)
      * @param  string|null $items Multiple selection of item types to include in the query (optional) (optional)
      * @param  int|0 $start Pagination start (optional, default to 0)
      * @param  int|null $limit Items shown per page (optional)
