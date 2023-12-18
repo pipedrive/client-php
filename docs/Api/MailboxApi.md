@@ -110,7 +110,7 @@ $apiInstance = new Pipedrive\Api\MailboxApi(
     $config
 );
 $id = 56; // int | The ID of the mail message to fetch
-$include_body = new \Pipedrive\Model\\Pipedrive\Model\NumberBooleanDefault0(); // \Pipedrive\Model\NumberBooleanDefault0 | Whether to include the full message body or not. `0` = Don't include, `1` = Include
+$include_body = new \Pipedrive\Model\\Pipedrive\Model\NumberBooleanDefault0(); // \Pipedrive\Model\NumberBooleanDefault0 | Whether to include the full message body or not. `0` = Don't include, `1` = Include.
 
 try {
     $result = $apiInstance->getMailMessage($id, $include_body);
@@ -125,7 +125,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The ID of the mail message to fetch |
- **include_body** | [**\Pipedrive\Model\NumberBooleanDefault0**](../Model/.md)| Whether to include the full message body or not. &#x60;0&#x60; &#x3D; Don&#39;t include, &#x60;1&#x60; &#x3D; Include | [optional]
+ **include_body** | [**\Pipedrive\Model\NumberBooleanDefault0**](../Model/.md)| Whether to include the full message body or not. &#x60;0&#x60; &#x3D; Don&#39;t include, &#x60;1&#x60; &#x3D; Include. | [optional]
 
 ### Return type
 

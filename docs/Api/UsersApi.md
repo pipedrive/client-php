@@ -114,7 +114,7 @@ $apiInstance = new Pipedrive\Api\UsersApi(
     $config
 );
 $term = 'term_example'; // string | The search term to look for
-$search_by_email = new \Pipedrive\Model\\Pipedrive\Model\NumberBooleanDefault0(); // \Pipedrive\Model\NumberBooleanDefault0 | When enabled, the term will only be matched against email addresses of users. Default: `false`
+$search_by_email = new \Pipedrive\Model\\Pipedrive\Model\NumberBooleanDefault0(); // \Pipedrive\Model\NumberBooleanDefault0 | When enabled, the term will only be matched against email addresses of users. Default: `false`.
 
 try {
     $result = $apiInstance->findUsersByName($term, $search_by_email);
@@ -129,7 +129,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **term** | **string**| The search term to look for |
- **search_by_email** | [**\Pipedrive\Model\NumberBooleanDefault0**](../Model/.md)| When enabled, the term will only be matched against email addresses of users. Default: &#x60;false&#x60; | [optional]
+ **search_by_email** | [**\Pipedrive\Model\NumberBooleanDefault0**](../Model/.md)| When enabled, the term will only be matched against email addresses of users. Default: &#x60;false&#x60;. | [optional]
 
 ### Return type
 

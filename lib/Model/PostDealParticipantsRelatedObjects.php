@@ -1,6 +1,6 @@
 <?php
 /**
- * GetDealsRelatedObjects
+ * PostDealParticipantsRelatedObjects
  *
  * PHP version 7.3
  *
@@ -34,7 +34,7 @@ use JsonSerializable;
 use Pipedrive\ObjectSerializer;
 
 /**
- * GetDealsRelatedObjects Class Doc Comment
+ * PostDealParticipantsRelatedObjects Class Doc Comment
  *
  * @category Class
  * @package  Pipedrive
@@ -44,7 +44,7 @@ use Pipedrive\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class GetDealsRelatedObjects implements ModelInterface, ArrayAccess, JsonSerializable
+class PostDealParticipantsRelatedObjects implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -53,7 +53,7 @@ class GetDealsRelatedObjects implements ModelInterface, ArrayAccess, JsonSeriali
       *
       * @var string
       */
-    protected static string $openAPIModelName = 'GetDeals_related_objects';
+    protected static string $openAPIModelName = 'PostDealParticipants_related_objects';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -64,7 +64,6 @@ class GetDealsRelatedObjects implements ModelInterface, ArrayAccess, JsonSeriali
       */
     protected static array $openAPITypes = [
         'user' => '\Pipedrive\Model\RelatedUserData',
-        'organization' => '\Pipedrive\Model\RelatedOrganizationDataWithActiveFlag',
         'person' => '\Pipedrive\Model\RelatedPersonDataWithActiveFlag'
     ];
 
@@ -77,7 +76,6 @@ class GetDealsRelatedObjects implements ModelInterface, ArrayAccess, JsonSeriali
       */
     protected static $openAPIFormats = [
         'user' => null,
-        'organization' => null,
         'person' => null
     ];
 
@@ -113,7 +111,6 @@ class GetDealsRelatedObjects implements ModelInterface, ArrayAccess, JsonSeriali
      */
     protected static $attributeMap = [
         'user' => 'user',
-        'organization' => 'organization',
         'person' => 'person'
     ];
 
@@ -124,7 +121,6 @@ class GetDealsRelatedObjects implements ModelInterface, ArrayAccess, JsonSeriali
      */
     protected static $setters = [
         'user' => 'setUser',
-        'organization' => 'setOrganization',
         'person' => 'setPerson'
     ];
 
@@ -135,7 +131,6 @@ class GetDealsRelatedObjects implements ModelInterface, ArrayAccess, JsonSeriali
      */
     protected static $getters = [
         'user' => 'getUser',
-        'organization' => 'getOrganization',
         'person' => 'getPerson'
     ];
 
@@ -207,7 +202,6 @@ class GetDealsRelatedObjects implements ModelInterface, ArrayAccess, JsonSeriali
     public function __construct(array $data = null)
     {
         $this->container['user'] = $data['user'] ?? null;
-        $this->container['organization'] = $data['organization'] ?? null;
         $this->container['person'] = $data['person'] ?? null;
     }
 
@@ -257,30 +251,6 @@ class GetDealsRelatedObjects implements ModelInterface, ArrayAccess, JsonSeriali
     public function setUser($user): self
     {
         $this->container['user'] = $user;
-
-        return $this;
-    }
-
-    /**
-     * Gets organization
-     *
-     * @return \Pipedrive\Model\RelatedOrganizationDataWithActiveFlag|null
-     */
-    public function getOrganization()
-    {
-        return $this->container['organization'];
-    }
-
-    /**
-     * Sets organization
-     *
-     * @param \Pipedrive\Model\RelatedOrganizationDataWithActiveFlag|null $organization organization
-     *
-     * @return self
-     */
-    public function setOrganization($organization): self
-    {
-        $this->container['organization'] = $organization;
 
         return $this;
     }

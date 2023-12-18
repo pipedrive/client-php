@@ -360,6 +360,7 @@ docs/Model/GetAllProductFieldsResponse.md
 docs/Model/GetComments.md
 docs/Model/GetDeal.md
 docs/Model/GetDealAdditionalData.md
+docs/Model/GetDealRelatedObjects.md
 docs/Model/GetDeals.md
 docs/Model/GetDealsCollection.md
 docs/Model/GetDealsConversionRatesInPipeline.md
@@ -657,6 +658,7 @@ docs/Model/PipelineDetails.md
 docs/Model/PipelineDetailsAllOf.md
 docs/Model/PostComment.md
 docs/Model/PostDealParticipants.md
+docs/Model/PostDealParticipantsRelatedObjects.md
 docs/Model/PostGoalResponse.md
 docs/Model/PostNote.md
 docs/Model/PostRoleAssignment.md
@@ -1194,6 +1196,7 @@ lib/Model/GetAllProductFieldsResponse.php
 lib/Model/GetComments.php
 lib/Model/GetDeal.php
 lib/Model/GetDealAdditionalData.php
+lib/Model/GetDealRelatedObjects.php
 lib/Model/GetDeals.php
 lib/Model/GetDealsCollection.php
 lib/Model/GetDealsConversionRatesInPipeline.php
@@ -1492,6 +1495,7 @@ lib/Model/PipelineDetails.php
 lib/Model/PipelineDetailsAllOf.php
 lib/Model/PostComment.php
 lib/Model/PostDealParticipants.php
+lib/Model/PostDealParticipantsRelatedObjects.php
 lib/Model/PostGoalResponse.php
 lib/Model/PostNote.php
 lib/Model/PostRoleAssignment.php
