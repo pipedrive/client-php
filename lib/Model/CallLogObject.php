@@ -75,6 +75,7 @@ class CallLogObject implements ModelInterface, ArrayAccess, JsonSerializable
         'person_id' => 'int',
         'org_id' => 'int',
         'deal_id' => 'int',
+        'lead_id' => 'string',
         'note' => 'string'
     ];
 
@@ -98,6 +99,7 @@ class CallLogObject implements ModelInterface, ArrayAccess, JsonSerializable
         'person_id' => null,
         'org_id' => null,
         'deal_id' => null,
+        'lead_id' => 'uuid',
         'note' => null
     ];
 
@@ -144,6 +146,7 @@ class CallLogObject implements ModelInterface, ArrayAccess, JsonSerializable
         'person_id' => 'person_id',
         'org_id' => 'org_id',
         'deal_id' => 'deal_id',
+        'lead_id' => 'lead_id',
         'note' => 'note'
     ];
 
@@ -165,6 +168,7 @@ class CallLogObject implements ModelInterface, ArrayAccess, JsonSerializable
         'person_id' => 'setPersonId',
         'org_id' => 'setOrgId',
         'deal_id' => 'setDealId',
+        'lead_id' => 'setLeadId',
         'note' => 'setNote'
     ];
 
@@ -186,6 +190,7 @@ class CallLogObject implements ModelInterface, ArrayAccess, JsonSerializable
         'person_id' => 'getPersonId',
         'org_id' => 'getOrgId',
         'deal_id' => 'getDealId',
+        'lead_id' => 'getLeadId',
         'note' => 'getNote'
     ];
 
@@ -293,6 +298,7 @@ class CallLogObject implements ModelInterface, ArrayAccess, JsonSerializable
         $this->container['person_id'] = $data['person_id'] ?? null;
         $this->container['org_id'] = $data['org_id'] ?? null;
         $this->container['deal_id'] = $data['deal_id'] ?? null;
+        $this->container['lead_id'] = $data['lead_id'] ?? null;
         $this->container['note'] = $data['note'] ?? null;
     }
 
@@ -630,13 +636,37 @@ class CallLogObject implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets deal_id
      *
-     * @param int|null $deal_id The ID of the deal this call is associated with
+     * @param int|null $deal_id The ID of the deal this call is associated with. A call log can be associated with either a deal or a lead, but not both at once.
      *
      * @return self
      */
     public function setDealId($deal_id): self
     {
         $this->container['deal_id'] = $deal_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets lead_id
+     *
+     * @return string|null
+     */
+    public function getLeadId()
+    {
+        return $this->container['lead_id'];
+    }
+
+    /**
+     * Sets lead_id
+     *
+     * @param string|null $lead_id The ID of the lead in the UUID format this call is associated with. A call log can be associated with either a deal or a lead, but not both at once.
+     *
+     * @return self
+     */
+    public function setLeadId($lead_id): self
+    {
+        $this->container['lead_id'] = $lead_id;
 
         return $this;
     }

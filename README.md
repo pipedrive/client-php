@@ -409,6 +409,8 @@ Class | Method | HTTP request | Description
 *MailboxApi* | [**getMailThreadMessages**](docs/Api/MailboxApi.md#getmailthreadmessages) | **GET** /mailbox/mailThreads/{id}/mailMessages | Get all mail messages of mail thread
 *MailboxApi* | [**getMailThreads**](docs/Api/MailboxApi.md#getmailthreads) | **GET** /mailbox/mailThreads | Get mail threads
 *MailboxApi* | [**updateMailThreadDetails**](docs/Api/MailboxApi.md#updatemailthreaddetails) | **PUT** /mailbox/mailThreads/{id} | Update mail thread details
+*MeetingsApi* | [**deleteUserProviderLink**](docs/Api/MeetingsApi.md#deleteuserproviderlink) | **DELETE** /meetings/userProviderLinks/{id} | Delete the link between a user and the installed video call integration
+*MeetingsApi* | [**saveUserProviderLink**](docs/Api/MeetingsApi.md#saveuserproviderlink) | **POST** /meetings/userProviderLinks | Link a user with the installed video call integration
 *NoteFieldsApi* | [**getNoteFields**](docs/Api/NoteFieldsApi.md#getnotefields) | **GET** /noteFields | Get all note fields
 *NotesApi* | [**addNote**](docs/Api/NotesApi.md#addnote) | **POST** /notes | Add a note
 *NotesApi* | [**addNoteComment**](docs/Api/NotesApi.md#addnotecomment) | **POST** /notes/{id}/comments | Add a comment to a note
@@ -893,6 +895,7 @@ Class | Method | HTTP request | Description
  - [GetComments](docs/Model/GetComments.md)
  - [GetDeal](docs/Model/GetDeal.md)
  - [GetDealAdditionalData](docs/Model/GetDealAdditionalData.md)
+ - [GetDealRelatedObjects](docs/Model/GetDealRelatedObjects.md)
  - [GetDeals](docs/Model/GetDeals.md)
  - [GetDealsCollection](docs/Model/GetDealsCollection.md)
  - [GetDealsConversionRatesInPipeline](docs/Model/GetDealsConversionRatesInPipeline.md)
@@ -1190,6 +1193,7 @@ Class | Method | HTTP request | Description
  - [PipelineDetailsAllOf](docs/Model/PipelineDetailsAllOf.md)
  - [PostComment](docs/Model/PostComment.md)
  - [PostDealParticipants](docs/Model/PostDealParticipants.md)
+ - [PostDealParticipantsRelatedObjects](docs/Model/PostDealParticipantsRelatedObjects.md)
  - [PostGoalResponse](docs/Model/PostGoalResponse.md)
  - [PostNote](docs/Model/PostNote.md)
  - [PostRoleAssignment](docs/Model/PostRoleAssignment.md)
@@ -1351,6 +1355,10 @@ Class | Method | HTTP request | Description
  - [UserPermissions](docs/Model/UserPermissions.md)
  - [UserPermissionsAllOf](docs/Model/UserPermissionsAllOf.md)
  - [UserPermissionsItem](docs/Model/UserPermissionsItem.md)
+ - [UserProviderLinkCreateRequest](docs/Model/UserProviderLinkCreateRequest.md)
+ - [UserProviderLinkErrorResponse](docs/Model/UserProviderLinkErrorResponse.md)
+ - [UserProviderLinkSuccessResponse](docs/Model/UserProviderLinkSuccessResponse.md)
+ - [UserProviderLinkSuccessResponseData](docs/Model/UserProviderLinkSuccessResponseData.md)
  - [UserSettings](docs/Model/UserSettings.md)
  - [UserSettingsAllOf](docs/Model/UserSettingsAllOf.md)
  - [UserSettingsItem](docs/Model/UserSettingsItem.md)

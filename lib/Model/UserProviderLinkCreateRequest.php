@@ -1,6 +1,6 @@
 <?php
 /**
- * GetDealsRelatedObjects
+ * UserProviderLinkCreateRequest
  *
  * PHP version 7.3
  *
@@ -34,7 +34,7 @@ use JsonSerializable;
 use Pipedrive\ObjectSerializer;
 
 /**
- * GetDealsRelatedObjects Class Doc Comment
+ * UserProviderLinkCreateRequest Class Doc Comment
  *
  * @category Class
  * @package  Pipedrive
@@ -44,7 +44,7 @@ use Pipedrive\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class GetDealsRelatedObjects implements ModelInterface, ArrayAccess, JsonSerializable
+class UserProviderLinkCreateRequest implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -53,7 +53,7 @@ class GetDealsRelatedObjects implements ModelInterface, ArrayAccess, JsonSeriali
       *
       * @var string
       */
-    protected static string $openAPIModelName = 'GetDeals_related_objects';
+    protected static string $openAPIModelName = 'UserProviderLinkCreateRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -63,9 +63,10 @@ class GetDealsRelatedObjects implements ModelInterface, ArrayAccess, JsonSeriali
       * @phpsalm-var array<string, string>
       */
     protected static array $openAPITypes = [
-        'user' => '\Pipedrive\Model\RelatedUserData',
-        'organization' => '\Pipedrive\Model\RelatedOrganizationDataWithActiveFlag',
-        'person' => '\Pipedrive\Model\RelatedPersonDataWithActiveFlag'
+        'user_provider_id' => 'string',
+        'user_id' => 'int',
+        'company_id' => 'int',
+        'marketplace_client_id' => 'string'
     ];
 
     /**
@@ -76,9 +77,10 @@ class GetDealsRelatedObjects implements ModelInterface, ArrayAccess, JsonSeriali
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'user' => null,
-        'organization' => null,
-        'person' => null
+        'user_provider_id' => 'uuid',
+        'user_id' => null,
+        'company_id' => null,
+        'marketplace_client_id' => null
     ];
 
     /**
@@ -112,9 +114,10 @@ class GetDealsRelatedObjects implements ModelInterface, ArrayAccess, JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
-        'user' => 'user',
-        'organization' => 'organization',
-        'person' => 'person'
+        'user_provider_id' => 'user_provider_id',
+        'user_id' => 'user_id',
+        'company_id' => 'company_id',
+        'marketplace_client_id' => 'marketplace_client_id'
     ];
 
     /**
@@ -123,9 +126,10 @@ class GetDealsRelatedObjects implements ModelInterface, ArrayAccess, JsonSeriali
      * @var string[]
      */
     protected static $setters = [
-        'user' => 'setUser',
-        'organization' => 'setOrganization',
-        'person' => 'setPerson'
+        'user_provider_id' => 'setUserProviderId',
+        'user_id' => 'setUserId',
+        'company_id' => 'setCompanyId',
+        'marketplace_client_id' => 'setMarketplaceClientId'
     ];
 
     /**
@@ -134,9 +138,10 @@ class GetDealsRelatedObjects implements ModelInterface, ArrayAccess, JsonSeriali
      * @var string[]
      */
     protected static $getters = [
-        'user' => 'getUser',
-        'organization' => 'getOrganization',
-        'person' => 'getPerson'
+        'user_provider_id' => 'getUserProviderId',
+        'user_id' => 'getUserId',
+        'company_id' => 'getCompanyId',
+        'marketplace_client_id' => 'getMarketplaceClientId'
     ];
 
     /**
@@ -206,9 +211,10 @@ class GetDealsRelatedObjects implements ModelInterface, ArrayAccess, JsonSeriali
      */
     public function __construct(array $data = null)
     {
-        $this->container['user'] = $data['user'] ?? null;
-        $this->container['organization'] = $data['organization'] ?? null;
-        $this->container['person'] = $data['person'] ?? null;
+        $this->container['user_provider_id'] = $data['user_provider_id'] ?? null;
+        $this->container['user_id'] = $data['user_id'] ?? null;
+        $this->container['company_id'] = $data['company_id'] ?? null;
+        $this->container['marketplace_client_id'] = $data['marketplace_client_id'] ?? null;
     }
 
     /**
@@ -222,6 +228,18 @@ class GetDealsRelatedObjects implements ModelInterface, ArrayAccess, JsonSeriali
     {
         $invalidProperties = [];
 
+        if ($this->container['user_provider_id'] === null) {
+            $invalidProperties[] = "'user_provider_id' can't be null";
+        }
+        if ($this->container['user_id'] === null) {
+            $invalidProperties[] = "'user_id' can't be null";
+        }
+        if ($this->container['company_id'] === null) {
+            $invalidProperties[] = "'company_id' can't be null";
+        }
+        if ($this->container['marketplace_client_id'] === null) {
+            $invalidProperties[] = "'marketplace_client_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -238,73 +256,97 @@ class GetDealsRelatedObjects implements ModelInterface, ArrayAccess, JsonSeriali
 
 
     /**
-     * Gets user
+     * Gets user_provider_id
      *
-     * @return \Pipedrive\Model\RelatedUserData|null
+     * @return string
      */
-    public function getUser()
+    public function getUserProviderId()
     {
-        return $this->container['user'];
+        return $this->container['user_provider_id'];
     }
 
     /**
-     * Sets user
+     * Sets user_provider_id
      *
-     * @param \Pipedrive\Model\RelatedUserData|null $user user
+     * @param string $user_provider_id Unique identifier linking a user to the installed integration. Generated by the integration.
      *
      * @return self
      */
-    public function setUser($user): self
+    public function setUserProviderId($user_provider_id): self
     {
-        $this->container['user'] = $user;
+        $this->container['user_provider_id'] = $user_provider_id;
 
         return $this;
     }
 
     /**
-     * Gets organization
+     * Gets user_id
      *
-     * @return \Pipedrive\Model\RelatedOrganizationDataWithActiveFlag|null
+     * @return int
      */
-    public function getOrganization()
+    public function getUserId()
     {
-        return $this->container['organization'];
+        return $this->container['user_id'];
     }
 
     /**
-     * Sets organization
+     * Sets user_id
      *
-     * @param \Pipedrive\Model\RelatedOrganizationDataWithActiveFlag|null $organization organization
+     * @param int $user_id Pipedrive user ID
      *
      * @return self
      */
-    public function setOrganization($organization): self
+    public function setUserId($user_id): self
     {
-        $this->container['organization'] = $organization;
+        $this->container['user_id'] = $user_id;
 
         return $this;
     }
 
     /**
-     * Gets person
+     * Gets company_id
      *
-     * @return \Pipedrive\Model\RelatedPersonDataWithActiveFlag|null
+     * @return int
      */
-    public function getPerson()
+    public function getCompanyId()
     {
-        return $this->container['person'];
+        return $this->container['company_id'];
     }
 
     /**
-     * Sets person
+     * Sets company_id
      *
-     * @param \Pipedrive\Model\RelatedPersonDataWithActiveFlag|null $person person
+     * @param int $company_id Pipedrive company ID
      *
      * @return self
      */
-    public function setPerson($person): self
+    public function setCompanyId($company_id): self
     {
-        $this->container['person'] = $person;
+        $this->container['company_id'] = $company_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets marketplace_client_id
+     *
+     * @return string
+     */
+    public function getMarketplaceClientId()
+    {
+        return $this->container['marketplace_client_id'];
+    }
+
+    /**
+     * Sets marketplace_client_id
+     *
+     * @param string $marketplace_client_id Pipedrive Marketplace client ID of the installed integration
+     *
+     * @return self
+     */
+    public function setMarketplaceClientId($marketplace_client_id): self
+    {
+        $this->container['marketplace_client_id'] = $marketplace_client_id;
 
         return $this;
     }
