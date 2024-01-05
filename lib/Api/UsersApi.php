@@ -436,7 +436,7 @@ class UsersApi
      * Find users by name
      *
      * @param  string $term The search term to look for (required)
-     * @param  \Pipedrive\Model\NumberBooleanDefault0|null $search_by_email When enabled, the term will only be matched against email addresses of users. Default: &#x60;false&#x60; (optional)
+     * @param  \Pipedrive\Model\NumberBooleanDefault0|null $search_by_email When enabled, the term will only be matched against email addresses of users. Default: &#x60;false&#x60;. (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
@@ -454,7 +454,7 @@ class UsersApi
      * Find users by name
      *
      * @param  string $term The search term to look for (required)
-     * @param  \Pipedrive\Model\NumberBooleanDefault0|null $search_by_email When enabled, the term will only be matched against email addresses of users. Default: &#x60;false&#x60; (optional)
+     * @param  \Pipedrive\Model\NumberBooleanDefault0|null $search_by_email When enabled, the term will only be matched against email addresses of users. Default: &#x60;false&#x60;. (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
@@ -556,7 +556,7 @@ class UsersApi
      * Find users by name
      *
      * @param  string $term The search term to look for (required)
-     * @param  \Pipedrive\Model\NumberBooleanDefault0|null $search_by_email When enabled, the term will only be matched against email addresses of users. Default: &#x60;false&#x60; (optional)
+     * @param  \Pipedrive\Model\NumberBooleanDefault0|null $search_by_email When enabled, the term will only be matched against email addresses of users. Default: &#x60;false&#x60;. (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
@@ -577,7 +577,7 @@ class UsersApi
      * Find users by name
      *
      * @param  string $term The search term to look for (required)
-     * @param  \Pipedrive\Model\NumberBooleanDefault0|null $search_by_email When enabled, the term will only be matched against email addresses of users. Default: &#x60;false&#x60; (optional)
+     * @param  \Pipedrive\Model\NumberBooleanDefault0|null $search_by_email When enabled, the term will only be matched against email addresses of users. Default: &#x60;false&#x60;. (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
@@ -625,7 +625,7 @@ class UsersApi
      * Create request for operation 'findUsersByName'
      *
      * @param  string $term The search term to look for (required)
-     * @param  \Pipedrive\Model\NumberBooleanDefault0|null $search_by_email When enabled, the term will only be matched against email addresses of users. Default: &#x60;false&#x60; (optional)
+     * @param  \Pipedrive\Model\NumberBooleanDefault0|null $search_by_email When enabled, the term will only be matched against email addresses of users. Default: &#x60;false&#x60;. (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
