@@ -1,6 +1,6 @@
 <?php
 /**
- * GetDealsRelatedObjects
+ * ParticipantsChangelogItem
  *
  * PHP version 7.3
  *
@@ -34,7 +34,7 @@ use JsonSerializable;
 use Pipedrive\ObjectSerializer;
 
 /**
- * GetDealsRelatedObjects Class Doc Comment
+ * ParticipantsChangelogItem Class Doc Comment
  *
  * @category Class
  * @package  Pipedrive
@@ -44,7 +44,7 @@ use Pipedrive\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class GetDealsRelatedObjects implements ModelInterface, ArrayAccess, JsonSerializable
+class ParticipantsChangelogItem implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -53,7 +53,7 @@ class GetDealsRelatedObjects implements ModelInterface, ArrayAccess, JsonSeriali
       *
       * @var string
       */
-    protected static string $openAPIModelName = 'GetDeals_related_objects';
+    protected static string $openAPIModelName = 'ParticipantsChangelogItem';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -63,9 +63,10 @@ class GetDealsRelatedObjects implements ModelInterface, ArrayAccess, JsonSeriali
       * @phpsalm-var array<string, string>
       */
     protected static array $openAPITypes = [
-        'user' => '\Pipedrive\Model\RelatedUserData',
-        'organization' => '\Pipedrive\Model\RelatedOrganizationDataWithActiveFlag',
-        'person' => '\Pipedrive\Model\RelatedPersonDataWithActiveFlag'
+        'actor_user_id' => 'int',
+        'person_id' => 'int',
+        'action' => 'string',
+        'time' => 'string'
     ];
 
     /**
@@ -76,9 +77,10 @@ class GetDealsRelatedObjects implements ModelInterface, ArrayAccess, JsonSeriali
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'user' => null,
-        'organization' => null,
-        'person' => null
+        'actor_user_id' => null,
+        'person_id' => null,
+        'action' => null,
+        'time' => null
     ];
 
     /**
@@ -112,9 +114,10 @@ class GetDealsRelatedObjects implements ModelInterface, ArrayAccess, JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
-        'user' => 'user',
-        'organization' => 'organization',
-        'person' => 'person'
+        'actor_user_id' => 'actor_user_id',
+        'person_id' => 'person_id',
+        'action' => 'action',
+        'time' => 'time'
     ];
 
     /**
@@ -123,9 +126,10 @@ class GetDealsRelatedObjects implements ModelInterface, ArrayAccess, JsonSeriali
      * @var string[]
      */
     protected static $setters = [
-        'user' => 'setUser',
-        'organization' => 'setOrganization',
-        'person' => 'setPerson'
+        'actor_user_id' => 'setActorUserId',
+        'person_id' => 'setPersonId',
+        'action' => 'setAction',
+        'time' => 'setTime'
     ];
 
     /**
@@ -134,9 +138,10 @@ class GetDealsRelatedObjects implements ModelInterface, ArrayAccess, JsonSeriali
      * @var string[]
      */
     protected static $getters = [
-        'user' => 'getUser',
-        'organization' => 'getOrganization',
-        'person' => 'getPerson'
+        'actor_user_id' => 'getActorUserId',
+        'person_id' => 'getPersonId',
+        'action' => 'getAction',
+        'time' => 'getTime'
     ];
 
     /**
@@ -206,9 +211,10 @@ class GetDealsRelatedObjects implements ModelInterface, ArrayAccess, JsonSeriali
      */
     public function __construct(array $data = null)
     {
-        $this->container['user'] = $data['user'] ?? null;
-        $this->container['organization'] = $data['organization'] ?? null;
-        $this->container['person'] = $data['person'] ?? null;
+        $this->container['actor_user_id'] = $data['actor_user_id'] ?? null;
+        $this->container['person_id'] = $data['person_id'] ?? null;
+        $this->container['action'] = $data['action'] ?? null;
+        $this->container['time'] = $data['time'] ?? null;
     }
 
     /**
@@ -238,73 +244,97 @@ class GetDealsRelatedObjects implements ModelInterface, ArrayAccess, JsonSeriali
 
 
     /**
-     * Gets user
+     * Gets actor_user_id
      *
-     * @return \Pipedrive\Model\RelatedUserData|null
+     * @return int|null
      */
-    public function getUser()
+    public function getActorUserId()
     {
-        return $this->container['user'];
+        return $this->container['actor_user_id'];
     }
 
     /**
-     * Sets user
+     * Sets actor_user_id
      *
-     * @param \Pipedrive\Model\RelatedUserData|null $user user
+     * @param int|null $actor_user_id The ID of the user
      *
      * @return self
      */
-    public function setUser($user): self
+    public function setActorUserId($actor_user_id): self
     {
-        $this->container['user'] = $user;
+        $this->container['actor_user_id'] = $actor_user_id;
 
         return $this;
     }
 
     /**
-     * Gets organization
+     * Gets person_id
      *
-     * @return \Pipedrive\Model\RelatedOrganizationDataWithActiveFlag|null
+     * @return int|null
      */
-    public function getOrganization()
+    public function getPersonId()
     {
-        return $this->container['organization'];
+        return $this->container['person_id'];
     }
 
     /**
-     * Sets organization
+     * Sets person_id
      *
-     * @param \Pipedrive\Model\RelatedOrganizationDataWithActiveFlag|null $organization organization
+     * @param int|null $person_id The ID of the person
      *
      * @return self
      */
-    public function setOrganization($organization): self
+    public function setPersonId($person_id): self
     {
-        $this->container['organization'] = $organization;
+        $this->container['person_id'] = $person_id;
 
         return $this;
     }
 
     /**
-     * Gets person
+     * Gets action
      *
-     * @return \Pipedrive\Model\RelatedPersonDataWithActiveFlag|null
+     * @return string|null
      */
-    public function getPerson()
+    public function getAction()
     {
-        return $this->container['person'];
+        return $this->container['action'];
     }
 
     /**
-     * Sets person
+     * Sets action
      *
-     * @param \Pipedrive\Model\RelatedPersonDataWithActiveFlag|null $person person
+     * @param string|null $action Deal participant action type
      *
      * @return self
      */
-    public function setPerson($person): self
+    public function setAction($action): self
     {
-        $this->container['person'] = $person;
+        $this->container['action'] = $action;
+
+        return $this;
+    }
+
+    /**
+     * Gets time
+     *
+     * @return string|null
+     */
+    public function getTime()
+    {
+        return $this->container['time'];
+    }
+
+    /**
+     * Sets time
+     *
+     * @param string|null $time The deal participant action log time
+     *
+     * @return self
+     */
+    public function setTime($time): self
+    {
+        $this->container['time'] = $time;
 
         return $this;
     }

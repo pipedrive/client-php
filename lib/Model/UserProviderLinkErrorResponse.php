@@ -1,6 +1,6 @@
 <?php
 /**
- * GetDealsRelatedObjects
+ * UserProviderLinkErrorResponse
  *
  * PHP version 7.3
  *
@@ -34,7 +34,7 @@ use JsonSerializable;
 use Pipedrive\ObjectSerializer;
 
 /**
- * GetDealsRelatedObjects Class Doc Comment
+ * UserProviderLinkErrorResponse Class Doc Comment
  *
  * @category Class
  * @package  Pipedrive
@@ -44,7 +44,7 @@ use Pipedrive\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class GetDealsRelatedObjects implements ModelInterface, ArrayAccess, JsonSerializable
+class UserProviderLinkErrorResponse implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -53,7 +53,7 @@ class GetDealsRelatedObjects implements ModelInterface, ArrayAccess, JsonSeriali
       *
       * @var string
       */
-    protected static string $openAPIModelName = 'GetDeals_related_objects';
+    protected static string $openAPIModelName = 'UserProviderLinkErrorResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -63,9 +63,8 @@ class GetDealsRelatedObjects implements ModelInterface, ArrayAccess, JsonSeriali
       * @phpsalm-var array<string, string>
       */
     protected static array $openAPITypes = [
-        'user' => '\Pipedrive\Model\RelatedUserData',
-        'organization' => '\Pipedrive\Model\RelatedOrganizationDataWithActiveFlag',
-        'person' => '\Pipedrive\Model\RelatedPersonDataWithActiveFlag'
+        'success' => 'bool',
+        'message' => 'string'
     ];
 
     /**
@@ -76,9 +75,8 @@ class GetDealsRelatedObjects implements ModelInterface, ArrayAccess, JsonSeriali
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'user' => null,
-        'organization' => null,
-        'person' => null
+        'success' => null,
+        'message' => null
     ];
 
     /**
@@ -112,9 +110,8 @@ class GetDealsRelatedObjects implements ModelInterface, ArrayAccess, JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
-        'user' => 'user',
-        'organization' => 'organization',
-        'person' => 'person'
+        'success' => 'success',
+        'message' => 'message'
     ];
 
     /**
@@ -123,9 +120,8 @@ class GetDealsRelatedObjects implements ModelInterface, ArrayAccess, JsonSeriali
      * @var string[]
      */
     protected static $setters = [
-        'user' => 'setUser',
-        'organization' => 'setOrganization',
-        'person' => 'setPerson'
+        'success' => 'setSuccess',
+        'message' => 'setMessage'
     ];
 
     /**
@@ -134,9 +130,8 @@ class GetDealsRelatedObjects implements ModelInterface, ArrayAccess, JsonSeriali
      * @var string[]
      */
     protected static $getters = [
-        'user' => 'getUser',
-        'organization' => 'getOrganization',
-        'person' => 'getPerson'
+        'success' => 'getSuccess',
+        'message' => 'getMessage'
     ];
 
     /**
@@ -206,9 +201,8 @@ class GetDealsRelatedObjects implements ModelInterface, ArrayAccess, JsonSeriali
      */
     public function __construct(array $data = null)
     {
-        $this->container['user'] = $data['user'] ?? null;
-        $this->container['organization'] = $data['organization'] ?? null;
-        $this->container['person'] = $data['person'] ?? null;
+        $this->container['success'] = $data['success'] ?? null;
+        $this->container['message'] = $data['message'] ?? null;
     }
 
     /**
@@ -238,73 +232,49 @@ class GetDealsRelatedObjects implements ModelInterface, ArrayAccess, JsonSeriali
 
 
     /**
-     * Gets user
+     * Gets success
      *
-     * @return \Pipedrive\Model\RelatedUserData|null
+     * @return bool|null
      */
-    public function getUser()
+    public function getSuccess()
     {
-        return $this->container['user'];
+        return $this->container['success'];
     }
 
     /**
-     * Sets user
+     * Sets success
      *
-     * @param \Pipedrive\Model\RelatedUserData|null $user user
+     * @param bool|null $success Boolean that indicates whether the request was successful or not
      *
      * @return self
      */
-    public function setUser($user): self
+    public function setSuccess($success): self
     {
-        $this->container['user'] = $user;
+        $this->container['success'] = $success;
 
         return $this;
     }
 
     /**
-     * Gets organization
+     * Gets message
      *
-     * @return \Pipedrive\Model\RelatedOrganizationDataWithActiveFlag|null
+     * @return string|null
      */
-    public function getOrganization()
+    public function getMessage()
     {
-        return $this->container['organization'];
+        return $this->container['message'];
     }
 
     /**
-     * Sets organization
+     * Sets message
      *
-     * @param \Pipedrive\Model\RelatedOrganizationDataWithActiveFlag|null $organization organization
+     * @param string|null $message The error message of the request
      *
      * @return self
      */
-    public function setOrganization($organization): self
+    public function setMessage($message): self
     {
-        $this->container['organization'] = $organization;
-
-        return $this;
-    }
-
-    /**
-     * Gets person
-     *
-     * @return \Pipedrive\Model\RelatedPersonDataWithActiveFlag|null
-     */
-    public function getPerson()
-    {
-        return $this->container['person'];
-    }
-
-    /**
-     * Sets person
-     *
-     * @param \Pipedrive\Model\RelatedPersonDataWithActiveFlag|null $person person
-     *
-     * @return self
-     */
-    public function setPerson($person): self
-    {
-        $this->container['person'] = $person;
+        $this->container['message'] = $message;
 
         return $this;
     }

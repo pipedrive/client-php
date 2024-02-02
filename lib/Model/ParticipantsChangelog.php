@@ -1,6 +1,6 @@
 <?php
 /**
- * GetDealsRelatedObjects
+ * ParticipantsChangelog
  *
  * PHP version 7.3
  *
@@ -34,7 +34,7 @@ use JsonSerializable;
 use Pipedrive\ObjectSerializer;
 
 /**
- * GetDealsRelatedObjects Class Doc Comment
+ * ParticipantsChangelog Class Doc Comment
  *
  * @category Class
  * @package  Pipedrive
@@ -44,7 +44,7 @@ use Pipedrive\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class GetDealsRelatedObjects implements ModelInterface, ArrayAccess, JsonSerializable
+class ParticipantsChangelog implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -53,7 +53,7 @@ class GetDealsRelatedObjects implements ModelInterface, ArrayAccess, JsonSeriali
       *
       * @var string
       */
-    protected static string $openAPIModelName = 'GetDeals_related_objects';
+    protected static string $openAPIModelName = 'ParticipantsChangelog';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -63,9 +63,9 @@ class GetDealsRelatedObjects implements ModelInterface, ArrayAccess, JsonSeriali
       * @phpsalm-var array<string, string>
       */
     protected static array $openAPITypes = [
-        'user' => '\Pipedrive\Model\RelatedUserData',
-        'organization' => '\Pipedrive\Model\RelatedOrganizationDataWithActiveFlag',
-        'person' => '\Pipedrive\Model\RelatedPersonDataWithActiveFlag'
+        'success' => 'bool',
+        'data' => '\Pipedrive\Model\ParticipantsChangelogItem[]',
+        'additional_data' => '\Pipedrive\Model\AdditionalData'
     ];
 
     /**
@@ -76,9 +76,9 @@ class GetDealsRelatedObjects implements ModelInterface, ArrayAccess, JsonSeriali
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'user' => null,
-        'organization' => null,
-        'person' => null
+        'success' => null,
+        'data' => null,
+        'additional_data' => null
     ];
 
     /**
@@ -112,9 +112,9 @@ class GetDealsRelatedObjects implements ModelInterface, ArrayAccess, JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
-        'user' => 'user',
-        'organization' => 'organization',
-        'person' => 'person'
+        'success' => 'success',
+        'data' => 'data',
+        'additional_data' => 'additional_data'
     ];
 
     /**
@@ -123,9 +123,9 @@ class GetDealsRelatedObjects implements ModelInterface, ArrayAccess, JsonSeriali
      * @var string[]
      */
     protected static $setters = [
-        'user' => 'setUser',
-        'organization' => 'setOrganization',
-        'person' => 'setPerson'
+        'success' => 'setSuccess',
+        'data' => 'setData',
+        'additional_data' => 'setAdditionalData'
     ];
 
     /**
@@ -134,9 +134,9 @@ class GetDealsRelatedObjects implements ModelInterface, ArrayAccess, JsonSeriali
      * @var string[]
      */
     protected static $getters = [
-        'user' => 'getUser',
-        'organization' => 'getOrganization',
-        'person' => 'getPerson'
+        'success' => 'getSuccess',
+        'data' => 'getData',
+        'additional_data' => 'getAdditionalData'
     ];
 
     /**
@@ -206,9 +206,9 @@ class GetDealsRelatedObjects implements ModelInterface, ArrayAccess, JsonSeriali
      */
     public function __construct(array $data = null)
     {
-        $this->container['user'] = $data['user'] ?? null;
-        $this->container['organization'] = $data['organization'] ?? null;
-        $this->container['person'] = $data['person'] ?? null;
+        $this->container['success'] = $data['success'] ?? null;
+        $this->container['data'] = $data['data'] ?? null;
+        $this->container['additional_data'] = $data['additional_data'] ?? null;
     }
 
     /**
@@ -238,73 +238,73 @@ class GetDealsRelatedObjects implements ModelInterface, ArrayAccess, JsonSeriali
 
 
     /**
-     * Gets user
+     * Gets success
      *
-     * @return \Pipedrive\Model\RelatedUserData|null
+     * @return bool|null
      */
-    public function getUser()
+    public function getSuccess()
     {
-        return $this->container['user'];
+        return $this->container['success'];
     }
 
     /**
-     * Sets user
+     * Sets success
      *
-     * @param \Pipedrive\Model\RelatedUserData|null $user user
+     * @param bool|null $success If the request was successful or not
      *
      * @return self
      */
-    public function setUser($user): self
+    public function setSuccess($success): self
     {
-        $this->container['user'] = $user;
+        $this->container['success'] = $success;
 
         return $this;
     }
 
     /**
-     * Gets organization
+     * Gets data
      *
-     * @return \Pipedrive\Model\RelatedOrganizationDataWithActiveFlag|null
+     * @return \Pipedrive\Model\ParticipantsChangelogItem[]|null
      */
-    public function getOrganization()
+    public function getData()
     {
-        return $this->container['organization'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets organization
+     * Sets data
      *
-     * @param \Pipedrive\Model\RelatedOrganizationDataWithActiveFlag|null $organization organization
+     * @param \Pipedrive\Model\ParticipantsChangelogItem[]|null $data The array of participant changelog
      *
      * @return self
      */
-    public function setOrganization($organization): self
+    public function setData($data): self
     {
-        $this->container['organization'] = $organization;
+        $this->container['data'] = $data;
 
         return $this;
     }
 
     /**
-     * Gets person
+     * Gets additional_data
      *
-     * @return \Pipedrive\Model\RelatedPersonDataWithActiveFlag|null
+     * @return \Pipedrive\Model\AdditionalData|null
      */
-    public function getPerson()
+    public function getAdditionalData()
     {
-        return $this->container['person'];
+        return $this->container['additional_data'];
     }
 
     /**
-     * Sets person
+     * Sets additional_data
      *
-     * @param \Pipedrive\Model\RelatedPersonDataWithActiveFlag|null $person person
+     * @param \Pipedrive\Model\AdditionalData|null $additional_data additional_data
      *
      * @return self
      */
-    public function setPerson($person): self
+    public function setAdditionalData($additional_data): self
     {
-        $this->container['person'] = $person;
+        $this->container['additional_data'] = $additional_data;
 
         return $this;
     }

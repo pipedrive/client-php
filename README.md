@@ -349,6 +349,7 @@ Class | Method | HTTP request | Description
 *DealsApi* | [**getDealFollowers**](docs/Api/DealsApi.md#getdealfollowers) | **GET** /deals/{id}/followers | List followers of a deal
 *DealsApi* | [**getDealMailMessages**](docs/Api/DealsApi.md#getdealmailmessages) | **GET** /deals/{id}/mailMessages | List mail messages associated with a deal
 *DealsApi* | [**getDealParticipants**](docs/Api/DealsApi.md#getdealparticipants) | **GET** /deals/{id}/participants | List participants of a deal
+*DealsApi* | [**getDealParticipantsChangelog**](docs/Api/DealsApi.md#getdealparticipantschangelog) | **GET** /deals/{id}/participantsChangelog | List updates about participants of a deal
 *DealsApi* | [**getDealPersons**](docs/Api/DealsApi.md#getdealpersons) | **GET** /deals/{id}/persons | List all persons associated with a deal
 *DealsApi* | [**getDealProducts**](docs/Api/DealsApi.md#getdealproducts) | **GET** /deals/{id}/products | List products attached to a deal
 *DealsApi* | [**getDealUpdates**](docs/Api/DealsApi.md#getdealupdates) | **GET** /deals/{id}/flow | List updates about a deal
@@ -409,6 +410,8 @@ Class | Method | HTTP request | Description
 *MailboxApi* | [**getMailThreadMessages**](docs/Api/MailboxApi.md#getmailthreadmessages) | **GET** /mailbox/mailThreads/{id}/mailMessages | Get all mail messages of mail thread
 *MailboxApi* | [**getMailThreads**](docs/Api/MailboxApi.md#getmailthreads) | **GET** /mailbox/mailThreads | Get mail threads
 *MailboxApi* | [**updateMailThreadDetails**](docs/Api/MailboxApi.md#updatemailthreaddetails) | **PUT** /mailbox/mailThreads/{id} | Update mail thread details
+*MeetingsApi* | [**deleteUserProviderLink**](docs/Api/MeetingsApi.md#deleteuserproviderlink) | **DELETE** /meetings/userProviderLinks/{id} | Delete the link between a user and the installed video call integration
+*MeetingsApi* | [**saveUserProviderLink**](docs/Api/MeetingsApi.md#saveuserproviderlink) | **POST** /meetings/userProviderLinks | Link a user with the installed video call integration
 *NoteFieldsApi* | [**getNoteFields**](docs/Api/NoteFieldsApi.md#getnotefields) | **GET** /noteFields | Get all note fields
 *NotesApi* | [**addNote**](docs/Api/NotesApi.md#addnote) | **POST** /notes | Add a note
 *NotesApi* | [**addNoteComment**](docs/Api/NotesApi.md#addnotecomment) | **POST** /notes/{id}/comments | Add a comment to a note
@@ -743,6 +746,7 @@ Class | Method | HTTP request | Description
  - [DealOrganizationDataWithIdAllOf](docs/Model/DealOrganizationDataWithIdAllOf.md)
  - [DealParticipantCountInfo](docs/Model/DealParticipantCountInfo.md)
  - [DealParticipants](docs/Model/DealParticipants.md)
+ - [DealParticipantsChangelog](docs/Model/DealParticipantsChangelog.md)
  - [DealPersonData](docs/Model/DealPersonData.md)
  - [DealPersonDataEmail](docs/Model/DealPersonDataEmail.md)
  - [DealPersonDataPhone](docs/Model/DealPersonDataPhone.md)
@@ -893,6 +897,7 @@ Class | Method | HTTP request | Description
  - [GetComments](docs/Model/GetComments.md)
  - [GetDeal](docs/Model/GetDeal.md)
  - [GetDealAdditionalData](docs/Model/GetDealAdditionalData.md)
+ - [GetDealRelatedObjects](docs/Model/GetDealRelatedObjects.md)
  - [GetDeals](docs/Model/GetDeals.md)
  - [GetDealsCollection](docs/Model/GetDealsCollection.md)
  - [GetDealsConversionRatesInPipeline](docs/Model/GetDealsConversionRatesInPipeline.md)
@@ -1147,6 +1152,8 @@ Class | Method | HTTP request | Description
  - [PaginationDetails](docs/Model/PaginationDetails.md)
  - [PaginationDetailsAllOf](docs/Model/PaginationDetailsAllOf.md)
  - [Params](docs/Model/Params.md)
+ - [ParticipantsChangelog](docs/Model/ParticipantsChangelog.md)
+ - [ParticipantsChangelogItem](docs/Model/ParticipantsChangelogItem.md)
  - [PaymentItem](docs/Model/PaymentItem.md)
  - [PaymentsResponse](docs/Model/PaymentsResponse.md)
  - [PaymentsResponseAllOf](docs/Model/PaymentsResponseAllOf.md)
@@ -1190,6 +1197,7 @@ Class | Method | HTTP request | Description
  - [PipelineDetailsAllOf](docs/Model/PipelineDetailsAllOf.md)
  - [PostComment](docs/Model/PostComment.md)
  - [PostDealParticipants](docs/Model/PostDealParticipants.md)
+ - [PostDealParticipantsRelatedObjects](docs/Model/PostDealParticipantsRelatedObjects.md)
  - [PostGoalResponse](docs/Model/PostGoalResponse.md)
  - [PostNote](docs/Model/PostNote.md)
  - [PostRoleAssignment](docs/Model/PostRoleAssignment.md)
@@ -1351,6 +1359,10 @@ Class | Method | HTTP request | Description
  - [UserPermissions](docs/Model/UserPermissions.md)
  - [UserPermissionsAllOf](docs/Model/UserPermissionsAllOf.md)
  - [UserPermissionsItem](docs/Model/UserPermissionsItem.md)
+ - [UserProviderLinkCreateRequest](docs/Model/UserProviderLinkCreateRequest.md)
+ - [UserProviderLinkErrorResponse](docs/Model/UserProviderLinkErrorResponse.md)
+ - [UserProviderLinkSuccessResponse](docs/Model/UserProviderLinkSuccessResponse.md)
+ - [UserProviderLinkSuccessResponseData](docs/Model/UserProviderLinkSuccessResponseData.md)
  - [UserSettings](docs/Model/UserSettings.md)
  - [UserSettingsAllOf](docs/Model/UserSettingsAllOf.md)
  - [UserSettingsItem](docs/Model/UserSettingsItem.md)
@@ -1378,6 +1390,13 @@ Class | Method | HTTP request | Description
 - **API key parameter name**: api_token
 - **Location**: URL query string
 
+
+
+
+## basic_authentication
+
+
+- **Type**: HTTP basic authentication
 
 
 

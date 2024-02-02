@@ -321,6 +321,9 @@ $config = (new Pipedrive\Configuration())->setApiKey('api_token', 'YOUR_API_KEY'
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = (new Pipedrive\Configuration())->setApiKeyPrefix('api_token', 'Bearer');
 
+// Configure OAuth2 access token for authorization: oauth2
+$config = (new Pipedrive\Configuration())->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Pipedrive\Api\PersonsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -352,7 +355,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -931,6 +934,9 @@ $config = (new Pipedrive\Configuration())->setApiKey('api_token', 'YOUR_API_KEY'
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = (new Pipedrive\Configuration())->setApiKeyPrefix('api_token', 'Bearer');
 
+// Configure OAuth2 access token for authorization: oauth2
+$config = (new Pipedrive\Configuration())->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Pipedrive\Api\PersonsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -964,7 +970,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -1011,7 +1017,7 @@ $id = 56; // int | The ID of the person
 $start = 0; // int | Pagination start
 $limit = 56; // int | Items shown per page
 $all_changes = 'all_changes_example'; // string | Whether to show custom field updates or not. 1 = Include custom field changes. If omitted returns changes without custom field updates.
-$items = 'items_example'; // string | A comma-separated string for filtering out item specific updates. (Possible values - call, activity, plannedActivity, change, note, deal, file, dealChange, personChange, organizationChange, follower, dealFollower, personFollower, organizationFollower, participant, comment, mailMessage, mailMessageWithAttachment, invoice, document, marketing_campaign_stat, marketing_status_change)
+$items = 'items_example'; // string | A comma-separated string for filtering out item specific updates. (Possible values - call, activity, plannedActivity, change, note, deal, file, dealChange, personChange, organizationChange, follower, dealFollower, personFollower, organizationFollower, participant, comment, mailMessage, mailMessageWithAttachment, invoice, document, marketing_campaign_stat, marketing_status_change).
 
 try {
     $result = $apiInstance->getPersonUpdates($id, $start, $limit, $all_changes, $items);
@@ -1029,7 +1035,7 @@ Name | Type | Description  | Notes
  **start** | **int**| Pagination start | [optional] [default to 0]
  **limit** | **int**| Items shown per page | [optional]
  **all_changes** | **string**| Whether to show custom field updates or not. 1 &#x3D; Include custom field changes. If omitted returns changes without custom field updates. | [optional]
- **items** | **string**| A comma-separated string for filtering out item specific updates. (Possible values - call, activity, plannedActivity, change, note, deal, file, dealChange, personChange, organizationChange, follower, dealFollower, personFollower, organizationFollower, participant, comment, mailMessage, mailMessageWithAttachment, invoice, document, marketing_campaign_stat, marketing_status_change) | [optional]
+ **items** | **string**| A comma-separated string for filtering out item specific updates. (Possible values - call, activity, plannedActivity, change, note, deal, file, dealChange, personChange, organizationChange, follower, dealFollower, personFollower, organizationFollower, participant, comment, mailMessage, mailMessageWithAttachment, invoice, document, marketing_campaign_stat, marketing_status_change). | [optional]
 
 ### Return type
 
@@ -1070,6 +1076,9 @@ $config = (new Pipedrive\Configuration())->setApiKey('api_token', 'YOUR_API_KEY'
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = (new Pipedrive\Configuration())->setApiKeyPrefix('api_token', 'Bearer');
 
+// Configure OAuth2 access token for authorization: oauth2
+$config = (new Pipedrive\Configuration())->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Pipedrive\Api\PersonsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -1099,7 +1108,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
 
 ### HTTP request headers
 
