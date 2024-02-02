@@ -74,6 +74,9 @@ class NewDeal implements ModelInterface, ArrayAccess, JsonSerializable
         'stage_id' => 'int',
         'status' => 'string',
         'add_time' => 'string',
+        'won_time' => 'string',
+        'lost_time' => 'string',
+        'close_time' => 'string',
         'expected_close_date' => '\DateTime',
         'probability' => 'float',
         'lost_reason' => 'string',
@@ -99,6 +102,9 @@ class NewDeal implements ModelInterface, ArrayAccess, JsonSerializable
         'stage_id' => null,
         'status' => null,
         'add_time' => null,
+        'won_time' => null,
+        'lost_time' => null,
+        'close_time' => null,
         'expected_close_date' => 'date',
         'probability' => null,
         'lost_reason' => null,
@@ -147,6 +153,9 @@ class NewDeal implements ModelInterface, ArrayAccess, JsonSerializable
         'stage_id' => 'stage_id',
         'status' => 'status',
         'add_time' => 'add_time',
+        'won_time' => 'won_time',
+        'lost_time' => 'lost_time',
+        'close_time' => 'close_time',
         'expected_close_date' => 'expected_close_date',
         'probability' => 'probability',
         'lost_reason' => 'lost_reason',
@@ -170,6 +179,9 @@ class NewDeal implements ModelInterface, ArrayAccess, JsonSerializable
         'stage_id' => 'setStageId',
         'status' => 'setStatus',
         'add_time' => 'setAddTime',
+        'won_time' => 'setWonTime',
+        'lost_time' => 'setLostTime',
+        'close_time' => 'setCloseTime',
         'expected_close_date' => 'setExpectedCloseDate',
         'probability' => 'setProbability',
         'lost_reason' => 'setLostReason',
@@ -193,6 +205,9 @@ class NewDeal implements ModelInterface, ArrayAccess, JsonSerializable
         'stage_id' => 'getStageId',
         'status' => 'getStatus',
         'add_time' => 'getAddTime',
+        'won_time' => 'getWonTime',
+        'lost_time' => 'getLostTime',
+        'close_time' => 'getCloseTime',
         'expected_close_date' => 'getExpectedCloseDate',
         'probability' => 'getProbability',
         'lost_reason' => 'getLostReason',
@@ -298,6 +313,9 @@ class NewDeal implements ModelInterface, ArrayAccess, JsonSerializable
         $this->container['stage_id'] = $data['stage_id'] ?? null;
         $this->container['status'] = $data['status'] ?? null;
         $this->container['add_time'] = $data['add_time'] ?? null;
+        $this->container['won_time'] = $data['won_time'] ?? null;
+        $this->container['lost_time'] = $data['lost_time'] ?? null;
+        $this->container['close_time'] = $data['close_time'] ?? null;
         $this->container['expected_close_date'] = $data['expected_close_date'] ?? null;
         $this->container['probability'] = $data['probability'] ?? null;
         $this->container['lost_reason'] = $data['lost_reason'] ?? null;
@@ -612,6 +630,78 @@ class NewDeal implements ModelInterface, ArrayAccess, JsonSerializable
     public function setAddTime($add_time): self
     {
         $this->container['add_time'] = $add_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets won_time
+     *
+     * @return string|null
+     */
+    public function getWonTime()
+    {
+        return $this->container['won_time'];
+    }
+
+    /**
+     * Sets won_time
+     *
+     * @param string|null $won_time The optional date and time of changing the deal status as won in UTC. Format: YYYY-MM-DD HH:MM:SS. Can be set only when deal `status` is already Won. Can not be used together with `lost_time`.
+     *
+     * @return self
+     */
+    public function setWonTime($won_time): self
+    {
+        $this->container['won_time'] = $won_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets lost_time
+     *
+     * @return string|null
+     */
+    public function getLostTime()
+    {
+        return $this->container['lost_time'];
+    }
+
+    /**
+     * Sets lost_time
+     *
+     * @param string|null $lost_time The optional date and time of changing the deal status as lost in UTC. Format: YYYY-MM-DD HH:MM:SS. Can be set only when deal `status` is already Lost. Can not be used together with `won_time`.
+     *
+     * @return self
+     */
+    public function setLostTime($lost_time): self
+    {
+        $this->container['lost_time'] = $lost_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets close_time
+     *
+     * @return string|null
+     */
+    public function getCloseTime()
+    {
+        return $this->container['close_time'];
+    }
+
+    /**
+     * Sets close_time
+     *
+     * @param string|null $close_time The optional date and time of closing the deal in UTC. Format: YYYY-MM-DD HH:MM:SS.
+     *
+     * @return self
+     */
+    public function setCloseTime($close_time): self
+    {
+        $this->container['close_time'] = $close_time;
 
         return $this;
     }

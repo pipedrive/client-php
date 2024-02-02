@@ -63,6 +63,9 @@ class BasicDeal implements ModelInterface, ArrayAccess, JsonSerializable
       * @phpsalm-var array<string, string>
       */
     protected static array $openAPITypes = [
+        'won_time' => 'string',
+        'lost_time' => 'string',
+        'close_time' => 'string',
         'expected_close_date' => '\DateTime',
         'probability' => 'float',
         'lost_reason' => 'string',
@@ -77,6 +80,9 @@ class BasicDeal implements ModelInterface, ArrayAccess, JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'won_time' => null,
+        'lost_time' => null,
+        'close_time' => null,
         'expected_close_date' => 'date',
         'probability' => null,
         'lost_reason' => null,
@@ -114,6 +120,9 @@ class BasicDeal implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'won_time' => 'won_time',
+        'lost_time' => 'lost_time',
+        'close_time' => 'close_time',
         'expected_close_date' => 'expected_close_date',
         'probability' => 'probability',
         'lost_reason' => 'lost_reason',
@@ -126,6 +135,9 @@ class BasicDeal implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'won_time' => 'setWonTime',
+        'lost_time' => 'setLostTime',
+        'close_time' => 'setCloseTime',
         'expected_close_date' => 'setExpectedCloseDate',
         'probability' => 'setProbability',
         'lost_reason' => 'setLostReason',
@@ -138,6 +150,9 @@ class BasicDeal implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'won_time' => 'getWonTime',
+        'lost_time' => 'getLostTime',
+        'close_time' => 'getCloseTime',
         'expected_close_date' => 'getExpectedCloseDate',
         'probability' => 'getProbability',
         'lost_reason' => 'getLostReason',
@@ -211,6 +226,9 @@ class BasicDeal implements ModelInterface, ArrayAccess, JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->container['won_time'] = $data['won_time'] ?? null;
+        $this->container['lost_time'] = $data['lost_time'] ?? null;
+        $this->container['close_time'] = $data['close_time'] ?? null;
         $this->container['expected_close_date'] = $data['expected_close_date'] ?? null;
         $this->container['probability'] = $data['probability'] ?? null;
         $this->container['lost_reason'] = $data['lost_reason'] ?? null;
@@ -242,6 +260,78 @@ class BasicDeal implements ModelInterface, ArrayAccess, JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets won_time
+     *
+     * @return string|null
+     */
+    public function getWonTime()
+    {
+        return $this->container['won_time'];
+    }
+
+    /**
+     * Sets won_time
+     *
+     * @param string|null $won_time The optional date and time of changing the deal status as won in UTC. Format: YYYY-MM-DD HH:MM:SS. Can be set only when deal `status` is already Won. Can not be used together with `lost_time`.
+     *
+     * @return self
+     */
+    public function setWonTime($won_time): self
+    {
+        $this->container['won_time'] = $won_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets lost_time
+     *
+     * @return string|null
+     */
+    public function getLostTime()
+    {
+        return $this->container['lost_time'];
+    }
+
+    /**
+     * Sets lost_time
+     *
+     * @param string|null $lost_time The optional date and time of changing the deal status as lost in UTC. Format: YYYY-MM-DD HH:MM:SS. Can be set only when deal `status` is already Lost. Can not be used together with `won_time`.
+     *
+     * @return self
+     */
+    public function setLostTime($lost_time): self
+    {
+        $this->container['lost_time'] = $lost_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets close_time
+     *
+     * @return string|null
+     */
+    public function getCloseTime()
+    {
+        return $this->container['close_time'];
+    }
+
+    /**
+     * Sets close_time
+     *
+     * @param string|null $close_time The optional date and time of closing the deal in UTC. Format: YYYY-MM-DD HH:MM:SS.
+     *
+     * @return self
+     */
+    public function setCloseTime($close_time): self
+    {
+        $this->container['close_time'] = $close_time;
+
+        return $this;
+    }
 
     /**
      * Gets expected_close_date
