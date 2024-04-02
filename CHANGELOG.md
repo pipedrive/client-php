@@ -8,6 +8,26 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - Added documentation for new endpoint `/deals/{id}/participantsChangelog`.
 
+## [6.5.1](https://github.com/pipedrive/client-php/compare/6.5.0...6.5.1) (2024-04-02)
+
+### Added
+- `won_time`, `lost_time` and `close_time` parameters for the `POST /v1/deals` and `PUT /v1/deals/{id}` endpoints
+
+## [6.5.0](https://github.com/pipedrive/client-php/compare/6.4.0...6.5.0) (2024-04-02)
+
+### Added
+- Documentation for `/meetings/userProviderLinks` endpoints
+
+## [6.4.0](https://github.com/pipedrive/client-php/compare/6.3.1...6.4.0) (2024-04-02)
+
+### Added
+- `lead_id` as an acceptable body parameter for the `POST /v1/callLogs` endpoint
+
+## [6.3.1](https://github.com/pipedrive/client-php/compare/6.3.0...6.3.1) (2024-04-02)
+
+### Fixed
+- Mismatches of YAML responses in related_objects of some deal endpoints
+
 ## [6.3.0](https://github.com/pipedrive/client-php/compare/6.2.0...6.3.0) (2023-10-16)
 
 - Add `Projects`, `ProjectTemplates` and `Tasks` public routes.
