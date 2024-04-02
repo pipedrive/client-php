@@ -22,6 +22,7 @@ docs/Api/LeadSourcesApi.md
 docs/Api/LeadsApi.md
 docs/Api/LegacyTeamsApi.md
 docs/Api/MailboxApi.md
+docs/Api/MeetingsApi.md
 docs/Api/NoteFieldsApi.md
 docs/Api/NotesApi.md
 docs/Api/OrganizationFieldsApi.md
@@ -820,6 +821,10 @@ docs/Model/UserMeAllOf.md
 docs/Model/UserPermissions.md
 docs/Model/UserPermissionsAllOf.md
 docs/Model/UserPermissionsItem.md
+docs/Model/UserProviderLinkCreateRequest.md
+docs/Model/UserProviderLinkErrorResponse.md
+docs/Model/UserProviderLinkSuccessResponse.md
+docs/Model/UserProviderLinkSuccessResponseData.md
 docs/Model/UserSettings.md
 docs/Model/UserSettingsAllOf.md
 docs/Model/UserSettingsItem.md
@@ -853,6 +858,7 @@ lib/Api/LeadSourcesApi.php
 lib/Api/LeadsApi.php
 lib/Api/LegacyTeamsApi.php
 lib/Api/MailboxApi.php
+lib/Api/MeetingsApi.php
 lib/Api/NoteFieldsApi.php
 lib/Api/NotesApi.php
 lib/Api/OrganizationFieldsApi.php
@@ -1657,6 +1663,10 @@ lib/Model/UserMeAllOf.php
 lib/Model/UserPermissions.php
 lib/Model/UserPermissionsAllOf.php
 lib/Model/UserPermissionsItem.php
+lib/Model/UserProviderLinkCreateRequest.php
+lib/Model/UserProviderLinkErrorResponse.php
+lib/Model/UserProviderLinkSuccessResponse.php
+lib/Model/UserProviderLinkSuccessResponseData.php
 lib/Model/UserSettings.php
 lib/Model/UserSettingsAllOf.php
 lib/Model/UserSettingsItem.php
