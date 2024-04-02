@@ -1656,6 +1656,14 @@ class PersonsApi
         if ($apiKey !== null) {
             $queryParams['api_token'] = $apiKey;
         }
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            // If access token is expired
+            if ($this->config->isRefreshPossible() && $this->config->getExpiresAt() <= time()) {
+                $this->config->refreshToken();
+            }
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -4507,6 +4515,14 @@ class PersonsApi
         if ($apiKey !== null) {
             $queryParams['api_token'] = $apiKey;
         }
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            // If access token is expired
+            if ($this->config->isRefreshPossible() && $this->config->getExpiresAt() <= time()) {
+                $this->config->refreshToken();
+            }
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -5142,6 +5158,14 @@ class PersonsApi
         $apiKey = $this->config->getApiKeyWithPrefix('api_token');
         if ($apiKey !== null) {
             $queryParams['api_token'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            // If access token is expired
+            if ($this->config->isRefreshPossible() && $this->config->getExpiresAt() <= time()) {
+                $this->config->refreshToken();
+            }
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];

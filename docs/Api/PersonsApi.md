@@ -321,6 +321,9 @@ $config = (new Pipedrive\Configuration())->setApiKey('api_token', 'YOUR_API_KEY'
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = (new Pipedrive\Configuration())->setApiKeyPrefix('api_token', 'Bearer');
 
+// Configure OAuth2 access token for authorization: oauth2
+$config = (new Pipedrive\Configuration())->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Pipedrive\Api\PersonsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -352,7 +355,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -931,6 +934,9 @@ $config = (new Pipedrive\Configuration())->setApiKey('api_token', 'YOUR_API_KEY'
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = (new Pipedrive\Configuration())->setApiKeyPrefix('api_token', 'Bearer');
 
+// Configure OAuth2 access token for authorization: oauth2
+$config = (new Pipedrive\Configuration())->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Pipedrive\Api\PersonsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -964,7 +970,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -1070,6 +1076,9 @@ $config = (new Pipedrive\Configuration())->setApiKey('api_token', 'YOUR_API_KEY'
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = (new Pipedrive\Configuration())->setApiKeyPrefix('api_token', 'Bearer');
 
+// Configure OAuth2 access token for authorization: oauth2
+$config = (new Pipedrive\Configuration())->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Pipedrive\Api\PersonsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -1099,7 +1108,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
 
 ### HTTP request headers
 
