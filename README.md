@@ -349,6 +349,7 @@ Class | Method | HTTP request | Description
 *DealsApi* | [**getDealFollowers**](docs/Api/DealsApi.md#getdealfollowers) | **GET** /deals/{id}/followers | List followers of a deal
 *DealsApi* | [**getDealMailMessages**](docs/Api/DealsApi.md#getdealmailmessages) | **GET** /deals/{id}/mailMessages | List mail messages associated with a deal
 *DealsApi* | [**getDealParticipants**](docs/Api/DealsApi.md#getdealparticipants) | **GET** /deals/{id}/participants | List participants of a deal
+*DealsApi* | [**getDealParticipantsChangelog**](docs/Api/DealsApi.md#getdealparticipantschangelog) | **GET** /deals/{id}/participantsChangelog | List updates about participants of a deal
 *DealsApi* | [**getDealPersons**](docs/Api/DealsApi.md#getdealpersons) | **GET** /deals/{id}/persons | List all persons associated with a deal
 *DealsApi* | [**getDealProducts**](docs/Api/DealsApi.md#getdealproducts) | **GET** /deals/{id}/products | List products attached to a deal
 *DealsApi* | [**getDealUpdates**](docs/Api/DealsApi.md#getdealupdates) | **GET** /deals/{id}/flow | List updates about a deal
@@ -745,6 +746,7 @@ Class | Method | HTTP request | Description
  - [DealOrganizationDataWithIdAllOf](docs/Model/DealOrganizationDataWithIdAllOf.md)
  - [DealParticipantCountInfo](docs/Model/DealParticipantCountInfo.md)
  - [DealParticipants](docs/Model/DealParticipants.md)
+ - [DealParticipantsChangelog](docs/Model/DealParticipantsChangelog.md)
  - [DealPersonData](docs/Model/DealPersonData.md)
  - [DealPersonDataEmail](docs/Model/DealPersonDataEmail.md)
  - [DealPersonDataPhone](docs/Model/DealPersonDataPhone.md)
@@ -1150,6 +1152,8 @@ Class | Method | HTTP request | Description
  - [PaginationDetails](docs/Model/PaginationDetails.md)
  - [PaginationDetailsAllOf](docs/Model/PaginationDetailsAllOf.md)
  - [Params](docs/Model/Params.md)
+ - [ParticipantsChangelog](docs/Model/ParticipantsChangelog.md)
+ - [ParticipantsChangelogItem](docs/Model/ParticipantsChangelogItem.md)
  - [PaymentItem](docs/Model/PaymentItem.md)
  - [PaymentsResponse](docs/Model/PaymentsResponse.md)
  - [PaymentsResponseAllOf](docs/Model/PaymentsResponseAllOf.md)

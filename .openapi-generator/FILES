@@ -211,6 +211,7 @@ docs/Model/DealOrganizationDataWithId.md
 docs/Model/DealOrganizationDataWithIdAllOf.md
 docs/Model/DealParticipantCountInfo.md
 docs/Model/DealParticipants.md
+docs/Model/DealParticipantsChangelog.md
 docs/Model/DealPersonData.md
 docs/Model/DealPersonDataEmail.md
 docs/Model/DealPersonDataPhone.md
@@ -616,6 +617,8 @@ docs/Model/OwnerAllOf.md
 docs/Model/PaginationDetails.md
 docs/Model/PaginationDetailsAllOf.md
 docs/Model/Params.md
+docs/Model/ParticipantsChangelog.md
+docs/Model/ParticipantsChangelogItem.md
 docs/Model/PaymentItem.md
 docs/Model/PaymentsResponse.md
 docs/Model/PaymentsResponseAllOf.md
@@ -1052,6 +1055,7 @@ lib/Model/DealOrganizationDataWithId.php
 lib/Model/DealOrganizationDataWithIdAllOf.php
 lib/Model/DealParticipantCountInfo.php
 lib/Model/DealParticipants.php
+lib/Model/DealParticipantsChangelog.php
 lib/Model/DealPersonData.php
 lib/Model/DealPersonDataEmail.php
 lib/Model/DealPersonDataPhone.php
@@ -1458,6 +1462,8 @@ lib/Model/OwnerAllOf.php
 lib/Model/PaginationDetails.php
 lib/Model/PaginationDetailsAllOf.php
 lib/Model/Params.php
+lib/Model/ParticipantsChangelog.php
+lib/Model/ParticipantsChangelogItem.php
 lib/Model/PaymentItem.php
 lib/Model/PaymentsResponse.php
 lib/Model/PaymentsResponseAllOf.php

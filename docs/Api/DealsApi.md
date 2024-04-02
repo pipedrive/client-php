@@ -20,6 +20,7 @@ Method | HTTP request | Description
 [**getDealFollowers()**](DealsApi.md#getDealFollowers) | **GET** /deals/{id}/followers | List followers of a deal
 [**getDealMailMessages()**](DealsApi.md#getDealMailMessages) | **GET** /deals/{id}/mailMessages | List mail messages associated with a deal
 [**getDealParticipants()**](DealsApi.md#getDealParticipants) | **GET** /deals/{id}/participants | List participants of a deal
+[**getDealParticipantsChangelog()**](DealsApi.md#getDealParticipantsChangelog) | **GET** /deals/{id}/participantsChangelog | List updates about participants of a deal
 [**getDealPersons()**](DealsApi.md#getDealPersons) | **GET** /deals/{id}/persons | List all persons associated with a deal
 [**getDealProducts()**](DealsApi.md#getDealProducts) | **GET** /deals/{id}/products | List products attached to a deal
 [**getDealUpdates()**](DealsApi.md#getDealUpdates) | **GET** /deals/{id}/flow | List updates about a deal
@@ -1094,6 +1095,75 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Pipedrive\Model\DealParticipants**](../Model/DealParticipants.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getDealParticipantsChangelog()`
+
+```php
+getDealParticipantsChangelog($id, $limit, $cursor): \Pipedrive\Model\ParticipantsChangelog
+```
+
+List updates about participants of a deal
+
+List updates about participants of a deal. This is a cursor-paginated endpoint. For more information, please refer to our documentation on <a href=\"https://pipedrive.readme.io/docs/core-api-concepts-pagination\" target=\"_blank\" rel=\"noopener noreferrer\">pagination</a>.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key
+$config = (new Pipedrive\Configuration())->setApiKey('api_token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = (new Pipedrive\Configuration())->setApiKeyPrefix('api_token', 'Bearer');
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = (new Pipedrive\Configuration())->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Pipedrive\Api\DealsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int | The ID of the deal
+$limit = 56; // int | Items shown per page
+$cursor = 'cursor_example'; // string | For pagination, the marker (an opaque string value) representing the first item on the next page
+
+try {
+    $result = $apiInstance->getDealParticipantsChangelog($id, $limit, $cursor);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DealsApi->getDealParticipantsChangelog: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The ID of the deal |
+ **limit** | **int**| Items shown per page | [optional]
+ **cursor** | **string**| For pagination, the marker (an opaque string value) representing the first item on the next page | [optional]
+
+### Return type
+
+[**\Pipedrive\Model\ParticipantsChangelog**](../Model/ParticipantsChangelog.md)
 
 ### Authorization
 
