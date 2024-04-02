@@ -1284,7 +1284,7 @@ $id = 56; // int | The ID of the deal
 $start = 0; // int | Pagination start
 $limit = 56; // int | Items shown per page
 $all_changes = 'all_changes_example'; // string | Whether to show custom field updates or not. 1 = Include custom field changes. If omitted returns changes without custom field updates.
-$items = 'items_example'; // string | A comma-separated string for filtering out item specific updates. (Possible values - call, activity, plannedActivity, change, note, deal, file, dealChange, personChange, organizationChange, follower, dealFollower, personFollower, organizationFollower, participant, comment, mailMessage, mailMessageWithAttachment, invoice, document, marketing_campaign_stat, marketing_status_change)
+$items = 'items_example'; // string | A comma-separated string for filtering out item specific updates. (Possible values - call, activity, plannedActivity, change, note, deal, file, dealChange, personChange, organizationChange, follower, dealFollower, personFollower, organizationFollower, participant, comment, mailMessage, mailMessageWithAttachment, invoice, document, marketing_campaign_stat, marketing_status_change).
 
 try {
     $result = $apiInstance->getDealUpdates($id, $start, $limit, $all_changes, $items);
@@ -1302,7 +1302,7 @@ Name | Type | Description  | Notes
  **start** | **int**| Pagination start | [optional] [default to 0]
  **limit** | **int**| Items shown per page | [optional]
  **all_changes** | **string**| Whether to show custom field updates or not. 1 &#x3D; Include custom field changes. If omitted returns changes without custom field updates. | [optional]
- **items** | **string**| A comma-separated string for filtering out item specific updates. (Possible values - call, activity, plannedActivity, change, note, deal, file, dealChange, personChange, organizationChange, follower, dealFollower, personFollower, organizationFollower, participant, comment, mailMessage, mailMessageWithAttachment, invoice, document, marketing_campaign_stat, marketing_status_change) | [optional]
+ **items** | **string**| A comma-separated string for filtering out item specific updates. (Possible values - call, activity, plannedActivity, change, note, deal, file, dealChange, personChange, organizationChange, follower, dealFollower, personFollower, organizationFollower, participant, comment, mailMessage, mailMessageWithAttachment, invoice, document, marketing_campaign_stat, marketing_status_change). | [optional]
 
 ### Return type
 
@@ -1571,7 +1571,7 @@ $apiInstance = new Pipedrive\Api\DealsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$status = 'status_example'; // string | Only fetch deals with a specific status. open = Open, won = Won, lost = Lost
+$status = 'status_example'; // string | Only fetch deals with a specific status. open = Open, won = Won, lost = Lost.
 $filter_id = 56; // int | <code>user_id</code> will not be considered. Only deals matching the given filter will be returned.
 $user_id = 56; // int | Only deals matching the given user will be returned. `user_id` will not be considered if you use `filter_id`.
 $stage_id = 56; // int | Only deals within the given stage will be returned
@@ -1588,7 +1588,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **status** | **string**| Only fetch deals with a specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost | [optional]
+ **status** | **string**| Only fetch deals with a specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. | [optional]
  **filter_id** | **int**| &lt;code&gt;user_id&lt;/code&gt; will not be considered. Only deals matching the given filter will be returned. | [optional]
  **user_id** | **int**| Only deals matching the given user will be returned. &#x60;user_id&#x60; will not be considered if you use &#x60;filter_id&#x60;. | [optional]
  **stage_id** | **int**| Only deals within the given stage will be returned | [optional]
@@ -1642,7 +1642,7 @@ $apiInstance = new Pipedrive\Api\DealsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$start_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The date when the first interval starts. Format: YYYY-MM-DD
+$start_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The date when the first interval starts. Format: YYYY-MM-DD.
 $interval = 'interval_example'; // string | The type of the interval<table><tr><th>Value</th><th>Description</th></tr><tr><td>`day`</td><td>Day</td></tr><tr><td>`week`</td><td>A full week (7 days) starting from `start_date`</td></tr><tr><td>`month`</td><td>A full month (depending on the number of days in given month) starting from `start_date`</td></tr><tr><td>`quarter`</td><td>A full quarter (3 months) starting from `start_date`</td></tr></table>
 $amount = 56; // int | The number of given intervals, starting from `start_date`, to fetch. E.g. 3 (months).
 $field_key = 'field_key_example'; // string | The date field key which deals will be retrieved from
@@ -1664,7 +1664,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **start_date** | **\DateTime**| The date when the first interval starts. Format: YYYY-MM-DD |
+ **start_date** | **\DateTime**| The date when the first interval starts. Format: YYYY-MM-DD. |
  **interval** | **string**| The type of the interval&lt;table&gt;&lt;tr&gt;&lt;th&gt;Value&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;day&#x60;&lt;/td&gt;&lt;td&gt;Day&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;week&#x60;&lt;/td&gt;&lt;td&gt;A full week (7 days) starting from &#x60;start_date&#x60;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;month&#x60;&lt;/td&gt;&lt;td&gt;A full month (depending on the number of days in given month) starting from &#x60;start_date&#x60;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;quarter&#x60;&lt;/td&gt;&lt;td&gt;A full quarter (3 months) starting from &#x60;start_date&#x60;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt; |
  **amount** | **int**| The number of given intervals, starting from &#x60;start_date&#x60;, to fetch. E.g. 3 (months). |
  **field_key** | **string**| The date field key which deals will be retrieved from |

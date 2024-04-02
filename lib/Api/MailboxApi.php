@@ -424,7 +424,7 @@ class MailboxApi
      * Get one mail message
      *
      * @param  int $id The ID of the mail message to fetch (required)
-     * @param  \Pipedrive\Model\NumberBooleanDefault0|null $include_body Whether to include the full message body or not. &#x60;0&#x60; &#x3D; Don&#39;t include, &#x60;1&#x60; &#x3D; Include (optional)
+     * @param  \Pipedrive\Model\NumberBooleanDefault0|null $include_body Whether to include the full message body or not. &#x60;0&#x60; &#x3D; Don&#39;t include, &#x60;1&#x60; &#x3D; Include. (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
@@ -442,7 +442,7 @@ class MailboxApi
      * Get one mail message
      *
      * @param  int $id The ID of the mail message to fetch (required)
-     * @param  \Pipedrive\Model\NumberBooleanDefault0|null $include_body Whether to include the full message body or not. &#x60;0&#x60; &#x3D; Don&#39;t include, &#x60;1&#x60; &#x3D; Include (optional)
+     * @param  \Pipedrive\Model\NumberBooleanDefault0|null $include_body Whether to include the full message body or not. &#x60;0&#x60; &#x3D; Don&#39;t include, &#x60;1&#x60; &#x3D; Include. (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
@@ -544,7 +544,7 @@ class MailboxApi
      * Get one mail message
      *
      * @param  int $id The ID of the mail message to fetch (required)
-     * @param  \Pipedrive\Model\NumberBooleanDefault0|null $include_body Whether to include the full message body or not. &#x60;0&#x60; &#x3D; Don&#39;t include, &#x60;1&#x60; &#x3D; Include (optional)
+     * @param  \Pipedrive\Model\NumberBooleanDefault0|null $include_body Whether to include the full message body or not. &#x60;0&#x60; &#x3D; Don&#39;t include, &#x60;1&#x60; &#x3D; Include. (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
@@ -565,7 +565,7 @@ class MailboxApi
      * Get one mail message
      *
      * @param  int $id The ID of the mail message to fetch (required)
-     * @param  \Pipedrive\Model\NumberBooleanDefault0|null $include_body Whether to include the full message body or not. &#x60;0&#x60; &#x3D; Don&#39;t include, &#x60;1&#x60; &#x3D; Include (optional)
+     * @param  \Pipedrive\Model\NumberBooleanDefault0|null $include_body Whether to include the full message body or not. &#x60;0&#x60; &#x3D; Don&#39;t include, &#x60;1&#x60; &#x3D; Include. (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
@@ -613,7 +613,7 @@ class MailboxApi
      * Create request for operation 'getMailMessage'
      *
      * @param  int $id The ID of the mail message to fetch (required)
-     * @param  \Pipedrive\Model\NumberBooleanDefault0|null $include_body Whether to include the full message body or not. &#x60;0&#x60; &#x3D; Don&#39;t include, &#x60;1&#x60; &#x3D; Include (optional)
+     * @param  \Pipedrive\Model\NumberBooleanDefault0|null $include_body Whether to include the full message body or not. &#x60;0&#x60; &#x3D; Don&#39;t include, &#x60;1&#x60; &#x3D; Include. (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request

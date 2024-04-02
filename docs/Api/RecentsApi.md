@@ -39,7 +39,7 @@ $apiInstance = new Pipedrive\Api\RecentsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$since_timestamp = 'since_timestamp_example'; // string | The timestamp in UTC. Format: YYYY-MM-DD HH:MM:SS
+$since_timestamp = 'since_timestamp_example'; // string | The timestamp in UTC. Format: YYYY-MM-DD HH:MM:SS.
 $items = 'items_example'; // string | Multiple selection of item types to include in the query (optional)
 $start = 0; // int | Pagination start
 $limit = 56; // int | Items shown per page
@@ -56,7 +56,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **since_timestamp** | **string**| The timestamp in UTC. Format: YYYY-MM-DD HH:MM:SS |
+ **since_timestamp** | **string**| The timestamp in UTC. Format: YYYY-MM-DD HH:MM:SS. |
  **items** | **string**| Multiple selection of item types to include in the query (optional) | [optional]
  **start** | **int**| Pagination start | [optional] [default to 0]
  **limit** | **int**| Items shown per page | [optional]
