@@ -1389,6 +1389,13 @@ Class | Method | HTTP request | Description
 
 
 
+## basic_authentication
+
+
+- **Type**: HTTP basic authentication
+
+
+
 ## oauth2
 
 
