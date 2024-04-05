@@ -1,6 +1,6 @@
 <?php
 /**
- * ActivityTypeObjectResponse
+ * ChangelogResponseAllOfData
  *
  * PHP version 7.3
  *
@@ -34,7 +34,7 @@ use JsonSerializable;
 use Pipedrive\ObjectSerializer;
 
 /**
- * ActivityTypeObjectResponse Class Doc Comment
+ * ChangelogResponseAllOfData Class Doc Comment
  *
  * @category Class
  * @package  Pipedrive
@@ -44,7 +44,7 @@ use Pipedrive\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ActivityTypeObjectResponse implements ModelInterface, ArrayAccess, JsonSerializable
+class ChangelogResponseAllOfData implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -53,7 +53,7 @@ class ActivityTypeObjectResponse implements ModelInterface, ArrayAccess, JsonSer
       *
       * @var string
       */
-    protected static string $openAPIModelName = 'ActivityTypeObjectResponse';
+    protected static string $openAPIModelName = 'ChangelogResponse_allOf_data';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -63,16 +63,14 @@ class ActivityTypeObjectResponse implements ModelInterface, ArrayAccess, JsonSer
       * @phpsalm-var array<string, string>
       */
     protected static array $openAPITypes = [
-        'id' => 'int',
-        'name' => 'string',
-        'icon_key' => '\Pipedrive\Model\IconKey',
-        'color' => 'string',
-        'order_nr' => 'int',
-        'key_string' => 'string',
-        'active_flag' => 'bool',
-        'is_custom_flag' => 'bool',
-        'add_time' => '\DateTime',
-        'update_time' => '\DateTime'
+        'field_key' => 'string',
+        'old_value' => 'string',
+        'new_value' => 'string',
+        'actor_user_id' => 'int',
+        'time' => 'string',
+        'change_source' => 'string',
+        'change_source_user_agent' => 'string',
+        'is_bulk_update_flag' => 'bool'
     ];
 
     /**
@@ -83,16 +81,14 @@ class ActivityTypeObjectResponse implements ModelInterface, ArrayAccess, JsonSer
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'name' => null,
-        'icon_key' => null,
-        'color' => null,
-        'order_nr' => null,
-        'key_string' => null,
-        'active_flag' => null,
-        'is_custom_flag' => null,
-        'add_time' => 'date-time',
-        'update_time' => 'date-time'
+        'field_key' => null,
+        'old_value' => null,
+        'new_value' => null,
+        'actor_user_id' => null,
+        'time' => null,
+        'change_source' => null,
+        'change_source_user_agent' => null,
+        'is_bulk_update_flag' => null
     ];
 
     /**
@@ -126,16 +122,14 @@ class ActivityTypeObjectResponse implements ModelInterface, ArrayAccess, JsonSer
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'name' => 'name',
-        'icon_key' => 'icon_key',
-        'color' => 'color',
-        'order_nr' => 'order_nr',
-        'key_string' => 'key_string',
-        'active_flag' => 'active_flag',
-        'is_custom_flag' => 'is_custom_flag',
-        'add_time' => 'add_time',
-        'update_time' => 'update_time'
+        'field_key' => 'field_key',
+        'old_value' => 'old_value',
+        'new_value' => 'new_value',
+        'actor_user_id' => 'actor_user_id',
+        'time' => 'time',
+        'change_source' => 'change_source',
+        'change_source_user_agent' => 'change_source_user_agent',
+        'is_bulk_update_flag' => 'is_bulk_update_flag'
     ];
 
     /**
@@ -144,16 +138,14 @@ class ActivityTypeObjectResponse implements ModelInterface, ArrayAccess, JsonSer
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'name' => 'setName',
-        'icon_key' => 'setIconKey',
-        'color' => 'setColor',
-        'order_nr' => 'setOrderNr',
-        'key_string' => 'setKeyString',
-        'active_flag' => 'setActiveFlag',
-        'is_custom_flag' => 'setIsCustomFlag',
-        'add_time' => 'setAddTime',
-        'update_time' => 'setUpdateTime'
+        'field_key' => 'setFieldKey',
+        'old_value' => 'setOldValue',
+        'new_value' => 'setNewValue',
+        'actor_user_id' => 'setActorUserId',
+        'time' => 'setTime',
+        'change_source' => 'setChangeSource',
+        'change_source_user_agent' => 'setChangeSourceUserAgent',
+        'is_bulk_update_flag' => 'setIsBulkUpdateFlag'
     ];
 
     /**
@@ -162,16 +154,14 @@ class ActivityTypeObjectResponse implements ModelInterface, ArrayAccess, JsonSer
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'name' => 'getName',
-        'icon_key' => 'getIconKey',
-        'color' => 'getColor',
-        'order_nr' => 'getOrderNr',
-        'key_string' => 'getKeyString',
-        'active_flag' => 'getActiveFlag',
-        'is_custom_flag' => 'getIsCustomFlag',
-        'add_time' => 'getAddTime',
-        'update_time' => 'getUpdateTime'
+        'field_key' => 'getFieldKey',
+        'old_value' => 'getOldValue',
+        'new_value' => 'getNewValue',
+        'actor_user_id' => 'getActorUserId',
+        'time' => 'getTime',
+        'change_source' => 'getChangeSource',
+        'change_source_user_agent' => 'getChangeSourceUserAgent',
+        'is_bulk_update_flag' => 'getIsBulkUpdateFlag'
     ];
 
     /**
@@ -241,16 +231,14 @@ class ActivityTypeObjectResponse implements ModelInterface, ArrayAccess, JsonSer
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = $data['id'] ?? null;
-        $this->container['name'] = $data['name'] ?? null;
-        $this->container['icon_key'] = $data['icon_key'] ?? null;
-        $this->container['color'] = $data['color'] ?? null;
-        $this->container['order_nr'] = $data['order_nr'] ?? null;
-        $this->container['key_string'] = $data['key_string'] ?? null;
-        $this->container['active_flag'] = $data['active_flag'] ?? null;
-        $this->container['is_custom_flag'] = $data['is_custom_flag'] ?? null;
-        $this->container['add_time'] = $data['add_time'] ?? null;
-        $this->container['update_time'] = $data['update_time'] ?? null;
+        $this->container['field_key'] = $data['field_key'] ?? null;
+        $this->container['old_value'] = $data['old_value'] ?? null;
+        $this->container['new_value'] = $data['new_value'] ?? null;
+        $this->container['actor_user_id'] = $data['actor_user_id'] ?? null;
+        $this->container['time'] = $data['time'] ?? null;
+        $this->container['change_source'] = $data['change_source'] ?? null;
+        $this->container['change_source_user_agent'] = $data['change_source_user_agent'] ?? null;
+        $this->container['is_bulk_update_flag'] = $data['is_bulk_update_flag'] ?? null;
     }
 
     /**
@@ -280,241 +268,193 @@ class ActivityTypeObjectResponse implements ModelInterface, ArrayAccess, JsonSer
 
 
     /**
-     * Gets id
+     * Gets field_key
+     *
+     * @return string|null
+     */
+    public function getFieldKey()
+    {
+        return $this->container['field_key'];
+    }
+
+    /**
+     * Sets field_key
+     *
+     * @param string|null $field_key The key of the field that was changed
+     *
+     * @return self
+     */
+    public function setFieldKey($field_key): self
+    {
+        $this->container['field_key'] = $field_key;
+
+        return $this;
+    }
+
+    /**
+     * Gets old_value
+     *
+     * @return string|null
+     */
+    public function getOldValue()
+    {
+        return $this->container['old_value'];
+    }
+
+    /**
+     * Sets old_value
+     *
+     * @param string|null $old_value The value of the field before the change
+     *
+     * @return self
+     */
+    public function setOldValue($old_value): self
+    {
+        $this->container['old_value'] = $old_value;
+
+        return $this;
+    }
+
+    /**
+     * Gets new_value
+     *
+     * @return string|null
+     */
+    public function getNewValue()
+    {
+        return $this->container['new_value'];
+    }
+
+    /**
+     * Sets new_value
+     *
+     * @param string|null $new_value The value of the field after the change
+     *
+     * @return self
+     */
+    public function setNewValue($new_value): self
+    {
+        $this->container['new_value'] = $new_value;
+
+        return $this;
+    }
+
+    /**
+     * Gets actor_user_id
      *
      * @return int|null
      */
-    public function getId()
+    public function getActorUserId()
     {
-        return $this->container['id'];
+        return $this->container['actor_user_id'];
     }
 
     /**
-     * Sets id
+     * Sets actor_user_id
      *
-     * @param int|null $id The ID of the activity type
+     * @param int|null $actor_user_id The ID of the user who made the change
      *
      * @return self
      */
-    public function setId($id): self
+    public function setActorUserId($actor_user_id): self
     {
-        $this->container['id'] = $id;
+        $this->container['actor_user_id'] = $actor_user_id;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets time
      *
      * @return string|null
      */
-    public function getName()
+    public function getTime()
     {
-        return $this->container['name'];
+        return $this->container['time'];
     }
 
     /**
-     * Sets name
+     * Sets time
      *
-     * @param string|null $name The name of the activity type
+     * @param string|null $time The date and time of the change
      *
      * @return self
      */
-    public function setName($name): self
+    public function setTime($time): self
     {
-        $this->container['name'] = $name;
+        $this->container['time'] = $time;
 
         return $this;
     }
 
     /**
-     * Gets icon_key
-     *
-     * @return \Pipedrive\Model\IconKey|null
-     */
-    public function getIconKey()
-    {
-        return $this->container['icon_key'];
-    }
-
-    /**
-     * Sets icon_key
-     *
-     * @param \Pipedrive\Model\IconKey|null $icon_key icon_key
-     *
-     * @return self
-     */
-    public function setIconKey($icon_key): self
-    {
-        $this->container['icon_key'] = $icon_key;
-
-        return $this;
-    }
-
-    /**
-     * Gets color
+     * Gets change_source
      *
      * @return string|null
      */
-    public function getColor()
+    public function getChangeSource()
     {
-        return $this->container['color'];
+        return $this->container['change_source'];
     }
 
     /**
-     * Sets color
+     * Sets change_source
      *
-     * @param string|null $color A designated color for the activity type in 6-character HEX format (e.g. `FFFFFF` for white, `000000` for black)
+     * @param string|null $change_source The source of change, for example 'app', 'mobile', 'api', etc.
      *
      * @return self
      */
-    public function setColor($color): self
+    public function setChangeSource($change_source): self
     {
-        $this->container['color'] = $color;
+        $this->container['change_source'] = $change_source;
 
         return $this;
     }
 
     /**
-     * Gets order_nr
-     *
-     * @return int|null
-     */
-    public function getOrderNr()
-    {
-        return $this->container['order_nr'];
-    }
-
-    /**
-     * Sets order_nr
-     *
-     * @param int|null $order_nr An order number for the activity type. Order numbers should be used to order the types in the activity type selections.
-     *
-     * @return self
-     */
-    public function setOrderNr($order_nr): self
-    {
-        $this->container['order_nr'] = $order_nr;
-
-        return $this;
-    }
-
-    /**
-     * Gets key_string
+     * Gets change_source_user_agent
      *
      * @return string|null
      */
-    public function getKeyString()
+    public function getChangeSourceUserAgent()
     {
-        return $this->container['key_string'];
+        return $this->container['change_source_user_agent'];
     }
 
     /**
-     * Sets key_string
+     * Sets change_source_user_agent
      *
-     * @param string|null $key_string A string that is generated by the API based on the given name of the activity type upon creation
+     * @param string|null $change_source_user_agent The user agent from which the change was made
      *
      * @return self
      */
-    public function setKeyString($key_string): self
+    public function setChangeSourceUserAgent($change_source_user_agent): self
     {
-        $this->container['key_string'] = $key_string;
+        $this->container['change_source_user_agent'] = $change_source_user_agent;
 
         return $this;
     }
 
     /**
-     * Gets active_flag
+     * Gets is_bulk_update_flag
      *
      * @return bool|null
      */
-    public function getActiveFlag()
+    public function getIsBulkUpdateFlag()
     {
-        return $this->container['active_flag'];
+        return $this->container['is_bulk_update_flag'];
     }
 
     /**
-     * Sets active_flag
+     * Sets is_bulk_update_flag
      *
-     * @param bool|null $active_flag The active flag of the activity type
+     * @param bool|null $is_bulk_update_flag Whether the change was made as part of a bulk update
      *
      * @return self
      */
-    public function setActiveFlag($active_flag): self
+    public function setIsBulkUpdateFlag($is_bulk_update_flag): self
     {
-        $this->container['active_flag'] = $active_flag;
-
-        return $this;
-    }
-
-    /**
-     * Gets is_custom_flag
-     *
-     * @return bool|null
-     */
-    public function getIsCustomFlag()
-    {
-        return $this->container['is_custom_flag'];
-    }
-
-    /**
-     * Sets is_custom_flag
-     *
-     * @param bool|null $is_custom_flag Whether the activity type is a custom one or not
-     *
-     * @return self
-     */
-    public function setIsCustomFlag($is_custom_flag): self
-    {
-        $this->container['is_custom_flag'] = $is_custom_flag;
-
-        return $this;
-    }
-
-    /**
-     * Gets add_time
-     *
-     * @return \DateTime|null
-     */
-    public function getAddTime()
-    {
-        return $this->container['add_time'];
-    }
-
-    /**
-     * Sets add_time
-     *
-     * @param \DateTime|null $add_time The creation time of the activity type
-     *
-     * @return self
-     */
-    public function setAddTime($add_time): self
-    {
-        $this->container['add_time'] = $add_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets update_time
-     *
-     * @return \DateTime|null
-     */
-    public function getUpdateTime()
-    {
-        return $this->container['update_time'];
-    }
-
-    /**
-     * Sets update_time
-     *
-     * @param \DateTime|null $update_time The update time of the activity type
-     *
-     * @return self
-     */
-    public function setUpdateTime($update_time): self
-    {
-        $this->container['update_time'] = $update_time;
+        $this->container['is_bulk_update_flag'] = $is_bulk_update_flag;
 
         return $this;
     }

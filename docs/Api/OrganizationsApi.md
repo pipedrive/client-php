@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**deleteOrganizations()**](OrganizationsApi.md#deleteOrganizations) | **DELETE** /organizations | Delete multiple organizations in bulk
 [**getOrganization()**](OrganizationsApi.md#getOrganization) | **GET** /organizations/{id} | Get details of an organization
 [**getOrganizationActivities()**](OrganizationsApi.md#getOrganizationActivities) | **GET** /organizations/{id}/activities | List activities associated with an organization
+[**getOrganizationChangelog()**](OrganizationsApi.md#getOrganizationChangelog) | **GET** /organizations/{id}/changelog | List updates about organization field values
 [**getOrganizationDeals()**](OrganizationsApi.md#getOrganizationDeals) | **GET** /organizations/{id}/deals | List deals associated with an organization
 [**getOrganizationFiles()**](OrganizationsApi.md#getOrganizationFiles) | **GET** /organizations/{id}/files | List files attached to an organization
 [**getOrganizationFollowers()**](OrganizationsApi.md#getOrganizationFollowers) | **GET** /organizations/{id}/followers | List followers of an organization
@@ -478,6 +479,75 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Pipedrive\Model\ListActivitiesResponse**](../Model/ListActivitiesResponse.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getOrganizationChangelog()`
+
+```php
+getOrganizationChangelog($id, $cursor, $limit): \Pipedrive\Model\ChangelogResponse
+```
+
+List updates about organization field values
+
+Lists updates about field values of an organization.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key
+$config = (new Pipedrive\Configuration())->setApiKey('api_token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = (new Pipedrive\Configuration())->setApiKeyPrefix('api_token', 'Bearer');
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = (new Pipedrive\Configuration())->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Pipedrive\Api\OrganizationsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int | The ID of the organization
+$cursor = 'cursor_example'; // string | For pagination, the marker (an opaque string value) representing the first item on the next page
+$limit = 56; // int | Items shown per page
+
+try {
+    $result = $apiInstance->getOrganizationChangelog($id, $cursor, $limit);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling OrganizationsApi->getOrganizationChangelog: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The ID of the organization |
+ **cursor** | **string**| For pagination, the marker (an opaque string value) representing the first item on the next page | [optional]
+ **limit** | **int**| Items shown per page | [optional]
+
+### Return type
+
+[**\Pipedrive\Model\ChangelogResponse**](../Model/ChangelogResponse.md)
 
 ### Authorization
 

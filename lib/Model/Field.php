@@ -68,8 +68,8 @@ class Field implements ModelInterface, ArrayAccess, JsonSerializable
         'name' => 'string',
         'order_nr' => 'int',
         'field_type' => '\Pipedrive\Model\FieldTypeAsString',
-        'add_time' => 'string',
-        'update_time' => 'string',
+        'add_time' => '\DateTime',
+        'update_time' => '\DateTime',
         'last_updated_by_user_id' => 'int',
         'active_flag' => 'bool',
         'edit_flag' => 'bool',
@@ -101,8 +101,8 @@ class Field implements ModelInterface, ArrayAccess, JsonSerializable
         'name' => null,
         'order_nr' => null,
         'field_type' => null,
-        'add_time' => 'datetime',
-        'update_time' => 'datetime',
+        'add_time' => 'date-time',
+        'update_time' => 'date-time',
         'last_updated_by_user_id' => null,
         'active_flag' => null,
         'edit_flag' => null,
@@ -480,7 +480,7 @@ class Field implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets add_time
      *
-     * @return string|null
+     * @return \DateTime|null
      */
     public function getAddTime()
     {
@@ -490,7 +490,7 @@ class Field implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets add_time
      *
-     * @param string|null $add_time The creation time of the field
+     * @param \DateTime|null $add_time The creation time of the field
      *
      * @return self
      */
@@ -504,7 +504,7 @@ class Field implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets update_time
      *
-     * @return string|null
+     * @return \DateTime|null
      */
     public function getUpdateTime()
     {
@@ -514,7 +514,7 @@ class Field implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets update_time
      *
-     * @param string|null $update_time The update time of the field
+     * @param \DateTime|null $update_time The update time of the field
      *
      * @return self
      */

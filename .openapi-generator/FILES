@@ -181,6 +181,9 @@ docs/Model/CallLogResponse410.md
 docs/Model/CallLogResponse500.md
 docs/Model/CallLogsResponse.md
 docs/Model/CallLogsResponseAdditionalData.md
+docs/Model/ChangelogResponse.md
+docs/Model/ChangelogResponseAllOf.md
+docs/Model/ChangelogResponseAllOfData.md
 docs/Model/ChannelObject.md
 docs/Model/ChannelObjectResponse.md
 docs/Model/ChannelObjectResponseData.md
@@ -1025,6 +1028,9 @@ lib/Model/CallLogResponse410.php
 lib/Model/CallLogResponse500.php
 lib/Model/CallLogsResponse.php
 lib/Model/CallLogsResponseAdditionalData.php
+lib/Model/ChangelogResponse.php
+lib/Model/ChangelogResponseAllOf.php
+lib/Model/ChangelogResponseAllOfData.php
 lib/Model/ChannelObject.php
 lib/Model/ChannelObjectResponse.php
 lib/Model/ChannelObjectResponseData.php
