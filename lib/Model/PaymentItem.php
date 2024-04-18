@@ -74,8 +74,8 @@ class PaymentItem implements ModelInterface, ArrayAccess, JsonSerializable
         'revenue_movement_type' => 'string',
         'payment_type' => 'string',
         'description' => 'string',
-        'add_time' => 'string',
-        'update_time' => 'string'
+        'add_time' => '\DateTime',
+        'update_time' => '\DateTime'
     ];
 
     /**
@@ -97,8 +97,8 @@ class PaymentItem implements ModelInterface, ArrayAccess, JsonSerializable
         'revenue_movement_type' => null,
         'payment_type' => null,
         'description' => null,
-        'add_time' => 'datetime',
-        'update_time' => 'datetime'
+        'add_time' => 'date-time',
+        'update_time' => 'date-time'
     ];
 
     /**
@@ -646,7 +646,7 @@ class PaymentItem implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets add_time
      *
-     * @return string|null
+     * @return \DateTime|null
      */
     public function getAddTime()
     {
@@ -656,7 +656,7 @@ class PaymentItem implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets add_time
      *
-     * @param string|null $add_time The creation time of the payment
+     * @param \DateTime|null $add_time The creation time of the payment
      *
      * @return self
      */
@@ -670,7 +670,7 @@ class PaymentItem implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets update_time
      *
-     * @return string|null
+     * @return \DateTime|null
      */
     public function getUpdateTime()
     {
@@ -680,7 +680,7 @@ class PaymentItem implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets update_time
      *
-     * @param string|null $update_time The update time of the payment
+     * @param \DateTime|null $update_time The update time of the payment
      *
      * @return self
      */

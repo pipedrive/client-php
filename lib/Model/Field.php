@@ -68,9 +68,10 @@ class Field implements ModelInterface, ArrayAccess, JsonSerializable
         'name' => 'string',
         'order_nr' => 'int',
         'field_type' => '\Pipedrive\Model\FieldTypeAsString',
-        'add_time' => 'string',
-        'update_time' => 'string',
+        'add_time' => '\DateTime',
+        'update_time' => '\DateTime',
         'last_updated_by_user_id' => 'int',
+        'created_by_user_id' => 'int',
         'active_flag' => 'bool',
         'edit_flag' => 'bool',
         'index_visible_flag' => 'bool',
@@ -101,9 +102,10 @@ class Field implements ModelInterface, ArrayAccess, JsonSerializable
         'name' => null,
         'order_nr' => null,
         'field_type' => null,
-        'add_time' => 'datetime',
-        'update_time' => 'datetime',
+        'add_time' => 'date-time',
+        'update_time' => 'date-time',
         'last_updated_by_user_id' => null,
+        'created_by_user_id' => null,
         'active_flag' => null,
         'edit_flag' => null,
         'index_visible_flag' => null,
@@ -160,6 +162,7 @@ class Field implements ModelInterface, ArrayAccess, JsonSerializable
         'add_time' => 'add_time',
         'update_time' => 'update_time',
         'last_updated_by_user_id' => 'last_updated_by_user_id',
+        'created_by_user_id' => 'created_by_user_id',
         'active_flag' => 'active_flag',
         'edit_flag' => 'edit_flag',
         'index_visible_flag' => 'index_visible_flag',
@@ -191,6 +194,7 @@ class Field implements ModelInterface, ArrayAccess, JsonSerializable
         'add_time' => 'setAddTime',
         'update_time' => 'setUpdateTime',
         'last_updated_by_user_id' => 'setLastUpdatedByUserId',
+        'created_by_user_id' => 'setCreatedByUserId',
         'active_flag' => 'setActiveFlag',
         'edit_flag' => 'setEditFlag',
         'index_visible_flag' => 'setIndexVisibleFlag',
@@ -222,6 +226,7 @@ class Field implements ModelInterface, ArrayAccess, JsonSerializable
         'add_time' => 'getAddTime',
         'update_time' => 'getUpdateTime',
         'last_updated_by_user_id' => 'getLastUpdatedByUserId',
+        'created_by_user_id' => 'getCreatedByUserId',
         'active_flag' => 'getActiveFlag',
         'edit_flag' => 'getEditFlag',
         'index_visible_flag' => 'getIndexVisibleFlag',
@@ -314,6 +319,7 @@ class Field implements ModelInterface, ArrayAccess, JsonSerializable
         $this->container['add_time'] = $data['add_time'] ?? null;
         $this->container['update_time'] = $data['update_time'] ?? null;
         $this->container['last_updated_by_user_id'] = $data['last_updated_by_user_id'] ?? null;
+        $this->container['created_by_user_id'] = $data['created_by_user_id'] ?? null;
         $this->container['active_flag'] = $data['active_flag'] ?? null;
         $this->container['edit_flag'] = $data['edit_flag'] ?? null;
         $this->container['index_visible_flag'] = $data['index_visible_flag'] ?? null;
@@ -480,7 +486,7 @@ class Field implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets add_time
      *
-     * @return string|null
+     * @return \DateTime|null
      */
     public function getAddTime()
     {
@@ -490,7 +496,7 @@ class Field implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets add_time
      *
-     * @param string|null $add_time The creation time of the field
+     * @param \DateTime|null $add_time The creation time of the field
      *
      * @return self
      */
@@ -504,7 +510,7 @@ class Field implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets update_time
      *
-     * @return string|null
+     * @return \DateTime|null
      */
     public function getUpdateTime()
     {
@@ -514,7 +520,7 @@ class Field implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets update_time
      *
-     * @param string|null $update_time The update time of the field
+     * @param \DateTime|null $update_time The update time of the field
      *
      * @return self
      */
@@ -545,6 +551,30 @@ class Field implements ModelInterface, ArrayAccess, JsonSerializable
     public function setLastUpdatedByUserId($last_updated_by_user_id): self
     {
         $this->container['last_updated_by_user_id'] = $last_updated_by_user_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets created_by_user_id
+     *
+     * @return int|null
+     */
+    public function getCreatedByUserId()
+    {
+        return $this->container['created_by_user_id'];
+    }
+
+    /**
+     * Sets created_by_user_id
+     *
+     * @param int|null $created_by_user_id The ID of the user who created the field
+     *
+     * @return self
+     */
+    public function setCreatedByUserId($created_by_user_id): self
+    {
+        $this->container['created_by_user_id'] = $created_by_user_id;
 
         return $this;
     }

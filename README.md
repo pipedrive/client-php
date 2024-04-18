@@ -345,6 +345,7 @@ Class | Method | HTTP request | Description
 *DealsApi* | [**duplicateDeal**](docs/Api/DealsApi.md#duplicatedeal) | **POST** /deals/{id}/duplicate | Duplicate deal
 *DealsApi* | [**getDeal**](docs/Api/DealsApi.md#getdeal) | **GET** /deals/{id} | Get details of a deal
 *DealsApi* | [**getDealActivities**](docs/Api/DealsApi.md#getdealactivities) | **GET** /deals/{id}/activities | List activities associated with a deal
+*DealsApi* | [**getDealChangelog**](docs/Api/DealsApi.md#getdealchangelog) | **GET** /deals/{id}/changelog | List updates about deal field values
 *DealsApi* | [**getDealFiles**](docs/Api/DealsApi.md#getdealfiles) | **GET** /deals/{id}/files | List files attached to a deal
 *DealsApi* | [**getDealFollowers**](docs/Api/DealsApi.md#getdealfollowers) | **GET** /deals/{id}/followers | List followers of a deal
 *DealsApi* | [**getDealMailMessages**](docs/Api/DealsApi.md#getdealmailmessages) | **GET** /deals/{id}/mailMessages | List mail messages associated with a deal
@@ -441,6 +442,7 @@ Class | Method | HTTP request | Description
 *OrganizationsApi* | [**deleteOrganizations**](docs/Api/OrganizationsApi.md#deleteorganizations) | **DELETE** /organizations | Delete multiple organizations in bulk
 *OrganizationsApi* | [**getOrganization**](docs/Api/OrganizationsApi.md#getorganization) | **GET** /organizations/{id} | Get details of an organization
 *OrganizationsApi* | [**getOrganizationActivities**](docs/Api/OrganizationsApi.md#getorganizationactivities) | **GET** /organizations/{id}/activities | List activities associated with an organization
+*OrganizationsApi* | [**getOrganizationChangelog**](docs/Api/OrganizationsApi.md#getorganizationchangelog) | **GET** /organizations/{id}/changelog | List updates about organization field values
 *OrganizationsApi* | [**getOrganizationDeals**](docs/Api/OrganizationsApi.md#getorganizationdeals) | **GET** /organizations/{id}/deals | List deals associated with an organization
 *OrganizationsApi* | [**getOrganizationFiles**](docs/Api/OrganizationsApi.md#getorganizationfiles) | **GET** /organizations/{id}/files | List files attached to an organization
 *OrganizationsApi* | [**getOrganizationFollowers**](docs/Api/OrganizationsApi.md#getorganizationfollowers) | **GET** /organizations/{id}/followers | List followers of an organization
@@ -471,6 +473,7 @@ Class | Method | HTTP request | Description
 *PersonsApi* | [**deletePersons**](docs/Api/PersonsApi.md#deletepersons) | **DELETE** /persons | Delete multiple persons in bulk
 *PersonsApi* | [**getPerson**](docs/Api/PersonsApi.md#getperson) | **GET** /persons/{id} | Get details of a person
 *PersonsApi* | [**getPersonActivities**](docs/Api/PersonsApi.md#getpersonactivities) | **GET** /persons/{id}/activities | List activities associated with a person
+*PersonsApi* | [**getPersonChangelog**](docs/Api/PersonsApi.md#getpersonchangelog) | **GET** /persons/{id}/changelog | List updates about person field values
 *PersonsApi* | [**getPersonDeals**](docs/Api/PersonsApi.md#getpersondeals) | **GET** /persons/{id}/deals | List deals associated with a person
 *PersonsApi* | [**getPersonFiles**](docs/Api/PersonsApi.md#getpersonfiles) | **GET** /persons/{id}/files | List files attached to a person
 *PersonsApi* | [**getPersonFollowers**](docs/Api/PersonsApi.md#getpersonfollowers) | **GET** /persons/{id}/followers | List followers of a person
@@ -716,6 +719,9 @@ Class | Method | HTTP request | Description
  - [CallLogResponse500](docs/Model/CallLogResponse500.md)
  - [CallLogsResponse](docs/Model/CallLogsResponse.md)
  - [CallLogsResponseAdditionalData](docs/Model/CallLogsResponseAdditionalData.md)
+ - [ChangelogResponse](docs/Model/ChangelogResponse.md)
+ - [ChangelogResponseAllOf](docs/Model/ChangelogResponseAllOf.md)
+ - [ChangelogResponseAllOfData](docs/Model/ChangelogResponseAllOfData.md)
  - [ChannelObject](docs/Model/ChannelObject.md)
  - [ChannelObjectResponse](docs/Model/ChannelObjectResponse.md)
  - [ChannelObjectResponseData](docs/Model/ChannelObjectResponseData.md)
@@ -1021,8 +1027,6 @@ Class | Method | HTTP request | Description
  - [ListPermittedUsersResponse](docs/Model/ListPermittedUsersResponse.md)
  - [ListPermittedUsersResponse1](docs/Model/ListPermittedUsersResponse1.md)
  - [ListPermittedUsersResponse1AllOf](docs/Model/ListPermittedUsersResponse1AllOf.md)
- - [ListPermittedUsersResponseAllOf](docs/Model/ListPermittedUsersResponseAllOf.md)
- - [ListPermittedUsersResponseAllOfData](docs/Model/ListPermittedUsersResponseAllOfData.md)
  - [ListPersonProductsResponse](docs/Model/ListPersonProductsResponse.md)
  - [ListPersonProductsResponseAllOf](docs/Model/ListPersonProductsResponseAllOf.md)
  - [ListPersonProductsResponseAllOfDEALID](docs/Model/ListPersonProductsResponseAllOfDEALID.md)
