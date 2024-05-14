@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **end_date** | **\DateTime** | The end date of the subscription | [optional]
 **lifetime_value** | **double** | The total value of all payments | [optional]
 **final_status** | **string** | The final status of the subscription | [optional]
-**add_time** | **string** | The creation time of the subscription | [optional]
-**update_time** | **string** | The update time of the subscription | [optional]
+**add_time** | **\DateTime** | The creation time of the subscription | [optional]
+**update_time** | **\DateTime** | The update time of the subscription | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

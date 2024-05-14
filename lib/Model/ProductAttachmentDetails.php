@@ -75,6 +75,9 @@ class ProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSeria
         'tax' => 'float',
         'tax_method' => 'string',
         'enabled_flag' => 'bool',
+        'billing_frequency' => '\Pipedrive\Model\BillingFrequency',
+        'billing_frequency_cycles' => 'int',
+        'billing_start_date' => 'string',
         'id' => 'int',
         'company_id' => 'int',
         'deal_id' => 'int',
@@ -106,6 +109,9 @@ class ProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSeria
         'tax' => null,
         'tax_method' => null,
         'enabled_flag' => null,
+        'billing_frequency' => null,
+        'billing_frequency_cycles' => null,
+        'billing_start_date' => 'YYYY-MM-DD',
         'id' => null,
         'company_id' => null,
         'deal_id' => null,
@@ -160,6 +166,9 @@ class ProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSeria
         'tax' => 'tax',
         'tax_method' => 'tax_method',
         'enabled_flag' => 'enabled_flag',
+        'billing_frequency' => 'billing_frequency',
+        'billing_frequency_cycles' => 'billing_frequency_cycles',
+        'billing_start_date' => 'billing_start_date',
         'id' => 'id',
         'company_id' => 'company_id',
         'deal_id' => 'deal_id',
@@ -189,6 +198,9 @@ class ProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSeria
         'tax' => 'setTax',
         'tax_method' => 'setTaxMethod',
         'enabled_flag' => 'setEnabledFlag',
+        'billing_frequency' => 'setBillingFrequency',
+        'billing_frequency_cycles' => 'setBillingFrequencyCycles',
+        'billing_start_date' => 'setBillingStartDate',
         'id' => 'setId',
         'company_id' => 'setCompanyId',
         'deal_id' => 'setDealId',
@@ -218,6 +230,9 @@ class ProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSeria
         'tax' => 'getTax',
         'tax_method' => 'getTaxMethod',
         'enabled_flag' => 'getEnabledFlag',
+        'billing_frequency' => 'getBillingFrequency',
+        'billing_frequency_cycles' => 'getBillingFrequencyCycles',
+        'billing_start_date' => 'getBillingStartDate',
         'id' => 'getId',
         'company_id' => 'getCompanyId',
         'deal_id' => 'getDealId',
@@ -344,6 +359,9 @@ class ProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSeria
         $this->container['tax'] = $data['tax'] ?? null;
         $this->container['tax_method'] = $data['tax_method'] ?? null;
         $this->container['enabled_flag'] = $data['enabled_flag'] ?? true;
+        $this->container['billing_frequency'] = $data['billing_frequency'] ?? null;
+        $this->container['billing_frequency_cycles'] = $data['billing_frequency_cycles'] ?? null;
+        $this->container['billing_start_date'] = $data['billing_start_date'] ?? null;
         $this->container['id'] = $data['id'] ?? null;
         $this->container['company_id'] = $data['company_id'] ?? null;
         $this->container['deal_id'] = $data['deal_id'] ?? null;
@@ -366,15 +384,6 @@ class ProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSeria
     {
         $invalidProperties = [];
 
-        if ($this->container['product_id'] === null) {
-            $invalidProperties[] = "'product_id' can't be null";
-        }
-        if ($this->container['item_price'] === null) {
-            $invalidProperties[] = "'item_price' can't be null";
-        }
-        if ($this->container['quantity'] === null) {
-            $invalidProperties[] = "'quantity' can't be null";
-        }
         $allowedValues = $this->getDiscountTypeAllowableValues();
         if (!is_null($this->container['discount_type']) && !in_array($this->container['discount_type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -411,7 +420,7 @@ class ProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSeria
     /**
      * Gets product_id
      *
-     * @return int
+     * @return int|null
      */
     public function getProductId()
     {
@@ -421,7 +430,7 @@ class ProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSeria
     /**
      * Sets product_id
      *
-     * @param int $product_id The ID of the product
+     * @param int|null $product_id The ID of the product
      *
      * @return self
      */
@@ -435,7 +444,7 @@ class ProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSeria
     /**
      * Gets item_price
      *
-     * @return float
+     * @return float|null
      */
     public function getItemPrice()
     {
@@ -445,7 +454,7 @@ class ProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSeria
     /**
      * Sets item_price
      *
-     * @param float $item_price The price at which this product will be added to the deal
+     * @param float|null $item_price The price at which this product will be added to the deal
      *
      * @return self
      */
@@ -459,7 +468,7 @@ class ProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSeria
     /**
      * Gets quantity
      *
-     * @return int
+     * @return int|null
      */
     public function getQuantity()
     {
@@ -469,7 +478,7 @@ class ProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSeria
     /**
      * Sets quantity
      *
-     * @param int $quantity Quantity – e.g. how many items of this product will be added to the deal
+     * @param int|null $quantity Quantity – e.g. how many items of this product will be added to the deal
      *
      * @return self
      */
@@ -493,7 +502,7 @@ class ProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSeria
     /**
      * Sets discount
      *
-     * @param float|null $discount The value of the discount. The `discount_type` field can be used to specify whether the value is an amount or a percentage.
+     * @param float|null $discount The value of the discount. The `discount_type` field can be used to specify whether the value is an amount or a percentage
      *
      * @return self
      */
@@ -517,7 +526,7 @@ class ProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSeria
     /**
      * Sets discount_type
      *
-     * @param string|null $discount_type The type of the discount's value.
+     * @param string|null $discount_type The type of the discount's value
      *
      * @return self
      */
@@ -551,7 +560,7 @@ class ProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSeria
     /**
      * Sets duration
      *
-     * @param float|null $duration The duration of the product. If omitted, will be set to 1.
+     * @param float|null $duration The duration of the product. If omitted, will be set to 1
      *
      * @return self
      */
@@ -599,7 +608,7 @@ class ProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSeria
     /**
      * Sets product_variation_id
      *
-     * @param int|null $product_variation_id The ID of the product variation to use. When omitted, no variation will be used.
+     * @param int|null $product_variation_id The ID of the product variation to use. When omitted, no variation will be used
      *
      * @return self
      */
@@ -671,7 +680,7 @@ class ProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSeria
     /**
      * Sets tax_method
      *
-     * @param string|null $tax_method The tax option to be applied to the products. When using `inclusive`, the tax percentage will already be included in the price. When using `exclusive`, the tax will not be included in the price. When using `none`, no tax will be added. Use the `tax` field for defining the tax percentage amount. By default, the user setting value for tax options will be used. Changing this in one product affects the rest of the products attached to the deal.
+     * @param string|null $tax_method The tax option to be applied to the products. When using `inclusive`, the tax percentage will already be included in the price. When using `exclusive`, the tax will not be included in the price. When using `none`, no tax will be added. Use the `tax` field for defining the tax percentage amount. By default, the user setting value for tax options will be used. Changing this in one product affects the rest of the products attached to the deal
      *
      * @return self
      */
@@ -705,13 +714,85 @@ class ProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSeria
     /**
      * Sets enabled_flag
      *
-     * @param bool|null $enabled_flag Whether the product is enabled for a deal or not. This makes it possible to add products to a deal with a specific price and discount criteria, but keep them disabled, which refrains them from being included in the deal value calculation. When omitted, the product will be marked as enabled by default.
+     * @param bool|null $enabled_flag Whether the product is enabled for a deal or not. This makes it possible to add products to a deal with a specific price and discount criteria, but keep them disabled, which refrains them from being included in the deal value calculation. When omitted, the product will be marked as enabled by default
      *
      * @return self
      */
     public function setEnabledFlag($enabled_flag): self
     {
         $this->container['enabled_flag'] = $enabled_flag;
+
+        return $this;
+    }
+
+    /**
+     * Gets billing_frequency
+     *
+     * @return \Pipedrive\Model\BillingFrequency|null
+     */
+    public function getBillingFrequency()
+    {
+        return $this->container['billing_frequency'];
+    }
+
+    /**
+     * Sets billing_frequency
+     *
+     * @param \Pipedrive\Model\BillingFrequency|null $billing_frequency billing_frequency
+     *
+     * @return self
+     */
+    public function setBillingFrequency($billing_frequency): self
+    {
+        $this->container['billing_frequency'] = $billing_frequency;
+
+        return $this;
+    }
+
+    /**
+     * Gets billing_frequency_cycles
+     *
+     * @return int|null
+     */
+    public function getBillingFrequencyCycles()
+    {
+        return $this->container['billing_frequency_cycles'];
+    }
+
+    /**
+     * Sets billing_frequency_cycles
+     *
+     * @param int|null $billing_frequency_cycles Only available in Advanced and above plans  The number of times the billing frequency repeats for a product in a deal  When `billing_frequency` is set to `one-time`, this field must be `null`  For all the other values of `billing_frequency`, `null` represents a product billed indefinitely  Must be a positive integer less or equal to 312
+     *
+     * @return self
+     */
+    public function setBillingFrequencyCycles($billing_frequency_cycles): self
+    {
+        $this->container['billing_frequency_cycles'] = $billing_frequency_cycles;
+
+        return $this;
+    }
+
+    /**
+     * Gets billing_start_date
+     *
+     * @return string|null
+     */
+    public function getBillingStartDate()
+    {
+        return $this->container['billing_start_date'];
+    }
+
+    /**
+     * Sets billing_start_date
+     *
+     * @param string|null $billing_start_date Only available in Advanced and above plans  The billing start date. Must be between 15 years in the past and 15 years in the future
+     *
+     * @return self
+     */
+    public function setBillingStartDate($billing_start_date): self
+    {
+        $this->container['billing_start_date'] = $billing_start_date;
 
         return $this;
     }

@@ -71,8 +71,8 @@ class ActivityTypeObjectResponse implements ModelInterface, ArrayAccess, JsonSer
         'key_string' => 'string',
         'active_flag' => 'bool',
         'is_custom_flag' => 'bool',
-        'add_time' => 'string',
-        'update_time' => 'string'
+        'add_time' => '\DateTime',
+        'update_time' => '\DateTime'
     ];
 
     /**
@@ -91,8 +91,8 @@ class ActivityTypeObjectResponse implements ModelInterface, ArrayAccess, JsonSer
         'key_string' => null,
         'active_flag' => null,
         'is_custom_flag' => null,
-        'add_time' => 'datetime',
-        'update_time' => 'datetime'
+        'add_time' => 'date-time',
+        'update_time' => 'date-time'
     ];
 
     /**
@@ -474,7 +474,7 @@ class ActivityTypeObjectResponse implements ModelInterface, ArrayAccess, JsonSer
     /**
      * Gets add_time
      *
-     * @return string|null
+     * @return \DateTime|null
      */
     public function getAddTime()
     {
@@ -484,7 +484,7 @@ class ActivityTypeObjectResponse implements ModelInterface, ArrayAccess, JsonSer
     /**
      * Sets add_time
      *
-     * @param string|null $add_time The creation time of the activity type
+     * @param \DateTime|null $add_time The creation time of the activity type
      *
      * @return self
      */
@@ -498,7 +498,7 @@ class ActivityTypeObjectResponse implements ModelInterface, ArrayAccess, JsonSer
     /**
      * Gets update_time
      *
-     * @return string|null
+     * @return \DateTime|null
      */
     public function getUpdateTime()
     {
@@ -508,7 +508,7 @@ class ActivityTypeObjectResponse implements ModelInterface, ArrayAccess, JsonSer
     /**
      * Sets update_time
      *
-     * @param string|null $update_time The update time of the activity type
+     * @param \DateTime|null $update_time The update time of the activity type
      *
      * @return self
      */

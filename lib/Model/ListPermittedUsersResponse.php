@@ -63,8 +63,7 @@ class ListPermittedUsersResponse implements ModelInterface, ArrayAccess, JsonSer
       * @phpsalm-var array<string, string>
       */
     protected static array $openAPITypes = [
-        'success' => 'bool',
-        'data' => '\Pipedrive\Model\ListPermittedUsersResponseAllOfData'
+        'success' => 'bool'
     ];
 
     /**
@@ -75,8 +74,7 @@ class ListPermittedUsersResponse implements ModelInterface, ArrayAccess, JsonSer
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'success' => null,
-        'data' => null
+        'success' => null
     ];
 
     /**
@@ -110,8 +108,7 @@ class ListPermittedUsersResponse implements ModelInterface, ArrayAccess, JsonSer
      * @var string[]
      */
     protected static $attributeMap = [
-        'success' => 'success',
-        'data' => 'data'
+        'success' => 'success'
     ];
 
     /**
@@ -120,8 +117,7 @@ class ListPermittedUsersResponse implements ModelInterface, ArrayAccess, JsonSer
      * @var string[]
      */
     protected static $setters = [
-        'success' => 'setSuccess',
-        'data' => 'setData'
+        'success' => 'setSuccess'
     ];
 
     /**
@@ -130,8 +126,7 @@ class ListPermittedUsersResponse implements ModelInterface, ArrayAccess, JsonSer
      * @var string[]
      */
     protected static $getters = [
-        'success' => 'getSuccess',
-        'data' => 'getData'
+        'success' => 'getSuccess'
     ];
 
     /**
@@ -202,7 +197,6 @@ class ListPermittedUsersResponse implements ModelInterface, ArrayAccess, JsonSer
     public function __construct(array $data = null)
     {
         $this->container['success'] = $data['success'] ?? null;
-        $this->container['data'] = $data['data'] ?? null;
     }
 
     /**
@@ -251,30 +245,6 @@ class ListPermittedUsersResponse implements ModelInterface, ArrayAccess, JsonSer
     public function setSuccess($success): self
     {
         $this->container['success'] = $success;
-
-        return $this;
-    }
-
-    /**
-     * Gets data
-     *
-     * @return \Pipedrive\Model\ListPermittedUsersResponseAllOfData|null
-     */
-    public function getData()
-    {
-        return $this->container['data'];
-    }
-
-    /**
-     * Sets data
-     *
-     * @param \Pipedrive\Model\ListPermittedUsersResponseAllOfData|null $data data
-     *
-     * @return self
-     */
-    public function setData($data): self
-    {
-        $this->container['data'] = $data;
 
         return $this;
     }

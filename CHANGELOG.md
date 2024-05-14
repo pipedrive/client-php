@@ -5,6 +5,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Added `billing_frequency`, `billing_frequency_cycles` and `billing_start_date` fields to
+  - `GET`, `POST` and `PUT` `/v1/deals/{id}/products` endpoints
+  - `GET`, `POST` and `PATCH` `/v2/deals/{id}/products` endpoints
+  - `GET` `/v2/deals/products` endpoint
+- Added `billing_frequency`, `billing_frequency_cycles` fields to
+  - `GET`, `POST` and `PUT` `/v1/products` endpoints
+  - `GET` `/v1/products/{id}` endpoint
+  - `GET`, `POST` and `PATCH` `/v2/products` endpoints
+  - `GET` `/v2/products/{id}` endpoints
 
 ## [6.6.0](https://github.com/pipedrive/client-php/compare/6.5.1...6.6.0) (2024-04-02)
 

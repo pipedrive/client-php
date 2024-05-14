@@ -424,7 +424,7 @@ class ProductRequest implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets owner_id
      *
-     * @param int|null $owner_id The ID of the user who will be marked as the owner of this product. When omitted, the authorized user ID will be used.
+     * @param int|null $owner_id The ID of the user who will be marked as the owner of this product. When omitted, the authorized user ID will be used
      *
      * @return self
      */

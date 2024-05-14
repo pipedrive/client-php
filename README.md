@@ -345,6 +345,7 @@ Class | Method | HTTP request | Description
 *DealsApi* | [**duplicateDeal**](docs/Api/DealsApi.md#duplicatedeal) | **POST** /deals/{id}/duplicate | Duplicate deal
 *DealsApi* | [**getDeal**](docs/Api/DealsApi.md#getdeal) | **GET** /deals/{id} | Get details of a deal
 *DealsApi* | [**getDealActivities**](docs/Api/DealsApi.md#getdealactivities) | **GET** /deals/{id}/activities | List activities associated with a deal
+*DealsApi* | [**getDealChangelog**](docs/Api/DealsApi.md#getdealchangelog) | **GET** /deals/{id}/changelog | List updates about deal field values
 *DealsApi* | [**getDealFiles**](docs/Api/DealsApi.md#getdealfiles) | **GET** /deals/{id}/files | List files attached to a deal
 *DealsApi* | [**getDealFollowers**](docs/Api/DealsApi.md#getdealfollowers) | **GET** /deals/{id}/followers | List followers of a deal
 *DealsApi* | [**getDealMailMessages**](docs/Api/DealsApi.md#getdealmailmessages) | **GET** /deals/{id}/mailMessages | List mail messages associated with a deal
@@ -441,6 +442,7 @@ Class | Method | HTTP request | Description
 *OrganizationsApi* | [**deleteOrganizations**](docs/Api/OrganizationsApi.md#deleteorganizations) | **DELETE** /organizations | Delete multiple organizations in bulk
 *OrganizationsApi* | [**getOrganization**](docs/Api/OrganizationsApi.md#getorganization) | **GET** /organizations/{id} | Get details of an organization
 *OrganizationsApi* | [**getOrganizationActivities**](docs/Api/OrganizationsApi.md#getorganizationactivities) | **GET** /organizations/{id}/activities | List activities associated with an organization
+*OrganizationsApi* | [**getOrganizationChangelog**](docs/Api/OrganizationsApi.md#getorganizationchangelog) | **GET** /organizations/{id}/changelog | List updates about organization field values
 *OrganizationsApi* | [**getOrganizationDeals**](docs/Api/OrganizationsApi.md#getorganizationdeals) | **GET** /organizations/{id}/deals | List deals associated with an organization
 *OrganizationsApi* | [**getOrganizationFiles**](docs/Api/OrganizationsApi.md#getorganizationfiles) | **GET** /organizations/{id}/files | List files attached to an organization
 *OrganizationsApi* | [**getOrganizationFollowers**](docs/Api/OrganizationsApi.md#getorganizationfollowers) | **GET** /organizations/{id}/followers | List followers of an organization
@@ -471,6 +473,7 @@ Class | Method | HTTP request | Description
 *PersonsApi* | [**deletePersons**](docs/Api/PersonsApi.md#deletepersons) | **DELETE** /persons | Delete multiple persons in bulk
 *PersonsApi* | [**getPerson**](docs/Api/PersonsApi.md#getperson) | **GET** /persons/{id} | Get details of a person
 *PersonsApi* | [**getPersonActivities**](docs/Api/PersonsApi.md#getpersonactivities) | **GET** /persons/{id}/activities | List activities associated with a person
+*PersonsApi* | [**getPersonChangelog**](docs/Api/PersonsApi.md#getpersonchangelog) | **GET** /persons/{id}/changelog | List updates about person field values
 *PersonsApi* | [**getPersonDeals**](docs/Api/PersonsApi.md#getpersondeals) | **GET** /persons/{id}/deals | List deals associated with a person
 *PersonsApi* | [**getPersonFiles**](docs/Api/PersonsApi.md#getpersonfiles) | **GET** /persons/{id}/files | List files attached to a person
 *PersonsApi* | [**getPersonFollowers**](docs/Api/PersonsApi.md#getpersonfollowers) | **GET** /persons/{id}/followers | List followers of a person
@@ -635,6 +638,7 @@ Class | Method | HTTP request | Description
  - [AddProductAttachmentDetailsAllOf](docs/Model/AddProductAttachmentDetailsAllOf.md)
  - [AddProductFollowerRequest](docs/Model/AddProductFollowerRequest.md)
  - [AddProductRequestBody](docs/Model/AddProductRequestBody.md)
+ - [AddProductRequestBodyAllOf](docs/Model/AddProductRequestBodyAllOf.md)
  - [AddProjectResponse201](docs/Model/AddProjectResponse201.md)
  - [AddRole](docs/Model/AddRole.md)
  - [AddRoleAssignmentRequest](docs/Model/AddRoleAssignmentRequest.md)
@@ -698,10 +702,13 @@ Class | Method | HTTP request | Description
  - [BaseWebhook](docs/Model/BaseWebhook.md)
  - [BasicDeal](docs/Model/BasicDeal.md)
  - [BasicDealProduct](docs/Model/BasicDealProduct.md)
+ - [BasicDealProductAllOf](docs/Model/BasicDealProductAllOf.md)
  - [BasicGoal](docs/Model/BasicGoal.md)
  - [BasicOrganization](docs/Model/BasicOrganization.md)
  - [BasicPerson](docs/Model/BasicPerson.md)
  - [BasicPersonEmail](docs/Model/BasicPersonEmail.md)
+ - [BillingFrequency](docs/Model/BillingFrequency.md)
+ - [BillingFrequency1](docs/Model/BillingFrequency1.md)
  - [BulkDeleteResponse](docs/Model/BulkDeleteResponse.md)
  - [BulkDeleteResponseAllOf](docs/Model/BulkDeleteResponseAllOf.md)
  - [BulkDeleteResponseAllOfData](docs/Model/BulkDeleteResponseAllOfData.md)
@@ -716,6 +723,9 @@ Class | Method | HTTP request | Description
  - [CallLogResponse500](docs/Model/CallLogResponse500.md)
  - [CallLogsResponse](docs/Model/CallLogsResponse.md)
  - [CallLogsResponseAdditionalData](docs/Model/CallLogsResponseAdditionalData.md)
+ - [ChangelogResponse](docs/Model/ChangelogResponse.md)
+ - [ChangelogResponseAllOf](docs/Model/ChangelogResponseAllOf.md)
+ - [ChangelogResponseAllOfData](docs/Model/ChangelogResponseAllOfData.md)
  - [ChannelObject](docs/Model/ChannelObject.md)
  - [ChannelObjectResponse](docs/Model/ChannelObjectResponse.md)
  - [ChannelObjectResponseData](docs/Model/ChannelObjectResponseData.md)
@@ -752,6 +762,7 @@ Class | Method | HTTP request | Description
  - [DealPersonDataPhone](docs/Model/DealPersonDataPhone.md)
  - [DealPersonDataWithId](docs/Model/DealPersonDataWithId.md)
  - [DealPersonDataWithIdAllOf](docs/Model/DealPersonDataWithIdAllOf.md)
+ - [DealProductRequestBody](docs/Model/DealProductRequestBody.md)
  - [DealProductUnitDuration](docs/Model/DealProductUnitDuration.md)
  - [DealSearchItem](docs/Model/DealSearchItem.md)
  - [DealSearchItemItem](docs/Model/DealSearchItemItem.md)
@@ -1021,8 +1032,6 @@ Class | Method | HTTP request | Description
  - [ListPermittedUsersResponse](docs/Model/ListPermittedUsersResponse.md)
  - [ListPermittedUsersResponse1](docs/Model/ListPermittedUsersResponse1.md)
  - [ListPermittedUsersResponse1AllOf](docs/Model/ListPermittedUsersResponse1AllOf.md)
- - [ListPermittedUsersResponseAllOf](docs/Model/ListPermittedUsersResponseAllOf.md)
- - [ListPermittedUsersResponseAllOfData](docs/Model/ListPermittedUsersResponseAllOfData.md)
  - [ListPersonProductsResponse](docs/Model/ListPersonProductsResponse.md)
  - [ListPersonProductsResponseAllOf](docs/Model/ListPersonProductsResponseAllOf.md)
  - [ListPersonProductsResponseAllOfDEALID](docs/Model/ListPersonProductsResponseAllOfDEALID.md)
@@ -1069,9 +1078,13 @@ Class | Method | HTTP request | Description
  - [MergePersonsResponseAllOf](docs/Model/MergePersonsResponseAllOf.md)
  - [MessageObject](docs/Model/MessageObject.md)
  - [MessageObjectAttachments](docs/Model/MessageObjectAttachments.md)
+ - [NameObject](docs/Model/NameObject.md)
  - [NewDeal](docs/Model/NewDeal.md)
  - [NewDealParameters](docs/Model/NewDealParameters.md)
  - [NewDealProduct](docs/Model/NewDealProduct.md)
+ - [NewDealProductAllOf](docs/Model/NewDealProductAllOf.md)
+ - [NewDealProductAllOf1](docs/Model/NewDealProductAllOf1.md)
+ - [NewDealProductAllOf2](docs/Model/NewDealProductAllOf2.md)
  - [NewFollowerResponse](docs/Model/NewFollowerResponse.md)
  - [NewFollowerResponseData](docs/Model/NewFollowerResponseData.md)
  - [NewGoal](docs/Model/NewGoal.md)
@@ -1092,9 +1105,7 @@ Class | Method | HTTP request | Description
  - [NumberBoolean](docs/Model/NumberBoolean.md)
  - [NumberBooleanDefault0](docs/Model/NumberBooleanDefault0.md)
  - [NumberBooleanDefault1](docs/Model/NumberBooleanDefault1.md)
- - [ObjectPrices](docs/Model/ObjectPrices.md)
  - [OneLeadResponse200](docs/Model/OneLeadResponse200.md)
- - [OptionalNameObject](docs/Model/OptionalNameObject.md)
  - [OrgAndOwnerId](docs/Model/OrgAndOwnerId.md)
  - [OrganizationAddressInfo](docs/Model/OrganizationAddressInfo.md)
  - [OrganizationCountAndAddressInfo](docs/Model/OrganizationCountAndAddressInfo.md)
@@ -1225,7 +1236,6 @@ Class | Method | HTTP request | Description
  - [ProductSearchResponseAllOf](docs/Model/ProductSearchResponseAllOf.md)
  - [ProductSearchResponseAllOfData](docs/Model/ProductSearchResponseAllOfData.md)
  - [ProductWithArrayPrices](docs/Model/ProductWithArrayPrices.md)
- - [ProductWithObjectPrices](docs/Model/ProductWithObjectPrices.md)
  - [ProductsResponse](docs/Model/ProductsResponse.md)
  - [ProjectBoardObject](docs/Model/ProjectBoardObject.md)
  - [ProjectGroupsObject](docs/Model/ProjectGroupsObject.md)
@@ -1270,7 +1280,6 @@ Class | Method | HTTP request | Description
  - [RelationshipOrganizationInfoItem](docs/Model/RelationshipOrganizationInfoItem.md)
  - [RelationshipOrganizationInfoItemAllOf](docs/Model/RelationshipOrganizationInfoItemAllOf.md)
  - [RelationshipOrganizationInfoItemWithActiveFlag](docs/Model/RelationshipOrganizationInfoItemWithActiveFlag.md)
- - [RequiredNameObject](docs/Model/RequiredNameObject.md)
  - [RequiredPostProjectParameters](docs/Model/RequiredPostProjectParameters.md)
  - [RequiredPostTaskParameters](docs/Model/RequiredPostTaskParameters.md)
  - [RequredTitleParameter](docs/Model/RequredTitleParameter.md)
