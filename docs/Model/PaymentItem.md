@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **revenue_movement_type** | **string** | Represents the movement of revenue in comparison with the previous payment. Possible values are: &#x60;New&#x60; - first payment of the subscription. &#x60;Recurring&#x60; - no movement. &#x60;Expansion&#x60; - current payment amount &gt; previous payment amount. &#x60;Contraction&#x60; - current payment amount &lt; previous payment amount. &#x60;Churn&#x60; - last payment of the subscription. | [optional]
 **payment_type** | **string** | The type of the payment. Possible values are: &#x60;Recurring&#x60; - payments occur over fixed intervals of time, &#x60;Additional&#x60; - extra payment not the recurring payment of the recurring subscription, &#x60;Installment&#x60; - payment of the installment subscription. | [optional]
 **description** | **string** | The description of the payment | [optional]
-**add_time** | **string** | The creation time of the payment | [optional]
-**update_time** | **string** | The update time of the payment | [optional]
+**add_time** | **\DateTime** | The creation time of the payment | [optional]
+**update_time** | **\DateTime** | The update time of the payment | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

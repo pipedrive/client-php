@@ -1,6 +1,6 @@
 <?php
 /**
- * ActivityTypeObjectResponse
+ * ChangelogResponseAllOf
  *
  * PHP version 7.3
  *
@@ -34,7 +34,7 @@ use JsonSerializable;
 use Pipedrive\ObjectSerializer;
 
 /**
- * ActivityTypeObjectResponse Class Doc Comment
+ * ChangelogResponseAllOf Class Doc Comment
  *
  * @category Class
  * @package  Pipedrive
@@ -44,7 +44,7 @@ use Pipedrive\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ActivityTypeObjectResponse implements ModelInterface, ArrayAccess, JsonSerializable
+class ChangelogResponseAllOf implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -53,7 +53,7 @@ class ActivityTypeObjectResponse implements ModelInterface, ArrayAccess, JsonSer
       *
       * @var string
       */
-    protected static string $openAPIModelName = 'ActivityTypeObjectResponse';
+    protected static string $openAPIModelName = 'ChangelogResponse_allOf';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -63,16 +63,8 @@ class ActivityTypeObjectResponse implements ModelInterface, ArrayAccess, JsonSer
       * @phpsalm-var array<string, string>
       */
     protected static array $openAPITypes = [
-        'id' => 'int',
-        'name' => 'string',
-        'icon_key' => '\Pipedrive\Model\IconKey',
-        'color' => 'string',
-        'order_nr' => 'int',
-        'key_string' => 'string',
-        'active_flag' => 'bool',
-        'is_custom_flag' => 'bool',
-        'add_time' => '\DateTime',
-        'update_time' => '\DateTime'
+        'data' => '\Pipedrive\Model\ChangelogResponseAllOfData[]',
+        'additional_data' => '\Pipedrive\Model\AdditionalDataWithCursorPagination'
     ];
 
     /**
@@ -83,16 +75,8 @@ class ActivityTypeObjectResponse implements ModelInterface, ArrayAccess, JsonSer
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'name' => null,
-        'icon_key' => null,
-        'color' => null,
-        'order_nr' => null,
-        'key_string' => null,
-        'active_flag' => null,
-        'is_custom_flag' => null,
-        'add_time' => 'date-time',
-        'update_time' => 'date-time'
+        'data' => null,
+        'additional_data' => null
     ];
 
     /**
@@ -126,16 +110,8 @@ class ActivityTypeObjectResponse implements ModelInterface, ArrayAccess, JsonSer
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'name' => 'name',
-        'icon_key' => 'icon_key',
-        'color' => 'color',
-        'order_nr' => 'order_nr',
-        'key_string' => 'key_string',
-        'active_flag' => 'active_flag',
-        'is_custom_flag' => 'is_custom_flag',
-        'add_time' => 'add_time',
-        'update_time' => 'update_time'
+        'data' => 'data',
+        'additional_data' => 'additional_data'
     ];
 
     /**
@@ -144,16 +120,8 @@ class ActivityTypeObjectResponse implements ModelInterface, ArrayAccess, JsonSer
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'name' => 'setName',
-        'icon_key' => 'setIconKey',
-        'color' => 'setColor',
-        'order_nr' => 'setOrderNr',
-        'key_string' => 'setKeyString',
-        'active_flag' => 'setActiveFlag',
-        'is_custom_flag' => 'setIsCustomFlag',
-        'add_time' => 'setAddTime',
-        'update_time' => 'setUpdateTime'
+        'data' => 'setData',
+        'additional_data' => 'setAdditionalData'
     ];
 
     /**
@@ -162,16 +130,8 @@ class ActivityTypeObjectResponse implements ModelInterface, ArrayAccess, JsonSer
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'name' => 'getName',
-        'icon_key' => 'getIconKey',
-        'color' => 'getColor',
-        'order_nr' => 'getOrderNr',
-        'key_string' => 'getKeyString',
-        'active_flag' => 'getActiveFlag',
-        'is_custom_flag' => 'getIsCustomFlag',
-        'add_time' => 'getAddTime',
-        'update_time' => 'getUpdateTime'
+        'data' => 'getData',
+        'additional_data' => 'getAdditionalData'
     ];
 
     /**
@@ -241,16 +201,8 @@ class ActivityTypeObjectResponse implements ModelInterface, ArrayAccess, JsonSer
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = $data['id'] ?? null;
-        $this->container['name'] = $data['name'] ?? null;
-        $this->container['icon_key'] = $data['icon_key'] ?? null;
-        $this->container['color'] = $data['color'] ?? null;
-        $this->container['order_nr'] = $data['order_nr'] ?? null;
-        $this->container['key_string'] = $data['key_string'] ?? null;
-        $this->container['active_flag'] = $data['active_flag'] ?? null;
-        $this->container['is_custom_flag'] = $data['is_custom_flag'] ?? null;
-        $this->container['add_time'] = $data['add_time'] ?? null;
-        $this->container['update_time'] = $data['update_time'] ?? null;
+        $this->container['data'] = $data['data'] ?? null;
+        $this->container['additional_data'] = $data['additional_data'] ?? null;
     }
 
     /**
@@ -280,241 +232,49 @@ class ActivityTypeObjectResponse implements ModelInterface, ArrayAccess, JsonSer
 
 
     /**
-     * Gets id
+     * Gets data
      *
-     * @return int|null
+     * @return \Pipedrive\Model\ChangelogResponseAllOfData[]|null
      */
-    public function getId()
+    public function getData()
     {
-        return $this->container['id'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets id
+     * Sets data
      *
-     * @param int|null $id The ID of the activity type
+     * @param \Pipedrive\Model\ChangelogResponseAllOfData[]|null $data data
      *
      * @return self
      */
-    public function setId($id): self
+    public function setData($data): self
     {
-        $this->container['id'] = $id;
+        $this->container['data'] = $data;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets additional_data
      *
-     * @return string|null
+     * @return \Pipedrive\Model\AdditionalDataWithCursorPagination|null
      */
-    public function getName()
+    public function getAdditionalData()
     {
-        return $this->container['name'];
+        return $this->container['additional_data'];
     }
 
     /**
-     * Sets name
+     * Sets additional_data
      *
-     * @param string|null $name The name of the activity type
+     * @param \Pipedrive\Model\AdditionalDataWithCursorPagination|null $additional_data additional_data
      *
      * @return self
      */
-    public function setName($name): self
+    public function setAdditionalData($additional_data): self
     {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets icon_key
-     *
-     * @return \Pipedrive\Model\IconKey|null
-     */
-    public function getIconKey()
-    {
-        return $this->container['icon_key'];
-    }
-
-    /**
-     * Sets icon_key
-     *
-     * @param \Pipedrive\Model\IconKey|null $icon_key icon_key
-     *
-     * @return self
-     */
-    public function setIconKey($icon_key): self
-    {
-        $this->container['icon_key'] = $icon_key;
-
-        return $this;
-    }
-
-    /**
-     * Gets color
-     *
-     * @return string|null
-     */
-    public function getColor()
-    {
-        return $this->container['color'];
-    }
-
-    /**
-     * Sets color
-     *
-     * @param string|null $color A designated color for the activity type in 6-character HEX format (e.g. `FFFFFF` for white, `000000` for black)
-     *
-     * @return self
-     */
-    public function setColor($color): self
-    {
-        $this->container['color'] = $color;
-
-        return $this;
-    }
-
-    /**
-     * Gets order_nr
-     *
-     * @return int|null
-     */
-    public function getOrderNr()
-    {
-        return $this->container['order_nr'];
-    }
-
-    /**
-     * Sets order_nr
-     *
-     * @param int|null $order_nr An order number for the activity type. Order numbers should be used to order the types in the activity type selections.
-     *
-     * @return self
-     */
-    public function setOrderNr($order_nr): self
-    {
-        $this->container['order_nr'] = $order_nr;
-
-        return $this;
-    }
-
-    /**
-     * Gets key_string
-     *
-     * @return string|null
-     */
-    public function getKeyString()
-    {
-        return $this->container['key_string'];
-    }
-
-    /**
-     * Sets key_string
-     *
-     * @param string|null $key_string A string that is generated by the API based on the given name of the activity type upon creation
-     *
-     * @return self
-     */
-    public function setKeyString($key_string): self
-    {
-        $this->container['key_string'] = $key_string;
-
-        return $this;
-    }
-
-    /**
-     * Gets active_flag
-     *
-     * @return bool|null
-     */
-    public function getActiveFlag()
-    {
-        return $this->container['active_flag'];
-    }
-
-    /**
-     * Sets active_flag
-     *
-     * @param bool|null $active_flag The active flag of the activity type
-     *
-     * @return self
-     */
-    public function setActiveFlag($active_flag): self
-    {
-        $this->container['active_flag'] = $active_flag;
-
-        return $this;
-    }
-
-    /**
-     * Gets is_custom_flag
-     *
-     * @return bool|null
-     */
-    public function getIsCustomFlag()
-    {
-        return $this->container['is_custom_flag'];
-    }
-
-    /**
-     * Sets is_custom_flag
-     *
-     * @param bool|null $is_custom_flag Whether the activity type is a custom one or not
-     *
-     * @return self
-     */
-    public function setIsCustomFlag($is_custom_flag): self
-    {
-        $this->container['is_custom_flag'] = $is_custom_flag;
-
-        return $this;
-    }
-
-    /**
-     * Gets add_time
-     *
-     * @return \DateTime|null
-     */
-    public function getAddTime()
-    {
-        return $this->container['add_time'];
-    }
-
-    /**
-     * Sets add_time
-     *
-     * @param \DateTime|null $add_time The creation time of the activity type
-     *
-     * @return self
-     */
-    public function setAddTime($add_time): self
-    {
-        $this->container['add_time'] = $add_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets update_time
-     *
-     * @return \DateTime|null
-     */
-    public function getUpdateTime()
-    {
-        return $this->container['update_time'];
-    }
-
-    /**
-     * Sets update_time
-     *
-     * @param \DateTime|null $update_time The update time of the activity type
-     *
-     * @return self
-     */
-    public function setUpdateTime($update_time): self
-    {
-        $this->container['update_time'] = $update_time;
+        $this->container['additional_data'] = $additional_data;
 
         return $this;
     }
