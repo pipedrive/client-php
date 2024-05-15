@@ -1027,8 +1027,6 @@ Class | Method | HTTP request | Description
  - [ListPermittedUsersResponse](docs/Model/ListPermittedUsersResponse.md)
  - [ListPermittedUsersResponse1](docs/Model/ListPermittedUsersResponse1.md)
  - [ListPermittedUsersResponse1AllOf](docs/Model/ListPermittedUsersResponse1AllOf.md)
- - [ListPermittedUsersResponseAllOf](docs/Model/ListPermittedUsersResponseAllOf.md)
- - [ListPermittedUsersResponseAllOfData](docs/Model/ListPermittedUsersResponseAllOfData.md)
  - [ListPersonProductsResponse](docs/Model/ListPersonProductsResponse.md)
  - [ListPersonProductsResponseAllOf](docs/Model/ListPersonProductsResponseAllOf.md)
  - [ListPersonProductsResponseAllOfDEALID](docs/Model/ListPersonProductsResponseAllOfDEALID.md)

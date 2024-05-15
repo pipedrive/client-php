@@ -489,8 +489,6 @@ docs/Model/ListMailMessagesResponseAllOfData.md
 docs/Model/ListPermittedUsersResponse.md
 docs/Model/ListPermittedUsersResponse1.md
 docs/Model/ListPermittedUsersResponse1AllOf.md
-docs/Model/ListPermittedUsersResponseAllOf.md
-docs/Model/ListPermittedUsersResponseAllOfData.md
 docs/Model/ListPersonProductsResponse.md
 docs/Model/ListPersonProductsResponseAllOf.md
 docs/Model/ListPersonProductsResponseAllOfDEALID.md
@@ -1336,8 +1334,6 @@ lib/Model/ListMailMessagesResponseAllOfData.php
 lib/Model/ListPermittedUsersResponse.php
 lib/Model/ListPermittedUsersResponse1.php
 lib/Model/ListPermittedUsersResponse1AllOf.php
-lib/Model/ListPermittedUsersResponseAllOf.php
-lib/Model/ListPermittedUsersResponseAllOfData.php
 lib/Model/ListPersonProductsResponse.php
 lib/Model/ListPersonProductsResponseAllOf.php
 lib/Model/ListPersonProductsResponseAllOfDEALID.php

@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **add_time** | **\DateTime** | The creation time of the field | [optional]
 **update_time** | **\DateTime** | The update time of the field | [optional]
 **last_updated_by_user_id** | **int** | The ID of the user who created or most recently updated the field, only applicable for custom fields | [optional]
+**created_by_user_id** | **int** | The ID of the user who created the field | [optional]
 **active_flag** | **bool** | The active flag of the field | [optional]
 **edit_flag** | **bool** | The edit flag of the field | [optional]
 **index_visible_flag** | **bool** | Not used | [optional]

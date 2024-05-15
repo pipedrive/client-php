@@ -82,6 +82,7 @@ class BaseUserMe implements ModelInterface, ArrayAccess, JsonSerializable
         'role_id' => 'int',
         'icon_url' => 'string',
         'is_you' => 'bool',
+        'is_deleted' => 'bool',
         'company_id' => 'int',
         'company_name' => 'string',
         'company_domain' => 'string',
@@ -117,6 +118,7 @@ class BaseUserMe implements ModelInterface, ArrayAccess, JsonSerializable
         'role_id' => null,
         'icon_url' => null,
         'is_you' => null,
+        'is_deleted' => null,
         'company_id' => null,
         'company_name' => null,
         'company_domain' => null,
@@ -175,6 +177,7 @@ class BaseUserMe implements ModelInterface, ArrayAccess, JsonSerializable
         'role_id' => 'role_id',
         'icon_url' => 'icon_url',
         'is_you' => 'is_you',
+        'is_deleted' => 'is_deleted',
         'company_id' => 'company_id',
         'company_name' => 'company_name',
         'company_domain' => 'company_domain',
@@ -208,6 +211,7 @@ class BaseUserMe implements ModelInterface, ArrayAccess, JsonSerializable
         'role_id' => 'setRoleId',
         'icon_url' => 'setIconUrl',
         'is_you' => 'setIsYou',
+        'is_deleted' => 'setIsDeleted',
         'company_id' => 'setCompanyId',
         'company_name' => 'setCompanyName',
         'company_domain' => 'setCompanyDomain',
@@ -241,6 +245,7 @@ class BaseUserMe implements ModelInterface, ArrayAccess, JsonSerializable
         'role_id' => 'getRoleId',
         'icon_url' => 'getIconUrl',
         'is_you' => 'getIsYou',
+        'is_deleted' => 'getIsDeleted',
         'company_id' => 'getCompanyId',
         'company_name' => 'getCompanyName',
         'company_domain' => 'getCompanyDomain',
@@ -335,6 +340,7 @@ class BaseUserMe implements ModelInterface, ArrayAccess, JsonSerializable
         $this->container['role_id'] = $data['role_id'] ?? null;
         $this->container['icon_url'] = $data['icon_url'] ?? null;
         $this->container['is_you'] = $data['is_you'] ?? null;
+        $this->container['is_deleted'] = $data['is_deleted'] ?? null;
         $this->container['company_id'] = $data['company_id'] ?? null;
         $this->container['company_name'] = $data['company_name'] ?? null;
         $this->container['company_domain'] = $data['company_domain'] ?? null;
@@ -821,6 +827,30 @@ class BaseUserMe implements ModelInterface, ArrayAccess, JsonSerializable
     public function setIsYou($is_you): self
     {
         $this->container['is_you'] = $is_you;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_deleted
+     *
+     * @return bool|null
+     */
+    public function getIsDeleted()
+    {
+        return $this->container['is_deleted'];
+    }
+
+    /**
+     * Sets is_deleted
+     *
+     * @param bool|null $is_deleted Boolean that indicates whether the user is deleted from the company
+     *
+     * @return self
+     */
+    public function setIsDeleted($is_deleted): self
+    {
+        $this->container['is_deleted'] = $is_deleted;
 
         return $this;
     }
