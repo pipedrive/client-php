@@ -1,6 +1,6 @@
 <?php
 /**
- * UpdateProductResponse
+ * NewDealProductAllOf1
  *
  * PHP version 7.3
  *
@@ -34,7 +34,7 @@ use JsonSerializable;
 use Pipedrive\ObjectSerializer;
 
 /**
- * UpdateProductResponse Class Doc Comment
+ * NewDealProductAllOf1 Class Doc Comment
  *
  * @category Class
  * @package  Pipedrive
@@ -44,7 +44,7 @@ use Pipedrive\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class UpdateProductResponse implements ModelInterface, ArrayAccess, JsonSerializable
+class NewDealProductAllOf1 implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -53,7 +53,7 @@ class UpdateProductResponse implements ModelInterface, ArrayAccess, JsonSerializ
       *
       * @var string
       */
-    protected static string $openAPIModelName = 'UpdateProductResponse';
+    protected static string $openAPIModelName = 'NewDealProduct_allOf_1';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -63,9 +63,7 @@ class UpdateProductResponse implements ModelInterface, ArrayAccess, JsonSerializ
       * @phpsalm-var array<string, string>
       */
     protected static array $openAPITypes = [
-        'success' => 'bool',
-        'data' => '\Pipedrive\Model\ProductWithArrayPrices',
-        'related_objects' => '\Pipedrive\Model\GetActivitiesResponse200RelatedObjects'
+        'billing_frequency_cycles' => 'int'
     ];
 
     /**
@@ -76,9 +74,7 @@ class UpdateProductResponse implements ModelInterface, ArrayAccess, JsonSerializ
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'success' => null,
-        'data' => null,
-        'related_objects' => null
+        'billing_frequency_cycles' => null
     ];
 
     /**
@@ -112,9 +108,7 @@ class UpdateProductResponse implements ModelInterface, ArrayAccess, JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
-        'success' => 'success',
-        'data' => 'data',
-        'related_objects' => 'related_objects'
+        'billing_frequency_cycles' => 'billing_frequency_cycles'
     ];
 
     /**
@@ -123,9 +117,7 @@ class UpdateProductResponse implements ModelInterface, ArrayAccess, JsonSerializ
      * @var string[]
      */
     protected static $setters = [
-        'success' => 'setSuccess',
-        'data' => 'setData',
-        'related_objects' => 'setRelatedObjects'
+        'billing_frequency_cycles' => 'setBillingFrequencyCycles'
     ];
 
     /**
@@ -134,9 +126,7 @@ class UpdateProductResponse implements ModelInterface, ArrayAccess, JsonSerializ
      * @var string[]
      */
     protected static $getters = [
-        'success' => 'getSuccess',
-        'data' => 'getData',
-        'related_objects' => 'getRelatedObjects'
+        'billing_frequency_cycles' => 'getBillingFrequencyCycles'
     ];
 
     /**
@@ -206,9 +196,7 @@ class UpdateProductResponse implements ModelInterface, ArrayAccess, JsonSerializ
      */
     public function __construct(array $data = null)
     {
-        $this->container['success'] = $data['success'] ?? null;
-        $this->container['data'] = $data['data'] ?? null;
-        $this->container['related_objects'] = $data['related_objects'] ?? null;
+        $this->container['billing_frequency_cycles'] = $data['billing_frequency_cycles'] ?? null;
     }
 
     /**
@@ -238,73 +226,25 @@ class UpdateProductResponse implements ModelInterface, ArrayAccess, JsonSerializ
 
 
     /**
-     * Gets success
+     * Gets billing_frequency_cycles
      *
-     * @return bool|null
+     * @return int|null
      */
-    public function getSuccess()
+    public function getBillingFrequencyCycles()
     {
-        return $this->container['success'];
+        return $this->container['billing_frequency_cycles'];
     }
 
     /**
-     * Sets success
+     * Sets billing_frequency_cycles
      *
-     * @param bool|null $success If the response is successful or not
+     * @param int|null $billing_frequency_cycles Only available in Advanced and above plans  The number of times the billing frequency repeats for a product in a deal  When `billing_frequency` is set to `one-time`, this field must be `null`  For all the other values of `billing_frequency`, `null` represents a product billed indefinitely  Must be a positive integer less or equal to 312
      *
      * @return self
      */
-    public function setSuccess($success): self
+    public function setBillingFrequencyCycles($billing_frequency_cycles): self
     {
-        $this->container['success'] = $success;
-
-        return $this;
-    }
-
-    /**
-     * Gets data
-     *
-     * @return \Pipedrive\Model\ProductWithArrayPrices|null
-     */
-    public function getData()
-    {
-        return $this->container['data'];
-    }
-
-    /**
-     * Sets data
-     *
-     * @param \Pipedrive\Model\ProductWithArrayPrices|null $data data
-     *
-     * @return self
-     */
-    public function setData($data): self
-    {
-        $this->container['data'] = $data;
-
-        return $this;
-    }
-
-    /**
-     * Gets related_objects
-     *
-     * @return \Pipedrive\Model\GetActivitiesResponse200RelatedObjects|null
-     */
-    public function getRelatedObjects()
-    {
-        return $this->container['related_objects'];
-    }
-
-    /**
-     * Sets related_objects
-     *
-     * @param \Pipedrive\Model\GetActivitiesResponse200RelatedObjects|null $related_objects related_objects
-     *
-     * @return self
-     */
-    public function setRelatedObjects($related_objects): self
-    {
-        $this->container['related_objects'] = $related_objects;
+        $this->container['billing_frequency_cycles'] = $billing_frequency_cycles;
 
         return $this;
     }

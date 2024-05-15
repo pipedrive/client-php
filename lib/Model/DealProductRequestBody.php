@@ -1,6 +1,6 @@
 <?php
 /**
- * AddProductAttachmentDetails
+ * DealProductRequestBody
  *
  * PHP version 7.3
  *
@@ -34,7 +34,7 @@ use JsonSerializable;
 use Pipedrive\ObjectSerializer;
 
 /**
- * AddProductAttachmentDetails Class Doc Comment
+ * DealProductRequestBody Class Doc Comment
  *
  * @category Class
  * @package  Pipedrive
@@ -44,7 +44,7 @@ use Pipedrive\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class AddProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSerializable
+class DealProductRequestBody implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -53,7 +53,7 @@ class AddProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSe
       *
       * @var string
       */
-    protected static string $openAPIModelName = 'AddProductAttachmentDetails';
+    protected static string $openAPIModelName = 'DealProductRequestBody';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -69,25 +69,12 @@ class AddProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSe
         'discount' => 'float',
         'discount_type' => 'string',
         'duration' => 'float',
-        'duration_unit' => 'string',
+        'duration_unit' => 'DealProductUnitDuration',
         'product_variation_id' => 'int',
         'comments' => 'string',
         'tax' => 'float',
         'tax_method' => 'string',
-        'enabled_flag' => 'bool',
-        'billing_frequency' => '\Pipedrive\Model\BillingFrequency',
-        'billing_frequency_cycles' => 'int',
-        'billing_start_date' => 'string',
-        'id' => 'int',
-        'company_id' => 'int',
-        'deal_id' => 'int',
-        'sum' => 'float',
-        'currency' => 'string',
-        'add_time' => 'string',
-        'last_edit' => 'string',
-        'active_flag' => 'bool',
-        'name' => 'string',
-        'product_attachment_id' => 'int'
+        'enabled_flag' => 'bool'
     ];
 
     /**
@@ -109,20 +96,7 @@ class AddProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSe
         'comments' => null,
         'tax' => null,
         'tax_method' => null,
-        'enabled_flag' => null,
-        'billing_frequency' => null,
-        'billing_frequency_cycles' => null,
-        'billing_start_date' => 'YYYY-MM-DD',
-        'id' => null,
-        'company_id' => null,
-        'deal_id' => null,
-        'sum' => null,
-        'currency' => null,
-        'add_time' => null,
-        'last_edit' => null,
-        'active_flag' => null,
-        'name' => null,
-        'product_attachment_id' => null
+        'enabled_flag' => null
     ];
 
     /**
@@ -167,20 +141,7 @@ class AddProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSe
         'comments' => 'comments',
         'tax' => 'tax',
         'tax_method' => 'tax_method',
-        'enabled_flag' => 'enabled_flag',
-        'billing_frequency' => 'billing_frequency',
-        'billing_frequency_cycles' => 'billing_frequency_cycles',
-        'billing_start_date' => 'billing_start_date',
-        'id' => 'id',
-        'company_id' => 'company_id',
-        'deal_id' => 'deal_id',
-        'sum' => 'sum',
-        'currency' => 'currency',
-        'add_time' => 'add_time',
-        'last_edit' => 'last_edit',
-        'active_flag' => 'active_flag',
-        'name' => 'name',
-        'product_attachment_id' => 'product_attachment_id'
+        'enabled_flag' => 'enabled_flag'
     ];
 
     /**
@@ -200,20 +161,7 @@ class AddProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSe
         'comments' => 'setComments',
         'tax' => 'setTax',
         'tax_method' => 'setTaxMethod',
-        'enabled_flag' => 'setEnabledFlag',
-        'billing_frequency' => 'setBillingFrequency',
-        'billing_frequency_cycles' => 'setBillingFrequencyCycles',
-        'billing_start_date' => 'setBillingStartDate',
-        'id' => 'setId',
-        'company_id' => 'setCompanyId',
-        'deal_id' => 'setDealId',
-        'sum' => 'setSum',
-        'currency' => 'setCurrency',
-        'add_time' => 'setAddTime',
-        'last_edit' => 'setLastEdit',
-        'active_flag' => 'setActiveFlag',
-        'name' => 'setName',
-        'product_attachment_id' => 'setProductAttachmentId'
+        'enabled_flag' => 'setEnabledFlag'
     ];
 
     /**
@@ -233,20 +181,7 @@ class AddProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSe
         'comments' => 'getComments',
         'tax' => 'getTax',
         'tax_method' => 'getTaxMethod',
-        'enabled_flag' => 'getEnabledFlag',
-        'billing_frequency' => 'getBillingFrequency',
-        'billing_frequency_cycles' => 'getBillingFrequencyCycles',
-        'billing_start_date' => 'getBillingStartDate',
-        'id' => 'getId',
-        'company_id' => 'getCompanyId',
-        'deal_id' => 'getDealId',
-        'sum' => 'getSum',
-        'currency' => 'getCurrency',
-        'add_time' => 'getAddTime',
-        'last_edit' => 'getLastEdit',
-        'active_flag' => 'getActiveFlag',
-        'name' => 'getName',
-        'product_attachment_id' => 'getProductAttachmentId'
+        'enabled_flag' => 'getEnabledFlag'
     ];
 
     /**
@@ -361,22 +296,9 @@ class AddProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSe
         $this->container['duration_unit'] = $data['duration_unit'] ?? null;
         $this->container['product_variation_id'] = $data['product_variation_id'] ?? null;
         $this->container['comments'] = $data['comments'] ?? null;
-        $this->container['tax'] = $data['tax'] ?? null;
+        $this->container['tax'] = $data['tax'] ?? 0;
         $this->container['tax_method'] = $data['tax_method'] ?? null;
         $this->container['enabled_flag'] = $data['enabled_flag'] ?? true;
-        $this->container['billing_frequency'] = $data['billing_frequency'] ?? null;
-        $this->container['billing_frequency_cycles'] = $data['billing_frequency_cycles'] ?? null;
-        $this->container['billing_start_date'] = $data['billing_start_date'] ?? null;
-        $this->container['id'] = $data['id'] ?? null;
-        $this->container['company_id'] = $data['company_id'] ?? null;
-        $this->container['deal_id'] = $data['deal_id'] ?? null;
-        $this->container['sum'] = $data['sum'] ?? null;
-        $this->container['currency'] = $data['currency'] ?? null;
-        $this->container['add_time'] = $data['add_time'] ?? null;
-        $this->container['last_edit'] = $data['last_edit'] ?? null;
-        $this->container['active_flag'] = $data['active_flag'] ?? null;
-        $this->container['name'] = $data['name'] ?? null;
-        $this->container['product_attachment_id'] = $data['product_attachment_id'] ?? null;
     }
 
     /**
@@ -436,7 +358,7 @@ class AddProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Sets product_id
      *
-     * @param int|null $product_id The ID of the product
+     * @param int|null $product_id The ID of the product to use
      *
      * @return self
      */
@@ -484,7 +406,7 @@ class AddProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Sets quantity
      *
-     * @param int|null $quantity Quantity – e.g. how many items of this product will be added to the deal
+     * @param int|null $quantity How many items of this product will be added to the deal
      *
      * @return self
      */
@@ -566,7 +488,7 @@ class AddProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Sets duration
      *
-     * @param float|null $duration The duration of the product. If omitted, will be set to 1
+     * @param float|null $duration The duration of the product
      *
      * @return self
      */
@@ -580,7 +502,7 @@ class AddProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Gets duration_unit
      *
-     * @return string|null
+     * @return DealProductUnitDuration|null
      */
     public function getDurationUnit()
     {
@@ -590,7 +512,7 @@ class AddProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Sets duration_unit
      *
-     * @param string|null $duration_unit The type of the duration. (For example hourly, daily, etc.)
+     * @param DealProductUnitDuration|null $duration_unit The unit duration of the product
      *
      * @return self
      */
@@ -662,7 +584,7 @@ class AddProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Sets tax
      *
-     * @param float|null $tax The product tax
+     * @param float|null $tax The tax percentage
      *
      * @return self
      */
@@ -686,7 +608,7 @@ class AddProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Sets tax_method
      *
-     * @param string|null $tax_method The tax option to be applied to the products. When using `inclusive`, the tax percentage will already be included in the price. When using `exclusive`, the tax will not be included in the price. When using `none`, no tax will be added. Use the `tax` field for defining the tax percentage amount. By default, the user setting value for tax options will be used. Changing this in one product affects the rest of the products attached to the deal
+     * @param string|null $tax_method The tax option to be applied to the products. When using `inclusive`, the tax percentage will already be included in the price. When using `exclusive`, the tax will not be included in the price. When using `none`, no tax will be added. Use the `tax` field for defining the tax percentage amount
      *
      * @return self
      */
@@ -727,318 +649,6 @@ class AddProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSe
     public function setEnabledFlag($enabled_flag): self
     {
         $this->container['enabled_flag'] = $enabled_flag;
-
-        return $this;
-    }
-
-    /**
-     * Gets billing_frequency
-     *
-     * @return \Pipedrive\Model\BillingFrequency|null
-     */
-    public function getBillingFrequency()
-    {
-        return $this->container['billing_frequency'];
-    }
-
-    /**
-     * Sets billing_frequency
-     *
-     * @param \Pipedrive\Model\BillingFrequency|null $billing_frequency billing_frequency
-     *
-     * @return self
-     */
-    public function setBillingFrequency($billing_frequency): self
-    {
-        $this->container['billing_frequency'] = $billing_frequency;
-
-        return $this;
-    }
-
-    /**
-     * Gets billing_frequency_cycles
-     *
-     * @return int|null
-     */
-    public function getBillingFrequencyCycles()
-    {
-        return $this->container['billing_frequency_cycles'];
-    }
-
-    /**
-     * Sets billing_frequency_cycles
-     *
-     * @param int|null $billing_frequency_cycles Only available in Advanced and above plans  The number of times the billing frequency repeats for a product in a deal  When `billing_frequency` is set to `one-time`, this field must be `null`  For all the other values of `billing_frequency`, `null` represents a product billed indefinitely  Must be a positive integer less or equal to 312
-     *
-     * @return self
-     */
-    public function setBillingFrequencyCycles($billing_frequency_cycles): self
-    {
-        $this->container['billing_frequency_cycles'] = $billing_frequency_cycles;
-
-        return $this;
-    }
-
-    /**
-     * Gets billing_start_date
-     *
-     * @return string|null
-     */
-    public function getBillingStartDate()
-    {
-        return $this->container['billing_start_date'];
-    }
-
-    /**
-     * Sets billing_start_date
-     *
-     * @param string|null $billing_start_date Only available in Advanced and above plans  The billing start date. Must be between 15 years in the past and 15 years in the future
-     *
-     * @return self
-     */
-    public function setBillingStartDate($billing_start_date): self
-    {
-        $this->container['billing_start_date'] = $billing_start_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     *
-     * @return int|null
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param int|null $id The ID of the deal-product (the ID of the product attached to the deal)
-     *
-     * @return self
-     */
-    public function setId($id): self
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets company_id
-     *
-     * @return int|null
-     */
-    public function getCompanyId()
-    {
-        return $this->container['company_id'];
-    }
-
-    /**
-     * Sets company_id
-     *
-     * @param int|null $company_id The ID of the company
-     *
-     * @return self
-     */
-    public function setCompanyId($company_id): self
-    {
-        $this->container['company_id'] = $company_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets deal_id
-     *
-     * @return int|null
-     */
-    public function getDealId()
-    {
-        return $this->container['deal_id'];
-    }
-
-    /**
-     * Sets deal_id
-     *
-     * @param int|null $deal_id The ID of the deal
-     *
-     * @return self
-     */
-    public function setDealId($deal_id): self
-    {
-        $this->container['deal_id'] = $deal_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets sum
-     *
-     * @return float|null
-     */
-    public function getSum()
-    {
-        return $this->container['sum'];
-    }
-
-    /**
-     * Sets sum
-     *
-     * @param float|null $sum The sum of all the products attached to the deal
-     *
-     * @return self
-     */
-    public function setSum($sum): self
-    {
-        $this->container['sum'] = $sum;
-
-        return $this;
-    }
-
-    /**
-     * Gets currency
-     *
-     * @return string|null
-     */
-    public function getCurrency()
-    {
-        return $this->container['currency'];
-    }
-
-    /**
-     * Sets currency
-     *
-     * @param string|null $currency The currency associated with the deal product
-     *
-     * @return self
-     */
-    public function setCurrency($currency): self
-    {
-        $this->container['currency'] = $currency;
-
-        return $this;
-    }
-
-    /**
-     * Gets add_time
-     *
-     * @return string|null
-     */
-    public function getAddTime()
-    {
-        return $this->container['add_time'];
-    }
-
-    /**
-     * Sets add_time
-     *
-     * @param string|null $add_time The date and time when the product was added to the deal
-     *
-     * @return self
-     */
-    public function setAddTime($add_time): self
-    {
-        $this->container['add_time'] = $add_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets last_edit
-     *
-     * @return string|null
-     */
-    public function getLastEdit()
-    {
-        return $this->container['last_edit'];
-    }
-
-    /**
-     * Sets last_edit
-     *
-     * @param string|null $last_edit The date and time when the deal product was last edited
-     *
-     * @return self
-     */
-    public function setLastEdit($last_edit): self
-    {
-        $this->container['last_edit'] = $last_edit;
-
-        return $this;
-    }
-
-    /**
-     * Gets active_flag
-     *
-     * @return bool|null
-     */
-    public function getActiveFlag()
-    {
-        return $this->container['active_flag'];
-    }
-
-    /**
-     * Sets active_flag
-     *
-     * @param bool|null $active_flag Whether the product is active or not
-     *
-     * @return self
-     */
-    public function setActiveFlag($active_flag): self
-    {
-        $this->container['active_flag'] = $active_flag;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string|null
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string|null $name The product name
-     *
-     * @return self
-     */
-    public function setName($name): self
-    {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets product_attachment_id
-     *
-     * @return int|null
-     */
-    public function getProductAttachmentId()
-    {
-        return $this->container['product_attachment_id'];
-    }
-
-    /**
-     * Sets product_attachment_id
-     *
-     * @param int|null $product_attachment_id The ID of the deal-product (the ID of the product attached to the deal)
-     *
-     * @return self
-     */
-    public function setProductAttachmentId($product_attachment_id): self
-    {
-        $this->container['product_attachment_id'] = $product_attachment_id;
 
         return $this;
     }

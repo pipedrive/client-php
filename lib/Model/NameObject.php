@@ -1,6 +1,6 @@
 <?php
 /**
- * UpdateProductResponse
+ * NameObject
  *
  * PHP version 7.3
  *
@@ -34,7 +34,7 @@ use JsonSerializable;
 use Pipedrive\ObjectSerializer;
 
 /**
- * UpdateProductResponse Class Doc Comment
+ * NameObject Class Doc Comment
  *
  * @category Class
  * @package  Pipedrive
@@ -44,7 +44,7 @@ use Pipedrive\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class UpdateProductResponse implements ModelInterface, ArrayAccess, JsonSerializable
+class NameObject implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -53,7 +53,7 @@ class UpdateProductResponse implements ModelInterface, ArrayAccess, JsonSerializ
       *
       * @var string
       */
-    protected static string $openAPIModelName = 'UpdateProductResponse';
+    protected static string $openAPIModelName = 'NameObject';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -63,9 +63,7 @@ class UpdateProductResponse implements ModelInterface, ArrayAccess, JsonSerializ
       * @phpsalm-var array<string, string>
       */
     protected static array $openAPITypes = [
-        'success' => 'bool',
-        'data' => '\Pipedrive\Model\ProductWithArrayPrices',
-        'related_objects' => '\Pipedrive\Model\GetActivitiesResponse200RelatedObjects'
+        'name' => 'string'
     ];
 
     /**
@@ -76,9 +74,7 @@ class UpdateProductResponse implements ModelInterface, ArrayAccess, JsonSerializ
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'success' => null,
-        'data' => null,
-        'related_objects' => null
+        'name' => null
     ];
 
     /**
@@ -112,9 +108,7 @@ class UpdateProductResponse implements ModelInterface, ArrayAccess, JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
-        'success' => 'success',
-        'data' => 'data',
-        'related_objects' => 'related_objects'
+        'name' => 'name'
     ];
 
     /**
@@ -123,9 +117,7 @@ class UpdateProductResponse implements ModelInterface, ArrayAccess, JsonSerializ
      * @var string[]
      */
     protected static $setters = [
-        'success' => 'setSuccess',
-        'data' => 'setData',
-        'related_objects' => 'setRelatedObjects'
+        'name' => 'setName'
     ];
 
     /**
@@ -134,9 +126,7 @@ class UpdateProductResponse implements ModelInterface, ArrayAccess, JsonSerializ
      * @var string[]
      */
     protected static $getters = [
-        'success' => 'getSuccess',
-        'data' => 'getData',
-        'related_objects' => 'getRelatedObjects'
+        'name' => 'getName'
     ];
 
     /**
@@ -206,9 +196,7 @@ class UpdateProductResponse implements ModelInterface, ArrayAccess, JsonSerializ
      */
     public function __construct(array $data = null)
     {
-        $this->container['success'] = $data['success'] ?? null;
-        $this->container['data'] = $data['data'] ?? null;
-        $this->container['related_objects'] = $data['related_objects'] ?? null;
+        $this->container['name'] = $data['name'] ?? null;
     }
 
     /**
@@ -238,73 +226,25 @@ class UpdateProductResponse implements ModelInterface, ArrayAccess, JsonSerializ
 
 
     /**
-     * Gets success
+     * Gets name
      *
-     * @return bool|null
+     * @return string|null
      */
-    public function getSuccess()
+    public function getName()
     {
-        return $this->container['success'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets success
+     * Sets name
      *
-     * @param bool|null $success If the response is successful or not
+     * @param string|null $name The name of the product
      *
      * @return self
      */
-    public function setSuccess($success): self
+    public function setName($name): self
     {
-        $this->container['success'] = $success;
-
-        return $this;
-    }
-
-    /**
-     * Gets data
-     *
-     * @return \Pipedrive\Model\ProductWithArrayPrices|null
-     */
-    public function getData()
-    {
-        return $this->container['data'];
-    }
-
-    /**
-     * Sets data
-     *
-     * @param \Pipedrive\Model\ProductWithArrayPrices|null $data data
-     *
-     * @return self
-     */
-    public function setData($data): self
-    {
-        $this->container['data'] = $data;
-
-        return $this;
-    }
-
-    /**
-     * Gets related_objects
-     *
-     * @return \Pipedrive\Model\GetActivitiesResponse200RelatedObjects|null
-     */
-    public function getRelatedObjects()
-    {
-        return $this->container['related_objects'];
-    }
-
-    /**
-     * Sets related_objects
-     *
-     * @param \Pipedrive\Model\GetActivitiesResponse200RelatedObjects|null $related_objects related_objects
-     *
-     * @return self
-     */
-    public function setRelatedObjects($related_objects): self
-    {
-        $this->container['related_objects'] = $related_objects;
+        $this->container['name'] = $name;
 
         return $this;
     }
