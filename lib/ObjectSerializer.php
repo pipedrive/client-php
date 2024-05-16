@@ -400,6 +400,11 @@ class ObjectSerializer
                     $instance->$propertySetter(self::deserialize($propertyValue, $type, null));
                 }
             }
+
+            if (method_exists($instance, 'setRawData')) {
+                $instance->setRawData($data);
+            }
+
             return $instance;
         }
     }

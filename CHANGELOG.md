@@ -5,6 +5,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
 ### Added
 - Added `billing_frequency`, `billing_frequency_cycles` and `billing_start_date` fields to
   - `GET`, `POST` and `PUT` `/v1/deals/{id}/products` endpoints
@@ -15,6 +16,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   - `GET` `/v1/products/{id}` endpoint
   - `GET`, `POST` and `PATCH` `/v2/products` endpoints
   - `GET` `/v2/products/{id}` endpoints
+- Added RawData trait to models to allow access to all response data objects
 
 ### Added
 - Added documentation for new endpoints `/deals/{id}/changelog`, `/persons/{id}/changelog` and `/organizations/{id}/changelog`.
