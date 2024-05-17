@@ -100,6 +100,7 @@ docs/Model/AddProductAttachmentDetails.md
 docs/Model/AddProductAttachmentDetailsAllOf.md
 docs/Model/AddProductFollowerRequest.md
 docs/Model/AddProductRequestBody.md
+docs/Model/AddProductRequestBodyAllOf.md
 docs/Model/AddProjectResponse201.md
 docs/Model/AddRole.md
 docs/Model/AddRoleAssignmentRequest.md
@@ -163,10 +164,13 @@ docs/Model/BaseUserMeAllOfLanguage.md
 docs/Model/BaseWebhook.md
 docs/Model/BasicDeal.md
 docs/Model/BasicDealProduct.md
+docs/Model/BasicDealProductAllOf.md
 docs/Model/BasicGoal.md
 docs/Model/BasicOrganization.md
 docs/Model/BasicPerson.md
 docs/Model/BasicPersonEmail.md
+docs/Model/BillingFrequency.md
+docs/Model/BillingFrequency1.md
 docs/Model/BulkDeleteResponse.md
 docs/Model/BulkDeleteResponseAllOf.md
 docs/Model/BulkDeleteResponseAllOfData.md
@@ -181,6 +185,9 @@ docs/Model/CallLogResponse410.md
 docs/Model/CallLogResponse500.md
 docs/Model/CallLogsResponse.md
 docs/Model/CallLogsResponseAdditionalData.md
+docs/Model/ChangelogResponse.md
+docs/Model/ChangelogResponseAllOf.md
+docs/Model/ChangelogResponseAllOfData.md
 docs/Model/ChannelObject.md
 docs/Model/ChannelObjectResponse.md
 docs/Model/ChannelObjectResponseData.md
@@ -217,6 +224,7 @@ docs/Model/DealPersonDataEmail.md
 docs/Model/DealPersonDataPhone.md
 docs/Model/DealPersonDataWithId.md
 docs/Model/DealPersonDataWithIdAllOf.md
+docs/Model/DealProductRequestBody.md
 docs/Model/DealProductUnitDuration.md
 docs/Model/DealSearchItem.md
 docs/Model/DealSearchItemItem.md
@@ -486,8 +494,6 @@ docs/Model/ListMailMessagesResponseAllOfData.md
 docs/Model/ListPermittedUsersResponse.md
 docs/Model/ListPermittedUsersResponse1.md
 docs/Model/ListPermittedUsersResponse1AllOf.md
-docs/Model/ListPermittedUsersResponseAllOf.md
-docs/Model/ListPermittedUsersResponseAllOfData.md
 docs/Model/ListPersonProductsResponse.md
 docs/Model/ListPersonProductsResponseAllOf.md
 docs/Model/ListPersonProductsResponseAllOfDEALID.md
@@ -534,9 +540,13 @@ docs/Model/MergePersonsResponse.md
 docs/Model/MergePersonsResponseAllOf.md
 docs/Model/MessageObject.md
 docs/Model/MessageObjectAttachments.md
+docs/Model/NameObject.md
 docs/Model/NewDeal.md
 docs/Model/NewDealParameters.md
 docs/Model/NewDealProduct.md
+docs/Model/NewDealProductAllOf.md
+docs/Model/NewDealProductAllOf1.md
+docs/Model/NewDealProductAllOf2.md
 docs/Model/NewFollowerResponse.md
 docs/Model/NewFollowerResponseData.md
 docs/Model/NewGoal.md
@@ -557,9 +567,7 @@ docs/Model/NoteParams.md
 docs/Model/NumberBoolean.md
 docs/Model/NumberBooleanDefault0.md
 docs/Model/NumberBooleanDefault1.md
-docs/Model/ObjectPrices.md
 docs/Model/OneLeadResponse200.md
-docs/Model/OptionalNameObject.md
 docs/Model/OrgAndOwnerId.md
 docs/Model/OrganizationAddressInfo.md
 docs/Model/OrganizationCountAndAddressInfo.md
@@ -690,7 +698,6 @@ docs/Model/ProductSearchResponse.md
 docs/Model/ProductSearchResponseAllOf.md
 docs/Model/ProductSearchResponseAllOfData.md
 docs/Model/ProductWithArrayPrices.md
-docs/Model/ProductWithObjectPrices.md
 docs/Model/ProductsResponse.md
 docs/Model/ProjectBoardObject.md
 docs/Model/ProjectGroupsObject.md
@@ -735,7 +742,6 @@ docs/Model/RelatedUserData.md
 docs/Model/RelationshipOrganizationInfoItem.md
 docs/Model/RelationshipOrganizationInfoItemAllOf.md
 docs/Model/RelationshipOrganizationInfoItemWithActiveFlag.md
-docs/Model/RequiredNameObject.md
 docs/Model/RequiredPostProjectParameters.md
 docs/Model/RequiredPostTaskParameters.md
 docs/Model/RequredTitleParameter.md
@@ -943,6 +949,7 @@ lib/Model/AddProductAttachmentDetails.php
 lib/Model/AddProductAttachmentDetailsAllOf.php
 lib/Model/AddProductFollowerRequest.php
 lib/Model/AddProductRequestBody.php
+lib/Model/AddProductRequestBodyAllOf.php
 lib/Model/AddProjectResponse201.php
 lib/Model/AddRole.php
 lib/Model/AddRoleAssignmentRequest.php
@@ -1007,10 +1014,13 @@ lib/Model/BaseUserMeAllOfLanguage.php
 lib/Model/BaseWebhook.php
 lib/Model/BasicDeal.php
 lib/Model/BasicDealProduct.php
+lib/Model/BasicDealProductAllOf.php
 lib/Model/BasicGoal.php
 lib/Model/BasicOrganization.php
 lib/Model/BasicPerson.php
 lib/Model/BasicPersonEmail.php
+lib/Model/BillingFrequency.php
+lib/Model/BillingFrequency1.php
 lib/Model/BulkDeleteResponse.php
 lib/Model/BulkDeleteResponseAllOf.php
 lib/Model/BulkDeleteResponseAllOfData.php
@@ -1025,6 +1035,9 @@ lib/Model/CallLogResponse410.php
 lib/Model/CallLogResponse500.php
 lib/Model/CallLogsResponse.php
 lib/Model/CallLogsResponseAdditionalData.php
+lib/Model/ChangelogResponse.php
+lib/Model/ChangelogResponseAllOf.php
+lib/Model/ChangelogResponseAllOfData.php
 lib/Model/ChannelObject.php
 lib/Model/ChannelObjectResponse.php
 lib/Model/ChannelObjectResponseData.php
@@ -1061,6 +1074,7 @@ lib/Model/DealPersonDataEmail.php
 lib/Model/DealPersonDataPhone.php
 lib/Model/DealPersonDataWithId.php
 lib/Model/DealPersonDataWithIdAllOf.php
+lib/Model/DealProductRequestBody.php
 lib/Model/DealProductUnitDuration.php
 lib/Model/DealSearchItem.php
 lib/Model/DealSearchItemItem.php
@@ -1330,8 +1344,6 @@ lib/Model/ListMailMessagesResponseAllOfData.php
 lib/Model/ListPermittedUsersResponse.php
 lib/Model/ListPermittedUsersResponse1.php
 lib/Model/ListPermittedUsersResponse1AllOf.php
-lib/Model/ListPermittedUsersResponseAllOf.php
-lib/Model/ListPermittedUsersResponseAllOfData.php
 lib/Model/ListPersonProductsResponse.php
 lib/Model/ListPersonProductsResponseAllOf.php
 lib/Model/ListPersonProductsResponseAllOfDEALID.php
@@ -1379,9 +1391,13 @@ lib/Model/MergePersonsResponseAllOf.php
 lib/Model/MessageObject.php
 lib/Model/MessageObjectAttachments.php
 lib/Model/ModelInterface.php
+lib/Model/NameObject.php
 lib/Model/NewDeal.php
 lib/Model/NewDealParameters.php
 lib/Model/NewDealProduct.php
+lib/Model/NewDealProductAllOf.php
+lib/Model/NewDealProductAllOf1.php
+lib/Model/NewDealProductAllOf2.php
 lib/Model/NewFollowerResponse.php
 lib/Model/NewFollowerResponseData.php
 lib/Model/NewGoal.php
@@ -1402,9 +1418,7 @@ lib/Model/NoteParams.php
 lib/Model/NumberBoolean.php
 lib/Model/NumberBooleanDefault0.php
 lib/Model/NumberBooleanDefault1.php
-lib/Model/ObjectPrices.php
 lib/Model/OneLeadResponse200.php
-lib/Model/OptionalNameObject.php
 lib/Model/OrgAndOwnerId.php
 lib/Model/OrganizationAddressInfo.php
 lib/Model/OrganizationCountAndAddressInfo.php
@@ -1535,7 +1549,6 @@ lib/Model/ProductSearchResponse.php
 lib/Model/ProductSearchResponseAllOf.php
 lib/Model/ProductSearchResponseAllOfData.php
 lib/Model/ProductWithArrayPrices.php
-lib/Model/ProductWithObjectPrices.php
 lib/Model/ProductsResponse.php
 lib/Model/ProjectBoardObject.php
 lib/Model/ProjectGroupsObject.php
@@ -1580,7 +1593,6 @@ lib/Model/RelatedUserData.php
 lib/Model/RelationshipOrganizationInfoItem.php
 lib/Model/RelationshipOrganizationInfoItemAllOf.php
 lib/Model/RelationshipOrganizationInfoItemWithActiveFlag.php
-lib/Model/RequiredNameObject.php
 lib/Model/RequiredPostProjectParameters.php
 lib/Model/RequiredPostTaskParameters.php
 lib/Model/RequredTitleParameter.php

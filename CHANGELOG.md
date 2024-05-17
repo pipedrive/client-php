@@ -6,6 +6,21 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- Added documentation for new endpoints `/deals/{id}/changelog`, `/persons/{id}/changelog` and `/organizations/{id}/changelog`.
+- Added `is_deleted` parameter for `/v1/users/*` responses.
+- Added `billing_frequency`, `billing_frequency_cycles` and `billing_start_date` fields to
+  - `GET`, `POST` and `PUT` `/v1/deals/{id}/products` endpoints
+  - `GET`, `POST` and `PATCH` `/v2/deals/{id}/products` endpoints
+  - `GET` `/v2/deals/products` endpoint
+- Added `billing_frequency`, `billing_frequency_cycles` fields to
+  - `GET`, `POST` and `PUT` `/v1/products` endpoints
+  - `GET` `/v1/products/{id}` endpoint
+  - `GET`, `POST` and `PATCH` `/v2/products` endpoints
+  - `GET` `/v2/products/{id}` endpoints
+- Added RawData trait to models to allow access to all response data objects
+
 ## [6.6.0](https://github.com/pipedrive/client-php/compare/6.5.1...6.6.0) (2024-04-02)
 
 ### Added

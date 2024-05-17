@@ -31,6 +31,7 @@ namespace Pipedrive\Model;
 use ArrayAccess;
 use JsonException;
 use JsonSerializable;
+use Pipedrive\Traits\RawData;
 use Pipedrive\ObjectSerializer;
 
 /**
@@ -46,6 +47,8 @@ use Pipedrive\ObjectSerializer;
  */
 class UpdateProductResponse implements ModelInterface, ArrayAccess, JsonSerializable
 {
+    use RawData;
+
     public const DISCRIMINATOR = null;
 
     /**
@@ -64,7 +67,7 @@ class UpdateProductResponse implements ModelInterface, ArrayAccess, JsonSerializ
       */
     protected static array $openAPITypes = [
         'success' => 'bool',
-        'data' => '\Pipedrive\Model\ProductWithObjectPrices',
+        'data' => '\Pipedrive\Model\ProductWithArrayPrices',
         'related_objects' => '\Pipedrive\Model\GetActivitiesResponse200RelatedObjects'
     ];
 
@@ -264,7 +267,7 @@ class UpdateProductResponse implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Gets data
      *
-     * @return \Pipedrive\Model\ProductWithObjectPrices|null
+     * @return \Pipedrive\Model\ProductWithArrayPrices|null
      */
     public function getData()
     {
@@ -274,7 +277,7 @@ class UpdateProductResponse implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Sets data
      *
-     * @param \Pipedrive\Model\ProductWithObjectPrices|null $data data
+     * @param \Pipedrive\Model\ProductWithArrayPrices|null $data data
      *
      * @return self
      */

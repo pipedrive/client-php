@@ -31,6 +31,7 @@ namespace Pipedrive\Model;
 use ArrayAccess;
 use JsonException;
 use JsonSerializable;
+use Pipedrive\Traits\RawData;
 use Pipedrive\ObjectSerializer;
 
 /**
@@ -46,6 +47,8 @@ use Pipedrive\ObjectSerializer;
  */
 class AddProductRequestBody implements ModelInterface, ArrayAccess, JsonSerializable
 {
+    use RawData;
+
     public const DISCRIMINATOR = null;
 
     /**
@@ -71,7 +74,9 @@ class AddProductRequestBody implements ModelInterface, ArrayAccess, JsonSerializ
         'selectable' => 'bool',
         'visible_to' => '\Pipedrive\Model\VisibleTo',
         'owner_id' => 'int',
-        'prices' => 'object[]'
+        'prices' => 'object[]',
+        'billing_frequency' => '\Pipedrive\Model\BillingFrequency1',
+        'billing_frequency_cycles' => 'int'
     ];
 
     /**
@@ -90,7 +95,9 @@ class AddProductRequestBody implements ModelInterface, ArrayAccess, JsonSerializ
         'selectable' => null,
         'visible_to' => null,
         'owner_id' => null,
-        'prices' => null
+        'prices' => null,
+        'billing_frequency' => null,
+        'billing_frequency_cycles' => null
     ];
 
     /**
@@ -132,7 +139,9 @@ class AddProductRequestBody implements ModelInterface, ArrayAccess, JsonSerializ
         'selectable' => 'selectable',
         'visible_to' => 'visible_to',
         'owner_id' => 'owner_id',
-        'prices' => 'prices'
+        'prices' => 'prices',
+        'billing_frequency' => 'billing_frequency',
+        'billing_frequency_cycles' => 'billing_frequency_cycles'
     ];
 
     /**
@@ -149,7 +158,9 @@ class AddProductRequestBody implements ModelInterface, ArrayAccess, JsonSerializ
         'selectable' => 'setSelectable',
         'visible_to' => 'setVisibleTo',
         'owner_id' => 'setOwnerId',
-        'prices' => 'setPrices'
+        'prices' => 'setPrices',
+        'billing_frequency' => 'setBillingFrequency',
+        'billing_frequency_cycles' => 'setBillingFrequencyCycles'
     ];
 
     /**
@@ -166,7 +177,9 @@ class AddProductRequestBody implements ModelInterface, ArrayAccess, JsonSerializ
         'selectable' => 'getSelectable',
         'visible_to' => 'getVisibleTo',
         'owner_id' => 'getOwnerId',
-        'prices' => 'getPrices'
+        'prices' => 'getPrices',
+        'billing_frequency' => 'getBillingFrequency',
+        'billing_frequency_cycles' => 'getBillingFrequencyCycles'
     ];
 
     /**
@@ -245,6 +258,8 @@ class AddProductRequestBody implements ModelInterface, ArrayAccess, JsonSerializ
         $this->container['visible_to'] = $data['visible_to'] ?? null;
         $this->container['owner_id'] = $data['owner_id'] ?? null;
         $this->container['prices'] = $data['prices'] ?? null;
+        $this->container['billing_frequency'] = $data['billing_frequency'] ?? null;
+        $this->container['billing_frequency_cycles'] = $data['billing_frequency_cycles'] ?? null;
     }
 
     /**
@@ -258,9 +273,6 @@ class AddProductRequestBody implements ModelInterface, ArrayAccess, JsonSerializ
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -279,7 +291,7 @@ class AddProductRequestBody implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Gets name
      *
-     * @return string
+     * @return string|null
      */
     public function getName()
     {
@@ -289,7 +301,7 @@ class AddProductRequestBody implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Sets name
      *
-     * @param string $name The name of the product
+     * @param string|null $name The name of the product
      *
      * @return self
      */
@@ -457,7 +469,7 @@ class AddProductRequestBody implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Sets owner_id
      *
-     * @param int|null $owner_id The ID of the user who will be marked as the owner of this product. When omitted, the authorized user ID will be used.
+     * @param int|null $owner_id The ID of the user who will be marked as the owner of this product. When omitted, the authorized user ID will be used
      *
      * @return self
      */
@@ -488,6 +500,54 @@ class AddProductRequestBody implements ModelInterface, ArrayAccess, JsonSerializ
     public function setPrices($prices): self
     {
         $this->container['prices'] = $prices;
+
+        return $this;
+    }
+
+    /**
+     * Gets billing_frequency
+     *
+     * @return \Pipedrive\Model\BillingFrequency1|null
+     */
+    public function getBillingFrequency()
+    {
+        return $this->container['billing_frequency'];
+    }
+
+    /**
+     * Sets billing_frequency
+     *
+     * @param \Pipedrive\Model\BillingFrequency1|null $billing_frequency billing_frequency
+     *
+     * @return self
+     */
+    public function setBillingFrequency($billing_frequency): self
+    {
+        $this->container['billing_frequency'] = $billing_frequency;
+
+        return $this;
+    }
+
+    /**
+     * Gets billing_frequency_cycles
+     *
+     * @return int|null
+     */
+    public function getBillingFrequencyCycles()
+    {
+        return $this->container['billing_frequency_cycles'];
+    }
+
+    /**
+     * Sets billing_frequency_cycles
+     *
+     * @param int|null $billing_frequency_cycles Only available in Advanced and above plans  The number of times the billing frequency repeats for a product in a deal  When `billing_frequency` is set to `one-time`, this field must be `null`  For all the other values of `billing_frequency`, `null` represents a product billed indefinitely  Must be a positive integer less or equal to 312
+     *
+     * @return self
+     */
+    public function setBillingFrequencyCycles($billing_frequency_cycles): self
+    {
+        $this->container['billing_frequency_cycles'] = $billing_frequency_cycles;
 
         return $this;
     }

@@ -31,6 +31,7 @@ namespace Pipedrive\Model;
 use ArrayAccess;
 use JsonException;
 use JsonSerializable;
+use Pipedrive\Traits\RawData;
 use Pipedrive\ObjectSerializer;
 
 /**
@@ -46,6 +47,8 @@ use Pipedrive\ObjectSerializer;
  */
 class PersonListProduct implements ModelInterface, ArrayAccess, JsonSerializable
 {
+    use RawData;
+
     public const DISCRIMINATOR = null;
 
     /**
@@ -622,7 +625,7 @@ class PersonListProduct implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets owner_id
      *
-     * @param int|null $owner_id The ID of the user who will be marked as the owner of this product. When omitted, the authorized user ID will be used.
+     * @param int|null $owner_id The ID of the user who will be marked as the owner of this product. When omitted, the authorized user ID will be used
      *
      * @return self
      */

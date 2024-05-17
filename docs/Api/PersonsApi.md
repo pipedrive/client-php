@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**deletePersons()**](PersonsApi.md#deletePersons) | **DELETE** /persons | Delete multiple persons in bulk
 [**getPerson()**](PersonsApi.md#getPerson) | **GET** /persons/{id} | Get details of a person
 [**getPersonActivities()**](PersonsApi.md#getPersonActivities) | **GET** /persons/{id}/activities | List activities associated with a person
+[**getPersonChangelog()**](PersonsApi.md#getPersonChangelog) | **GET** /persons/{id}/changelog | List updates about person field values
 [**getPersonDeals()**](PersonsApi.md#getPersonDeals) | **GET** /persons/{id}/deals | List deals associated with a person
 [**getPersonFiles()**](PersonsApi.md#getPersonFiles) | **GET** /persons/{id}/files | List files attached to a person
 [**getPersonFollowers()**](PersonsApi.md#getPersonFollowers) | **GET** /persons/{id}/followers | List followers of a person
@@ -620,6 +621,75 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Pipedrive\Model\ListActivitiesResponse**](../Model/ListActivitiesResponse.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getPersonChangelog()`
+
+```php
+getPersonChangelog($id, $cursor, $limit): \Pipedrive\Model\ChangelogResponse
+```
+
+List updates about person field values
+
+Lists updates about field values of a person.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key
+$config = (new Pipedrive\Configuration())->setApiKey('api_token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = (new Pipedrive\Configuration())->setApiKeyPrefix('api_token', 'Bearer');
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = (new Pipedrive\Configuration())->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Pipedrive\Api\PersonsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int | The ID of the person
+$cursor = 'cursor_example'; // string | For pagination, the marker (an opaque string value) representing the first item on the next page
+$limit = 56; // int | Items shown per page
+
+try {
+    $result = $apiInstance->getPersonChangelog($id, $cursor, $limit);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PersonsApi->getPersonChangelog: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The ID of the person |
+ **cursor** | **string**| For pagination, the marker (an opaque string value) representing the first item on the next page | [optional]
+ **limit** | **int**| Items shown per page | [optional]
+
+### Return type
+
+[**\Pipedrive\Model\ChangelogResponse**](../Model/ChangelogResponse.md)
 
 ### Authorization
 

@@ -20,6 +20,7 @@ it('lists deals', function () {
             'data' => [
                 [
                     'id' => 1,
+                    '6504f7b19e743082034fe9b8661383ea6d7cc941' => 'custom'
                 ],
             ],
         ])),
@@ -161,4 +162,37 @@ it('update a product attached to a deal', function () {
 
     expect($mock->getLastRequest()->getUri())->toEqual("https://api.pipedrive.com/v1/deals/1/products/{$encoded_deal_product}")
         ->and($result->getData()->getId())->toBe(777);
+});
+
+
+it('lists deals with raw data', function () {
+    $config = new Configuration();
+
+    $mock = $this->httpMock();
+    $mock->append(
+        new Response(200, [], json_encode([
+            'data' => [
+                [
+                    'id' => 42,
+                    '65d4f7b19e743082034fe9b866138uea6d7cc941' => 'custom'
+                ],
+            ],
+        ])),
+    );
+
+    $handlerStack = HandlerStack::create($mock);
+
+    $apiInstance = new DealsApi(
+        new Client(['handler' => $handlerStack]),
+        $config,
+    );
+    $result = $apiInstance->getDeals(42);
+
+    $rawData = $result->getRawData();
+
+    expect($rawData)->toBeArray()
+        ->and($rawData[0])->toHaveProperty('id')
+        ->and($rawData[0]->id)->toEqual(42)
+        ->and($rawData[0])->toHaveProperty('65d4f7b19e743082034fe9b866138uea6d7cc941')
+        ->and($rawData[0]->{'65d4f7b19e743082034fe9b866138uea6d7cc941'})->toEqual('custom');
 });

@@ -23,5 +23,6 @@ Name | Type | Description | Notes
 **role_id** | **int** | The ID of the user role | [optional]
 **icon_url** | **string** | The user icon URL | [optional]
 **is_you** | **bool** | Boolean that indicates if the requested user is the same which is logged in (in this case, always true) | [optional]
+**is_deleted** | **bool** | Boolean that indicates whether the user is deleted from the company | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

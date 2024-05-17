@@ -31,6 +31,7 @@ namespace Pipedrive\Model;
 use ArrayAccess;
 use JsonException;
 use JsonSerializable;
+use Pipedrive\Traits\RawData;
 use Pipedrive\ObjectSerializer;
 
 /**
@@ -46,6 +47,8 @@ use Pipedrive\ObjectSerializer;
  */
 class SubscriptionItem implements ModelInterface, ArrayAccess, JsonSerializable
 {
+    use RawData;
+
     public const DISCRIMINATOR = null;
 
     /**
@@ -77,8 +80,8 @@ class SubscriptionItem implements ModelInterface, ArrayAccess, JsonSerializable
         'end_date' => '\DateTime',
         'lifetime_value' => 'double',
         'final_status' => 'string',
-        'add_time' => 'string',
-        'update_time' => 'string'
+        'add_time' => '\DateTime',
+        'update_time' => '\DateTime'
     ];
 
     /**
@@ -103,8 +106,8 @@ class SubscriptionItem implements ModelInterface, ArrayAccess, JsonSerializable
         'end_date' => 'date',
         'lifetime_value' => 'double',
         'final_status' => null,
-        'add_time' => 'datetime',
-        'update_time' => 'datetime'
+        'add_time' => 'date-time',
+        'update_time' => 'date-time'
     ];
 
     /**
@@ -654,7 +657,7 @@ class SubscriptionItem implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets add_time
      *
-     * @return string|null
+     * @return \DateTime|null
      */
     public function getAddTime()
     {
@@ -664,7 +667,7 @@ class SubscriptionItem implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets add_time
      *
-     * @param string|null $add_time The creation time of the subscription
+     * @param \DateTime|null $add_time The creation time of the subscription
      *
      * @return self
      */
@@ -678,7 +681,7 @@ class SubscriptionItem implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets update_time
      *
-     * @return string|null
+     * @return \DateTime|null
      */
     public function getUpdateTime()
     {
@@ -688,7 +691,7 @@ class SubscriptionItem implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets update_time
      *
-     * @param string|null $update_time The update time of the subscription
+     * @param \DateTime|null $update_time The update time of the subscription
      *
      * @return self
      */

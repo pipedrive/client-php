@@ -31,6 +31,7 @@ namespace Pipedrive\Model;
 use ArrayAccess;
 use JsonException;
 use JsonSerializable;
+use Pipedrive\Traits\RawData;
 use Pipedrive\ObjectSerializer;
 
 /**
@@ -46,6 +47,8 @@ use Pipedrive\ObjectSerializer;
  */
 class BaseUser implements ModelInterface, ArrayAccess, JsonSerializable
 {
+    use RawData;
+
     public const DISCRIMINATOR = null;
 
     /**
@@ -81,7 +84,8 @@ class BaseUser implements ModelInterface, ArrayAccess, JsonSerializable
         'timezone_offset' => 'string',
         'role_id' => 'int',
         'icon_url' => 'string',
-        'is_you' => 'bool'
+        'is_you' => 'bool',
+        'is_deleted' => 'bool'
     ];
 
     /**
@@ -110,7 +114,8 @@ class BaseUser implements ModelInterface, ArrayAccess, JsonSerializable
         'timezone_offset' => null,
         'role_id' => null,
         'icon_url' => null,
-        'is_you' => null
+        'is_you' => null,
+        'is_deleted' => null
     ];
 
     /**
@@ -162,7 +167,8 @@ class BaseUser implements ModelInterface, ArrayAccess, JsonSerializable
         'timezone_offset' => 'timezone_offset',
         'role_id' => 'role_id',
         'icon_url' => 'icon_url',
-        'is_you' => 'is_you'
+        'is_you' => 'is_you',
+        'is_deleted' => 'is_deleted'
     ];
 
     /**
@@ -189,7 +195,8 @@ class BaseUser implements ModelInterface, ArrayAccess, JsonSerializable
         'timezone_offset' => 'setTimezoneOffset',
         'role_id' => 'setRoleId',
         'icon_url' => 'setIconUrl',
-        'is_you' => 'setIsYou'
+        'is_you' => 'setIsYou',
+        'is_deleted' => 'setIsDeleted'
     ];
 
     /**
@@ -216,7 +223,8 @@ class BaseUser implements ModelInterface, ArrayAccess, JsonSerializable
         'timezone_offset' => 'getTimezoneOffset',
         'role_id' => 'getRoleId',
         'icon_url' => 'getIconUrl',
-        'is_you' => 'getIsYou'
+        'is_you' => 'getIsYou',
+        'is_deleted' => 'getIsDeleted'
     ];
 
     /**
@@ -305,6 +313,7 @@ class BaseUser implements ModelInterface, ArrayAccess, JsonSerializable
         $this->container['role_id'] = $data['role_id'] ?? null;
         $this->container['icon_url'] = $data['icon_url'] ?? null;
         $this->container['is_you'] = $data['is_you'] ?? null;
+        $this->container['is_deleted'] = $data['is_deleted'] ?? null;
     }
 
     /**
@@ -785,6 +794,30 @@ class BaseUser implements ModelInterface, ArrayAccess, JsonSerializable
     public function setIsYou($is_you): self
     {
         $this->container['is_you'] = $is_you;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_deleted
+     *
+     * @return bool|null
+     */
+    public function getIsDeleted()
+    {
+        return $this->container['is_deleted'];
+    }
+
+    /**
+     * Sets is_deleted
+     *
+     * @param bool|null $is_deleted Boolean that indicates whether the user is deleted from the company
+     *
+     * @return self
+     */
+    public function setIsDeleted($is_deleted): self
+    {
+        $this->container['is_deleted'] = $is_deleted;
 
         return $this;
     }

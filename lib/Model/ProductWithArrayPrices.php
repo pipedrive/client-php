@@ -31,6 +31,7 @@ namespace Pipedrive\Model;
 use ArrayAccess;
 use JsonException;
 use JsonSerializable;
+use Pipedrive\Traits\RawData;
 use Pipedrive\ObjectSerializer;
 
 /**
@@ -46,6 +47,8 @@ use Pipedrive\ObjectSerializer;
  */
 class ProductWithArrayPrices implements ModelInterface, ArrayAccess, JsonSerializable
 {
+    use RawData;
+
     public const DISCRIMINATOR = null;
 
     /**
@@ -72,6 +75,8 @@ class ProductWithArrayPrices implements ModelInterface, ArrayAccess, JsonSeriali
         'selectable' => 'bool',
         'visible_to' => '\Pipedrive\Model\VisibleTo',
         'owner_id' => 'object',
+        'billing_frequency' => 'string',
+        'billing_frequency_cycles' => 'int',
         'prices' => 'object[]'
     ];
 
@@ -92,6 +97,8 @@ class ProductWithArrayPrices implements ModelInterface, ArrayAccess, JsonSeriali
         'selectable' => null,
         'visible_to' => null,
         'owner_id' => null,
+        'billing_frequency' => null,
+        'billing_frequency_cycles' => null,
         'prices' => null
     ];
 
@@ -135,6 +142,8 @@ class ProductWithArrayPrices implements ModelInterface, ArrayAccess, JsonSeriali
         'selectable' => 'selectable',
         'visible_to' => 'visible_to',
         'owner_id' => 'owner_id',
+        'billing_frequency' => 'billing_frequency',
+        'billing_frequency_cycles' => 'billing_frequency_cycles',
         'prices' => 'prices'
     ];
 
@@ -153,6 +162,8 @@ class ProductWithArrayPrices implements ModelInterface, ArrayAccess, JsonSeriali
         'selectable' => 'setSelectable',
         'visible_to' => 'setVisibleTo',
         'owner_id' => 'setOwnerId',
+        'billing_frequency' => 'setBillingFrequency',
+        'billing_frequency_cycles' => 'setBillingFrequencyCycles',
         'prices' => 'setPrices'
     ];
 
@@ -171,6 +182,8 @@ class ProductWithArrayPrices implements ModelInterface, ArrayAccess, JsonSeriali
         'selectable' => 'getSelectable',
         'visible_to' => 'getVisibleTo',
         'owner_id' => 'getOwnerId',
+        'billing_frequency' => 'getBillingFrequency',
+        'billing_frequency_cycles' => 'getBillingFrequencyCycles',
         'prices' => 'getPrices'
     ];
 
@@ -221,6 +234,31 @@ class ProductWithArrayPrices implements ModelInterface, ArrayAccess, JsonSeriali
         return self::$openAPIModelName;
     }
 
+    const BILLING_FREQUENCY_ONE_TIME = 'one-time';
+    const BILLING_FREQUENCY_ANNUALLY = 'annually';
+    const BILLING_FREQUENCY_SEMI_ANNUALLY = 'semi-annually';
+    const BILLING_FREQUENCY_QUARTERLY = 'quarterly';
+    const BILLING_FREQUENCY_MONTHLY = 'monthly';
+    const BILLING_FREQUENCY_WEEKLY = 'weekly';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @phpstan-return  array<string|int>
+     * @phpsalm-return  array<string|int>
+     * @return (string|int)[]
+     */
+    public function getBillingFrequencyAllowableValues(): array
+    {
+        return [
+            self::BILLING_FREQUENCY_ONE_TIME,
+            self::BILLING_FREQUENCY_ANNUALLY,
+            self::BILLING_FREQUENCY_SEMI_ANNUALLY,
+            self::BILLING_FREQUENCY_QUARTERLY,
+            self::BILLING_FREQUENCY_MONTHLY,
+            self::BILLING_FREQUENCY_WEEKLY,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -250,6 +288,8 @@ class ProductWithArrayPrices implements ModelInterface, ArrayAccess, JsonSeriali
         $this->container['selectable'] = $data['selectable'] ?? true;
         $this->container['visible_to'] = $data['visible_to'] ?? null;
         $this->container['owner_id'] = $data['owner_id'] ?? null;
+        $this->container['billing_frequency'] = $data['billing_frequency'] ?? 'one-time';
+        $this->container['billing_frequency_cycles'] = $data['billing_frequency_cycles'] ?? null;
         $this->container['prices'] = $data['prices'] ?? null;
     }
 
@@ -263,6 +303,15 @@ class ProductWithArrayPrices implements ModelInterface, ArrayAccess, JsonSeriali
     public function listInvalidProperties(): array
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getBillingFrequencyAllowableValues();
+        if (!is_null($this->container['billing_frequency']) && !in_array($this->container['billing_frequency'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'billing_frequency', must be one of '%s'",
+                $this->container['billing_frequency'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -388,7 +437,7 @@ class ProductWithArrayPrices implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Sets tax
      *
-     * @param float|null $tax The ax percentage
+     * @param float|null $tax The tax percentage
      *
      * @return self
      */
@@ -491,6 +540,64 @@ class ProductWithArrayPrices implements ModelInterface, ArrayAccess, JsonSeriali
     public function setOwnerId($owner_id): self
     {
         $this->container['owner_id'] = $owner_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets billing_frequency
+     *
+     * @return string|null
+     */
+    public function getBillingFrequency()
+    {
+        return $this->container['billing_frequency'];
+    }
+
+    /**
+     * Sets billing_frequency
+     *
+     * @param string|null $billing_frequency Only available in Advanced and above plans  How often a customer is billed for access to a service or product
+     *
+     * @return self
+     */
+    public function setBillingFrequency($billing_frequency): self
+    {
+        $allowedValues = $this->getBillingFrequencyAllowableValues();
+        if (!is_null($billing_frequency) && !in_array($billing_frequency, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'billing_frequency', must be one of '%s'",
+                    $billing_frequency,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['billing_frequency'] = $billing_frequency;
+
+        return $this;
+    }
+
+    /**
+     * Gets billing_frequency_cycles
+     *
+     * @return int|null
+     */
+    public function getBillingFrequencyCycles()
+    {
+        return $this->container['billing_frequency_cycles'];
+    }
+
+    /**
+     * Sets billing_frequency_cycles
+     *
+     * @param int|null $billing_frequency_cycles Only available in Advanced and above plans  The number of times the billing frequency repeats for a product in a deal  When `billing_frequency` is set to `one-time`, this field is always `null`  For all the other values of `billing_frequency`, `null` represents a product billed indefinitely  Must be a positive integer less or equal to 312
+     *
+     * @return self
+     */
+    public function setBillingFrequencyCycles($billing_frequency_cycles): self
+    {
+        $this->container['billing_frequency_cycles'] = $billing_frequency_cycles;
 
         return $this;
     }

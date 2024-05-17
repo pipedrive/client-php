@@ -31,6 +31,7 @@ namespace Pipedrive\Model;
 use ArrayAccess;
 use JsonException;
 use JsonSerializable;
+use Pipedrive\Traits\RawData;
 use Pipedrive\ObjectSerializer;
 
 /**
@@ -46,6 +47,8 @@ use Pipedrive\ObjectSerializer;
  */
 class ProductListItem implements ModelInterface, ArrayAccess, JsonSerializable
 {
+    use RawData;
+
     public const DISCRIMINATOR = null;
 
     /**
@@ -86,7 +89,7 @@ class ProductListItem implements ModelInterface, ArrayAccess, JsonSerializable
         'sum_formatted' => 'string',
         'quantity_formatted' => 'string',
         'quantity' => 'int',
-        'product' => '\Pipedrive\Model\ProductWithObjectPrices'
+        'product' => '\Pipedrive\Model\ProductWithArrayPrices'
     ];
 
     /**
@@ -574,7 +577,7 @@ class ProductListItem implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets discount
      *
-     * @param float|null $discount The value of the discount. The `discount_type` field can be used to specify whether the value is an amount or a percentage.
+     * @param float|null $discount The value of the discount. The `discount_type` field can be used to specify whether the value is an amount or a percentage
      *
      * @return self
      */
@@ -598,7 +601,7 @@ class ProductListItem implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets discount_type
      *
-     * @param string|null $discount_type The type of the discount's value.
+     * @param string|null $discount_type The type of the discount's value
      *
      * @return self
      */
@@ -872,7 +875,7 @@ class ProductListItem implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets tax_method
      *
-     * @param string|null $tax_method The tax option to be applied to the products. When using `inclusive`, the tax percentage will already be included in the price. When using `exclusive`, the tax will not be included in the price. When using `none`, no tax will be added. Use the `tax` field for defining the tax percentage amount. By default, the user setting value for tax options will be used. Changing this in one product affects the rest of the products attached to the deal.
+     * @param string|null $tax_method The tax option to be applied to the products. When using `inclusive`, the tax percentage will already be included in the price. When using `exclusive`, the tax will not be included in the price. When using `none`, no tax will be added. Use the `tax` field for defining the tax percentage amount. By default, the user setting value for tax options will be used. Changing this in one product affects the rest of the products attached to the deal
      *
      * @return self
      */
@@ -992,7 +995,7 @@ class ProductListItem implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets product
      *
-     * @return \Pipedrive\Model\ProductWithObjectPrices|null
+     * @return \Pipedrive\Model\ProductWithArrayPrices|null
      */
     public function getProduct()
     {
@@ -1002,7 +1005,7 @@ class ProductListItem implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets product
      *
-     * @param \Pipedrive\Model\ProductWithObjectPrices|null $product product
+     * @param \Pipedrive\Model\ProductWithArrayPrices|null $product product
      *
      * @return self
      */
