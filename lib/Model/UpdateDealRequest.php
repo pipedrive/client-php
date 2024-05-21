@@ -76,6 +76,8 @@ class UpdateDealRequest implements ModelInterface, ArrayAccess, JsonSerializable
         'pipeline_id' => 'int',
         'stage_id' => 'int',
         'status' => 'string',
+        'channel' => 'int',
+        'channel_id' => 'string',
         'won_time' => 'string',
         'lost_time' => 'string',
         'close_time' => 'string',
@@ -103,6 +105,8 @@ class UpdateDealRequest implements ModelInterface, ArrayAccess, JsonSerializable
         'pipeline_id' => null,
         'stage_id' => null,
         'status' => null,
+        'channel' => null,
+        'channel_id' => null,
         'won_time' => null,
         'lost_time' => null,
         'close_time' => null,
@@ -153,6 +157,8 @@ class UpdateDealRequest implements ModelInterface, ArrayAccess, JsonSerializable
         'pipeline_id' => 'pipeline_id',
         'stage_id' => 'stage_id',
         'status' => 'status',
+        'channel' => 'channel',
+        'channel_id' => 'channel_id',
         'won_time' => 'won_time',
         'lost_time' => 'lost_time',
         'close_time' => 'close_time',
@@ -178,6 +184,8 @@ class UpdateDealRequest implements ModelInterface, ArrayAccess, JsonSerializable
         'pipeline_id' => 'setPipelineId',
         'stage_id' => 'setStageId',
         'status' => 'setStatus',
+        'channel' => 'setChannel',
+        'channel_id' => 'setChannelId',
         'won_time' => 'setWonTime',
         'lost_time' => 'setLostTime',
         'close_time' => 'setCloseTime',
@@ -203,6 +211,8 @@ class UpdateDealRequest implements ModelInterface, ArrayAccess, JsonSerializable
         'pipeline_id' => 'getPipelineId',
         'stage_id' => 'getStageId',
         'status' => 'getStatus',
+        'channel' => 'getChannel',
+        'channel_id' => 'getChannelId',
         'won_time' => 'getWonTime',
         'lost_time' => 'getLostTime',
         'close_time' => 'getCloseTime',
@@ -310,6 +320,8 @@ class UpdateDealRequest implements ModelInterface, ArrayAccess, JsonSerializable
         $this->container['pipeline_id'] = $data['pipeline_id'] ?? null;
         $this->container['stage_id'] = $data['stage_id'] ?? null;
         $this->container['status'] = $data['status'] ?? null;
+        $this->container['channel'] = $data['channel'] ?? null;
+        $this->container['channel_id'] = $data['channel_id'] ?? null;
         $this->container['won_time'] = $data['won_time'] ?? null;
         $this->container['lost_time'] = $data['lost_time'] ?? null;
         $this->container['close_time'] = $data['close_time'] ?? null;
@@ -600,6 +612,54 @@ class UpdateDealRequest implements ModelInterface, ArrayAccess, JsonSerializable
             );
         }
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets channel
+     *
+     * @return int|null
+     */
+    public function getChannel()
+    {
+        return $this->container['channel'];
+    }
+
+    /**
+     * Sets channel
+     *
+     * @param int|null $channel The ID of Marketing channel this deal was created from. Provided value must be one of the channels configured for your company which you can fetch with <a href=\"https://developers.pipedrive.com/docs/api/v1/DealFields#getDealField\" target=\"_blank\" rel=\"noopener noreferrer\">GET /v1/dealFields</a>.
+     *
+     * @return self
+     */
+    public function setChannel($channel): self
+    {
+        $this->container['channel'] = $channel;
+
+        return $this;
+    }
+
+    /**
+     * Gets channel_id
+     *
+     * @return string|null
+     */
+    public function getChannelId()
+    {
+        return $this->container['channel_id'];
+    }
+
+    /**
+     * Sets channel_id
+     *
+     * @param string|null $channel_id The optional ID to further distinguish the Marketing channel.
+     *
+     * @return self
+     */
+    public function setChannelId($channel_id): self
+    {
+        $this->container['channel_id'] = $channel_id;
 
         return $this;
     }

@@ -61,6 +61,10 @@ Name | Type | Description | Notes
 **cc_email** | **string** | The BCC email of the deal | [optional]
 **org_hidden** | **bool** | If the organization that is associated with the deal is hidden or not | [optional]
 **person_hidden** | **bool** | If the person that is associated with the deal is hidden or not | [optional]
+**origin** | **string** | The way this Deal was created. &#x60;origin&#x60; field is set by Pipedrive when Deal is created and cannot be changed. | [optional]
+**origin_id** | **string** | The optional ID to further distinguish the origin of the deal - e.g. Which API integration created this Deal. | [optional]
+**channel** | **int** | The ID of your Marketing channel this Deal was created from. Recognized Marketing channels can be configured in your &lt;a href&#x3D;\&quot;https://app.pipedrive.com/settings/fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Company settings&lt;/a&gt;. | [optional]
+**channel_id** | **string** | The optional ID to further distinguish the Marketing channel. | [optional]
 **merge_what_id** | **int** | The deal ID of the deal which the original deal was merged with | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

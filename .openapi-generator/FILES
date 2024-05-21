@@ -1700,5 +1700,6 @@ lib/Model/WebhooksAllOf.php
 lib/Model/WebhooksDeleteForbiddenSchema.php
 lib/Model/WebhooksDeleteForbiddenSchemaAllOf.php
 lib/ObjectSerializer.php
+lib/Traits/RawData.php
 phpstan.neon
 phpunit.xml

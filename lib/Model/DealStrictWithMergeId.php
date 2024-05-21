@@ -123,6 +123,10 @@ class DealStrictWithMergeId implements ModelInterface, ArrayAccess, JsonSerializ
         'cc_email' => 'string',
         'org_hidden' => 'bool',
         'person_hidden' => 'bool',
+        'origin' => 'string',
+        'origin_id' => 'string',
+        'channel' => 'int',
+        'channel_id' => 'string',
         'merge_what_id' => 'int'
     ];
 
@@ -191,6 +195,10 @@ class DealStrictWithMergeId implements ModelInterface, ArrayAccess, JsonSerializ
         'cc_email' => null,
         'org_hidden' => null,
         'person_hidden' => null,
+        'origin' => null,
+        'origin_id' => null,
+        'channel' => null,
+        'channel_id' => null,
         'merge_what_id' => null
     ];
 
@@ -282,6 +290,10 @@ class DealStrictWithMergeId implements ModelInterface, ArrayAccess, JsonSerializ
         'cc_email' => 'cc_email',
         'org_hidden' => 'org_hidden',
         'person_hidden' => 'person_hidden',
+        'origin' => 'origin',
+        'origin_id' => 'origin_id',
+        'channel' => 'channel',
+        'channel_id' => 'channel_id',
         'merge_what_id' => 'merge_what_id'
     ];
 
@@ -348,6 +360,10 @@ class DealStrictWithMergeId implements ModelInterface, ArrayAccess, JsonSerializ
         'cc_email' => 'setCcEmail',
         'org_hidden' => 'setOrgHidden',
         'person_hidden' => 'setPersonHidden',
+        'origin' => 'setOrigin',
+        'origin_id' => 'setOriginId',
+        'channel' => 'setChannel',
+        'channel_id' => 'setChannelId',
         'merge_what_id' => 'setMergeWhatId'
     ];
 
@@ -414,6 +430,10 @@ class DealStrictWithMergeId implements ModelInterface, ArrayAccess, JsonSerializ
         'cc_email' => 'getCcEmail',
         'org_hidden' => 'getOrgHidden',
         'person_hidden' => 'getPersonHidden',
+        'origin' => 'getOrigin',
+        'origin_id' => 'getOriginId',
+        'channel' => 'getChannel',
+        'channel_id' => 'getChannelId',
         'merge_what_id' => 'getMergeWhatId'
     ];
 
@@ -541,6 +561,10 @@ class DealStrictWithMergeId implements ModelInterface, ArrayAccess, JsonSerializ
         $this->container['cc_email'] = $data['cc_email'] ?? null;
         $this->container['org_hidden'] = $data['org_hidden'] ?? null;
         $this->container['person_hidden'] = $data['person_hidden'] ?? null;
+        $this->container['origin'] = $data['origin'] ?? null;
+        $this->container['origin_id'] = $data['origin_id'] ?? null;
+        $this->container['channel'] = $data['channel'] ?? null;
+        $this->container['channel_id'] = $data['channel_id'] ?? null;
         $this->container['merge_what_id'] = $data['merge_what_id'] ?? null;
     }
 
@@ -1934,6 +1958,102 @@ class DealStrictWithMergeId implements ModelInterface, ArrayAccess, JsonSerializ
     public function setPersonHidden($person_hidden): self
     {
         $this->container['person_hidden'] = $person_hidden;
+
+        return $this;
+    }
+
+    /**
+     * Gets origin
+     *
+     * @return string|null
+     */
+    public function getOrigin()
+    {
+        return $this->container['origin'];
+    }
+
+    /**
+     * Sets origin
+     *
+     * @param string|null $origin The way this Deal was created. `origin` field is set by Pipedrive when Deal is created and cannot be changed.
+     *
+     * @return self
+     */
+    public function setOrigin($origin): self
+    {
+        $this->container['origin'] = $origin;
+
+        return $this;
+    }
+
+    /**
+     * Gets origin_id
+     *
+     * @return string|null
+     */
+    public function getOriginId()
+    {
+        return $this->container['origin_id'];
+    }
+
+    /**
+     * Sets origin_id
+     *
+     * @param string|null $origin_id The optional ID to further distinguish the origin of the deal - e.g. Which API integration created this Deal.
+     *
+     * @return self
+     */
+    public function setOriginId($origin_id): self
+    {
+        $this->container['origin_id'] = $origin_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets channel
+     *
+     * @return int|null
+     */
+    public function getChannel()
+    {
+        return $this->container['channel'];
+    }
+
+    /**
+     * Sets channel
+     *
+     * @param int|null $channel The ID of your Marketing channel this Deal was created from. Recognized Marketing channels can be configured in your <a href=\"https://app.pipedrive.com/settings/fields\" target=\"_blank\" rel=\"noopener noreferrer\">Company settings</a>.
+     *
+     * @return self
+     */
+    public function setChannel($channel): self
+    {
+        $this->container['channel'] = $channel;
+
+        return $this;
+    }
+
+    /**
+     * Gets channel_id
+     *
+     * @return string|null
+     */
+    public function getChannelId()
+    {
+        return $this->container['channel_id'];
+    }
+
+    /**
+     * Sets channel_id
+     *
+     * @param string|null $channel_id The optional ID to further distinguish the Marketing channel.
+     *
+     * @return self
+     */
+    public function setChannelId($channel_id): self
+    {
+        $this->container['channel_id'] = $channel_id;
 
         return $this;
     }

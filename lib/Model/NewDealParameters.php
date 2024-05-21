@@ -75,6 +75,9 @@ class NewDealParameters implements ModelInterface, ArrayAccess, JsonSerializable
         'pipeline_id' => 'int',
         'stage_id' => 'int',
         'status' => 'string',
+        'origin_id' => 'string',
+        'channel' => 'int',
+        'channel_id' => 'string',
         'add_time' => 'string'
     ];
 
@@ -95,6 +98,9 @@ class NewDealParameters implements ModelInterface, ArrayAccess, JsonSerializable
         'pipeline_id' => null,
         'stage_id' => null,
         'status' => null,
+        'origin_id' => null,
+        'channel' => null,
+        'channel_id' => null,
         'add_time' => null
     ];
 
@@ -138,6 +144,9 @@ class NewDealParameters implements ModelInterface, ArrayAccess, JsonSerializable
         'pipeline_id' => 'pipeline_id',
         'stage_id' => 'stage_id',
         'status' => 'status',
+        'origin_id' => 'origin_id',
+        'channel' => 'channel',
+        'channel_id' => 'channel_id',
         'add_time' => 'add_time'
     ];
 
@@ -156,6 +165,9 @@ class NewDealParameters implements ModelInterface, ArrayAccess, JsonSerializable
         'pipeline_id' => 'setPipelineId',
         'stage_id' => 'setStageId',
         'status' => 'setStatus',
+        'origin_id' => 'setOriginId',
+        'channel' => 'setChannel',
+        'channel_id' => 'setChannelId',
         'add_time' => 'setAddTime'
     ];
 
@@ -174,6 +186,9 @@ class NewDealParameters implements ModelInterface, ArrayAccess, JsonSerializable
         'pipeline_id' => 'getPipelineId',
         'stage_id' => 'getStageId',
         'status' => 'getStatus',
+        'origin_id' => 'getOriginId',
+        'channel' => 'getChannel',
+        'channel_id' => 'getChannelId',
         'add_time' => 'getAddTime'
     ];
 
@@ -274,6 +289,9 @@ class NewDealParameters implements ModelInterface, ArrayAccess, JsonSerializable
         $this->container['pipeline_id'] = $data['pipeline_id'] ?? null;
         $this->container['stage_id'] = $data['stage_id'] ?? null;
         $this->container['status'] = $data['status'] ?? null;
+        $this->container['origin_id'] = $data['origin_id'] ?? null;
+        $this->container['channel'] = $data['channel'] ?? null;
+        $this->container['channel_id'] = $data['channel_id'] ?? null;
         $this->container['add_time'] = $data['add_time'] ?? null;
     }
 
@@ -534,6 +552,78 @@ class NewDealParameters implements ModelInterface, ArrayAccess, JsonSerializable
             );
         }
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets origin_id
+     *
+     * @return string|null
+     */
+    public function getOriginId()
+    {
+        return $this->container['origin_id'];
+    }
+
+    /**
+     * Sets origin_id
+     *
+     * @param string|null $origin_id The optional ID to further distinguish the origin of the deal - e.g. Which API integration created this deal. If omitted, `origin_id` will be set to null.
+     *
+     * @return self
+     */
+    public function setOriginId($origin_id): self
+    {
+        $this->container['origin_id'] = $origin_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets channel
+     *
+     * @return int|null
+     */
+    public function getChannel()
+    {
+        return $this->container['channel'];
+    }
+
+    /**
+     * Sets channel
+     *
+     * @param int|null $channel The ID of Marketing channel this deal was created from. Provided value must be one of the channels configured for your company. You can fetch allowed values with <a href=\"https://developers.pipedrive.com/docs/api/v1/DealFields#getDealField\" target=\"_blank\" rel=\"noopener noreferrer\">GET /v1/dealFields</a>. If omitted, channel will be set to null.
+     *
+     * @return self
+     */
+    public function setChannel($channel): self
+    {
+        $this->container['channel'] = $channel;
+
+        return $this;
+    }
+
+    /**
+     * Gets channel_id
+     *
+     * @return string|null
+     */
+    public function getChannelId()
+    {
+        return $this->container['channel_id'];
+    }
+
+    /**
+     * Sets channel_id
+     *
+     * @param string|null $channel_id The optional ID to further distinguish the Marketing channel. If omitted, `channel_id` will be set to null.
+     *
+     * @return self
+     */
+    public function setChannelId($channel_id): self
+    {
+        $this->container['channel_id'] = $channel_id;
 
         return $this;
     }
