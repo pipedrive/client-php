@@ -123,6 +123,10 @@ class DealNonStrictWithDetails implements ModelInterface, ArrayAccess, JsonSeria
         'cc_email' => 'string',
         'org_hidden' => 'bool',
         'person_hidden' => 'bool',
+        'origin' => 'string',
+        'origin_id' => 'string',
+        'channel' => 'int',
+        'channel_id' => 'string',
         'average_time_to_won' => '\Pipedrive\Model\DealNonStrictWithDetailsAllOfAverageTimeToWon',
         'average_stage_progress' => 'float',
         'age' => '\Pipedrive\Model\DealNonStrictWithDetailsAllOfAge',
@@ -196,6 +200,10 @@ class DealNonStrictWithDetails implements ModelInterface, ArrayAccess, JsonSeria
         'cc_email' => null,
         'org_hidden' => null,
         'person_hidden' => null,
+        'origin' => null,
+        'origin_id' => null,
+        'channel' => null,
+        'channel_id' => null,
         'average_time_to_won' => null,
         'average_stage_progress' => null,
         'age' => null,
@@ -292,6 +300,10 @@ class DealNonStrictWithDetails implements ModelInterface, ArrayAccess, JsonSeria
         'cc_email' => 'cc_email',
         'org_hidden' => 'org_hidden',
         'person_hidden' => 'person_hidden',
+        'origin' => 'origin',
+        'origin_id' => 'origin_id',
+        'channel' => 'channel',
+        'channel_id' => 'channel_id',
         'average_time_to_won' => 'average_time_to_won',
         'average_stage_progress' => 'average_stage_progress',
         'age' => 'age',
@@ -363,6 +375,10 @@ class DealNonStrictWithDetails implements ModelInterface, ArrayAccess, JsonSeria
         'cc_email' => 'setCcEmail',
         'org_hidden' => 'setOrgHidden',
         'person_hidden' => 'setPersonHidden',
+        'origin' => 'setOrigin',
+        'origin_id' => 'setOriginId',
+        'channel' => 'setChannel',
+        'channel_id' => 'setChannelId',
         'average_time_to_won' => 'setAverageTimeToWon',
         'average_stage_progress' => 'setAverageStageProgress',
         'age' => 'setAge',
@@ -434,6 +450,10 @@ class DealNonStrictWithDetails implements ModelInterface, ArrayAccess, JsonSeria
         'cc_email' => 'getCcEmail',
         'org_hidden' => 'getOrgHidden',
         'person_hidden' => 'getPersonHidden',
+        'origin' => 'getOrigin',
+        'origin_id' => 'getOriginId',
+        'channel' => 'getChannel',
+        'channel_id' => 'getChannelId',
         'average_time_to_won' => 'getAverageTimeToWon',
         'average_stage_progress' => 'getAverageStageProgress',
         'age' => 'getAge',
@@ -566,6 +586,10 @@ class DealNonStrictWithDetails implements ModelInterface, ArrayAccess, JsonSeria
         $this->container['cc_email'] = $data['cc_email'] ?? null;
         $this->container['org_hidden'] = $data['org_hidden'] ?? null;
         $this->container['person_hidden'] = $data['person_hidden'] ?? null;
+        $this->container['origin'] = $data['origin'] ?? null;
+        $this->container['origin_id'] = $data['origin_id'] ?? null;
+        $this->container['channel'] = $data['channel'] ?? null;
+        $this->container['channel_id'] = $data['channel_id'] ?? null;
         $this->container['average_time_to_won'] = $data['average_time_to_won'] ?? null;
         $this->container['average_stage_progress'] = $data['average_stage_progress'] ?? null;
         $this->container['age'] = $data['age'] ?? null;
@@ -1964,6 +1988,102 @@ class DealNonStrictWithDetails implements ModelInterface, ArrayAccess, JsonSeria
     public function setPersonHidden($person_hidden): self
     {
         $this->container['person_hidden'] = $person_hidden;
+
+        return $this;
+    }
+
+    /**
+     * Gets origin
+     *
+     * @return string|null
+     */
+    public function getOrigin()
+    {
+        return $this->container['origin'];
+    }
+
+    /**
+     * Sets origin
+     *
+     * @param string|null $origin The way this Deal was created. `origin` field is set by Pipedrive when Deal is created and cannot be changed.
+     *
+     * @return self
+     */
+    public function setOrigin($origin): self
+    {
+        $this->container['origin'] = $origin;
+
+        return $this;
+    }
+
+    /**
+     * Gets origin_id
+     *
+     * @return string|null
+     */
+    public function getOriginId()
+    {
+        return $this->container['origin_id'];
+    }
+
+    /**
+     * Sets origin_id
+     *
+     * @param string|null $origin_id The optional ID to further distinguish the origin of the deal - e.g. Which API integration created this Deal.
+     *
+     * @return self
+     */
+    public function setOriginId($origin_id): self
+    {
+        $this->container['origin_id'] = $origin_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets channel
+     *
+     * @return int|null
+     */
+    public function getChannel()
+    {
+        return $this->container['channel'];
+    }
+
+    /**
+     * Sets channel
+     *
+     * @param int|null $channel The ID of your Marketing channel this Deal was created from. Recognized Marketing channels can be configured in your <a href=\"https://app.pipedrive.com/settings/fields\" target=\"_blank\" rel=\"noopener noreferrer\">Company settings</a>.
+     *
+     * @return self
+     */
+    public function setChannel($channel): self
+    {
+        $this->container['channel'] = $channel;
+
+        return $this;
+    }
+
+    /**
+     * Gets channel_id
+     *
+     * @return string|null
+     */
+    public function getChannelId()
+    {
+        return $this->container['channel_id'];
+    }
+
+    /**
+     * Sets channel_id
+     *
+     * @param string|null $channel_id The optional ID to further distinguish the Marketing channel.
+     *
+     * @return self
+     */
+    public function setChannelId($channel_id): self
+    {
+        $this->container['channel_id'] = $channel_id;
 
         return $this;
     }

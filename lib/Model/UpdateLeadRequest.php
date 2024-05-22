@@ -75,7 +75,9 @@ class UpdateLeadRequest implements ModelInterface, ArrayAccess, JsonSerializable
         'value' => '\Pipedrive\Model\LeadValue',
         'expected_close_date' => '\DateTime',
         'visible_to' => '\Pipedrive\Model\VisibleTo',
-        'was_seen' => 'bool'
+        'was_seen' => 'bool',
+        'channel' => 'int',
+        'channel_id' => 'string'
     ];
 
     /**
@@ -95,7 +97,9 @@ class UpdateLeadRequest implements ModelInterface, ArrayAccess, JsonSerializable
         'value' => null,
         'expected_close_date' => 'date',
         'visible_to' => null,
-        'was_seen' => null
+        'was_seen' => null,
+        'channel' => null,
+        'channel_id' => null
     ];
 
     /**
@@ -138,7 +142,9 @@ class UpdateLeadRequest implements ModelInterface, ArrayAccess, JsonSerializable
         'value' => 'value',
         'expected_close_date' => 'expected_close_date',
         'visible_to' => 'visible_to',
-        'was_seen' => 'was_seen'
+        'was_seen' => 'was_seen',
+        'channel' => 'channel',
+        'channel_id' => 'channel_id'
     ];
 
     /**
@@ -156,7 +162,9 @@ class UpdateLeadRequest implements ModelInterface, ArrayAccess, JsonSerializable
         'value' => 'setValue',
         'expected_close_date' => 'setExpectedCloseDate',
         'visible_to' => 'setVisibleTo',
-        'was_seen' => 'setWasSeen'
+        'was_seen' => 'setWasSeen',
+        'channel' => 'setChannel',
+        'channel_id' => 'setChannelId'
     ];
 
     /**
@@ -174,7 +182,9 @@ class UpdateLeadRequest implements ModelInterface, ArrayAccess, JsonSerializable
         'value' => 'getValue',
         'expected_close_date' => 'getExpectedCloseDate',
         'visible_to' => 'getVisibleTo',
-        'was_seen' => 'getWasSeen'
+        'was_seen' => 'getWasSeen',
+        'channel' => 'getChannel',
+        'channel_id' => 'getChannelId'
     ];
 
     /**
@@ -254,6 +264,8 @@ class UpdateLeadRequest implements ModelInterface, ArrayAccess, JsonSerializable
         $this->container['expected_close_date'] = $data['expected_close_date'] ?? null;
         $this->container['visible_to'] = $data['visible_to'] ?? null;
         $this->container['was_seen'] = $data['was_seen'] ?? null;
+        $this->container['channel'] = $data['channel'] ?? null;
+        $this->container['channel_id'] = $data['channel_id'] ?? null;
     }
 
     /**
@@ -518,6 +530,54 @@ class UpdateLeadRequest implements ModelInterface, ArrayAccess, JsonSerializable
     public function setWasSeen($was_seen): self
     {
         $this->container['was_seen'] = $was_seen;
+
+        return $this;
+    }
+
+    /**
+     * Gets channel
+     *
+     * @return int|null
+     */
+    public function getChannel()
+    {
+        return $this->container['channel'];
+    }
+
+    /**
+     * Sets channel
+     *
+     * @param int|null $channel The ID of Marketing channel this lead was created from. Provided value must be one of the channels configured for your company which you can fetch with <a href=\"https://developers.pipedrive.com/docs/api/v1/DealFields#getDealField\" target=\"_blank\" rel=\"noopener noreferrer\">GET /v1/dealFields</a>.
+     *
+     * @return self
+     */
+    public function setChannel($channel): self
+    {
+        $this->container['channel'] = $channel;
+
+        return $this;
+    }
+
+    /**
+     * Gets channel_id
+     *
+     * @return string|null
+     */
+    public function getChannelId()
+    {
+        return $this->container['channel_id'];
+    }
+
+    /**
+     * Sets channel_id
+     *
+     * @param string|null $channel_id The optional ID to further distinguish the Marketing channel.
+     *
+     * @return self
+     */
+    public function setChannelId($channel_id): self
+    {
+        $this->container['channel_id'] = $channel_id;
 
         return $this;
     }

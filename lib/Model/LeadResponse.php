@@ -74,6 +74,10 @@ class LeadResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'person_id' => 'int',
         'organization_id' => 'int',
         'source_name' => 'string',
+        'origin' => 'string',
+        'origin_id' => 'string',
+        'channel' => 'int',
+        'channel_id' => 'string',
         'is_archived' => 'bool',
         'was_seen' => 'bool',
         'value' => '\Pipedrive\Model\LeadValue',
@@ -101,6 +105,10 @@ class LeadResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'person_id' => null,
         'organization_id' => null,
         'source_name' => null,
+        'origin' => null,
+        'origin_id' => null,
+        'channel' => null,
+        'channel_id' => null,
         'is_archived' => null,
         'was_seen' => null,
         'value' => null,
@@ -151,6 +159,10 @@ class LeadResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'person_id' => 'person_id',
         'organization_id' => 'organization_id',
         'source_name' => 'source_name',
+        'origin' => 'origin',
+        'origin_id' => 'origin_id',
+        'channel' => 'channel',
+        'channel_id' => 'channel_id',
         'is_archived' => 'is_archived',
         'was_seen' => 'was_seen',
         'value' => 'value',
@@ -176,6 +188,10 @@ class LeadResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'person_id' => 'setPersonId',
         'organization_id' => 'setOrganizationId',
         'source_name' => 'setSourceName',
+        'origin' => 'setOrigin',
+        'origin_id' => 'setOriginId',
+        'channel' => 'setChannel',
+        'channel_id' => 'setChannelId',
         'is_archived' => 'setIsArchived',
         'was_seen' => 'setWasSeen',
         'value' => 'setValue',
@@ -201,6 +217,10 @@ class LeadResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'person_id' => 'getPersonId',
         'organization_id' => 'getOrganizationId',
         'source_name' => 'getSourceName',
+        'origin' => 'getOrigin',
+        'origin_id' => 'getOriginId',
+        'channel' => 'getChannel',
+        'channel_id' => 'getChannelId',
         'is_archived' => 'getIsArchived',
         'was_seen' => 'getWasSeen',
         'value' => 'getValue',
@@ -287,6 +307,10 @@ class LeadResponse implements ModelInterface, ArrayAccess, JsonSerializable
         $this->container['person_id'] = $data['person_id'] ?? null;
         $this->container['organization_id'] = $data['organization_id'] ?? null;
         $this->container['source_name'] = $data['source_name'] ?? null;
+        $this->container['origin'] = $data['origin'] ?? null;
+        $this->container['origin_id'] = $data['origin_id'] ?? null;
+        $this->container['channel'] = $data['channel'] ?? null;
+        $this->container['channel_id'] = $data['channel_id'] ?? null;
         $this->container['is_archived'] = $data['is_archived'] ?? null;
         $this->container['was_seen'] = $data['was_seen'] ?? null;
         $this->container['value'] = $data['value'] ?? null;
@@ -512,6 +536,102 @@ class LeadResponse implements ModelInterface, ArrayAccess, JsonSerializable
     public function setSourceName($source_name): self
     {
         $this->container['source_name'] = $source_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets origin
+     *
+     * @return string|null
+     */
+    public function getOrigin()
+    {
+        return $this->container['origin'];
+    }
+
+    /**
+     * Sets origin
+     *
+     * @param string|null $origin The way this Lead was created. `origin` field is set by Pipedrive when Lead is created and cannot be changed.
+     *
+     * @return self
+     */
+    public function setOrigin($origin): self
+    {
+        $this->container['origin'] = $origin;
+
+        return $this;
+    }
+
+    /**
+     * Gets origin_id
+     *
+     * @return string|null
+     */
+    public function getOriginId()
+    {
+        return $this->container['origin_id'];
+    }
+
+    /**
+     * Sets origin_id
+     *
+     * @param string|null $origin_id The optional ID to further distinguish the origin of the lead - e.g. Which API integration created this Lead.
+     *
+     * @return self
+     */
+    public function setOriginId($origin_id): self
+    {
+        $this->container['origin_id'] = $origin_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets channel
+     *
+     * @return int|null
+     */
+    public function getChannel()
+    {
+        return $this->container['channel'];
+    }
+
+    /**
+     * Sets channel
+     *
+     * @param int|null $channel The ID of your Marketing channel this Lead was created from. Recognized Marketing channels can be configured in your <a href=\"https://app.pipedrive.com/settings/fields\" target=\"_blank\" rel=\"noopener noreferrer\">Company settings</a>.
+     *
+     * @return self
+     */
+    public function setChannel($channel): self
+    {
+        $this->container['channel'] = $channel;
+
+        return $this;
+    }
+
+    /**
+     * Gets channel_id
+     *
+     * @return string|null
+     */
+    public function getChannelId()
+    {
+        return $this->container['channel_id'];
+    }
+
+    /**
+     * Sets channel_id
+     *
+     * @param string|null $channel_id The optional ID to further distinguish the Marketing channel.
+     *
+     * @return self
+     */
+    public function setChannelId($channel_id): self
+    {
+        $this->container['channel_id'] = $channel_id;
 
         return $this;
     }
