@@ -487,7 +487,7 @@ class ActivityObjectFragment implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Sets location
      *
-     * @param string|null $location The address of the activity. Pipedrive will automatically check if the location matches a geo-location on Google maps.
+     * @param string|null $location The address of the activity.
      *
      * @return self
      */
