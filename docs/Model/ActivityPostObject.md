@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **person_id** | **int** | The ID of the person this activity is associated with | [optional]
 **project_id** | **int** | The ID of the project this activity is associated with | [optional]
 **org_id** | **int** | The ID of the organization this activity is associated with | [optional]
-**location** | **string** | The address of the activity. Pipedrive will automatically check if the location matches a geo-location on Google maps. | [optional]
+**location** | **string** | The address of the activity. | [optional]
 **public_description** | **string** | Additional details about the activity that is synced to your external calendar. Unlike the note added to the activity, the description is publicly visible to any guests added to the activity. | [optional]
 **note** | **string** | The note of the activity (HTML format) | [optional]
 **subject** | **string** | The subject of the activity. When value for subject is not set, it will be given a default value &#x60;Call&#x60;. | [optional]
