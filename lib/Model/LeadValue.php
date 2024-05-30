@@ -38,7 +38,7 @@ use Pipedrive\ObjectSerializer;
  * LeadValue Class Doc Comment
  *
  * @category Class
- * @description The potential value of the lead
+ * @description The potential value of the lead represented by a JSON object: &#x60;{ \&quot;amount\&quot;: 200, \&quot;currency\&quot;: \&quot;EUR\&quot; }&#x60;. Both amount and currency are required.
  * @package  Pipedrive
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
