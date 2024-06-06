@@ -121,7 +121,13 @@ class BaseDeal implements ModelInterface, ArrayAccess, JsonSerializable
         'origin' => 'string',
         'origin_id' => 'string',
         'channel' => 'int',
-        'channel_id' => 'string'
+        'channel_id' => 'string',
+        'arr' => 'float',
+        'mrr' => 'float',
+        'acv' => 'float',
+        'arr_currency' => 'string',
+        'mrr_currency' => 'string',
+        'acv_currency' => 'string'
     ];
 
     /**
@@ -187,7 +193,13 @@ class BaseDeal implements ModelInterface, ArrayAccess, JsonSerializable
         'origin' => null,
         'origin_id' => null,
         'channel' => null,
-        'channel_id' => null
+        'channel_id' => null,
+        'arr' => null,
+        'mrr' => null,
+        'acv' => null,
+        'arr_currency' => null,
+        'mrr_currency' => null,
+        'acv_currency' => null
     ];
 
     /**
@@ -276,7 +288,13 @@ class BaseDeal implements ModelInterface, ArrayAccess, JsonSerializable
         'origin' => 'origin',
         'origin_id' => 'origin_id',
         'channel' => 'channel',
-        'channel_id' => 'channel_id'
+        'channel_id' => 'channel_id',
+        'arr' => 'arr',
+        'mrr' => 'mrr',
+        'acv' => 'acv',
+        'arr_currency' => 'arr_currency',
+        'mrr_currency' => 'mrr_currency',
+        'acv_currency' => 'acv_currency'
     ];
 
     /**
@@ -340,7 +358,13 @@ class BaseDeal implements ModelInterface, ArrayAccess, JsonSerializable
         'origin' => 'setOrigin',
         'origin_id' => 'setOriginId',
         'channel' => 'setChannel',
-        'channel_id' => 'setChannelId'
+        'channel_id' => 'setChannelId',
+        'arr' => 'setArr',
+        'mrr' => 'setMrr',
+        'acv' => 'setAcv',
+        'arr_currency' => 'setArrCurrency',
+        'mrr_currency' => 'setMrrCurrency',
+        'acv_currency' => 'setAcvCurrency'
     ];
 
     /**
@@ -404,7 +428,13 @@ class BaseDeal implements ModelInterface, ArrayAccess, JsonSerializable
         'origin' => 'getOrigin',
         'origin_id' => 'getOriginId',
         'channel' => 'getChannel',
-        'channel_id' => 'getChannelId'
+        'channel_id' => 'getChannelId',
+        'arr' => 'getArr',
+        'mrr' => 'getMrr',
+        'acv' => 'getAcv',
+        'arr_currency' => 'getArrCurrency',
+        'mrr_currency' => 'getMrrCurrency',
+        'acv_currency' => 'getAcvCurrency'
     ];
 
     /**
@@ -530,6 +560,12 @@ class BaseDeal implements ModelInterface, ArrayAccess, JsonSerializable
         $this->container['origin_id'] = $data['origin_id'] ?? null;
         $this->container['channel'] = $data['channel'] ?? null;
         $this->container['channel_id'] = $data['channel_id'] ?? null;
+        $this->container['arr'] = $data['arr'] ?? null;
+        $this->container['mrr'] = $data['mrr'] ?? null;
+        $this->container['acv'] = $data['acv'] ?? null;
+        $this->container['arr_currency'] = $data['arr_currency'] ?? null;
+        $this->container['mrr_currency'] = $data['mrr_currency'] ?? null;
+        $this->container['acv_currency'] = $data['acv_currency'] ?? null;
     }
 
     /**
@@ -1898,6 +1934,150 @@ class BaseDeal implements ModelInterface, ArrayAccess, JsonSerializable
     public function setChannelId($channel_id): self
     {
         $this->container['channel_id'] = $channel_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets arr
+     *
+     * @return float|null
+     */
+    public function getArr()
+    {
+        return $this->container['arr'];
+    }
+
+    /**
+     * Sets arr
+     *
+     * @param float|null $arr Only available in Advanced and above plans  The Annual Recurring Revenue of the deal  Null if there are no products attached to the deal
+     *
+     * @return self
+     */
+    public function setArr($arr): self
+    {
+        $this->container['arr'] = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Gets mrr
+     *
+     * @return float|null
+     */
+    public function getMrr()
+    {
+        return $this->container['mrr'];
+    }
+
+    /**
+     * Sets mrr
+     *
+     * @param float|null $mrr Only available in Advanced and above plans  The Monthly Recurring Revenue of the deal  Null if there are no products attached to the deal
+     *
+     * @return self
+     */
+    public function setMrr($mrr): self
+    {
+        $this->container['mrr'] = $mrr;
+
+        return $this;
+    }
+
+    /**
+     * Gets acv
+     *
+     * @return float|null
+     */
+    public function getAcv()
+    {
+        return $this->container['acv'];
+    }
+
+    /**
+     * Sets acv
+     *
+     * @param float|null $acv Only available in Advanced and above plans  The Annual Contract Value of the deal  Null if there are no products attached to the deal
+     *
+     * @return self
+     */
+    public function setAcv($acv): self
+    {
+        $this->container['acv'] = $acv;
+
+        return $this;
+    }
+
+    /**
+     * Gets arr_currency
+     *
+     * @return string|null
+     */
+    public function getArrCurrency()
+    {
+        return $this->container['arr_currency'];
+    }
+
+    /**
+     * Sets arr_currency
+     *
+     * @param string|null $arr_currency Only available in Advanced and above plans  The Currency for Annual Recurring Revenue of the deal  If the `arr` is null, this will also be null
+     *
+     * @return self
+     */
+    public function setArrCurrency($arr_currency): self
+    {
+        $this->container['arr_currency'] = $arr_currency;
+
+        return $this;
+    }
+
+    /**
+     * Gets mrr_currency
+     *
+     * @return string|null
+     */
+    public function getMrrCurrency()
+    {
+        return $this->container['mrr_currency'];
+    }
+
+    /**
+     * Sets mrr_currency
+     *
+     * @param string|null $mrr_currency Only available in Advanced and above plans  The Currency for Monthly Recurring Revenue of the deal  If the `mrr` is null, this will also be null
+     *
+     * @return self
+     */
+    public function setMrrCurrency($mrr_currency): self
+    {
+        $this->container['mrr_currency'] = $mrr_currency;
+
+        return $this;
+    }
+
+    /**
+     * Gets acv_currency
+     *
+     * @return string|null
+     */
+    public function getAcvCurrency()
+    {
+        return $this->container['acv_currency'];
+    }
+
+    /**
+     * Sets acv_currency
+     *
+     * @param string|null $acv_currency Only available in Advanced and above plans  The Currency for Annual Contract Value of the deal  If the `acv` is null, this will also be null
+     *
+     * @return self
+     */
+    public function setAcvCurrency($acv_currency): self
+    {
+        $this->container['acv_currency'] = $acv_currency;
 
         return $this;
     }

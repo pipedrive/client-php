@@ -716,7 +716,7 @@ class NewDeal implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets add_time
      *
-     * @param string|null $add_time The optional creation date & time of the deal in UTC. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
+     * @param string|null $add_time The optional creation date & time of the deal in UTC. Format: YYYY-MM-DD HH:MM:SS
      *
      * @return self
      */
