@@ -66,8 +66,6 @@ class UserSettingsItem implements ModelInterface, ArrayAccess, JsonSerializable
       * @phpsalm-var array<string, string>
       */
     protected static array $openAPITypes = [
-        'marketplace_allow_custom_install_url' => 'bool',
-        'marketplace_app_extensions_vendor' => 'bool',
         'marketplace_team' => 'bool',
         'list_limit' => 'float',
         'beta_app' => 'bool',
@@ -86,8 +84,6 @@ class UserSettingsItem implements ModelInterface, ArrayAccess, JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'marketplace_allow_custom_install_url' => null,
-        'marketplace_app_extensions_vendor' => null,
         'marketplace_team' => null,
         'list_limit' => null,
         'beta_app' => null,
@@ -129,8 +125,6 @@ class UserSettingsItem implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'marketplace_allow_custom_install_url' => 'marketplace_allow_custom_install_url',
-        'marketplace_app_extensions_vendor' => 'marketplace_app_extensions_vendor',
         'marketplace_team' => 'marketplace_team',
         'list_limit' => 'list_limit',
         'beta_app' => 'beta_app',
@@ -147,8 +141,6 @@ class UserSettingsItem implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'marketplace_allow_custom_install_url' => 'setMarketplaceAllowCustomInstallUrl',
-        'marketplace_app_extensions_vendor' => 'setMarketplaceAppExtensionsVendor',
         'marketplace_team' => 'setMarketplaceTeam',
         'list_limit' => 'setListLimit',
         'beta_app' => 'setBetaApp',
@@ -165,8 +157,6 @@ class UserSettingsItem implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'marketplace_allow_custom_install_url' => 'getMarketplaceAllowCustomInstallUrl',
-        'marketplace_app_extensions_vendor' => 'getMarketplaceAppExtensionsVendor',
         'marketplace_team' => 'getMarketplaceTeam',
         'list_limit' => 'getListLimit',
         'beta_app' => 'getBetaApp',
@@ -244,8 +234,6 @@ class UserSettingsItem implements ModelInterface, ArrayAccess, JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['marketplace_allow_custom_install_url'] = $data['marketplace_allow_custom_install_url'] ?? null;
-        $this->container['marketplace_app_extensions_vendor'] = $data['marketplace_app_extensions_vendor'] ?? null;
         $this->container['marketplace_team'] = $data['marketplace_team'] ?? null;
         $this->container['list_limit'] = $data['list_limit'] ?? null;
         $this->container['beta_app'] = $data['beta_app'] ?? null;
@@ -281,54 +269,6 @@ class UserSettingsItem implements ModelInterface, ArrayAccess, JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets marketplace_allow_custom_install_url
-     *
-     * @return bool|null
-     */
-    public function getMarketplaceAllowCustomInstallUrl()
-    {
-        return $this->container['marketplace_allow_custom_install_url'];
-    }
-
-    /**
-     * Sets marketplace_allow_custom_install_url
-     *
-     * @param bool|null $marketplace_allow_custom_install_url If the vendors are allowed to install custom Marketplace apps with functionality and content in the Pipedrive UI or not
-     *
-     * @return self
-     */
-    public function setMarketplaceAllowCustomInstallUrl($marketplace_allow_custom_install_url): self
-    {
-        $this->container['marketplace_allow_custom_install_url'] = $marketplace_allow_custom_install_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets marketplace_app_extensions_vendor
-     *
-     * @return bool|null
-     */
-    public function getMarketplaceAppExtensionsVendor()
-    {
-        return $this->container['marketplace_app_extensions_vendor'];
-    }
-
-    /**
-     * Sets marketplace_app_extensions_vendor
-     *
-     * @param bool|null $marketplace_app_extensions_vendor If the vendors are allowed to extend their Marketplace apps with functionality and content in the Pipedrive UI or not
-     *
-     * @return self
-     */
-    public function setMarketplaceAppExtensionsVendor($marketplace_app_extensions_vendor): self
-    {
-        $this->container['marketplace_app_extensions_vendor'] = $marketplace_app_extensions_vendor;
-
-        return $this;
-    }
 
     /**
      * Gets marketplace_team
