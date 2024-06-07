@@ -4,8 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**marketplace_allow_custom_install_url** | **bool** | If the vendors are allowed to install custom Marketplace apps with functionality and content in the Pipedrive UI or not | [optional]
-**marketplace_app_extensions_vendor** | **bool** | If the vendors are allowed to extend their Marketplace apps with functionality and content in the Pipedrive UI or not | [optional]
 **marketplace_team** | **bool** | If the vendors are allowed to be part of the Marketplace team or not | [optional]
 **list_limit** | **float** | The number of results shown in list by default | [optional]
 **beta_app** | **bool** | Whether beta app is enabled | [optional]
