@@ -6,6 +6,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [6.10.0](https://github.com/pipedrive/client-php/compare/6.9.0...6.10.0) (2024-06-07)
+
+### Added
+Added `acv`, `mrr`, `arr`, `acv_currency`, `mrr_currency`, and `arr_currency` to the BaseDeal entity and the following endpoints' response:
+- `GET`, `POST` `/v1/deals`
+- `GET`, `PUT` `/v1/deals/{id}`
+- `GET` `/v1/deals/timeline`
+- `PUT` `/v1/deals/{id}/merge`
+- `POST` `/v1/deals/{id}/duplicate`
+
 ## [6.9.0](https://github.com/pipedrive/client-php/compare/6.8.1...6.9.0) (2024-05-30)
 
 ### Fixed
