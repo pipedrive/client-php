@@ -55,6 +55,14 @@ class LeadLabelColor
 
     const GRAY = 'gray';
 
+    const DARK_GRAY = 'dark-gray';
+
+    const PINK = 'pink';
+
+    const ORANGE = 'orange';
+
+    const BROWN = 'brown';
+
     /**
      * Gets allowable values of the enum
      * @return (string|int)[]
@@ -67,7 +75,11 @@ class LeadLabelColor
             self::RED,
             self::YELLOW,
             self::PURPLE,
-            self::GRAY
+            self::GRAY,
+            self::DARK_GRAY,
+            self::PINK,
+            self::ORANGE,
+            self::BROWN
         ];
     }
 }
