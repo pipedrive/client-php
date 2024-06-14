@@ -71,8 +71,6 @@ class AddProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSe
         'quantity' => 'int',
         'discount' => 'float',
         'discount_type' => 'string',
-        'duration' => 'float',
-        'duration_unit' => 'string',
         'product_variation_id' => 'int',
         'comments' => 'string',
         'tax' => 'float',
@@ -106,8 +104,6 @@ class AddProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSe
         'quantity' => null,
         'discount' => null,
         'discount_type' => null,
-        'duration' => null,
-        'duration_unit' => null,
         'product_variation_id' => null,
         'comments' => null,
         'tax' => null,
@@ -164,8 +160,6 @@ class AddProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSe
         'quantity' => 'quantity',
         'discount' => 'discount',
         'discount_type' => 'discount_type',
-        'duration' => 'duration',
-        'duration_unit' => 'duration_unit',
         'product_variation_id' => 'product_variation_id',
         'comments' => 'comments',
         'tax' => 'tax',
@@ -197,8 +191,6 @@ class AddProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSe
         'quantity' => 'setQuantity',
         'discount' => 'setDiscount',
         'discount_type' => 'setDiscountType',
-        'duration' => 'setDuration',
-        'duration_unit' => 'setDurationUnit',
         'product_variation_id' => 'setProductVariationId',
         'comments' => 'setComments',
         'tax' => 'setTax',
@@ -230,8 +222,6 @@ class AddProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSe
         'quantity' => 'getQuantity',
         'discount' => 'getDiscount',
         'discount_type' => 'getDiscountType',
-        'duration' => 'getDuration',
-        'duration_unit' => 'getDurationUnit',
         'product_variation_id' => 'getProductVariationId',
         'comments' => 'getComments',
         'tax' => 'getTax',
@@ -360,8 +350,6 @@ class AddProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSe
         $this->container['quantity'] = $data['quantity'] ?? null;
         $this->container['discount'] = $data['discount'] ?? 0;
         $this->container['discount_type'] = $data['discount_type'] ?? 'percentage';
-        $this->container['duration'] = $data['duration'] ?? 1;
-        $this->container['duration_unit'] = $data['duration_unit'] ?? null;
         $this->container['product_variation_id'] = $data['product_variation_id'] ?? null;
         $this->container['comments'] = $data['comments'] ?? null;
         $this->container['tax'] = $data['tax'] ?? null;
@@ -552,54 +540,6 @@ class AddProductAttachmentDetails implements ModelInterface, ArrayAccess, JsonSe
             );
         }
         $this->container['discount_type'] = $discount_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets duration
-     *
-     * @return float|null
-     */
-    public function getDuration()
-    {
-        return $this->container['duration'];
-    }
-
-    /**
-     * Sets duration
-     *
-     * @param float|null $duration The duration of the product. If omitted, will be set to 1
-     *
-     * @return self
-     */
-    public function setDuration($duration): self
-    {
-        $this->container['duration'] = $duration;
-
-        return $this;
-    }
-
-    /**
-     * Gets duration_unit
-     *
-     * @return string|null
-     */
-    public function getDurationUnit()
-    {
-        return $this->container['duration_unit'];
-    }
-
-    /**
-     * Sets duration_unit
-     *
-     * @param string|null $duration_unit The type of the duration. (For example hourly, daily, etc.)
-     *
-     * @return self
-     */
-    public function setDurationUnit($duration_unit): self
-    {
-        $this->container['duration_unit'] = $duration_unit;
 
         return $this;
     }
