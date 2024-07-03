@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Added `notes` field to Prices in:
+  - `GET` and `POST` `/v2/products/{productId}/variations` endpoints
+  - `PATCH` `/api/v2/products/{productId}/variations/{productVariationId}` endpoint
 
 ## [6.10.1](https://github.com/pipedrive/client-php/compare/6.10.0...6.10.1) (2024-06-07)
 
