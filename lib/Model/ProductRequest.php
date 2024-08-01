@@ -67,6 +67,7 @@ class ProductRequest implements ModelInterface, ArrayAccess, JsonSerializable
       */
     protected static array $openAPITypes = [
         'code' => 'string',
+        'description' => 'string',
         'unit' => 'string',
         'tax' => 'float',
         'active_flag' => 'bool',
@@ -85,6 +86,7 @@ class ProductRequest implements ModelInterface, ArrayAccess, JsonSerializable
       */
     protected static $openAPIFormats = [
         'code' => null,
+        'description' => null,
         'unit' => null,
         'tax' => null,
         'active_flag' => null,
@@ -126,6 +128,7 @@ class ProductRequest implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static $attributeMap = [
         'code' => 'code',
+        'description' => 'description',
         'unit' => 'unit',
         'tax' => 'tax',
         'active_flag' => 'active_flag',
@@ -142,6 +145,7 @@ class ProductRequest implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static $setters = [
         'code' => 'setCode',
+        'description' => 'setDescription',
         'unit' => 'setUnit',
         'tax' => 'setTax',
         'active_flag' => 'setActiveFlag',
@@ -158,6 +162,7 @@ class ProductRequest implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static $getters = [
         'code' => 'getCode',
+        'description' => 'getDescription',
         'unit' => 'getUnit',
         'tax' => 'getTax',
         'active_flag' => 'getActiveFlag',
@@ -235,6 +240,7 @@ class ProductRequest implements ModelInterface, ArrayAccess, JsonSerializable
     public function __construct(array $data = null)
     {
         $this->container['code'] = $data['code'] ?? null;
+        $this->container['description'] = $data['description'] ?? null;
         $this->container['unit'] = $data['unit'] ?? null;
         $this->container['tax'] = $data['tax'] ?? 0;
         $this->container['active_flag'] = $data['active_flag'] ?? true;
@@ -290,6 +296,30 @@ class ProductRequest implements ModelInterface, ArrayAccess, JsonSerializable
     public function setCode($code): self
     {
         $this->container['code'] = $code;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string|null
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string|null $description The product description
+     *
+     * @return self
+     */
+    public function setDescription($description): self
+    {
+        $this->container['description'] = $description;
 
         return $this;
     }

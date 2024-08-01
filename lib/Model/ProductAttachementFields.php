@@ -70,7 +70,6 @@ class ProductAttachementFields implements ModelInterface, ArrayAccess, JsonSeria
         'company_id' => 'int',
         'deal_id' => 'int',
         'product_id' => 'int',
-        'duration_unit' => 'string',
         'sum' => 'float',
         'currency' => 'string',
         'add_time' => 'string',
@@ -92,7 +91,6 @@ class ProductAttachementFields implements ModelInterface, ArrayAccess, JsonSeria
         'company_id' => null,
         'deal_id' => null,
         'product_id' => null,
-        'duration_unit' => null,
         'sum' => null,
         'currency' => null,
         'add_time' => null,
@@ -137,7 +135,6 @@ class ProductAttachementFields implements ModelInterface, ArrayAccess, JsonSeria
         'company_id' => 'company_id',
         'deal_id' => 'deal_id',
         'product_id' => 'product_id',
-        'duration_unit' => 'duration_unit',
         'sum' => 'sum',
         'currency' => 'currency',
         'add_time' => 'add_time',
@@ -157,7 +154,6 @@ class ProductAttachementFields implements ModelInterface, ArrayAccess, JsonSeria
         'company_id' => 'setCompanyId',
         'deal_id' => 'setDealId',
         'product_id' => 'setProductId',
-        'duration_unit' => 'setDurationUnit',
         'sum' => 'setSum',
         'currency' => 'setCurrency',
         'add_time' => 'setAddTime',
@@ -177,7 +173,6 @@ class ProductAttachementFields implements ModelInterface, ArrayAccess, JsonSeria
         'company_id' => 'getCompanyId',
         'deal_id' => 'getDealId',
         'product_id' => 'getProductId',
-        'duration_unit' => 'getDurationUnit',
         'sum' => 'getSum',
         'currency' => 'getCurrency',
         'add_time' => 'getAddTime',
@@ -258,7 +253,6 @@ class ProductAttachementFields implements ModelInterface, ArrayAccess, JsonSeria
         $this->container['company_id'] = $data['company_id'] ?? null;
         $this->container['deal_id'] = $data['deal_id'] ?? null;
         $this->container['product_id'] = $data['product_id'] ?? null;
-        $this->container['duration_unit'] = $data['duration_unit'] ?? null;
         $this->container['sum'] = $data['sum'] ?? null;
         $this->container['currency'] = $data['currency'] ?? null;
         $this->container['add_time'] = $data['add_time'] ?? null;
@@ -386,30 +380,6 @@ class ProductAttachementFields implements ModelInterface, ArrayAccess, JsonSeria
     public function setProductId($product_id): self
     {
         $this->container['product_id'] = $product_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets duration_unit
-     *
-     * @return string|null
-     */
-    public function getDurationUnit()
-    {
-        return $this->container['duration_unit'];
-    }
-
-    /**
-     * Sets duration_unit
-     *
-     * @param string|null $duration_unit The type of the duration. (For example hourly, daily, etc.)
-     *
-     * @return self
-     */
-    public function setDurationUnit($duration_unit): self
-    {
-        $this->container['duration_unit'] = $duration_unit;
 
         return $this;
     }
