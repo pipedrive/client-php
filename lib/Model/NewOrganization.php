@@ -70,6 +70,7 @@ class NewOrganization implements ModelInterface, ArrayAccess, JsonSerializable
         'add_time' => 'string',
         'owner_id' => 'int',
         'label' => 'int',
+        'label_ids' => 'int[]',
         'visible_to' => '\Pipedrive\Model\VisibleTo'
     ];
 
@@ -85,6 +86,7 @@ class NewOrganization implements ModelInterface, ArrayAccess, JsonSerializable
         'add_time' => null,
         'owner_id' => null,
         'label' => null,
+        'label_ids' => null,
         'visible_to' => null
     ];
 
@@ -123,6 +125,7 @@ class NewOrganization implements ModelInterface, ArrayAccess, JsonSerializable
         'add_time' => 'add_time',
         'owner_id' => 'owner_id',
         'label' => 'label',
+        'label_ids' => 'label_ids',
         'visible_to' => 'visible_to'
     ];
 
@@ -136,6 +139,7 @@ class NewOrganization implements ModelInterface, ArrayAccess, JsonSerializable
         'add_time' => 'setAddTime',
         'owner_id' => 'setOwnerId',
         'label' => 'setLabel',
+        'label_ids' => 'setLabelIds',
         'visible_to' => 'setVisibleTo'
     ];
 
@@ -149,6 +153,7 @@ class NewOrganization implements ModelInterface, ArrayAccess, JsonSerializable
         'add_time' => 'getAddTime',
         'owner_id' => 'getOwnerId',
         'label' => 'getLabel',
+        'label_ids' => 'getLabelIds',
         'visible_to' => 'getVisibleTo'
     ];
 
@@ -223,6 +228,7 @@ class NewOrganization implements ModelInterface, ArrayAccess, JsonSerializable
         $this->container['add_time'] = $data['add_time'] ?? null;
         $this->container['owner_id'] = $data['owner_id'] ?? null;
         $this->container['label'] = $data['label'] ?? null;
+        $this->container['label_ids'] = $data['label_ids'] ?? null;
         $this->container['visible_to'] = $data['visible_to'] ?? null;
     }
 
@@ -340,13 +346,37 @@ class NewOrganization implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets label
      *
-     * @param int|null $label The ID of the label.
+     * @param int|null $label The label assigned to the organization. When the label field is updated, the label_ids field value will be overwritten by the label field value.
      *
      * @return self
      */
     public function setLabel($label): self
     {
         $this->container['label'] = $label;
+
+        return $this;
+    }
+
+    /**
+     * Gets label_ids
+     *
+     * @return int[]|null
+     */
+    public function getLabelIds()
+    {
+        return $this->container['label_ids'];
+    }
+
+    /**
+     * Sets label_ids
+     *
+     * @param int[]|null $label_ids The IDs of labels assigned to the organization. When the label_ids field is updated, the label field value will be set to the first value of the label_ids field.
+     *
+     * @return self
+     */
+    public function setLabelIds($label_ids): self
+    {
+        $this->container['label_ids'] = $label_ids;
 
         return $this;
     }

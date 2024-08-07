@@ -72,6 +72,7 @@ class NewPerson implements ModelInterface, ArrayAccess, JsonSerializable
         'email' => '\Pipedrive\Model\BasicPersonEmail[]',
         'phone' => '\Pipedrive\Model\BasePersonItemPhone[]',
         'label' => 'int',
+        'label_ids' => 'int[]',
         'visible_to' => '\Pipedrive\Model\VisibleTo',
         'marketing_status' => '\Pipedrive\Model\MarketingStatus',
         'add_time' => 'string'
@@ -91,6 +92,7 @@ class NewPerson implements ModelInterface, ArrayAccess, JsonSerializable
         'email' => null,
         'phone' => null,
         'label' => null,
+        'label_ids' => null,
         'visible_to' => null,
         'marketing_status' => null,
         'add_time' => null
@@ -133,6 +135,7 @@ class NewPerson implements ModelInterface, ArrayAccess, JsonSerializable
         'email' => 'email',
         'phone' => 'phone',
         'label' => 'label',
+        'label_ids' => 'label_ids',
         'visible_to' => 'visible_to',
         'marketing_status' => 'marketing_status',
         'add_time' => 'add_time'
@@ -150,6 +153,7 @@ class NewPerson implements ModelInterface, ArrayAccess, JsonSerializable
         'email' => 'setEmail',
         'phone' => 'setPhone',
         'label' => 'setLabel',
+        'label_ids' => 'setLabelIds',
         'visible_to' => 'setVisibleTo',
         'marketing_status' => 'setMarketingStatus',
         'add_time' => 'setAddTime'
@@ -167,6 +171,7 @@ class NewPerson implements ModelInterface, ArrayAccess, JsonSerializable
         'email' => 'getEmail',
         'phone' => 'getPhone',
         'label' => 'getLabel',
+        'label_ids' => 'getLabelIds',
         'visible_to' => 'getVisibleTo',
         'marketing_status' => 'getMarketingStatus',
         'add_time' => 'getAddTime'
@@ -245,6 +250,7 @@ class NewPerson implements ModelInterface, ArrayAccess, JsonSerializable
         $this->container['email'] = $data['email'] ?? null;
         $this->container['phone'] = $data['phone'] ?? null;
         $this->container['label'] = $data['label'] ?? null;
+        $this->container['label_ids'] = $data['label_ids'] ?? null;
         $this->container['visible_to'] = $data['visible_to'] ?? null;
         $this->container['marketing_status'] = $data['marketing_status'] ?? null;
         $this->container['add_time'] = $data['add_time'] ?? null;
@@ -412,13 +418,37 @@ class NewPerson implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets label
      *
-     * @param int|null $label The ID of the label.
+     * @param int|null $label The label assigned to the person. When the label field is updated, the label_ids field value will be overwritten by the label field value.
      *
      * @return self
      */
     public function setLabel($label): self
     {
         $this->container['label'] = $label;
+
+        return $this;
+    }
+
+    /**
+     * Gets label_ids
+     *
+     * @return int[]|null
+     */
+    public function getLabelIds()
+    {
+        return $this->container['label_ids'];
+    }
+
+    /**
+     * Sets label_ids
+     *
+     * @param int[]|null $label_ids The IDs of labels assigned to the person. When the label_ids field is updated, the label field value will be set to the first value of the label_ids field.
+     *
+     * @return self
+     */
+    public function setLabelIds($label_ids): self
+    {
+        $this->container['label_ids'] = $label_ids;
 
         return $this;
     }
