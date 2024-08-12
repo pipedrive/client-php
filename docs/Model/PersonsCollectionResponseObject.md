@@ -16,7 +16,8 @@ Name | Type | Description | Notes
 **add_time** | **string** | The date and time when the person was added/created. Format: YYYY-MM-DD HH:MM:SS | [optional]
 **visible_to** | **string** | The visibility group ID of who can see the person | [optional]
 **picture_id** | **int** | The ID of the picture associated with the item | [optional]
-**label** | **int** | The label assigned to the person | [optional]
+**label** | **int** | The label assigned to the person. When the &#x60;label&#x60; field is updated, the &#x60;label_ids&#x60; field value will be overwritten by the &#x60;label&#x60; field value. | [optional]
+**label_ids** | **int[]** | The IDs of labels assigned to the person. When the &#x60;label_ids&#x60; field is updated, the &#x60;label&#x60; field value will be set to the first value of the &#x60;label_ids&#x60; field. | [optional]
 **cc_email** | **string** | The BCC email associated with the person | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

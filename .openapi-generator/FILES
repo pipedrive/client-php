@@ -225,7 +225,6 @@ docs/Model/DealPersonDataPhone.md
 docs/Model/DealPersonDataWithId.md
 docs/Model/DealPersonDataWithIdAllOf.md
 docs/Model/DealProductRequestBody.md
-docs/Model/DealProductUnitDuration.md
 docs/Model/DealSearchItem.md
 docs/Model/DealSearchItemItem.md
 docs/Model/DealSearchItemItemOrganization.md
@@ -1075,7 +1074,6 @@ lib/Model/DealPersonDataPhone.php
 lib/Model/DealPersonDataWithId.php
 lib/Model/DealPersonDataWithIdAllOf.php
 lib/Model/DealProductRequestBody.php
-lib/Model/DealProductUnitDuration.php
 lib/Model/DealSearchItem.php
 lib/Model/DealSearchItemItem.php
 lib/Model/DealSearchItemItemOrganization.php

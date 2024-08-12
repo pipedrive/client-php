@@ -763,7 +763,6 @@ Class | Method | HTTP request | Description
  - [DealPersonDataWithId](docs/Model/DealPersonDataWithId.md)
  - [DealPersonDataWithIdAllOf](docs/Model/DealPersonDataWithIdAllOf.md)
  - [DealProductRequestBody](docs/Model/DealProductRequestBody.md)
- - [DealProductUnitDuration](docs/Model/DealProductUnitDuration.md)
  - [DealSearchItem](docs/Model/DealSearchItem.md)
  - [DealSearchItemItem](docs/Model/DealSearchItemItem.md)
  - [DealSearchItemItemOrganization](docs/Model/DealSearchItemItemOrganization.md)

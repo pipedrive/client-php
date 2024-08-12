@@ -68,6 +68,7 @@ class AddProductRequestBody implements ModelInterface, ArrayAccess, JsonSerializ
     protected static array $openAPITypes = [
         'name' => 'string',
         'code' => 'string',
+        'description' => 'string',
         'unit' => 'string',
         'tax' => 'float',
         'active_flag' => 'bool',
@@ -89,6 +90,7 @@ class AddProductRequestBody implements ModelInterface, ArrayAccess, JsonSerializ
     protected static $openAPIFormats = [
         'name' => null,
         'code' => null,
+        'description' => null,
         'unit' => null,
         'tax' => null,
         'active_flag' => null,
@@ -133,6 +135,7 @@ class AddProductRequestBody implements ModelInterface, ArrayAccess, JsonSerializ
     protected static $attributeMap = [
         'name' => 'name',
         'code' => 'code',
+        'description' => 'description',
         'unit' => 'unit',
         'tax' => 'tax',
         'active_flag' => 'active_flag',
@@ -152,6 +155,7 @@ class AddProductRequestBody implements ModelInterface, ArrayAccess, JsonSerializ
     protected static $setters = [
         'name' => 'setName',
         'code' => 'setCode',
+        'description' => 'setDescription',
         'unit' => 'setUnit',
         'tax' => 'setTax',
         'active_flag' => 'setActiveFlag',
@@ -171,6 +175,7 @@ class AddProductRequestBody implements ModelInterface, ArrayAccess, JsonSerializ
     protected static $getters = [
         'name' => 'getName',
         'code' => 'getCode',
+        'description' => 'getDescription',
         'unit' => 'getUnit',
         'tax' => 'getTax',
         'active_flag' => 'getActiveFlag',
@@ -251,6 +256,7 @@ class AddProductRequestBody implements ModelInterface, ArrayAccess, JsonSerializ
     {
         $this->container['name'] = $data['name'] ?? null;
         $this->container['code'] = $data['code'] ?? null;
+        $this->container['description'] = $data['description'] ?? null;
         $this->container['unit'] = $data['unit'] ?? null;
         $this->container['tax'] = $data['tax'] ?? 0;
         $this->container['active_flag'] = $data['active_flag'] ?? true;
@@ -332,6 +338,30 @@ class AddProductRequestBody implements ModelInterface, ArrayAccess, JsonSerializ
     public function setCode($code): self
     {
         $this->container['code'] = $code;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string|null
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string|null $description The product description
+     *
+     * @return self
+     */
+    public function setDescription($description): self
+    {
+        $this->container['description'] = $description;
 
         return $this;
     }
