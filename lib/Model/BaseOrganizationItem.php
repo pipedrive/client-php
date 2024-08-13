@@ -78,6 +78,7 @@ class BaseOrganizationItem implements ModelInterface, ArrayAccess, JsonSerializa
         'update_time' => 'string',
         'visible_to' => 'string',
         'label' => 'int',
+        'label_ids' => 'int[]',
         'owner_name' => 'string',
         'cc_email' => 'string',
         'email_messages_count' => 'int',
@@ -134,6 +135,7 @@ class BaseOrganizationItem implements ModelInterface, ArrayAccess, JsonSerializa
         'update_time' => null,
         'visible_to' => null,
         'label' => null,
+        'label_ids' => null,
         'owner_name' => null,
         'cc_email' => null,
         'email_messages_count' => null,
@@ -213,6 +215,7 @@ class BaseOrganizationItem implements ModelInterface, ArrayAccess, JsonSerializa
         'update_time' => 'update_time',
         'visible_to' => 'visible_to',
         'label' => 'label',
+        'label_ids' => 'label_ids',
         'owner_name' => 'owner_name',
         'cc_email' => 'cc_email',
         'email_messages_count' => 'email_messages_count',
@@ -267,6 +270,7 @@ class BaseOrganizationItem implements ModelInterface, ArrayAccess, JsonSerializa
         'update_time' => 'setUpdateTime',
         'visible_to' => 'setVisibleTo',
         'label' => 'setLabel',
+        'label_ids' => 'setLabelIds',
         'owner_name' => 'setOwnerName',
         'cc_email' => 'setCcEmail',
         'email_messages_count' => 'setEmailMessagesCount',
@@ -321,6 +325,7 @@ class BaseOrganizationItem implements ModelInterface, ArrayAccess, JsonSerializa
         'update_time' => 'getUpdateTime',
         'visible_to' => 'getVisibleTo',
         'label' => 'getLabel',
+        'label_ids' => 'getLabelIds',
         'owner_name' => 'getOwnerName',
         'cc_email' => 'getCcEmail',
         'email_messages_count' => 'getEmailMessagesCount',
@@ -436,6 +441,7 @@ class BaseOrganizationItem implements ModelInterface, ArrayAccess, JsonSerializa
         $this->container['update_time'] = $data['update_time'] ?? null;
         $this->container['visible_to'] = $data['visible_to'] ?? null;
         $this->container['label'] = $data['label'] ?? null;
+        $this->container['label_ids'] = $data['label_ids'] ?? null;
         $this->container['owner_name'] = $data['owner_name'] ?? null;
         $this->container['cc_email'] = $data['cc_email'] ?? null;
         $this->container['email_messages_count'] = $data['email_messages_count'] ?? null;
@@ -775,13 +781,37 @@ class BaseOrganizationItem implements ModelInterface, ArrayAccess, JsonSerializa
     /**
      * Sets label
      *
-     * @param int|null $label The label assigned to the organization
+     * @param int|null $label The label assigned to the organization. When the `label` field is updated, the `label_ids` field value will be overwritten by the `label` field value.
      *
      * @return self
      */
     public function setLabel($label): self
     {
         $this->container['label'] = $label;
+
+        return $this;
+    }
+
+    /**
+     * Gets label_ids
+     *
+     * @return int[]|null
+     */
+    public function getLabelIds()
+    {
+        return $this->container['label_ids'];
+    }
+
+    /**
+     * Sets label_ids
+     *
+     * @param int[]|null $label_ids The IDs of labels assigned to the organization. When the `label_ids` field is updated, the `label` field value will be set to the first value of the `label_ids` field.
+     *
+     * @return self
+     */
+    public function setLabelIds($label_ids): self
+    {
+        $this->container['label_ids'] = $label_ids;
 
         return $this;
     }

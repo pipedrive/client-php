@@ -77,6 +77,7 @@ class BasePersonItem implements ModelInterface, ArrayAccess, JsonSerializable
         'visible_to' => 'string',
         'picture_id' => '\Pipedrive\Model\PictureDataWithID',
         'label' => 'int',
+        'label_ids' => 'int[]',
         'org_name' => 'string',
         'owner_name' => 'string',
         'cc_email' => 'string'
@@ -101,6 +102,7 @@ class BasePersonItem implements ModelInterface, ArrayAccess, JsonSerializable
         'visible_to' => null,
         'picture_id' => null,
         'label' => null,
+        'label_ids' => null,
         'org_name' => null,
         'owner_name' => null,
         'cc_email' => null
@@ -148,6 +150,7 @@ class BasePersonItem implements ModelInterface, ArrayAccess, JsonSerializable
         'visible_to' => 'visible_to',
         'picture_id' => 'picture_id',
         'label' => 'label',
+        'label_ids' => 'label_ids',
         'org_name' => 'org_name',
         'owner_name' => 'owner_name',
         'cc_email' => 'cc_email'
@@ -170,6 +173,7 @@ class BasePersonItem implements ModelInterface, ArrayAccess, JsonSerializable
         'visible_to' => 'setVisibleTo',
         'picture_id' => 'setPictureId',
         'label' => 'setLabel',
+        'label_ids' => 'setLabelIds',
         'org_name' => 'setOrgName',
         'owner_name' => 'setOwnerName',
         'cc_email' => 'setCcEmail'
@@ -192,6 +196,7 @@ class BasePersonItem implements ModelInterface, ArrayAccess, JsonSerializable
         'visible_to' => 'getVisibleTo',
         'picture_id' => 'getPictureId',
         'label' => 'getLabel',
+        'label_ids' => 'getLabelIds',
         'org_name' => 'getOrgName',
         'owner_name' => 'getOwnerName',
         'cc_email' => 'getCcEmail'
@@ -275,6 +280,7 @@ class BasePersonItem implements ModelInterface, ArrayAccess, JsonSerializable
         $this->container['visible_to'] = $data['visible_to'] ?? null;
         $this->container['picture_id'] = $data['picture_id'] ?? null;
         $this->container['label'] = $data['label'] ?? null;
+        $this->container['label_ids'] = $data['label_ids'] ?? null;
         $this->container['org_name'] = $data['org_name'] ?? null;
         $this->container['owner_name'] = $data['owner_name'] ?? null;
         $this->container['cc_email'] = $data['cc_email'] ?? null;
@@ -559,13 +565,37 @@ class BasePersonItem implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets label
      *
-     * @param int|null $label The label assigned to the person
+     * @param int|null $label The label assigned to the person. When the `label` field is updated, the `label_ids` field value will be overwritten by the `label` field value.
      *
      * @return self
      */
     public function setLabel($label): self
     {
         $this->container['label'] = $label;
+
+        return $this;
+    }
+
+    /**
+     * Gets label_ids
+     *
+     * @return int[]|null
+     */
+    public function getLabelIds()
+    {
+        return $this->container['label_ids'];
+    }
+
+    /**
+     * Sets label_ids
+     *
+     * @param int[]|null $label_ids The IDs of labels assigned to the person. When the `label_ids` field is updated, the `label` field value will be set to the first value of the `label_ids` field.
+     *
+     * @return self
+     */
+    public function setLabelIds($label_ids): self
+    {
+        $this->container['label_ids'] = $label_ids;
 
         return $this;
     }
