@@ -131,7 +131,7 @@ class LeadLabelsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return \Pipedrive\Model\AddOrUpdateLeadLabelResponse200
+     * @return \Pipedrive\Model\UpsertLeadLabelResponse
      */
     public function addLeadLabel($add_lead_label_request = null)
     {
@@ -148,7 +148,7 @@ class LeadLabelsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return array<mixed> of \Pipedrive\Model\AddOrUpdateLeadLabelResponse200, HTTP status code, HTTP response headers (array of strings)
+     * @return array<mixed> of \Pipedrive\Model\UpsertLeadLabelResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function addLeadLabelWithHttpInfo($add_lead_label_request = null)
     {
@@ -186,14 +186,14 @@ class LeadLabelsApi
             switch($statusCode) {
                 case 200:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\AddOrUpdateLeadLabelResponse200' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\UpsertLeadLabelResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\AddOrUpdateLeadLabelResponse200', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\UpsertLeadLabelResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -213,14 +213,14 @@ class LeadLabelsApi
             }
 
             /* @phpstan-ignore-next-line */
-            if ('\Pipedrive\Model\AddOrUpdateLeadLabelResponse200' === '\SplFileObject') {
+            if ('\Pipedrive\Model\UpsertLeadLabelResponse' === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
 
             return [
-                ObjectSerializer::deserialize($content, '\Pipedrive\Model\AddOrUpdateLeadLabelResponse200', []),
+                ObjectSerializer::deserialize($content, '\Pipedrive\Model\UpsertLeadLabelResponse', []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -230,7 +230,7 @@ class LeadLabelsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\AddOrUpdateLeadLabelResponse200',
+                        '\Pipedrive\Model\UpsertLeadLabelResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -272,7 +272,7 @@ class LeadLabelsApi
      */
     public function addLeadLabelAsyncWithHttpInfo($add_lead_label_request = null): PromiseInterface
     {
-        $returnType = '\Pipedrive\Model\AddOrUpdateLeadLabelResponse200';
+        $returnType = '\Pipedrive\Model\UpsertLeadLabelResponse';
         $request = $this->addLeadLabelRequest($add_lead_label_request);
 
         return $this->client
@@ -418,7 +418,7 @@ class LeadLabelsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return \Pipedrive\Model\LeadIdResponse200|\Pipedrive\Model\LeadResponse404
+     * @return \Pipedrive\Model\DeleteLeadIdResponse|\Pipedrive\Model\LeadNotFoundResponse
      */
     public function deleteLeadLabel($id)
     {
@@ -435,7 +435,7 @@ class LeadLabelsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return array<mixed> of \Pipedrive\Model\LeadIdResponse200|\Pipedrive\Model\LeadResponse404, HTTP status code, HTTP response headers (array of strings)
+     * @return array<mixed> of \Pipedrive\Model\DeleteLeadIdResponse|\Pipedrive\Model\LeadNotFoundResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteLeadLabelWithHttpInfo($id)
     {
@@ -473,27 +473,27 @@ class LeadLabelsApi
             switch($statusCode) {
                 case 200:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\LeadIdResponse200' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\DeleteLeadIdResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\LeadIdResponse200', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\DeleteLeadIdResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\LeadResponse404' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\LeadNotFoundResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\LeadResponse404', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\LeadNotFoundResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -513,14 +513,14 @@ class LeadLabelsApi
             }
 
             /* @phpstan-ignore-next-line */
-            if ('\Pipedrive\Model\LeadIdResponse200' === '\SplFileObject') {
+            if ('\Pipedrive\Model\DeleteLeadIdResponse' === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
 
             return [
-                ObjectSerializer::deserialize($content, '\Pipedrive\Model\LeadIdResponse200', []),
+                ObjectSerializer::deserialize($content, '\Pipedrive\Model\DeleteLeadIdResponse', []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -530,7 +530,7 @@ class LeadLabelsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\LeadIdResponse200',
+                        '\Pipedrive\Model\DeleteLeadIdResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -538,7 +538,7 @@ class LeadLabelsApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\LeadResponse404',
+                        '\Pipedrive\Model\LeadNotFoundResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -580,7 +580,7 @@ class LeadLabelsApi
      */
     public function deleteLeadLabelAsyncWithHttpInfo($id): PromiseInterface
     {
-        $returnType = '\Pipedrive\Model\LeadIdResponse200';
+        $returnType = '\Pipedrive\Model\DeleteLeadIdResponse';
         $request = $this->deleteLeadLabelRequest($id);
 
         return $this->client
@@ -734,7 +734,7 @@ class LeadLabelsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return \Pipedrive\Model\GetLeadLabelsResponse200
+     * @return \Pipedrive\Model\GetLeadLabelsResponse
      */
     public function getLeadLabels()
     {
@@ -750,7 +750,7 @@ class LeadLabelsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return array<mixed> of \Pipedrive\Model\GetLeadLabelsResponse200, HTTP status code, HTTP response headers (array of strings)
+     * @return array<mixed> of \Pipedrive\Model\GetLeadLabelsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getLeadLabelsWithHttpInfo()
     {
@@ -788,14 +788,14 @@ class LeadLabelsApi
             switch($statusCode) {
                 case 200:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\GetLeadLabelsResponse200' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\GetLeadLabelsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetLeadLabelsResponse200', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetLeadLabelsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -815,14 +815,14 @@ class LeadLabelsApi
             }
 
             /* @phpstan-ignore-next-line */
-            if ('\Pipedrive\Model\GetLeadLabelsResponse200' === '\SplFileObject') {
+            if ('\Pipedrive\Model\GetLeadLabelsResponse' === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
 
             return [
-                ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetLeadLabelsResponse200', []),
+                ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetLeadLabelsResponse', []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -832,7 +832,7 @@ class LeadLabelsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\GetLeadLabelsResponse200',
+                        '\Pipedrive\Model\GetLeadLabelsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -872,7 +872,7 @@ class LeadLabelsApi
      */
     public function getLeadLabelsAsyncWithHttpInfo(): PromiseInterface
     {
-        $returnType = '\Pipedrive\Model\GetLeadLabelsResponse200';
+        $returnType = '\Pipedrive\Model\GetLeadLabelsResponse';
         $request = $this->getLeadLabelsRequest();
 
         return $this->client
@@ -1012,7 +1012,7 @@ class LeadLabelsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return \Pipedrive\Model\AddOrUpdateLeadLabelResponse200|\Pipedrive\Model\LeadResponse404
+     * @return \Pipedrive\Model\UpsertLeadLabelResponse|\Pipedrive\Model\LeadNotFoundResponse
      */
     public function updateLeadLabel($id, $update_lead_label_request = null)
     {
@@ -1030,7 +1030,7 @@ class LeadLabelsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return array<mixed> of \Pipedrive\Model\AddOrUpdateLeadLabelResponse200|\Pipedrive\Model\LeadResponse404, HTTP status code, HTTP response headers (array of strings)
+     * @return array<mixed> of \Pipedrive\Model\UpsertLeadLabelResponse|\Pipedrive\Model\LeadNotFoundResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateLeadLabelWithHttpInfo($id, $update_lead_label_request = null)
     {
@@ -1068,27 +1068,27 @@ class LeadLabelsApi
             switch($statusCode) {
                 case 200:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\AddOrUpdateLeadLabelResponse200' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\UpsertLeadLabelResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\AddOrUpdateLeadLabelResponse200', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\UpsertLeadLabelResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\LeadResponse404' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\LeadNotFoundResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\LeadResponse404', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\LeadNotFoundResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1108,14 +1108,14 @@ class LeadLabelsApi
             }
 
             /* @phpstan-ignore-next-line */
-            if ('\Pipedrive\Model\AddOrUpdateLeadLabelResponse200' === '\SplFileObject') {
+            if ('\Pipedrive\Model\UpsertLeadLabelResponse' === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
 
             return [
-                ObjectSerializer::deserialize($content, '\Pipedrive\Model\AddOrUpdateLeadLabelResponse200', []),
+                ObjectSerializer::deserialize($content, '\Pipedrive\Model\UpsertLeadLabelResponse', []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -1125,7 +1125,7 @@ class LeadLabelsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\AddOrUpdateLeadLabelResponse200',
+                        '\Pipedrive\Model\UpsertLeadLabelResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1133,7 +1133,7 @@ class LeadLabelsApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\LeadResponse404',
+                        '\Pipedrive\Model\LeadNotFoundResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1177,7 +1177,7 @@ class LeadLabelsApi
      */
     public function updateLeadLabelAsyncWithHttpInfo($id, $update_lead_label_request = null): PromiseInterface
     {
-        $returnType = '\Pipedrive\Model\AddOrUpdateLeadLabelResponse200';
+        $returnType = '\Pipedrive\Model\UpsertLeadLabelResponse';
         $request = $this->updateLeadLabelRequest($id, $update_lead_label_request);
 
         return $this->client

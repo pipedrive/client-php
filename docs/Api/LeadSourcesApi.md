@@ -10,7 +10,7 @@ Method | HTTP request | Description
 ## `getLeadSources()`
 
 ```php
-getLeadSources(): \Pipedrive\Model\GetLeadSourcesResponse200
+getLeadSources(): \Pipedrive\Model\GetLeadsSourceResponse
 ```
 
 Get all lead sources
@@ -54,7 +54,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Pipedrive\Model\GetLeadSourcesResponse200**](../Model/GetLeadSourcesResponse200.md)
+[**\Pipedrive\Model\GetLeadsSourceResponse**](../Model/GetLeadsSourceResponse.md)
 
 ### Authorization
 

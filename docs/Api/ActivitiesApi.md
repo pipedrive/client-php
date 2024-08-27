@@ -16,12 +16,12 @@ Method | HTTP request | Description
 ## `addActivity()`
 
 ```php
-addActivity($activity_post_object): \Pipedrive\Model\AddActivityResponse200
+addActivity($activity_post_object): \Pipedrive\Model\AddActivityResponse
 ```
 
 Add an activity
 
-Adds a new activity. Includes `more_activities_scheduled_in_context` property in response's `additional_data` which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data). For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-an-activity\" target=\"_blank\" rel=\"noopener noreferrer\">adding an activity</a>.
+Adds a new activity. Includes `more_activities_scheduled_in_context` property in response's `additional_data` which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data). For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-an-activity\" target=\"_blank\" rel=\"noopener noreferrer\">adding an activity</a>. <br /> <br /> ***Starting from 30.09.2024, activity attendees will receive updates only if the activity owner has an active calendar sync***
 
 ### Example
 
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Pipedrive\Model\AddActivityResponse200**](../Model/AddActivityResponse200.md)
+[**\Pipedrive\Model\AddActivityResponse**](../Model/AddActivityResponse.md)
 
 ### Authorization
 
@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 ## `deleteActivities()`
 
 ```php
-deleteActivities($ids): \Pipedrive\Model\DeleteActivitiesResponse200
+deleteActivities($ids): \Pipedrive\Model\DeleteActivitiesResponse
 ```
 
 Delete multiple activities in bulk
@@ -128,7 +128,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Pipedrive\Model\DeleteActivitiesResponse200**](../Model/DeleteActivitiesResponse200.md)
+[**\Pipedrive\Model\DeleteActivitiesResponse**](../Model/DeleteActivitiesResponse.md)
 
 ### Authorization
 
@@ -146,7 +146,7 @@ Name | Type | Description  | Notes
 ## `deleteActivity()`
 
 ```php
-deleteActivity($id): \Pipedrive\Model\DeleteActivityResponse200
+deleteActivity($id): \Pipedrive\Model\DeleteActivityResponse
 ```
 
 Delete an activity
@@ -193,7 +193,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Pipedrive\Model\DeleteActivityResponse200**](../Model/DeleteActivityResponse200.md)
+[**\Pipedrive\Model\DeleteActivityResponse**](../Model/DeleteActivityResponse.md)
 
 ### Authorization
 
@@ -211,7 +211,7 @@ Name | Type | Description  | Notes
 ## `getActivities()`
 
 ```php
-getActivities($user_id, $filter_id, $type, $limit, $start, $start_date, $end_date, $done): \Pipedrive\Model\GetActivitiesResponse200
+getActivities($user_id, $filter_id, $type, $limit, $start, $start_date, $end_date, $done): \Pipedrive\Model\GetActivitiesResponse
 ```
 
 Get all activities assigned to a particular user
@@ -272,7 +272,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Pipedrive\Model\GetActivitiesResponse200**](../Model/GetActivitiesResponse200.md)
+[**\Pipedrive\Model\GetActivitiesResponse**](../Model/GetActivitiesResponse.md)
 
 ### Authorization
 
@@ -290,7 +290,7 @@ Name | Type | Description  | Notes
 ## `getActivitiesCollection()`
 
 ```php
-getActivitiesCollection($cursor, $limit, $since, $until, $user_id, $done, $type): \Pipedrive\Model\GetActivitiesCollectionResponse200
+getActivitiesCollection($cursor, $limit, $since, $until, $user_id, $done, $type): \Pipedrive\Model\GetActivitiesCollectionResponse
 ```
 
 Get all activities (BETA)
@@ -349,7 +349,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Pipedrive\Model\GetActivitiesCollectionResponse200**](../Model/GetActivitiesCollectionResponse200.md)
+[**\Pipedrive\Model\GetActivitiesCollectionResponse**](../Model/GetActivitiesCollectionResponse.md)
 
 ### Authorization
 
@@ -367,7 +367,7 @@ Name | Type | Description  | Notes
 ## `getActivity()`
 
 ```php
-getActivity($id): \Pipedrive\Model\GetActivityResponse200
+getActivity($id): \Pipedrive\Model\GetActivityResponse
 ```
 
 Get details of an activity
@@ -414,7 +414,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Pipedrive\Model\GetActivityResponse200**](../Model/GetActivityResponse200.md)
+[**\Pipedrive\Model\GetActivityResponse**](../Model/GetActivityResponse.md)
 
 ### Authorization
 
@@ -432,12 +432,12 @@ Name | Type | Description  | Notes
 ## `updateActivity()`
 
 ```php
-updateActivity($id, $activity_put_object): \Pipedrive\Model\UpdateActivityResponse200
+updateActivity($id, $activity_put_object): \Pipedrive\Model\UpdateActivityResponse
 ```
 
 Update an activity
 
-Updates an activity. Includes `more_activities_scheduled_in_context` property in response's `additional_data` which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data).
+Updates an activity. Includes `more_activities_scheduled_in_context` property in response's `additional_data` which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data). <br /> <br /> ***Starting from 30.09.2024, activity attendees will receive updates only if the activity owner has an active calendar sync***
 
 ### Example
 
@@ -481,7 +481,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Pipedrive\Model\UpdateActivityResponse200**](../Model/UpdateActivityResponse200.md)
+[**\Pipedrive\Model\UpdateActivityResponse**](../Model/UpdateActivityResponse.md)
 
 ### Authorization
 

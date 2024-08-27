@@ -75,6 +75,7 @@ class OrganizationsCollectionResponseObjectAllOf implements ModelInterface, Arra
         'add_time' => 'string',
         'visible_to' => 'string',
         'label' => 'int',
+        'label_ids' => 'int[]',
         'cc_email' => 'string'
     ];
 
@@ -95,6 +96,7 @@ class OrganizationsCollectionResponseObjectAllOf implements ModelInterface, Arra
         'add_time' => null,
         'visible_to' => null,
         'label' => null,
+        'label_ids' => null,
         'cc_email' => null
     ];
 
@@ -138,6 +140,7 @@ class OrganizationsCollectionResponseObjectAllOf implements ModelInterface, Arra
         'add_time' => 'add_time',
         'visible_to' => 'visible_to',
         'label' => 'label',
+        'label_ids' => 'label_ids',
         'cc_email' => 'cc_email'
     ];
 
@@ -156,6 +159,7 @@ class OrganizationsCollectionResponseObjectAllOf implements ModelInterface, Arra
         'add_time' => 'setAddTime',
         'visible_to' => 'setVisibleTo',
         'label' => 'setLabel',
+        'label_ids' => 'setLabelIds',
         'cc_email' => 'setCcEmail'
     ];
 
@@ -174,6 +178,7 @@ class OrganizationsCollectionResponseObjectAllOf implements ModelInterface, Arra
         'add_time' => 'getAddTime',
         'visible_to' => 'getVisibleTo',
         'label' => 'getLabel',
+        'label_ids' => 'getLabelIds',
         'cc_email' => 'getCcEmail'
     ];
 
@@ -253,6 +258,7 @@ class OrganizationsCollectionResponseObjectAllOf implements ModelInterface, Arra
         $this->container['add_time'] = $data['add_time'] ?? null;
         $this->container['visible_to'] = $data['visible_to'] ?? null;
         $this->container['label'] = $data['label'] ?? null;
+        $this->container['label_ids'] = $data['label_ids'] ?? null;
         $this->container['cc_email'] = $data['cc_email'] ?? null;
     }
 
@@ -487,13 +493,37 @@ class OrganizationsCollectionResponseObjectAllOf implements ModelInterface, Arra
     /**
      * Sets label
      *
-     * @param int|null $label The label assigned to the organization
+     * @param int|null $label The label assigned to the organization. When the `label` field is updated, the `label_ids` field value will be overwritten by the `label` field value.
      *
      * @return self
      */
     public function setLabel($label): self
     {
         $this->container['label'] = $label;
+
+        return $this;
+    }
+
+    /**
+     * Gets label_ids
+     *
+     * @return int[]|null
+     */
+    public function getLabelIds()
+    {
+        return $this->container['label_ids'];
+    }
+
+    /**
+     * Sets label_ids
+     *
+     * @param int[]|null $label_ids The IDs of labels assigned to the organization. When the `label_ids` field is updated, the `label` field value will be set to the first value of the `label_ids` field.
+     *
+     * @return self
+     */
+    public function setLabelIds($label_ids): self
+    {
+        $this->container['label_ids'] = $label_ids;
 
         return $this;
     }

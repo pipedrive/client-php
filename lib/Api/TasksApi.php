@@ -131,7 +131,7 @@ class TasksApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return \Pipedrive\Model\AddTaskResponse201
+     * @return \Pipedrive\Model\AddTaskResponse
      */
     public function addTask($task_post_object = null)
     {
@@ -148,7 +148,7 @@ class TasksApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return array<mixed> of \Pipedrive\Model\AddTaskResponse201, HTTP status code, HTTP response headers (array of strings)
+     * @return array<mixed> of \Pipedrive\Model\AddTaskResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function addTaskWithHttpInfo($task_post_object = null)
     {
@@ -186,14 +186,14 @@ class TasksApi
             switch($statusCode) {
                 case 201:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\AddTaskResponse201' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\AddTaskResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\AddTaskResponse201', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\AddTaskResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -213,14 +213,14 @@ class TasksApi
             }
 
             /* @phpstan-ignore-next-line */
-            if ('\Pipedrive\Model\AddTaskResponse201' === '\SplFileObject') {
+            if ('\Pipedrive\Model\AddTaskResponse' === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
 
             return [
-                ObjectSerializer::deserialize($content, '\Pipedrive\Model\AddTaskResponse201', []),
+                ObjectSerializer::deserialize($content, '\Pipedrive\Model\AddTaskResponse', []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -230,7 +230,7 @@ class TasksApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\AddTaskResponse201',
+                        '\Pipedrive\Model\AddTaskResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -272,7 +272,7 @@ class TasksApi
      */
     public function addTaskAsyncWithHttpInfo($task_post_object = null): PromiseInterface
     {
-        $returnType = '\Pipedrive\Model\AddTaskResponse201';
+        $returnType = '\Pipedrive\Model\AddTaskResponse';
         $request = $this->addTaskRequest($task_post_object);
 
         return $this->client
@@ -418,7 +418,7 @@ class TasksApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return \Pipedrive\Model\DeleteTaskResponse200
+     * @return \Pipedrive\Model\DeleteTaskResponse
      */
     public function deleteTask($id)
     {
@@ -435,7 +435,7 @@ class TasksApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return array<mixed> of \Pipedrive\Model\DeleteTaskResponse200, HTTP status code, HTTP response headers (array of strings)
+     * @return array<mixed> of \Pipedrive\Model\DeleteTaskResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteTaskWithHttpInfo($id)
     {
@@ -473,14 +473,14 @@ class TasksApi
             switch($statusCode) {
                 case 200:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\DeleteTaskResponse200' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\DeleteTaskResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\DeleteTaskResponse200', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\DeleteTaskResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -500,14 +500,14 @@ class TasksApi
             }
 
             /* @phpstan-ignore-next-line */
-            if ('\Pipedrive\Model\DeleteTaskResponse200' === '\SplFileObject') {
+            if ('\Pipedrive\Model\DeleteTaskResponse' === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
 
             return [
-                ObjectSerializer::deserialize($content, '\Pipedrive\Model\DeleteTaskResponse200', []),
+                ObjectSerializer::deserialize($content, '\Pipedrive\Model\DeleteTaskResponse', []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -517,7 +517,7 @@ class TasksApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\DeleteTaskResponse200',
+                        '\Pipedrive\Model\DeleteTaskResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -559,7 +559,7 @@ class TasksApi
      */
     public function deleteTaskAsyncWithHttpInfo($id): PromiseInterface
     {
-        $returnType = '\Pipedrive\Model\DeleteTaskResponse200';
+        $returnType = '\Pipedrive\Model\DeleteTaskResponse';
         $request = $this->deleteTaskRequest($id);
 
         return $this->client
@@ -714,7 +714,7 @@ class TasksApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return \Pipedrive\Model\GetTaskResponse200
+     * @return \Pipedrive\Model\GetTaskResponse
      */
     public function getTask($id)
     {
@@ -731,7 +731,7 @@ class TasksApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return array<mixed> of \Pipedrive\Model\GetTaskResponse200, HTTP status code, HTTP response headers (array of strings)
+     * @return array<mixed> of \Pipedrive\Model\GetTaskResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getTaskWithHttpInfo($id)
     {
@@ -769,14 +769,14 @@ class TasksApi
             switch($statusCode) {
                 case 200:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\GetTaskResponse200' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\GetTaskResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetTaskResponse200', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetTaskResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -796,14 +796,14 @@ class TasksApi
             }
 
             /* @phpstan-ignore-next-line */
-            if ('\Pipedrive\Model\GetTaskResponse200' === '\SplFileObject') {
+            if ('\Pipedrive\Model\GetTaskResponse' === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
 
             return [
-                ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetTaskResponse200', []),
+                ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetTaskResponse', []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -813,7 +813,7 @@ class TasksApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\GetTaskResponse200',
+                        '\Pipedrive\Model\GetTaskResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -855,7 +855,7 @@ class TasksApi
      */
     public function getTaskAsyncWithHttpInfo($id): PromiseInterface
     {
-        $returnType = '\Pipedrive\Model\GetTaskResponse200';
+        $returnType = '\Pipedrive\Model\GetTaskResponse';
         $request = $this->getTaskRequest($id);
 
         return $this->client
@@ -1015,7 +1015,7 @@ class TasksApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return \Pipedrive\Model\GetTasksResponse200
+     * @return \Pipedrive\Model\GetTasksResponse
      */
     public function getTasks($cursor = null, $limit = null, $assignee_id = null, $project_id = null, $parent_task_id = null, $done = null)
     {
@@ -1037,7 +1037,7 @@ class TasksApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return array<mixed> of \Pipedrive\Model\GetTasksResponse200, HTTP status code, HTTP response headers (array of strings)
+     * @return array<mixed> of \Pipedrive\Model\GetTasksResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getTasksWithHttpInfo($cursor = null, $limit = null, $assignee_id = null, $project_id = null, $parent_task_id = null, $done = null)
     {
@@ -1075,14 +1075,14 @@ class TasksApi
             switch($statusCode) {
                 case 200:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\GetTasksResponse200' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\GetTasksResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetTasksResponse200', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetTasksResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1102,14 +1102,14 @@ class TasksApi
             }
 
             /* @phpstan-ignore-next-line */
-            if ('\Pipedrive\Model\GetTasksResponse200' === '\SplFileObject') {
+            if ('\Pipedrive\Model\GetTasksResponse' === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
 
             return [
-                ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetTasksResponse200', []),
+                ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetTasksResponse', []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -1119,7 +1119,7 @@ class TasksApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\GetTasksResponse200',
+                        '\Pipedrive\Model\GetTasksResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1171,7 +1171,7 @@ class TasksApi
      */
     public function getTasksAsyncWithHttpInfo($cursor = null, $limit = null, $assignee_id = null, $project_id = null, $parent_task_id = null, $done = null): PromiseInterface
     {
-        $returnType = '\Pipedrive\Model\GetTasksResponse200';
+        $returnType = '\Pipedrive\Model\GetTasksResponse';
         $request = $this->getTasksRequest($cursor, $limit, $assignee_id, $project_id, $parent_task_id, $done);
 
         return $this->client
@@ -1365,7 +1365,7 @@ class TasksApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return \Pipedrive\Model\UpdateTaskResponse200
+     * @return \Pipedrive\Model\UpdateTaskResponse
      */
     public function updateTask($id, $task_put_object = null)
     {
@@ -1383,7 +1383,7 @@ class TasksApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return array<mixed> of \Pipedrive\Model\UpdateTaskResponse200, HTTP status code, HTTP response headers (array of strings)
+     * @return array<mixed> of \Pipedrive\Model\UpdateTaskResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateTaskWithHttpInfo($id, $task_put_object = null)
     {
@@ -1421,14 +1421,14 @@ class TasksApi
             switch($statusCode) {
                 case 200:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\UpdateTaskResponse200' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\UpdateTaskResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\UpdateTaskResponse200', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\UpdateTaskResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1448,14 +1448,14 @@ class TasksApi
             }
 
             /* @phpstan-ignore-next-line */
-            if ('\Pipedrive\Model\UpdateTaskResponse200' === '\SplFileObject') {
+            if ('\Pipedrive\Model\UpdateTaskResponse' === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
 
             return [
-                ObjectSerializer::deserialize($content, '\Pipedrive\Model\UpdateTaskResponse200', []),
+                ObjectSerializer::deserialize($content, '\Pipedrive\Model\UpdateTaskResponse', []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -1465,7 +1465,7 @@ class TasksApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\UpdateTaskResponse200',
+                        '\Pipedrive\Model\UpdateTaskResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1509,7 +1509,7 @@ class TasksApi
      */
     public function updateTaskAsyncWithHttpInfo($id, $task_put_object = null): PromiseInterface
     {
-        $returnType = '\Pipedrive\Model\UpdateTaskResponse200';
+        $returnType = '\Pipedrive\Model\UpdateTaskResponse';
         $request = $this->updateTaskRequest($id, $task_put_object);
 
         return $this->client

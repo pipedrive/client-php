@@ -131,7 +131,7 @@ class ActivitiesApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return \Pipedrive\Model\AddActivityResponse200
+     * @return \Pipedrive\Model\AddActivityResponse
      */
     public function addActivity($activity_post_object = null)
     {
@@ -148,7 +148,7 @@ class ActivitiesApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return array<mixed> of \Pipedrive\Model\AddActivityResponse200, HTTP status code, HTTP response headers (array of strings)
+     * @return array<mixed> of \Pipedrive\Model\AddActivityResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function addActivityWithHttpInfo($activity_post_object = null)
     {
@@ -186,14 +186,14 @@ class ActivitiesApi
             switch($statusCode) {
                 case 201:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\AddActivityResponse200' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\AddActivityResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\AddActivityResponse200', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\AddActivityResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -213,14 +213,14 @@ class ActivitiesApi
             }
 
             /* @phpstan-ignore-next-line */
-            if ('\Pipedrive\Model\AddActivityResponse200' === '\SplFileObject') {
+            if ('\Pipedrive\Model\AddActivityResponse' === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
 
             return [
-                ObjectSerializer::deserialize($content, '\Pipedrive\Model\AddActivityResponse200', []),
+                ObjectSerializer::deserialize($content, '\Pipedrive\Model\AddActivityResponse', []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -230,7 +230,7 @@ class ActivitiesApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\AddActivityResponse200',
+                        '\Pipedrive\Model\AddActivityResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -272,7 +272,7 @@ class ActivitiesApi
      */
     public function addActivityAsyncWithHttpInfo($activity_post_object = null): PromiseInterface
     {
-        $returnType = '\Pipedrive\Model\AddActivityResponse200';
+        $returnType = '\Pipedrive\Model\AddActivityResponse';
         $request = $this->addActivityRequest($activity_post_object);
 
         return $this->client
@@ -418,7 +418,7 @@ class ActivitiesApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return \Pipedrive\Model\DeleteActivitiesResponse200
+     * @return \Pipedrive\Model\DeleteActivitiesResponse
      */
     public function deleteActivities($ids)
     {
@@ -435,7 +435,7 @@ class ActivitiesApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return array<mixed> of \Pipedrive\Model\DeleteActivitiesResponse200, HTTP status code, HTTP response headers (array of strings)
+     * @return array<mixed> of \Pipedrive\Model\DeleteActivitiesResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteActivitiesWithHttpInfo($ids)
     {
@@ -473,14 +473,14 @@ class ActivitiesApi
             switch($statusCode) {
                 case 200:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\DeleteActivitiesResponse200' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\DeleteActivitiesResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\DeleteActivitiesResponse200', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\DeleteActivitiesResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -500,14 +500,14 @@ class ActivitiesApi
             }
 
             /* @phpstan-ignore-next-line */
-            if ('\Pipedrive\Model\DeleteActivitiesResponse200' === '\SplFileObject') {
+            if ('\Pipedrive\Model\DeleteActivitiesResponse' === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
 
             return [
-                ObjectSerializer::deserialize($content, '\Pipedrive\Model\DeleteActivitiesResponse200', []),
+                ObjectSerializer::deserialize($content, '\Pipedrive\Model\DeleteActivitiesResponse', []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -517,7 +517,7 @@ class ActivitiesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\DeleteActivitiesResponse200',
+                        '\Pipedrive\Model\DeleteActivitiesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -559,7 +559,7 @@ class ActivitiesApi
      */
     public function deleteActivitiesAsyncWithHttpInfo($ids): PromiseInterface
     {
-        $returnType = '\Pipedrive\Model\DeleteActivitiesResponse200';
+        $returnType = '\Pipedrive\Model\DeleteActivitiesResponse';
         $request = $this->deleteActivitiesRequest($ids);
 
         return $this->client
@@ -714,7 +714,7 @@ class ActivitiesApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return \Pipedrive\Model\DeleteActivityResponse200
+     * @return \Pipedrive\Model\DeleteActivityResponse
      */
     public function deleteActivity($id)
     {
@@ -731,7 +731,7 @@ class ActivitiesApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return array<mixed> of \Pipedrive\Model\DeleteActivityResponse200, HTTP status code, HTTP response headers (array of strings)
+     * @return array<mixed> of \Pipedrive\Model\DeleteActivityResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteActivityWithHttpInfo($id)
     {
@@ -769,14 +769,14 @@ class ActivitiesApi
             switch($statusCode) {
                 case 200:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\DeleteActivityResponse200' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\DeleteActivityResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\DeleteActivityResponse200', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\DeleteActivityResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -796,14 +796,14 @@ class ActivitiesApi
             }
 
             /* @phpstan-ignore-next-line */
-            if ('\Pipedrive\Model\DeleteActivityResponse200' === '\SplFileObject') {
+            if ('\Pipedrive\Model\DeleteActivityResponse' === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
 
             return [
-                ObjectSerializer::deserialize($content, '\Pipedrive\Model\DeleteActivityResponse200', []),
+                ObjectSerializer::deserialize($content, '\Pipedrive\Model\DeleteActivityResponse', []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -813,7 +813,7 @@ class ActivitiesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\DeleteActivityResponse200',
+                        '\Pipedrive\Model\DeleteActivityResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -855,7 +855,7 @@ class ActivitiesApi
      */
     public function deleteActivityAsyncWithHttpInfo($id): PromiseInterface
     {
-        $returnType = '\Pipedrive\Model\DeleteActivityResponse200';
+        $returnType = '\Pipedrive\Model\DeleteActivityResponse';
         $request = $this->deleteActivityRequest($id);
 
         return $this->client
@@ -1017,7 +1017,7 @@ class ActivitiesApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return \Pipedrive\Model\GetActivitiesResponse200
+     * @return \Pipedrive\Model\GetActivitiesResponse
      */
     public function getActivities($user_id = null, $filter_id = null, $type = null, $limit = null, $start = null, $start_date = null, $end_date = null, $done = null)
     {
@@ -1041,7 +1041,7 @@ class ActivitiesApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return array<mixed> of \Pipedrive\Model\GetActivitiesResponse200, HTTP status code, HTTP response headers (array of strings)
+     * @return array<mixed> of \Pipedrive\Model\GetActivitiesResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getActivitiesWithHttpInfo($user_id = null, $filter_id = null, $type = null, $limit = null, $start = null, $start_date = null, $end_date = null, $done = null)
     {
@@ -1079,14 +1079,14 @@ class ActivitiesApi
             switch($statusCode) {
                 case 200:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\GetActivitiesResponse200' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\GetActivitiesResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetActivitiesResponse200', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetActivitiesResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1106,14 +1106,14 @@ class ActivitiesApi
             }
 
             /* @phpstan-ignore-next-line */
-            if ('\Pipedrive\Model\GetActivitiesResponse200' === '\SplFileObject') {
+            if ('\Pipedrive\Model\GetActivitiesResponse' === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
 
             return [
-                ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetActivitiesResponse200', []),
+                ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetActivitiesResponse', []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -1123,7 +1123,7 @@ class ActivitiesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\GetActivitiesResponse200',
+                        '\Pipedrive\Model\GetActivitiesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1179,7 +1179,7 @@ class ActivitiesApi
      */
     public function getActivitiesAsyncWithHttpInfo($user_id = null, $filter_id = null, $type = null, $limit = null, $start = null, $start_date = null, $end_date = null, $done = null): PromiseInterface
     {
-        $returnType = '\Pipedrive\Model\GetActivitiesResponse200';
+        $returnType = '\Pipedrive\Model\GetActivitiesResponse';
         $request = $this->getActivitiesRequest($user_id, $filter_id, $type, $limit, $start, $start_date, $end_date, $done);
 
         return $this->client
@@ -1396,7 +1396,7 @@ class ActivitiesApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return \Pipedrive\Model\GetActivitiesCollectionResponse200|\Pipedrive\Model\FailResponse
+     * @return \Pipedrive\Model\GetActivitiesCollectionResponse|\Pipedrive\Model\FailResponse
      */
     public function getActivitiesCollection($cursor = null, $limit = null, $since = null, $until = null, $user_id = null, $done = null, $type = null)
     {
@@ -1419,7 +1419,7 @@ class ActivitiesApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return array<mixed> of \Pipedrive\Model\GetActivitiesCollectionResponse200|\Pipedrive\Model\FailResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array<mixed> of \Pipedrive\Model\GetActivitiesCollectionResponse|\Pipedrive\Model\FailResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getActivitiesCollectionWithHttpInfo($cursor = null, $limit = null, $since = null, $until = null, $user_id = null, $done = null, $type = null)
     {
@@ -1457,14 +1457,14 @@ class ActivitiesApi
             switch($statusCode) {
                 case 200:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\GetActivitiesCollectionResponse200' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\GetActivitiesCollectionResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetActivitiesCollectionResponse200', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetActivitiesCollectionResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1497,14 +1497,14 @@ class ActivitiesApi
             }
 
             /* @phpstan-ignore-next-line */
-            if ('\Pipedrive\Model\GetActivitiesCollectionResponse200' === '\SplFileObject') {
+            if ('\Pipedrive\Model\GetActivitiesCollectionResponse' === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
 
             return [
-                ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetActivitiesCollectionResponse200', []),
+                ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetActivitiesCollectionResponse', []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -1514,7 +1514,7 @@ class ActivitiesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\GetActivitiesCollectionResponse200',
+                        '\Pipedrive\Model\GetActivitiesCollectionResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1576,7 +1576,7 @@ class ActivitiesApi
      */
     public function getActivitiesCollectionAsyncWithHttpInfo($cursor = null, $limit = null, $since = null, $until = null, $user_id = null, $done = null, $type = null): PromiseInterface
     {
-        $returnType = '\Pipedrive\Model\GetActivitiesCollectionResponse200';
+        $returnType = '\Pipedrive\Model\GetActivitiesCollectionResponse';
         $request = $this->getActivitiesCollectionRequest($cursor, $limit, $since, $until, $user_id, $done, $type);
 
         return $this->client
@@ -1778,7 +1778,7 @@ class ActivitiesApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return \Pipedrive\Model\GetActivityResponse200
+     * @return \Pipedrive\Model\GetActivityResponse
      */
     public function getActivity($id)
     {
@@ -1795,7 +1795,7 @@ class ActivitiesApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return array<mixed> of \Pipedrive\Model\GetActivityResponse200, HTTP status code, HTTP response headers (array of strings)
+     * @return array<mixed> of \Pipedrive\Model\GetActivityResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getActivityWithHttpInfo($id)
     {
@@ -1833,14 +1833,14 @@ class ActivitiesApi
             switch($statusCode) {
                 case 200:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\GetActivityResponse200' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\GetActivityResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetActivityResponse200', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetActivityResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1860,14 +1860,14 @@ class ActivitiesApi
             }
 
             /* @phpstan-ignore-next-line */
-            if ('\Pipedrive\Model\GetActivityResponse200' === '\SplFileObject') {
+            if ('\Pipedrive\Model\GetActivityResponse' === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
 
             return [
-                ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetActivityResponse200', []),
+                ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetActivityResponse', []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -1877,7 +1877,7 @@ class ActivitiesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\GetActivityResponse200',
+                        '\Pipedrive\Model\GetActivityResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1919,7 +1919,7 @@ class ActivitiesApi
      */
     public function getActivityAsyncWithHttpInfo($id): PromiseInterface
     {
-        $returnType = '\Pipedrive\Model\GetActivityResponse200';
+        $returnType = '\Pipedrive\Model\GetActivityResponse';
         $request = $this->getActivityRequest($id);
 
         return $this->client
@@ -2075,7 +2075,7 @@ class ActivitiesApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return \Pipedrive\Model\UpdateActivityResponse200
+     * @return \Pipedrive\Model\UpdateActivityResponse
      */
     public function updateActivity($id, $activity_put_object = null)
     {
@@ -2093,7 +2093,7 @@ class ActivitiesApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return array<mixed> of \Pipedrive\Model\UpdateActivityResponse200, HTTP status code, HTTP response headers (array of strings)
+     * @return array<mixed> of \Pipedrive\Model\UpdateActivityResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateActivityWithHttpInfo($id, $activity_put_object = null)
     {
@@ -2131,14 +2131,14 @@ class ActivitiesApi
             switch($statusCode) {
                 case 200:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\UpdateActivityResponse200' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\UpdateActivityResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\UpdateActivityResponse200', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\UpdateActivityResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2158,14 +2158,14 @@ class ActivitiesApi
             }
 
             /* @phpstan-ignore-next-line */
-            if ('\Pipedrive\Model\UpdateActivityResponse200' === '\SplFileObject') {
+            if ('\Pipedrive\Model\UpdateActivityResponse' === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
 
             return [
-                ObjectSerializer::deserialize($content, '\Pipedrive\Model\UpdateActivityResponse200', []),
+                ObjectSerializer::deserialize($content, '\Pipedrive\Model\UpdateActivityResponse', []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -2175,7 +2175,7 @@ class ActivitiesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\UpdateActivityResponse200',
+                        '\Pipedrive\Model\UpdateActivityResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2219,7 +2219,7 @@ class ActivitiesApi
      */
     public function updateActivityAsyncWithHttpInfo($id, $activity_put_object = null): PromiseInterface
     {
-        $returnType = '\Pipedrive\Model\UpdateActivityResponse200';
+        $returnType = '\Pipedrive\Model\UpdateActivityResponse';
         $request = $this->updateActivityRequest($id, $activity_put_object);
 
         return $this->client

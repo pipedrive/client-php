@@ -131,7 +131,7 @@ class CallLogsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return \Pipedrive\Model\CallLogResponse200|\Pipedrive\Model\CallLogResponse400|\Pipedrive\Model\CallLogResponse403|\Pipedrive\Model\CallLogResponse404|\Pipedrive\Model\CallLogResponse500
+     * @return \Pipedrive\Model\CallLogResponse200|\Pipedrive\Model\CallLogBadRequestResponse|\Pipedrive\Model\CallLogForbiddenResponse|\Pipedrive\Model\CallLogNotFoundResponse|\Pipedrive\Model\CallLogInternalErrorResponse
      */
     public function addCallLog($call_log_object = null)
     {
@@ -148,7 +148,7 @@ class CallLogsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return array<mixed> of \Pipedrive\Model\CallLogResponse200|\Pipedrive\Model\CallLogResponse400|\Pipedrive\Model\CallLogResponse403|\Pipedrive\Model\CallLogResponse404|\Pipedrive\Model\CallLogResponse500, HTTP status code, HTTP response headers (array of strings)
+     * @return array<mixed> of \Pipedrive\Model\CallLogResponse200|\Pipedrive\Model\CallLogBadRequestResponse|\Pipedrive\Model\CallLogForbiddenResponse|\Pipedrive\Model\CallLogNotFoundResponse|\Pipedrive\Model\CallLogInternalErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function addCallLogWithHttpInfo($call_log_object = null)
     {
@@ -199,53 +199,53 @@ class CallLogsApi
                     ];
                 case 400:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\CallLogResponse400' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\CallLogBadRequestResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\CallLogResponse400', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\CallLogBadRequestResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\CallLogResponse403' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\CallLogForbiddenResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\CallLogResponse403', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\CallLogForbiddenResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\CallLogResponse404' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\CallLogNotFoundResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\CallLogResponse404', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\CallLogNotFoundResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\CallLogResponse500' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\CallLogInternalErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\CallLogResponse500', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\CallLogInternalErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -290,7 +290,7 @@ class CallLogsApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\CallLogResponse400',
+                        '\Pipedrive\Model\CallLogBadRequestResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -298,7 +298,7 @@ class CallLogsApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\CallLogResponse403',
+                        '\Pipedrive\Model\CallLogForbiddenResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -306,7 +306,7 @@ class CallLogsApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\CallLogResponse404',
+                        '\Pipedrive\Model\CallLogNotFoundResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -314,7 +314,7 @@ class CallLogsApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\CallLogResponse500',
+                        '\Pipedrive\Model\CallLogInternalErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -503,7 +503,7 @@ class CallLogsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return \Pipedrive\Model\BaseResponse|\Pipedrive\Model\CallLogResponse404|\Pipedrive\Model\CallLogResponse409|\Pipedrive\Model\CallLogResponse500
+     * @return \Pipedrive\Model\BaseResponse|\Pipedrive\Model\CallLogNotFoundResponse|\Pipedrive\Model\CallLogConflictResponse|\Pipedrive\Model\CallLogInternalErrorResponse
      */
     public function addCallLogAudioFile($id, $file)
     {
@@ -521,7 +521,7 @@ class CallLogsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return array<mixed> of \Pipedrive\Model\BaseResponse|\Pipedrive\Model\CallLogResponse404|\Pipedrive\Model\CallLogResponse409|\Pipedrive\Model\CallLogResponse500, HTTP status code, HTTP response headers (array of strings)
+     * @return array<mixed> of \Pipedrive\Model\BaseResponse|\Pipedrive\Model\CallLogNotFoundResponse|\Pipedrive\Model\CallLogConflictResponse|\Pipedrive\Model\CallLogInternalErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function addCallLogAudioFileWithHttpInfo($id, $file)
     {
@@ -572,40 +572,40 @@ class CallLogsApi
                     ];
                 case 404:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\CallLogResponse404' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\CallLogNotFoundResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\CallLogResponse404', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\CallLogNotFoundResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 409:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\CallLogResponse409' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\CallLogConflictResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\CallLogResponse409', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\CallLogConflictResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\CallLogResponse500' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\CallLogInternalErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\CallLogResponse500', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\CallLogInternalErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -650,7 +650,7 @@ class CallLogsApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\CallLogResponse404',
+                        '\Pipedrive\Model\CallLogNotFoundResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -658,7 +658,7 @@ class CallLogsApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\CallLogResponse409',
+                        '\Pipedrive\Model\CallLogConflictResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -666,7 +666,7 @@ class CallLogsApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\CallLogResponse500',
+                        '\Pipedrive\Model\CallLogInternalErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -886,7 +886,7 @@ class CallLogsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return \Pipedrive\Model\BaseResponse|\Pipedrive\Model\CallLogResponse403|\Pipedrive\Model\CallLogResponse404|\Pipedrive\Model\CallLogResponse410|\Pipedrive\Model\CallLogResponse500
+     * @return \Pipedrive\Model\BaseResponse|\Pipedrive\Model\CallLogForbiddenResponse|\Pipedrive\Model\CallLogNotFoundResponse|\Pipedrive\Model\CallLogGoneResponse|\Pipedrive\Model\CallLogInternalErrorResponse
      */
     public function deleteCallLog($id)
     {
@@ -903,7 +903,7 @@ class CallLogsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return array<mixed> of \Pipedrive\Model\BaseResponse|\Pipedrive\Model\CallLogResponse403|\Pipedrive\Model\CallLogResponse404|\Pipedrive\Model\CallLogResponse410|\Pipedrive\Model\CallLogResponse500, HTTP status code, HTTP response headers (array of strings)
+     * @return array<mixed> of \Pipedrive\Model\BaseResponse|\Pipedrive\Model\CallLogForbiddenResponse|\Pipedrive\Model\CallLogNotFoundResponse|\Pipedrive\Model\CallLogGoneResponse|\Pipedrive\Model\CallLogInternalErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteCallLogWithHttpInfo($id)
     {
@@ -954,53 +954,53 @@ class CallLogsApi
                     ];
                 case 403:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\CallLogResponse403' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\CallLogForbiddenResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\CallLogResponse403', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\CallLogForbiddenResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\CallLogResponse404' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\CallLogNotFoundResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\CallLogResponse404', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\CallLogNotFoundResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 410:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\CallLogResponse410' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\CallLogGoneResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\CallLogResponse410', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\CallLogGoneResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\CallLogResponse500' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\CallLogInternalErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\CallLogResponse500', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\CallLogInternalErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1045,7 +1045,7 @@ class CallLogsApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\CallLogResponse403',
+                        '\Pipedrive\Model\CallLogForbiddenResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1053,7 +1053,7 @@ class CallLogsApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\CallLogResponse404',
+                        '\Pipedrive\Model\CallLogNotFoundResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1061,7 +1061,7 @@ class CallLogsApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\CallLogResponse410',
+                        '\Pipedrive\Model\CallLogGoneResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1069,7 +1069,7 @@ class CallLogsApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\CallLogResponse500',
+                        '\Pipedrive\Model\CallLogInternalErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1266,7 +1266,7 @@ class CallLogsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return \Pipedrive\Model\CallLogResponse200|\Pipedrive\Model\CallLogResponse404
+     * @return \Pipedrive\Model\CallLogResponse200|\Pipedrive\Model\CallLogNotFoundResponse
      */
     public function getCallLog($id)
     {
@@ -1283,7 +1283,7 @@ class CallLogsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return array<mixed> of \Pipedrive\Model\CallLogResponse200|\Pipedrive\Model\CallLogResponse404, HTTP status code, HTTP response headers (array of strings)
+     * @return array<mixed> of \Pipedrive\Model\CallLogResponse200|\Pipedrive\Model\CallLogNotFoundResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCallLogWithHttpInfo($id)
     {
@@ -1334,14 +1334,14 @@ class CallLogsApi
                     ];
                 case 404:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\CallLogResponse404' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\CallLogNotFoundResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\CallLogResponse404', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\CallLogNotFoundResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1386,7 +1386,7 @@ class CallLogsApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\CallLogResponse404',
+                        '\Pipedrive\Model\CallLogNotFoundResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

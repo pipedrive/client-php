@@ -238,7 +238,7 @@ Name | Type | Description  | Notes
 ## `addDealProduct()`
 
 ```php
-addDealProduct($id, $new_deal_product): \Pipedrive\Model\GetAddProductAttachementDetails
+addDealProduct($id, $new_deal_product): \Pipedrive\Model\GetAddProductAttachmentDetails
 ```
 
 Add a product to a deal
@@ -287,7 +287,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Pipedrive\Model\GetAddProductAttachementDetails**](../Model/GetAddProductAttachementDetails.md)
+[**\Pipedrive\Model\GetAddProductAttachmentDetails**](../Model/GetAddProductAttachmentDetails.md)
 
 ### Authorization
 
@@ -2052,7 +2052,7 @@ Name | Type | Description  | Notes
 ## `updateDealProduct()`
 
 ```php
-updateDealProduct($id, $product_attachment_id, $update_deal_product): \Pipedrive\Model\GetProductAttachementDetails
+updateDealProduct($id, $product_attachment_id, $update_deal_product): \Pipedrive\Model\GetProductAttachmentDetails
 ```
 
 Update the product attached to a deal
@@ -2103,7 +2103,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Pipedrive\Model\GetProductAttachementDetails**](../Model/GetProductAttachementDetails.md)
+[**\Pipedrive\Model\GetProductAttachmentDetails**](../Model/GetProductAttachmentDetails.md)
 
 ### Authorization
 
