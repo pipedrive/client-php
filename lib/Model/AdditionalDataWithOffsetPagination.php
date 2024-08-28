@@ -66,7 +66,7 @@ class AdditionalDataWithOffsetPagination implements ModelInterface, ArrayAccess,
       * @phpsalm-var array<string, string>
       */
     protected static array $openAPITypes = [
-        'pagination' => 'AdditionalData'
+        'pagination' => '\Pipedrive\Model\AdditionalData'
     ];
 
     /**
