@@ -25,6 +25,7 @@
  */
 
 namespace Pipedrive\Traits;
+use Throwable;
 
 /**
  * PHP version 7.3
@@ -63,7 +64,7 @@ trait RawData
             } else {
                 $this->rawData = $rawData;
             }
-        } catch (Error) {
+        } catch (Throwable $e) {
             $this->rawData = $rawData;
         }
     }
