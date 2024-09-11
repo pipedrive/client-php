@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 ## `deletePipeline()`
 
 ```php
-deletePipeline($id): \Pipedrive\Model\DeletePipelineResponse200
+deletePipeline($id): \Pipedrive\Model\DeletePipelineResponse
 ```
 
 Delete a pipeline
@@ -129,7 +129,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Pipedrive\Model\DeletePipelineResponse200**](../Model/DeletePipelineResponse200.md)
+[**\Pipedrive\Model\DeletePipelineResponse**](../Model/DeletePipelineResponse.md)
 
 ### Authorization
 
@@ -290,7 +290,7 @@ getPipelineDeals($id, $filter_id, $user_id, $everyone, $stage_id, $start, $limit
 
 Get deals in a pipeline
 
-Lists deals in a specific pipeline across all its stages.
+Lists deals in a specific pipeline across all its stages. If no parameters are provided open deals owned by the authorized user will be returned.
 
 ### Example
 

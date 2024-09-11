@@ -13,7 +13,7 @@ Method | HTTP request | Description
 ## `getProjectTemplate()`
 
 ```php
-getProjectTemplate($id): \Pipedrive\Model\GetProjectTemplateResponse200
+getProjectTemplate($id): \Pipedrive\Model\GetProjectTemplateResponse
 ```
 
 Get details of a template
@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Pipedrive\Model\GetProjectTemplateResponse200**](../Model/GetProjectTemplateResponse200.md)
+[**\Pipedrive\Model\GetProjectTemplateResponse**](../Model/GetProjectTemplateResponse.md)
 
 ### Authorization
 
@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 ## `getProjectTemplates()`
 
 ```php
-getProjectTemplates($cursor, $limit): \Pipedrive\Model\GetProjectTemplatesResponse200
+getProjectTemplates($cursor, $limit): \Pipedrive\Model\GetProjectTemplatesResponse
 ```
 
 Get all project templates
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Pipedrive\Model\GetProjectTemplatesResponse200**](../Model/GetProjectTemplatesResponse200.md)
+[**\Pipedrive\Model\GetProjectTemplatesResponse**](../Model/GetProjectTemplatesResponse.md)
 
 ### Authorization
 
@@ -145,7 +145,7 @@ Name | Type | Description  | Notes
 ## `getProjectsBoard()`
 
 ```php
-getProjectsBoard($id): \Pipedrive\Model\GetProjectBoardResponse200
+getProjectsBoard($id): \Pipedrive\Model\GetProjectBoardResponse
 ```
 
 Get details of a board
@@ -192,7 +192,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Pipedrive\Model\GetProjectBoardResponse200**](../Model/GetProjectBoardResponse200.md)
+[**\Pipedrive\Model\GetProjectBoardResponse**](../Model/GetProjectBoardResponse.md)
 
 ### Authorization
 
@@ -210,7 +210,7 @@ Name | Type | Description  | Notes
 ## `getProjectsPhase()`
 
 ```php
-getProjectsPhase($id): \Pipedrive\Model\GetProjectPhaseResponse200
+getProjectsPhase($id): \Pipedrive\Model\GetProjectPhaseResponse
 ```
 
 Get details of a phase
@@ -257,7 +257,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Pipedrive\Model\GetProjectPhaseResponse200**](../Model/GetProjectPhaseResponse200.md)
+[**\Pipedrive\Model\GetProjectPhaseResponse**](../Model/GetProjectPhaseResponse.md)
 
 ### Authorization
 

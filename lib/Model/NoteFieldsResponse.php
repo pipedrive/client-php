@@ -67,7 +67,7 @@ class NoteFieldsResponse implements ModelInterface, ArrayAccess, JsonSerializabl
       */
     protected static array $openAPITypes = [
         'success' => 'bool',
-        'data' => '\Pipedrive\Model\NoteField[]',
+        'data' => '\Pipedrive\Model\GetNoteField[]',
         'additional_data' => '\Pipedrive\Model\AdditionalData'
     ];
 
@@ -267,7 +267,7 @@ class NoteFieldsResponse implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Gets data
      *
-     * @return \Pipedrive\Model\NoteField[]|null
+     * @return \Pipedrive\Model\GetNoteField[]|null
      */
     public function getData()
     {
@@ -277,7 +277,7 @@ class NoteFieldsResponse implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Sets data
      *
-     * @param \Pipedrive\Model\NoteField[]|null $data data
+     * @param \Pipedrive\Model\GetNoteField[]|null $data data
      *
      * @return self
      */

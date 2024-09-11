@@ -67,7 +67,7 @@ class FieldsResponse implements ModelInterface, ArrayAccess, JsonSerializable
       */
     protected static array $openAPITypes = [
         'success' => 'bool',
-        'data' => '\Pipedrive\Model\Field[]',
+        'data' => '\Pipedrive\Model\GetField[]',
         'additional_data' => '\Pipedrive\Model\AdditionalData'
     ];
 
@@ -267,7 +267,7 @@ class FieldsResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets data
      *
-     * @return \Pipedrive\Model\Field[]|null
+     * @return \Pipedrive\Model\GetField[]|null
      */
     public function getData()
     {
@@ -277,7 +277,7 @@ class FieldsResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets data
      *
-     * @param \Pipedrive\Model\Field[]|null $data data
+     * @param \Pipedrive\Model\GetField[]|null $data data
      *
      * @return self
      */

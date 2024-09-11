@@ -9,8 +9,6 @@ Name | Type | Description | Notes
 **quantity** | **int** | How many items of this product will be added to the deal | [optional]
 **discount** | **float** | The value of the discount. The &#x60;discount_type&#x60; field can be used to specify whether the value is an amount or a percentage | [optional] [default to 0]
 **discount_type** | **string** | The type of the discount&#39;s value | [optional] [default to 'percentage']
-**duration** | **float** | The duration of the product | [optional] [default to 1]
-**duration_unit** | [**DealProductUnitDuration**](DealProductUnitDuration.md) | The unit duration of the product | [optional]
 **product_variation_id** | **int** | The ID of the product variation to use. When omitted, no variation will be used | [optional]
 **comments** | **string** | A textual comment associated with this product-deal attachment | [optional]
 **tax** | **float** | The tax percentage | [optional] [default to 0]
