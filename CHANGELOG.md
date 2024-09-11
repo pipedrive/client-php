@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [7.0.0] (https://github.com/pipedrive/client-php/compare/6.10.1...7.0.0) (2024-09-11)
+
 ### Removed
 - Removed request and response fields `duration` and `duration_unit` for all endpoints of deals and products using them
 
