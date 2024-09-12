@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 ## `deleteStage()`
 
 ```php
-deleteStage($id): \Pipedrive\Model\DeleteStageResponse200
+deleteStage($id): \Pipedrive\Model\DeleteStageResponse
 ```
 
 Delete a stage
@@ -128,7 +128,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Pipedrive\Model\DeleteStageResponse200**](../Model/DeleteStageResponse200.md)
+[**\Pipedrive\Model\DeleteStageResponse**](../Model/DeleteStageResponse.md)
 
 ### Authorization
 
@@ -146,7 +146,7 @@ Name | Type | Description  | Notes
 ## `deleteStages()`
 
 ```php
-deleteStages($ids): \Pipedrive\Model\DeleteStagesResponse200
+deleteStages($ids): \Pipedrive\Model\DeleteStagesResponse
 ```
 
 Delete multiple stages in bulk
@@ -193,7 +193,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Pipedrive\Model\DeleteStagesResponse200**](../Model/DeleteStagesResponse200.md)
+[**\Pipedrive\Model\DeleteStagesResponse**](../Model/DeleteStagesResponse.md)
 
 ### Authorization
 
@@ -283,7 +283,7 @@ getStageDeals($id, $filter_id, $user_id, $everyone, $start, $limit): \Pipedrive\
 
 Get deals in a stage
 
-Lists deals in a specific stage.
+Lists deals in a specific stage. If no parameters are provided open deals owned by the authorized user will be returned.
 
 ### Example
 

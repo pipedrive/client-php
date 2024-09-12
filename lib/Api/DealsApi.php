@@ -1033,7 +1033,7 @@ class DealsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return \Pipedrive\Model\GetAddProductAttachementDetails
+     * @return \Pipedrive\Model\GetAddProductAttachmentDetails
      */
     public function addDealProduct($id, $new_deal_product = null)
     {
@@ -1051,7 +1051,7 @@ class DealsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return array<mixed> of \Pipedrive\Model\GetAddProductAttachementDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array<mixed> of \Pipedrive\Model\GetAddProductAttachmentDetails, HTTP status code, HTTP response headers (array of strings)
      */
     public function addDealProductWithHttpInfo($id, $new_deal_product = null)
     {
@@ -1089,14 +1089,14 @@ class DealsApi
             switch($statusCode) {
                 case 200:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\GetAddProductAttachementDetails' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\GetAddProductAttachmentDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetAddProductAttachementDetails', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetAddProductAttachmentDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1116,14 +1116,14 @@ class DealsApi
             }
 
             /* @phpstan-ignore-next-line */
-            if ('\Pipedrive\Model\GetAddProductAttachementDetails' === '\SplFileObject') {
+            if ('\Pipedrive\Model\GetAddProductAttachmentDetails' === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
 
             return [
-                ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetAddProductAttachementDetails', []),
+                ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetAddProductAttachmentDetails', []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -1133,7 +1133,7 @@ class DealsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\GetAddProductAttachementDetails',
+                        '\Pipedrive\Model\GetAddProductAttachmentDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1177,7 +1177,7 @@ class DealsApi
      */
     public function addDealProductAsyncWithHttpInfo($id, $new_deal_product = null): PromiseInterface
     {
-        $returnType = '\Pipedrive\Model\GetAddProductAttachementDetails';
+        $returnType = '\Pipedrive\Model\GetAddProductAttachmentDetails';
         $request = $this->addDealProductRequest($id, $new_deal_product);
 
         return $this->client
@@ -9572,7 +9572,7 @@ class DealsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return \Pipedrive\Model\GetProductAttachementDetails
+     * @return \Pipedrive\Model\GetProductAttachmentDetails
      */
     public function updateDealProduct($id, $product_attachment_id, $update_deal_product = null)
     {
@@ -9591,7 +9591,7 @@ class DealsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return array<mixed> of \Pipedrive\Model\GetProductAttachementDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array<mixed> of \Pipedrive\Model\GetProductAttachmentDetails, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateDealProductWithHttpInfo($id, $product_attachment_id, $update_deal_product = null)
     {
@@ -9629,14 +9629,14 @@ class DealsApi
             switch($statusCode) {
                 case 200:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\GetProductAttachementDetails' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\GetProductAttachmentDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetProductAttachementDetails', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetProductAttachmentDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -9656,14 +9656,14 @@ class DealsApi
             }
 
             /* @phpstan-ignore-next-line */
-            if ('\Pipedrive\Model\GetProductAttachementDetails' === '\SplFileObject') {
+            if ('\Pipedrive\Model\GetProductAttachmentDetails' === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
 
             return [
-                ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetProductAttachementDetails', []),
+                ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetProductAttachmentDetails', []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -9673,7 +9673,7 @@ class DealsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\GetProductAttachementDetails',
+                        '\Pipedrive\Model\GetProductAttachmentDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -9719,7 +9719,7 @@ class DealsApi
      */
     public function updateDealProductAsyncWithHttpInfo($id, $product_attachment_id, $update_deal_product = null): PromiseInterface
     {
-        $returnType = '\Pipedrive\Model\GetProductAttachementDetails';
+        $returnType = '\Pipedrive\Model\GetProductAttachmentDetails';
         $request = $this->updateDealProductRequest($id, $product_attachment_id, $update_deal_product);
 
         return $this->client

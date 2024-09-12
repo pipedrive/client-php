@@ -13,7 +13,7 @@ Method | HTTP request | Description
 ## `addLeadLabel()`
 
 ```php
-addLeadLabel($add_lead_label_request): \Pipedrive\Model\AddOrUpdateLeadLabelResponse200
+addLeadLabel($add_lead_label_request): \Pipedrive\Model\UpsertLeadLabelResponse
 ```
 
 Add a lead label
@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Pipedrive\Model\AddOrUpdateLeadLabelResponse200**](../Model/AddOrUpdateLeadLabelResponse200.md)
+[**\Pipedrive\Model\UpsertLeadLabelResponse**](../Model/UpsertLeadLabelResponse.md)
 
 ### Authorization
 
@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 ## `deleteLeadLabel()`
 
 ```php
-deleteLeadLabel($id): \Pipedrive\Model\LeadIdResponse200
+deleteLeadLabel($id): \Pipedrive\Model\DeleteLeadIdResponse
 ```
 
 Delete a lead label
@@ -125,7 +125,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Pipedrive\Model\LeadIdResponse200**](../Model/LeadIdResponse200.md)
+[**\Pipedrive\Model\DeleteLeadIdResponse**](../Model/DeleteLeadIdResponse.md)
 
 ### Authorization
 
@@ -143,7 +143,7 @@ Name | Type | Description  | Notes
 ## `getLeadLabels()`
 
 ```php
-getLeadLabels(): \Pipedrive\Model\GetLeadLabelsResponse200
+getLeadLabels(): \Pipedrive\Model\GetLeadLabelsResponse
 ```
 
 Get all lead labels
@@ -187,7 +187,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Pipedrive\Model\GetLeadLabelsResponse200**](../Model/GetLeadLabelsResponse200.md)
+[**\Pipedrive\Model\GetLeadLabelsResponse**](../Model/GetLeadLabelsResponse.md)
 
 ### Authorization
 
@@ -205,7 +205,7 @@ This endpoint does not need any parameter.
 ## `updateLeadLabel()`
 
 ```php
-updateLeadLabel($id, $update_lead_label_request): \Pipedrive\Model\AddOrUpdateLeadLabelResponse200
+updateLeadLabel($id, $update_lead_label_request): \Pipedrive\Model\UpsertLeadLabelResponse
 ```
 
 Update a lead label
@@ -254,7 +254,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Pipedrive\Model\AddOrUpdateLeadLabelResponse200**](../Model/AddOrUpdateLeadLabelResponse200.md)
+[**\Pipedrive\Model\UpsertLeadLabelResponse**](../Model/UpsertLeadLabelResponse.md)
 
 ### Authorization
 

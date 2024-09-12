@@ -418,7 +418,7 @@ class PipelinesApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return \Pipedrive\Model\DeletePipelineResponse200
+     * @return \Pipedrive\Model\DeletePipelineResponse
      */
     public function deletePipeline($id)
     {
@@ -435,7 +435,7 @@ class PipelinesApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return array<mixed> of \Pipedrive\Model\DeletePipelineResponse200, HTTP status code, HTTP response headers (array of strings)
+     * @return array<mixed> of \Pipedrive\Model\DeletePipelineResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function deletePipelineWithHttpInfo($id)
     {
@@ -473,14 +473,14 @@ class PipelinesApi
             switch($statusCode) {
                 case 200:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\DeletePipelineResponse200' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\DeletePipelineResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\DeletePipelineResponse200', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\DeletePipelineResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -500,14 +500,14 @@ class PipelinesApi
             }
 
             /* @phpstan-ignore-next-line */
-            if ('\Pipedrive\Model\DeletePipelineResponse200' === '\SplFileObject') {
+            if ('\Pipedrive\Model\DeletePipelineResponse' === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
 
             return [
-                ObjectSerializer::deserialize($content, '\Pipedrive\Model\DeletePipelineResponse200', []),
+                ObjectSerializer::deserialize($content, '\Pipedrive\Model\DeletePipelineResponse', []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -517,7 +517,7 @@ class PipelinesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\DeletePipelineResponse200',
+                        '\Pipedrive\Model\DeletePipelineResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -559,7 +559,7 @@ class PipelinesApi
      */
     public function deletePipelineAsyncWithHttpInfo($id): PromiseInterface
     {
-        $returnType = '\Pipedrive\Model\DeletePipelineResponse200';
+        $returnType = '\Pipedrive\Model\DeletePipelineResponse';
         $request = $this->deletePipelineRequest($id);
 
         return $this->client

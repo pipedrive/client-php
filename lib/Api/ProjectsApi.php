@@ -131,7 +131,7 @@ class ProjectsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return \Pipedrive\Model\AddProjectResponse201
+     * @return \Pipedrive\Model\AddProjectResponse
      */
     public function addProject($project_post_object = null)
     {
@@ -148,7 +148,7 @@ class ProjectsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return array<mixed> of \Pipedrive\Model\AddProjectResponse201, HTTP status code, HTTP response headers (array of strings)
+     * @return array<mixed> of \Pipedrive\Model\AddProjectResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function addProjectWithHttpInfo($project_post_object = null)
     {
@@ -186,14 +186,14 @@ class ProjectsApi
             switch($statusCode) {
                 case 201:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\AddProjectResponse201' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\AddProjectResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\AddProjectResponse201', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\AddProjectResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -213,14 +213,14 @@ class ProjectsApi
             }
 
             /* @phpstan-ignore-next-line */
-            if ('\Pipedrive\Model\AddProjectResponse201' === '\SplFileObject') {
+            if ('\Pipedrive\Model\AddProjectResponse' === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
 
             return [
-                ObjectSerializer::deserialize($content, '\Pipedrive\Model\AddProjectResponse201', []),
+                ObjectSerializer::deserialize($content, '\Pipedrive\Model\AddProjectResponse', []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -230,7 +230,7 @@ class ProjectsApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\AddProjectResponse201',
+                        '\Pipedrive\Model\AddProjectResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -272,7 +272,7 @@ class ProjectsApi
      */
     public function addProjectAsyncWithHttpInfo($project_post_object = null): PromiseInterface
     {
-        $returnType = '\Pipedrive\Model\AddProjectResponse201';
+        $returnType = '\Pipedrive\Model\AddProjectResponse';
         $request = $this->addProjectRequest($project_post_object);
 
         return $this->client
@@ -418,7 +418,7 @@ class ProjectsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return \Pipedrive\Model\UpdateProjectResponse200
+     * @return \Pipedrive\Model\UpdateProjectResponse
      */
     public function archiveProject($id)
     {
@@ -435,7 +435,7 @@ class ProjectsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return array<mixed> of \Pipedrive\Model\UpdateProjectResponse200, HTTP status code, HTTP response headers (array of strings)
+     * @return array<mixed> of \Pipedrive\Model\UpdateProjectResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function archiveProjectWithHttpInfo($id)
     {
@@ -473,14 +473,14 @@ class ProjectsApi
             switch($statusCode) {
                 case 200:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\UpdateProjectResponse200' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\UpdateProjectResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\UpdateProjectResponse200', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\UpdateProjectResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -500,14 +500,14 @@ class ProjectsApi
             }
 
             /* @phpstan-ignore-next-line */
-            if ('\Pipedrive\Model\UpdateProjectResponse200' === '\SplFileObject') {
+            if ('\Pipedrive\Model\UpdateProjectResponse' === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
 
             return [
-                ObjectSerializer::deserialize($content, '\Pipedrive\Model\UpdateProjectResponse200', []),
+                ObjectSerializer::deserialize($content, '\Pipedrive\Model\UpdateProjectResponse', []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -517,7 +517,7 @@ class ProjectsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\UpdateProjectResponse200',
+                        '\Pipedrive\Model\UpdateProjectResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -559,7 +559,7 @@ class ProjectsApi
      */
     public function archiveProjectAsyncWithHttpInfo($id): PromiseInterface
     {
-        $returnType = '\Pipedrive\Model\UpdateProjectResponse200';
+        $returnType = '\Pipedrive\Model\UpdateProjectResponse';
         $request = $this->archiveProjectRequest($id);
 
         return $this->client
@@ -714,7 +714,7 @@ class ProjectsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return \Pipedrive\Model\DeleteProjectResponse200
+     * @return \Pipedrive\Model\DeleteProjectResponse
      */
     public function deleteProject($id)
     {
@@ -731,7 +731,7 @@ class ProjectsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return array<mixed> of \Pipedrive\Model\DeleteProjectResponse200, HTTP status code, HTTP response headers (array of strings)
+     * @return array<mixed> of \Pipedrive\Model\DeleteProjectResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteProjectWithHttpInfo($id)
     {
@@ -769,14 +769,14 @@ class ProjectsApi
             switch($statusCode) {
                 case 200:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\DeleteProjectResponse200' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\DeleteProjectResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\DeleteProjectResponse200', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\DeleteProjectResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -796,14 +796,14 @@ class ProjectsApi
             }
 
             /* @phpstan-ignore-next-line */
-            if ('\Pipedrive\Model\DeleteProjectResponse200' === '\SplFileObject') {
+            if ('\Pipedrive\Model\DeleteProjectResponse' === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
 
             return [
-                ObjectSerializer::deserialize($content, '\Pipedrive\Model\DeleteProjectResponse200', []),
+                ObjectSerializer::deserialize($content, '\Pipedrive\Model\DeleteProjectResponse', []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -813,7 +813,7 @@ class ProjectsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\DeleteProjectResponse200',
+                        '\Pipedrive\Model\DeleteProjectResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -855,7 +855,7 @@ class ProjectsApi
      */
     public function deleteProjectAsyncWithHttpInfo($id): PromiseInterface
     {
-        $returnType = '\Pipedrive\Model\DeleteProjectResponse200';
+        $returnType = '\Pipedrive\Model\DeleteProjectResponse';
         $request = $this->deleteProjectRequest($id);
 
         return $this->client
@@ -1010,7 +1010,7 @@ class ProjectsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return \Pipedrive\Model\GetProjectResponse200
+     * @return \Pipedrive\Model\GetProjectResponse
      */
     public function getProject($id)
     {
@@ -1027,7 +1027,7 @@ class ProjectsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return array<mixed> of \Pipedrive\Model\GetProjectResponse200, HTTP status code, HTTP response headers (array of strings)
+     * @return array<mixed> of \Pipedrive\Model\GetProjectResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getProjectWithHttpInfo($id)
     {
@@ -1065,14 +1065,14 @@ class ProjectsApi
             switch($statusCode) {
                 case 200:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\GetProjectResponse200' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\GetProjectResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetProjectResponse200', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetProjectResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1092,14 +1092,14 @@ class ProjectsApi
             }
 
             /* @phpstan-ignore-next-line */
-            if ('\Pipedrive\Model\GetProjectResponse200' === '\SplFileObject') {
+            if ('\Pipedrive\Model\GetProjectResponse' === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
 
             return [
-                ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetProjectResponse200', []),
+                ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetProjectResponse', []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -1109,7 +1109,7 @@ class ProjectsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\GetProjectResponse200',
+                        '\Pipedrive\Model\GetProjectResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1151,7 +1151,7 @@ class ProjectsApi
      */
     public function getProjectAsyncWithHttpInfo($id): PromiseInterface
     {
-        $returnType = '\Pipedrive\Model\GetProjectResponse200';
+        $returnType = '\Pipedrive\Model\GetProjectResponse';
         $request = $this->getProjectRequest($id);
 
         return $this->client
@@ -1306,7 +1306,7 @@ class ProjectsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return \Pipedrive\Model\GetActivitiesCollectionResponse200
+     * @return \Pipedrive\Model\GetActivitiesCollectionResponse
      */
     public function getProjectActivities($id)
     {
@@ -1323,7 +1323,7 @@ class ProjectsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return array<mixed> of \Pipedrive\Model\GetActivitiesCollectionResponse200, HTTP status code, HTTP response headers (array of strings)
+     * @return array<mixed> of \Pipedrive\Model\GetActivitiesCollectionResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getProjectActivitiesWithHttpInfo($id)
     {
@@ -1361,14 +1361,14 @@ class ProjectsApi
             switch($statusCode) {
                 case 200:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\GetActivitiesCollectionResponse200' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\GetActivitiesCollectionResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetActivitiesCollectionResponse200', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetActivitiesCollectionResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1388,14 +1388,14 @@ class ProjectsApi
             }
 
             /* @phpstan-ignore-next-line */
-            if ('\Pipedrive\Model\GetActivitiesCollectionResponse200' === '\SplFileObject') {
+            if ('\Pipedrive\Model\GetActivitiesCollectionResponse' === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
 
             return [
-                ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetActivitiesCollectionResponse200', []),
+                ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetActivitiesCollectionResponse', []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -1405,7 +1405,7 @@ class ProjectsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\GetActivitiesCollectionResponse200',
+                        '\Pipedrive\Model\GetActivitiesCollectionResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1447,7 +1447,7 @@ class ProjectsApi
      */
     public function getProjectActivitiesAsyncWithHttpInfo($id): PromiseInterface
     {
-        $returnType = '\Pipedrive\Model\GetActivitiesCollectionResponse200';
+        $returnType = '\Pipedrive\Model\GetActivitiesCollectionResponse';
         $request = $this->getProjectActivitiesRequest($id);
 
         return $this->client
@@ -1602,7 +1602,7 @@ class ProjectsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return \Pipedrive\Model\GetProjectGroupsResponse200
+     * @return \Pipedrive\Model\GetProjectGroupsResponse
      */
     public function getProjectGroups($id)
     {
@@ -1619,7 +1619,7 @@ class ProjectsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return array<mixed> of \Pipedrive\Model\GetProjectGroupsResponse200, HTTP status code, HTTP response headers (array of strings)
+     * @return array<mixed> of \Pipedrive\Model\GetProjectGroupsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getProjectGroupsWithHttpInfo($id)
     {
@@ -1657,14 +1657,14 @@ class ProjectsApi
             switch($statusCode) {
                 case 200:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\GetProjectGroupsResponse200' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\GetProjectGroupsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetProjectGroupsResponse200', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetProjectGroupsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1684,14 +1684,14 @@ class ProjectsApi
             }
 
             /* @phpstan-ignore-next-line */
-            if ('\Pipedrive\Model\GetProjectGroupsResponse200' === '\SplFileObject') {
+            if ('\Pipedrive\Model\GetProjectGroupsResponse' === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
 
             return [
-                ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetProjectGroupsResponse200', []),
+                ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetProjectGroupsResponse', []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -1701,7 +1701,7 @@ class ProjectsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\GetProjectGroupsResponse200',
+                        '\Pipedrive\Model\GetProjectGroupsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1743,7 +1743,7 @@ class ProjectsApi
      */
     public function getProjectGroupsAsyncWithHttpInfo($id): PromiseInterface
     {
-        $returnType = '\Pipedrive\Model\GetProjectGroupsResponse200';
+        $returnType = '\Pipedrive\Model\GetProjectGroupsResponse';
         $request = $this->getProjectGroupsRequest($id);
 
         return $this->client
@@ -1898,7 +1898,7 @@ class ProjectsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return \Pipedrive\Model\GetProjectPlanResponse200
+     * @return \Pipedrive\Model\GetProjectPlanResponse
      */
     public function getProjectPlan($id)
     {
@@ -1915,7 +1915,7 @@ class ProjectsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return array<mixed> of \Pipedrive\Model\GetProjectPlanResponse200, HTTP status code, HTTP response headers (array of strings)
+     * @return array<mixed> of \Pipedrive\Model\GetProjectPlanResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getProjectPlanWithHttpInfo($id)
     {
@@ -1953,14 +1953,14 @@ class ProjectsApi
             switch($statusCode) {
                 case 200:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\GetProjectPlanResponse200' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\GetProjectPlanResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetProjectPlanResponse200', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetProjectPlanResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1980,14 +1980,14 @@ class ProjectsApi
             }
 
             /* @phpstan-ignore-next-line */
-            if ('\Pipedrive\Model\GetProjectPlanResponse200' === '\SplFileObject') {
+            if ('\Pipedrive\Model\GetProjectPlanResponse' === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
 
             return [
-                ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetProjectPlanResponse200', []),
+                ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetProjectPlanResponse', []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -1997,7 +1997,7 @@ class ProjectsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\GetProjectPlanResponse200',
+                        '\Pipedrive\Model\GetProjectPlanResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2039,7 +2039,7 @@ class ProjectsApi
      */
     public function getProjectPlanAsyncWithHttpInfo($id): PromiseInterface
     {
-        $returnType = '\Pipedrive\Model\GetProjectPlanResponse200';
+        $returnType = '\Pipedrive\Model\GetProjectPlanResponse';
         $request = $this->getProjectPlanRequest($id);
 
         return $this->client
@@ -2194,7 +2194,7 @@ class ProjectsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return \Pipedrive\Model\GetTasksResponse200
+     * @return \Pipedrive\Model\GetTasksResponse
      */
     public function getProjectTasks($id)
     {
@@ -2211,7 +2211,7 @@ class ProjectsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return array<mixed> of \Pipedrive\Model\GetTasksResponse200, HTTP status code, HTTP response headers (array of strings)
+     * @return array<mixed> of \Pipedrive\Model\GetTasksResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getProjectTasksWithHttpInfo($id)
     {
@@ -2249,14 +2249,14 @@ class ProjectsApi
             switch($statusCode) {
                 case 200:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\GetTasksResponse200' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\GetTasksResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetTasksResponse200', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetTasksResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2276,14 +2276,14 @@ class ProjectsApi
             }
 
             /* @phpstan-ignore-next-line */
-            if ('\Pipedrive\Model\GetTasksResponse200' === '\SplFileObject') {
+            if ('\Pipedrive\Model\GetTasksResponse' === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
 
             return [
-                ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetTasksResponse200', []),
+                ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetTasksResponse', []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -2293,7 +2293,7 @@ class ProjectsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\GetTasksResponse200',
+                        '\Pipedrive\Model\GetTasksResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2335,7 +2335,7 @@ class ProjectsApi
      */
     public function getProjectTasksAsyncWithHttpInfo($id): PromiseInterface
     {
-        $returnType = '\Pipedrive\Model\GetTasksResponse200';
+        $returnType = '\Pipedrive\Model\GetTasksResponse';
         $request = $this->getProjectTasksRequest($id);
 
         return $this->client
@@ -2495,7 +2495,7 @@ class ProjectsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return \Pipedrive\Model\GetProjectsResponse200
+     * @return \Pipedrive\Model\GetProjectsResponse
      */
     public function getProjects($cursor = null, $limit = null, $filter_id = null, $status = null, $phase_id = null, $include_archived = null)
     {
@@ -2517,7 +2517,7 @@ class ProjectsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return array<mixed> of \Pipedrive\Model\GetProjectsResponse200, HTTP status code, HTTP response headers (array of strings)
+     * @return array<mixed> of \Pipedrive\Model\GetProjectsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getProjectsWithHttpInfo($cursor = null, $limit = null, $filter_id = null, $status = null, $phase_id = null, $include_archived = null)
     {
@@ -2555,14 +2555,14 @@ class ProjectsApi
             switch($statusCode) {
                 case 200:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\GetProjectsResponse200' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\GetProjectsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetProjectsResponse200', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetProjectsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2582,14 +2582,14 @@ class ProjectsApi
             }
 
             /* @phpstan-ignore-next-line */
-            if ('\Pipedrive\Model\GetProjectsResponse200' === '\SplFileObject') {
+            if ('\Pipedrive\Model\GetProjectsResponse' === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
 
             return [
-                ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetProjectsResponse200', []),
+                ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetProjectsResponse', []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -2599,7 +2599,7 @@ class ProjectsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\GetProjectsResponse200',
+                        '\Pipedrive\Model\GetProjectsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2651,7 +2651,7 @@ class ProjectsApi
      */
     public function getProjectsAsyncWithHttpInfo($cursor = null, $limit = null, $filter_id = null, $status = null, $phase_id = null, $include_archived = null): PromiseInterface
     {
-        $returnType = '\Pipedrive\Model\GetProjectsResponse200';
+        $returnType = '\Pipedrive\Model\GetProjectsResponse';
         $request = $this->getProjectsRequest($cursor, $limit, $filter_id, $status, $phase_id, $include_archived);
 
         return $this->client
@@ -2843,7 +2843,7 @@ class ProjectsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return \Pipedrive\Model\GetProjectBoardsResponse200
+     * @return \Pipedrive\Model\GetProjectBoardsResponse
      */
     public function getProjectsBoards()
     {
@@ -2859,7 +2859,7 @@ class ProjectsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return array<mixed> of \Pipedrive\Model\GetProjectBoardsResponse200, HTTP status code, HTTP response headers (array of strings)
+     * @return array<mixed> of \Pipedrive\Model\GetProjectBoardsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getProjectsBoardsWithHttpInfo()
     {
@@ -2897,14 +2897,14 @@ class ProjectsApi
             switch($statusCode) {
                 case 200:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\GetProjectBoardsResponse200' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\GetProjectBoardsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetProjectBoardsResponse200', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetProjectBoardsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2924,14 +2924,14 @@ class ProjectsApi
             }
 
             /* @phpstan-ignore-next-line */
-            if ('\Pipedrive\Model\GetProjectBoardsResponse200' === '\SplFileObject') {
+            if ('\Pipedrive\Model\GetProjectBoardsResponse' === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
 
             return [
-                ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetProjectBoardsResponse200', []),
+                ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetProjectBoardsResponse', []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -2941,7 +2941,7 @@ class ProjectsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\GetProjectBoardsResponse200',
+                        '\Pipedrive\Model\GetProjectBoardsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2981,7 +2981,7 @@ class ProjectsApi
      */
     public function getProjectsBoardsAsyncWithHttpInfo(): PromiseInterface
     {
-        $returnType = '\Pipedrive\Model\GetProjectBoardsResponse200';
+        $returnType = '\Pipedrive\Model\GetProjectBoardsResponse';
         $request = $this->getProjectsBoardsRequest();
 
         return $this->client
@@ -3120,7 +3120,7 @@ class ProjectsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return \Pipedrive\Model\GetProjectPhasesResponse200
+     * @return \Pipedrive\Model\GetProjectPhasesResponse
      */
     public function getProjectsPhases($board_id)
     {
@@ -3137,7 +3137,7 @@ class ProjectsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return array<mixed> of \Pipedrive\Model\GetProjectPhasesResponse200, HTTP status code, HTTP response headers (array of strings)
+     * @return array<mixed> of \Pipedrive\Model\GetProjectPhasesResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getProjectsPhasesWithHttpInfo($board_id)
     {
@@ -3175,14 +3175,14 @@ class ProjectsApi
             switch($statusCode) {
                 case 200:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\GetProjectPhasesResponse200' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\GetProjectPhasesResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetProjectPhasesResponse200', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetProjectPhasesResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -3202,14 +3202,14 @@ class ProjectsApi
             }
 
             /* @phpstan-ignore-next-line */
-            if ('\Pipedrive\Model\GetProjectPhasesResponse200' === '\SplFileObject') {
+            if ('\Pipedrive\Model\GetProjectPhasesResponse' === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
 
             return [
-                ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetProjectPhasesResponse200', []),
+                ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetProjectPhasesResponse', []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -3219,7 +3219,7 @@ class ProjectsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\GetProjectPhasesResponse200',
+                        '\Pipedrive\Model\GetProjectPhasesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3261,7 +3261,7 @@ class ProjectsApi
      */
     public function getProjectsPhasesAsyncWithHttpInfo($board_id): PromiseInterface
     {
-        $returnType = '\Pipedrive\Model\GetProjectPhasesResponse200';
+        $returnType = '\Pipedrive\Model\GetProjectPhasesResponse';
         $request = $this->getProjectsPhasesRequest($board_id);
 
         return $this->client
@@ -3418,7 +3418,7 @@ class ProjectsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return \Pipedrive\Model\UpdatedActivityPlanItem200
+     * @return \Pipedrive\Model\UpdateActivityPlanItem
      */
     public function putProjectPlanActivity($id, $activity_id, $project_put_plan_item_body_object = null)
     {
@@ -3437,7 +3437,7 @@ class ProjectsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return array<mixed> of \Pipedrive\Model\UpdatedActivityPlanItem200, HTTP status code, HTTP response headers (array of strings)
+     * @return array<mixed> of \Pipedrive\Model\UpdateActivityPlanItem, HTTP status code, HTTP response headers (array of strings)
      */
     public function putProjectPlanActivityWithHttpInfo($id, $activity_id, $project_put_plan_item_body_object = null)
     {
@@ -3475,14 +3475,14 @@ class ProjectsApi
             switch($statusCode) {
                 case 200:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\UpdatedActivityPlanItem200' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\UpdateActivityPlanItem' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\UpdatedActivityPlanItem200', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\UpdateActivityPlanItem', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -3502,14 +3502,14 @@ class ProjectsApi
             }
 
             /* @phpstan-ignore-next-line */
-            if ('\Pipedrive\Model\UpdatedActivityPlanItem200' === '\SplFileObject') {
+            if ('\Pipedrive\Model\UpdateActivityPlanItem' === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
 
             return [
-                ObjectSerializer::deserialize($content, '\Pipedrive\Model\UpdatedActivityPlanItem200', []),
+                ObjectSerializer::deserialize($content, '\Pipedrive\Model\UpdateActivityPlanItem', []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -3519,7 +3519,7 @@ class ProjectsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\UpdatedActivityPlanItem200',
+                        '\Pipedrive\Model\UpdateActivityPlanItem',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3565,7 +3565,7 @@ class ProjectsApi
      */
     public function putProjectPlanActivityAsyncWithHttpInfo($id, $activity_id, $project_put_plan_item_body_object = null): PromiseInterface
     {
-        $returnType = '\Pipedrive\Model\UpdatedActivityPlanItem200';
+        $returnType = '\Pipedrive\Model\UpdateActivityPlanItem';
         $request = $this->putProjectPlanActivityRequest($id, $activity_id, $project_put_plan_item_body_object);
 
         return $this->client
@@ -3745,7 +3745,7 @@ class ProjectsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return \Pipedrive\Model\UpdatedTaskPlanItem200
+     * @return \Pipedrive\Model\UpdateTaskPlanItem
      */
     public function putProjectPlanTask($id, $task_id, $project_put_plan_item_body_object = null)
     {
@@ -3764,7 +3764,7 @@ class ProjectsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return array<mixed> of \Pipedrive\Model\UpdatedTaskPlanItem200, HTTP status code, HTTP response headers (array of strings)
+     * @return array<mixed> of \Pipedrive\Model\UpdateTaskPlanItem, HTTP status code, HTTP response headers (array of strings)
      */
     public function putProjectPlanTaskWithHttpInfo($id, $task_id, $project_put_plan_item_body_object = null)
     {
@@ -3802,14 +3802,14 @@ class ProjectsApi
             switch($statusCode) {
                 case 200:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\UpdatedTaskPlanItem200' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\UpdateTaskPlanItem' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\UpdatedTaskPlanItem200', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\UpdateTaskPlanItem', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -3829,14 +3829,14 @@ class ProjectsApi
             }
 
             /* @phpstan-ignore-next-line */
-            if ('\Pipedrive\Model\UpdatedTaskPlanItem200' === '\SplFileObject') {
+            if ('\Pipedrive\Model\UpdateTaskPlanItem' === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
 
             return [
-                ObjectSerializer::deserialize($content, '\Pipedrive\Model\UpdatedTaskPlanItem200', []),
+                ObjectSerializer::deserialize($content, '\Pipedrive\Model\UpdateTaskPlanItem', []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -3846,7 +3846,7 @@ class ProjectsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\UpdatedTaskPlanItem200',
+                        '\Pipedrive\Model\UpdateTaskPlanItem',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3892,7 +3892,7 @@ class ProjectsApi
      */
     public function putProjectPlanTaskAsyncWithHttpInfo($id, $task_id, $project_put_plan_item_body_object = null): PromiseInterface
     {
-        $returnType = '\Pipedrive\Model\UpdatedTaskPlanItem200';
+        $returnType = '\Pipedrive\Model\UpdateTaskPlanItem';
         $request = $this->putProjectPlanTaskRequest($id, $task_id, $project_put_plan_item_body_object);
 
         return $this->client
@@ -4071,7 +4071,7 @@ class ProjectsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return \Pipedrive\Model\UpdateProjectResponse200
+     * @return \Pipedrive\Model\UpdateProjectResponse
      */
     public function updateProject($id, $project_put_object = null)
     {
@@ -4089,7 +4089,7 @@ class ProjectsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return array<mixed> of \Pipedrive\Model\UpdateProjectResponse200, HTTP status code, HTTP response headers (array of strings)
+     * @return array<mixed> of \Pipedrive\Model\UpdateProjectResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateProjectWithHttpInfo($id, $project_put_object = null)
     {
@@ -4127,14 +4127,14 @@ class ProjectsApi
             switch($statusCode) {
                 case 200:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\UpdateProjectResponse200' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\UpdateProjectResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\UpdateProjectResponse200', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\UpdateProjectResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -4154,14 +4154,14 @@ class ProjectsApi
             }
 
             /* @phpstan-ignore-next-line */
-            if ('\Pipedrive\Model\UpdateProjectResponse200' === '\SplFileObject') {
+            if ('\Pipedrive\Model\UpdateProjectResponse' === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
 
             return [
-                ObjectSerializer::deserialize($content, '\Pipedrive\Model\UpdateProjectResponse200', []),
+                ObjectSerializer::deserialize($content, '\Pipedrive\Model\UpdateProjectResponse', []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -4171,7 +4171,7 @@ class ProjectsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\UpdateProjectResponse200',
+                        '\Pipedrive\Model\UpdateProjectResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4215,7 +4215,7 @@ class ProjectsApi
      */
     public function updateProjectAsyncWithHttpInfo($id, $project_put_object = null): PromiseInterface
     {
-        $returnType = '\Pipedrive\Model\UpdateProjectResponse200';
+        $returnType = '\Pipedrive\Model\UpdateProjectResponse';
         $request = $this->updateProjectRequest($id, $project_put_object);
 
         return $this->client

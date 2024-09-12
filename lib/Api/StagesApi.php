@@ -418,7 +418,7 @@ class StagesApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return \Pipedrive\Model\DeleteStageResponse200
+     * @return \Pipedrive\Model\DeleteStageResponse
      */
     public function deleteStage($id)
     {
@@ -435,7 +435,7 @@ class StagesApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return array<mixed> of \Pipedrive\Model\DeleteStageResponse200, HTTP status code, HTTP response headers (array of strings)
+     * @return array<mixed> of \Pipedrive\Model\DeleteStageResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteStageWithHttpInfo($id)
     {
@@ -473,14 +473,14 @@ class StagesApi
             switch($statusCode) {
                 case 200:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\DeleteStageResponse200' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\DeleteStageResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\DeleteStageResponse200', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\DeleteStageResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -500,14 +500,14 @@ class StagesApi
             }
 
             /* @phpstan-ignore-next-line */
-            if ('\Pipedrive\Model\DeleteStageResponse200' === '\SplFileObject') {
+            if ('\Pipedrive\Model\DeleteStageResponse' === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
 
             return [
-                ObjectSerializer::deserialize($content, '\Pipedrive\Model\DeleteStageResponse200', []),
+                ObjectSerializer::deserialize($content, '\Pipedrive\Model\DeleteStageResponse', []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -517,7 +517,7 @@ class StagesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\DeleteStageResponse200',
+                        '\Pipedrive\Model\DeleteStageResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -559,7 +559,7 @@ class StagesApi
      */
     public function deleteStageAsyncWithHttpInfo($id): PromiseInterface
     {
-        $returnType = '\Pipedrive\Model\DeleteStageResponse200';
+        $returnType = '\Pipedrive\Model\DeleteStageResponse';
         $request = $this->deleteStageRequest($id);
 
         return $this->client
@@ -714,7 +714,7 @@ class StagesApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return \Pipedrive\Model\DeleteStagesResponse200
+     * @return \Pipedrive\Model\DeleteStagesResponse
      */
     public function deleteStages($ids)
     {
@@ -731,7 +731,7 @@ class StagesApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return array<mixed> of \Pipedrive\Model\DeleteStagesResponse200, HTTP status code, HTTP response headers (array of strings)
+     * @return array<mixed> of \Pipedrive\Model\DeleteStagesResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteStagesWithHttpInfo($ids)
     {
@@ -769,14 +769,14 @@ class StagesApi
             switch($statusCode) {
                 case 200:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\DeleteStagesResponse200' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\DeleteStagesResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\DeleteStagesResponse200', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\DeleteStagesResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -796,14 +796,14 @@ class StagesApi
             }
 
             /* @phpstan-ignore-next-line */
-            if ('\Pipedrive\Model\DeleteStagesResponse200' === '\SplFileObject') {
+            if ('\Pipedrive\Model\DeleteStagesResponse' === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
 
             return [
-                ObjectSerializer::deserialize($content, '\Pipedrive\Model\DeleteStagesResponse200', []),
+                ObjectSerializer::deserialize($content, '\Pipedrive\Model\DeleteStagesResponse', []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -813,7 +813,7 @@ class StagesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\DeleteStagesResponse200',
+                        '\Pipedrive\Model\DeleteStagesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -855,7 +855,7 @@ class StagesApi
      */
     public function deleteStagesAsyncWithHttpInfo($ids): PromiseInterface
     {
-        $returnType = '\Pipedrive\Model\DeleteStagesResponse200';
+        $returnType = '\Pipedrive\Model\DeleteStagesResponse';
         $request = $this->deleteStagesRequest($ids);
 
         return $this->client

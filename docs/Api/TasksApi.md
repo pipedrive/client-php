@@ -14,7 +14,7 @@ Method | HTTP request | Description
 ## `addTask()`
 
 ```php
-addTask($task_post_object): \Pipedrive\Model\AddTaskResponse201
+addTask($task_post_object): \Pipedrive\Model\AddTaskResponse
 ```
 
 Add a task
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Pipedrive\Model\AddTaskResponse201**](../Model/AddTaskResponse201.md)
+[**\Pipedrive\Model\AddTaskResponse**](../Model/AddTaskResponse.md)
 
 ### Authorization
 
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 ## `deleteTask()`
 
 ```php
-deleteTask($id): \Pipedrive\Model\DeleteTaskResponse200
+deleteTask($id): \Pipedrive\Model\DeleteTaskResponse
 ```
 
 Delete a task
@@ -126,7 +126,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Pipedrive\Model\DeleteTaskResponse200**](../Model/DeleteTaskResponse200.md)
+[**\Pipedrive\Model\DeleteTaskResponse**](../Model/DeleteTaskResponse.md)
 
 ### Authorization
 
@@ -144,7 +144,7 @@ Name | Type | Description  | Notes
 ## `getTask()`
 
 ```php
-getTask($id): \Pipedrive\Model\GetTaskResponse200
+getTask($id): \Pipedrive\Model\GetTaskResponse
 ```
 
 Get details of a task
@@ -191,7 +191,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Pipedrive\Model\GetTaskResponse200**](../Model/GetTaskResponse200.md)
+[**\Pipedrive\Model\GetTaskResponse**](../Model/GetTaskResponse.md)
 
 ### Authorization
 
@@ -209,7 +209,7 @@ Name | Type | Description  | Notes
 ## `getTasks()`
 
 ```php
-getTasks($cursor, $limit, $assignee_id, $project_id, $parent_task_id, $done): \Pipedrive\Model\GetTasksResponse200
+getTasks($cursor, $limit, $assignee_id, $project_id, $parent_task_id, $done): \Pipedrive\Model\GetTasksResponse
 ```
 
 Get all tasks
@@ -266,7 +266,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Pipedrive\Model\GetTasksResponse200**](../Model/GetTasksResponse200.md)
+[**\Pipedrive\Model\GetTasksResponse**](../Model/GetTasksResponse.md)
 
 ### Authorization
 
@@ -284,7 +284,7 @@ Name | Type | Description  | Notes
 ## `updateTask()`
 
 ```php
-updateTask($id, $task_put_object): \Pipedrive\Model\UpdateTaskResponse200
+updateTask($id, $task_put_object): \Pipedrive\Model\UpdateTaskResponse
 ```
 
 Update a task
@@ -333,7 +333,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Pipedrive\Model\UpdateTaskResponse200**](../Model/UpdateTaskResponse200.md)
+[**\Pipedrive\Model\UpdateTaskResponse**](../Model/UpdateTaskResponse.md)
 
 ### Authorization
 

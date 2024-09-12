@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **string** | The name of the product | [optional]
 **code** | **string** | The product code | [optional]
+**description** | **string** | The product description | [optional]
 **unit** | **string** | The unit in which this product is sold | [optional]
 **tax** | **float** | The tax percentage | [optional] [default to 0]
 **active_flag** | **bool** | Whether this product will be made active or not | [optional] [default to true]
