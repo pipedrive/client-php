@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Notice informing the users of the upcoming Activity Invites feature deprecation:
+  - `POST` and `PUT` `/v1/activities` endpoints
 
 ### Fixed
 - Fixed response schemas for GET `/v1/<entity>Fields` requests
