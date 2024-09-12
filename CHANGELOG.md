@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [7.1.0](https://github.com/pipedrive/client-php/compare/7.0.0...7.1.0) (2024-09-12)
+
 ### Added
 - Added `notes` field to Prices in:
   - `GET` and `POST` `/v2/products/{productId}/variations` endpoints
