@@ -68,7 +68,7 @@ class UpdateProductResponse implements ModelInterface, ArrayAccess, JsonSerializ
     protected static array $openAPITypes = [
         'success' => 'bool',
         'data' => '\Pipedrive\Model\ProductWithArrayPrices',
-        'related_objects' => '\Pipedrive\Model\GetActivitiesResponse200RelatedObjects'
+        'related_objects' => '\Pipedrive\Model\GetActivitiesResponseRelatedObjects'
     ];
 
     /**
@@ -291,7 +291,7 @@ class UpdateProductResponse implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Gets related_objects
      *
-     * @return \Pipedrive\Model\GetActivitiesResponse200RelatedObjects|null
+     * @return \Pipedrive\Model\GetActivitiesResponseRelatedObjects|null
      */
     public function getRelatedObjects()
     {
@@ -301,7 +301,7 @@ class UpdateProductResponse implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Sets related_objects
      *
-     * @param \Pipedrive\Model\GetActivitiesResponse200RelatedObjects|null $related_objects related_objects
+     * @param \Pipedrive\Model\GetActivitiesResponseRelatedObjects|null $related_objects related_objects
      *
      * @return self
      */

@@ -23,7 +23,7 @@ Method | HTTP request | Description
 ## `addProject()`
 
 ```php
-addProject($project_post_object): \Pipedrive\Model\AddProjectResponse201
+addProject($project_post_object): \Pipedrive\Model\AddProjectResponse
 ```
 
 Add a project
@@ -70,7 +70,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Pipedrive\Model\AddProjectResponse201**](../Model/AddProjectResponse201.md)
+[**\Pipedrive\Model\AddProjectResponse**](../Model/AddProjectResponse.md)
 
 ### Authorization
 
@@ -88,7 +88,7 @@ Name | Type | Description  | Notes
 ## `archiveProject()`
 
 ```php
-archiveProject($id): \Pipedrive\Model\UpdateProjectResponse200
+archiveProject($id): \Pipedrive\Model\UpdateProjectResponse
 ```
 
 Archive a project
@@ -135,7 +135,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Pipedrive\Model\UpdateProjectResponse200**](../Model/UpdateProjectResponse200.md)
+[**\Pipedrive\Model\UpdateProjectResponse**](../Model/UpdateProjectResponse.md)
 
 ### Authorization
 
@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
 ## `deleteProject()`
 
 ```php
-deleteProject($id): \Pipedrive\Model\DeleteProjectResponse200
+deleteProject($id): \Pipedrive\Model\DeleteProjectResponse
 ```
 
 Delete a project
@@ -200,7 +200,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Pipedrive\Model\DeleteProjectResponse200**](../Model/DeleteProjectResponse200.md)
+[**\Pipedrive\Model\DeleteProjectResponse**](../Model/DeleteProjectResponse.md)
 
 ### Authorization
 
@@ -218,7 +218,7 @@ Name | Type | Description  | Notes
 ## `getProject()`
 
 ```php
-getProject($id): \Pipedrive\Model\GetProjectResponse200
+getProject($id): \Pipedrive\Model\GetProjectResponse
 ```
 
 Get details of a project
@@ -265,7 +265,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Pipedrive\Model\GetProjectResponse200**](../Model/GetProjectResponse200.md)
+[**\Pipedrive\Model\GetProjectResponse**](../Model/GetProjectResponse.md)
 
 ### Authorization
 
@@ -283,7 +283,7 @@ Name | Type | Description  | Notes
 ## `getProjectActivities()`
 
 ```php
-getProjectActivities($id): \Pipedrive\Model\GetActivitiesCollectionResponse200
+getProjectActivities($id): \Pipedrive\Model\GetActivitiesCollectionResponse
 ```
 
 Returns project activities
@@ -330,7 +330,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Pipedrive\Model\GetActivitiesCollectionResponse200**](../Model/GetActivitiesCollectionResponse200.md)
+[**\Pipedrive\Model\GetActivitiesCollectionResponse**](../Model/GetActivitiesCollectionResponse.md)
 
 ### Authorization
 
@@ -348,7 +348,7 @@ Name | Type | Description  | Notes
 ## `getProjectGroups()`
 
 ```php
-getProjectGroups($id): \Pipedrive\Model\GetProjectGroupsResponse200
+getProjectGroups($id): \Pipedrive\Model\GetProjectGroupsResponse
 ```
 
 Returns project groups
@@ -395,7 +395,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Pipedrive\Model\GetProjectGroupsResponse200**](../Model/GetProjectGroupsResponse200.md)
+[**\Pipedrive\Model\GetProjectGroupsResponse**](../Model/GetProjectGroupsResponse.md)
 
 ### Authorization
 
@@ -413,7 +413,7 @@ Name | Type | Description  | Notes
 ## `getProjectPlan()`
 
 ```php
-getProjectPlan($id): \Pipedrive\Model\GetProjectPlanResponse200
+getProjectPlan($id): \Pipedrive\Model\GetProjectPlanResponse
 ```
 
 Returns project plan
@@ -460,7 +460,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Pipedrive\Model\GetProjectPlanResponse200**](../Model/GetProjectPlanResponse200.md)
+[**\Pipedrive\Model\GetProjectPlanResponse**](../Model/GetProjectPlanResponse.md)
 
 ### Authorization
 
@@ -478,7 +478,7 @@ Name | Type | Description  | Notes
 ## `getProjectTasks()`
 
 ```php
-getProjectTasks($id): \Pipedrive\Model\GetTasksResponse200
+getProjectTasks($id): \Pipedrive\Model\GetTasksResponse
 ```
 
 Returns project tasks
@@ -525,7 +525,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Pipedrive\Model\GetTasksResponse200**](../Model/GetTasksResponse200.md)
+[**\Pipedrive\Model\GetTasksResponse**](../Model/GetTasksResponse.md)
 
 ### Authorization
 
@@ -543,7 +543,7 @@ Name | Type | Description  | Notes
 ## `getProjects()`
 
 ```php
-getProjects($cursor, $limit, $filter_id, $status, $phase_id, $include_archived): \Pipedrive\Model\GetProjectsResponse200
+getProjects($cursor, $limit, $filter_id, $status, $phase_id, $include_archived): \Pipedrive\Model\GetProjectsResponse
 ```
 
 Get all projects
@@ -600,7 +600,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Pipedrive\Model\GetProjectsResponse200**](../Model/GetProjectsResponse200.md)
+[**\Pipedrive\Model\GetProjectsResponse**](../Model/GetProjectsResponse.md)
 
 ### Authorization
 
@@ -618,7 +618,7 @@ Name | Type | Description  | Notes
 ## `getProjectsBoards()`
 
 ```php
-getProjectsBoards(): \Pipedrive\Model\GetProjectBoardsResponse200
+getProjectsBoards(): \Pipedrive\Model\GetProjectBoardsResponse
 ```
 
 Get all project boards
@@ -662,7 +662,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Pipedrive\Model\GetProjectBoardsResponse200**](../Model/GetProjectBoardsResponse200.md)
+[**\Pipedrive\Model\GetProjectBoardsResponse**](../Model/GetProjectBoardsResponse.md)
 
 ### Authorization
 
@@ -680,7 +680,7 @@ This endpoint does not need any parameter.
 ## `getProjectsPhases()`
 
 ```php
-getProjectsPhases($board_id): \Pipedrive\Model\GetProjectPhasesResponse200
+getProjectsPhases($board_id): \Pipedrive\Model\GetProjectPhasesResponse
 ```
 
 Get project phases
@@ -727,7 +727,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Pipedrive\Model\GetProjectPhasesResponse200**](../Model/GetProjectPhasesResponse200.md)
+[**\Pipedrive\Model\GetProjectPhasesResponse**](../Model/GetProjectPhasesResponse.md)
 
 ### Authorization
 
@@ -745,7 +745,7 @@ Name | Type | Description  | Notes
 ## `putProjectPlanActivity()`
 
 ```php
-putProjectPlanActivity($id, $activity_id, $project_put_plan_item_body_object): \Pipedrive\Model\UpdatedActivityPlanItem200
+putProjectPlanActivity($id, $activity_id, $project_put_plan_item_body_object): \Pipedrive\Model\UpdateActivityPlanItemResponse
 ```
 
 Update activity in project plan
@@ -796,7 +796,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Pipedrive\Model\UpdatedActivityPlanItem200**](../Model/UpdatedActivityPlanItem200.md)
+[**\Pipedrive\Model\UpdateActivityPlanItemResponse**](../Model/UpdateActivityPlanItemResponse.md)
 
 ### Authorization
 
@@ -814,7 +814,7 @@ Name | Type | Description  | Notes
 ## `putProjectPlanTask()`
 
 ```php
-putProjectPlanTask($id, $task_id, $project_put_plan_item_body_object): \Pipedrive\Model\UpdatedTaskPlanItem200
+putProjectPlanTask($id, $task_id, $project_put_plan_item_body_object): \Pipedrive\Model\UpdateTaskPlanItemResponse
 ```
 
 Update task in project plan
@@ -865,7 +865,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Pipedrive\Model\UpdatedTaskPlanItem200**](../Model/UpdatedTaskPlanItem200.md)
+[**\Pipedrive\Model\UpdateTaskPlanItemResponse**](../Model/UpdateTaskPlanItemResponse.md)
 
 ### Authorization
 
@@ -883,7 +883,7 @@ Name | Type | Description  | Notes
 ## `updateProject()`
 
 ```php
-updateProject($id, $project_put_object): \Pipedrive\Model\UpdateProjectResponse200
+updateProject($id, $project_put_object): \Pipedrive\Model\UpdateProjectResponse
 ```
 
 Update a project
@@ -932,7 +932,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Pipedrive\Model\UpdateProjectResponse200**](../Model/UpdateProjectResponse200.md)
+[**\Pipedrive\Model\UpdateProjectResponse**](../Model/UpdateProjectResponse.md)
 
 ### Authorization
 

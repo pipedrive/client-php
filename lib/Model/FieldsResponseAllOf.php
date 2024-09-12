@@ -66,7 +66,7 @@ class FieldsResponseAllOf implements ModelInterface, ArrayAccess, JsonSerializab
       * @phpsalm-var array<string, string>
       */
     protected static array $openAPITypes = [
-        'data' => '\Pipedrive\Model\Field[]',
+        'data' => '\Pipedrive\Model\GetField[]',
         'additional_data' => '\Pipedrive\Model\AdditionalData'
     ];
 
@@ -237,7 +237,7 @@ class FieldsResponseAllOf implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Gets data
      *
-     * @return \Pipedrive\Model\Field[]|null
+     * @return \Pipedrive\Model\GetField[]|null
      */
     public function getData()
     {
@@ -247,7 +247,7 @@ class FieldsResponseAllOf implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets data
      *
-     * @param \Pipedrive\Model\Field[]|null $data data
+     * @param \Pipedrive\Model\GetField[]|null $data data
      *
      * @return self
      */

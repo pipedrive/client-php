@@ -131,7 +131,7 @@ class GoalsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return \Pipedrive\Model\AddOrUpdateGoalResponse200
+     * @return \Pipedrive\Model\UpsertGoalResponse
      */
     public function addGoal($new_goal = null)
     {
@@ -148,7 +148,7 @@ class GoalsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return array<mixed> of \Pipedrive\Model\AddOrUpdateGoalResponse200, HTTP status code, HTTP response headers (array of strings)
+     * @return array<mixed> of \Pipedrive\Model\UpsertGoalResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function addGoalWithHttpInfo($new_goal = null)
     {
@@ -186,14 +186,14 @@ class GoalsApi
             switch($statusCode) {
                 case 200:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\AddOrUpdateGoalResponse200' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\UpsertGoalResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\AddOrUpdateGoalResponse200', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\UpsertGoalResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -213,14 +213,14 @@ class GoalsApi
             }
 
             /* @phpstan-ignore-next-line */
-            if ('\Pipedrive\Model\AddOrUpdateGoalResponse200' === '\SplFileObject') {
+            if ('\Pipedrive\Model\UpsertGoalResponse' === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
 
             return [
-                ObjectSerializer::deserialize($content, '\Pipedrive\Model\AddOrUpdateGoalResponse200', []),
+                ObjectSerializer::deserialize($content, '\Pipedrive\Model\UpsertGoalResponse', []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -230,7 +230,7 @@ class GoalsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\AddOrUpdateGoalResponse200',
+                        '\Pipedrive\Model\UpsertGoalResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -272,7 +272,7 @@ class GoalsApi
      */
     public function addGoalAsyncWithHttpInfo($new_goal = null): PromiseInterface
     {
-        $returnType = '\Pipedrive\Model\AddOrUpdateGoalResponse200';
+        $returnType = '\Pipedrive\Model\UpsertGoalResponse';
         $request = $this->addGoalRequest($new_goal);
 
         return $this->client
@@ -418,7 +418,7 @@ class GoalsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return \Pipedrive\Model\DeleteGoalResponse200
+     * @return \Pipedrive\Model\DeleteGoalResponse
      */
     public function deleteGoal($id)
     {
@@ -435,7 +435,7 @@ class GoalsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return array<mixed> of \Pipedrive\Model\DeleteGoalResponse200, HTTP status code, HTTP response headers (array of strings)
+     * @return array<mixed> of \Pipedrive\Model\DeleteGoalResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteGoalWithHttpInfo($id)
     {
@@ -473,14 +473,14 @@ class GoalsApi
             switch($statusCode) {
                 case 200:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\DeleteGoalResponse200' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\DeleteGoalResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\DeleteGoalResponse200', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\DeleteGoalResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -500,14 +500,14 @@ class GoalsApi
             }
 
             /* @phpstan-ignore-next-line */
-            if ('\Pipedrive\Model\DeleteGoalResponse200' === '\SplFileObject') {
+            if ('\Pipedrive\Model\DeleteGoalResponse' === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
 
             return [
-                ObjectSerializer::deserialize($content, '\Pipedrive\Model\DeleteGoalResponse200', []),
+                ObjectSerializer::deserialize($content, '\Pipedrive\Model\DeleteGoalResponse', []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -517,7 +517,7 @@ class GoalsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\DeleteGoalResponse200',
+                        '\Pipedrive\Model\DeleteGoalResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -559,7 +559,7 @@ class GoalsApi
      */
     public function deleteGoalAsyncWithHttpInfo($id): PromiseInterface
     {
-        $returnType = '\Pipedrive\Model\DeleteGoalResponse200';
+        $returnType = '\Pipedrive\Model\DeleteGoalResponse';
         $request = $this->deleteGoalRequest($id);
 
         return $this->client
@@ -716,7 +716,7 @@ class GoalsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return \Pipedrive\Model\GetGoalResultResponse200
+     * @return \Pipedrive\Model\GetGoalResultResponse
      */
     public function getGoalResult($id, $period_start, $period_end)
     {
@@ -735,7 +735,7 @@ class GoalsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return array<mixed> of \Pipedrive\Model\GetGoalResultResponse200, HTTP status code, HTTP response headers (array of strings)
+     * @return array<mixed> of \Pipedrive\Model\GetGoalResultResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getGoalResultWithHttpInfo($id, $period_start, $period_end)
     {
@@ -773,14 +773,14 @@ class GoalsApi
             switch($statusCode) {
                 case 200:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\GetGoalResultResponse200' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\GetGoalResultResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetGoalResultResponse200', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetGoalResultResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -800,14 +800,14 @@ class GoalsApi
             }
 
             /* @phpstan-ignore-next-line */
-            if ('\Pipedrive\Model\GetGoalResultResponse200' === '\SplFileObject') {
+            if ('\Pipedrive\Model\GetGoalResultResponse' === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
 
             return [
-                ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetGoalResultResponse200', []),
+                ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetGoalResultResponse', []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -817,7 +817,7 @@ class GoalsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\GetGoalResultResponse200',
+                        '\Pipedrive\Model\GetGoalResultResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -863,7 +863,7 @@ class GoalsApi
      */
     public function getGoalResultAsyncWithHttpInfo($id, $period_start, $period_end): PromiseInterface
     {
-        $returnType = '\Pipedrive\Model\GetGoalResultResponse200';
+        $returnType = '\Pipedrive\Model\GetGoalResultResponse';
         $request = $this->getGoalResultRequest($id, $period_start, $period_end);
 
         return $this->client
@@ -1062,7 +1062,7 @@ class GoalsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return \Pipedrive\Model\GetGoalsResponse200
+     * @return \Pipedrive\Model\GetGoalsResponse
      */
     public function getGoals($type_name = null, $title = null, $is_active = true, $assignee_id = null, $assignee_type = null, $expected_outcome_target = null, $expected_outcome_tracking_metric = null, $expected_outcome_currency_id = null, $type_params_pipeline_id = null, $type_params_stage_id = null, $type_params_activity_type_id = null, $period_start = null, $period_end = null)
     {
@@ -1091,7 +1091,7 @@ class GoalsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return array<mixed> of \Pipedrive\Model\GetGoalsResponse200, HTTP status code, HTTP response headers (array of strings)
+     * @return array<mixed> of \Pipedrive\Model\GetGoalsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getGoalsWithHttpInfo($type_name = null, $title = null, $is_active = true, $assignee_id = null, $assignee_type = null, $expected_outcome_target = null, $expected_outcome_tracking_metric = null, $expected_outcome_currency_id = null, $type_params_pipeline_id = null, $type_params_stage_id = null, $type_params_activity_type_id = null, $period_start = null, $period_end = null)
     {
@@ -1129,14 +1129,14 @@ class GoalsApi
             switch($statusCode) {
                 case 200:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\GetGoalsResponse200' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\GetGoalsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetGoalsResponse200', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetGoalsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1156,14 +1156,14 @@ class GoalsApi
             }
 
             /* @phpstan-ignore-next-line */
-            if ('\Pipedrive\Model\GetGoalsResponse200' === '\SplFileObject') {
+            if ('\Pipedrive\Model\GetGoalsResponse' === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
 
             return [
-                ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetGoalsResponse200', []),
+                ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetGoalsResponse', []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -1173,7 +1173,7 @@ class GoalsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\GetGoalsResponse200',
+                        '\Pipedrive\Model\GetGoalsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1239,7 +1239,7 @@ class GoalsApi
      */
     public function getGoalsAsyncWithHttpInfo($type_name = null, $title = null, $is_active = true, $assignee_id = null, $assignee_type = null, $expected_outcome_target = null, $expected_outcome_tracking_metric = null, $expected_outcome_currency_id = null, $type_params_pipeline_id = null, $type_params_stage_id = null, $type_params_activity_type_id = null, $period_start = null, $period_end = null): PromiseInterface
     {
-        $returnType = '\Pipedrive\Model\GetGoalsResponse200';
+        $returnType = '\Pipedrive\Model\GetGoalsResponse';
         $request = $this->getGoalsRequest($type_name, $title, $is_active, $assignee_id, $assignee_type, $expected_outcome_target, $expected_outcome_tracking_metric, $expected_outcome_currency_id, $type_params_pipeline_id, $type_params_stage_id, $type_params_activity_type_id, $period_start, $period_end);
 
         return $this->client
@@ -1496,7 +1496,7 @@ class GoalsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return \Pipedrive\Model\AddOrUpdateGoalResponse200
+     * @return \Pipedrive\Model\UpsertGoalResponse
      */
     public function updateGoal($id, $basic_goal = null)
     {
@@ -1514,7 +1514,7 @@ class GoalsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return array<mixed> of \Pipedrive\Model\AddOrUpdateGoalResponse200, HTTP status code, HTTP response headers (array of strings)
+     * @return array<mixed> of \Pipedrive\Model\UpsertGoalResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateGoalWithHttpInfo($id, $basic_goal = null)
     {
@@ -1552,14 +1552,14 @@ class GoalsApi
             switch($statusCode) {
                 case 200:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\AddOrUpdateGoalResponse200' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\UpsertGoalResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\AddOrUpdateGoalResponse200', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\UpsertGoalResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1579,14 +1579,14 @@ class GoalsApi
             }
 
             /* @phpstan-ignore-next-line */
-            if ('\Pipedrive\Model\AddOrUpdateGoalResponse200' === '\SplFileObject') {
+            if ('\Pipedrive\Model\UpsertGoalResponse' === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
 
             return [
-                ObjectSerializer::deserialize($content, '\Pipedrive\Model\AddOrUpdateGoalResponse200', []),
+                ObjectSerializer::deserialize($content, '\Pipedrive\Model\UpsertGoalResponse', []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -1596,7 +1596,7 @@ class GoalsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\AddOrUpdateGoalResponse200',
+                        '\Pipedrive\Model\UpsertGoalResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1640,7 +1640,7 @@ class GoalsApi
      */
     public function updateGoalAsyncWithHttpInfo($id, $basic_goal = null): PromiseInterface
     {
-        $returnType = '\Pipedrive\Model\AddOrUpdateGoalResponse200';
+        $returnType = '\Pipedrive\Model\UpsertGoalResponse';
         $request = $this->updateGoalRequest($id, $basic_goal);
 
         return $this->client

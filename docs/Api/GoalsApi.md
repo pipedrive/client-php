@@ -14,7 +14,7 @@ Method | HTTP request | Description
 ## `addGoal()`
 
 ```php
-addGoal($new_goal): \Pipedrive\Model\AddOrUpdateGoalResponse200
+addGoal($new_goal): \Pipedrive\Model\UpsertGoalResponse
 ```
 
 Add a new goal
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Pipedrive\Model\AddOrUpdateGoalResponse200**](../Model/AddOrUpdateGoalResponse200.md)
+[**\Pipedrive\Model\UpsertGoalResponse**](../Model/UpsertGoalResponse.md)
 
 ### Authorization
 
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 ## `deleteGoal()`
 
 ```php
-deleteGoal($id): \Pipedrive\Model\DeleteGoalResponse200
+deleteGoal($id): \Pipedrive\Model\DeleteGoalResponse
 ```
 
 Delete existing goal
@@ -126,7 +126,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Pipedrive\Model\DeleteGoalResponse200**](../Model/DeleteGoalResponse200.md)
+[**\Pipedrive\Model\DeleteGoalResponse**](../Model/DeleteGoalResponse.md)
 
 ### Authorization
 
@@ -144,7 +144,7 @@ Name | Type | Description  | Notes
 ## `getGoalResult()`
 
 ```php
-getGoalResult($id, $period_start, $period_end): \Pipedrive\Model\GetGoalResultResponse200
+getGoalResult($id, $period_start, $period_end): \Pipedrive\Model\GetGoalResultResponse
 ```
 
 Get result of a goal
@@ -195,7 +195,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Pipedrive\Model\GetGoalResultResponse200**](../Model/GetGoalResultResponse200.md)
+[**\Pipedrive\Model\GetGoalResultResponse**](../Model/GetGoalResultResponse.md)
 
 ### Authorization
 
@@ -213,7 +213,7 @@ Name | Type | Description  | Notes
 ## `getGoals()`
 
 ```php
-getGoals($type_name, $title, $is_active, $assignee_id, $assignee_type, $expected_outcome_target, $expected_outcome_tracking_metric, $expected_outcome_currency_id, $type_params_pipeline_id, $type_params_stage_id, $type_params_activity_type_id, $period_start, $period_end): \Pipedrive\Model\GetGoalsResponse200
+getGoals($type_name, $title, $is_active, $assignee_id, $assignee_type, $expected_outcome_target, $expected_outcome_tracking_metric, $expected_outcome_currency_id, $type_params_pipeline_id, $type_params_stage_id, $type_params_activity_type_id, $period_start, $period_end): \Pipedrive\Model\GetGoalsResponse
 ```
 
 Find goals
@@ -284,7 +284,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Pipedrive\Model\GetGoalsResponse200**](../Model/GetGoalsResponse200.md)
+[**\Pipedrive\Model\GetGoalsResponse**](../Model/GetGoalsResponse.md)
 
 ### Authorization
 
@@ -302,7 +302,7 @@ Name | Type | Description  | Notes
 ## `updateGoal()`
 
 ```php
-updateGoal($id, $basic_goal): \Pipedrive\Model\AddOrUpdateGoalResponse200
+updateGoal($id, $basic_goal): \Pipedrive\Model\UpsertGoalResponse
 ```
 
 Update existing goal
@@ -351,7 +351,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Pipedrive\Model\AddOrUpdateGoalResponse200**](../Model/AddOrUpdateGoalResponse200.md)
+[**\Pipedrive\Model\UpsertGoalResponse**](../Model/UpsertGoalResponse.md)
 
 ### Authorization
 

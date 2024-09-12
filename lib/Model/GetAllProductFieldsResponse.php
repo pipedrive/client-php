@@ -67,7 +67,7 @@ class GetAllProductFieldsResponse implements ModelInterface, ArrayAccess, JsonSe
       */
     protected static array $openAPITypes = [
         'success' => 'bool',
-        'data' => '\Pipedrive\Model\ProductField[]',
+        'data' => '\Pipedrive\Model\GetProductField[]',
         'additional_data' => 'object'
     ];
 
@@ -267,7 +267,7 @@ class GetAllProductFieldsResponse implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Gets data
      *
-     * @return \Pipedrive\Model\ProductField[]|null
+     * @return \Pipedrive\Model\GetProductField[]|null
      */
     public function getData()
     {
@@ -277,7 +277,7 @@ class GetAllProductFieldsResponse implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Sets data
      *
-     * @param \Pipedrive\Model\ProductField[]|null $data Array containing data for all product fields
+     * @param \Pipedrive\Model\GetProductField[]|null $data Array containing data for all product fields
      *
      * @return self
      */

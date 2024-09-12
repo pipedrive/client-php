@@ -6,9 +6,26 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-## [7.0.0] (https://github.com/pipedrive/client-php/compare/6.10.1...7.0.0) (2024-09-11)
+## [7.1.0](https://github.com/pipedrive/client-php/compare/7.0.0...7.1.0) (2024-09-12)
 
-### Removed
+### Added
+- Added `notes` field to Prices in:
+  - `GET` and `POST` `/v2/products/{productId}/variations` endpoints
+  - `PATCH` `/api/v2/products/{productId}/variations/{productVariationId}` endpoint
+- Notice informing the users of the upcoming Activity Invites feature deprecation:
+  - `POST` and `PUT` `/v1/activities` endpoints
+
+### Fixed
+- Fixed response schemas for GET `/v1/<entity>Fields` requests
+- Added missing "description" parameter to "Add a product" and "Update a product" endpoints
+- Added the missing "label_ids" field to the contacts endpoints.
+- Added "filter_id" to GET /api/v2/deals documentation
+- Updated default values for "billing_frequency_cycles", "billing_start_date" fields
+
+## [7.0.0](https://github.com/pipedrive/client-php/compare/6.10.1...7.0.0) (2024-09-11)
+
+
+### BREAKING CHANGE
 - Removed request and response fields `duration` and `duration_unit` for all endpoints of deals and products using them
 
 ## [6.10.1](https://github.com/pipedrive/client-php/compare/6.10.0...6.10.1) (2024-06-07)

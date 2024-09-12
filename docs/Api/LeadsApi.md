@@ -16,7 +16,7 @@ Method | HTTP request | Description
 ## `addLead()`
 
 ```php
-addLead($add_lead_request): \Pipedrive\Model\OneLeadResponse200
+addLead($add_lead_request): \Pipedrive\Model\GetLeadResponse
 ```
 
 Add a lead
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Pipedrive\Model\OneLeadResponse200**](../Model/OneLeadResponse200.md)
+[**\Pipedrive\Model\GetLeadResponse**](../Model/GetLeadResponse.md)
 
 ### Authorization
 
@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 ## `deleteLead()`
 
 ```php
-deleteLead($id): \Pipedrive\Model\LeadIdResponse200
+deleteLead($id): \Pipedrive\Model\GetLeadIdResponse
 ```
 
 Delete a lead
@@ -128,7 +128,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Pipedrive\Model\LeadIdResponse200**](../Model/LeadIdResponse200.md)
+[**\Pipedrive\Model\GetLeadIdResponse**](../Model/GetLeadIdResponse.md)
 
 ### Authorization
 
@@ -146,7 +146,7 @@ Name | Type | Description  | Notes
 ## `getLead()`
 
 ```php
-getLead($id): \Pipedrive\Model\OneLeadResponse200
+getLead($id): \Pipedrive\Model\GetLeadResponse
 ```
 
 Get one lead
@@ -193,7 +193,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Pipedrive\Model\OneLeadResponse200**](../Model/OneLeadResponse200.md)
+[**\Pipedrive\Model\GetLeadResponse**](../Model/GetLeadResponse.md)
 
 ### Authorization
 
@@ -276,7 +276,7 @@ Name | Type | Description  | Notes
 ## `getLeads()`
 
 ```php
-getLeads($limit, $start, $archived_status, $owner_id, $person_id, $organization_id, $filter_id, $sort): \Pipedrive\Model\GetLeadsResponse200
+getLeads($limit, $start, $archived_status, $owner_id, $person_id, $organization_id, $filter_id, $sort): \Pipedrive\Model\GetLeadsResponse
 ```
 
 Get all leads
@@ -337,7 +337,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Pipedrive\Model\GetLeadsResponse200**](../Model/GetLeadsResponse200.md)
+[**\Pipedrive\Model\GetLeadsResponse**](../Model/GetLeadsResponse.md)
 
 ### Authorization
 
@@ -434,7 +434,7 @@ Name | Type | Description  | Notes
 ## `updateLead()`
 
 ```php
-updateLead($id, $update_lead_request): \Pipedrive\Model\OneLeadResponse200
+updateLead($id, $update_lead_request): \Pipedrive\Model\GetLeadResponse
 ```
 
 Update a lead
@@ -483,7 +483,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Pipedrive\Model\OneLeadResponse200**](../Model/OneLeadResponse200.md)
+[**\Pipedrive\Model\GetLeadResponse**](../Model/GetLeadResponse.md)
 
 ### Authorization
 
