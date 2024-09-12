@@ -5,17 +5,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
-### Added
-- Notice informing the users of the upcoming Activity Invites feature deprecation:
-  - `POST` and `PUT` `/v1/activities` endpoints
-
-### Fixed
-- Fixed response schemas for GET `/v1/<entity>Fields` requests
 
 ### Added
 - Added `notes` field to Prices in:
   - `GET` and `POST` `/v2/products/{productId}/variations` endpoints
   - `PATCH` `/api/v2/products/{productId}/variations/{productVariationId}` endpoint
+- Notice informing the users of the upcoming Activity Invites feature deprecation:
+  - `POST` and `PUT` `/v1/activities` endpoints
+
+### Fixed
+- Fixed response schemas for GET `/v1/<entity>Fields` requests
+- Added missing "description" parameter to "Add a product" and "Update a product" endpoints
 
 ## [7.0.0](https://github.com/pipedrive/client-php/compare/6.10.1...7.0.0) (2024-09-11)
 
