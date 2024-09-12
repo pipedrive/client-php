@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 - Fixed response schemas for GET `/v1/<entity>Fields` requests
 - Added missing "description" parameter to "Add a product" and "Update a product" endpoints
+- Added the missing "label_ids" field to the contacts endpoints.
 
 ## [7.0.0](https://github.com/pipedrive/client-php/compare/6.10.1...7.0.0) (2024-09-11)
 
