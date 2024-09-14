@@ -57,6 +57,6 @@ trait RawData
      */
     public function setRawData(mixed $rawData): void
     {
-        $this->rawData = property_exists($rawData, 'data') ? $rawData->data : $rawData;
+        $this->rawData = is_object($rawData) && property_exists($rawData, 'data') ? $rawData->data : $rawData;
     }
 }
