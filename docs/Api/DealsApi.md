@@ -509,7 +509,7 @@ deleteDealProduct($id, $product_attachment_id): \Pipedrive\Model\DeleteDealProdu
 
 Delete an attached product from a deal
 
-Deletes a product attachment from a deal, using the `product_attachment_id`.
+Deletes a product attachment from a deal, using the `product_attachment_id`  Not possible to delete the attached product if the deal has installments associated and the product is the last one enabled
 
 ### Example
 
