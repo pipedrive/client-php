@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Changed
+- Added the field "notes" to product prices in the body and response for v1 and v2
+- Added the field "overhead_cost" to the product variation prices in the response for v1
+- Added the field "direct_cost" to the product variation prices in the response and body for v2
 
 ## [7.1.0](https://github.com/pipedrive/client-php/compare/7.0.0...7.1.0) (2024-09-12)
 

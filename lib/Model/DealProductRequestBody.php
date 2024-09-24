@@ -585,7 +585,7 @@ class DealProductRequestBody implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Sets enabled_flag
      *
-     * @param bool|null $enabled_flag Whether the product is enabled for a deal or not. This makes it possible to add products to a deal with a specific price and discount criteria, but keep them disabled, which refrains them from being included in the deal value calculation. When omitted, the product will be marked as enabled by default
+     * @param bool|null $enabled_flag Whether the product is enabled for a deal or not  This makes it possible to add products to a deal with a specific price and discount criteria, but keep them disabled, which refrains them from being included in the deal value calculation. When omitted, the product will be marked as enabled by default  Not possible to disable the product if the deal has installments associated and the product is the last one enabled  Not possible to enable the product if the deal has installments associated and the product is recurring
      *
      * @return self
      */
