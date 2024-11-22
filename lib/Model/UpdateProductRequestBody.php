@@ -523,7 +523,7 @@ class UpdateProductRequestBody implements ModelInterface, ArrayAccess, JsonSeria
     /**
      * Sets prices
      *
-     * @param object[]|null $prices An array of objects, each containing: `currency` (string), `price` (number), `cost` (number, optional), `overhead_cost` (number, optional). Note that there can only be one price per product per currency. When `prices` is omitted altogether, a default price of 0 and a default currency based on the company's currency will be assigned.
+     * @param object[]|null $prices An array of objects, each containing: `currency` (string), `price` (number), `cost` (number, optional), `overhead_cost` (number, optional), `notes` (string, optional). Note that there can only be one price per product per currency. When `prices` is omitted altogether, a default price of 0 and a default currency based on the company's currency will be assigned.
      *
      * @return self
      */
