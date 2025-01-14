@@ -1,6 +1,6 @@
 <?php
 /**
- * NewDealProductAllOf1
+ * AddProductRequestBodyAllOf1
  *
  * PHP version 7.3
  *
@@ -35,7 +35,7 @@ use Pipedrive\Traits\RawData;
 use Pipedrive\ObjectSerializer;
 
 /**
- * NewDealProductAllOf1 Class Doc Comment
+ * AddProductRequestBodyAllOf1 Class Doc Comment
  *
  * @category Class
  * @package  Pipedrive
@@ -45,7 +45,7 @@ use Pipedrive\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class NewDealProductAllOf1 implements ModelInterface, ArrayAccess, JsonSerializable
+class AddProductRequestBodyAllOf1 implements ModelInterface, ArrayAccess, JsonSerializable
 {
     use RawData;
 
@@ -56,7 +56,7 @@ class NewDealProductAllOf1 implements ModelInterface, ArrayAccess, JsonSerializa
       *
       * @var string
       */
-    protected static string $openAPIModelName = 'NewDealProduct_allOf_1';
+    protected static string $openAPIModelName = 'AddProductRequestBody_allOf_1';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -241,7 +241,7 @@ class NewDealProductAllOf1 implements ModelInterface, ArrayAccess, JsonSerializa
     /**
      * Sets billing_frequency_cycles
      *
-     * @param int|null $billing_frequency_cycles Only available in Advanced and above plans  The number of times the billing frequency repeats for a product in a deal  When `billing_frequency` is set to `one-time`, this field must be `null`  When `billing_frequency` is set to `weekly`, this field cannot be `null`  For all the other values of `billing_frequency`, `null` represents a product billed indefinitely  Must be a positive integer less or equal to 208
+     * @param int|null $billing_frequency_cycles Only available in Advanced and above plans  The number of times the billing frequency repeats for a product in a deal  When `billing_frequency` is set to `one-time`, this field must be `null`  For all the other values of `billing_frequency`, `null` represents a product billed indefinitely  Must be a positive integer less or equal to 208
      *
      * @return self
      */

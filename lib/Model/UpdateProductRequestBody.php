@@ -523,7 +523,7 @@ class UpdateProductRequestBody implements ModelInterface, ArrayAccess, JsonSeria
     /**
      * Sets prices
      *
-     * @param object[]|null $prices An array of objects, each containing: `currency` (string), `price` (number), `cost` (number, optional), `overhead_cost` (number, optional). Note that there can only be one price per product per currency. When `prices` is omitted altogether, a default price of 0 and a default currency based on the company's currency will be assigned.
+     * @param object[]|null $prices An array of objects, each containing: `currency` (string), `price` (number), `cost` (number, optional), `overhead_cost` (number, optional), `notes` (string, optional). Note that there can only be one price per product per currency. When `prices` is omitted altogether, a default price of 0 and a default currency based on the company's currency will be assigned.
      *
      * @return self
      */
@@ -571,7 +571,7 @@ class UpdateProductRequestBody implements ModelInterface, ArrayAccess, JsonSeria
     /**
      * Sets billing_frequency_cycles
      *
-     * @param int|null $billing_frequency_cycles Only available in Advanced and above plans  The number of times the billing frequency repeats for a product in a deal  When `billing_frequency` is set to `one-time`, this field must be `null`  For all the other values of `billing_frequency`, `null` represents a product billed indefinitely  Must be a positive integer less or equal to 312
+     * @param int|null $billing_frequency_cycles Only available in Advanced and above plans  The number of times the billing frequency repeats for a product in a deal  When `billing_frequency` is set to `one-time`, this field must be `null`  For all the other values of `billing_frequency`, `null` represents a product billed indefinitely  Must be a positive integer less or equal to 208
      *
      * @return self
      */

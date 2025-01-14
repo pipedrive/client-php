@@ -603,7 +603,7 @@ class NewDealProduct implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets enabled_flag
      *
-     * @param bool|null $enabled_flag Whether the product is enabled for a deal or not. This makes it possible to add products to a deal with a specific price and discount criteria, but keep them disabled, which refrains them from being included in the deal value calculation. When omitted, the product will be marked as enabled by default
+     * @param bool|null $enabled_flag Whether the product is enabled for a deal or not  This makes it possible to add products to a deal with a specific price and discount criteria, but keep them disabled, which refrains them from being included in the deal value calculation. When omitted, the product will be marked as enabled by default  Not possible to disable the product if the deal has installments associated and the product is the last one enabled  Not possible to enable the product if the deal has installments associated and the product is recurring
      *
      * @return self
      */
@@ -651,7 +651,7 @@ class NewDealProduct implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets billing_frequency_cycles
      *
-     * @param int|null $billing_frequency_cycles Only available in Advanced and above plans  The number of times the billing frequency repeats for a product in a deal  When `billing_frequency` is set to `one-time`, this field must be `null`  For all the other values of `billing_frequency`, `null` represents a product billed indefinitely  Must be a positive integer less or equal to 312
+     * @param int|null $billing_frequency_cycles Only available in Advanced and above plans  The number of times the billing frequency repeats for a product in a deal  When `billing_frequency` is set to `one-time`, this field must be `null`  When `billing_frequency` is set to `weekly`, this field cannot be `null`  For all the other values of `billing_frequency`, `null` represents a product billed indefinitely  Must be a positive integer less or equal to 208
      *
      * @return self
      */
@@ -675,7 +675,7 @@ class NewDealProduct implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets billing_start_date
      *
-     * @param string|null $billing_start_date Only available in Advanced and above plans  The billing start date. Must be between 15 years in the past and 15 years in the future
+     * @param string|null $billing_start_date Only available in Advanced and above plans  The billing start date. Must be between 10 years in the past and 10 years in the future
      *
      * @return self
      */

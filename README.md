@@ -637,6 +637,7 @@ Class | Method | HTTP request | Description
  - [AddProductFollowerRequest](docs/Model/AddProductFollowerRequest.md)
  - [AddProductRequestBody](docs/Model/AddProductRequestBody.md)
  - [AddProductRequestBodyAllOf](docs/Model/AddProductRequestBodyAllOf.md)
+ - [AddProductRequestBodyAllOf1](docs/Model/AddProductRequestBodyAllOf1.md)
  - [AddProjectResponse](docs/Model/AddProjectResponse.md)
  - [AddRole](docs/Model/AddRole.md)
  - [AddRoleAssignmentRequest](docs/Model/AddRoleAssignmentRequest.md)

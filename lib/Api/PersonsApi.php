@@ -3598,8 +3598,8 @@ class PersonsApi
      *
      * @param  int $id The ID of the person (required)
      * @param  int|0 $start Pagination start (optional, default to 0)
-     * @param  int|null $limit Items shown per page (optional)
-     * @param  string|null $sort The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). Supported fields: &#x60;id&#x60;, &#x60;user_id&#x60;, &#x60;deal_id&#x60;, &#x60;person_id&#x60;, &#x60;org_id&#x60;, &#x60;product_id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;, &#x60;file_name&#x60;, &#x60;file_type&#x60;, &#x60;file_size&#x60;, &#x60;comment&#x60;. (optional)
+     * @param  int|null $limit Items shown per page. Please note that a maximum value of 100 is allowed. (optional)
+     * @param  string|null $sort Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60; (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
@@ -3618,8 +3618,8 @@ class PersonsApi
      *
      * @param  int $id The ID of the person (required)
      * @param  int|0 $start Pagination start (optional, default to 0)
-     * @param  int|null $limit Items shown per page (optional)
-     * @param  string|null $sort The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). Supported fields: &#x60;id&#x60;, &#x60;user_id&#x60;, &#x60;deal_id&#x60;, &#x60;person_id&#x60;, &#x60;org_id&#x60;, &#x60;product_id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;, &#x60;file_name&#x60;, &#x60;file_type&#x60;, &#x60;file_size&#x60;, &#x60;comment&#x60;. (optional)
+     * @param  int|null $limit Items shown per page. Please note that a maximum value of 100 is allowed. (optional)
+     * @param  string|null $sort Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60; (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
@@ -3722,8 +3722,8 @@ class PersonsApi
      *
      * @param  int $id The ID of the person (required)
      * @param  int|0 $start Pagination start (optional, default to 0)
-     * @param  int|null $limit Items shown per page (optional)
-     * @param  string|null $sort The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). Supported fields: &#x60;id&#x60;, &#x60;user_id&#x60;, &#x60;deal_id&#x60;, &#x60;person_id&#x60;, &#x60;org_id&#x60;, &#x60;product_id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;, &#x60;file_name&#x60;, &#x60;file_type&#x60;, &#x60;file_size&#x60;, &#x60;comment&#x60;. (optional)
+     * @param  int|null $limit Items shown per page. Please note that a maximum value of 100 is allowed. (optional)
+     * @param  string|null $sort Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60; (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
@@ -3745,8 +3745,8 @@ class PersonsApi
      *
      * @param  int $id The ID of the person (required)
      * @param  int|0 $start Pagination start (optional, default to 0)
-     * @param  int|null $limit Items shown per page (optional)
-     * @param  string|null $sort The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). Supported fields: &#x60;id&#x60;, &#x60;user_id&#x60;, &#x60;deal_id&#x60;, &#x60;person_id&#x60;, &#x60;org_id&#x60;, &#x60;product_id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;, &#x60;file_name&#x60;, &#x60;file_type&#x60;, &#x60;file_size&#x60;, &#x60;comment&#x60;. (optional)
+     * @param  int|null $limit Items shown per page. Please note that a maximum value of 100 is allowed. (optional)
+     * @param  string|null $sort Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60; (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
@@ -3795,8 +3795,8 @@ class PersonsApi
      *
      * @param  int $id The ID of the person (required)
      * @param  int|0 $start Pagination start (optional, default to 0)
-     * @param  int|null $limit Items shown per page (optional)
-     * @param  string|null $sort The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). Supported fields: &#x60;id&#x60;, &#x60;user_id&#x60;, &#x60;deal_id&#x60;, &#x60;person_id&#x60;, &#x60;org_id&#x60;, &#x60;product_id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;, &#x60;file_name&#x60;, &#x60;file_type&#x60;, &#x60;file_size&#x60;, &#x60;comment&#x60;. (optional)
+     * @param  int|null $limit Items shown per page. Please note that a maximum value of 100 is allowed. (optional)
+     * @param  string|null $sort Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60; (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
@@ -3810,6 +3810,10 @@ class PersonsApi
                 'Missing the required parameter $id when calling getPersonFiles'
             );
         }
+        if ($limit !== null && $limit > 100) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling PersonsApi.getPersonFiles, must be smaller than or equal to 100.');
+        }
+
 
         $resourcePath = '/persons/{id}/files';
         $formParams = [];

@@ -99,6 +99,7 @@ docs/Model/AddProductAttachmentDetailsAllOf.md
 docs/Model/AddProductFollowerRequest.md
 docs/Model/AddProductRequestBody.md
 docs/Model/AddProductRequestBodyAllOf.md
+docs/Model/AddProductRequestBodyAllOf1.md
 docs/Model/AddProjectResponse.md
 docs/Model/AddRole.md
 docs/Model/AddRoleAssignmentRequest.md
@@ -953,6 +954,7 @@ lib/Model/AddProductAttachmentDetailsAllOf.php
 lib/Model/AddProductFollowerRequest.php
 lib/Model/AddProductRequestBody.php
 lib/Model/AddProductRequestBodyAllOf.php
+lib/Model/AddProductRequestBodyAllOf1.php
 lib/Model/AddProjectResponse.php
 lib/Model/AddRole.php
 lib/Model/AddRoleAssignmentRequest.php
