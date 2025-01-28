@@ -131,7 +131,7 @@ class ChannelsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return \Pipedrive\Model\ChannelObjectResponse|\Pipedrive\Model\InlineResponse400|\Pipedrive\Model\InlineResponse403
+     * @return \Pipedrive\Model\ChannelObjectResponse|\Pipedrive\Model\AddChannelBadRequestResponse|\Pipedrive\Model\AddChannelForbiddenErrorResponse
      */
     public function addChannel($channel_object = null)
     {
@@ -148,7 +148,7 @@ class ChannelsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return array<mixed> of \Pipedrive\Model\ChannelObjectResponse|\Pipedrive\Model\InlineResponse400|\Pipedrive\Model\InlineResponse403, HTTP status code, HTTP response headers (array of strings)
+     * @return array<mixed> of \Pipedrive\Model\ChannelObjectResponse|\Pipedrive\Model\AddChannelBadRequestResponse|\Pipedrive\Model\AddChannelForbiddenErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function addChannelWithHttpInfo($channel_object = null)
     {
@@ -199,27 +199,27 @@ class ChannelsApi
                     ];
                 case 400:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\InlineResponse400' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\AddChannelBadRequestResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\InlineResponse400', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\AddChannelBadRequestResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\InlineResponse403' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\AddChannelForbiddenErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\InlineResponse403', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\AddChannelForbiddenErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -264,7 +264,7 @@ class ChannelsApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\InlineResponse400',
+                        '\Pipedrive\Model\AddChannelBadRequestResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -272,7 +272,7 @@ class ChannelsApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\InlineResponse403',
+                        '\Pipedrive\Model\AddChannelForbiddenErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -460,7 +460,7 @@ class ChannelsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return \Pipedrive\Model\DeleteChannelSuccess|\Pipedrive\Model\InlineResponse400
+     * @return \Pipedrive\Model\DeleteChannelSuccess|\Pipedrive\Model\AddChannelBadRequestResponse
      */
     public function deleteChannel($id)
     {
@@ -477,7 +477,7 @@ class ChannelsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return array<mixed> of \Pipedrive\Model\DeleteChannelSuccess|\Pipedrive\Model\InlineResponse400, HTTP status code, HTTP response headers (array of strings)
+     * @return array<mixed> of \Pipedrive\Model\DeleteChannelSuccess|\Pipedrive\Model\AddChannelBadRequestResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteChannelWithHttpInfo($id)
     {
@@ -528,14 +528,14 @@ class ChannelsApi
                     ];
                 case 400:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\InlineResponse400' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\AddChannelBadRequestResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\InlineResponse400', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\AddChannelBadRequestResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -580,7 +580,7 @@ class ChannelsApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\InlineResponse400',
+                        '\Pipedrive\Model\AddChannelBadRequestResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -778,7 +778,7 @@ class ChannelsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return \Pipedrive\Model\DeleteConversationSuccess|\Pipedrive\Model\InlineResponse4031|\Pipedrive\Model\InlineResponse404
+     * @return \Pipedrive\Model\DeleteConversationSuccess|\Pipedrive\Model\DeleteConversationForbiddenErrorResponse|\Pipedrive\Model\DeleteConversationNotFoundErrorResponse
      */
     public function deleteConversation($channel_id, $conversation_id)
     {
@@ -796,7 +796,7 @@ class ChannelsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return array<mixed> of \Pipedrive\Model\DeleteConversationSuccess|\Pipedrive\Model\InlineResponse4031|\Pipedrive\Model\InlineResponse404, HTTP status code, HTTP response headers (array of strings)
+     * @return array<mixed> of \Pipedrive\Model\DeleteConversationSuccess|\Pipedrive\Model\DeleteConversationForbiddenErrorResponse|\Pipedrive\Model\DeleteConversationNotFoundErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteConversationWithHttpInfo($channel_id, $conversation_id)
     {
@@ -847,27 +847,27 @@ class ChannelsApi
                     ];
                 case 403:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\InlineResponse4031' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\DeleteConversationForbiddenErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\InlineResponse4031', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\DeleteConversationForbiddenErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\InlineResponse404' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\DeleteConversationNotFoundErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\InlineResponse404', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\DeleteConversationNotFoundErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -912,7 +912,7 @@ class ChannelsApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\InlineResponse4031',
+                        '\Pipedrive\Model\DeleteConversationForbiddenErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -920,7 +920,7 @@ class ChannelsApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\InlineResponse404',
+                        '\Pipedrive\Model\DeleteConversationNotFoundErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1135,7 +1135,7 @@ class ChannelsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return \Pipedrive\Model\InlineResponse200|\Pipedrive\Model\InlineResponse4001
+     * @return \Pipedrive\Model\GetReceiveMessageSuccessResponse|\Pipedrive\Model\ReceiveMessageBadRequestErrorResponse
      */
     public function receiveMessage($message_object = null)
     {
@@ -1152,7 +1152,7 @@ class ChannelsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return array<mixed> of \Pipedrive\Model\InlineResponse200|\Pipedrive\Model\InlineResponse4001, HTTP status code, HTTP response headers (array of strings)
+     * @return array<mixed> of \Pipedrive\Model\GetReceiveMessageSuccessResponse|\Pipedrive\Model\ReceiveMessageBadRequestErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function receiveMessageWithHttpInfo($message_object = null)
     {
@@ -1190,27 +1190,27 @@ class ChannelsApi
             switch($statusCode) {
                 case 200:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\InlineResponse200' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\GetReceiveMessageSuccessResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\InlineResponse200', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetReceiveMessageSuccessResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\InlineResponse4001' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\ReceiveMessageBadRequestErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\InlineResponse4001', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\ReceiveMessageBadRequestErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1230,14 +1230,14 @@ class ChannelsApi
             }
 
             /* @phpstan-ignore-next-line */
-            if ('\Pipedrive\Model\InlineResponse200' === '\SplFileObject') {
+            if ('\Pipedrive\Model\GetReceiveMessageSuccessResponse' === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
 
             return [
-                ObjectSerializer::deserialize($content, '\Pipedrive\Model\InlineResponse200', []),
+                ObjectSerializer::deserialize($content, '\Pipedrive\Model\GetReceiveMessageSuccessResponse', []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -1247,7 +1247,7 @@ class ChannelsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\InlineResponse200',
+                        '\Pipedrive\Model\GetReceiveMessageSuccessResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1255,7 +1255,7 @@ class ChannelsApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\InlineResponse4001',
+                        '\Pipedrive\Model\ReceiveMessageBadRequestErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1297,7 +1297,7 @@ class ChannelsApi
      */
     public function receiveMessageAsyncWithHttpInfo($message_object = null): PromiseInterface
     {
-        $returnType = '\Pipedrive\Model\InlineResponse200';
+        $returnType = '\Pipedrive\Model\GetReceiveMessageSuccessResponse';
         $request = $this->receiveMessageRequest($message_object);
 
         return $this->client

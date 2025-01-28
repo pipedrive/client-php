@@ -67,7 +67,7 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess, JsonSerializabl
       */
     protected static array $openAPITypes = [
         'success' => 'bool',
-        'data' => '\Pipedrive\Model\OrganizationsCollectionResponseObject[]',
+        'data' => '\Pipedrive\Model\PersonsCollectionResponseObject[]',
         'additional_data' => '\Pipedrive\Model\AdditionalDataWithCursorPagination'
     ];
 
@@ -267,7 +267,7 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Gets data
      *
-     * @return \Pipedrive\Model\OrganizationsCollectionResponseObject[]|null
+     * @return \Pipedrive\Model\PersonsCollectionResponseObject[]|null
      */
     public function getData()
     {
@@ -277,7 +277,7 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Sets data
      *
-     * @param \Pipedrive\Model\OrganizationsCollectionResponseObject[]|null $data data
+     * @param \Pipedrive\Model\PersonsCollectionResponseObject[]|null $data data
      *
      * @return self
      */

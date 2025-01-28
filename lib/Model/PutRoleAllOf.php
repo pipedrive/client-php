@@ -66,7 +66,7 @@ class PutRoleAllOf implements ModelInterface, ArrayAccess, JsonSerializable
       * @phpsalm-var array<string, string>
       */
     protected static array $openAPITypes = [
-        'data' => '\Pipedrive\Model\PutRoleAllOfData'
+        'data' => '\Pipedrive\Model\UpdateRoleResponseData'
     ];
 
     /**
@@ -231,7 +231,7 @@ class PutRoleAllOf implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets data
      *
-     * @return \Pipedrive\Model\PutRoleAllOfData|null
+     * @return \Pipedrive\Model\UpdateRoleResponseData|null
      */
     public function getData()
     {
@@ -241,7 +241,7 @@ class PutRoleAllOf implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets data
      *
-     * @param \Pipedrive\Model\PutRoleAllOfData|null $data data
+     * @param \Pipedrive\Model\UpdateRoleResponseData|null $data data
      *
      * @return self
      */

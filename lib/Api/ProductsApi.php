@@ -1966,8 +1966,8 @@ class ProductsApi
      *
      * @param  int $id The ID of the product (required)
      * @param  int|0 $start Pagination start (optional, default to 0)
-     * @param  int|null $limit Items shown per page (optional)
-     * @param  string|null $sort The field name and sorting mode (&#x60;field_name_1 ASC&#x60; or &#x60;field_name_1 DESC&#x60;). Supported fields: &#x60;update_time&#x60;, &#x60;id&#x60;. (optional)
+     * @param  int|null $limit Items shown per page. Please note that a maximum value of 100 is allowed. (optional)
+     * @param  string|null $sort Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60; (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
@@ -1986,8 +1986,8 @@ class ProductsApi
      *
      * @param  int $id The ID of the product (required)
      * @param  int|0 $start Pagination start (optional, default to 0)
-     * @param  int|null $limit Items shown per page (optional)
-     * @param  string|null $sort The field name and sorting mode (&#x60;field_name_1 ASC&#x60; or &#x60;field_name_1 DESC&#x60;). Supported fields: &#x60;update_time&#x60;, &#x60;id&#x60;. (optional)
+     * @param  int|null $limit Items shown per page. Please note that a maximum value of 100 is allowed. (optional)
+     * @param  string|null $sort Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60; (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
@@ -2090,8 +2090,8 @@ class ProductsApi
      *
      * @param  int $id The ID of the product (required)
      * @param  int|0 $start Pagination start (optional, default to 0)
-     * @param  int|null $limit Items shown per page (optional)
-     * @param  string|null $sort The field name and sorting mode (&#x60;field_name_1 ASC&#x60; or &#x60;field_name_1 DESC&#x60;). Supported fields: &#x60;update_time&#x60;, &#x60;id&#x60;. (optional)
+     * @param  int|null $limit Items shown per page. Please note that a maximum value of 100 is allowed. (optional)
+     * @param  string|null $sort Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60; (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
@@ -2113,8 +2113,8 @@ class ProductsApi
      *
      * @param  int $id The ID of the product (required)
      * @param  int|0 $start Pagination start (optional, default to 0)
-     * @param  int|null $limit Items shown per page (optional)
-     * @param  string|null $sort The field name and sorting mode (&#x60;field_name_1 ASC&#x60; or &#x60;field_name_1 DESC&#x60;). Supported fields: &#x60;update_time&#x60;, &#x60;id&#x60;. (optional)
+     * @param  int|null $limit Items shown per page. Please note that a maximum value of 100 is allowed. (optional)
+     * @param  string|null $sort Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60; (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
@@ -2163,8 +2163,8 @@ class ProductsApi
      *
      * @param  int $id The ID of the product (required)
      * @param  int|0 $start Pagination start (optional, default to 0)
-     * @param  int|null $limit Items shown per page (optional)
-     * @param  string|null $sort The field name and sorting mode (&#x60;field_name_1 ASC&#x60; or &#x60;field_name_1 DESC&#x60;). Supported fields: &#x60;update_time&#x60;, &#x60;id&#x60;. (optional)
+     * @param  int|null $limit Items shown per page. Please note that a maximum value of 100 is allowed. (optional)
+     * @param  string|null $sort Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60; (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
@@ -2178,6 +2178,10 @@ class ProductsApi
                 'Missing the required parameter $id when calling getProductFiles'
             );
         }
+        if ($limit !== null && $limit > 100) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling ProductsApi.getProductFiles, must be smaller than or equal to 100.');
+        }
+
 
         $resourcePath = '/products/{id}/files';
         $formParams = [];

@@ -4,7 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**success** | **bool** | If the request was successful or not | [optional]
-**data** | [**\Pipedrive\Model\MessageObject**](MessageObject.md) |  | [optional]
+**success** | **bool** |  | [optional]
+**data** | [**\Pipedrive\Model\OrganizationsCollectionResponseObject[]**](OrganizationsCollectionResponseObject.md) |  | [optional]
+**additional_data** | [**\Pipedrive\Model\AdditionalDataWithCursorPagination**](AdditionalDataWithCursorPagination.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

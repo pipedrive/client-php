@@ -452,8 +452,8 @@ $apiInstance = new Pipedrive\Api\ProductsApi(
 );
 $id = 56; // int | The ID of the product
 $start = 0; // int | Pagination start
-$limit = 56; // int | Items shown per page
-$sort = 'sort_example'; // string | The field name and sorting mode (`field_name_1 ASC` or `field_name_1 DESC`). Supported fields: `update_time`, `id`.
+$limit = 56; // int | Items shown per page. Please note that a maximum value of 100 is allowed.
+$sort = 'sort_example'; // string | Supported fields: `id`, `update_time`
 
 try {
     $result = $apiInstance->getProductFiles($id, $start, $limit, $sort);
@@ -469,8 +469,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The ID of the product |
  **start** | **int**| Pagination start | [optional] [default to 0]
- **limit** | **int**| Items shown per page | [optional]
- **sort** | **string**| The field name and sorting mode (&#x60;field_name_1 ASC&#x60; or &#x60;field_name_1 DESC&#x60;). Supported fields: &#x60;update_time&#x60;, &#x60;id&#x60;. | [optional]
+ **limit** | **int**| Items shown per page. Please note that a maximum value of 100 is allowed. | [optional]
+ **sort** | **string**| Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60; | [optional]
 
 ### Return type
 

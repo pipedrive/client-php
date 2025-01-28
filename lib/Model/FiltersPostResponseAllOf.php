@@ -66,7 +66,7 @@ class FiltersPostResponseAllOf implements ModelInterface, ArrayAccess, JsonSeria
       * @phpsalm-var array<string, string>
       */
     protected static array $openAPITypes = [
-        'data' => '\Pipedrive\Model\FiltersPostResponseAllOfData'
+        'data' => '\Pipedrive\Model\Filter'
     ];
 
     /**
@@ -231,7 +231,7 @@ class FiltersPostResponseAllOf implements ModelInterface, ArrayAccess, JsonSeria
     /**
      * Gets data
      *
-     * @return \Pipedrive\Model\FiltersPostResponseAllOfData|null
+     * @return \Pipedrive\Model\Filter|null
      */
     public function getData()
     {
@@ -241,7 +241,7 @@ class FiltersPostResponseAllOf implements ModelInterface, ArrayAccess, JsonSeria
     /**
      * Sets data
      *
-     * @param \Pipedrive\Model\FiltersPostResponseAllOfData|null $data data
+     * @param \Pipedrive\Model\Filter|null $data data
      *
      * @return self
      */

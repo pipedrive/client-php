@@ -68,7 +68,7 @@ class GetRole implements ModelInterface, ArrayAccess, JsonSerializable
     protected static array $openAPITypes = [
         'success' => 'bool',
         'data' => '\Pipedrive\Model\SubRole',
-        'additional_data' => '\Pipedrive\Model\GetRoleAllOfAdditionalData'
+        'additional_data' => '\Pipedrive\Model\GetRoleResponseDataAdditionalData'
     ];
 
     /**
@@ -291,7 +291,7 @@ class GetRole implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets additional_data
      *
-     * @return \Pipedrive\Model\GetRoleAllOfAdditionalData|null
+     * @return \Pipedrive\Model\GetRoleResponseDataAdditionalData|null
      */
     public function getAdditionalData()
     {
@@ -301,7 +301,7 @@ class GetRole implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets additional_data
      *
-     * @param \Pipedrive\Model\GetRoleAllOfAdditionalData|null $additional_data additional_data
+     * @param \Pipedrive\Model\GetRoleResponseDataAdditionalData|null $additional_data additional_data
      *
      * @return self
      */

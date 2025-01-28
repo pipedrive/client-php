@@ -67,7 +67,7 @@ class PostRoleAssignment implements ModelInterface, ArrayAccess, JsonSerializabl
       */
     protected static array $openAPITypes = [
         'success' => 'bool',
-        'data' => '\Pipedrive\Model\PostRoleAssignmentAllOfData'
+        'data' => '\Pipedrive\Model\AddRoleAssignmentResponseDataData'
     ];
 
     /**
@@ -261,7 +261,7 @@ class PostRoleAssignment implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Gets data
      *
-     * @return \Pipedrive\Model\PostRoleAssignmentAllOfData|null
+     * @return \Pipedrive\Model\AddRoleAssignmentResponseDataData|null
      */
     public function getData()
     {
@@ -271,7 +271,7 @@ class PostRoleAssignment implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Sets data
      *
-     * @param \Pipedrive\Model\PostRoleAssignmentAllOfData|null $data data
+     * @param \Pipedrive\Model\AddRoleAssignmentResponseDataData|null $data data
      *
      * @return self
      */

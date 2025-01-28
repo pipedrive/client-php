@@ -67,7 +67,7 @@ class GetLeadsSourceResponse implements ModelInterface, ArrayAccess, JsonSeriali
       */
     protected static array $openAPITypes = [
         'success' => 'bool',
-        'data' => '\Pipedrive\Model\GetLeadsSourceResponseData[]'
+        'data' => '\Pipedrive\Model\LeadSource[]'
     ];
 
     /**
@@ -261,7 +261,7 @@ class GetLeadsSourceResponse implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Gets data
      *
-     * @return \Pipedrive\Model\GetLeadsSourceResponseData[]|null
+     * @return \Pipedrive\Model\LeadSource[]|null
      */
     public function getData()
     {
@@ -271,7 +271,7 @@ class GetLeadsSourceResponse implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Sets data
      *
-     * @param \Pipedrive\Model\GetLeadsSourceResponseData[]|null $data data
+     * @param \Pipedrive\Model\LeadSource[]|null $data data
      *
      * @return self
      */

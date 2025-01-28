@@ -66,7 +66,7 @@ class PostRolesAllOf implements ModelInterface, ArrayAccess, JsonSerializable
       * @phpsalm-var array<string, string>
       */
     protected static array $openAPITypes = [
-        'data' => '\Pipedrive\Model\PostRolesAllOfData'
+        'data' => '\Pipedrive\Model\AddRolesResponseData'
     ];
 
     /**
@@ -231,7 +231,7 @@ class PostRolesAllOf implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets data
      *
-     * @return \Pipedrive\Model\PostRolesAllOfData|null
+     * @return \Pipedrive\Model\AddRolesResponseData|null
      */
     public function getData()
     {
@@ -241,7 +241,7 @@ class PostRolesAllOf implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets data
      *
-     * @param \Pipedrive\Model\PostRolesAllOfData|null $data data
+     * @param \Pipedrive\Model\AddRolesResponseData|null $data data
      *
      * @return self
      */

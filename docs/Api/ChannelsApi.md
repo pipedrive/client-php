@@ -210,7 +210,7 @@ Name | Type | Description  | Notes
 ## `receiveMessage()`
 
 ```php
-receiveMessage($message_object): \Pipedrive\Model\InlineResponse200
+receiveMessage($message_object): \Pipedrive\Model\GetReceiveMessageSuccessResponse
 ```
 
 Receives an incoming message
@@ -257,7 +257,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Pipedrive\Model\InlineResponse200**](../Model/InlineResponse200.md)
+[**\Pipedrive\Model\GetReceiveMessageSuccessResponse**](../Model/GetReceiveMessageSuccessResponse.md)
 
 ### Authorization
 
