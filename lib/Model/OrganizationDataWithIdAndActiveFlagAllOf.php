@@ -56,7 +56,7 @@ class OrganizationDataWithIdAndActiveFlagAllOf implements ModelInterface, ArrayA
       *
       * @var string
       */
-    protected static string $openAPIModelName = 'OrganizationDataWithIdAndActiveFlag_allOf';
+    protected static string $openAPIModelName = 'OrganizationDataWithIdAndActiveFlagAllOf';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

@@ -552,7 +552,7 @@ class AddWebhookRequest implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets version
      *
-     * @param string|null $version The webhook's version
+     * @param string|null $version The webhook's version. NB! Webhooks v2 will become the default from March 17th, 2025. See <a href=\"https://developers.pipedrive.com/changelog/post/breaking-change-webhooks-v2-will-become-the-new-default-version\" target=\"_blank\" rel=\"noopener noreferrer\">this Changelog post</a> for more details.
      *
      * @return self
      */

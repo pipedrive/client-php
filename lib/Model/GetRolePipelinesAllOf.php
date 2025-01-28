@@ -66,7 +66,7 @@ class GetRolePipelinesAllOf implements ModelInterface, ArrayAccess, JsonSerializ
       * @phpsalm-var array<string, string>
       */
     protected static array $openAPITypes = [
-        'data' => '\Pipedrive\Model\GetRolePipelinesAllOfData'
+        'data' => '\Pipedrive\Model\GetRolePipelinesResponseData'
     ];
 
     /**
@@ -231,7 +231,7 @@ class GetRolePipelinesAllOf implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Gets data
      *
-     * @return \Pipedrive\Model\GetRolePipelinesAllOfData|null
+     * @return \Pipedrive\Model\GetRolePipelinesResponseData|null
      */
     public function getData()
     {
@@ -241,7 +241,7 @@ class GetRolePipelinesAllOf implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Sets data
      *
-     * @param \Pipedrive\Model\GetRolePipelinesAllOfData|null $data data
+     * @param \Pipedrive\Model\GetRolePipelinesResponseData|null $data data
      *
      * @return self
      */

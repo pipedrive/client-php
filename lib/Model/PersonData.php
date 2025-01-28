@@ -69,7 +69,7 @@ class PersonData implements ModelInterface, ArrayAccess, JsonSerializable
         'id' => 'int',
         'name' => 'string',
         'email' => '\Pipedrive\Model\PersonDataEmail[]',
-        'phone' => '\Pipedrive\Model\PersonDataPhone[]',
+        'phone' => '\Pipedrive\Model\PhoneData[]',
         'owner_id' => 'int'
     ];
 
@@ -327,7 +327,7 @@ class PersonData implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets phone
      *
-     * @return \Pipedrive\Model\PersonDataPhone[]|null
+     * @return \Pipedrive\Model\PhoneData[]|null
      */
     public function getPhone()
     {
@@ -337,7 +337,7 @@ class PersonData implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets phone
      *
-     * @param \Pipedrive\Model\PersonDataPhone[]|null $phone The phone numbers of the person associated with the item
+     * @param \Pipedrive\Model\PhoneData[]|null $phone The phone numbers of the person associated with the item
      *
      * @return self
      */

@@ -66,7 +66,7 @@ class ActivityDistributionDataWithAdditionalData implements ModelInterface, Arra
       * @phpsalm-var array<string, string>
       */
     protected static array $openAPITypes = [
-        'activity_distribution' => '\Pipedrive\Model\ActivityDistributionDataActivityDistribution',
+        'activity_distribution' => '\Pipedrive\Model\ActivityDistribution',
         'start' => 'int',
         'limit' => 'int',
         'more_items_in_collection' => 'bool'
@@ -249,7 +249,7 @@ class ActivityDistributionDataWithAdditionalData implements ModelInterface, Arra
     /**
      * Gets activity_distribution
      *
-     * @return \Pipedrive\Model\ActivityDistributionDataActivityDistribution|null
+     * @return \Pipedrive\Model\ActivityDistribution|null
      */
     public function getActivityDistribution()
     {
@@ -259,7 +259,7 @@ class ActivityDistributionDataWithAdditionalData implements ModelInterface, Arra
     /**
      * Sets activity_distribution
      *
-     * @param \Pipedrive\Model\ActivityDistributionDataActivityDistribution|null $activity_distribution activity_distribution
+     * @param \Pipedrive\Model\ActivityDistribution|null $activity_distribution activity_distribution
      *
      * @return self
      */

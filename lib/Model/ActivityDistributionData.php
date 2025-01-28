@@ -66,7 +66,7 @@ class ActivityDistributionData implements ModelInterface, ArrayAccess, JsonSeria
       * @phpsalm-var array<string, string>
       */
     protected static array $openAPITypes = [
-        'activity_distribution' => '\Pipedrive\Model\ActivityDistributionDataActivityDistribution'
+        'activity_distribution' => '\Pipedrive\Model\ActivityDistribution'
     ];
 
     /**
@@ -231,7 +231,7 @@ class ActivityDistributionData implements ModelInterface, ArrayAccess, JsonSeria
     /**
      * Gets activity_distribution
      *
-     * @return \Pipedrive\Model\ActivityDistributionDataActivityDistribution|null
+     * @return \Pipedrive\Model\ActivityDistribution|null
      */
     public function getActivityDistribution()
     {
@@ -241,7 +241,7 @@ class ActivityDistributionData implements ModelInterface, ArrayAccess, JsonSeria
     /**
      * Sets activity_distribution
      *
-     * @param \Pipedrive\Model\ActivityDistributionDataActivityDistribution|null $activity_distribution activity_distribution
+     * @param \Pipedrive\Model\ActivityDistribution|null $activity_distribution activity_distribution
      *
      * @return self
      */

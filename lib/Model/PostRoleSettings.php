@@ -67,7 +67,7 @@ class PostRoleSettings implements ModelInterface, ArrayAccess, JsonSerializable
       */
     protected static array $openAPITypes = [
         'success' => 'bool',
-        'data' => '\Pipedrive\Model\PostRoleSettingsAllOfData'
+        'data' => '\Pipedrive\Model\UpsertRoleSettingsResponseDataData'
     ];
 
     /**
@@ -261,7 +261,7 @@ class PostRoleSettings implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets data
      *
-     * @return \Pipedrive\Model\PostRoleSettingsAllOfData|null
+     * @return \Pipedrive\Model\UpsertRoleSettingsResponseDataData|null
      */
     public function getData()
     {
@@ -271,7 +271,7 @@ class PostRoleSettings implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets data
      *
-     * @param \Pipedrive\Model\PostRoleSettingsAllOfData|null $data data
+     * @param \Pipedrive\Model\UpsertRoleSettingsResponseDataData|null $data data
      *
      * @return self
      */

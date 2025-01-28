@@ -67,7 +67,7 @@ class UserConnections implements ModelInterface, ArrayAccess, JsonSerializable
       */
     protected static array $openAPITypes = [
         'success' => 'bool',
-        'data' => '\Pipedrive\Model\UserConnectionsAllOfData'
+        'data' => '\Pipedrive\Model\GetUserConnectionsResponseDataData'
     ];
 
     /**
@@ -261,7 +261,7 @@ class UserConnections implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets data
      *
-     * @return \Pipedrive\Model\UserConnectionsAllOfData|null
+     * @return \Pipedrive\Model\GetUserConnectionsResponseDataData|null
      */
     public function getData()
     {
@@ -271,7 +271,7 @@ class UserConnections implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets data
      *
-     * @param \Pipedrive\Model\UserConnectionsAllOfData|null $data data
+     * @param \Pipedrive\Model\GetUserConnectionsResponseDataData|null $data data
      *
      * @return self
      */

@@ -67,7 +67,7 @@ class FiltersPostResponse implements ModelInterface, ArrayAccess, JsonSerializab
       */
     protected static array $openAPITypes = [
         'success' => 'bool',
-        'data' => '\Pipedrive\Model\FiltersPostResponseAllOfData'
+        'data' => '\Pipedrive\Model\Filter'
     ];
 
     /**
@@ -261,7 +261,7 @@ class FiltersPostResponse implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Gets data
      *
-     * @return \Pipedrive\Model\FiltersPostResponseAllOfData|null
+     * @return \Pipedrive\Model\Filter|null
      */
     public function getData()
     {
@@ -271,7 +271,7 @@ class FiltersPostResponse implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets data
      *
-     * @param \Pipedrive\Model\FiltersPostResponseAllOfData|null $data data
+     * @param \Pipedrive\Model\Filter|null $data data
      *
      * @return self
      */

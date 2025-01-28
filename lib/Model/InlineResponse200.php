@@ -67,7 +67,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, JsonSerializable
       */
     protected static array $openAPITypes = [
         'success' => 'bool',
-        'data' => '\Pipedrive\Model\MessageObject'
+        'data' => '\Pipedrive\Model\OrganizationsCollectionResponseObject[]',
+        'additional_data' => '\Pipedrive\Model\AdditionalDataWithCursorPagination'
     ];
 
     /**
@@ -79,7 +80,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, JsonSerializable
       */
     protected static $openAPIFormats = [
         'success' => null,
-        'data' => null
+        'data' => null,
+        'additional_data' => null
     ];
 
     /**
@@ -114,7 +116,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static $attributeMap = [
         'success' => 'success',
-        'data' => 'data'
+        'data' => 'data',
+        'additional_data' => 'additional_data'
     ];
 
     /**
@@ -124,7 +127,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static $setters = [
         'success' => 'setSuccess',
-        'data' => 'setData'
+        'data' => 'setData',
+        'additional_data' => 'setAdditionalData'
     ];
 
     /**
@@ -134,7 +138,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static $getters = [
         'success' => 'getSuccess',
-        'data' => 'getData'
+        'data' => 'getData',
+        'additional_data' => 'getAdditionalData'
     ];
 
     /**
@@ -206,6 +211,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, JsonSerializable
     {
         $this->container['success'] = $data['success'] ?? null;
         $this->container['data'] = $data['data'] ?? null;
+        $this->container['additional_data'] = $data['additional_data'] ?? null;
     }
 
     /**
@@ -247,7 +253,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets success
      *
-     * @param bool|null $success If the request was successful or not
+     * @param bool|null $success success
      *
      * @return self
      */
@@ -261,7 +267,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets data
      *
-     * @return \Pipedrive\Model\MessageObject|null
+     * @return \Pipedrive\Model\OrganizationsCollectionResponseObject[]|null
      */
     public function getData()
     {
@@ -271,13 +277,37 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets data
      *
-     * @param \Pipedrive\Model\MessageObject|null $data data
+     * @param \Pipedrive\Model\OrganizationsCollectionResponseObject[]|null $data data
      *
      * @return self
      */
     public function setData($data): self
     {
         $this->container['data'] = $data;
+
+        return $this;
+    }
+
+    /**
+     * Gets additional_data
+     *
+     * @return \Pipedrive\Model\AdditionalDataWithCursorPagination|null
+     */
+    public function getAdditionalData()
+    {
+        return $this->container['additional_data'];
+    }
+
+    /**
+     * Sets additional_data
+     *
+     * @param \Pipedrive\Model\AdditionalDataWithCursorPagination|null $additional_data additional_data
+     *
+     * @return self
+     */
+    public function setAdditionalData($additional_data): self
+    {
+        $this->container['additional_data'] = $additional_data;
 
         return $this;
     }

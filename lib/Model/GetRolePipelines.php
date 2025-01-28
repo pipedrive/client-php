@@ -67,7 +67,7 @@ class GetRolePipelines implements ModelInterface, ArrayAccess, JsonSerializable
       */
     protected static array $openAPITypes = [
         'success' => 'bool',
-        'data' => '\Pipedrive\Model\GetRolePipelinesAllOfData'
+        'data' => '\Pipedrive\Model\GetRolePipelinesResponseData'
     ];
 
     /**
@@ -261,7 +261,7 @@ class GetRolePipelines implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets data
      *
-     * @return \Pipedrive\Model\GetRolePipelinesAllOfData|null
+     * @return \Pipedrive\Model\GetRolePipelinesResponseData|null
      */
     public function getData()
     {
@@ -271,7 +271,7 @@ class GetRolePipelines implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets data
      *
-     * @param \Pipedrive\Model\GetRolePipelinesAllOfData|null $data data
+     * @param \Pipedrive\Model\GetRolePipelinesResponseData|null $data data
      *
      * @return self
      */

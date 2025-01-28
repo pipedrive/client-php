@@ -3598,8 +3598,8 @@ class PersonsApi
      *
      * @param  int $id The ID of the person (required)
      * @param  int|0 $start Pagination start (optional, default to 0)
-     * @param  int|null $limit Items shown per page (optional)
-     * @param  string|null $sort The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). Supported fields: &#x60;id&#x60;, &#x60;user_id&#x60;, &#x60;deal_id&#x60;, &#x60;person_id&#x60;, &#x60;org_id&#x60;, &#x60;product_id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;, &#x60;file_name&#x60;, &#x60;file_type&#x60;, &#x60;file_size&#x60;, &#x60;comment&#x60;. (optional)
+     * @param  int|null $limit Items shown per page. Please note that a maximum value of 100 is allowed. (optional)
+     * @param  string|null $sort Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60; (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
@@ -3618,8 +3618,8 @@ class PersonsApi
      *
      * @param  int $id The ID of the person (required)
      * @param  int|0 $start Pagination start (optional, default to 0)
-     * @param  int|null $limit Items shown per page (optional)
-     * @param  string|null $sort The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). Supported fields: &#x60;id&#x60;, &#x60;user_id&#x60;, &#x60;deal_id&#x60;, &#x60;person_id&#x60;, &#x60;org_id&#x60;, &#x60;product_id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;, &#x60;file_name&#x60;, &#x60;file_type&#x60;, &#x60;file_size&#x60;, &#x60;comment&#x60;. (optional)
+     * @param  int|null $limit Items shown per page. Please note that a maximum value of 100 is allowed. (optional)
+     * @param  string|null $sort Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60; (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
@@ -3722,8 +3722,8 @@ class PersonsApi
      *
      * @param  int $id The ID of the person (required)
      * @param  int|0 $start Pagination start (optional, default to 0)
-     * @param  int|null $limit Items shown per page (optional)
-     * @param  string|null $sort The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). Supported fields: &#x60;id&#x60;, &#x60;user_id&#x60;, &#x60;deal_id&#x60;, &#x60;person_id&#x60;, &#x60;org_id&#x60;, &#x60;product_id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;, &#x60;file_name&#x60;, &#x60;file_type&#x60;, &#x60;file_size&#x60;, &#x60;comment&#x60;. (optional)
+     * @param  int|null $limit Items shown per page. Please note that a maximum value of 100 is allowed. (optional)
+     * @param  string|null $sort Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60; (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
@@ -3745,8 +3745,8 @@ class PersonsApi
      *
      * @param  int $id The ID of the person (required)
      * @param  int|0 $start Pagination start (optional, default to 0)
-     * @param  int|null $limit Items shown per page (optional)
-     * @param  string|null $sort The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). Supported fields: &#x60;id&#x60;, &#x60;user_id&#x60;, &#x60;deal_id&#x60;, &#x60;person_id&#x60;, &#x60;org_id&#x60;, &#x60;product_id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;, &#x60;file_name&#x60;, &#x60;file_type&#x60;, &#x60;file_size&#x60;, &#x60;comment&#x60;. (optional)
+     * @param  int|null $limit Items shown per page. Please note that a maximum value of 100 is allowed. (optional)
+     * @param  string|null $sort Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60; (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
@@ -3795,8 +3795,8 @@ class PersonsApi
      *
      * @param  int $id The ID of the person (required)
      * @param  int|0 $start Pagination start (optional, default to 0)
-     * @param  int|null $limit Items shown per page (optional)
-     * @param  string|null $sort The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). Supported fields: &#x60;id&#x60;, &#x60;user_id&#x60;, &#x60;deal_id&#x60;, &#x60;person_id&#x60;, &#x60;org_id&#x60;, &#x60;product_id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;, &#x60;file_name&#x60;, &#x60;file_type&#x60;, &#x60;file_size&#x60;, &#x60;comment&#x60;. (optional)
+     * @param  int|null $limit Items shown per page. Please note that a maximum value of 100 is allowed. (optional)
+     * @param  string|null $sort Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60; (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
@@ -3810,6 +3810,10 @@ class PersonsApi
                 'Missing the required parameter $id when calling getPersonFiles'
             );
         }
+        if ($limit !== null && $limit > 100) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling PersonsApi.getPersonFiles, must be smaller than or equal to 100.');
+        }
+
 
         $resourcePath = '/persons/{id}/files';
         $formParams = [];
@@ -5878,7 +5882,7 @@ class PersonsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return \Pipedrive\Model\InlineResponse2002|\Pipedrive\Model\FailResponse
+     * @return \Pipedrive\Model\InlineResponse2001|\Pipedrive\Model\FailResponse
      */
     public function getPersonsCollection($cursor = null, $limit = null, $since = null, $until = null, $owner_id = null, $first_char = null)
     {
@@ -5900,7 +5904,7 @@ class PersonsApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
-     * @return array<mixed> of \Pipedrive\Model\InlineResponse2002|\Pipedrive\Model\FailResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array<mixed> of \Pipedrive\Model\InlineResponse2001|\Pipedrive\Model\FailResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getPersonsCollectionWithHttpInfo($cursor = null, $limit = null, $since = null, $until = null, $owner_id = null, $first_char = null)
     {
@@ -5938,14 +5942,14 @@ class PersonsApi
             switch($statusCode) {
                 case 200:
                     /* @phpstan-ignore-next-line */
-                    if ('\Pipedrive\Model\InlineResponse2002' === '\SplFileObject') {
+                    if ('\Pipedrive\Model\InlineResponse2001' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\InlineResponse2002', []),
+                        ObjectSerializer::deserialize($content, '\Pipedrive\Model\InlineResponse2001', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -5978,14 +5982,14 @@ class PersonsApi
             }
 
             /* @phpstan-ignore-next-line */
-            if ('\Pipedrive\Model\InlineResponse2002' === '\SplFileObject') {
+            if ('\Pipedrive\Model\InlineResponse2001' === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
 
             return [
-                ObjectSerializer::deserialize($content, '\Pipedrive\Model\InlineResponse2002', []),
+                ObjectSerializer::deserialize($content, '\Pipedrive\Model\InlineResponse2001', []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -5995,7 +5999,7 @@ class PersonsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pipedrive\Model\InlineResponse2002',
+                        '\Pipedrive\Model\InlineResponse2001',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6055,7 +6059,7 @@ class PersonsApi
      */
     public function getPersonsCollectionAsyncWithHttpInfo($cursor = null, $limit = null, $since = null, $until = null, $owner_id = null, $first_char = null): PromiseInterface
     {
-        $returnType = '\Pipedrive\Model\InlineResponse2002';
+        $returnType = '\Pipedrive\Model\InlineResponse2001';
         $request = $this->getPersonsCollectionRequest($cursor, $limit, $since, $until, $owner_id, $first_char);
 
         return $this->client

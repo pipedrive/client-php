@@ -67,7 +67,7 @@ class DeleteRole implements ModelInterface, ArrayAccess, JsonSerializable
       */
     protected static array $openAPITypes = [
         'success' => 'bool',
-        'data' => '\Pipedrive\Model\DeleteRoleAllOfData'
+        'data' => '\Pipedrive\Model\DeleteRoleResponseDataData'
     ];
 
     /**
@@ -261,7 +261,7 @@ class DeleteRole implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets data
      *
-     * @return \Pipedrive\Model\DeleteRoleAllOfData|null
+     * @return \Pipedrive\Model\DeleteRoleResponseDataData|null
      */
     public function getData()
     {
@@ -271,7 +271,7 @@ class DeleteRole implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets data
      *
-     * @param \Pipedrive\Model\DeleteRoleAllOfData|null $data data
+     * @param \Pipedrive\Model\DeleteRoleResponseDataData|null $data data
      *
      * @return self
      */

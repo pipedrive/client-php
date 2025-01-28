@@ -67,7 +67,7 @@ class PutRole implements ModelInterface, ArrayAccess, JsonSerializable
       */
     protected static array $openAPITypes = [
         'success' => 'bool',
-        'data' => '\Pipedrive\Model\PutRoleAllOfData'
+        'data' => '\Pipedrive\Model\UpdateRoleResponseData'
     ];
 
     /**
@@ -261,7 +261,7 @@ class PutRole implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets data
      *
-     * @return \Pipedrive\Model\PutRoleAllOfData|null
+     * @return \Pipedrive\Model\UpdateRoleResponseData|null
      */
     public function getData()
     {
@@ -271,7 +271,7 @@ class PutRole implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets data
      *
-     * @param \Pipedrive\Model\PutRoleAllOfData|null $data data
+     * @param \Pipedrive\Model\UpdateRoleResponseData|null $data data
      *
      * @return self
      */
