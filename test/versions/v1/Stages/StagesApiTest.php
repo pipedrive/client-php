@@ -3,8 +3,8 @@
 use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
-use Pipedrive\Api\StagesApi;
-use Pipedrive\Configuration;
+use Pipedrive\versions\v1\Api\StagesApi;
+use Pipedrive\versions\v1\Configuration;
 use Pipedrive\Tests\Unit\TestCase;
 
 uses(TestCase::class)->group('unit');

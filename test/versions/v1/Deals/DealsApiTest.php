@@ -3,10 +3,10 @@
 use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
-use Pipedrive\Api\DealsApi;
-use Pipedrive\Model\NewDealProduct;
-use Pipedrive\Model\UpdateDealProduct;
-use Pipedrive\Configuration;
+use Pipedrive\versions\v1\Api\DealsApi;
+use Pipedrive\versions\v1\Model\NewDealProduct;
+use Pipedrive\versions\v1\Model\UpdateDealProduct;
+use Pipedrive\versions\v1\Configuration;
 use Pipedrive\Tests\Unit\TestCase;
 
 uses(TestCase::class)->group('unit');
@@ -75,7 +75,6 @@ it('attach a product to a deal', function () {
                 'product_id' => 1,
                 'quantity' => 1,
                 'discount' => 1,
-                'product_id' => 1,
                 'discount_type' => 'percentage',
                 'duration' => 1,
                 'tax' => 0,
@@ -158,10 +157,12 @@ it('update a product attached to a deal', function () {
         $client,
         $config,
     );
-    $result = $apiInstance->updateDealProduct(1, $update_deal_product);
+    $result = $apiInstance->updateDealProduct(1, 1, $update_deal_product);
 
-    expect($mock->getLastRequest()->getUri())->toEqual("https://api.pipedrive.com/v1/deals/1/products/{$encoded_deal_product}")
+    expect($mock->getLastRequest()->getUri())->toEqual("https://api.pipedrive.com/v1/deals/1/products/1")
         ->and($result->getData()->getId())->toBe(777);
+
+    expect($mock->getLastRequest()->getBody()->getContents())->toEqual(json_encode($update_deal_product));
 });
 
 
