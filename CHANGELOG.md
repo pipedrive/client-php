@@ -6,7 +6,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Added
-- Introduced a new client-nodejs library with full TypeScript support
 - Added compatibility for both API v1 and v2 endpoints. See migration guide for more details
 
 ## [7.1.0](https://github.com/pipedrive/client-php/compare/7.0.0...7.1.0) (2024-09-12)
