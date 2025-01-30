@@ -1,9 +1,0 @@
-# # NewDealProductAllOf2
-
-## Properties
-
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**billing_start_date** | **string** | Only available in Advanced and above plans  The billing start date. Must be between 15 years in the past and 15 years in the future | [optional]
-
-[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
