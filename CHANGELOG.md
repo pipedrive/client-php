@@ -5,13 +5,39 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+
+- Added “pipeline_id” query parameter to GET /api/v1/deals/summary endpoint
+
 ### Changed
+
 - Updated list of lead label colors to include 'brown', 'dark-gray', 'orange', 'pink'
 
 ## [8.0.0](https://github.com/pipedrive/client-php/compare/7.1.0...8.0.0) (2025-01-30)
 
 ### Added
+
 - Added compatibility for both API v1 and v2 endpoints. See migration guide for more details
+- Add documentation for installments functionality:
+  - `POST` `/v1/deals/{id}/products` endpoint
+  - `PUT` `/v1/deals/{id}/products/{product_attachment_id}` endpoint
+  - `DELETE` `/v1/deals/{id}/products/{product_attachment_id}` endpoint
+  - `POST` `/v2/deals/{id}/products` endpoint
+  - `PATCH` `/v2/deals/{id}/products/{product_attachment_id}` endpoint
+  - `DELETE` `/v2/deals/{id}/products/{product_attachment_id}` endpoint
+- Added the field “notes” to product prices in the body and response for v1 and v2
+- Added the field “overhead_cost” to the product variation prices in the response for v1
+- Added the field “direct_cost” to the product variation prices in the response and body for v2
+- Add "custom_fields" query paremeter to GET /api/v2/products
+
+### Changed
+
+- Reduce maximum `limit` query param to 100 for the following endpoints
+  - GET v1/files
+  - GET v1/deals/{id}/files
+  - GET v1/organizations/{id}/files
+  - GET v1/persons/{id}/files
+  - GET /v1/products/{id}/files
 
 ## [7.1.0](https://github.com/pipedrive/client-php/compare/7.0.0...7.1.0) (2024-09-12)
 
