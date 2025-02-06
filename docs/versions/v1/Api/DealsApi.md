@@ -1685,7 +1685,7 @@ Name | Type | Description  | Notes
 ## `getDealsSummary()`
 
 ```php
-getDealsSummary($status, $filter_id, $user_id, $stage_id): \Pipedrive\versions\v1\Model\GetDealsSummary
+getDealsSummary($status, $filter_id, $user_id, $pipeline_id, $stage_id): \Pipedrive\versions\v1\Model\GetDealsSummary
 ```
 
 Get deals summary
@@ -1717,10 +1717,11 @@ $apiInstance = new Pipedrive\versions\v1\Api\DealsApi(
 $status = 'status_example'; // string | Only fetch deals with a specific status. open = Open, won = Won, lost = Lost.
 $filter_id = 56; // int | <code>user_id</code> will not be considered. Only deals matching the given filter will be returned.
 $user_id = 56; // int | Only deals matching the given user will be returned. `user_id` will not be considered if you use `filter_id`.
+$pipeline_id = 56; // int | Only deals within the given pipeline will be returned
 $stage_id = 56; // int | Only deals within the given stage will be returned
 
 try {
-    $result = $apiInstance->getDealsSummary($status, $filter_id, $user_id, $stage_id);
+    $result = $apiInstance->getDealsSummary($status, $filter_id, $user_id, $pipeline_id, $stage_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DealsApi->getDealsSummary: ', $e->getMessage(), PHP_EOL;
@@ -1734,6 +1735,7 @@ Name | Type | Description  | Notes
  **status** | **string**| Only fetch deals with a specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. | [optional]
  **filter_id** | **int**| &lt;code&gt;user_id&lt;/code&gt; will not be considered. Only deals matching the given filter will be returned. | [optional]
  **user_id** | **int**| Only deals matching the given user will be returned. &#x60;user_id&#x60; will not be considered if you use &#x60;filter_id&#x60;. | [optional]
+ **pipeline_id** | **int**| Only deals within the given pipeline will be returned | [optional]
  **stage_id** | **int**| Only deals within the given stage will be returned | [optional]
 
 ### Return type
