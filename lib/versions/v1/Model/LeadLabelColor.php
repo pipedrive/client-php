@@ -43,17 +43,25 @@ class LeadLabelColor
     /**
      * Possible values of this enum
      */
+    const BLUE = 'blue';
+
+    const BROWN = 'brown';
+
+    const DARK_GRAY = 'dark-gray';
+
+    const GRAY = 'gray';
+
     const GREEN = 'green';
 
-    const BLUE = 'blue';
+    const ORANGE = 'orange';
+
+    const PINK = 'pink';
+
+    const PURPLE = 'purple';
 
     const RED = 'red';
 
     const YELLOW = 'yellow';
-
-    const PURPLE = 'purple';
-
-    const GRAY = 'gray';
 
     /**
      * Gets allowable values of the enum
@@ -62,12 +70,16 @@ class LeadLabelColor
     public static function getAllowableEnumValues()
     {
         return [
-            self::GREEN,
             self::BLUE,
-            self::RED,
-            self::YELLOW,
+            self::BROWN,
+            self::DARK_GRAY,
+            self::GRAY,
+            self::GREEN,
+            self::ORANGE,
+            self::PINK,
             self::PURPLE,
-            self::GRAY
+            self::RED,
+            self::YELLOW
         ];
     }
 }
