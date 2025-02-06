@@ -7810,15 +7810,16 @@ class DealsApi
      * @param  string|null $status Only fetch deals with a specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. (optional)
      * @param  int|null $filter_id &lt;code&gt;user_id&lt;/code&gt; will not be considered. Only deals matching the given filter will be returned. (optional)
      * @param  int|null $user_id Only deals matching the given user will be returned. &#x60;user_id&#x60; will not be considered if you use &#x60;filter_id&#x60;. (optional)
+     * @param  int|null $pipeline_id Only deals within the given pipeline will be returned (optional)
      * @param  int|null $stage_id Only deals within the given stage will be returned (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\GetDealsSummary
      */
-    public function getDealsSummary($status = null, $filter_id = null, $user_id = null, $stage_id = null)
+    public function getDealsSummary($status = null, $filter_id = null, $user_id = null, $pipeline_id = null, $stage_id = null)
     {
-        list($response) = $this->getDealsSummaryWithHttpInfo($status, $filter_id, $user_id, $stage_id);
+        list($response) = $this->getDealsSummaryWithHttpInfo($status, $filter_id, $user_id, $pipeline_id, $stage_id);
         return $response;
     }
 
@@ -7830,15 +7831,16 @@ class DealsApi
      * @param  string|null $status Only fetch deals with a specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. (optional)
      * @param  int|null $filter_id &lt;code&gt;user_id&lt;/code&gt; will not be considered. Only deals matching the given filter will be returned. (optional)
      * @param  int|null $user_id Only deals matching the given user will be returned. &#x60;user_id&#x60; will not be considered if you use &#x60;filter_id&#x60;. (optional)
+     * @param  int|null $pipeline_id Only deals within the given pipeline will be returned (optional)
      * @param  int|null $stage_id Only deals within the given stage will be returned (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\GetDealsSummary, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getDealsSummaryWithHttpInfo($status = null, $filter_id = null, $user_id = null, $stage_id = null)
+    public function getDealsSummaryWithHttpInfo($status = null, $filter_id = null, $user_id = null, $pipeline_id = null, $stage_id = null)
     {
-        $request = $this->getDealsSummaryRequest($status, $filter_id, $user_id, $stage_id);
+        $request = $this->getDealsSummaryRequest($status, $filter_id, $user_id, $pipeline_id, $stage_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7847,7 +7849,7 @@ class DealsApi
             } catch (RequestException $e) {
                 if ($e->getCode() === 401 && $this->config->isRefreshPossible()) {
                     $this->config->refreshToken();
-                    $request = $this->getDealsSummaryRequest($status, $filter_id, $user_id, $stage_id);
+                    $request = $this->getDealsSummaryRequest($status, $filter_id, $user_id, $pipeline_id, $stage_id);
                     $response = $this->client->send($request, $options);
                 } else {
                     throw new ApiException(
@@ -7934,14 +7936,15 @@ class DealsApi
      * @param  string|null $status Only fetch deals with a specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. (optional)
      * @param  int|null $filter_id &lt;code&gt;user_id&lt;/code&gt; will not be considered. Only deals matching the given filter will be returned. (optional)
      * @param  int|null $user_id Only deals matching the given user will be returned. &#x60;user_id&#x60; will not be considered if you use &#x60;filter_id&#x60;. (optional)
+     * @param  int|null $pipeline_id Only deals within the given pipeline will be returned (optional)
      * @param  int|null $stage_id Only deals within the given stage will be returned (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
      */
-    public function getDealsSummaryAsync($status = null, $filter_id = null, $user_id = null, $stage_id = null): PromiseInterface
+    public function getDealsSummaryAsync($status = null, $filter_id = null, $user_id = null, $pipeline_id = null, $stage_id = null): PromiseInterface
     {
-        return $this->getDealsSummaryAsyncWithHttpInfo($status, $filter_id, $user_id, $stage_id)
+        return $this->getDealsSummaryAsyncWithHttpInfo($status, $filter_id, $user_id, $pipeline_id, $stage_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7957,15 +7960,16 @@ class DealsApi
      * @param  string|null $status Only fetch deals with a specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. (optional)
      * @param  int|null $filter_id &lt;code&gt;user_id&lt;/code&gt; will not be considered. Only deals matching the given filter will be returned. (optional)
      * @param  int|null $user_id Only deals matching the given user will be returned. &#x60;user_id&#x60; will not be considered if you use &#x60;filter_id&#x60;. (optional)
+     * @param  int|null $pipeline_id Only deals within the given pipeline will be returned (optional)
      * @param  int|null $stage_id Only deals within the given stage will be returned (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
      */
-    public function getDealsSummaryAsyncWithHttpInfo($status = null, $filter_id = null, $user_id = null, $stage_id = null): PromiseInterface
+    public function getDealsSummaryAsyncWithHttpInfo($status = null, $filter_id = null, $user_id = null, $pipeline_id = null, $stage_id = null): PromiseInterface
     {
         $returnType = '\Pipedrive\versions\v1\Model\GetDealsSummary';
-        $request = $this->getDealsSummaryRequest($status, $filter_id, $user_id, $stage_id);
+        $request = $this->getDealsSummaryRequest($status, $filter_id, $user_id, $pipeline_id, $stage_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8007,12 +8011,13 @@ class DealsApi
      * @param  string|null $status Only fetch deals with a specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. (optional)
      * @param  int|null $filter_id &lt;code&gt;user_id&lt;/code&gt; will not be considered. Only deals matching the given filter will be returned. (optional)
      * @param  int|null $user_id Only deals matching the given user will be returned. &#x60;user_id&#x60; will not be considered if you use &#x60;filter_id&#x60;. (optional)
+     * @param  int|null $pipeline_id Only deals within the given pipeline will be returned (optional)
      * @param  int|null $stage_id Only deals within the given stage will be returned (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
      */
-    public function getDealsSummaryRequest($status = null, $filter_id = null, $user_id = null, $stage_id = null): Request
+    public function getDealsSummaryRequest($status = null, $filter_id = null, $user_id = null, $pipeline_id = null, $stage_id = null): Request
     {
 
         $resourcePath = '/deals/summary';
@@ -8045,6 +8050,14 @@ class DealsApi
         }
         if ($user_id !== null) {
             $queryParams['user_id'] = $user_id;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($pipeline_id)) {
+            $pipeline_id = ObjectSerializer::serializeCollection($pipeline_id, '', true);
+        }
+        if ($pipeline_id !== null) {
+            $queryParams['pipeline_id'] = $pipeline_id;
         }
         // query params
         /* @phpstan-ignore-next-line */
