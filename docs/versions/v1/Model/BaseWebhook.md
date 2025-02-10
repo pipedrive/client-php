@@ -23,4 +23,4 @@ Name | Type | Description | Notes
 **last_http_status** | **int** | The last delivery HTTP status of the Webhook | [optional]
 **admin_id** | **int** | The ID of the admin of the Webhook | [optional]
 
-[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

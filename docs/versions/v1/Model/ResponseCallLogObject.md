@@ -22,4 +22,4 @@ Name | Type | Description | Notes
 **has_recording** | **bool** | If the call log has an audio recording attached, the value should be true |
 **company_id** | **int** | The company ID of the owner of the call log |
 
-[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

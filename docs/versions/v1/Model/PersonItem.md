@@ -47,4 +47,4 @@ Name | Type | Description | Notes
 **last_activity_id** | **int** | The ID of the last activity associated with the deal | [optional]
 **last_activity_date** | **string** | The date of the last activity associated with the deal | [optional]
 
-[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

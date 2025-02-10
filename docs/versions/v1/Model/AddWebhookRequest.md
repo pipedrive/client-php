@@ -12,4 +12,4 @@ Name | Type | Description | Notes
 **http_auth_password** | **string** | The HTTP basic auth password of the subscription URL endpoint (if required) | [optional]
 **version** | **string** | The webhook&#39;s version. NB! Webhooks v2 will become the default from March 17th, 2025. See &lt;a href&#x3D;\&quot;https://developers.pipedrive.com/changelog/post/breaking-change-webhooks-v2-will-become-the-new-default-version\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;this Changelog post&lt;/a&gt; for more details. | [optional] [default to '1.0']
 
-[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

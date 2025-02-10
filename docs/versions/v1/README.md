@@ -265,1097 +265,1097 @@ All URIs are relative to *https://api.pipedrive.com/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*ActivitiesApi* | [**addActivity**](docs/Api/ActivitiesApi.md#addactivity) | **POST** /activities | Add an activity
-*ActivitiesApi* | [**deleteActivities**](docs/Api/ActivitiesApi.md#deleteactivities) | **DELETE** /activities | Delete multiple activities in bulk
-*ActivitiesApi* | [**deleteActivity**](docs/Api/ActivitiesApi.md#deleteactivity) | **DELETE** /activities/{id} | Delete an activity
-*ActivitiesApi* | [**getActivities**](docs/Api/ActivitiesApi.md#getactivities) | **GET** /activities | Get all activities assigned to a particular user
-*ActivitiesApi* | [**getActivitiesCollection**](docs/Api/ActivitiesApi.md#getactivitiescollection) | **GET** /activities/collection | Get all activities (BETA)
-*ActivitiesApi* | [**getActivity**](docs/Api/ActivitiesApi.md#getactivity) | **GET** /activities/{id} | Get details of an activity
-*ActivitiesApi* | [**updateActivity**](docs/Api/ActivitiesApi.md#updateactivity) | **PUT** /activities/{id} | Update an activity
-*ActivityFieldsApi* | [**getActivityFields**](docs/Api/ActivityFieldsApi.md#getactivityfields) | **GET** /activityFields | Get all activity fields
-*ActivityTypesApi* | [**addActivityType**](docs/Api/ActivityTypesApi.md#addactivitytype) | **POST** /activityTypes | Add new activity type
-*ActivityTypesApi* | [**deleteActivityType**](docs/Api/ActivityTypesApi.md#deleteactivitytype) | **DELETE** /activityTypes/{id} | Delete an activity type
-*ActivityTypesApi* | [**deleteActivityTypes**](docs/Api/ActivityTypesApi.md#deleteactivitytypes) | **DELETE** /activityTypes | Delete multiple activity types in bulk
-*ActivityTypesApi* | [**getActivityTypes**](docs/Api/ActivityTypesApi.md#getactivitytypes) | **GET** /activityTypes | Get all activity types
-*ActivityTypesApi* | [**updateActivityType**](docs/Api/ActivityTypesApi.md#updateactivitytype) | **PUT** /activityTypes/{id} | Update an activity type
-*BillingApi* | [**getCompanyAddons**](docs/Api/BillingApi.md#getcompanyaddons) | **GET** /billing/subscriptions/addons | Get all add-ons for a single company
-*CallLogsApi* | [**addCallLog**](docs/Api/CallLogsApi.md#addcalllog) | **POST** /callLogs | Add a call log
-*CallLogsApi* | [**addCallLogAudioFile**](docs/Api/CallLogsApi.md#addcalllogaudiofile) | **POST** /callLogs/{id}/recordings | Attach an audio file to the call log
-*CallLogsApi* | [**deleteCallLog**](docs/Api/CallLogsApi.md#deletecalllog) | **DELETE** /callLogs/{id} | Delete a call log
-*CallLogsApi* | [**getCallLog**](docs/Api/CallLogsApi.md#getcalllog) | **GET** /callLogs/{id} | Get details of a call log
-*CallLogsApi* | [**getUserCallLogs**](docs/Api/CallLogsApi.md#getusercalllogs) | **GET** /callLogs | Get all call logs assigned to a particular user
-*ChannelsApi* | [**addChannel**](docs/Api/ChannelsApi.md#addchannel) | **POST** /channels | Add a channel
-*ChannelsApi* | [**deleteChannel**](docs/Api/ChannelsApi.md#deletechannel) | **DELETE** /channels/{id} | Delete a channel
-*ChannelsApi* | [**deleteConversation**](docs/Api/ChannelsApi.md#deleteconversation) | **DELETE** /channels/{channel-id}/conversations/{conversation-id} | Delete a conversation
-*ChannelsApi* | [**receiveMessage**](docs/Api/ChannelsApi.md#receivemessage) | **POST** /channels/messages/receive | Receives an incoming message
-*CurrenciesApi* | [**getCurrencies**](docs/Api/CurrenciesApi.md#getcurrencies) | **GET** /currencies | Get all supported currencies
-*DealFieldsApi* | [**addDealField**](docs/Api/DealFieldsApi.md#adddealfield) | **POST** /dealFields | Add a new deal field
-*DealFieldsApi* | [**deleteDealField**](docs/Api/DealFieldsApi.md#deletedealfield) | **DELETE** /dealFields/{id} | Delete a deal field
-*DealFieldsApi* | [**deleteDealFields**](docs/Api/DealFieldsApi.md#deletedealfields) | **DELETE** /dealFields | Delete multiple deal fields in bulk
-*DealFieldsApi* | [**getDealField**](docs/Api/DealFieldsApi.md#getdealfield) | **GET** /dealFields/{id} | Get one deal field
-*DealFieldsApi* | [**getDealFields**](docs/Api/DealFieldsApi.md#getdealfields) | **GET** /dealFields | Get all deal fields
-*DealFieldsApi* | [**updateDealField**](docs/Api/DealFieldsApi.md#updatedealfield) | **PUT** /dealFields/{id} | Update a deal field
-*DealsApi* | [**addDeal**](docs/Api/DealsApi.md#adddeal) | **POST** /deals | Add a deal
-*DealsApi* | [**addDealFollower**](docs/Api/DealsApi.md#adddealfollower) | **POST** /deals/{id}/followers | Add a follower to a deal
-*DealsApi* | [**addDealParticipant**](docs/Api/DealsApi.md#adddealparticipant) | **POST** /deals/{id}/participants | Add a participant to a deal
-*DealsApi* | [**addDealProduct**](docs/Api/DealsApi.md#adddealproduct) | **POST** /deals/{id}/products | Add a product to a deal
-*DealsApi* | [**deleteDeal**](docs/Api/DealsApi.md#deletedeal) | **DELETE** /deals/{id} | Delete a deal
-*DealsApi* | [**deleteDealFollower**](docs/Api/DealsApi.md#deletedealfollower) | **DELETE** /deals/{id}/followers/{follower_id} | Delete a follower from a deal
-*DealsApi* | [**deleteDealParticipant**](docs/Api/DealsApi.md#deletedealparticipant) | **DELETE** /deals/{id}/participants/{deal_participant_id} | Delete a participant from a deal
-*DealsApi* | [**deleteDealProduct**](docs/Api/DealsApi.md#deletedealproduct) | **DELETE** /deals/{id}/products/{product_attachment_id} | Delete an attached product from a deal
-*DealsApi* | [**deleteDeals**](docs/Api/DealsApi.md#deletedeals) | **DELETE** /deals | Delete multiple deals in bulk
-*DealsApi* | [**duplicateDeal**](docs/Api/DealsApi.md#duplicatedeal) | **POST** /deals/{id}/duplicate | Duplicate deal
-*DealsApi* | [**getDeal**](docs/Api/DealsApi.md#getdeal) | **GET** /deals/{id} | Get details of a deal
-*DealsApi* | [**getDealActivities**](docs/Api/DealsApi.md#getdealactivities) | **GET** /deals/{id}/activities | List activities associated with a deal
-*DealsApi* | [**getDealChangelog**](docs/Api/DealsApi.md#getdealchangelog) | **GET** /deals/{id}/changelog | List updates about deal field values
-*DealsApi* | [**getDealFiles**](docs/Api/DealsApi.md#getdealfiles) | **GET** /deals/{id}/files | List files attached to a deal
-*DealsApi* | [**getDealFollowers**](docs/Api/DealsApi.md#getdealfollowers) | **GET** /deals/{id}/followers | List followers of a deal
-*DealsApi* | [**getDealMailMessages**](docs/Api/DealsApi.md#getdealmailmessages) | **GET** /deals/{id}/mailMessages | List mail messages associated with a deal
-*DealsApi* | [**getDealParticipants**](docs/Api/DealsApi.md#getdealparticipants) | **GET** /deals/{id}/participants | List participants of a deal
-*DealsApi* | [**getDealParticipantsChangelog**](docs/Api/DealsApi.md#getdealparticipantschangelog) | **GET** /deals/{id}/participantsChangelog | List updates about participants of a deal
-*DealsApi* | [**getDealPersons**](docs/Api/DealsApi.md#getdealpersons) | **GET** /deals/{id}/persons | List all persons associated with a deal
-*DealsApi* | [**getDealProducts**](docs/Api/DealsApi.md#getdealproducts) | **GET** /deals/{id}/products | List products attached to a deal
-*DealsApi* | [**getDealUpdates**](docs/Api/DealsApi.md#getdealupdates) | **GET** /deals/{id}/flow | List updates about a deal
-*DealsApi* | [**getDealUsers**](docs/Api/DealsApi.md#getdealusers) | **GET** /deals/{id}/permittedUsers | List permitted users
-*DealsApi* | [**getDeals**](docs/Api/DealsApi.md#getdeals) | **GET** /deals | Get all deals
-*DealsApi* | [**getDealsCollection**](docs/Api/DealsApi.md#getdealscollection) | **GET** /deals/collection | Get all deals (BETA)
-*DealsApi* | [**getDealsSummary**](docs/Api/DealsApi.md#getdealssummary) | **GET** /deals/summary | Get deals summary
-*DealsApi* | [**getDealsTimeline**](docs/Api/DealsApi.md#getdealstimeline) | **GET** /deals/timeline | Get deals timeline
-*DealsApi* | [**mergeDeals**](docs/Api/DealsApi.md#mergedeals) | **PUT** /deals/{id}/merge | Merge two deals
-*DealsApi* | [**searchDeals**](docs/Api/DealsApi.md#searchdeals) | **GET** /deals/search | Search deals
-*DealsApi* | [**updateDeal**](docs/Api/DealsApi.md#updatedeal) | **PUT** /deals/{id} | Update a deal
-*DealsApi* | [**updateDealProduct**](docs/Api/DealsApi.md#updatedealproduct) | **PUT** /deals/{id}/products/{product_attachment_id} | Update the product attached to a deal
-*FilesApi* | [**addFile**](docs/Api/FilesApi.md#addfile) | **POST** /files | Add file
-*FilesApi* | [**addFileAndLinkIt**](docs/Api/FilesApi.md#addfileandlinkit) | **POST** /files/remote | Create a remote file and link it to an item
-*FilesApi* | [**deleteFile**](docs/Api/FilesApi.md#deletefile) | **DELETE** /files/{id} | Delete a file
-*FilesApi* | [**downloadFile**](docs/Api/FilesApi.md#downloadfile) | **GET** /files/{id}/download | Download one file
-*FilesApi* | [**getFile**](docs/Api/FilesApi.md#getfile) | **GET** /files/{id} | Get one file
-*FilesApi* | [**getFiles**](docs/Api/FilesApi.md#getfiles) | **GET** /files | Get all files
-*FilesApi* | [**linkFileToItem**](docs/Api/FilesApi.md#linkfiletoitem) | **POST** /files/remoteLink | Link a remote file to an item
-*FilesApi* | [**updateFile**](docs/Api/FilesApi.md#updatefile) | **PUT** /files/{id} | Update file details
-*FiltersApi* | [**addFilter**](docs/Api/FiltersApi.md#addfilter) | **POST** /filters | Add a new filter
-*FiltersApi* | [**deleteFilter**](docs/Api/FiltersApi.md#deletefilter) | **DELETE** /filters/{id} | Delete a filter
-*FiltersApi* | [**deleteFilters**](docs/Api/FiltersApi.md#deletefilters) | **DELETE** /filters | Delete multiple filters in bulk
-*FiltersApi* | [**getFilter**](docs/Api/FiltersApi.md#getfilter) | **GET** /filters/{id} | Get one filter
-*FiltersApi* | [**getFilterHelpers**](docs/Api/FiltersApi.md#getfilterhelpers) | **GET** /filters/helpers | Get all filter helpers
-*FiltersApi* | [**getFilters**](docs/Api/FiltersApi.md#getfilters) | **GET** /filters | Get all filters
-*FiltersApi* | [**updateFilter**](docs/Api/FiltersApi.md#updatefilter) | **PUT** /filters/{id} | Update filter
-*GoalsApi* | [**addGoal**](docs/Api/GoalsApi.md#addgoal) | **POST** /goals | Add a new goal
-*GoalsApi* | [**deleteGoal**](docs/Api/GoalsApi.md#deletegoal) | **DELETE** /goals/{id} | Delete existing goal
-*GoalsApi* | [**getGoalResult**](docs/Api/GoalsApi.md#getgoalresult) | **GET** /goals/{id}/results | Get result of a goal
-*GoalsApi* | [**getGoals**](docs/Api/GoalsApi.md#getgoals) | **GET** /goals/find | Find goals
-*GoalsApi* | [**updateGoal**](docs/Api/GoalsApi.md#updategoal) | **PUT** /goals/{id} | Update existing goal
-*ItemSearchApi* | [**searchItem**](docs/Api/ItemSearchApi.md#searchitem) | **GET** /itemSearch | Perform a search from multiple item types
-*ItemSearchApi* | [**searchItemByField**](docs/Api/ItemSearchApi.md#searchitembyfield) | **GET** /itemSearch/field | Perform a search using a specific field from an item type
-*LeadLabelsApi* | [**addLeadLabel**](docs/Api/LeadLabelsApi.md#addleadlabel) | **POST** /leadLabels | Add a lead label
-*LeadLabelsApi* | [**deleteLeadLabel**](docs/Api/LeadLabelsApi.md#deleteleadlabel) | **DELETE** /leadLabels/{id} | Delete a lead label
-*LeadLabelsApi* | [**getLeadLabels**](docs/Api/LeadLabelsApi.md#getleadlabels) | **GET** /leadLabels | Get all lead labels
-*LeadLabelsApi* | [**updateLeadLabel**](docs/Api/LeadLabelsApi.md#updateleadlabel) | **PATCH** /leadLabels/{id} | Update a lead label
-*LeadSourcesApi* | [**getLeadSources**](docs/Api/LeadSourcesApi.md#getleadsources) | **GET** /leadSources | Get all lead sources
-*LeadsApi* | [**addLead**](docs/Api/LeadsApi.md#addlead) | **POST** /leads | Add a lead
-*LeadsApi* | [**deleteLead**](docs/Api/LeadsApi.md#deletelead) | **DELETE** /leads/{id} | Delete a lead
-*LeadsApi* | [**getLead**](docs/Api/LeadsApi.md#getlead) | **GET** /leads/{id} | Get one lead
-*LeadsApi* | [**getLeadUsers**](docs/Api/LeadsApi.md#getleadusers) | **GET** /leads/{id}/permittedUsers | List permitted users
-*LeadsApi* | [**getLeads**](docs/Api/LeadsApi.md#getleads) | **GET** /leads | Get all leads
-*LeadsApi* | [**searchLeads**](docs/Api/LeadsApi.md#searchleads) | **GET** /leads/search | Search leads
-*LeadsApi* | [**updateLead**](docs/Api/LeadsApi.md#updatelead) | **PATCH** /leads/{id} | Update a lead
-*LegacyTeamsApi* | [**addTeam**](docs/Api/LegacyTeamsApi.md#addteam) | **POST** /legacyTeams | Add a new team
-*LegacyTeamsApi* | [**addTeamUser**](docs/Api/LegacyTeamsApi.md#addteamuser) | **POST** /legacyTeams/{id}/users | Add users to a team
-*LegacyTeamsApi* | [**deleteTeamUser**](docs/Api/LegacyTeamsApi.md#deleteteamuser) | **DELETE** /legacyTeams/{id}/users | Delete users from a team
-*LegacyTeamsApi* | [**getTeam**](docs/Api/LegacyTeamsApi.md#getteam) | **GET** /legacyTeams/{id} | Get a single team
-*LegacyTeamsApi* | [**getTeamUsers**](docs/Api/LegacyTeamsApi.md#getteamusers) | **GET** /legacyTeams/{id}/users | Get all users in a team
-*LegacyTeamsApi* | [**getTeams**](docs/Api/LegacyTeamsApi.md#getteams) | **GET** /legacyTeams | Get all teams
-*LegacyTeamsApi* | [**getUserTeams**](docs/Api/LegacyTeamsApi.md#getuserteams) | **GET** /legacyTeams/user/{id} | Get all teams of a user
-*LegacyTeamsApi* | [**updateTeam**](docs/Api/LegacyTeamsApi.md#updateteam) | **PUT** /legacyTeams/{id} | Update a team
-*MailboxApi* | [**deleteMailThread**](docs/Api/MailboxApi.md#deletemailthread) | **DELETE** /mailbox/mailThreads/{id} | Delete mail thread
-*MailboxApi* | [**getMailMessage**](docs/Api/MailboxApi.md#getmailmessage) | **GET** /mailbox/mailMessages/{id} | Get one mail message
-*MailboxApi* | [**getMailThread**](docs/Api/MailboxApi.md#getmailthread) | **GET** /mailbox/mailThreads/{id} | Get one mail thread
-*MailboxApi* | [**getMailThreadMessages**](docs/Api/MailboxApi.md#getmailthreadmessages) | **GET** /mailbox/mailThreads/{id}/mailMessages | Get all mail messages of mail thread
-*MailboxApi* | [**getMailThreads**](docs/Api/MailboxApi.md#getmailthreads) | **GET** /mailbox/mailThreads | Get mail threads
-*MailboxApi* | [**updateMailThreadDetails**](docs/Api/MailboxApi.md#updatemailthreaddetails) | **PUT** /mailbox/mailThreads/{id} | Update mail thread details
-*MeetingsApi* | [**deleteUserProviderLink**](docs/Api/MeetingsApi.md#deleteuserproviderlink) | **DELETE** /meetings/userProviderLinks/{id} | Delete the link between a user and the installed video call integration
-*MeetingsApi* | [**saveUserProviderLink**](docs/Api/MeetingsApi.md#saveuserproviderlink) | **POST** /meetings/userProviderLinks | Link a user with the installed video call integration
-*NoteFieldsApi* | [**getNoteFields**](docs/Api/NoteFieldsApi.md#getnotefields) | **GET** /noteFields | Get all note fields
-*NotesApi* | [**addNote**](docs/Api/NotesApi.md#addnote) | **POST** /notes | Add a note
-*NotesApi* | [**addNoteComment**](docs/Api/NotesApi.md#addnotecomment) | **POST** /notes/{id}/comments | Add a comment to a note
-*NotesApi* | [**deleteComment**](docs/Api/NotesApi.md#deletecomment) | **DELETE** /notes/{id}/comments/{commentId} | Delete a comment related to a note
-*NotesApi* | [**deleteNote**](docs/Api/NotesApi.md#deletenote) | **DELETE** /notes/{id} | Delete a note
-*NotesApi* | [**getComment**](docs/Api/NotesApi.md#getcomment) | **GET** /notes/{id}/comments/{commentId} | Get one comment
-*NotesApi* | [**getNote**](docs/Api/NotesApi.md#getnote) | **GET** /notes/{id} | Get one note
-*NotesApi* | [**getNoteComments**](docs/Api/NotesApi.md#getnotecomments) | **GET** /notes/{id}/comments | Get all comments for a note
-*NotesApi* | [**getNotes**](docs/Api/NotesApi.md#getnotes) | **GET** /notes | Get all notes
-*NotesApi* | [**updateCommentForNote**](docs/Api/NotesApi.md#updatecommentfornote) | **PUT** /notes/{id}/comments/{commentId} | Update a comment related to a note
-*NotesApi* | [**updateNote**](docs/Api/NotesApi.md#updatenote) | **PUT** /notes/{id} | Update a note
-*OrganizationFieldsApi* | [**addOrganizationField**](docs/Api/OrganizationFieldsApi.md#addorganizationfield) | **POST** /organizationFields | Add a new organization field
-*OrganizationFieldsApi* | [**deleteOrganizationField**](docs/Api/OrganizationFieldsApi.md#deleteorganizationfield) | **DELETE** /organizationFields/{id} | Delete an organization field
-*OrganizationFieldsApi* | [**deleteOrganizationFields**](docs/Api/OrganizationFieldsApi.md#deleteorganizationfields) | **DELETE** /organizationFields | Delete multiple organization fields in bulk
-*OrganizationFieldsApi* | [**getOrganizationField**](docs/Api/OrganizationFieldsApi.md#getorganizationfield) | **GET** /organizationFields/{id} | Get one organization field
-*OrganizationFieldsApi* | [**getOrganizationFields**](docs/Api/OrganizationFieldsApi.md#getorganizationfields) | **GET** /organizationFields | Get all organization fields
-*OrganizationFieldsApi* | [**updateOrganizationField**](docs/Api/OrganizationFieldsApi.md#updateorganizationfield) | **PUT** /organizationFields/{id} | Update an organization field
-*OrganizationRelationshipsApi* | [**addOrganizationRelationship**](docs/Api/OrganizationRelationshipsApi.md#addorganizationrelationship) | **POST** /organizationRelationships | Create an organization relationship
-*OrganizationRelationshipsApi* | [**deleteOrganizationRelationship**](docs/Api/OrganizationRelationshipsApi.md#deleteorganizationrelationship) | **DELETE** /organizationRelationships/{id} | Delete an organization relationship
-*OrganizationRelationshipsApi* | [**getOrganizationRelationship**](docs/Api/OrganizationRelationshipsApi.md#getorganizationrelationship) | **GET** /organizationRelationships/{id} | Get one organization relationship
-*OrganizationRelationshipsApi* | [**getOrganizationRelationships**](docs/Api/OrganizationRelationshipsApi.md#getorganizationrelationships) | **GET** /organizationRelationships | Get all relationships for organization
-*OrganizationRelationshipsApi* | [**updateOrganizationRelationship**](docs/Api/OrganizationRelationshipsApi.md#updateorganizationrelationship) | **PUT** /organizationRelationships/{id} | Update an organization relationship
-*OrganizationsApi* | [**addOrganization**](docs/Api/OrganizationsApi.md#addorganization) | **POST** /organizations | Add an organization
-*OrganizationsApi* | [**addOrganizationFollower**](docs/Api/OrganizationsApi.md#addorganizationfollower) | **POST** /organizations/{id}/followers | Add a follower to an organization
-*OrganizationsApi* | [**deleteOrganization**](docs/Api/OrganizationsApi.md#deleteorganization) | **DELETE** /organizations/{id} | Delete an organization
-*OrganizationsApi* | [**deleteOrganizationFollower**](docs/Api/OrganizationsApi.md#deleteorganizationfollower) | **DELETE** /organizations/{id}/followers/{follower_id} | Delete a follower from an organization
-*OrganizationsApi* | [**deleteOrganizations**](docs/Api/OrganizationsApi.md#deleteorganizations) | **DELETE** /organizations | Delete multiple organizations in bulk
-*OrganizationsApi* | [**getOrganization**](docs/Api/OrganizationsApi.md#getorganization) | **GET** /organizations/{id} | Get details of an organization
-*OrganizationsApi* | [**getOrganizationActivities**](docs/Api/OrganizationsApi.md#getorganizationactivities) | **GET** /organizations/{id}/activities | List activities associated with an organization
-*OrganizationsApi* | [**getOrganizationChangelog**](docs/Api/OrganizationsApi.md#getorganizationchangelog) | **GET** /organizations/{id}/changelog | List updates about organization field values
-*OrganizationsApi* | [**getOrganizationDeals**](docs/Api/OrganizationsApi.md#getorganizationdeals) | **GET** /organizations/{id}/deals | List deals associated with an organization
-*OrganizationsApi* | [**getOrganizationFiles**](docs/Api/OrganizationsApi.md#getorganizationfiles) | **GET** /organizations/{id}/files | List files attached to an organization
-*OrganizationsApi* | [**getOrganizationFollowers**](docs/Api/OrganizationsApi.md#getorganizationfollowers) | **GET** /organizations/{id}/followers | List followers of an organization
-*OrganizationsApi* | [**getOrganizationMailMessages**](docs/Api/OrganizationsApi.md#getorganizationmailmessages) | **GET** /organizations/{id}/mailMessages | List mail messages associated with an organization
-*OrganizationsApi* | [**getOrganizationPersons**](docs/Api/OrganizationsApi.md#getorganizationpersons) | **GET** /organizations/{id}/persons | List persons of an organization
-*OrganizationsApi* | [**getOrganizationUpdates**](docs/Api/OrganizationsApi.md#getorganizationupdates) | **GET** /organizations/{id}/flow | List updates about an organization
-*OrganizationsApi* | [**getOrganizationUsers**](docs/Api/OrganizationsApi.md#getorganizationusers) | **GET** /organizations/{id}/permittedUsers | List permitted users
-*OrganizationsApi* | [**getOrganizations**](docs/Api/OrganizationsApi.md#getorganizations) | **GET** /organizations | Get all organizations
-*OrganizationsApi* | [**getOrganizationsCollection**](docs/Api/OrganizationsApi.md#getorganizationscollection) | **GET** /organizations/collection | Get all organizations (BETA)
-*OrganizationsApi* | [**mergeOrganizations**](docs/Api/OrganizationsApi.md#mergeorganizations) | **PUT** /organizations/{id}/merge | Merge two organizations
-*OrganizationsApi* | [**searchOrganization**](docs/Api/OrganizationsApi.md#searchorganization) | **GET** /organizations/search | Search organizations
-*OrganizationsApi* | [**updateOrganization**](docs/Api/OrganizationsApi.md#updateorganization) | **PUT** /organizations/{id} | Update an organization
-*PermissionSetsApi* | [**getPermissionSet**](docs/Api/PermissionSetsApi.md#getpermissionset) | **GET** /permissionSets/{id} | Get one permission set
-*PermissionSetsApi* | [**getPermissionSetAssignments**](docs/Api/PermissionSetsApi.md#getpermissionsetassignments) | **GET** /permissionSets/{id}/assignments | List permission set assignments
-*PermissionSetsApi* | [**getPermissionSets**](docs/Api/PermissionSetsApi.md#getpermissionsets) | **GET** /permissionSets | Get all permission sets
-*PersonFieldsApi* | [**addPersonField**](docs/Api/PersonFieldsApi.md#addpersonfield) | **POST** /personFields | Add a new person field
-*PersonFieldsApi* | [**deletePersonField**](docs/Api/PersonFieldsApi.md#deletepersonfield) | **DELETE** /personFields/{id} | Delete a person field
-*PersonFieldsApi* | [**deletePersonFields**](docs/Api/PersonFieldsApi.md#deletepersonfields) | **DELETE** /personFields | Delete multiple person fields in bulk
-*PersonFieldsApi* | [**getPersonField**](docs/Api/PersonFieldsApi.md#getpersonfield) | **GET** /personFields/{id} | Get one person field
-*PersonFieldsApi* | [**getPersonFields**](docs/Api/PersonFieldsApi.md#getpersonfields) | **GET** /personFields | Get all person fields
-*PersonFieldsApi* | [**updatePersonField**](docs/Api/PersonFieldsApi.md#updatepersonfield) | **PUT** /personFields/{id} | Update a person field
-*PersonsApi* | [**addPerson**](docs/Api/PersonsApi.md#addperson) | **POST** /persons | Add a person
-*PersonsApi* | [**addPersonFollower**](docs/Api/PersonsApi.md#addpersonfollower) | **POST** /persons/{id}/followers | Add a follower to a person
-*PersonsApi* | [**addPersonPicture**](docs/Api/PersonsApi.md#addpersonpicture) | **POST** /persons/{id}/picture | Add person picture
-*PersonsApi* | [**deletePerson**](docs/Api/PersonsApi.md#deleteperson) | **DELETE** /persons/{id} | Delete a person
-*PersonsApi* | [**deletePersonFollower**](docs/Api/PersonsApi.md#deletepersonfollower) | **DELETE** /persons/{id}/followers/{follower_id} | Delete a follower from a person
-*PersonsApi* | [**deletePersonPicture**](docs/Api/PersonsApi.md#deletepersonpicture) | **DELETE** /persons/{id}/picture | Delete person picture
-*PersonsApi* | [**deletePersons**](docs/Api/PersonsApi.md#deletepersons) | **DELETE** /persons | Delete multiple persons in bulk
-*PersonsApi* | [**getPerson**](docs/Api/PersonsApi.md#getperson) | **GET** /persons/{id} | Get details of a person
-*PersonsApi* | [**getPersonActivities**](docs/Api/PersonsApi.md#getpersonactivities) | **GET** /persons/{id}/activities | List activities associated with a person
-*PersonsApi* | [**getPersonChangelog**](docs/Api/PersonsApi.md#getpersonchangelog) | **GET** /persons/{id}/changelog | List updates about person field values
-*PersonsApi* | [**getPersonDeals**](docs/Api/PersonsApi.md#getpersondeals) | **GET** /persons/{id}/deals | List deals associated with a person
-*PersonsApi* | [**getPersonFiles**](docs/Api/PersonsApi.md#getpersonfiles) | **GET** /persons/{id}/files | List files attached to a person
-*PersonsApi* | [**getPersonFollowers**](docs/Api/PersonsApi.md#getpersonfollowers) | **GET** /persons/{id}/followers | List followers of a person
-*PersonsApi* | [**getPersonMailMessages**](docs/Api/PersonsApi.md#getpersonmailmessages) | **GET** /persons/{id}/mailMessages | List mail messages associated with a person
-*PersonsApi* | [**getPersonProducts**](docs/Api/PersonsApi.md#getpersonproducts) | **GET** /persons/{id}/products | List products associated with a person
-*PersonsApi* | [**getPersonUpdates**](docs/Api/PersonsApi.md#getpersonupdates) | **GET** /persons/{id}/flow | List updates about a person
-*PersonsApi* | [**getPersonUsers**](docs/Api/PersonsApi.md#getpersonusers) | **GET** /persons/{id}/permittedUsers | List permitted users
-*PersonsApi* | [**getPersons**](docs/Api/PersonsApi.md#getpersons) | **GET** /persons | Get all persons
-*PersonsApi* | [**getPersonsCollection**](docs/Api/PersonsApi.md#getpersonscollection) | **GET** /persons/collection | Get all persons (BETA)
-*PersonsApi* | [**mergePersons**](docs/Api/PersonsApi.md#mergepersons) | **PUT** /persons/{id}/merge | Merge two persons
-*PersonsApi* | [**searchPersons**](docs/Api/PersonsApi.md#searchpersons) | **GET** /persons/search | Search persons
-*PersonsApi* | [**updatePerson**](docs/Api/PersonsApi.md#updateperson) | **PUT** /persons/{id} | Update a person
-*PipelinesApi* | [**addPipeline**](docs/Api/PipelinesApi.md#addpipeline) | **POST** /pipelines | Add a new pipeline
-*PipelinesApi* | [**deletePipeline**](docs/Api/PipelinesApi.md#deletepipeline) | **DELETE** /pipelines/{id} | Delete a pipeline
-*PipelinesApi* | [**getPipeline**](docs/Api/PipelinesApi.md#getpipeline) | **GET** /pipelines/{id} | Get one pipeline
-*PipelinesApi* | [**getPipelineConversionStatistics**](docs/Api/PipelinesApi.md#getpipelineconversionstatistics) | **GET** /pipelines/{id}/conversion_statistics | Get deals conversion rates in pipeline
-*PipelinesApi* | [**getPipelineDeals**](docs/Api/PipelinesApi.md#getpipelinedeals) | **GET** /pipelines/{id}/deals | Get deals in a pipeline
-*PipelinesApi* | [**getPipelineMovementStatistics**](docs/Api/PipelinesApi.md#getpipelinemovementstatistics) | **GET** /pipelines/{id}/movement_statistics | Get deals movements in pipeline
-*PipelinesApi* | [**getPipelines**](docs/Api/PipelinesApi.md#getpipelines) | **GET** /pipelines | Get all pipelines
-*PipelinesApi* | [**updatePipeline**](docs/Api/PipelinesApi.md#updatepipeline) | **PUT** /pipelines/{id} | Update a pipeline
-*ProductFieldsApi* | [**addProductField**](docs/Api/ProductFieldsApi.md#addproductfield) | **POST** /productFields | Add a new product field
-*ProductFieldsApi* | [**deleteProductField**](docs/Api/ProductFieldsApi.md#deleteproductfield) | **DELETE** /productFields/{id} | Delete a product field
-*ProductFieldsApi* | [**deleteProductFields**](docs/Api/ProductFieldsApi.md#deleteproductfields) | **DELETE** /productFields | Delete multiple product fields in bulk
-*ProductFieldsApi* | [**getProductField**](docs/Api/ProductFieldsApi.md#getproductfield) | **GET** /productFields/{id} | Get one product field
-*ProductFieldsApi* | [**getProductFields**](docs/Api/ProductFieldsApi.md#getproductfields) | **GET** /productFields | Get all product fields
-*ProductFieldsApi* | [**updateProductField**](docs/Api/ProductFieldsApi.md#updateproductfield) | **PUT** /productFields/{id} | Update a product field
-*ProductsApi* | [**addProduct**](docs/Api/ProductsApi.md#addproduct) | **POST** /products | Add a product
-*ProductsApi* | [**addProductFollower**](docs/Api/ProductsApi.md#addproductfollower) | **POST** /products/{id}/followers | Add a follower to a product
-*ProductsApi* | [**deleteProduct**](docs/Api/ProductsApi.md#deleteproduct) | **DELETE** /products/{id} | Delete a product
-*ProductsApi* | [**deleteProductFollower**](docs/Api/ProductsApi.md#deleteproductfollower) | **DELETE** /products/{id}/followers/{follower_id} | Delete a follower from a product
-*ProductsApi* | [**getProduct**](docs/Api/ProductsApi.md#getproduct) | **GET** /products/{id} | Get one product
-*ProductsApi* | [**getProductDeals**](docs/Api/ProductsApi.md#getproductdeals) | **GET** /products/{id}/deals | Get deals where a product is attached to
-*ProductsApi* | [**getProductFiles**](docs/Api/ProductsApi.md#getproductfiles) | **GET** /products/{id}/files | List files attached to a product
-*ProductsApi* | [**getProductFollowers**](docs/Api/ProductsApi.md#getproductfollowers) | **GET** /products/{id}/followers | List followers of a product
-*ProductsApi* | [**getProductUsers**](docs/Api/ProductsApi.md#getproductusers) | **GET** /products/{id}/permittedUsers | List permitted users
-*ProductsApi* | [**getProducts**](docs/Api/ProductsApi.md#getproducts) | **GET** /products | Get all products
-*ProductsApi* | [**searchProducts**](docs/Api/ProductsApi.md#searchproducts) | **GET** /products/search | Search products
-*ProductsApi* | [**updateProduct**](docs/Api/ProductsApi.md#updateproduct) | **PUT** /products/{id} | Update a product
-*ProjectTemplatesApi* | [**getProjectTemplate**](docs/Api/ProjectTemplatesApi.md#getprojecttemplate) | **GET** /projectTemplates/{id} | Get details of a template
-*ProjectTemplatesApi* | [**getProjectTemplates**](docs/Api/ProjectTemplatesApi.md#getprojecttemplates) | **GET** /projectTemplates | Get all project templates
-*ProjectTemplatesApi* | [**getProjectsBoard**](docs/Api/ProjectTemplatesApi.md#getprojectsboard) | **GET** /projects/boards/{id} | Get details of a board
-*ProjectTemplatesApi* | [**getProjectsPhase**](docs/Api/ProjectTemplatesApi.md#getprojectsphase) | **GET** /projects/phases/{id} | Get details of a phase
-*ProjectsApi* | [**addProject**](docs/Api/ProjectsApi.md#addproject) | **POST** /projects | Add a project
-*ProjectsApi* | [**archiveProject**](docs/Api/ProjectsApi.md#archiveproject) | **POST** /projects/{id}/archive | Archive a project
-*ProjectsApi* | [**deleteProject**](docs/Api/ProjectsApi.md#deleteproject) | **DELETE** /projects/{id} | Delete a project
-*ProjectsApi* | [**getProject**](docs/Api/ProjectsApi.md#getproject) | **GET** /projects/{id} | Get details of a project
-*ProjectsApi* | [**getProjectActivities**](docs/Api/ProjectsApi.md#getprojectactivities) | **GET** /projects/{id}/activities | Returns project activities
-*ProjectsApi* | [**getProjectGroups**](docs/Api/ProjectsApi.md#getprojectgroups) | **GET** /projects/{id}/groups | Returns project groups
-*ProjectsApi* | [**getProjectPlan**](docs/Api/ProjectsApi.md#getprojectplan) | **GET** /projects/{id}/plan | Returns project plan
-*ProjectsApi* | [**getProjectTasks**](docs/Api/ProjectsApi.md#getprojecttasks) | **GET** /projects/{id}/tasks | Returns project tasks
-*ProjectsApi* | [**getProjects**](docs/Api/ProjectsApi.md#getprojects) | **GET** /projects | Get all projects
-*ProjectsApi* | [**getProjectsBoards**](docs/Api/ProjectsApi.md#getprojectsboards) | **GET** /projects/boards | Get all project boards
-*ProjectsApi* | [**getProjectsPhases**](docs/Api/ProjectsApi.md#getprojectsphases) | **GET** /projects/phases | Get project phases
-*ProjectsApi* | [**putProjectPlanActivity**](docs/Api/ProjectsApi.md#putprojectplanactivity) | **PUT** /projects/{id}/plan/activities/{activityId} | Update activity in project plan
-*ProjectsApi* | [**putProjectPlanTask**](docs/Api/ProjectsApi.md#putprojectplantask) | **PUT** /projects/{id}/plan/tasks/{taskId} | Update task in project plan
-*ProjectsApi* | [**updateProject**](docs/Api/ProjectsApi.md#updateproject) | **PUT** /projects/{id} | Update a project
-*RecentsApi* | [**getRecents**](docs/Api/RecentsApi.md#getrecents) | **GET** /recents | Get recents
-*RolesApi* | [**addOrUpdateRoleSetting**](docs/Api/RolesApi.md#addorupdaterolesetting) | **POST** /roles/{id}/settings | Add or update role setting
-*RolesApi* | [**addRole**](docs/Api/RolesApi.md#addrole) | **POST** /roles | Add a role
-*RolesApi* | [**addRoleAssignment**](docs/Api/RolesApi.md#addroleassignment) | **POST** /roles/{id}/assignments | Add role assignment
-*RolesApi* | [**deleteRole**](docs/Api/RolesApi.md#deleterole) | **DELETE** /roles/{id} | Delete a role
-*RolesApi* | [**deleteRoleAssignment**](docs/Api/RolesApi.md#deleteroleassignment) | **DELETE** /roles/{id}/assignments | Delete a role assignment
-*RolesApi* | [**getRole**](docs/Api/RolesApi.md#getrole) | **GET** /roles/{id} | Get one role
-*RolesApi* | [**getRoleAssignments**](docs/Api/RolesApi.md#getroleassignments) | **GET** /roles/{id}/assignments | List role assignments
-*RolesApi* | [**getRolePipelines**](docs/Api/RolesApi.md#getrolepipelines) | **GET** /roles/{id}/pipelines | List pipeline visibility for a role
-*RolesApi* | [**getRoleSettings**](docs/Api/RolesApi.md#getrolesettings) | **GET** /roles/{id}/settings | List role settings
-*RolesApi* | [**getRoles**](docs/Api/RolesApi.md#getroles) | **GET** /roles | Get all roles
-*RolesApi* | [**updateRole**](docs/Api/RolesApi.md#updaterole) | **PUT** /roles/{id} | Update role details
-*RolesApi* | [**updateRolePipelines**](docs/Api/RolesApi.md#updaterolepipelines) | **PUT** /roles/{id}/pipelines | Update pipeline visibility for a role
-*StagesApi* | [**addStage**](docs/Api/StagesApi.md#addstage) | **POST** /stages | Add a new stage
-*StagesApi* | [**deleteStage**](docs/Api/StagesApi.md#deletestage) | **DELETE** /stages/{id} | Delete a stage
-*StagesApi* | [**deleteStages**](docs/Api/StagesApi.md#deletestages) | **DELETE** /stages | Delete multiple stages in bulk
-*StagesApi* | [**getStage**](docs/Api/StagesApi.md#getstage) | **GET** /stages/{id} | Get one stage
-*StagesApi* | [**getStageDeals**](docs/Api/StagesApi.md#getstagedeals) | **GET** /stages/{id}/deals | Get deals in a stage
-*StagesApi* | [**getStages**](docs/Api/StagesApi.md#getstages) | **GET** /stages | Get all stages
-*StagesApi* | [**updateStage**](docs/Api/StagesApi.md#updatestage) | **PUT** /stages/{id} | Update stage details
-*SubscriptionsApi* | [**addRecurringSubscription**](docs/Api/SubscriptionsApi.md#addrecurringsubscription) | **POST** /subscriptions/recurring | Add a recurring subscription
-*SubscriptionsApi* | [**addSubscriptionInstallment**](docs/Api/SubscriptionsApi.md#addsubscriptioninstallment) | **POST** /subscriptions/installment | Add an installment subscription
-*SubscriptionsApi* | [**cancelRecurringSubscription**](docs/Api/SubscriptionsApi.md#cancelrecurringsubscription) | **PUT** /subscriptions/recurring/{id}/cancel | Cancel a recurring subscription
-*SubscriptionsApi* | [**deleteSubscription**](docs/Api/SubscriptionsApi.md#deletesubscription) | **DELETE** /subscriptions/{id} | Delete a subscription
-*SubscriptionsApi* | [**findSubscriptionByDeal**](docs/Api/SubscriptionsApi.md#findsubscriptionbydeal) | **GET** /subscriptions/find/{dealId} | Find subscription by deal
-*SubscriptionsApi* | [**getSubscription**](docs/Api/SubscriptionsApi.md#getsubscription) | **GET** /subscriptions/{id} | Get details of a subscription
-*SubscriptionsApi* | [**getSubscriptionPayments**](docs/Api/SubscriptionsApi.md#getsubscriptionpayments) | **GET** /subscriptions/{id}/payments | Get all payments of a subscription
-*SubscriptionsApi* | [**updateRecurringSubscription**](docs/Api/SubscriptionsApi.md#updaterecurringsubscription) | **PUT** /subscriptions/recurring/{id} | Update a recurring subscription
-*SubscriptionsApi* | [**updateSubscriptionInstallment**](docs/Api/SubscriptionsApi.md#updatesubscriptioninstallment) | **PUT** /subscriptions/installment/{id} | Update an installment subscription
-*TasksApi* | [**addTask**](docs/Api/TasksApi.md#addtask) | **POST** /tasks | Add a task
-*TasksApi* | [**deleteTask**](docs/Api/TasksApi.md#deletetask) | **DELETE** /tasks/{id} | Delete a task
-*TasksApi* | [**getTask**](docs/Api/TasksApi.md#gettask) | **GET** /tasks/{id} | Get details of a task
-*TasksApi* | [**getTasks**](docs/Api/TasksApi.md#gettasks) | **GET** /tasks | Get all tasks
-*TasksApi* | [**updateTask**](docs/Api/TasksApi.md#updatetask) | **PUT** /tasks/{id} | Update a task
-*UserConnectionsApi* | [**getUserConnections**](docs/Api/UserConnectionsApi.md#getuserconnections) | **GET** /userConnections | Get all user connections
-*UserSettingsApi* | [**getUserSettings**](docs/Api/UserSettingsApi.md#getusersettings) | **GET** /userSettings | List settings of an authorized user
-*UsersApi* | [**addUser**](docs/Api/UsersApi.md#adduser) | **POST** /users | Add a new user
-*UsersApi* | [**findUsersByName**](docs/Api/UsersApi.md#findusersbyname) | **GET** /users/find | Find users by name
-*UsersApi* | [**getCurrentUser**](docs/Api/UsersApi.md#getcurrentuser) | **GET** /users/me | Get current user data
-*UsersApi* | [**getUser**](docs/Api/UsersApi.md#getuser) | **GET** /users/{id} | Get one user
-*UsersApi* | [**getUserFollowers**](docs/Api/UsersApi.md#getuserfollowers) | **GET** /users/{id}/followers | List followers of a user
-*UsersApi* | [**getUserPermissions**](docs/Api/UsersApi.md#getuserpermissions) | **GET** /users/{id}/permissions | List user permissions
-*UsersApi* | [**getUserRoleAssignments**](docs/Api/UsersApi.md#getuserroleassignments) | **GET** /users/{id}/roleAssignments | List role assignments
-*UsersApi* | [**getUserRoleSettings**](docs/Api/UsersApi.md#getuserrolesettings) | **GET** /users/{id}/roleSettings | List user role settings
-*UsersApi* | [**getUsers**](docs/Api/UsersApi.md#getusers) | **GET** /users | Get all users
-*UsersApi* | [**updateUser**](docs/Api/UsersApi.md#updateuser) | **PUT** /users/{id} | Update user details
-*WebhooksApi* | [**addWebhook**](docs/Api/WebhooksApi.md#addwebhook) | **POST** /webhooks | Create a new Webhook
-*WebhooksApi* | [**deleteWebhook**](docs/Api/WebhooksApi.md#deletewebhook) | **DELETE** /webhooks/{id} | Delete existing Webhook
-*WebhooksApi* | [**getWebhooks**](docs/Api/WebhooksApi.md#getwebhooks) | **GET** /webhooks | Get all Webhooks
+*ActivitiesApi* | [**addActivity**](Api/ActivitiesApi.md#addactivity) | **POST** /activities | Add an activity
+*ActivitiesApi* | [**deleteActivities**](Api/ActivitiesApi.md#deleteactivities) | **DELETE** /activities | Delete multiple activities in bulk
+*ActivitiesApi* | [**deleteActivity**](Api/ActivitiesApi.md#deleteactivity) | **DELETE** /activities/{id} | Delete an activity
+*ActivitiesApi* | [**getActivities**](Api/ActivitiesApi.md#getactivities) | **GET** /activities | Get all activities assigned to a particular user
+*ActivitiesApi* | [**getActivitiesCollection**](Api/ActivitiesApi.md#getactivitiescollection) | **GET** /activities/collection | Get all activities (BETA)
+*ActivitiesApi* | [**getActivity**](Api/ActivitiesApi.md#getactivity) | **GET** /activities/{id} | Get details of an activity
+*ActivitiesApi* | [**updateActivity**](Api/ActivitiesApi.md#updateactivity) | **PUT** /activities/{id} | Update an activity
+*ActivityFieldsApi* | [**getActivityFields**](Api/ActivityFieldsApi.md#getactivityfields) | **GET** /activityFields | Get all activity fields
+*ActivityTypesApi* | [**addActivityType**](Api/ActivityTypesApi.md#addactivitytype) | **POST** /activityTypes | Add new activity type
+*ActivityTypesApi* | [**deleteActivityType**](Api/ActivityTypesApi.md#deleteactivitytype) | **DELETE** /activityTypes/{id} | Delete an activity type
+*ActivityTypesApi* | [**deleteActivityTypes**](Api/ActivityTypesApi.md#deleteactivitytypes) | **DELETE** /activityTypes | Delete multiple activity types in bulk
+*ActivityTypesApi* | [**getActivityTypes**](Api/ActivityTypesApi.md#getactivitytypes) | **GET** /activityTypes | Get all activity types
+*ActivityTypesApi* | [**updateActivityType**](Api/ActivityTypesApi.md#updateactivitytype) | **PUT** /activityTypes/{id} | Update an activity type
+*BillingApi* | [**getCompanyAddons**](Api/BillingApi.md#getcompanyaddons) | **GET** /billing/subscriptions/addons | Get all add-ons for a single company
+*CallLogsApi* | [**addCallLog**](Api/CallLogsApi.md#addcalllog) | **POST** /callLogs | Add a call log
+*CallLogsApi* | [**addCallLogAudioFile**](Api/CallLogsApi.md#addcalllogaudiofile) | **POST** /callLogs/{id}/recordings | Attach an audio file to the call log
+*CallLogsApi* | [**deleteCallLog**](Api/CallLogsApi.md#deletecalllog) | **DELETE** /callLogs/{id} | Delete a call log
+*CallLogsApi* | [**getCallLog**](Api/CallLogsApi.md#getcalllog) | **GET** /callLogs/{id} | Get details of a call log
+*CallLogsApi* | [**getUserCallLogs**](Api/CallLogsApi.md#getusercalllogs) | **GET** /callLogs | Get all call logs assigned to a particular user
+*ChannelsApi* | [**addChannel**](Api/ChannelsApi.md#addchannel) | **POST** /channels | Add a channel
+*ChannelsApi* | [**deleteChannel**](Api/ChannelsApi.md#deletechannel) | **DELETE** /channels/{id} | Delete a channel
+*ChannelsApi* | [**deleteConversation**](Api/ChannelsApi.md#deleteconversation) | **DELETE** /channels/{channel-id}/conversations/{conversation-id} | Delete a conversation
+*ChannelsApi* | [**receiveMessage**](Api/ChannelsApi.md#receivemessage) | **POST** /channels/messages/receive | Receives an incoming message
+*CurrenciesApi* | [**getCurrencies**](Api/CurrenciesApi.md#getcurrencies) | **GET** /currencies | Get all supported currencies
+*DealFieldsApi* | [**addDealField**](Api/DealFieldsApi.md#adddealfield) | **POST** /dealFields | Add a new deal field
+*DealFieldsApi* | [**deleteDealField**](Api/DealFieldsApi.md#deletedealfield) | **DELETE** /dealFields/{id} | Delete a deal field
+*DealFieldsApi* | [**deleteDealFields**](Api/DealFieldsApi.md#deletedealfields) | **DELETE** /dealFields | Delete multiple deal fields in bulk
+*DealFieldsApi* | [**getDealField**](Api/DealFieldsApi.md#getdealfield) | **GET** /dealFields/{id} | Get one deal field
+*DealFieldsApi* | [**getDealFields**](Api/DealFieldsApi.md#getdealfields) | **GET** /dealFields | Get all deal fields
+*DealFieldsApi* | [**updateDealField**](Api/DealFieldsApi.md#updatedealfield) | **PUT** /dealFields/{id} | Update a deal field
+*DealsApi* | [**addDeal**](Api/DealsApi.md#adddeal) | **POST** /deals | Add a deal
+*DealsApi* | [**addDealFollower**](Api/DealsApi.md#adddealfollower) | **POST** /deals/{id}/followers | Add a follower to a deal
+*DealsApi* | [**addDealParticipant**](Api/DealsApi.md#adddealparticipant) | **POST** /deals/{id}/participants | Add a participant to a deal
+*DealsApi* | [**addDealProduct**](Api/DealsApi.md#adddealproduct) | **POST** /deals/{id}/products | Add a product to a deal
+*DealsApi* | [**deleteDeal**](Api/DealsApi.md#deletedeal) | **DELETE** /deals/{id} | Delete a deal
+*DealsApi* | [**deleteDealFollower**](Api/DealsApi.md#deletedealfollower) | **DELETE** /deals/{id}/followers/{follower_id} | Delete a follower from a deal
+*DealsApi* | [**deleteDealParticipant**](Api/DealsApi.md#deletedealparticipant) | **DELETE** /deals/{id}/participants/{deal_participant_id} | Delete a participant from a deal
+*DealsApi* | [**deleteDealProduct**](Api/DealsApi.md#deletedealproduct) | **DELETE** /deals/{id}/products/{product_attachment_id} | Delete an attached product from a deal
+*DealsApi* | [**deleteDeals**](Api/DealsApi.md#deletedeals) | **DELETE** /deals | Delete multiple deals in bulk
+*DealsApi* | [**duplicateDeal**](Api/DealsApi.md#duplicatedeal) | **POST** /deals/{id}/duplicate | Duplicate deal
+*DealsApi* | [**getDeal**](Api/DealsApi.md#getdeal) | **GET** /deals/{id} | Get details of a deal
+*DealsApi* | [**getDealActivities**](Api/DealsApi.md#getdealactivities) | **GET** /deals/{id}/activities | List activities associated with a deal
+*DealsApi* | [**getDealChangelog**](Api/DealsApi.md#getdealchangelog) | **GET** /deals/{id}/changelog | List updates about deal field values
+*DealsApi* | [**getDealFiles**](Api/DealsApi.md#getdealfiles) | **GET** /deals/{id}/files | List files attached to a deal
+*DealsApi* | [**getDealFollowers**](Api/DealsApi.md#getdealfollowers) | **GET** /deals/{id}/followers | List followers of a deal
+*DealsApi* | [**getDealMailMessages**](Api/DealsApi.md#getdealmailmessages) | **GET** /deals/{id}/mailMessages | List mail messages associated with a deal
+*DealsApi* | [**getDealParticipants**](Api/DealsApi.md#getdealparticipants) | **GET** /deals/{id}/participants | List participants of a deal
+*DealsApi* | [**getDealParticipantsChangelog**](Api/DealsApi.md#getdealparticipantschangelog) | **GET** /deals/{id}/participantsChangelog | List updates about participants of a deal
+*DealsApi* | [**getDealPersons**](Api/DealsApi.md#getdealpersons) | **GET** /deals/{id}/persons | List all persons associated with a deal
+*DealsApi* | [**getDealProducts**](Api/DealsApi.md#getdealproducts) | **GET** /deals/{id}/products | List products attached to a deal
+*DealsApi* | [**getDealUpdates**](Api/DealsApi.md#getdealupdates) | **GET** /deals/{id}/flow | List updates about a deal
+*DealsApi* | [**getDealUsers**](Api/DealsApi.md#getdealusers) | **GET** /deals/{id}/permittedUsers | List permitted users
+*DealsApi* | [**getDeals**](Api/DealsApi.md#getdeals) | **GET** /deals | Get all deals
+*DealsApi* | [**getDealsCollection**](Api/DealsApi.md#getdealscollection) | **GET** /deals/collection | Get all deals (BETA)
+*DealsApi* | [**getDealsSummary**](Api/DealsApi.md#getdealssummary) | **GET** /deals/summary | Get deals summary
+*DealsApi* | [**getDealsTimeline**](Api/DealsApi.md#getdealstimeline) | **GET** /deals/timeline | Get deals timeline
+*DealsApi* | [**mergeDeals**](Api/DealsApi.md#mergedeals) | **PUT** /deals/{id}/merge | Merge two deals
+*DealsApi* | [**searchDeals**](Api/DealsApi.md#searchdeals) | **GET** /deals/search | Search deals
+*DealsApi* | [**updateDeal**](Api/DealsApi.md#updatedeal) | **PUT** /deals/{id} | Update a deal
+*DealsApi* | [**updateDealProduct**](Api/DealsApi.md#updatedealproduct) | **PUT** /deals/{id}/products/{product_attachment_id} | Update the product attached to a deal
+*FilesApi* | [**addFile**](Api/FilesApi.md#addfile) | **POST** /files | Add file
+*FilesApi* | [**addFileAndLinkIt**](Api/FilesApi.md#addfileandlinkit) | **POST** /files/remote | Create a remote file and link it to an item
+*FilesApi* | [**deleteFile**](Api/FilesApi.md#deletefile) | **DELETE** /files/{id} | Delete a file
+*FilesApi* | [**downloadFile**](Api/FilesApi.md#downloadfile) | **GET** /files/{id}/download | Download one file
+*FilesApi* | [**getFile**](Api/FilesApi.md#getfile) | **GET** /files/{id} | Get one file
+*FilesApi* | [**getFiles**](Api/FilesApi.md#getfiles) | **GET** /files | Get all files
+*FilesApi* | [**linkFileToItem**](Api/FilesApi.md#linkfiletoitem) | **POST** /files/remoteLink | Link a remote file to an item
+*FilesApi* | [**updateFile**](Api/FilesApi.md#updatefile) | **PUT** /files/{id} | Update file details
+*FiltersApi* | [**addFilter**](Api/FiltersApi.md#addfilter) | **POST** /filters | Add a new filter
+*FiltersApi* | [**deleteFilter**](Api/FiltersApi.md#deletefilter) | **DELETE** /filters/{id} | Delete a filter
+*FiltersApi* | [**deleteFilters**](Api/FiltersApi.md#deletefilters) | **DELETE** /filters | Delete multiple filters in bulk
+*FiltersApi* | [**getFilter**](Api/FiltersApi.md#getfilter) | **GET** /filters/{id} | Get one filter
+*FiltersApi* | [**getFilterHelpers**](Api/FiltersApi.md#getfilterhelpers) | **GET** /filters/helpers | Get all filter helpers
+*FiltersApi* | [**getFilters**](Api/FiltersApi.md#getfilters) | **GET** /filters | Get all filters
+*FiltersApi* | [**updateFilter**](Api/FiltersApi.md#updatefilter) | **PUT** /filters/{id} | Update filter
+*GoalsApi* | [**addGoal**](Api/GoalsApi.md#addgoal) | **POST** /goals | Add a new goal
+*GoalsApi* | [**deleteGoal**](Api/GoalsApi.md#deletegoal) | **DELETE** /goals/{id} | Delete existing goal
+*GoalsApi* | [**getGoalResult**](Api/GoalsApi.md#getgoalresult) | **GET** /goals/{id}/results | Get result of a goal
+*GoalsApi* | [**getGoals**](Api/GoalsApi.md#getgoals) | **GET** /goals/find | Find goals
+*GoalsApi* | [**updateGoal**](Api/GoalsApi.md#updategoal) | **PUT** /goals/{id} | Update existing goal
+*ItemSearchApi* | [**searchItem**](Api/ItemSearchApi.md#searchitem) | **GET** /itemSearch | Perform a search from multiple item types
+*ItemSearchApi* | [**searchItemByField**](Api/ItemSearchApi.md#searchitembyfield) | **GET** /itemSearch/field | Perform a search using a specific field from an item type
+*LeadLabelsApi* | [**addLeadLabel**](Api/LeadLabelsApi.md#addleadlabel) | **POST** /leadLabels | Add a lead label
+*LeadLabelsApi* | [**deleteLeadLabel**](Api/LeadLabelsApi.md#deleteleadlabel) | **DELETE** /leadLabels/{id} | Delete a lead label
+*LeadLabelsApi* | [**getLeadLabels**](Api/LeadLabelsApi.md#getleadlabels) | **GET** /leadLabels | Get all lead labels
+*LeadLabelsApi* | [**updateLeadLabel**](Api/LeadLabelsApi.md#updateleadlabel) | **PATCH** /leadLabels/{id} | Update a lead label
+*LeadSourcesApi* | [**getLeadSources**](Api/LeadSourcesApi.md#getleadsources) | **GET** /leadSources | Get all lead sources
+*LeadsApi* | [**addLead**](Api/LeadsApi.md#addlead) | **POST** /leads | Add a lead
+*LeadsApi* | [**deleteLead**](Api/LeadsApi.md#deletelead) | **DELETE** /leads/{id} | Delete a lead
+*LeadsApi* | [**getLead**](Api/LeadsApi.md#getlead) | **GET** /leads/{id} | Get one lead
+*LeadsApi* | [**getLeadUsers**](Api/LeadsApi.md#getleadusers) | **GET** /leads/{id}/permittedUsers | List permitted users
+*LeadsApi* | [**getLeads**](Api/LeadsApi.md#getleads) | **GET** /leads | Get all leads
+*LeadsApi* | [**searchLeads**](Api/LeadsApi.md#searchleads) | **GET** /leads/search | Search leads
+*LeadsApi* | [**updateLead**](Api/LeadsApi.md#updatelead) | **PATCH** /leads/{id} | Update a lead
+*LegacyTeamsApi* | [**addTeam**](Api/LegacyTeamsApi.md#addteam) | **POST** /legacyTeams | Add a new team
+*LegacyTeamsApi* | [**addTeamUser**](Api/LegacyTeamsApi.md#addteamuser) | **POST** /legacyTeams/{id}/users | Add users to a team
+*LegacyTeamsApi* | [**deleteTeamUser**](Api/LegacyTeamsApi.md#deleteteamuser) | **DELETE** /legacyTeams/{id}/users | Delete users from a team
+*LegacyTeamsApi* | [**getTeam**](Api/LegacyTeamsApi.md#getteam) | **GET** /legacyTeams/{id} | Get a single team
+*LegacyTeamsApi* | [**getTeamUsers**](Api/LegacyTeamsApi.md#getteamusers) | **GET** /legacyTeams/{id}/users | Get all users in a team
+*LegacyTeamsApi* | [**getTeams**](Api/LegacyTeamsApi.md#getteams) | **GET** /legacyTeams | Get all teams
+*LegacyTeamsApi* | [**getUserTeams**](Api/LegacyTeamsApi.md#getuserteams) | **GET** /legacyTeams/user/{id} | Get all teams of a user
+*LegacyTeamsApi* | [**updateTeam**](Api/LegacyTeamsApi.md#updateteam) | **PUT** /legacyTeams/{id} | Update a team
+*MailboxApi* | [**deleteMailThread**](Api/MailboxApi.md#deletemailthread) | **DELETE** /mailbox/mailThreads/{id} | Delete mail thread
+*MailboxApi* | [**getMailMessage**](Api/MailboxApi.md#getmailmessage) | **GET** /mailbox/mailMessages/{id} | Get one mail message
+*MailboxApi* | [**getMailThread**](Api/MailboxApi.md#getmailthread) | **GET** /mailbox/mailThreads/{id} | Get one mail thread
+*MailboxApi* | [**getMailThreadMessages**](Api/MailboxApi.md#getmailthreadmessages) | **GET** /mailbox/mailThreads/{id}/mailMessages | Get all mail messages of mail thread
+*MailboxApi* | [**getMailThreads**](Api/MailboxApi.md#getmailthreads) | **GET** /mailbox/mailThreads | Get mail threads
+*MailboxApi* | [**updateMailThreadDetails**](Api/MailboxApi.md#updatemailthreaddetails) | **PUT** /mailbox/mailThreads/{id} | Update mail thread details
+*MeetingsApi* | [**deleteUserProviderLink**](Api/MeetingsApi.md#deleteuserproviderlink) | **DELETE** /meetings/userProviderLinks/{id} | Delete the link between a user and the installed video call integration
+*MeetingsApi* | [**saveUserProviderLink**](Api/MeetingsApi.md#saveuserproviderlink) | **POST** /meetings/userProviderLinks | Link a user with the installed video call integration
+*NoteFieldsApi* | [**getNoteFields**](Api/NoteFieldsApi.md#getnotefields) | **GET** /noteFields | Get all note fields
+*NotesApi* | [**addNote**](Api/NotesApi.md#addnote) | **POST** /notes | Add a note
+*NotesApi* | [**addNoteComment**](Api/NotesApi.md#addnotecomment) | **POST** /notes/{id}/comments | Add a comment to a note
+*NotesApi* | [**deleteComment**](Api/NotesApi.md#deletecomment) | **DELETE** /notes/{id}/comments/{commentId} | Delete a comment related to a note
+*NotesApi* | [**deleteNote**](Api/NotesApi.md#deletenote) | **DELETE** /notes/{id} | Delete a note
+*NotesApi* | [**getComment**](Api/NotesApi.md#getcomment) | **GET** /notes/{id}/comments/{commentId} | Get one comment
+*NotesApi* | [**getNote**](Api/NotesApi.md#getnote) | **GET** /notes/{id} | Get one note
+*NotesApi* | [**getNoteComments**](Api/NotesApi.md#getnotecomments) | **GET** /notes/{id}/comments | Get all comments for a note
+*NotesApi* | [**getNotes**](Api/NotesApi.md#getnotes) | **GET** /notes | Get all notes
+*NotesApi* | [**updateCommentForNote**](Api/NotesApi.md#updatecommentfornote) | **PUT** /notes/{id}/comments/{commentId} | Update a comment related to a note
+*NotesApi* | [**updateNote**](Api/NotesApi.md#updatenote) | **PUT** /notes/{id} | Update a note
+*OrganizationFieldsApi* | [**addOrganizationField**](Api/OrganizationFieldsApi.md#addorganizationfield) | **POST** /organizationFields | Add a new organization field
+*OrganizationFieldsApi* | [**deleteOrganizationField**](Api/OrganizationFieldsApi.md#deleteorganizationfield) | **DELETE** /organizationFields/{id} | Delete an organization field
+*OrganizationFieldsApi* | [**deleteOrganizationFields**](Api/OrganizationFieldsApi.md#deleteorganizationfields) | **DELETE** /organizationFields | Delete multiple organization fields in bulk
+*OrganizationFieldsApi* | [**getOrganizationField**](Api/OrganizationFieldsApi.md#getorganizationfield) | **GET** /organizationFields/{id} | Get one organization field
+*OrganizationFieldsApi* | [**getOrganizationFields**](Api/OrganizationFieldsApi.md#getorganizationfields) | **GET** /organizationFields | Get all organization fields
+*OrganizationFieldsApi* | [**updateOrganizationField**](Api/OrganizationFieldsApi.md#updateorganizationfield) | **PUT** /organizationFields/{id} | Update an organization field
+*OrganizationRelationshipsApi* | [**addOrganizationRelationship**](Api/OrganizationRelationshipsApi.md#addorganizationrelationship) | **POST** /organizationRelationships | Create an organization relationship
+*OrganizationRelationshipsApi* | [**deleteOrganizationRelationship**](Api/OrganizationRelationshipsApi.md#deleteorganizationrelationship) | **DELETE** /organizationRelationships/{id} | Delete an organization relationship
+*OrganizationRelationshipsApi* | [**getOrganizationRelationship**](Api/OrganizationRelationshipsApi.md#getorganizationrelationship) | **GET** /organizationRelationships/{id} | Get one organization relationship
+*OrganizationRelationshipsApi* | [**getOrganizationRelationships**](Api/OrganizationRelationshipsApi.md#getorganizationrelationships) | **GET** /organizationRelationships | Get all relationships for organization
+*OrganizationRelationshipsApi* | [**updateOrganizationRelationship**](Api/OrganizationRelationshipsApi.md#updateorganizationrelationship) | **PUT** /organizationRelationships/{id} | Update an organization relationship
+*OrganizationsApi* | [**addOrganization**](Api/OrganizationsApi.md#addorganization) | **POST** /organizations | Add an organization
+*OrganizationsApi* | [**addOrganizationFollower**](Api/OrganizationsApi.md#addorganizationfollower) | **POST** /organizations/{id}/followers | Add a follower to an organization
+*OrganizationsApi* | [**deleteOrganization**](Api/OrganizationsApi.md#deleteorganization) | **DELETE** /organizations/{id} | Delete an organization
+*OrganizationsApi* | [**deleteOrganizationFollower**](Api/OrganizationsApi.md#deleteorganizationfollower) | **DELETE** /organizations/{id}/followers/{follower_id} | Delete a follower from an organization
+*OrganizationsApi* | [**deleteOrganizations**](Api/OrganizationsApi.md#deleteorganizations) | **DELETE** /organizations | Delete multiple organizations in bulk
+*OrganizationsApi* | [**getOrganization**](Api/OrganizationsApi.md#getorganization) | **GET** /organizations/{id} | Get details of an organization
+*OrganizationsApi* | [**getOrganizationActivities**](Api/OrganizationsApi.md#getorganizationactivities) | **GET** /organizations/{id}/activities | List activities associated with an organization
+*OrganizationsApi* | [**getOrganizationChangelog**](Api/OrganizationsApi.md#getorganizationchangelog) | **GET** /organizations/{id}/changelog | List updates about organization field values
+*OrganizationsApi* | [**getOrganizationDeals**](Api/OrganizationsApi.md#getorganizationdeals) | **GET** /organizations/{id}/deals | List deals associated with an organization
+*OrganizationsApi* | [**getOrganizationFiles**](Api/OrganizationsApi.md#getorganizationfiles) | **GET** /organizations/{id}/files | List files attached to an organization
+*OrganizationsApi* | [**getOrganizationFollowers**](Api/OrganizationsApi.md#getorganizationfollowers) | **GET** /organizations/{id}/followers | List followers of an organization
+*OrganizationsApi* | [**getOrganizationMailMessages**](Api/OrganizationsApi.md#getorganizationmailmessages) | **GET** /organizations/{id}/mailMessages | List mail messages associated with an organization
+*OrganizationsApi* | [**getOrganizationPersons**](Api/OrganizationsApi.md#getorganizationpersons) | **GET** /organizations/{id}/persons | List persons of an organization
+*OrganizationsApi* | [**getOrganizationUpdates**](Api/OrganizationsApi.md#getorganizationupdates) | **GET** /organizations/{id}/flow | List updates about an organization
+*OrganizationsApi* | [**getOrganizationUsers**](Api/OrganizationsApi.md#getorganizationusers) | **GET** /organizations/{id}/permittedUsers | List permitted users
+*OrganizationsApi* | [**getOrganizations**](Api/OrganizationsApi.md#getorganizations) | **GET** /organizations | Get all organizations
+*OrganizationsApi* | [**getOrganizationsCollection**](Api/OrganizationsApi.md#getorganizationscollection) | **GET** /organizations/collection | Get all organizations (BETA)
+*OrganizationsApi* | [**mergeOrganizations**](Api/OrganizationsApi.md#mergeorganizations) | **PUT** /organizations/{id}/merge | Merge two organizations
+*OrganizationsApi* | [**searchOrganization**](Api/OrganizationsApi.md#searchorganization) | **GET** /organizations/search | Search organizations
+*OrganizationsApi* | [**updateOrganization**](Api/OrganizationsApi.md#updateorganization) | **PUT** /organizations/{id} | Update an organization
+*PermissionSetsApi* | [**getPermissionSet**](Api/PermissionSetsApi.md#getpermissionset) | **GET** /permissionSets/{id} | Get one permission set
+*PermissionSetsApi* | [**getPermissionSetAssignments**](Api/PermissionSetsApi.md#getpermissionsetassignments) | **GET** /permissionSets/{id}/assignments | List permission set assignments
+*PermissionSetsApi* | [**getPermissionSets**](Api/PermissionSetsApi.md#getpermissionsets) | **GET** /permissionSets | Get all permission sets
+*PersonFieldsApi* | [**addPersonField**](Api/PersonFieldsApi.md#addpersonfield) | **POST** /personFields | Add a new person field
+*PersonFieldsApi* | [**deletePersonField**](Api/PersonFieldsApi.md#deletepersonfield) | **DELETE** /personFields/{id} | Delete a person field
+*PersonFieldsApi* | [**deletePersonFields**](Api/PersonFieldsApi.md#deletepersonfields) | **DELETE** /personFields | Delete multiple person fields in bulk
+*PersonFieldsApi* | [**getPersonField**](Api/PersonFieldsApi.md#getpersonfield) | **GET** /personFields/{id} | Get one person field
+*PersonFieldsApi* | [**getPersonFields**](Api/PersonFieldsApi.md#getpersonfields) | **GET** /personFields | Get all person fields
+*PersonFieldsApi* | [**updatePersonField**](Api/PersonFieldsApi.md#updatepersonfield) | **PUT** /personFields/{id} | Update a person field
+*PersonsApi* | [**addPerson**](Api/PersonsApi.md#addperson) | **POST** /persons | Add a person
+*PersonsApi* | [**addPersonFollower**](Api/PersonsApi.md#addpersonfollower) | **POST** /persons/{id}/followers | Add a follower to a person
+*PersonsApi* | [**addPersonPicture**](Api/PersonsApi.md#addpersonpicture) | **POST** /persons/{id}/picture | Add person picture
+*PersonsApi* | [**deletePerson**](Api/PersonsApi.md#deleteperson) | **DELETE** /persons/{id} | Delete a person
+*PersonsApi* | [**deletePersonFollower**](Api/PersonsApi.md#deletepersonfollower) | **DELETE** /persons/{id}/followers/{follower_id} | Delete a follower from a person
+*PersonsApi* | [**deletePersonPicture**](Api/PersonsApi.md#deletepersonpicture) | **DELETE** /persons/{id}/picture | Delete person picture
+*PersonsApi* | [**deletePersons**](Api/PersonsApi.md#deletepersons) | **DELETE** /persons | Delete multiple persons in bulk
+*PersonsApi* | [**getPerson**](Api/PersonsApi.md#getperson) | **GET** /persons/{id} | Get details of a person
+*PersonsApi* | [**getPersonActivities**](Api/PersonsApi.md#getpersonactivities) | **GET** /persons/{id}/activities | List activities associated with a person
+*PersonsApi* | [**getPersonChangelog**](Api/PersonsApi.md#getpersonchangelog) | **GET** /persons/{id}/changelog | List updates about person field values
+*PersonsApi* | [**getPersonDeals**](Api/PersonsApi.md#getpersondeals) | **GET** /persons/{id}/deals | List deals associated with a person
+*PersonsApi* | [**getPersonFiles**](Api/PersonsApi.md#getpersonfiles) | **GET** /persons/{id}/files | List files attached to a person
+*PersonsApi* | [**getPersonFollowers**](Api/PersonsApi.md#getpersonfollowers) | **GET** /persons/{id}/followers | List followers of a person
+*PersonsApi* | [**getPersonMailMessages**](Api/PersonsApi.md#getpersonmailmessages) | **GET** /persons/{id}/mailMessages | List mail messages associated with a person
+*PersonsApi* | [**getPersonProducts**](Api/PersonsApi.md#getpersonproducts) | **GET** /persons/{id}/products | List products associated with a person
+*PersonsApi* | [**getPersonUpdates**](Api/PersonsApi.md#getpersonupdates) | **GET** /persons/{id}/flow | List updates about a person
+*PersonsApi* | [**getPersonUsers**](Api/PersonsApi.md#getpersonusers) | **GET** /persons/{id}/permittedUsers | List permitted users
+*PersonsApi* | [**getPersons**](Api/PersonsApi.md#getpersons) | **GET** /persons | Get all persons
+*PersonsApi* | [**getPersonsCollection**](Api/PersonsApi.md#getpersonscollection) | **GET** /persons/collection | Get all persons (BETA)
+*PersonsApi* | [**mergePersons**](Api/PersonsApi.md#mergepersons) | **PUT** /persons/{id}/merge | Merge two persons
+*PersonsApi* | [**searchPersons**](Api/PersonsApi.md#searchpersons) | **GET** /persons/search | Search persons
+*PersonsApi* | [**updatePerson**](Api/PersonsApi.md#updateperson) | **PUT** /persons/{id} | Update a person
+*PipelinesApi* | [**addPipeline**](Api/PipelinesApi.md#addpipeline) | **POST** /pipelines | Add a new pipeline
+*PipelinesApi* | [**deletePipeline**](Api/PipelinesApi.md#deletepipeline) | **DELETE** /pipelines/{id} | Delete a pipeline
+*PipelinesApi* | [**getPipeline**](Api/PipelinesApi.md#getpipeline) | **GET** /pipelines/{id} | Get one pipeline
+*PipelinesApi* | [**getPipelineConversionStatistics**](Api/PipelinesApi.md#getpipelineconversionstatistics) | **GET** /pipelines/{id}/conversion_statistics | Get deals conversion rates in pipeline
+*PipelinesApi* | [**getPipelineDeals**](Api/PipelinesApi.md#getpipelinedeals) | **GET** /pipelines/{id}/deals | Get deals in a pipeline
+*PipelinesApi* | [**getPipelineMovementStatistics**](Api/PipelinesApi.md#getpipelinemovementstatistics) | **GET** /pipelines/{id}/movement_statistics | Get deals movements in pipeline
+*PipelinesApi* | [**getPipelines**](Api/PipelinesApi.md#getpipelines) | **GET** /pipelines | Get all pipelines
+*PipelinesApi* | [**updatePipeline**](Api/PipelinesApi.md#updatepipeline) | **PUT** /pipelines/{id} | Update a pipeline
+*ProductFieldsApi* | [**addProductField**](Api/ProductFieldsApi.md#addproductfield) | **POST** /productFields | Add a new product field
+*ProductFieldsApi* | [**deleteProductField**](Api/ProductFieldsApi.md#deleteproductfield) | **DELETE** /productFields/{id} | Delete a product field
+*ProductFieldsApi* | [**deleteProductFields**](Api/ProductFieldsApi.md#deleteproductfields) | **DELETE** /productFields | Delete multiple product fields in bulk
+*ProductFieldsApi* | [**getProductField**](Api/ProductFieldsApi.md#getproductfield) | **GET** /productFields/{id} | Get one product field
+*ProductFieldsApi* | [**getProductFields**](Api/ProductFieldsApi.md#getproductfields) | **GET** /productFields | Get all product fields
+*ProductFieldsApi* | [**updateProductField**](Api/ProductFieldsApi.md#updateproductfield) | **PUT** /productFields/{id} | Update a product field
+*ProductsApi* | [**addProduct**](Api/ProductsApi.md#addproduct) | **POST** /products | Add a product
+*ProductsApi* | [**addProductFollower**](Api/ProductsApi.md#addproductfollower) | **POST** /products/{id}/followers | Add a follower to a product
+*ProductsApi* | [**deleteProduct**](Api/ProductsApi.md#deleteproduct) | **DELETE** /products/{id} | Delete a product
+*ProductsApi* | [**deleteProductFollower**](Api/ProductsApi.md#deleteproductfollower) | **DELETE** /products/{id}/followers/{follower_id} | Delete a follower from a product
+*ProductsApi* | [**getProduct**](Api/ProductsApi.md#getproduct) | **GET** /products/{id} | Get one product
+*ProductsApi* | [**getProductDeals**](Api/ProductsApi.md#getproductdeals) | **GET** /products/{id}/deals | Get deals where a product is attached to
+*ProductsApi* | [**getProductFiles**](Api/ProductsApi.md#getproductfiles) | **GET** /products/{id}/files | List files attached to a product
+*ProductsApi* | [**getProductFollowers**](Api/ProductsApi.md#getproductfollowers) | **GET** /products/{id}/followers | List followers of a product
+*ProductsApi* | [**getProductUsers**](Api/ProductsApi.md#getproductusers) | **GET** /products/{id}/permittedUsers | List permitted users
+*ProductsApi* | [**getProducts**](Api/ProductsApi.md#getproducts) | **GET** /products | Get all products
+*ProductsApi* | [**searchProducts**](Api/ProductsApi.md#searchproducts) | **GET** /products/search | Search products
+*ProductsApi* | [**updateProduct**](Api/ProductsApi.md#updateproduct) | **PUT** /products/{id} | Update a product
+*ProjectTemplatesApi* | [**getProjectTemplate**](Api/ProjectTemplatesApi.md#getprojecttemplate) | **GET** /projectTemplates/{id} | Get details of a template
+*ProjectTemplatesApi* | [**getProjectTemplates**](Api/ProjectTemplatesApi.md#getprojecttemplates) | **GET** /projectTemplates | Get all project templates
+*ProjectTemplatesApi* | [**getProjectsBoard**](Api/ProjectTemplatesApi.md#getprojectsboard) | **GET** /projects/boards/{id} | Get details of a board
+*ProjectTemplatesApi* | [**getProjectsPhase**](Api/ProjectTemplatesApi.md#getprojectsphase) | **GET** /projects/phases/{id} | Get details of a phase
+*ProjectsApi* | [**addProject**](Api/ProjectsApi.md#addproject) | **POST** /projects | Add a project
+*ProjectsApi* | [**archiveProject**](Api/ProjectsApi.md#archiveproject) | **POST** /projects/{id}/archive | Archive a project
+*ProjectsApi* | [**deleteProject**](Api/ProjectsApi.md#deleteproject) | **DELETE** /projects/{id} | Delete a project
+*ProjectsApi* | [**getProject**](Api/ProjectsApi.md#getproject) | **GET** /projects/{id} | Get details of a project
+*ProjectsApi* | [**getProjectActivities**](Api/ProjectsApi.md#getprojectactivities) | **GET** /projects/{id}/activities | Returns project activities
+*ProjectsApi* | [**getProjectGroups**](Api/ProjectsApi.md#getprojectgroups) | **GET** /projects/{id}/groups | Returns project groups
+*ProjectsApi* | [**getProjectPlan**](Api/ProjectsApi.md#getprojectplan) | **GET** /projects/{id}/plan | Returns project plan
+*ProjectsApi* | [**getProjectTasks**](Api/ProjectsApi.md#getprojecttasks) | **GET** /projects/{id}/tasks | Returns project tasks
+*ProjectsApi* | [**getProjects**](Api/ProjectsApi.md#getprojects) | **GET** /projects | Get all projects
+*ProjectsApi* | [**getProjectsBoards**](Api/ProjectsApi.md#getprojectsboards) | **GET** /projects/boards | Get all project boards
+*ProjectsApi* | [**getProjectsPhases**](Api/ProjectsApi.md#getprojectsphases) | **GET** /projects/phases | Get project phases
+*ProjectsApi* | [**putProjectPlanActivity**](Api/ProjectsApi.md#putprojectplanactivity) | **PUT** /projects/{id}/plan/activities/{activityId} | Update activity in project plan
+*ProjectsApi* | [**putProjectPlanTask**](Api/ProjectsApi.md#putprojectplantask) | **PUT** /projects/{id}/plan/tasks/{taskId} | Update task in project plan
+*ProjectsApi* | [**updateProject**](Api/ProjectsApi.md#updateproject) | **PUT** /projects/{id} | Update a project
+*RecentsApi* | [**getRecents**](Api/RecentsApi.md#getrecents) | **GET** /recents | Get recents
+*RolesApi* | [**addOrUpdateRoleSetting**](Api/RolesApi.md#addorupdaterolesetting) | **POST** /roles/{id}/settings | Add or update role setting
+*RolesApi* | [**addRole**](Api/RolesApi.md#addrole) | **POST** /roles | Add a role
+*RolesApi* | [**addRoleAssignment**](Api/RolesApi.md#addroleassignment) | **POST** /roles/{id}/assignments | Add role assignment
+*RolesApi* | [**deleteRole**](Api/RolesApi.md#deleterole) | **DELETE** /roles/{id} | Delete a role
+*RolesApi* | [**deleteRoleAssignment**](Api/RolesApi.md#deleteroleassignment) | **DELETE** /roles/{id}/assignments | Delete a role assignment
+*RolesApi* | [**getRole**](Api/RolesApi.md#getrole) | **GET** /roles/{id} | Get one role
+*RolesApi* | [**getRoleAssignments**](Api/RolesApi.md#getroleassignments) | **GET** /roles/{id}/assignments | List role assignments
+*RolesApi* | [**getRolePipelines**](Api/RolesApi.md#getrolepipelines) | **GET** /roles/{id}/pipelines | List pipeline visibility for a role
+*RolesApi* | [**getRoleSettings**](Api/RolesApi.md#getrolesettings) | **GET** /roles/{id}/settings | List role settings
+*RolesApi* | [**getRoles**](Api/RolesApi.md#getroles) | **GET** /roles | Get all roles
+*RolesApi* | [**updateRole**](Api/RolesApi.md#updaterole) | **PUT** /roles/{id} | Update role details
+*RolesApi* | [**updateRolePipelines**](Api/RolesApi.md#updaterolepipelines) | **PUT** /roles/{id}/pipelines | Update pipeline visibility for a role
+*StagesApi* | [**addStage**](Api/StagesApi.md#addstage) | **POST** /stages | Add a new stage
+*StagesApi* | [**deleteStage**](Api/StagesApi.md#deletestage) | **DELETE** /stages/{id} | Delete a stage
+*StagesApi* | [**deleteStages**](Api/StagesApi.md#deletestages) | **DELETE** /stages | Delete multiple stages in bulk
+*StagesApi* | [**getStage**](Api/StagesApi.md#getstage) | **GET** /stages/{id} | Get one stage
+*StagesApi* | [**getStageDeals**](Api/StagesApi.md#getstagedeals) | **GET** /stages/{id}/deals | Get deals in a stage
+*StagesApi* | [**getStages**](Api/StagesApi.md#getstages) | **GET** /stages | Get all stages
+*StagesApi* | [**updateStage**](Api/StagesApi.md#updatestage) | **PUT** /stages/{id} | Update stage details
+*SubscriptionsApi* | [**addRecurringSubscription**](Api/SubscriptionsApi.md#addrecurringsubscription) | **POST** /subscriptions/recurring | Add a recurring subscription
+*SubscriptionsApi* | [**addSubscriptionInstallment**](Api/SubscriptionsApi.md#addsubscriptioninstallment) | **POST** /subscriptions/installment | Add an installment subscription
+*SubscriptionsApi* | [**cancelRecurringSubscription**](Api/SubscriptionsApi.md#cancelrecurringsubscription) | **PUT** /subscriptions/recurring/{id}/cancel | Cancel a recurring subscription
+*SubscriptionsApi* | [**deleteSubscription**](Api/SubscriptionsApi.md#deletesubscription) | **DELETE** /subscriptions/{id} | Delete a subscription
+*SubscriptionsApi* | [**findSubscriptionByDeal**](Api/SubscriptionsApi.md#findsubscriptionbydeal) | **GET** /subscriptions/find/{dealId} | Find subscription by deal
+*SubscriptionsApi* | [**getSubscription**](Api/SubscriptionsApi.md#getsubscription) | **GET** /subscriptions/{id} | Get details of a subscription
+*SubscriptionsApi* | [**getSubscriptionPayments**](Api/SubscriptionsApi.md#getsubscriptionpayments) | **GET** /subscriptions/{id}/payments | Get all payments of a subscription
+*SubscriptionsApi* | [**updateRecurringSubscription**](Api/SubscriptionsApi.md#updaterecurringsubscription) | **PUT** /subscriptions/recurring/{id} | Update a recurring subscription
+*SubscriptionsApi* | [**updateSubscriptionInstallment**](Api/SubscriptionsApi.md#updatesubscriptioninstallment) | **PUT** /subscriptions/installment/{id} | Update an installment subscription
+*TasksApi* | [**addTask**](Api/TasksApi.md#addtask) | **POST** /tasks | Add a task
+*TasksApi* | [**deleteTask**](Api/TasksApi.md#deletetask) | **DELETE** /tasks/{id} | Delete a task
+*TasksApi* | [**getTask**](Api/TasksApi.md#gettask) | **GET** /tasks/{id} | Get details of a task
+*TasksApi* | [**getTasks**](Api/TasksApi.md#gettasks) | **GET** /tasks | Get all tasks
+*TasksApi* | [**updateTask**](Api/TasksApi.md#updatetask) | **PUT** /tasks/{id} | Update a task
+*UserConnectionsApi* | [**getUserConnections**](Api/UserConnectionsApi.md#getuserconnections) | **GET** /userConnections | Get all user connections
+*UserSettingsApi* | [**getUserSettings**](Api/UserSettingsApi.md#getusersettings) | **GET** /userSettings | List settings of an authorized user
+*UsersApi* | [**addUser**](Api/UsersApi.md#adduser) | **POST** /users | Add a new user
+*UsersApi* | [**findUsersByName**](Api/UsersApi.md#findusersbyname) | **GET** /users/find | Find users by name
+*UsersApi* | [**getCurrentUser**](Api/UsersApi.md#getcurrentuser) | **GET** /users/me | Get current user data
+*UsersApi* | [**getUser**](Api/UsersApi.md#getuser) | **GET** /users/{id} | Get one user
+*UsersApi* | [**getUserFollowers**](Api/UsersApi.md#getuserfollowers) | **GET** /users/{id}/followers | List followers of a user
+*UsersApi* | [**getUserPermissions**](Api/UsersApi.md#getuserpermissions) | **GET** /users/{id}/permissions | List user permissions
+*UsersApi* | [**getUserRoleAssignments**](Api/UsersApi.md#getuserroleassignments) | **GET** /users/{id}/roleAssignments | List role assignments
+*UsersApi* | [**getUserRoleSettings**](Api/UsersApi.md#getuserrolesettings) | **GET** /users/{id}/roleSettings | List user role settings
+*UsersApi* | [**getUsers**](Api/UsersApi.md#getusers) | **GET** /users | Get all users
+*UsersApi* | [**updateUser**](Api/UsersApi.md#updateuser) | **PUT** /users/{id} | Update user details
+*WebhooksApi* | [**addWebhook**](Api/WebhooksApi.md#addwebhook) | **POST** /webhooks | Create a new Webhook
+*WebhooksApi* | [**deleteWebhook**](Api/WebhooksApi.md#deletewebhook) | **DELETE** /webhooks/{id} | Delete existing Webhook
+*WebhooksApi* | [**getWebhooks**](Api/WebhooksApi.md#getwebhooks) | **GET** /webhooks | Get all Webhooks
 
 
 ## Documentation for models
 
- - [ActivityCollectionResponseObject](docs/Model/ActivityCollectionResponseObject.md)
- - [ActivityCollectionResponseObjectAllOf](docs/Model/ActivityCollectionResponseObjectAllOf.md)
- - [ActivityDistribution](docs/Model/ActivityDistribution.md)
- - [ActivityDistributionData](docs/Model/ActivityDistributionData.md)
- - [ActivityDistributionDataWithAdditionalData](docs/Model/ActivityDistributionDataWithAdditionalData.md)
- - [ActivityDistributionItem](docs/Model/ActivityDistributionItem.md)
- - [ActivityInfo](docs/Model/ActivityInfo.md)
- - [ActivityObjectFragment](docs/Model/ActivityObjectFragment.md)
- - [ActivityPostObject](docs/Model/ActivityPostObject.md)
- - [ActivityPostObjectAllOf](docs/Model/ActivityPostObjectAllOf.md)
- - [ActivityPutObject](docs/Model/ActivityPutObject.md)
- - [ActivityPutObjectAllOf](docs/Model/ActivityPutObjectAllOf.md)
- - [ActivityRecordAdditionalData](docs/Model/ActivityRecordAdditionalData.md)
- - [ActivityResponseObject](docs/Model/ActivityResponseObject.md)
- - [ActivityResponseObjectAllOf](docs/Model/ActivityResponseObjectAllOf.md)
- - [ActivityTypeBulkDeleteResponse](docs/Model/ActivityTypeBulkDeleteResponse.md)
- - [ActivityTypeBulkDeleteResponseAllOf](docs/Model/ActivityTypeBulkDeleteResponseAllOf.md)
- - [ActivityTypeBulkDeleteResponseAllOfData](docs/Model/ActivityTypeBulkDeleteResponseAllOfData.md)
- - [ActivityTypeCount](docs/Model/ActivityTypeCount.md)
- - [ActivityTypeCreateRequest](docs/Model/ActivityTypeCreateRequest.md)
- - [ActivityTypeCreateUpdateDeleteResponse](docs/Model/ActivityTypeCreateUpdateDeleteResponse.md)
- - [ActivityTypeCreateUpdateDeleteResponseAllOf](docs/Model/ActivityTypeCreateUpdateDeleteResponseAllOf.md)
- - [ActivityTypeListResponse](docs/Model/ActivityTypeListResponse.md)
- - [ActivityTypeListResponseAllOf](docs/Model/ActivityTypeListResponseAllOf.md)
- - [ActivityTypeObjectResponse](docs/Model/ActivityTypeObjectResponse.md)
- - [ActivityTypeUpdateRequest](docs/Model/ActivityTypeUpdateRequest.md)
- - [AddActivityResponse](docs/Model/AddActivityResponse.md)
- - [AddActivityResponseRelatedObjects](docs/Model/AddActivityResponseRelatedObjects.md)
- - [AddChannelBadRequestResponse](docs/Model/AddChannelBadRequestResponse.md)
- - [AddChannelBadRequestResponseAdditionalData](docs/Model/AddChannelBadRequestResponseAdditionalData.md)
- - [AddChannelForbiddenErrorResponse](docs/Model/AddChannelForbiddenErrorResponse.md)
- - [AddChannelForbiddenErrorResponseAdditionalData](docs/Model/AddChannelForbiddenErrorResponseAdditionalData.md)
- - [AddDealFollowerRequest](docs/Model/AddDealFollowerRequest.md)
- - [AddDealParticipantRequest](docs/Model/AddDealParticipantRequest.md)
- - [AddFile](docs/Model/AddFile.md)
- - [AddFilterRequest](docs/Model/AddFilterRequest.md)
- - [AddFollowerToPersonResponse](docs/Model/AddFollowerToPersonResponse.md)
- - [AddFollowerToPersonResponseAllOf](docs/Model/AddFollowerToPersonResponseAllOf.md)
- - [AddFollowerToPersonResponseAllOfData](docs/Model/AddFollowerToPersonResponseAllOfData.md)
- - [AddLeadLabelRequest](docs/Model/AddLeadLabelRequest.md)
- - [AddLeadRequest](docs/Model/AddLeadRequest.md)
- - [AddNewPipeline](docs/Model/AddNewPipeline.md)
- - [AddNewPipelineAllOf](docs/Model/AddNewPipelineAllOf.md)
- - [AddNoteRequest](docs/Model/AddNoteRequest.md)
- - [AddNoteRequestAllOf](docs/Model/AddNoteRequestAllOf.md)
- - [AddOrUpdateRoleSettingRequest](docs/Model/AddOrUpdateRoleSettingRequest.md)
- - [AddOrganizationFollowerRequest](docs/Model/AddOrganizationFollowerRequest.md)
- - [AddOrganizationRelationshipRequest](docs/Model/AddOrganizationRelationshipRequest.md)
- - [AddPersonFollowerRequest](docs/Model/AddPersonFollowerRequest.md)
- - [AddPersonPictureResponse](docs/Model/AddPersonPictureResponse.md)
- - [AddPersonPictureResponseAllOf](docs/Model/AddPersonPictureResponseAllOf.md)
- - [AddPersonResponse](docs/Model/AddPersonResponse.md)
- - [AddPersonResponseAllOf](docs/Model/AddPersonResponseAllOf.md)
- - [AddProductAttachmentDetails](docs/Model/AddProductAttachmentDetails.md)
- - [AddProductAttachmentDetailsAllOf](docs/Model/AddProductAttachmentDetailsAllOf.md)
- - [AddProductFollowerRequest](docs/Model/AddProductFollowerRequest.md)
- - [AddProductRequestBody](docs/Model/AddProductRequestBody.md)
- - [AddProductRequestBodyAllOf](docs/Model/AddProductRequestBodyAllOf.md)
- - [AddProductRequestBodyAllOf1](docs/Model/AddProductRequestBodyAllOf1.md)
- - [AddProjectResponse](docs/Model/AddProjectResponse.md)
- - [AddRole](docs/Model/AddRole.md)
- - [AddRoleAssignmentRequest](docs/Model/AddRoleAssignmentRequest.md)
- - [AddRoleAssignmentResponseData](docs/Model/AddRoleAssignmentResponseData.md)
- - [AddRoleAssignmentResponseDataData](docs/Model/AddRoleAssignmentResponseDataData.md)
- - [AddRolesResponseData](docs/Model/AddRolesResponseData.md)
- - [AddTaskResponse](docs/Model/AddTaskResponse.md)
- - [AddTeamUserRequest](docs/Model/AddTeamUserRequest.md)
- - [AddUserRequest](docs/Model/AddUserRequest.md)
- - [AddWebhookRequest](docs/Model/AddWebhookRequest.md)
- - [AddedDealFollower](docs/Model/AddedDealFollower.md)
- - [AddedDealFollowerData](docs/Model/AddedDealFollowerData.md)
- - [AdditionalBaseOrganizationItemInfo](docs/Model/AdditionalBaseOrganizationItemInfo.md)
- - [AdditionalData](docs/Model/AdditionalData.md)
- - [AdditionalDataWithCursorPagination](docs/Model/AdditionalDataWithCursorPagination.md)
- - [AdditionalDataWithOffsetPagination](docs/Model/AdditionalDataWithOffsetPagination.md)
- - [AdditionalDataWithPaginationDetails](docs/Model/AdditionalDataWithPaginationDetails.md)
- - [AdditionalMergePersonInfo](docs/Model/AdditionalMergePersonInfo.md)
- - [AdditionalPersonInfo](docs/Model/AdditionalPersonInfo.md)
- - [AllOrganizationRelationshipsGetResponse](docs/Model/AllOrganizationRelationshipsGetResponse.md)
- - [AllOrganizationRelationshipsGetResponseAllOf](docs/Model/AllOrganizationRelationshipsGetResponseAllOf.md)
- - [AllOrganizationRelationshipsGetResponseAllOfRelatedObjects](docs/Model/AllOrganizationRelationshipsGetResponseAllOfRelatedObjects.md)
- - [AllOrganizationsGetResponse](docs/Model/AllOrganizationsGetResponse.md)
- - [AllOrganizationsGetResponseAllOf](docs/Model/AllOrganizationsGetResponseAllOf.md)
- - [AllOrganizationsGetResponseAllOfRelatedObjects](docs/Model/AllOrganizationsGetResponseAllOfRelatedObjects.md)
- - [ArrayPrices](docs/Model/ArrayPrices.md)
- - [Assignee](docs/Model/Assignee.md)
- - [BaseComment](docs/Model/BaseComment.md)
- - [BaseCurrency](docs/Model/BaseCurrency.md)
- - [BaseDeal](docs/Model/BaseDeal.md)
- - [BaseFollowerItem](docs/Model/BaseFollowerItem.md)
- - [BaseMailThread](docs/Model/BaseMailThread.md)
- - [BaseMailThreadAllOf](docs/Model/BaseMailThreadAllOf.md)
- - [BaseMailThreadAllOfParties](docs/Model/BaseMailThreadAllOfParties.md)
- - [BaseMailThreadMessages](docs/Model/BaseMailThreadMessages.md)
- - [BaseMailThreadMessagesAllOf](docs/Model/BaseMailThreadMessagesAllOf.md)
- - [BaseNote](docs/Model/BaseNote.md)
- - [BaseNoteDealTitle](docs/Model/BaseNoteDealTitle.md)
- - [BaseNoteOrganization](docs/Model/BaseNoteOrganization.md)
- - [BaseNotePerson](docs/Model/BaseNotePerson.md)
- - [BaseOrganizationItem](docs/Model/BaseOrganizationItem.md)
- - [BaseOrganizationItemFields](docs/Model/BaseOrganizationItemFields.md)
- - [BaseOrganizationItemWithEditNameFlag](docs/Model/BaseOrganizationItemWithEditNameFlag.md)
- - [BaseOrganizationItemWithEditNameFlagAllOf](docs/Model/BaseOrganizationItemWithEditNameFlagAllOf.md)
- - [BaseOrganizationRelationshipItem](docs/Model/BaseOrganizationRelationshipItem.md)
- - [BasePersonItem](docs/Model/BasePersonItem.md)
- - [BasePersonItemEmail](docs/Model/BasePersonItemEmail.md)
- - [BasePersonItemPhone](docs/Model/BasePersonItemPhone.md)
- - [BasePipeline](docs/Model/BasePipeline.md)
- - [BasePipelineWithSelectedFlag](docs/Model/BasePipelineWithSelectedFlag.md)
- - [BasePipelineWithSelectedFlagAllOf](docs/Model/BasePipelineWithSelectedFlagAllOf.md)
- - [BaseProduct](docs/Model/BaseProduct.md)
- - [BaseResponse](docs/Model/BaseResponse.md)
- - [BaseResponseWithStatus](docs/Model/BaseResponseWithStatus.md)
- - [BaseResponseWithStatusAllOf](docs/Model/BaseResponseWithStatusAllOf.md)
- - [BaseRole](docs/Model/BaseRole.md)
- - [BaseStage](docs/Model/BaseStage.md)
- - [BaseTeam](docs/Model/BaseTeam.md)
- - [BaseTeamAdditionalProperties](docs/Model/BaseTeamAdditionalProperties.md)
- - [BaseUser](docs/Model/BaseUser.md)
- - [BaseUserMe](docs/Model/BaseUserMe.md)
- - [BaseUserMeAllOf](docs/Model/BaseUserMeAllOf.md)
- - [BaseUserMeAllOfLanguage](docs/Model/BaseUserMeAllOfLanguage.md)
- - [BaseWebhook](docs/Model/BaseWebhook.md)
- - [BasicDeal](docs/Model/BasicDeal.md)
- - [BasicDealProduct](docs/Model/BasicDealProduct.md)
- - [BasicDealProductAllOf](docs/Model/BasicDealProductAllOf.md)
- - [BasicGoal](docs/Model/BasicGoal.md)
- - [BasicOrganization](docs/Model/BasicOrganization.md)
- - [BasicPerson](docs/Model/BasicPerson.md)
- - [BasicPersonEmail](docs/Model/BasicPersonEmail.md)
- - [BillingFrequency](docs/Model/BillingFrequency.md)
- - [BillingFrequency1](docs/Model/BillingFrequency1.md)
- - [BulkDeleteResponse](docs/Model/BulkDeleteResponse.md)
- - [BulkDeleteResponseAllOf](docs/Model/BulkDeleteResponseAllOf.md)
- - [BulkDeleteResponseAllOfData](docs/Model/BulkDeleteResponseAllOfData.md)
- - [CalculatedFields](docs/Model/CalculatedFields.md)
- - [CallLogBadRequestResponse](docs/Model/CallLogBadRequestResponse.md)
- - [CallLogConflictResponse](docs/Model/CallLogConflictResponse.md)
- - [CallLogForbiddenResponse](docs/Model/CallLogForbiddenResponse.md)
- - [CallLogGoneResponse](docs/Model/CallLogGoneResponse.md)
- - [CallLogInternalErrorResponse](docs/Model/CallLogInternalErrorResponse.md)
- - [CallLogNotFoundResponse](docs/Model/CallLogNotFoundResponse.md)
- - [CallLogObject](docs/Model/CallLogObject.md)
- - [CallLogResponse200](docs/Model/CallLogResponse200.md)
- - [CallLogsResponse](docs/Model/CallLogsResponse.md)
- - [CallLogsResponseAdditionalData](docs/Model/CallLogsResponseAdditionalData.md)
- - [ChangelogResponse](docs/Model/ChangelogResponse.md)
- - [ChangelogResponseAllOf](docs/Model/ChangelogResponseAllOf.md)
- - [ChangelogResponseAllOfData](docs/Model/ChangelogResponseAllOfData.md)
- - [ChannelObject](docs/Model/ChannelObject.md)
- - [ChannelObjectResponse](docs/Model/ChannelObjectResponse.md)
- - [ChannelObjectResponseData](docs/Model/ChannelObjectResponseData.md)
- - [CommentPostPutObject](docs/Model/CommentPostPutObject.md)
- - [CommonMailThread](docs/Model/CommonMailThread.md)
- - [CreateRemoteFileAndLinkItToItem](docs/Model/CreateRemoteFileAndLinkItToItem.md)
- - [CreateTeam](docs/Model/CreateTeam.md)
- - [Currencies](docs/Model/Currencies.md)
- - [DealCollectionResponseObject](docs/Model/DealCollectionResponseObject.md)
- - [DealCountAndActivityInfo](docs/Model/DealCountAndActivityInfo.md)
- - [DealFlowResponse](docs/Model/DealFlowResponse.md)
- - [DealFlowResponseAllOf](docs/Model/DealFlowResponseAllOf.md)
- - [DealFlowResponseAllOfData](docs/Model/DealFlowResponseAllOfData.md)
- - [DealFlowResponseAllOfRelatedObjects](docs/Model/DealFlowResponseAllOfRelatedObjects.md)
- - [DealListActivitiesResponse](docs/Model/DealListActivitiesResponse.md)
- - [DealListActivitiesResponseAllOf](docs/Model/DealListActivitiesResponseAllOf.md)
- - [DealListActivitiesResponseAllOfRelatedObjects](docs/Model/DealListActivitiesResponseAllOfRelatedObjects.md)
- - [DealNonStrict](docs/Model/DealNonStrict.md)
- - [DealNonStrictModeFields](docs/Model/DealNonStrictModeFields.md)
- - [DealNonStrictModeFieldsCreatorUserId](docs/Model/DealNonStrictModeFieldsCreatorUserId.md)
- - [DealNonStrictWithDetails](docs/Model/DealNonStrictWithDetails.md)
- - [DealNonStrictWithDetailsAllOf](docs/Model/DealNonStrictWithDetailsAllOf.md)
- - [DealNonStrictWithDetailsAllOfAge](docs/Model/DealNonStrictWithDetailsAllOfAge.md)
- - [DealNonStrictWithDetailsAllOfAverageTimeToWon](docs/Model/DealNonStrictWithDetailsAllOfAverageTimeToWon.md)
- - [DealNonStrictWithDetailsAllOfStayInPipelineStages](docs/Model/DealNonStrictWithDetailsAllOfStayInPipelineStages.md)
- - [DealOrganizationData](docs/Model/DealOrganizationData.md)
- - [DealOrganizationDataWithId](docs/Model/DealOrganizationDataWithId.md)
- - [DealOrganizationDataWithIdAllOf](docs/Model/DealOrganizationDataWithIdAllOf.md)
- - [DealParticipantCountInfo](docs/Model/DealParticipantCountInfo.md)
- - [DealParticipants](docs/Model/DealParticipants.md)
- - [DealParticipantsChangelog](docs/Model/DealParticipantsChangelog.md)
- - [DealPersonData](docs/Model/DealPersonData.md)
- - [DealPersonDataEmail](docs/Model/DealPersonDataEmail.md)
- - [DealPersonDataPhone](docs/Model/DealPersonDataPhone.md)
- - [DealPersonDataWithId](docs/Model/DealPersonDataWithId.md)
- - [DealPersonDataWithIdAllOf](docs/Model/DealPersonDataWithIdAllOf.md)
- - [DealProductRequestBody](docs/Model/DealProductRequestBody.md)
- - [DealSearchItem](docs/Model/DealSearchItem.md)
- - [DealSearchItemItem](docs/Model/DealSearchItemItem.md)
- - [DealSearchItemItemOrganization](docs/Model/DealSearchItemItemOrganization.md)
- - [DealSearchItemItemOwner](docs/Model/DealSearchItemItemOwner.md)
- - [DealSearchItemItemPerson](docs/Model/DealSearchItemItemPerson.md)
- - [DealSearchItemItemStage](docs/Model/DealSearchItemItemStage.md)
- - [DealSearchResponse](docs/Model/DealSearchResponse.md)
- - [DealSearchResponseAllOf](docs/Model/DealSearchResponseAllOf.md)
- - [DealSearchResponseAllOfData](docs/Model/DealSearchResponseAllOfData.md)
- - [DealStrict](docs/Model/DealStrict.md)
- - [DealStrictModeFields](docs/Model/DealStrictModeFields.md)
- - [DealStrictWithMergeId](docs/Model/DealStrictWithMergeId.md)
- - [DealStrictWithMergeIdAllOf](docs/Model/DealStrictWithMergeIdAllOf.md)
- - [DealSummary](docs/Model/DealSummary.md)
- - [DealSummaryPerCurrency](docs/Model/DealSummaryPerCurrency.md)
- - [DealSummaryPerCurrencyFull](docs/Model/DealSummaryPerCurrencyFull.md)
- - [DealSummaryPerCurrencyFullCURRENCYID](docs/Model/DealSummaryPerCurrencyFullCURRENCYID.md)
- - [DealSummaryPerStages](docs/Model/DealSummaryPerStages.md)
- - [DealSummaryPerStagesSTAGEID](docs/Model/DealSummaryPerStagesSTAGEID.md)
- - [DealSummaryPerStagesSTAGEIDCURRENCYID](docs/Model/DealSummaryPerStagesSTAGEIDCURRENCYID.md)
- - [DealTitleParameter](docs/Model/DealTitleParameter.md)
- - [DealUserData](docs/Model/DealUserData.md)
- - [DealUserDataWithId](docs/Model/DealUserDataWithId.md)
- - [DealUserDataWithIdAllOf](docs/Model/DealUserDataWithIdAllOf.md)
- - [DealsCountAndActivityInfo](docs/Model/DealsCountAndActivityInfo.md)
- - [DealsCountInfo](docs/Model/DealsCountInfo.md)
- - [DealsMovementsInfo](docs/Model/DealsMovementsInfo.md)
- - [DealsMovementsInfoFormattedValues](docs/Model/DealsMovementsInfoFormattedValues.md)
- - [DealsMovementsInfoValues](docs/Model/DealsMovementsInfoValues.md)
- - [DeleteActivitiesResponse](docs/Model/DeleteActivitiesResponse.md)
- - [DeleteActivitiesResponseData](docs/Model/DeleteActivitiesResponseData.md)
- - [DeleteActivityResponse](docs/Model/DeleteActivityResponse.md)
- - [DeleteActivityResponseData](docs/Model/DeleteActivityResponseData.md)
- - [DeleteChannelSuccess](docs/Model/DeleteChannelSuccess.md)
- - [DeleteComment](docs/Model/DeleteComment.md)
- - [DeleteConversationForbiddenErrorResponse](docs/Model/DeleteConversationForbiddenErrorResponse.md)
- - [DeleteConversationForbiddenErrorResponseAdditionalData](docs/Model/DeleteConversationForbiddenErrorResponseAdditionalData.md)
- - [DeleteConversationNotFoundErrorResponse](docs/Model/DeleteConversationNotFoundErrorResponse.md)
- - [DeleteConversationNotFoundErrorResponseAdditionalData](docs/Model/DeleteConversationNotFoundErrorResponseAdditionalData.md)
- - [DeleteConversationSuccess](docs/Model/DeleteConversationSuccess.md)
- - [DeleteDeal](docs/Model/DeleteDeal.md)
- - [DeleteDealData](docs/Model/DeleteDealData.md)
- - [DeleteDealFollower](docs/Model/DeleteDealFollower.md)
- - [DeleteDealFollowerData](docs/Model/DeleteDealFollowerData.md)
- - [DeleteDealParticipant](docs/Model/DeleteDealParticipant.md)
- - [DeleteDealParticipantData](docs/Model/DeleteDealParticipantData.md)
- - [DeleteDealProduct](docs/Model/DeleteDealProduct.md)
- - [DeleteDealProductData](docs/Model/DeleteDealProductData.md)
- - [DeleteFile](docs/Model/DeleteFile.md)
- - [DeleteFileData](docs/Model/DeleteFileData.md)
- - [DeleteGoalResponse](docs/Model/DeleteGoalResponse.md)
- - [DeleteLeadIdResponse](docs/Model/DeleteLeadIdResponse.md)
- - [DeleteMultipleDeals](docs/Model/DeleteMultipleDeals.md)
- - [DeleteMultipleDealsData](docs/Model/DeleteMultipleDealsData.md)
- - [DeleteMultipleProductFieldsResponse](docs/Model/DeleteMultipleProductFieldsResponse.md)
- - [DeleteMultipleProductFieldsResponseData](docs/Model/DeleteMultipleProductFieldsResponseData.md)
- - [DeleteNote](docs/Model/DeleteNote.md)
- - [DeletePersonResponse](docs/Model/DeletePersonResponse.md)
- - [DeletePersonResponseAllOf](docs/Model/DeletePersonResponseAllOf.md)
- - [DeletePersonResponseAllOfData](docs/Model/DeletePersonResponseAllOfData.md)
- - [DeletePersonsInBulkResponse](docs/Model/DeletePersonsInBulkResponse.md)
- - [DeletePersonsInBulkResponseAllOf](docs/Model/DeletePersonsInBulkResponseAllOf.md)
- - [DeletePersonsInBulkResponseAllOfData](docs/Model/DeletePersonsInBulkResponseAllOfData.md)
- - [DeletePipelineResponse](docs/Model/DeletePipelineResponse.md)
- - [DeletePipelineResponseData](docs/Model/DeletePipelineResponseData.md)
- - [DeleteProductFieldResponse](docs/Model/DeleteProductFieldResponse.md)
- - [DeleteProductFieldResponseData](docs/Model/DeleteProductFieldResponseData.md)
- - [DeleteProductFollowerResponse](docs/Model/DeleteProductFollowerResponse.md)
- - [DeleteProductFollowerResponseData](docs/Model/DeleteProductFollowerResponseData.md)
- - [DeleteProductResponse](docs/Model/DeleteProductResponse.md)
- - [DeleteProductResponseData](docs/Model/DeleteProductResponseData.md)
- - [DeleteProject](docs/Model/DeleteProject.md)
- - [DeleteProjectData](docs/Model/DeleteProjectData.md)
- - [DeleteProjectResponse](docs/Model/DeleteProjectResponse.md)
- - [DeleteResponse](docs/Model/DeleteResponse.md)
- - [DeleteResponseAllOf](docs/Model/DeleteResponseAllOf.md)
- - [DeleteResponseAllOfData](docs/Model/DeleteResponseAllOfData.md)
- - [DeleteRole](docs/Model/DeleteRole.md)
- - [DeleteRoleAssignment](docs/Model/DeleteRoleAssignment.md)
- - [DeleteRoleAssignmentRequest](docs/Model/DeleteRoleAssignmentRequest.md)
- - [DeleteRoleAssignmentResponseData](docs/Model/DeleteRoleAssignmentResponseData.md)
- - [DeleteRoleAssignmentResponseDataData](docs/Model/DeleteRoleAssignmentResponseDataData.md)
- - [DeleteRoleResponseData](docs/Model/DeleteRoleResponseData.md)
- - [DeleteRoleResponseDataData](docs/Model/DeleteRoleResponseDataData.md)
- - [DeleteStageResponse](docs/Model/DeleteStageResponse.md)
- - [DeleteStageResponseData](docs/Model/DeleteStageResponseData.md)
- - [DeleteStagesResponse](docs/Model/DeleteStagesResponse.md)
- - [DeleteStagesResponseData](docs/Model/DeleteStagesResponseData.md)
- - [DeleteTask](docs/Model/DeleteTask.md)
- - [DeleteTaskData](docs/Model/DeleteTaskData.md)
- - [DeleteTaskResponse](docs/Model/DeleteTaskResponse.md)
- - [DeleteTeamUserRequest](docs/Model/DeleteTeamUserRequest.md)
- - [Duration](docs/Model/Duration.md)
- - [EditPipeline](docs/Model/EditPipeline.md)
- - [EditPipelineAllOf](docs/Model/EditPipelineAllOf.md)
- - [EmailInfo](docs/Model/EmailInfo.md)
- - [ExpectedOutcome](docs/Model/ExpectedOutcome.md)
- - [FailResponse](docs/Model/FailResponse.md)
- - [Field](docs/Model/Field.md)
- - [FieldCreateRequest](docs/Model/FieldCreateRequest.md)
- - [FieldCreateRequestAllOf](docs/Model/FieldCreateRequestAllOf.md)
- - [FieldResponse](docs/Model/FieldResponse.md)
- - [FieldResponseAllOf](docs/Model/FieldResponseAllOf.md)
- - [FieldType](docs/Model/FieldType.md)
- - [FieldTypeAsString](docs/Model/FieldTypeAsString.md)
- - [FieldUpdateRequest](docs/Model/FieldUpdateRequest.md)
- - [FieldsResponse](docs/Model/FieldsResponse.md)
- - [FieldsResponseAllOf](docs/Model/FieldsResponseAllOf.md)
- - [FileData](docs/Model/FileData.md)
- - [FileItem](docs/Model/FileItem.md)
- - [Filter](docs/Model/Filter.md)
- - [FilterGetItem](docs/Model/FilterGetItem.md)
- - [FilterType](docs/Model/FilterType.md)
- - [FiltersBulkDeleteResponse](docs/Model/FiltersBulkDeleteResponse.md)
- - [FiltersBulkDeleteResponseAllOf](docs/Model/FiltersBulkDeleteResponseAllOf.md)
- - [FiltersBulkDeleteResponseAllOfData](docs/Model/FiltersBulkDeleteResponseAllOfData.md)
- - [FiltersBulkGetResponse](docs/Model/FiltersBulkGetResponse.md)
- - [FiltersBulkGetResponseAllOf](docs/Model/FiltersBulkGetResponseAllOf.md)
- - [FiltersDeleteResponse](docs/Model/FiltersDeleteResponse.md)
- - [FiltersDeleteResponseAllOf](docs/Model/FiltersDeleteResponseAllOf.md)
- - [FiltersDeleteResponseAllOfData](docs/Model/FiltersDeleteResponseAllOfData.md)
- - [FiltersGetResponse](docs/Model/FiltersGetResponse.md)
- - [FiltersGetResponseAllOf](docs/Model/FiltersGetResponseAllOf.md)
- - [FiltersPostResponse](docs/Model/FiltersPostResponse.md)
- - [FiltersPostResponseAllOf](docs/Model/FiltersPostResponseAllOf.md)
- - [FindGoalResponse](docs/Model/FindGoalResponse.md)
- - [FollowerData](docs/Model/FollowerData.md)
- - [FollowerDataWithID](docs/Model/FollowerDataWithID.md)
- - [FollowerDataWithIDAllOf](docs/Model/FollowerDataWithIDAllOf.md)
- - [FullProjectObject](docs/Model/FullProjectObject.md)
- - [FullRole](docs/Model/FullRole.md)
- - [FullRoleAllOf](docs/Model/FullRoleAllOf.md)
- - [FullTaskObject](docs/Model/FullTaskObject.md)
- - [GetActivitiesCollectionResponse](docs/Model/GetActivitiesCollectionResponse.md)
- - [GetActivitiesResponse](docs/Model/GetActivitiesResponse.md)
- - [GetActivitiesResponseRelatedObjects](docs/Model/GetActivitiesResponseRelatedObjects.md)
- - [GetActivityResponse](docs/Model/GetActivityResponse.md)
- - [GetAddProductAttachmentDetails](docs/Model/GetAddProductAttachmentDetails.md)
- - [GetAddUpdateStage](docs/Model/GetAddUpdateStage.md)
- - [GetAddedDeal](docs/Model/GetAddedDeal.md)
- - [GetAllFiles](docs/Model/GetAllFiles.md)
- - [GetAllPersonsResponse](docs/Model/GetAllPersonsResponse.md)
- - [GetAllPersonsResponseAllOf](docs/Model/GetAllPersonsResponseAllOf.md)
- - [GetAllPipelines](docs/Model/GetAllPipelines.md)
- - [GetAllPipelinesAllOf](docs/Model/GetAllPipelinesAllOf.md)
- - [GetAllProductFieldsResponse](docs/Model/GetAllProductFieldsResponse.md)
- - [GetComments](docs/Model/GetComments.md)
- - [GetDeal](docs/Model/GetDeal.md)
- - [GetDealAdditionalData](docs/Model/GetDealAdditionalData.md)
- - [GetDealRelatedObjects](docs/Model/GetDealRelatedObjects.md)
- - [GetDeals](docs/Model/GetDeals.md)
- - [GetDealsCollection](docs/Model/GetDealsCollection.md)
- - [GetDealsConversionRatesInPipeline](docs/Model/GetDealsConversionRatesInPipeline.md)
- - [GetDealsConversionRatesInPipelineAllOf](docs/Model/GetDealsConversionRatesInPipelineAllOf.md)
- - [GetDealsConversionRatesInPipelineAllOfData](docs/Model/GetDealsConversionRatesInPipelineAllOfData.md)
- - [GetDealsMovementsInPipeline](docs/Model/GetDealsMovementsInPipeline.md)
- - [GetDealsMovementsInPipelineAllOf](docs/Model/GetDealsMovementsInPipelineAllOf.md)
- - [GetDealsMovementsInPipelineAllOfData](docs/Model/GetDealsMovementsInPipelineAllOfData.md)
- - [GetDealsMovementsInPipelineAllOfDataAverageAgeInDays](docs/Model/GetDealsMovementsInPipelineAllOfDataAverageAgeInDays.md)
- - [GetDealsMovementsInPipelineAllOfDataAverageAgeInDaysByStages](docs/Model/GetDealsMovementsInPipelineAllOfDataAverageAgeInDaysByStages.md)
- - [GetDealsMovementsInPipelineAllOfDataMovementsBetweenStages](docs/Model/GetDealsMovementsInPipelineAllOfDataMovementsBetweenStages.md)
- - [GetDealsRelatedObjects](docs/Model/GetDealsRelatedObjects.md)
- - [GetDealsSummary](docs/Model/GetDealsSummary.md)
- - [GetDealsSummaryData](docs/Model/GetDealsSummaryData.md)
- - [GetDealsSummaryDataValuesTotal](docs/Model/GetDealsSummaryDataValuesTotal.md)
- - [GetDealsSummaryDataWeightedValuesTotal](docs/Model/GetDealsSummaryDataWeightedValuesTotal.md)
- - [GetDealsTimeline](docs/Model/GetDealsTimeline.md)
- - [GetDealsTimelineData](docs/Model/GetDealsTimelineData.md)
- - [GetDealsTimelineDataTotals](docs/Model/GetDealsTimelineDataTotals.md)
- - [GetDuplicatedDeal](docs/Model/GetDuplicatedDeal.md)
- - [GetField](docs/Model/GetField.md)
- - [GetFieldAllOf](docs/Model/GetFieldAllOf.md)
- - [GetGoalResultResponse](docs/Model/GetGoalResultResponse.md)
- - [GetGoalsResponse](docs/Model/GetGoalsResponse.md)
- - [GetLeadIdResponse](docs/Model/GetLeadIdResponse.md)
- - [GetLeadIdResponseData](docs/Model/GetLeadIdResponseData.md)
- - [GetLeadLabelsResponse](docs/Model/GetLeadLabelsResponse.md)
- - [GetLeadResponse](docs/Model/GetLeadResponse.md)
- - [GetLeadsResponse](docs/Model/GetLeadsResponse.md)
- - [GetLeadsSourceResponse](docs/Model/GetLeadsSourceResponse.md)
- - [GetMergedDeal](docs/Model/GetMergedDeal.md)
- - [GetNoteField](docs/Model/GetNoteField.md)
- - [GetNotes](docs/Model/GetNotes.md)
- - [GetOneFile](docs/Model/GetOneFile.md)
- - [GetOnePipeline](docs/Model/GetOnePipeline.md)
- - [GetOnePipelineAllOf](docs/Model/GetOnePipelineAllOf.md)
- - [GetOneStage](docs/Model/GetOneStage.md)
- - [GetPersonDetailsResponse](docs/Model/GetPersonDetailsResponse.md)
- - [GetPersonDetailsResponseAllOf](docs/Model/GetPersonDetailsResponseAllOf.md)
- - [GetPersonDetailsResponseAllOfAdditionalData](docs/Model/GetPersonDetailsResponseAllOfAdditionalData.md)
- - [GetProductAttachmentDetails](docs/Model/GetProductAttachmentDetails.md)
- - [GetProductField](docs/Model/GetProductField.md)
- - [GetProductFieldResponse](docs/Model/GetProductFieldResponse.md)
- - [GetProjectBoardResponse](docs/Model/GetProjectBoardResponse.md)
- - [GetProjectBoardsResponse](docs/Model/GetProjectBoardsResponse.md)
- - [GetProjectGroupsResponse](docs/Model/GetProjectGroupsResponse.md)
- - [GetProjectPhaseResponse](docs/Model/GetProjectPhaseResponse.md)
- - [GetProjectPhasesResponse](docs/Model/GetProjectPhasesResponse.md)
- - [GetProjectPlanResponse](docs/Model/GetProjectPlanResponse.md)
- - [GetProjectResponse](docs/Model/GetProjectResponse.md)
- - [GetProjectTemplateResponse](docs/Model/GetProjectTemplateResponse.md)
- - [GetProjectTemplatesResponse](docs/Model/GetProjectTemplatesResponse.md)
- - [GetProjectsResponse](docs/Model/GetProjectsResponse.md)
- - [GetReceiveMessageSuccessResponse](docs/Model/GetReceiveMessageSuccessResponse.md)
- - [GetRecents](docs/Model/GetRecents.md)
- - [GetRecentsAdditionalData](docs/Model/GetRecentsAdditionalData.md)
- - [GetRole](docs/Model/GetRole.md)
- - [GetRoleAssignments](docs/Model/GetRoleAssignments.md)
- - [GetRoleAssignmentsResponseData](docs/Model/GetRoleAssignmentsResponseData.md)
- - [GetRolePipelines](docs/Model/GetRolePipelines.md)
- - [GetRolePipelinesAllOf](docs/Model/GetRolePipelinesAllOf.md)
- - [GetRolePipelinesResponseData](docs/Model/GetRolePipelinesResponseData.md)
- - [GetRoleResponseData](docs/Model/GetRoleResponseData.md)
- - [GetRoleResponseDataAdditionalData](docs/Model/GetRoleResponseDataAdditionalData.md)
- - [GetRoleSettings](docs/Model/GetRoleSettings.md)
- - [GetRoleSettingsResponseData](docs/Model/GetRoleSettingsResponseData.md)
- - [GetRoles](docs/Model/GetRoles.md)
- - [GetRolesAllOf](docs/Model/GetRolesAllOf.md)
- - [GetStageDeals](docs/Model/GetStageDeals.md)
- - [GetStages](docs/Model/GetStages.md)
- - [GetSubscriptionsIdResponseData](docs/Model/GetSubscriptionsIdResponseData.md)
- - [GetTaskResponse](docs/Model/GetTaskResponse.md)
- - [GetTasksResponse](docs/Model/GetTasksResponse.md)
- - [GetUserConnectionsResponseData](docs/Model/GetUserConnectionsResponseData.md)
- - [GetUserConnectionsResponseDataData](docs/Model/GetUserConnectionsResponseDataData.md)
- - [GetUserResponseData](docs/Model/GetUserResponseData.md)
- - [GetUserSettingsResponseData](docs/Model/GetUserSettingsResponseData.md)
- - [GetWebhookResponseData](docs/Model/GetWebhookResponseData.md)
- - [GoalResults](docs/Model/GoalResults.md)
- - [GoalType](docs/Model/GoalType.md)
- - [GoalsResponseComponent](docs/Model/GoalsResponseComponent.md)
- - [IconKey](docs/Model/IconKey.md)
- - [InlineResponse200](docs/Model/InlineResponse200.md)
- - [InlineResponse2001](docs/Model/InlineResponse2001.md)
- - [InternalFieldType](docs/Model/InternalFieldType.md)
- - [ItemSearchAdditionalData](docs/Model/ItemSearchAdditionalData.md)
- - [ItemSearchAdditionalDataPagination](docs/Model/ItemSearchAdditionalDataPagination.md)
- - [ItemSearchFieldResponse](docs/Model/ItemSearchFieldResponse.md)
- - [ItemSearchFieldResponseAllOf](docs/Model/ItemSearchFieldResponseAllOf.md)
- - [ItemSearchFieldResponseAllOfData](docs/Model/ItemSearchFieldResponseAllOfData.md)
- - [ItemSearchItem](docs/Model/ItemSearchItem.md)
- - [ItemSearchResponse](docs/Model/ItemSearchResponse.md)
- - [ItemSearchResponseAllOf](docs/Model/ItemSearchResponseAllOf.md)
- - [ItemSearchResponseAllOfData](docs/Model/ItemSearchResponseAllOfData.md)
- - [LeadLabelColor](docs/Model/LeadLabelColor.md)
- - [LeadLabelResponse](docs/Model/LeadLabelResponse.md)
- - [LeadNotFoundResponse](docs/Model/LeadNotFoundResponse.md)
- - [LeadResponse](docs/Model/LeadResponse.md)
- - [LeadSearchItem](docs/Model/LeadSearchItem.md)
- - [LeadSearchItemItem](docs/Model/LeadSearchItemItem.md)
- - [LeadSearchItemItemOrganization](docs/Model/LeadSearchItemItemOrganization.md)
- - [LeadSearchItemItemOwner](docs/Model/LeadSearchItemItemOwner.md)
- - [LeadSearchItemItemPerson](docs/Model/LeadSearchItemItemPerson.md)
- - [LeadSearchResponse](docs/Model/LeadSearchResponse.md)
- - [LeadSearchResponseAllOf](docs/Model/LeadSearchResponseAllOf.md)
- - [LeadSearchResponseAllOfData](docs/Model/LeadSearchResponseAllOfData.md)
- - [LeadSource](docs/Model/LeadSource.md)
- - [LeadValue](docs/Model/LeadValue.md)
- - [LinkRemoteFileToItem](docs/Model/LinkRemoteFileToItem.md)
- - [ListActivitiesResponse](docs/Model/ListActivitiesResponse.md)
- - [ListActivitiesResponseAllOf](docs/Model/ListActivitiesResponseAllOf.md)
- - [ListDealsResponse](docs/Model/ListDealsResponse.md)
- - [ListDealsResponseAllOf](docs/Model/ListDealsResponseAllOf.md)
- - [ListDealsResponseAllOfRelatedObjects](docs/Model/ListDealsResponseAllOfRelatedObjects.md)
- - [ListFilesResponse](docs/Model/ListFilesResponse.md)
- - [ListFilesResponseAllOf](docs/Model/ListFilesResponseAllOf.md)
- - [ListFollowersResponse](docs/Model/ListFollowersResponse.md)
- - [ListFollowersResponseAllOf](docs/Model/ListFollowersResponseAllOf.md)
- - [ListFollowersResponseAllOfData](docs/Model/ListFollowersResponseAllOfData.md)
- - [ListMailMessagesResponse](docs/Model/ListMailMessagesResponse.md)
- - [ListMailMessagesResponseAllOf](docs/Model/ListMailMessagesResponseAllOf.md)
- - [ListMailMessagesResponseAllOfData](docs/Model/ListMailMessagesResponseAllOfData.md)
- - [ListPermittedUsersResponse](docs/Model/ListPermittedUsersResponse.md)
- - [ListPermittedUsersResponse1](docs/Model/ListPermittedUsersResponse1.md)
- - [ListPermittedUsersResponse1AllOf](docs/Model/ListPermittedUsersResponse1AllOf.md)
- - [ListPersonProductsResponse](docs/Model/ListPersonProductsResponse.md)
- - [ListPersonProductsResponseAllOf](docs/Model/ListPersonProductsResponseAllOf.md)
- - [ListPersonProductsResponseAllOfDEALID](docs/Model/ListPersonProductsResponseAllOfDEALID.md)
- - [ListPersonProductsResponseAllOfData](docs/Model/ListPersonProductsResponseAllOfData.md)
- - [ListPersonsResponse](docs/Model/ListPersonsResponse.md)
- - [ListPersonsResponseAllOf](docs/Model/ListPersonsResponseAllOf.md)
- - [ListPersonsResponseAllOfRelatedObjects](docs/Model/ListPersonsResponseAllOfRelatedObjects.md)
- - [ListProductAdditionalData](docs/Model/ListProductAdditionalData.md)
- - [ListProductAdditionalDataAllOf](docs/Model/ListProductAdditionalDataAllOf.md)
- - [ListProductFilesResponse](docs/Model/ListProductFilesResponse.md)
- - [ListProductFilesResponseAllOf](docs/Model/ListProductFilesResponseAllOf.md)
- - [ListProductFollowersResponse](docs/Model/ListProductFollowersResponse.md)
- - [ListProductFollowersResponseAllOf](docs/Model/ListProductFollowersResponseAllOf.md)
- - [ListProductFollowersResponseAllOfData](docs/Model/ListProductFollowersResponseAllOfData.md)
- - [ListProductsResponse](docs/Model/ListProductsResponse.md)
- - [ListProductsResponseAllOf](docs/Model/ListProductsResponseAllOf.md)
- - [ListProductsResponseAllOfRelatedObjects](docs/Model/ListProductsResponseAllOfRelatedObjects.md)
- - [MailMessage](docs/Model/MailMessage.md)
- - [MailMessageAllOf](docs/Model/MailMessageAllOf.md)
- - [MailMessageData](docs/Model/MailMessageData.md)
- - [MailMessageItemForList](docs/Model/MailMessageItemForList.md)
- - [MailMessageItemForListAllOf](docs/Model/MailMessageItemForListAllOf.md)
- - [MailParticipant](docs/Model/MailParticipant.md)
- - [MailServiceBaseResponse](docs/Model/MailServiceBaseResponse.md)
- - [MailThread](docs/Model/MailThread.md)
- - [MailThreadAllOf](docs/Model/MailThreadAllOf.md)
- - [MailThreadDelete](docs/Model/MailThreadDelete.md)
- - [MailThreadDeleteAllOf](docs/Model/MailThreadDeleteAllOf.md)
- - [MailThreadDeleteAllOfData](docs/Model/MailThreadDeleteAllOfData.md)
- - [MailThreadMessages](docs/Model/MailThreadMessages.md)
- - [MailThreadMessagesAllOf](docs/Model/MailThreadMessagesAllOf.md)
- - [MailThreadOne](docs/Model/MailThreadOne.md)
- - [MailThreadOneAllOf](docs/Model/MailThreadOneAllOf.md)
- - [MailThreadParticipant](docs/Model/MailThreadParticipant.md)
- - [MailThreadPut](docs/Model/MailThreadPut.md)
- - [MailThreadPutAllOf](docs/Model/MailThreadPutAllOf.md)
- - [MarketingStatus](docs/Model/MarketingStatus.md)
- - [MergeDealsRequest](docs/Model/MergeDealsRequest.md)
- - [MergeOrganizationsRequest](docs/Model/MergeOrganizationsRequest.md)
- - [MergePersonDealRelatedInfo](docs/Model/MergePersonDealRelatedInfo.md)
- - [MergePersonItem](docs/Model/MergePersonItem.md)
- - [MergePersonsRequest](docs/Model/MergePersonsRequest.md)
- - [MergePersonsResponse](docs/Model/MergePersonsResponse.md)
- - [MergePersonsResponseAllOf](docs/Model/MergePersonsResponseAllOf.md)
- - [MessageObject](docs/Model/MessageObject.md)
- - [MessageObjectAttachments](docs/Model/MessageObjectAttachments.md)
- - [NameObject](docs/Model/NameObject.md)
- - [NewDeal](docs/Model/NewDeal.md)
- - [NewDealParameters](docs/Model/NewDealParameters.md)
- - [NewDealProduct](docs/Model/NewDealProduct.md)
- - [NewDealProductAllOf](docs/Model/NewDealProductAllOf.md)
- - [NewDealProductAllOf1](docs/Model/NewDealProductAllOf1.md)
- - [NewDealProductAllOf2](docs/Model/NewDealProductAllOf2.md)
- - [NewFollowerResponse](docs/Model/NewFollowerResponse.md)
- - [NewFollowerResponseData](docs/Model/NewFollowerResponseData.md)
- - [NewGoal](docs/Model/NewGoal.md)
- - [NewOrganization](docs/Model/NewOrganization.md)
- - [NewOrganizationAllOf](docs/Model/NewOrganizationAllOf.md)
- - [NewPerson](docs/Model/NewPerson.md)
- - [NewPersonAllOf](docs/Model/NewPersonAllOf.md)
- - [NewProductField](docs/Model/NewProductField.md)
- - [Note](docs/Model/Note.md)
- - [NoteAllOf](docs/Model/NoteAllOf.md)
- - [NoteConnectToParams](docs/Model/NoteConnectToParams.md)
- - [NoteCreatorUser](docs/Model/NoteCreatorUser.md)
- - [NoteField](docs/Model/NoteField.md)
- - [NoteFieldOptions](docs/Model/NoteFieldOptions.md)
- - [NoteFieldsResponse](docs/Model/NoteFieldsResponse.md)
- - [NoteFieldsResponseAllOf](docs/Model/NoteFieldsResponseAllOf.md)
- - [NoteParams](docs/Model/NoteParams.md)
- - [NumberBoolean](docs/Model/NumberBoolean.md)
- - [NumberBooleanDefault0](docs/Model/NumberBooleanDefault0.md)
- - [NumberBooleanDefault1](docs/Model/NumberBooleanDefault1.md)
- - [OrgAndOwnerId](docs/Model/OrgAndOwnerId.md)
- - [OrganizationAddressInfo](docs/Model/OrganizationAddressInfo.md)
- - [OrganizationCountAndAddressInfo](docs/Model/OrganizationCountAndAddressInfo.md)
- - [OrganizationCountInfo](docs/Model/OrganizationCountInfo.md)
- - [OrganizationData](docs/Model/OrganizationData.md)
- - [OrganizationDataWithId](docs/Model/OrganizationDataWithId.md)
- - [OrganizationDataWithIdAllOf](docs/Model/OrganizationDataWithIdAllOf.md)
- - [OrganizationDataWithIdAndActiveFlag](docs/Model/OrganizationDataWithIdAndActiveFlag.md)
- - [OrganizationDataWithIdAndActiveFlagAllOf](docs/Model/OrganizationDataWithIdAndActiveFlagAllOf.md)
- - [OrganizationDeleteResponse](docs/Model/OrganizationDeleteResponse.md)
- - [OrganizationDeleteResponseData](docs/Model/OrganizationDeleteResponseData.md)
- - [OrganizationDetailsGetResponse](docs/Model/OrganizationDetailsGetResponse.md)
- - [OrganizationDetailsGetResponseAllOf](docs/Model/OrganizationDetailsGetResponseAllOf.md)
- - [OrganizationDetailsGetResponseAllOfAdditionalData](docs/Model/OrganizationDetailsGetResponseAllOfAdditionalData.md)
- - [OrganizationFlowResponse](docs/Model/OrganizationFlowResponse.md)
- - [OrganizationFlowResponseAllOf](docs/Model/OrganizationFlowResponseAllOf.md)
- - [OrganizationFlowResponseAllOfData](docs/Model/OrganizationFlowResponseAllOfData.md)
- - [OrganizationFlowResponseAllOfRelatedObjects](docs/Model/OrganizationFlowResponseAllOfRelatedObjects.md)
- - [OrganizationFollowerDeleteResponse](docs/Model/OrganizationFollowerDeleteResponse.md)
- - [OrganizationFollowerDeleteResponseData](docs/Model/OrganizationFollowerDeleteResponseData.md)
- - [OrganizationFollowerItem](docs/Model/OrganizationFollowerItem.md)
- - [OrganizationFollowerItemAllOf](docs/Model/OrganizationFollowerItemAllOf.md)
- - [OrganizationFollowerPostResponse](docs/Model/OrganizationFollowerPostResponse.md)
- - [OrganizationFollowersListResponse](docs/Model/OrganizationFollowersListResponse.md)
- - [OrganizationItem](docs/Model/OrganizationItem.md)
- - [OrganizationItemAllOf](docs/Model/OrganizationItemAllOf.md)
- - [OrganizationPostResponse](docs/Model/OrganizationPostResponse.md)
- - [OrganizationPostResponseAllOf](docs/Model/OrganizationPostResponseAllOf.md)
- - [OrganizationRelationship](docs/Model/OrganizationRelationship.md)
- - [OrganizationRelationshipDeleteResponse](docs/Model/OrganizationRelationshipDeleteResponse.md)
- - [OrganizationRelationshipDeleteResponseAllOf](docs/Model/OrganizationRelationshipDeleteResponseAllOf.md)
- - [OrganizationRelationshipDeleteResponseAllOfData](docs/Model/OrganizationRelationshipDeleteResponseAllOfData.md)
- - [OrganizationRelationshipDetails](docs/Model/OrganizationRelationshipDetails.md)
- - [OrganizationRelationshipGetResponse](docs/Model/OrganizationRelationshipGetResponse.md)
- - [OrganizationRelationshipGetResponseAllOf](docs/Model/OrganizationRelationshipGetResponseAllOf.md)
- - [OrganizationRelationshipPostResponse](docs/Model/OrganizationRelationshipPostResponse.md)
- - [OrganizationRelationshipPostResponseAllOf](docs/Model/OrganizationRelationshipPostResponseAllOf.md)
- - [OrganizationRelationshipUpdateResponse](docs/Model/OrganizationRelationshipUpdateResponse.md)
- - [OrganizationRelationshipWithCalculatedFields](docs/Model/OrganizationRelationshipWithCalculatedFields.md)
- - [OrganizationSearchItem](docs/Model/OrganizationSearchItem.md)
- - [OrganizationSearchItemItem](docs/Model/OrganizationSearchItemItem.md)
- - [OrganizationSearchResponse](docs/Model/OrganizationSearchResponse.md)
- - [OrganizationSearchResponseAllOf](docs/Model/OrganizationSearchResponseAllOf.md)
- - [OrganizationSearchResponseAllOfData](docs/Model/OrganizationSearchResponseAllOfData.md)
- - [OrganizationUpdateResponse](docs/Model/OrganizationUpdateResponse.md)
- - [OrganizationUpdateResponseAllOf](docs/Model/OrganizationUpdateResponseAllOf.md)
- - [OrganizationsCollectionResponseObject](docs/Model/OrganizationsCollectionResponseObject.md)
- - [OrganizationsCollectionResponseObjectAllOf](docs/Model/OrganizationsCollectionResponseObjectAllOf.md)
- - [OrganizationsDeleteResponse](docs/Model/OrganizationsDeleteResponse.md)
- - [OrganizationsDeleteResponseData](docs/Model/OrganizationsDeleteResponseData.md)
- - [OrganizationsMergeResponse](docs/Model/OrganizationsMergeResponse.md)
- - [OrganizationsMergeResponseData](docs/Model/OrganizationsMergeResponseData.md)
- - [Owner](docs/Model/Owner.md)
- - [OwnerAllOf](docs/Model/OwnerAllOf.md)
- - [PaginationDetails](docs/Model/PaginationDetails.md)
- - [PaginationDetailsAllOf](docs/Model/PaginationDetailsAllOf.md)
- - [Params](docs/Model/Params.md)
- - [ParticipantsChangelog](docs/Model/ParticipantsChangelog.md)
- - [ParticipantsChangelogItem](docs/Model/ParticipantsChangelogItem.md)
- - [PaymentItem](docs/Model/PaymentItem.md)
- - [PaymentsResponse](docs/Model/PaymentsResponse.md)
- - [PaymentsResponseAllOf](docs/Model/PaymentsResponseAllOf.md)
- - [PermissionSets](docs/Model/PermissionSets.md)
- - [PermissionSetsAllOf](docs/Model/PermissionSetsAllOf.md)
- - [PermissionSetsItem](docs/Model/PermissionSetsItem.md)
- - [PersonCountAndEmailInfo](docs/Model/PersonCountAndEmailInfo.md)
- - [PersonCountEmailDealAndActivityInfo](docs/Model/PersonCountEmailDealAndActivityInfo.md)
- - [PersonCountInfo](docs/Model/PersonCountInfo.md)
- - [PersonData](docs/Model/PersonData.md)
- - [PersonDataEmail](docs/Model/PersonDataEmail.md)
- - [PersonDataWithActiveFlag](docs/Model/PersonDataWithActiveFlag.md)
- - [PersonDataWithActiveFlagAllOf](docs/Model/PersonDataWithActiveFlagAllOf.md)
- - [PersonFlowResponse](docs/Model/PersonFlowResponse.md)
- - [PersonFlowResponseAllOf](docs/Model/PersonFlowResponseAllOf.md)
- - [PersonFlowResponseAllOfData](docs/Model/PersonFlowResponseAllOfData.md)
- - [PersonItem](docs/Model/PersonItem.md)
- - [PersonListProduct](docs/Model/PersonListProduct.md)
- - [PersonNameCountAndEmailInfo](docs/Model/PersonNameCountAndEmailInfo.md)
- - [PersonNameCountAndEmailInfoWithIds](docs/Model/PersonNameCountAndEmailInfoWithIds.md)
- - [PersonNameCountAndEmailInfoWithIdsAllOf](docs/Model/PersonNameCountAndEmailInfoWithIdsAllOf.md)
- - [PersonNameInfo](docs/Model/PersonNameInfo.md)
- - [PersonNameInfoWithOrgAndOwnerId](docs/Model/PersonNameInfoWithOrgAndOwnerId.md)
- - [PersonSearchItem](docs/Model/PersonSearchItem.md)
- - [PersonSearchItemItem](docs/Model/PersonSearchItemItem.md)
- - [PersonSearchItemItemOrganization](docs/Model/PersonSearchItemItemOrganization.md)
- - [PersonSearchItemItemOwner](docs/Model/PersonSearchItemItemOwner.md)
- - [PersonSearchResponse](docs/Model/PersonSearchResponse.md)
- - [PersonSearchResponseAllOf](docs/Model/PersonSearchResponseAllOf.md)
- - [PersonSearchResponseAllOfData](docs/Model/PersonSearchResponseAllOfData.md)
- - [PersonsCollectionResponseObject](docs/Model/PersonsCollectionResponseObject.md)
- - [PhoneData](docs/Model/PhoneData.md)
- - [PictureData](docs/Model/PictureData.md)
- - [PictureDataPictures](docs/Model/PictureDataPictures.md)
- - [PictureDataWithID](docs/Model/PictureDataWithID.md)
- - [PictureDataWithID1](docs/Model/PictureDataWithID1.md)
- - [PictureDataWithValue](docs/Model/PictureDataWithValue.md)
- - [PictureDataWithValue1](docs/Model/PictureDataWithValue1.md)
- - [Pipeline](docs/Model/Pipeline.md)
- - [PipelineDetails](docs/Model/PipelineDetails.md)
- - [PipelineDetailsAllOf](docs/Model/PipelineDetailsAllOf.md)
- - [PostComment](docs/Model/PostComment.md)
- - [PostDealParticipants](docs/Model/PostDealParticipants.md)
- - [PostDealParticipantsRelatedObjects](docs/Model/PostDealParticipantsRelatedObjects.md)
- - [PostGoalResponse](docs/Model/PostGoalResponse.md)
- - [PostNote](docs/Model/PostNote.md)
- - [PostRoleAssignment](docs/Model/PostRoleAssignment.md)
- - [PostRoleSettings](docs/Model/PostRoleSettings.md)
- - [PostRoles](docs/Model/PostRoles.md)
- - [PostRolesAllOf](docs/Model/PostRolesAllOf.md)
- - [ProductAttachementFields](docs/Model/ProductAttachementFields.md)
- - [ProductAttachmentDetails](docs/Model/ProductAttachmentDetails.md)
- - [ProductBaseDeal](docs/Model/ProductBaseDeal.md)
- - [ProductField](docs/Model/ProductField.md)
- - [ProductFieldAllOf](docs/Model/ProductFieldAllOf.md)
- - [ProductFileItem](docs/Model/ProductFileItem.md)
- - [ProductListItem](docs/Model/ProductListItem.md)
- - [ProductRequest](docs/Model/ProductRequest.md)
- - [ProductResponse](docs/Model/ProductResponse.md)
- - [ProductSearchItem](docs/Model/ProductSearchItem.md)
- - [ProductSearchItemItem](docs/Model/ProductSearchItemItem.md)
- - [ProductSearchItemItemOwner](docs/Model/ProductSearchItemItemOwner.md)
- - [ProductSearchResponse](docs/Model/ProductSearchResponse.md)
- - [ProductSearchResponseAllOf](docs/Model/ProductSearchResponseAllOf.md)
- - [ProductSearchResponseAllOfData](docs/Model/ProductSearchResponseAllOfData.md)
- - [ProductWithArrayPrices](docs/Model/ProductWithArrayPrices.md)
- - [ProductsResponse](docs/Model/ProductsResponse.md)
- - [ProjectBoardObject](docs/Model/ProjectBoardObject.md)
- - [ProjectGroupsObject](docs/Model/ProjectGroupsObject.md)
- - [ProjectId](docs/Model/ProjectId.md)
- - [ProjectMandatoryObjectFragment](docs/Model/ProjectMandatoryObjectFragment.md)
- - [ProjectNotChangeableObjectFragment](docs/Model/ProjectNotChangeableObjectFragment.md)
- - [ProjectObjectFragment](docs/Model/ProjectObjectFragment.md)
- - [ProjectPhaseObject](docs/Model/ProjectPhaseObject.md)
- - [ProjectPlanItemObject](docs/Model/ProjectPlanItemObject.md)
- - [ProjectPostObject](docs/Model/ProjectPostObject.md)
- - [ProjectPostObjectAllOf](docs/Model/ProjectPostObjectAllOf.md)
- - [ProjectPutObject](docs/Model/ProjectPutObject.md)
- - [ProjectPutPlanItemBodyObject](docs/Model/ProjectPutPlanItemBodyObject.md)
- - [ProjectResponseObject](docs/Model/ProjectResponseObject.md)
- - [PutRole](docs/Model/PutRole.md)
- - [PutRoleAllOf](docs/Model/PutRoleAllOf.md)
- - [PutRolePipelinesBody](docs/Model/PutRolePipelinesBody.md)
- - [ReceiveMessageBadRequestErrorResponse](docs/Model/ReceiveMessageBadRequestErrorResponse.md)
- - [ReceiveMessageBadRequestErrorResponseAdditionalData](docs/Model/ReceiveMessageBadRequestErrorResponseAdditionalData.md)
- - [RecentDataProduct](docs/Model/RecentDataProduct.md)
- - [RecentsActivity](docs/Model/RecentsActivity.md)
- - [RecentsActivityType](docs/Model/RecentsActivityType.md)
- - [RecentsDeal](docs/Model/RecentsDeal.md)
- - [RecentsFile](docs/Model/RecentsFile.md)
- - [RecentsFilter](docs/Model/RecentsFilter.md)
- - [RecentsNote](docs/Model/RecentsNote.md)
- - [RecentsOrganization](docs/Model/RecentsOrganization.md)
- - [RecentsPerson](docs/Model/RecentsPerson.md)
- - [RecentsPipeline](docs/Model/RecentsPipeline.md)
- - [RecentsProduct](docs/Model/RecentsProduct.md)
- - [RecentsStage](docs/Model/RecentsStage.md)
- - [RecentsUser](docs/Model/RecentsUser.md)
- - [RelatedDealData](docs/Model/RelatedDealData.md)
- - [RelatedDealDataDEALID](docs/Model/RelatedDealDataDEALID.md)
- - [RelatedFollowerData](docs/Model/RelatedFollowerData.md)
- - [RelatedOrganizationData](docs/Model/RelatedOrganizationData.md)
- - [RelatedOrganizationDataWithActiveFlag](docs/Model/RelatedOrganizationDataWithActiveFlag.md)
- - [RelatedOrganizationName](docs/Model/RelatedOrganizationName.md)
- - [RelatedPersonData](docs/Model/RelatedPersonData.md)
- - [RelatedPersonDataWithActiveFlag](docs/Model/RelatedPersonDataWithActiveFlag.md)
- - [RelatedPictureData](docs/Model/RelatedPictureData.md)
- - [RelatedUserData](docs/Model/RelatedUserData.md)
- - [RelationshipOrganizationInfoItem](docs/Model/RelationshipOrganizationInfoItem.md)
- - [RelationshipOrganizationInfoItemAllOf](docs/Model/RelationshipOrganizationInfoItemAllOf.md)
- - [RelationshipOrganizationInfoItemWithActiveFlag](docs/Model/RelationshipOrganizationInfoItemWithActiveFlag.md)
- - [RelationshipOrganizationInfoItemWithActiveFlagAllOf](docs/Model/RelationshipOrganizationInfoItemWithActiveFlagAllOf.md)
- - [RequiredPostProjectParameters](docs/Model/RequiredPostProjectParameters.md)
- - [RequiredPostTaskParameters](docs/Model/RequiredPostTaskParameters.md)
- - [RequredTitleParameter](docs/Model/RequredTitleParameter.md)
- - [ResponseCallLogObject](docs/Model/ResponseCallLogObject.md)
- - [ResponseCallLogObjectAllOf](docs/Model/ResponseCallLogObjectAllOf.md)
- - [RoleAssignment](docs/Model/RoleAssignment.md)
- - [RoleAssignmentData](docs/Model/RoleAssignmentData.md)
- - [RoleSettings](docs/Model/RoleSettings.md)
- - [RolesAdditionalData](docs/Model/RolesAdditionalData.md)
- - [RolesAdditionalDataPagination](docs/Model/RolesAdditionalDataPagination.md)
- - [SinglePermissionSetsItem](docs/Model/SinglePermissionSetsItem.md)
- - [SinglePermissionSetsItemAllOf](docs/Model/SinglePermissionSetsItemAllOf.md)
- - [Stage](docs/Model/Stage.md)
- - [StageConversions](docs/Model/StageConversions.md)
- - [StageDetails](docs/Model/StageDetails.md)
- - [StageDetailsData](docs/Model/StageDetailsData.md)
- - [StageWithPipelineInfo](docs/Model/StageWithPipelineInfo.md)
- - [StageWithPipelineInfo1](docs/Model/StageWithPipelineInfo1.md)
- - [SubRole](docs/Model/SubRole.md)
- - [SubRoleAllOf](docs/Model/SubRoleAllOf.md)
- - [SubscriptionAddonsResponse](docs/Model/SubscriptionAddonsResponse.md)
- - [SubscriptionAddonsResponseAllOf](docs/Model/SubscriptionAddonsResponseAllOf.md)
- - [SubscriptionInstallmentCreateRequest](docs/Model/SubscriptionInstallmentCreateRequest.md)
- - [SubscriptionInstallmentUpdateRequest](docs/Model/SubscriptionInstallmentUpdateRequest.md)
- - [SubscriptionItem](docs/Model/SubscriptionItem.md)
- - [SubscriptionRecurringCancelRequest](docs/Model/SubscriptionRecurringCancelRequest.md)
- - [SubscriptionRecurringCreateRequest](docs/Model/SubscriptionRecurringCreateRequest.md)
- - [SubscriptionRecurringUpdateRequest](docs/Model/SubscriptionRecurringUpdateRequest.md)
- - [SubscriptionsIdResponse](docs/Model/SubscriptionsIdResponse.md)
- - [TaskId](docs/Model/TaskId.md)
- - [TaskMandatoryObjectFragment](docs/Model/TaskMandatoryObjectFragment.md)
- - [TaskNotChangeableObjectFragment](docs/Model/TaskNotChangeableObjectFragment.md)
- - [TaskObjectFragment](docs/Model/TaskObjectFragment.md)
- - [TaskPostObject](docs/Model/TaskPostObject.md)
- - [TaskPutObject](docs/Model/TaskPutObject.md)
- - [TaskResponseObject](docs/Model/TaskResponseObject.md)
- - [Team](docs/Model/Team.md)
- - [TeamAllOf](docs/Model/TeamAllOf.md)
- - [TeamId](docs/Model/TeamId.md)
- - [Teams](docs/Model/Teams.md)
- - [TeamsAllOf](docs/Model/TeamsAllOf.md)
- - [TemplateObject](docs/Model/TemplateObject.md)
- - [TemplateResponseObject](docs/Model/TemplateResponseObject.md)
- - [Unauthorized](docs/Model/Unauthorized.md)
- - [UpdateActivityPlanItemResponse](docs/Model/UpdateActivityPlanItemResponse.md)
- - [UpdateActivityResponse](docs/Model/UpdateActivityResponse.md)
- - [UpdateDealParameters](docs/Model/UpdateDealParameters.md)
- - [UpdateDealProduct](docs/Model/UpdateDealProduct.md)
- - [UpdateDealRequest](docs/Model/UpdateDealRequest.md)
- - [UpdateFile](docs/Model/UpdateFile.md)
- - [UpdateFilterRequest](docs/Model/UpdateFilterRequest.md)
- - [UpdateLeadLabelRequest](docs/Model/UpdateLeadLabelRequest.md)
- - [UpdateLeadRequest](docs/Model/UpdateLeadRequest.md)
- - [UpdateOrganization](docs/Model/UpdateOrganization.md)
- - [UpdateOrganizationAllOf](docs/Model/UpdateOrganizationAllOf.md)
- - [UpdatePerson](docs/Model/UpdatePerson.md)
- - [UpdatePersonAllOf](docs/Model/UpdatePersonAllOf.md)
- - [UpdatePersonResponse](docs/Model/UpdatePersonResponse.md)
- - [UpdateProductField](docs/Model/UpdateProductField.md)
- - [UpdateProductRequestBody](docs/Model/UpdateProductRequestBody.md)
- - [UpdateProductResponse](docs/Model/UpdateProductResponse.md)
- - [UpdateProjectResponse](docs/Model/UpdateProjectResponse.md)
- - [UpdateRoleResponseData](docs/Model/UpdateRoleResponseData.md)
- - [UpdateStageRequest](docs/Model/UpdateStageRequest.md)
- - [UpdateStageRequestAllOf](docs/Model/UpdateStageRequestAllOf.md)
- - [UpdateTaskPlanItemResponse](docs/Model/UpdateTaskPlanItemResponse.md)
- - [UpdateTaskResponse](docs/Model/UpdateTaskResponse.md)
- - [UpdateTeam](docs/Model/UpdateTeam.md)
- - [UpdateTeamAllOf](docs/Model/UpdateTeamAllOf.md)
- - [UpdateTeamWithAdditionalProperties](docs/Model/UpdateTeamWithAdditionalProperties.md)
- - [UpdateUserRequest](docs/Model/UpdateUserRequest.md)
- - [UpsertGoalResponse](docs/Model/UpsertGoalResponse.md)
- - [UpsertLeadLabelResponse](docs/Model/UpsertLeadLabelResponse.md)
- - [UpsertRoleSettingsResponseData](docs/Model/UpsertRoleSettingsResponseData.md)
- - [UpsertRoleSettingsResponseDataData](docs/Model/UpsertRoleSettingsResponseDataData.md)
- - [User](docs/Model/User.md)
- - [UserAccess](docs/Model/UserAccess.md)
- - [UserAssignmentToPermissionSet](docs/Model/UserAssignmentToPermissionSet.md)
- - [UserAssignmentsToPermissionSet](docs/Model/UserAssignmentsToPermissionSet.md)
- - [UserAssignmentsToPermissionSetAllOf](docs/Model/UserAssignmentsToPermissionSetAllOf.md)
- - [UserConnections](docs/Model/UserConnections.md)
- - [UserData](docs/Model/UserData.md)
- - [UserDataWithId](docs/Model/UserDataWithId.md)
- - [UserIDs](docs/Model/UserIDs.md)
- - [UserIDsAllOf](docs/Model/UserIDsAllOf.md)
- - [UserMe](docs/Model/UserMe.md)
- - [UserMeAllOf](docs/Model/UserMeAllOf.md)
- - [UserPermissions](docs/Model/UserPermissions.md)
- - [UserPermissionsAllOf](docs/Model/UserPermissionsAllOf.md)
- - [UserPermissionsItem](docs/Model/UserPermissionsItem.md)
- - [UserProviderLinkCreateRequest](docs/Model/UserProviderLinkCreateRequest.md)
- - [UserProviderLinkErrorResponse](docs/Model/UserProviderLinkErrorResponse.md)
- - [UserProviderLinkSuccessResponse](docs/Model/UserProviderLinkSuccessResponse.md)
- - [UserProviderLinkSuccessResponseData](docs/Model/UserProviderLinkSuccessResponseData.md)
- - [UserSettings](docs/Model/UserSettings.md)
- - [UserSettingsItem](docs/Model/UserSettingsItem.md)
- - [Users](docs/Model/Users.md)
- - [UsersAllOf](docs/Model/UsersAllOf.md)
- - [VisibleTo](docs/Model/VisibleTo.md)
- - [Webhook](docs/Model/Webhook.md)
- - [WebhookBadRequest](docs/Model/WebhookBadRequest.md)
- - [WebhookBadRequestAllOf](docs/Model/WebhookBadRequestAllOf.md)
- - [Webhooks](docs/Model/Webhooks.md)
- - [WebhooksAllOf](docs/Model/WebhooksAllOf.md)
- - [WebhooksDeleteForbiddenSchema](docs/Model/WebhooksDeleteForbiddenSchema.md)
- - [WebhooksDeleteForbiddenSchemaAllOf](docs/Model/WebhooksDeleteForbiddenSchemaAllOf.md)
+ - [ActivityCollectionResponseObject](Model/ActivityCollectionResponseObject.md)
+ - [ActivityCollectionResponseObjectAllOf](Model/ActivityCollectionResponseObjectAllOf.md)
+ - [ActivityDistribution](Model/ActivityDistribution.md)
+ - [ActivityDistributionData](Model/ActivityDistributionData.md)
+ - [ActivityDistributionDataWithAdditionalData](Model/ActivityDistributionDataWithAdditionalData.md)
+ - [ActivityDistributionItem](Model/ActivityDistributionItem.md)
+ - [ActivityInfo](Model/ActivityInfo.md)
+ - [ActivityObjectFragment](Model/ActivityObjectFragment.md)
+ - [ActivityPostObject](Model/ActivityPostObject.md)
+ - [ActivityPostObjectAllOf](Model/ActivityPostObjectAllOf.md)
+ - [ActivityPutObject](Model/ActivityPutObject.md)
+ - [ActivityPutObjectAllOf](Model/ActivityPutObjectAllOf.md)
+ - [ActivityRecordAdditionalData](Model/ActivityRecordAdditionalData.md)
+ - [ActivityResponseObject](Model/ActivityResponseObject.md)
+ - [ActivityResponseObjectAllOf](Model/ActivityResponseObjectAllOf.md)
+ - [ActivityTypeBulkDeleteResponse](Model/ActivityTypeBulkDeleteResponse.md)
+ - [ActivityTypeBulkDeleteResponseAllOf](Model/ActivityTypeBulkDeleteResponseAllOf.md)
+ - [ActivityTypeBulkDeleteResponseAllOfData](Model/ActivityTypeBulkDeleteResponseAllOfData.md)
+ - [ActivityTypeCount](Model/ActivityTypeCount.md)
+ - [ActivityTypeCreateRequest](Model/ActivityTypeCreateRequest.md)
+ - [ActivityTypeCreateUpdateDeleteResponse](Model/ActivityTypeCreateUpdateDeleteResponse.md)
+ - [ActivityTypeCreateUpdateDeleteResponseAllOf](Model/ActivityTypeCreateUpdateDeleteResponseAllOf.md)
+ - [ActivityTypeListResponse](Model/ActivityTypeListResponse.md)
+ - [ActivityTypeListResponseAllOf](Model/ActivityTypeListResponseAllOf.md)
+ - [ActivityTypeObjectResponse](Model/ActivityTypeObjectResponse.md)
+ - [ActivityTypeUpdateRequest](Model/ActivityTypeUpdateRequest.md)
+ - [AddActivityResponse](Model/AddActivityResponse.md)
+ - [AddActivityResponseRelatedObjects](Model/AddActivityResponseRelatedObjects.md)
+ - [AddChannelBadRequestResponse](Model/AddChannelBadRequestResponse.md)
+ - [AddChannelBadRequestResponseAdditionalData](Model/AddChannelBadRequestResponseAdditionalData.md)
+ - [AddChannelForbiddenErrorResponse](Model/AddChannelForbiddenErrorResponse.md)
+ - [AddChannelForbiddenErrorResponseAdditionalData](Model/AddChannelForbiddenErrorResponseAdditionalData.md)
+ - [AddDealFollowerRequest](Model/AddDealFollowerRequest.md)
+ - [AddDealParticipantRequest](Model/AddDealParticipantRequest.md)
+ - [AddFile](Model/AddFile.md)
+ - [AddFilterRequest](Model/AddFilterRequest.md)
+ - [AddFollowerToPersonResponse](Model/AddFollowerToPersonResponse.md)
+ - [AddFollowerToPersonResponseAllOf](Model/AddFollowerToPersonResponseAllOf.md)
+ - [AddFollowerToPersonResponseAllOfData](Model/AddFollowerToPersonResponseAllOfData.md)
+ - [AddLeadLabelRequest](Model/AddLeadLabelRequest.md)
+ - [AddLeadRequest](Model/AddLeadRequest.md)
+ - [AddNewPipeline](Model/AddNewPipeline.md)
+ - [AddNewPipelineAllOf](Model/AddNewPipelineAllOf.md)
+ - [AddNoteRequest](Model/AddNoteRequest.md)
+ - [AddNoteRequestAllOf](Model/AddNoteRequestAllOf.md)
+ - [AddOrUpdateRoleSettingRequest](Model/AddOrUpdateRoleSettingRequest.md)
+ - [AddOrganizationFollowerRequest](Model/AddOrganizationFollowerRequest.md)
+ - [AddOrganizationRelationshipRequest](Model/AddOrganizationRelationshipRequest.md)
+ - [AddPersonFollowerRequest](Model/AddPersonFollowerRequest.md)
+ - [AddPersonPictureResponse](Model/AddPersonPictureResponse.md)
+ - [AddPersonPictureResponseAllOf](Model/AddPersonPictureResponseAllOf.md)
+ - [AddPersonResponse](Model/AddPersonResponse.md)
+ - [AddPersonResponseAllOf](Model/AddPersonResponseAllOf.md)
+ - [AddProductAttachmentDetails](Model/AddProductAttachmentDetails.md)
+ - [AddProductAttachmentDetailsAllOf](Model/AddProductAttachmentDetailsAllOf.md)
+ - [AddProductFollowerRequest](Model/AddProductFollowerRequest.md)
+ - [AddProductRequestBody](Model/AddProductRequestBody.md)
+ - [AddProductRequestBodyAllOf](Model/AddProductRequestBodyAllOf.md)
+ - [AddProductRequestBodyAllOf1](Model/AddProductRequestBodyAllOf1.md)
+ - [AddProjectResponse](Model/AddProjectResponse.md)
+ - [AddRole](Model/AddRole.md)
+ - [AddRoleAssignmentRequest](Model/AddRoleAssignmentRequest.md)
+ - [AddRoleAssignmentResponseData](Model/AddRoleAssignmentResponseData.md)
+ - [AddRoleAssignmentResponseDataData](Model/AddRoleAssignmentResponseDataData.md)
+ - [AddRolesResponseData](Model/AddRolesResponseData.md)
+ - [AddTaskResponse](Model/AddTaskResponse.md)
+ - [AddTeamUserRequest](Model/AddTeamUserRequest.md)
+ - [AddUserRequest](Model/AddUserRequest.md)
+ - [AddWebhookRequest](Model/AddWebhookRequest.md)
+ - [AddedDealFollower](Model/AddedDealFollower.md)
+ - [AddedDealFollowerData](Model/AddedDealFollowerData.md)
+ - [AdditionalBaseOrganizationItemInfo](Model/AdditionalBaseOrganizationItemInfo.md)
+ - [AdditionalData](Model/AdditionalData.md)
+ - [AdditionalDataWithCursorPagination](Model/AdditionalDataWithCursorPagination.md)
+ - [AdditionalDataWithOffsetPagination](Model/AdditionalDataWithOffsetPagination.md)
+ - [AdditionalDataWithPaginationDetails](Model/AdditionalDataWithPaginationDetails.md)
+ - [AdditionalMergePersonInfo](Model/AdditionalMergePersonInfo.md)
+ - [AdditionalPersonInfo](Model/AdditionalPersonInfo.md)
+ - [AllOrganizationRelationshipsGetResponse](Model/AllOrganizationRelationshipsGetResponse.md)
+ - [AllOrganizationRelationshipsGetResponseAllOf](Model/AllOrganizationRelationshipsGetResponseAllOf.md)
+ - [AllOrganizationRelationshipsGetResponseAllOfRelatedObjects](Model/AllOrganizationRelationshipsGetResponseAllOfRelatedObjects.md)
+ - [AllOrganizationsGetResponse](Model/AllOrganizationsGetResponse.md)
+ - [AllOrganizationsGetResponseAllOf](Model/AllOrganizationsGetResponseAllOf.md)
+ - [AllOrganizationsGetResponseAllOfRelatedObjects](Model/AllOrganizationsGetResponseAllOfRelatedObjects.md)
+ - [ArrayPrices](Model/ArrayPrices.md)
+ - [Assignee](Model/Assignee.md)
+ - [BaseComment](Model/BaseComment.md)
+ - [BaseCurrency](Model/BaseCurrency.md)
+ - [BaseDeal](Model/BaseDeal.md)
+ - [BaseFollowerItem](Model/BaseFollowerItem.md)
+ - [BaseMailThread](Model/BaseMailThread.md)
+ - [BaseMailThreadAllOf](Model/BaseMailThreadAllOf.md)
+ - [BaseMailThreadAllOfParties](Model/BaseMailThreadAllOfParties.md)
+ - [BaseMailThreadMessages](Model/BaseMailThreadMessages.md)
+ - [BaseMailThreadMessagesAllOf](Model/BaseMailThreadMessagesAllOf.md)
+ - [BaseNote](Model/BaseNote.md)
+ - [BaseNoteDealTitle](Model/BaseNoteDealTitle.md)
+ - [BaseNoteOrganization](Model/BaseNoteOrganization.md)
+ - [BaseNotePerson](Model/BaseNotePerson.md)
+ - [BaseOrganizationItem](Model/BaseOrganizationItem.md)
+ - [BaseOrganizationItemFields](Model/BaseOrganizationItemFields.md)
+ - [BaseOrganizationItemWithEditNameFlag](Model/BaseOrganizationItemWithEditNameFlag.md)
+ - [BaseOrganizationItemWithEditNameFlagAllOf](Model/BaseOrganizationItemWithEditNameFlagAllOf.md)
+ - [BaseOrganizationRelationshipItem](Model/BaseOrganizationRelationshipItem.md)
+ - [BasePersonItem](Model/BasePersonItem.md)
+ - [BasePersonItemEmail](Model/BasePersonItemEmail.md)
+ - [BasePersonItemPhone](Model/BasePersonItemPhone.md)
+ - [BasePipeline](Model/BasePipeline.md)
+ - [BasePipelineWithSelectedFlag](Model/BasePipelineWithSelectedFlag.md)
+ - [BasePipelineWithSelectedFlagAllOf](Model/BasePipelineWithSelectedFlagAllOf.md)
+ - [BaseProduct](Model/BaseProduct.md)
+ - [BaseResponse](Model/BaseResponse.md)
+ - [BaseResponseWithStatus](Model/BaseResponseWithStatus.md)
+ - [BaseResponseWithStatusAllOf](Model/BaseResponseWithStatusAllOf.md)
+ - [BaseRole](Model/BaseRole.md)
+ - [BaseStage](Model/BaseStage.md)
+ - [BaseTeam](Model/BaseTeam.md)
+ - [BaseTeamAdditionalProperties](Model/BaseTeamAdditionalProperties.md)
+ - [BaseUser](Model/BaseUser.md)
+ - [BaseUserMe](Model/BaseUserMe.md)
+ - [BaseUserMeAllOf](Model/BaseUserMeAllOf.md)
+ - [BaseUserMeAllOfLanguage](Model/BaseUserMeAllOfLanguage.md)
+ - [BaseWebhook](Model/BaseWebhook.md)
+ - [BasicDeal](Model/BasicDeal.md)
+ - [BasicDealProduct](Model/BasicDealProduct.md)
+ - [BasicDealProductAllOf](Model/BasicDealProductAllOf.md)
+ - [BasicGoal](Model/BasicGoal.md)
+ - [BasicOrganization](Model/BasicOrganization.md)
+ - [BasicPerson](Model/BasicPerson.md)
+ - [BasicPersonEmail](Model/BasicPersonEmail.md)
+ - [BillingFrequency](Model/BillingFrequency.md)
+ - [BillingFrequency1](Model/BillingFrequency1.md)
+ - [BulkDeleteResponse](Model/BulkDeleteResponse.md)
+ - [BulkDeleteResponseAllOf](Model/BulkDeleteResponseAllOf.md)
+ - [BulkDeleteResponseAllOfData](Model/BulkDeleteResponseAllOfData.md)
+ - [CalculatedFields](Model/CalculatedFields.md)
+ - [CallLogBadRequestResponse](Model/CallLogBadRequestResponse.md)
+ - [CallLogConflictResponse](Model/CallLogConflictResponse.md)
+ - [CallLogForbiddenResponse](Model/CallLogForbiddenResponse.md)
+ - [CallLogGoneResponse](Model/CallLogGoneResponse.md)
+ - [CallLogInternalErrorResponse](Model/CallLogInternalErrorResponse.md)
+ - [CallLogNotFoundResponse](Model/CallLogNotFoundResponse.md)
+ - [CallLogObject](Model/CallLogObject.md)
+ - [CallLogResponse200](Model/CallLogResponse200.md)
+ - [CallLogsResponse](Model/CallLogsResponse.md)
+ - [CallLogsResponseAdditionalData](Model/CallLogsResponseAdditionalData.md)
+ - [ChangelogResponse](Model/ChangelogResponse.md)
+ - [ChangelogResponseAllOf](Model/ChangelogResponseAllOf.md)
+ - [ChangelogResponseAllOfData](Model/ChangelogResponseAllOfData.md)
+ - [ChannelObject](Model/ChannelObject.md)
+ - [ChannelObjectResponse](Model/ChannelObjectResponse.md)
+ - [ChannelObjectResponseData](Model/ChannelObjectResponseData.md)
+ - [CommentPostPutObject](Model/CommentPostPutObject.md)
+ - [CommonMailThread](Model/CommonMailThread.md)
+ - [CreateRemoteFileAndLinkItToItem](Model/CreateRemoteFileAndLinkItToItem.md)
+ - [CreateTeam](Model/CreateTeam.md)
+ - [Currencies](Model/Currencies.md)
+ - [DealCollectionResponseObject](Model/DealCollectionResponseObject.md)
+ - [DealCountAndActivityInfo](Model/DealCountAndActivityInfo.md)
+ - [DealFlowResponse](Model/DealFlowResponse.md)
+ - [DealFlowResponseAllOf](Model/DealFlowResponseAllOf.md)
+ - [DealFlowResponseAllOfData](Model/DealFlowResponseAllOfData.md)
+ - [DealFlowResponseAllOfRelatedObjects](Model/DealFlowResponseAllOfRelatedObjects.md)
+ - [DealListActivitiesResponse](Model/DealListActivitiesResponse.md)
+ - [DealListActivitiesResponseAllOf](Model/DealListActivitiesResponseAllOf.md)
+ - [DealListActivitiesResponseAllOfRelatedObjects](Model/DealListActivitiesResponseAllOfRelatedObjects.md)
+ - [DealNonStrict](Model/DealNonStrict.md)
+ - [DealNonStrictModeFields](Model/DealNonStrictModeFields.md)
+ - [DealNonStrictModeFieldsCreatorUserId](Model/DealNonStrictModeFieldsCreatorUserId.md)
+ - [DealNonStrictWithDetails](Model/DealNonStrictWithDetails.md)
+ - [DealNonStrictWithDetailsAllOf](Model/DealNonStrictWithDetailsAllOf.md)
+ - [DealNonStrictWithDetailsAllOfAge](Model/DealNonStrictWithDetailsAllOfAge.md)
+ - [DealNonStrictWithDetailsAllOfAverageTimeToWon](Model/DealNonStrictWithDetailsAllOfAverageTimeToWon.md)
+ - [DealNonStrictWithDetailsAllOfStayInPipelineStages](Model/DealNonStrictWithDetailsAllOfStayInPipelineStages.md)
+ - [DealOrganizationData](Model/DealOrganizationData.md)
+ - [DealOrganizationDataWithId](Model/DealOrganizationDataWithId.md)
+ - [DealOrganizationDataWithIdAllOf](Model/DealOrganizationDataWithIdAllOf.md)
+ - [DealParticipantCountInfo](Model/DealParticipantCountInfo.md)
+ - [DealParticipants](Model/DealParticipants.md)
+ - [DealParticipantsChangelog](Model/DealParticipantsChangelog.md)
+ - [DealPersonData](Model/DealPersonData.md)
+ - [DealPersonDataEmail](Model/DealPersonDataEmail.md)
+ - [DealPersonDataPhone](Model/DealPersonDataPhone.md)
+ - [DealPersonDataWithId](Model/DealPersonDataWithId.md)
+ - [DealPersonDataWithIdAllOf](Model/DealPersonDataWithIdAllOf.md)
+ - [DealProductRequestBody](Model/DealProductRequestBody.md)
+ - [DealSearchItem](Model/DealSearchItem.md)
+ - [DealSearchItemItem](Model/DealSearchItemItem.md)
+ - [DealSearchItemItemOrganization](Model/DealSearchItemItemOrganization.md)
+ - [DealSearchItemItemOwner](Model/DealSearchItemItemOwner.md)
+ - [DealSearchItemItemPerson](Model/DealSearchItemItemPerson.md)
+ - [DealSearchItemItemStage](Model/DealSearchItemItemStage.md)
+ - [DealSearchResponse](Model/DealSearchResponse.md)
+ - [DealSearchResponseAllOf](Model/DealSearchResponseAllOf.md)
+ - [DealSearchResponseAllOfData](Model/DealSearchResponseAllOfData.md)
+ - [DealStrict](Model/DealStrict.md)
+ - [DealStrictModeFields](Model/DealStrictModeFields.md)
+ - [DealStrictWithMergeId](Model/DealStrictWithMergeId.md)
+ - [DealStrictWithMergeIdAllOf](Model/DealStrictWithMergeIdAllOf.md)
+ - [DealSummary](Model/DealSummary.md)
+ - [DealSummaryPerCurrency](Model/DealSummaryPerCurrency.md)
+ - [DealSummaryPerCurrencyFull](Model/DealSummaryPerCurrencyFull.md)
+ - [DealSummaryPerCurrencyFullCURRENCYID](Model/DealSummaryPerCurrencyFullCURRENCYID.md)
+ - [DealSummaryPerStages](Model/DealSummaryPerStages.md)
+ - [DealSummaryPerStagesSTAGEID](Model/DealSummaryPerStagesSTAGEID.md)
+ - [DealSummaryPerStagesSTAGEIDCURRENCYID](Model/DealSummaryPerStagesSTAGEIDCURRENCYID.md)
+ - [DealTitleParameter](Model/DealTitleParameter.md)
+ - [DealUserData](Model/DealUserData.md)
+ - [DealUserDataWithId](Model/DealUserDataWithId.md)
+ - [DealUserDataWithIdAllOf](Model/DealUserDataWithIdAllOf.md)
+ - [DealsCountAndActivityInfo](Model/DealsCountAndActivityInfo.md)
+ - [DealsCountInfo](Model/DealsCountInfo.md)
+ - [DealsMovementsInfo](Model/DealsMovementsInfo.md)
+ - [DealsMovementsInfoFormattedValues](Model/DealsMovementsInfoFormattedValues.md)
+ - [DealsMovementsInfoValues](Model/DealsMovementsInfoValues.md)
+ - [DeleteActivitiesResponse](Model/DeleteActivitiesResponse.md)
+ - [DeleteActivitiesResponseData](Model/DeleteActivitiesResponseData.md)
+ - [DeleteActivityResponse](Model/DeleteActivityResponse.md)
+ - [DeleteActivityResponseData](Model/DeleteActivityResponseData.md)
+ - [DeleteChannelSuccess](Model/DeleteChannelSuccess.md)
+ - [DeleteComment](Model/DeleteComment.md)
+ - [DeleteConversationForbiddenErrorResponse](Model/DeleteConversationForbiddenErrorResponse.md)
+ - [DeleteConversationForbiddenErrorResponseAdditionalData](Model/DeleteConversationForbiddenErrorResponseAdditionalData.md)
+ - [DeleteConversationNotFoundErrorResponse](Model/DeleteConversationNotFoundErrorResponse.md)
+ - [DeleteConversationNotFoundErrorResponseAdditionalData](Model/DeleteConversationNotFoundErrorResponseAdditionalData.md)
+ - [DeleteConversationSuccess](Model/DeleteConversationSuccess.md)
+ - [DeleteDeal](Model/DeleteDeal.md)
+ - [DeleteDealData](Model/DeleteDealData.md)
+ - [DeleteDealFollower](Model/DeleteDealFollower.md)
+ - [DeleteDealFollowerData](Model/DeleteDealFollowerData.md)
+ - [DeleteDealParticipant](Model/DeleteDealParticipant.md)
+ - [DeleteDealParticipantData](Model/DeleteDealParticipantData.md)
+ - [DeleteDealProduct](Model/DeleteDealProduct.md)
+ - [DeleteDealProductData](Model/DeleteDealProductData.md)
+ - [DeleteFile](Model/DeleteFile.md)
+ - [DeleteFileData](Model/DeleteFileData.md)
+ - [DeleteGoalResponse](Model/DeleteGoalResponse.md)
+ - [DeleteLeadIdResponse](Model/DeleteLeadIdResponse.md)
+ - [DeleteMultipleDeals](Model/DeleteMultipleDeals.md)
+ - [DeleteMultipleDealsData](Model/DeleteMultipleDealsData.md)
+ - [DeleteMultipleProductFieldsResponse](Model/DeleteMultipleProductFieldsResponse.md)
+ - [DeleteMultipleProductFieldsResponseData](Model/DeleteMultipleProductFieldsResponseData.md)
+ - [DeleteNote](Model/DeleteNote.md)
+ - [DeletePersonResponse](Model/DeletePersonResponse.md)
+ - [DeletePersonResponseAllOf](Model/DeletePersonResponseAllOf.md)
+ - [DeletePersonResponseAllOfData](Model/DeletePersonResponseAllOfData.md)
+ - [DeletePersonsInBulkResponse](Model/DeletePersonsInBulkResponse.md)
+ - [DeletePersonsInBulkResponseAllOf](Model/DeletePersonsInBulkResponseAllOf.md)
+ - [DeletePersonsInBulkResponseAllOfData](Model/DeletePersonsInBulkResponseAllOfData.md)
+ - [DeletePipelineResponse](Model/DeletePipelineResponse.md)
+ - [DeletePipelineResponseData](Model/DeletePipelineResponseData.md)
+ - [DeleteProductFieldResponse](Model/DeleteProductFieldResponse.md)
+ - [DeleteProductFieldResponseData](Model/DeleteProductFieldResponseData.md)
+ - [DeleteProductFollowerResponse](Model/DeleteProductFollowerResponse.md)
+ - [DeleteProductFollowerResponseData](Model/DeleteProductFollowerResponseData.md)
+ - [DeleteProductResponse](Model/DeleteProductResponse.md)
+ - [DeleteProductResponseData](Model/DeleteProductResponseData.md)
+ - [DeleteProject](Model/DeleteProject.md)
+ - [DeleteProjectData](Model/DeleteProjectData.md)
+ - [DeleteProjectResponse](Model/DeleteProjectResponse.md)
+ - [DeleteResponse](Model/DeleteResponse.md)
+ - [DeleteResponseAllOf](Model/DeleteResponseAllOf.md)
+ - [DeleteResponseAllOfData](Model/DeleteResponseAllOfData.md)
+ - [DeleteRole](Model/DeleteRole.md)
+ - [DeleteRoleAssignment](Model/DeleteRoleAssignment.md)
+ - [DeleteRoleAssignmentRequest](Model/DeleteRoleAssignmentRequest.md)
+ - [DeleteRoleAssignmentResponseData](Model/DeleteRoleAssignmentResponseData.md)
+ - [DeleteRoleAssignmentResponseDataData](Model/DeleteRoleAssignmentResponseDataData.md)
+ - [DeleteRoleResponseData](Model/DeleteRoleResponseData.md)
+ - [DeleteRoleResponseDataData](Model/DeleteRoleResponseDataData.md)
+ - [DeleteStageResponse](Model/DeleteStageResponse.md)
+ - [DeleteStageResponseData](Model/DeleteStageResponseData.md)
+ - [DeleteStagesResponse](Model/DeleteStagesResponse.md)
+ - [DeleteStagesResponseData](Model/DeleteStagesResponseData.md)
+ - [DeleteTask](Model/DeleteTask.md)
+ - [DeleteTaskData](Model/DeleteTaskData.md)
+ - [DeleteTaskResponse](Model/DeleteTaskResponse.md)
+ - [DeleteTeamUserRequest](Model/DeleteTeamUserRequest.md)
+ - [Duration](Model/Duration.md)
+ - [EditPipeline](Model/EditPipeline.md)
+ - [EditPipelineAllOf](Model/EditPipelineAllOf.md)
+ - [EmailInfo](Model/EmailInfo.md)
+ - [ExpectedOutcome](Model/ExpectedOutcome.md)
+ - [FailResponse](Model/FailResponse.md)
+ - [Field](Model/Field.md)
+ - [FieldCreateRequest](Model/FieldCreateRequest.md)
+ - [FieldCreateRequestAllOf](Model/FieldCreateRequestAllOf.md)
+ - [FieldResponse](Model/FieldResponse.md)
+ - [FieldResponseAllOf](Model/FieldResponseAllOf.md)
+ - [FieldType](Model/FieldType.md)
+ - [FieldTypeAsString](Model/FieldTypeAsString.md)
+ - [FieldUpdateRequest](Model/FieldUpdateRequest.md)
+ - [FieldsResponse](Model/FieldsResponse.md)
+ - [FieldsResponseAllOf](Model/FieldsResponseAllOf.md)
+ - [FileData](Model/FileData.md)
+ - [FileItem](Model/FileItem.md)
+ - [Filter](Model/Filter.md)
+ - [FilterGetItem](Model/FilterGetItem.md)
+ - [FilterType](Model/FilterType.md)
+ - [FiltersBulkDeleteResponse](Model/FiltersBulkDeleteResponse.md)
+ - [FiltersBulkDeleteResponseAllOf](Model/FiltersBulkDeleteResponseAllOf.md)
+ - [FiltersBulkDeleteResponseAllOfData](Model/FiltersBulkDeleteResponseAllOfData.md)
+ - [FiltersBulkGetResponse](Model/FiltersBulkGetResponse.md)
+ - [FiltersBulkGetResponseAllOf](Model/FiltersBulkGetResponseAllOf.md)
+ - [FiltersDeleteResponse](Model/FiltersDeleteResponse.md)
+ - [FiltersDeleteResponseAllOf](Model/FiltersDeleteResponseAllOf.md)
+ - [FiltersDeleteResponseAllOfData](Model/FiltersDeleteResponseAllOfData.md)
+ - [FiltersGetResponse](Model/FiltersGetResponse.md)
+ - [FiltersGetResponseAllOf](Model/FiltersGetResponseAllOf.md)
+ - [FiltersPostResponse](Model/FiltersPostResponse.md)
+ - [FiltersPostResponseAllOf](Model/FiltersPostResponseAllOf.md)
+ - [FindGoalResponse](Model/FindGoalResponse.md)
+ - [FollowerData](Model/FollowerData.md)
+ - [FollowerDataWithID](Model/FollowerDataWithID.md)
+ - [FollowerDataWithIDAllOf](Model/FollowerDataWithIDAllOf.md)
+ - [FullProjectObject](Model/FullProjectObject.md)
+ - [FullRole](Model/FullRole.md)
+ - [FullRoleAllOf](Model/FullRoleAllOf.md)
+ - [FullTaskObject](Model/FullTaskObject.md)
+ - [GetActivitiesCollectionResponse](Model/GetActivitiesCollectionResponse.md)
+ - [GetActivitiesResponse](Model/GetActivitiesResponse.md)
+ - [GetActivitiesResponseRelatedObjects](Model/GetActivitiesResponseRelatedObjects.md)
+ - [GetActivityResponse](Model/GetActivityResponse.md)
+ - [GetAddProductAttachmentDetails](Model/GetAddProductAttachmentDetails.md)
+ - [GetAddUpdateStage](Model/GetAddUpdateStage.md)
+ - [GetAddedDeal](Model/GetAddedDeal.md)
+ - [GetAllFiles](Model/GetAllFiles.md)
+ - [GetAllPersonsResponse](Model/GetAllPersonsResponse.md)
+ - [GetAllPersonsResponseAllOf](Model/GetAllPersonsResponseAllOf.md)
+ - [GetAllPipelines](Model/GetAllPipelines.md)
+ - [GetAllPipelinesAllOf](Model/GetAllPipelinesAllOf.md)
+ - [GetAllProductFieldsResponse](Model/GetAllProductFieldsResponse.md)
+ - [GetComments](Model/GetComments.md)
+ - [GetDeal](Model/GetDeal.md)
+ - [GetDealAdditionalData](Model/GetDealAdditionalData.md)
+ - [GetDealRelatedObjects](Model/GetDealRelatedObjects.md)
+ - [GetDeals](Model/GetDeals.md)
+ - [GetDealsCollection](Model/GetDealsCollection.md)
+ - [GetDealsConversionRatesInPipeline](Model/GetDealsConversionRatesInPipeline.md)
+ - [GetDealsConversionRatesInPipelineAllOf](Model/GetDealsConversionRatesInPipelineAllOf.md)
+ - [GetDealsConversionRatesInPipelineAllOfData](Model/GetDealsConversionRatesInPipelineAllOfData.md)
+ - [GetDealsMovementsInPipeline](Model/GetDealsMovementsInPipeline.md)
+ - [GetDealsMovementsInPipelineAllOf](Model/GetDealsMovementsInPipelineAllOf.md)
+ - [GetDealsMovementsInPipelineAllOfData](Model/GetDealsMovementsInPipelineAllOfData.md)
+ - [GetDealsMovementsInPipelineAllOfDataAverageAgeInDays](Model/GetDealsMovementsInPipelineAllOfDataAverageAgeInDays.md)
+ - [GetDealsMovementsInPipelineAllOfDataAverageAgeInDaysByStages](Model/GetDealsMovementsInPipelineAllOfDataAverageAgeInDaysByStages.md)
+ - [GetDealsMovementsInPipelineAllOfDataMovementsBetweenStages](Model/GetDealsMovementsInPipelineAllOfDataMovementsBetweenStages.md)
+ - [GetDealsRelatedObjects](Model/GetDealsRelatedObjects.md)
+ - [GetDealsSummary](Model/GetDealsSummary.md)
+ - [GetDealsSummaryData](Model/GetDealsSummaryData.md)
+ - [GetDealsSummaryDataValuesTotal](Model/GetDealsSummaryDataValuesTotal.md)
+ - [GetDealsSummaryDataWeightedValuesTotal](Model/GetDealsSummaryDataWeightedValuesTotal.md)
+ - [GetDealsTimeline](Model/GetDealsTimeline.md)
+ - [GetDealsTimelineData](Model/GetDealsTimelineData.md)
+ - [GetDealsTimelineDataTotals](Model/GetDealsTimelineDataTotals.md)
+ - [GetDuplicatedDeal](Model/GetDuplicatedDeal.md)
+ - [GetField](Model/GetField.md)
+ - [GetFieldAllOf](Model/GetFieldAllOf.md)
+ - [GetGoalResultResponse](Model/GetGoalResultResponse.md)
+ - [GetGoalsResponse](Model/GetGoalsResponse.md)
+ - [GetLeadIdResponse](Model/GetLeadIdResponse.md)
+ - [GetLeadIdResponseData](Model/GetLeadIdResponseData.md)
+ - [GetLeadLabelsResponse](Model/GetLeadLabelsResponse.md)
+ - [GetLeadResponse](Model/GetLeadResponse.md)
+ - [GetLeadsResponse](Model/GetLeadsResponse.md)
+ - [GetLeadsSourceResponse](Model/GetLeadsSourceResponse.md)
+ - [GetMergedDeal](Model/GetMergedDeal.md)
+ - [GetNoteField](Model/GetNoteField.md)
+ - [GetNotes](Model/GetNotes.md)
+ - [GetOneFile](Model/GetOneFile.md)
+ - [GetOnePipeline](Model/GetOnePipeline.md)
+ - [GetOnePipelineAllOf](Model/GetOnePipelineAllOf.md)
+ - [GetOneStage](Model/GetOneStage.md)
+ - [GetPersonDetailsResponse](Model/GetPersonDetailsResponse.md)
+ - [GetPersonDetailsResponseAllOf](Model/GetPersonDetailsResponseAllOf.md)
+ - [GetPersonDetailsResponseAllOfAdditionalData](Model/GetPersonDetailsResponseAllOfAdditionalData.md)
+ - [GetProductAttachmentDetails](Model/GetProductAttachmentDetails.md)
+ - [GetProductField](Model/GetProductField.md)
+ - [GetProductFieldResponse](Model/GetProductFieldResponse.md)
+ - [GetProjectBoardResponse](Model/GetProjectBoardResponse.md)
+ - [GetProjectBoardsResponse](Model/GetProjectBoardsResponse.md)
+ - [GetProjectGroupsResponse](Model/GetProjectGroupsResponse.md)
+ - [GetProjectPhaseResponse](Model/GetProjectPhaseResponse.md)
+ - [GetProjectPhasesResponse](Model/GetProjectPhasesResponse.md)
+ - [GetProjectPlanResponse](Model/GetProjectPlanResponse.md)
+ - [GetProjectResponse](Model/GetProjectResponse.md)
+ - [GetProjectTemplateResponse](Model/GetProjectTemplateResponse.md)
+ - [GetProjectTemplatesResponse](Model/GetProjectTemplatesResponse.md)
+ - [GetProjectsResponse](Model/GetProjectsResponse.md)
+ - [GetReceiveMessageSuccessResponse](Model/GetReceiveMessageSuccessResponse.md)
+ - [GetRecents](Model/GetRecents.md)
+ - [GetRecentsAdditionalData](Model/GetRecentsAdditionalData.md)
+ - [GetRole](Model/GetRole.md)
+ - [GetRoleAssignments](Model/GetRoleAssignments.md)
+ - [GetRoleAssignmentsResponseData](Model/GetRoleAssignmentsResponseData.md)
+ - [GetRolePipelines](Model/GetRolePipelines.md)
+ - [GetRolePipelinesAllOf](Model/GetRolePipelinesAllOf.md)
+ - [GetRolePipelinesResponseData](Model/GetRolePipelinesResponseData.md)
+ - [GetRoleResponseData](Model/GetRoleResponseData.md)
+ - [GetRoleResponseDataAdditionalData](Model/GetRoleResponseDataAdditionalData.md)
+ - [GetRoleSettings](Model/GetRoleSettings.md)
+ - [GetRoleSettingsResponseData](Model/GetRoleSettingsResponseData.md)
+ - [GetRoles](Model/GetRoles.md)
+ - [GetRolesAllOf](Model/GetRolesAllOf.md)
+ - [GetStageDeals](Model/GetStageDeals.md)
+ - [GetStages](Model/GetStages.md)
+ - [GetSubscriptionsIdResponseData](Model/GetSubscriptionsIdResponseData.md)
+ - [GetTaskResponse](Model/GetTaskResponse.md)
+ - [GetTasksResponse](Model/GetTasksResponse.md)
+ - [GetUserConnectionsResponseData](Model/GetUserConnectionsResponseData.md)
+ - [GetUserConnectionsResponseDataData](Model/GetUserConnectionsResponseDataData.md)
+ - [GetUserResponseData](Model/GetUserResponseData.md)
+ - [GetUserSettingsResponseData](Model/GetUserSettingsResponseData.md)
+ - [GetWebhookResponseData](Model/GetWebhookResponseData.md)
+ - [GoalResults](Model/GoalResults.md)
+ - [GoalType](Model/GoalType.md)
+ - [GoalsResponseComponent](Model/GoalsResponseComponent.md)
+ - [IconKey](Model/IconKey.md)
+ - [InlineResponse200](Model/InlineResponse200.md)
+ - [InlineResponse2001](Model/InlineResponse2001.md)
+ - [InternalFieldType](Model/InternalFieldType.md)
+ - [ItemSearchAdditionalData](Model/ItemSearchAdditionalData.md)
+ - [ItemSearchAdditionalDataPagination](Model/ItemSearchAdditionalDataPagination.md)
+ - [ItemSearchFieldResponse](Model/ItemSearchFieldResponse.md)
+ - [ItemSearchFieldResponseAllOf](Model/ItemSearchFieldResponseAllOf.md)
+ - [ItemSearchFieldResponseAllOfData](Model/ItemSearchFieldResponseAllOfData.md)
+ - [ItemSearchItem](Model/ItemSearchItem.md)
+ - [ItemSearchResponse](Model/ItemSearchResponse.md)
+ - [ItemSearchResponseAllOf](Model/ItemSearchResponseAllOf.md)
+ - [ItemSearchResponseAllOfData](Model/ItemSearchResponseAllOfData.md)
+ - [LeadLabelColor](Model/LeadLabelColor.md)
+ - [LeadLabelResponse](Model/LeadLabelResponse.md)
+ - [LeadNotFoundResponse](Model/LeadNotFoundResponse.md)
+ - [LeadResponse](Model/LeadResponse.md)
+ - [LeadSearchItem](Model/LeadSearchItem.md)
+ - [LeadSearchItemItem](Model/LeadSearchItemItem.md)
+ - [LeadSearchItemItemOrganization](Model/LeadSearchItemItemOrganization.md)
+ - [LeadSearchItemItemOwner](Model/LeadSearchItemItemOwner.md)
+ - [LeadSearchItemItemPerson](Model/LeadSearchItemItemPerson.md)
+ - [LeadSearchResponse](Model/LeadSearchResponse.md)
+ - [LeadSearchResponseAllOf](Model/LeadSearchResponseAllOf.md)
+ - [LeadSearchResponseAllOfData](Model/LeadSearchResponseAllOfData.md)
+ - [LeadSource](Model/LeadSource.md)
+ - [LeadValue](Model/LeadValue.md)
+ - [LinkRemoteFileToItem](Model/LinkRemoteFileToItem.md)
+ - [ListActivitiesResponse](Model/ListActivitiesResponse.md)
+ - [ListActivitiesResponseAllOf](Model/ListActivitiesResponseAllOf.md)
+ - [ListDealsResponse](Model/ListDealsResponse.md)
+ - [ListDealsResponseAllOf](Model/ListDealsResponseAllOf.md)
+ - [ListDealsResponseAllOfRelatedObjects](Model/ListDealsResponseAllOfRelatedObjects.md)
+ - [ListFilesResponse](Model/ListFilesResponse.md)
+ - [ListFilesResponseAllOf](Model/ListFilesResponseAllOf.md)
+ - [ListFollowersResponse](Model/ListFollowersResponse.md)
+ - [ListFollowersResponseAllOf](Model/ListFollowersResponseAllOf.md)
+ - [ListFollowersResponseAllOfData](Model/ListFollowersResponseAllOfData.md)
+ - [ListMailMessagesResponse](Model/ListMailMessagesResponse.md)
+ - [ListMailMessagesResponseAllOf](Model/ListMailMessagesResponseAllOf.md)
+ - [ListMailMessagesResponseAllOfData](Model/ListMailMessagesResponseAllOfData.md)
+ - [ListPermittedUsersResponse](Model/ListPermittedUsersResponse.md)
+ - [ListPermittedUsersResponse1](Model/ListPermittedUsersResponse1.md)
+ - [ListPermittedUsersResponse1AllOf](Model/ListPermittedUsersResponse1AllOf.md)
+ - [ListPersonProductsResponse](Model/ListPersonProductsResponse.md)
+ - [ListPersonProductsResponseAllOf](Model/ListPersonProductsResponseAllOf.md)
+ - [ListPersonProductsResponseAllOfDEALID](Model/ListPersonProductsResponseAllOfDEALID.md)
+ - [ListPersonProductsResponseAllOfData](Model/ListPersonProductsResponseAllOfData.md)
+ - [ListPersonsResponse](Model/ListPersonsResponse.md)
+ - [ListPersonsResponseAllOf](Model/ListPersonsResponseAllOf.md)
+ - [ListPersonsResponseAllOfRelatedObjects](Model/ListPersonsResponseAllOfRelatedObjects.md)
+ - [ListProductAdditionalData](Model/ListProductAdditionalData.md)
+ - [ListProductAdditionalDataAllOf](Model/ListProductAdditionalDataAllOf.md)
+ - [ListProductFilesResponse](Model/ListProductFilesResponse.md)
+ - [ListProductFilesResponseAllOf](Model/ListProductFilesResponseAllOf.md)
+ - [ListProductFollowersResponse](Model/ListProductFollowersResponse.md)
+ - [ListProductFollowersResponseAllOf](Model/ListProductFollowersResponseAllOf.md)
+ - [ListProductFollowersResponseAllOfData](Model/ListProductFollowersResponseAllOfData.md)
+ - [ListProductsResponse](Model/ListProductsResponse.md)
+ - [ListProductsResponseAllOf](Model/ListProductsResponseAllOf.md)
+ - [ListProductsResponseAllOfRelatedObjects](Model/ListProductsResponseAllOfRelatedObjects.md)
+ - [MailMessage](Model/MailMessage.md)
+ - [MailMessageAllOf](Model/MailMessageAllOf.md)
+ - [MailMessageData](Model/MailMessageData.md)
+ - [MailMessageItemForList](Model/MailMessageItemForList.md)
+ - [MailMessageItemForListAllOf](Model/MailMessageItemForListAllOf.md)
+ - [MailParticipant](Model/MailParticipant.md)
+ - [MailServiceBaseResponse](Model/MailServiceBaseResponse.md)
+ - [MailThread](Model/MailThread.md)
+ - [MailThreadAllOf](Model/MailThreadAllOf.md)
+ - [MailThreadDelete](Model/MailThreadDelete.md)
+ - [MailThreadDeleteAllOf](Model/MailThreadDeleteAllOf.md)
+ - [MailThreadDeleteAllOfData](Model/MailThreadDeleteAllOfData.md)
+ - [MailThreadMessages](Model/MailThreadMessages.md)
+ - [MailThreadMessagesAllOf](Model/MailThreadMessagesAllOf.md)
+ - [MailThreadOne](Model/MailThreadOne.md)
+ - [MailThreadOneAllOf](Model/MailThreadOneAllOf.md)
+ - [MailThreadParticipant](Model/MailThreadParticipant.md)
+ - [MailThreadPut](Model/MailThreadPut.md)
+ - [MailThreadPutAllOf](Model/MailThreadPutAllOf.md)
+ - [MarketingStatus](Model/MarketingStatus.md)
+ - [MergeDealsRequest](Model/MergeDealsRequest.md)
+ - [MergeOrganizationsRequest](Model/MergeOrganizationsRequest.md)
+ - [MergePersonDealRelatedInfo](Model/MergePersonDealRelatedInfo.md)
+ - [MergePersonItem](Model/MergePersonItem.md)
+ - [MergePersonsRequest](Model/MergePersonsRequest.md)
+ - [MergePersonsResponse](Model/MergePersonsResponse.md)
+ - [MergePersonsResponseAllOf](Model/MergePersonsResponseAllOf.md)
+ - [MessageObject](Model/MessageObject.md)
+ - [MessageObjectAttachments](Model/MessageObjectAttachments.md)
+ - [NameObject](Model/NameObject.md)
+ - [NewDeal](Model/NewDeal.md)
+ - [NewDealParameters](Model/NewDealParameters.md)
+ - [NewDealProduct](Model/NewDealProduct.md)
+ - [NewDealProductAllOf](Model/NewDealProductAllOf.md)
+ - [NewDealProductAllOf1](Model/NewDealProductAllOf1.md)
+ - [NewDealProductAllOf2](Model/NewDealProductAllOf2.md)
+ - [NewFollowerResponse](Model/NewFollowerResponse.md)
+ - [NewFollowerResponseData](Model/NewFollowerResponseData.md)
+ - [NewGoal](Model/NewGoal.md)
+ - [NewOrganization](Model/NewOrganization.md)
+ - [NewOrganizationAllOf](Model/NewOrganizationAllOf.md)
+ - [NewPerson](Model/NewPerson.md)
+ - [NewPersonAllOf](Model/NewPersonAllOf.md)
+ - [NewProductField](Model/NewProductField.md)
+ - [Note](Model/Note.md)
+ - [NoteAllOf](Model/NoteAllOf.md)
+ - [NoteConnectToParams](Model/NoteConnectToParams.md)
+ - [NoteCreatorUser](Model/NoteCreatorUser.md)
+ - [NoteField](Model/NoteField.md)
+ - [NoteFieldOptions](Model/NoteFieldOptions.md)
+ - [NoteFieldsResponse](Model/NoteFieldsResponse.md)
+ - [NoteFieldsResponseAllOf](Model/NoteFieldsResponseAllOf.md)
+ - [NoteParams](Model/NoteParams.md)
+ - [NumberBoolean](Model/NumberBoolean.md)
+ - [NumberBooleanDefault0](Model/NumberBooleanDefault0.md)
+ - [NumberBooleanDefault1](Model/NumberBooleanDefault1.md)
+ - [OrgAndOwnerId](Model/OrgAndOwnerId.md)
+ - [OrganizationAddressInfo](Model/OrganizationAddressInfo.md)
+ - [OrganizationCountAndAddressInfo](Model/OrganizationCountAndAddressInfo.md)
+ - [OrganizationCountInfo](Model/OrganizationCountInfo.md)
+ - [OrganizationData](Model/OrganizationData.md)
+ - [OrganizationDataWithId](Model/OrganizationDataWithId.md)
+ - [OrganizationDataWithIdAllOf](Model/OrganizationDataWithIdAllOf.md)
+ - [OrganizationDataWithIdAndActiveFlag](Model/OrganizationDataWithIdAndActiveFlag.md)
+ - [OrganizationDataWithIdAndActiveFlagAllOf](Model/OrganizationDataWithIdAndActiveFlagAllOf.md)
+ - [OrganizationDeleteResponse](Model/OrganizationDeleteResponse.md)
+ - [OrganizationDeleteResponseData](Model/OrganizationDeleteResponseData.md)
+ - [OrganizationDetailsGetResponse](Model/OrganizationDetailsGetResponse.md)
+ - [OrganizationDetailsGetResponseAllOf](Model/OrganizationDetailsGetResponseAllOf.md)
+ - [OrganizationDetailsGetResponseAllOfAdditionalData](Model/OrganizationDetailsGetResponseAllOfAdditionalData.md)
+ - [OrganizationFlowResponse](Model/OrganizationFlowResponse.md)
+ - [OrganizationFlowResponseAllOf](Model/OrganizationFlowResponseAllOf.md)
+ - [OrganizationFlowResponseAllOfData](Model/OrganizationFlowResponseAllOfData.md)
+ - [OrganizationFlowResponseAllOfRelatedObjects](Model/OrganizationFlowResponseAllOfRelatedObjects.md)
+ - [OrganizationFollowerDeleteResponse](Model/OrganizationFollowerDeleteResponse.md)
+ - [OrganizationFollowerDeleteResponseData](Model/OrganizationFollowerDeleteResponseData.md)
+ - [OrganizationFollowerItem](Model/OrganizationFollowerItem.md)
+ - [OrganizationFollowerItemAllOf](Model/OrganizationFollowerItemAllOf.md)
+ - [OrganizationFollowerPostResponse](Model/OrganizationFollowerPostResponse.md)
+ - [OrganizationFollowersListResponse](Model/OrganizationFollowersListResponse.md)
+ - [OrganizationItem](Model/OrganizationItem.md)
+ - [OrganizationItemAllOf](Model/OrganizationItemAllOf.md)
+ - [OrganizationPostResponse](Model/OrganizationPostResponse.md)
+ - [OrganizationPostResponseAllOf](Model/OrganizationPostResponseAllOf.md)
+ - [OrganizationRelationship](Model/OrganizationRelationship.md)
+ - [OrganizationRelationshipDeleteResponse](Model/OrganizationRelationshipDeleteResponse.md)
+ - [OrganizationRelationshipDeleteResponseAllOf](Model/OrganizationRelationshipDeleteResponseAllOf.md)
+ - [OrganizationRelationshipDeleteResponseAllOfData](Model/OrganizationRelationshipDeleteResponseAllOfData.md)
+ - [OrganizationRelationshipDetails](Model/OrganizationRelationshipDetails.md)
+ - [OrganizationRelationshipGetResponse](Model/OrganizationRelationshipGetResponse.md)
+ - [OrganizationRelationshipGetResponseAllOf](Model/OrganizationRelationshipGetResponseAllOf.md)
+ - [OrganizationRelationshipPostResponse](Model/OrganizationRelationshipPostResponse.md)
+ - [OrganizationRelationshipPostResponseAllOf](Model/OrganizationRelationshipPostResponseAllOf.md)
+ - [OrganizationRelationshipUpdateResponse](Model/OrganizationRelationshipUpdateResponse.md)
+ - [OrganizationRelationshipWithCalculatedFields](Model/OrganizationRelationshipWithCalculatedFields.md)
+ - [OrganizationSearchItem](Model/OrganizationSearchItem.md)
+ - [OrganizationSearchItemItem](Model/OrganizationSearchItemItem.md)
+ - [OrganizationSearchResponse](Model/OrganizationSearchResponse.md)
+ - [OrganizationSearchResponseAllOf](Model/OrganizationSearchResponseAllOf.md)
+ - [OrganizationSearchResponseAllOfData](Model/OrganizationSearchResponseAllOfData.md)
+ - [OrganizationUpdateResponse](Model/OrganizationUpdateResponse.md)
+ - [OrganizationUpdateResponseAllOf](Model/OrganizationUpdateResponseAllOf.md)
+ - [OrganizationsCollectionResponseObject](Model/OrganizationsCollectionResponseObject.md)
+ - [OrganizationsCollectionResponseObjectAllOf](Model/OrganizationsCollectionResponseObjectAllOf.md)
+ - [OrganizationsDeleteResponse](Model/OrganizationsDeleteResponse.md)
+ - [OrganizationsDeleteResponseData](Model/OrganizationsDeleteResponseData.md)
+ - [OrganizationsMergeResponse](Model/OrganizationsMergeResponse.md)
+ - [OrganizationsMergeResponseData](Model/OrganizationsMergeResponseData.md)
+ - [Owner](Model/Owner.md)
+ - [OwnerAllOf](Model/OwnerAllOf.md)
+ - [PaginationDetails](Model/PaginationDetails.md)
+ - [PaginationDetailsAllOf](Model/PaginationDetailsAllOf.md)
+ - [Params](Model/Params.md)
+ - [ParticipantsChangelog](Model/ParticipantsChangelog.md)
+ - [ParticipantsChangelogItem](Model/ParticipantsChangelogItem.md)
+ - [PaymentItem](Model/PaymentItem.md)
+ - [PaymentsResponse](Model/PaymentsResponse.md)
+ - [PaymentsResponseAllOf](Model/PaymentsResponseAllOf.md)
+ - [PermissionSets](Model/PermissionSets.md)
+ - [PermissionSetsAllOf](Model/PermissionSetsAllOf.md)
+ - [PermissionSetsItem](Model/PermissionSetsItem.md)
+ - [PersonCountAndEmailInfo](Model/PersonCountAndEmailInfo.md)
+ - [PersonCountEmailDealAndActivityInfo](Model/PersonCountEmailDealAndActivityInfo.md)
+ - [PersonCountInfo](Model/PersonCountInfo.md)
+ - [PersonData](Model/PersonData.md)
+ - [PersonDataEmail](Model/PersonDataEmail.md)
+ - [PersonDataWithActiveFlag](Model/PersonDataWithActiveFlag.md)
+ - [PersonDataWithActiveFlagAllOf](Model/PersonDataWithActiveFlagAllOf.md)
+ - [PersonFlowResponse](Model/PersonFlowResponse.md)
+ - [PersonFlowResponseAllOf](Model/PersonFlowResponseAllOf.md)
+ - [PersonFlowResponseAllOfData](Model/PersonFlowResponseAllOfData.md)
+ - [PersonItem](Model/PersonItem.md)
+ - [PersonListProduct](Model/PersonListProduct.md)
+ - [PersonNameCountAndEmailInfo](Model/PersonNameCountAndEmailInfo.md)
+ - [PersonNameCountAndEmailInfoWithIds](Model/PersonNameCountAndEmailInfoWithIds.md)
+ - [PersonNameCountAndEmailInfoWithIdsAllOf](Model/PersonNameCountAndEmailInfoWithIdsAllOf.md)
+ - [PersonNameInfo](Model/PersonNameInfo.md)
+ - [PersonNameInfoWithOrgAndOwnerId](Model/PersonNameInfoWithOrgAndOwnerId.md)
+ - [PersonSearchItem](Model/PersonSearchItem.md)
+ - [PersonSearchItemItem](Model/PersonSearchItemItem.md)
+ - [PersonSearchItemItemOrganization](Model/PersonSearchItemItemOrganization.md)
+ - [PersonSearchItemItemOwner](Model/PersonSearchItemItemOwner.md)
+ - [PersonSearchResponse](Model/PersonSearchResponse.md)
+ - [PersonSearchResponseAllOf](Model/PersonSearchResponseAllOf.md)
+ - [PersonSearchResponseAllOfData](Model/PersonSearchResponseAllOfData.md)
+ - [PersonsCollectionResponseObject](Model/PersonsCollectionResponseObject.md)
+ - [PhoneData](Model/PhoneData.md)
+ - [PictureData](Model/PictureData.md)
+ - [PictureDataPictures](Model/PictureDataPictures.md)
+ - [PictureDataWithID](Model/PictureDataWithID.md)
+ - [PictureDataWithID1](Model/PictureDataWithID1.md)
+ - [PictureDataWithValue](Model/PictureDataWithValue.md)
+ - [PictureDataWithValue1](Model/PictureDataWithValue1.md)
+ - [Pipeline](Model/Pipeline.md)
+ - [PipelineDetails](Model/PipelineDetails.md)
+ - [PipelineDetailsAllOf](Model/PipelineDetailsAllOf.md)
+ - [PostComment](Model/PostComment.md)
+ - [PostDealParticipants](Model/PostDealParticipants.md)
+ - [PostDealParticipantsRelatedObjects](Model/PostDealParticipantsRelatedObjects.md)
+ - [PostGoalResponse](Model/PostGoalResponse.md)
+ - [PostNote](Model/PostNote.md)
+ - [PostRoleAssignment](Model/PostRoleAssignment.md)
+ - [PostRoleSettings](Model/PostRoleSettings.md)
+ - [PostRoles](Model/PostRoles.md)
+ - [PostRolesAllOf](Model/PostRolesAllOf.md)
+ - [ProductAttachementFields](Model/ProductAttachementFields.md)
+ - [ProductAttachmentDetails](Model/ProductAttachmentDetails.md)
+ - [ProductBaseDeal](Model/ProductBaseDeal.md)
+ - [ProductField](Model/ProductField.md)
+ - [ProductFieldAllOf](Model/ProductFieldAllOf.md)
+ - [ProductFileItem](Model/ProductFileItem.md)
+ - [ProductListItem](Model/ProductListItem.md)
+ - [ProductRequest](Model/ProductRequest.md)
+ - [ProductResponse](Model/ProductResponse.md)
+ - [ProductSearchItem](Model/ProductSearchItem.md)
+ - [ProductSearchItemItem](Model/ProductSearchItemItem.md)
+ - [ProductSearchItemItemOwner](Model/ProductSearchItemItemOwner.md)
+ - [ProductSearchResponse](Model/ProductSearchResponse.md)
+ - [ProductSearchResponseAllOf](Model/ProductSearchResponseAllOf.md)
+ - [ProductSearchResponseAllOfData](Model/ProductSearchResponseAllOfData.md)
+ - [ProductWithArrayPrices](Model/ProductWithArrayPrices.md)
+ - [ProductsResponse](Model/ProductsResponse.md)
+ - [ProjectBoardObject](Model/ProjectBoardObject.md)
+ - [ProjectGroupsObject](Model/ProjectGroupsObject.md)
+ - [ProjectId](Model/ProjectId.md)
+ - [ProjectMandatoryObjectFragment](Model/ProjectMandatoryObjectFragment.md)
+ - [ProjectNotChangeableObjectFragment](Model/ProjectNotChangeableObjectFragment.md)
+ - [ProjectObjectFragment](Model/ProjectObjectFragment.md)
+ - [ProjectPhaseObject](Model/ProjectPhaseObject.md)
+ - [ProjectPlanItemObject](Model/ProjectPlanItemObject.md)
+ - [ProjectPostObject](Model/ProjectPostObject.md)
+ - [ProjectPostObjectAllOf](Model/ProjectPostObjectAllOf.md)
+ - [ProjectPutObject](Model/ProjectPutObject.md)
+ - [ProjectPutPlanItemBodyObject](Model/ProjectPutPlanItemBodyObject.md)
+ - [ProjectResponseObject](Model/ProjectResponseObject.md)
+ - [PutRole](Model/PutRole.md)
+ - [PutRoleAllOf](Model/PutRoleAllOf.md)
+ - [PutRolePipelinesBody](Model/PutRolePipelinesBody.md)
+ - [ReceiveMessageBadRequestErrorResponse](Model/ReceiveMessageBadRequestErrorResponse.md)
+ - [ReceiveMessageBadRequestErrorResponseAdditionalData](Model/ReceiveMessageBadRequestErrorResponseAdditionalData.md)
+ - [RecentDataProduct](Model/RecentDataProduct.md)
+ - [RecentsActivity](Model/RecentsActivity.md)
+ - [RecentsActivityType](Model/RecentsActivityType.md)
+ - [RecentsDeal](Model/RecentsDeal.md)
+ - [RecentsFile](Model/RecentsFile.md)
+ - [RecentsFilter](Model/RecentsFilter.md)
+ - [RecentsNote](Model/RecentsNote.md)
+ - [RecentsOrganization](Model/RecentsOrganization.md)
+ - [RecentsPerson](Model/RecentsPerson.md)
+ - [RecentsPipeline](Model/RecentsPipeline.md)
+ - [RecentsProduct](Model/RecentsProduct.md)
+ - [RecentsStage](Model/RecentsStage.md)
+ - [RecentsUser](Model/RecentsUser.md)
+ - [RelatedDealData](Model/RelatedDealData.md)
+ - [RelatedDealDataDEALID](Model/RelatedDealDataDEALID.md)
+ - [RelatedFollowerData](Model/RelatedFollowerData.md)
+ - [RelatedOrganizationData](Model/RelatedOrganizationData.md)
+ - [RelatedOrganizationDataWithActiveFlag](Model/RelatedOrganizationDataWithActiveFlag.md)
+ - [RelatedOrganizationName](Model/RelatedOrganizationName.md)
+ - [RelatedPersonData](Model/RelatedPersonData.md)
+ - [RelatedPersonDataWithActiveFlag](Model/RelatedPersonDataWithActiveFlag.md)
+ - [RelatedPictureData](Model/RelatedPictureData.md)
+ - [RelatedUserData](Model/RelatedUserData.md)
+ - [RelationshipOrganizationInfoItem](Model/RelationshipOrganizationInfoItem.md)
+ - [RelationshipOrganizationInfoItemAllOf](Model/RelationshipOrganizationInfoItemAllOf.md)
+ - [RelationshipOrganizationInfoItemWithActiveFlag](Model/RelationshipOrganizationInfoItemWithActiveFlag.md)
+ - [RelationshipOrganizationInfoItemWithActiveFlagAllOf](Model/RelationshipOrganizationInfoItemWithActiveFlagAllOf.md)
+ - [RequiredPostProjectParameters](Model/RequiredPostProjectParameters.md)
+ - [RequiredPostTaskParameters](Model/RequiredPostTaskParameters.md)
+ - [RequredTitleParameter](Model/RequredTitleParameter.md)
+ - [ResponseCallLogObject](Model/ResponseCallLogObject.md)
+ - [ResponseCallLogObjectAllOf](Model/ResponseCallLogObjectAllOf.md)
+ - [RoleAssignment](Model/RoleAssignment.md)
+ - [RoleAssignmentData](Model/RoleAssignmentData.md)
+ - [RoleSettings](Model/RoleSettings.md)
+ - [RolesAdditionalData](Model/RolesAdditionalData.md)
+ - [RolesAdditionalDataPagination](Model/RolesAdditionalDataPagination.md)
+ - [SinglePermissionSetsItem](Model/SinglePermissionSetsItem.md)
+ - [SinglePermissionSetsItemAllOf](Model/SinglePermissionSetsItemAllOf.md)
+ - [Stage](Model/Stage.md)
+ - [StageConversions](Model/StageConversions.md)
+ - [StageDetails](Model/StageDetails.md)
+ - [StageDetailsData](Model/StageDetailsData.md)
+ - [StageWithPipelineInfo](Model/StageWithPipelineInfo.md)
+ - [StageWithPipelineInfo1](Model/StageWithPipelineInfo1.md)
+ - [SubRole](Model/SubRole.md)
+ - [SubRoleAllOf](Model/SubRoleAllOf.md)
+ - [SubscriptionAddonsResponse](Model/SubscriptionAddonsResponse.md)
+ - [SubscriptionAddonsResponseAllOf](Model/SubscriptionAddonsResponseAllOf.md)
+ - [SubscriptionInstallmentCreateRequest](Model/SubscriptionInstallmentCreateRequest.md)
+ - [SubscriptionInstallmentUpdateRequest](Model/SubscriptionInstallmentUpdateRequest.md)
+ - [SubscriptionItem](Model/SubscriptionItem.md)
+ - [SubscriptionRecurringCancelRequest](Model/SubscriptionRecurringCancelRequest.md)
+ - [SubscriptionRecurringCreateRequest](Model/SubscriptionRecurringCreateRequest.md)
+ - [SubscriptionRecurringUpdateRequest](Model/SubscriptionRecurringUpdateRequest.md)
+ - [SubscriptionsIdResponse](Model/SubscriptionsIdResponse.md)
+ - [TaskId](Model/TaskId.md)
+ - [TaskMandatoryObjectFragment](Model/TaskMandatoryObjectFragment.md)
+ - [TaskNotChangeableObjectFragment](Model/TaskNotChangeableObjectFragment.md)
+ - [TaskObjectFragment](Model/TaskObjectFragment.md)
+ - [TaskPostObject](Model/TaskPostObject.md)
+ - [TaskPutObject](Model/TaskPutObject.md)
+ - [TaskResponseObject](Model/TaskResponseObject.md)
+ - [Team](Model/Team.md)
+ - [TeamAllOf](Model/TeamAllOf.md)
+ - [TeamId](Model/TeamId.md)
+ - [Teams](Model/Teams.md)
+ - [TeamsAllOf](Model/TeamsAllOf.md)
+ - [TemplateObject](Model/TemplateObject.md)
+ - [TemplateResponseObject](Model/TemplateResponseObject.md)
+ - [Unauthorized](Model/Unauthorized.md)
+ - [UpdateActivityPlanItemResponse](Model/UpdateActivityPlanItemResponse.md)
+ - [UpdateActivityResponse](Model/UpdateActivityResponse.md)
+ - [UpdateDealParameters](Model/UpdateDealParameters.md)
+ - [UpdateDealProduct](Model/UpdateDealProduct.md)
+ - [UpdateDealRequest](Model/UpdateDealRequest.md)
+ - [UpdateFile](Model/UpdateFile.md)
+ - [UpdateFilterRequest](Model/UpdateFilterRequest.md)
+ - [UpdateLeadLabelRequest](Model/UpdateLeadLabelRequest.md)
+ - [UpdateLeadRequest](Model/UpdateLeadRequest.md)
+ - [UpdateOrganization](Model/UpdateOrganization.md)
+ - [UpdateOrganizationAllOf](Model/UpdateOrganizationAllOf.md)
+ - [UpdatePerson](Model/UpdatePerson.md)
+ - [UpdatePersonAllOf](Model/UpdatePersonAllOf.md)
+ - [UpdatePersonResponse](Model/UpdatePersonResponse.md)
+ - [UpdateProductField](Model/UpdateProductField.md)
+ - [UpdateProductRequestBody](Model/UpdateProductRequestBody.md)
+ - [UpdateProductResponse](Model/UpdateProductResponse.md)
+ - [UpdateProjectResponse](Model/UpdateProjectResponse.md)
+ - [UpdateRoleResponseData](Model/UpdateRoleResponseData.md)
+ - [UpdateStageRequest](Model/UpdateStageRequest.md)
+ - [UpdateStageRequestAllOf](Model/UpdateStageRequestAllOf.md)
+ - [UpdateTaskPlanItemResponse](Model/UpdateTaskPlanItemResponse.md)
+ - [UpdateTaskResponse](Model/UpdateTaskResponse.md)
+ - [UpdateTeam](Model/UpdateTeam.md)
+ - [UpdateTeamAllOf](Model/UpdateTeamAllOf.md)
+ - [UpdateTeamWithAdditionalProperties](Model/UpdateTeamWithAdditionalProperties.md)
+ - [UpdateUserRequest](Model/UpdateUserRequest.md)
+ - [UpsertGoalResponse](Model/UpsertGoalResponse.md)
+ - [UpsertLeadLabelResponse](Model/UpsertLeadLabelResponse.md)
+ - [UpsertRoleSettingsResponseData](Model/UpsertRoleSettingsResponseData.md)
+ - [UpsertRoleSettingsResponseDataData](Model/UpsertRoleSettingsResponseDataData.md)
+ - [User](Model/User.md)
+ - [UserAccess](Model/UserAccess.md)
+ - [UserAssignmentToPermissionSet](Model/UserAssignmentToPermissionSet.md)
+ - [UserAssignmentsToPermissionSet](Model/UserAssignmentsToPermissionSet.md)
+ - [UserAssignmentsToPermissionSetAllOf](Model/UserAssignmentsToPermissionSetAllOf.md)
+ - [UserConnections](Model/UserConnections.md)
+ - [UserData](Model/UserData.md)
+ - [UserDataWithId](Model/UserDataWithId.md)
+ - [UserIDs](Model/UserIDs.md)
+ - [UserIDsAllOf](Model/UserIDsAllOf.md)
+ - [UserMe](Model/UserMe.md)
+ - [UserMeAllOf](Model/UserMeAllOf.md)
+ - [UserPermissions](Model/UserPermissions.md)
+ - [UserPermissionsAllOf](Model/UserPermissionsAllOf.md)
+ - [UserPermissionsItem](Model/UserPermissionsItem.md)
+ - [UserProviderLinkCreateRequest](Model/UserProviderLinkCreateRequest.md)
+ - [UserProviderLinkErrorResponse](Model/UserProviderLinkErrorResponse.md)
+ - [UserProviderLinkSuccessResponse](Model/UserProviderLinkSuccessResponse.md)
+ - [UserProviderLinkSuccessResponseData](Model/UserProviderLinkSuccessResponseData.md)
+ - [UserSettings](Model/UserSettings.md)
+ - [UserSettingsItem](Model/UserSettingsItem.md)
+ - [Users](Model/Users.md)
+ - [UsersAllOf](Model/UsersAllOf.md)
+ - [VisibleTo](Model/VisibleTo.md)
+ - [Webhook](Model/Webhook.md)
+ - [WebhookBadRequest](Model/WebhookBadRequest.md)
+ - [WebhookBadRequestAllOf](Model/WebhookBadRequestAllOf.md)
+ - [Webhooks](Model/Webhooks.md)
+ - [WebhooksAllOf](Model/WebhooksAllOf.md)
+ - [WebhooksDeleteForbiddenSchema](Model/WebhooksDeleteForbiddenSchema.md)
+ - [WebhooksDeleteForbiddenSchemaAllOf](Model/WebhooksDeleteForbiddenSchemaAllOf.md)
 
 
 ## Documentation for authorization

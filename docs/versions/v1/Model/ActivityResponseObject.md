@@ -66,4 +66,4 @@ Name | Type | Description | Notes
 **assigned_to_user_id** | **int** | The ID of the user to whom the activity is assigned to. Equal to &#x60;user_id&#x60;. |
 **file** | **object** | The file that is attached to this activity. For example, this can be a reference to an audio note file generated with Pipedrive mobile app. |
 
-[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

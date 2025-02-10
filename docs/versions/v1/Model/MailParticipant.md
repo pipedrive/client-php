@@ -11,4 +11,4 @@ Name | Type | Description | Notes
 **linked_person_name** | **string** | Name of the linked person to the mail message | [optional]
 **mail_message_party_id** | **int** | ID of the mail message participant | [optional]
 
-[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

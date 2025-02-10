@@ -15,4 +15,4 @@ Name | Type | Description | Notes
 **provider_type** | **string** | Value of the provider_type sent to this endpoint | [optional]
 **template_support** | **bool** | Value of the template_support sent to this endpoint | [optional]
 
-[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

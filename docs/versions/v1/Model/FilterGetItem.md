@@ -14,4 +14,4 @@ Name | Type | Description | Notes
 **visible_to** | **int** | The visibility group ID of who can see then filter | [optional]
 **custom_view_id** | **int** | Used by Pipedrive webapp | [optional]
 
-[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
