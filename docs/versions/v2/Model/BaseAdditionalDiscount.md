@@ -14,4 +14,4 @@ Name | Type | Description | Notes
 **updated_at** | **string** | The date and time of when the discount was created in the ISO 8601 format. | [optional]
 **updated_by** | **int** | The ID of the user that last updated the discount. | [optional]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

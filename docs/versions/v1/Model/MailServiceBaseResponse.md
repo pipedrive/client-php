@@ -9,4 +9,4 @@ Name | Type | Description | Notes
 **status_text** | **string** | The status text of the response. |
 **service** | **string** | The service name of the response. |
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -8,4 +8,4 @@ Name | Type | Description | Notes
 **timestamp** | **string** | The creation date and time of the update | [optional]
 **data** | **object** | The data related to the update | [optional]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

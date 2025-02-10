@@ -67,16 +67,16 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
 
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../../../README.md#models)
+[[Back to README]](../../../../README.md)
 
 ## `deleteFilter()`
 
@@ -132,16 +132,16 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
 - **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../../../README.md#models)
+[[Back to README]](../../../../README.md)
 
 ## `deleteFilters()`
 
@@ -197,16 +197,16 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
 - **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../../../README.md#models)
+[[Back to README]](../../../../README.md)
 
 ## `getFilter()`
 
@@ -262,16 +262,16 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
 - **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../../../README.md#models)
+[[Back to README]](../../../../README.md)
 
 ## `getFilterHelpers()`
 
@@ -324,16 +324,16 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
 - **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../../../README.md#models)
+[[Back to README]](../../../../README.md)
 
 ## `getFilters()`
 
@@ -389,16 +389,16 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
 - **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../../../README.md#models)
+[[Back to README]](../../../../README.md)
 
 ## `updateFilter()`
 
@@ -456,13 +456,13 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
 
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../../../README.md#models)
+[[Back to README]](../../../../README.md)

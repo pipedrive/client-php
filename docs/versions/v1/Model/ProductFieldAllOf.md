@@ -21,4 +21,4 @@ Name | Type | Description | Notes
 **sortable_flag** | **bool** | Whether or not the product field is sortable | [optional]
 **mandatory_flag** | **bool** | Whether or not the product field is mandatory when creating products | [optional]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

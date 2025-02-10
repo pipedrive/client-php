@@ -9,4 +9,4 @@ Name | Type | Description | Notes
 **deals** | [**\Pipedrive\versions\v1\Model\DealStrict[]**](DealStrict.md) |  | [optional]
 **totals** | [**\Pipedrive\versions\v1\Model\GetDealsTimelineDataTotals**](GetDealsTimelineDataTotals.md) |  | [optional]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

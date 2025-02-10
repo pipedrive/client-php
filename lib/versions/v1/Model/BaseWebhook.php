@@ -265,8 +265,7 @@ class BaseWebhook implements ModelInterface, ArrayAccess, JsonSerializable
     }
 
     const TYPE_GENERAL = 'general';
-    const TYPE_APPLICATION = 'application';
-    const TYPE_AUTOMATION = 'automation';
+    const TYPE_APP = 'app';
 
     /**
      * Gets allowable values of the enum
@@ -279,8 +278,7 @@ class BaseWebhook implements ModelInterface, ArrayAccess, JsonSerializable
     {
         return [
             self::TYPE_GENERAL,
-            self::TYPE_APPLICATION,
-            self::TYPE_AUTOMATION,
+            self::TYPE_APP,
         ];
     }
 

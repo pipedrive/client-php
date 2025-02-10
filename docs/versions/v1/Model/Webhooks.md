@@ -8,4 +8,4 @@ Name | Type | Description | Notes
 **status** | **string** | The status of the response | [optional]
 **data** | [**\Pipedrive\versions\v1\Model\BaseWebhook[]**](BaseWebhook.md) | The array of Webhooks | [optional]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

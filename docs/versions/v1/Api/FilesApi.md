@@ -80,16 +80,16 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
 
 ### HTTP request headers
 
 - **Content-Type**: `multipart/form-data`
 - **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../../../README.md#models)
+[[Back to README]](../../../../README.md)
 
 ## `addFileAndLinkIt()`
 
@@ -153,16 +153,16 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
 
 ### HTTP request headers
 
 - **Content-Type**: `application/x-www-form-urlencoded`
 - **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../../../README.md#models)
+[[Back to README]](../../../../README.md)
 
 ## `deleteFile()`
 
@@ -218,16 +218,16 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
 - **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../../../README.md#models)
+[[Back to README]](../../../../README.md)
 
 ## `downloadFile()`
 
@@ -283,16 +283,16 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
 - **Accept**: `application/octet-stream`
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../../../README.md#models)
+[[Back to README]](../../../../README.md)
 
 ## `getFile()`
 
@@ -348,16 +348,16 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
 - **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../../../README.md#models)
+[[Back to README]](../../../../README.md)
 
 ## `getFiles()`
 
@@ -417,16 +417,16 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
 - **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../../../README.md#models)
+[[Back to README]](../../../../README.md)
 
 ## `linkFileToItem()`
 
@@ -488,16 +488,16 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
 
 ### HTTP request headers
 
 - **Content-Type**: `application/x-www-form-urlencoded`
 - **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../../../README.md#models)
+[[Back to README]](../../../../README.md)
 
 ## `updateFile()`
 
@@ -557,13 +557,13 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
 
 ### HTTP request headers
 
 - **Content-Type**: `application/x-www-form-urlencoded`
 - **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../../../README.md#models)
+[[Back to README]](../../../../README.md)

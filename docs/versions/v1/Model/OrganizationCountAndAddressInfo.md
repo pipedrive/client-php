@@ -24,4 +24,4 @@ Name | Type | Description | Notes
 **address_postal_code** | **string** | The postal code of the organization location | [optional]
 **address_formatted_address** | **string** | The formatted organization location | [optional]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

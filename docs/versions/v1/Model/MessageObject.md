@@ -15,4 +15,4 @@ Name | Type | Description | Notes
 **conversation_link** | **string** | A URL that can open the conversation in the provider&#39;s side | [optional]
 **attachments** | [**\Pipedrive\versions\v1\Model\MessageObjectAttachments[]**](MessageObjectAttachments.md) | The list of attachments available in the message | [optional]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

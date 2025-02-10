@@ -73,4 +73,4 @@ Name | Type | Description | Notes
 **acv_currency** | **string** | Only available in Advanced and above plans  The Currency for Annual Contract Value of the deal  If the &#x60;acv&#x60; is null, this will also be null | [optional]
 **merge_what_id** | **int** | The deal ID of the deal which the original deal was merged with | [optional]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
