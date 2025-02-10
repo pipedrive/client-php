@@ -10,4 +10,4 @@ Name | Type | Description | Notes
 **weighted_value** | **int** | Deals weighted value per currency | [optional]
 **weighted_value_formatted** | **string** | Deals weighted value formatted per currency | [optional]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

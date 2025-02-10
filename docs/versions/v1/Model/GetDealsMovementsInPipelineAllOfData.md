@@ -11,4 +11,4 @@ Name | Type | Description | Notes
 **lost_deals** | [**\Pipedrive\versions\v1\Model\DealsMovementsInfo**](DealsMovementsInfo.md) |  | [optional]
 **average_age_in_days** | [**\Pipedrive\versions\v1\Model\GetDealsMovementsInPipelineAllOfDataAverageAgeInDays**](GetDealsMovementsInPipelineAllOfDataAverageAgeInDays.md) |  | [optional]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

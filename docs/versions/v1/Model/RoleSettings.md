@@ -14,4 +14,4 @@ Name | Type | Description | Notes
 **person_access_level** | **float** | The access level of the people for the role (only for default role) | [optional]
 **product_access_level** | **float** | The access level of the products for the role (only for default role) | [optional]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

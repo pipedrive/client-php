@@ -74,16 +74,16 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
 
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../../../README.md#models)
+[[Back to README]](../../../../README.md)
 
 ## `addRole()`
 
@@ -139,16 +139,16 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
 
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../../../README.md#models)
+[[Back to README]](../../../../README.md)
 
 ## `addRoleAssignment()`
 
@@ -206,16 +206,16 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
 
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../../../README.md#models)
+[[Back to README]](../../../../README.md)
 
 ## `deleteRole()`
 
@@ -271,16 +271,16 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
 - **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../../../README.md#models)
+[[Back to README]](../../../../README.md)
 
 ## `deleteRoleAssignment()`
 
@@ -338,16 +338,16 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
 
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../../../README.md#models)
+[[Back to README]](../../../../README.md)
 
 ## `getRole()`
 
@@ -403,16 +403,16 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
 - **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../../../README.md#models)
+[[Back to README]](../../../../README.md)
 
 ## `getRoleAssignments()`
 
@@ -472,16 +472,16 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
 - **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../../../README.md#models)
+[[Back to README]](../../../../README.md)
 
 ## `getRolePipelines()`
 
@@ -539,16 +539,16 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
 - **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../../../README.md#models)
+[[Back to README]](../../../../README.md)
 
 ## `getRoleSettings()`
 
@@ -604,16 +604,16 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
 - **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../../../README.md#models)
+[[Back to README]](../../../../README.md)
 
 ## `getRoles()`
 
@@ -671,16 +671,16 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
 - **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../../../README.md#models)
+[[Back to README]](../../../../README.md)
 
 ## `updateRole()`
 
@@ -738,16 +738,16 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
 
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../../../README.md#models)
+[[Back to README]](../../../../README.md)
 
 ## `updateRolePipelines()`
 
@@ -805,13 +805,13 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
 
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../../../README.md#models)
+[[Back to README]](../../../../README.md)

@@ -24,4 +24,4 @@ Name | Type | Description | Notes
 **birthday** | **string** | The birthday of the person, included if contact sync is enabled for the company | [optional]
 **job_title** | **string** | The job title of the person, included if contact sync is enabled for the company | [optional]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

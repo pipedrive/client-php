@@ -13,4 +13,4 @@ Name | Type | Description | Notes
 **autofill_deal_expected_close_date** | **bool** | Whether the expected close date of the deal is filled automatically or not | [optional]
 **person_duplicate_condition** | **string** | Allow the vendors to duplicate a person | [optional]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

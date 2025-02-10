@@ -13,4 +13,4 @@ Name | Type | Description | Notes
 **change_source_user_agent** | **string** | The user agent from which the change was made | [optional]
 **is_bulk_update_flag** | **bool** | Whether the change was made as part of a bulk update | [optional]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

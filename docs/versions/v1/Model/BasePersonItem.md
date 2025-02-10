@@ -20,4 +20,4 @@ Name | Type | Description | Notes
 **owner_name** | **string** | The name of the owner associated with the person | [optional]
 **cc_email** | **string** | The BCC email associated with the person | [optional]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

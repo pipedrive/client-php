@@ -11,4 +11,4 @@ Name | Type | Description | Notes
 **active_flag** | **bool** | Whether the associated organization is active or not | [optional]
 **cc_email** | **string** | The BCC email of the organization associated with the deal | [optional]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

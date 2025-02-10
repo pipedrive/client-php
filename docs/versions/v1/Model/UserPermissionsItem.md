@@ -36,4 +36,4 @@ Name | Type | Description | Notes
 **can_use_email_tracking** | **bool** | If the user can use email tracking | [optional]
 **can_use_import** | **bool** | If the user can use import | [optional]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

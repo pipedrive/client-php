@@ -12,4 +12,4 @@ Name | Type | Description | Notes
 **total_currency_converted_value_formatted** | **string** | The total converted value of deals formatted with the company default currency. E.g. US$5,100.96 | [optional]
 **total_weighted_currency_converted_value_formatted** | **string** | The total weighted value of deals formatted with the company default currency. E.g. US$5,100.96 | [optional]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

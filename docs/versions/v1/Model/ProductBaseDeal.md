@@ -48,4 +48,4 @@ Name | Type | Description | Notes
 **last_outgoing_mail_time** | **string** | The date and time of the last outgoing email associated with the deal | [optional]
 **label** | **string** | The label or multiple labels assigned to the deal | [optional]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
