@@ -16,4 +16,4 @@ Name | Type | Description | Notes
 **custom_view_id** | **int** | The custom view ID of the created filter | [optional]
 **conditions** | **object** | The created filter conditions object | [optional]
 
-[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

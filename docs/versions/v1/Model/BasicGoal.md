@@ -11,4 +11,4 @@ Name | Type | Description | Notes
 **duration** | **object** | The date when the goal starts and ends. It requires the following JSON structure: &#x60;{ \&quot;start\&quot;: \&quot;2019-01-01\&quot;, \&quot;end\&quot;: \&quot;2022-12-31\&quot; }&#x60;. Date in format of YYYY-MM-DD. \&quot;end\&quot; can be set to &#x60;null&#x60; for an infinite, open-ended goal. | [optional]
 **interval** | **string** | The interval of the goal | [optional]
 
-[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -10,4 +10,4 @@ Name | Type | Description | Notes
 **is_deal_rot_enabled** | **bool** | Whether deals in this stage can become rotten | [optional]
 **days_to_rotten** | **int** | The number of days the deals not updated in this stage would become rotten. Applies only if the &#x60;is_deal_rot_enabled&#x60; is set. | [optional]
 
-[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

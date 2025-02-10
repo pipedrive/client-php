@@ -9,4 +9,4 @@ Name | Type | Description | Notes
 **more_items_in_collection** | **bool** | Whether there are more list items in the collection than displayed | [optional]
 **next_start** | **int** | Next pagination start | [optional]
 
-[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

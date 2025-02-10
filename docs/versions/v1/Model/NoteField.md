@@ -14,4 +14,4 @@ Name | Type | Description | Notes
 **mandatory_flag** | **bool** | Whether or not the field is mandatory | [optional]
 **options** | [**\Pipedrive\versions\v1\Model\NoteFieldOptions[]**](NoteFieldOptions.md) | The options of the field. When there are no options, &#x60;null&#x60; is returned. | [optional]
 
-[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

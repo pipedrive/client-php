@@ -21,4 +21,4 @@ Name | Type | Description | Notes
 **add_time** | **\DateTime** | The creation time of the subscription | [optional]
 **update_time** | **\DateTime** | The update time of the subscription | [optional]
 
-[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

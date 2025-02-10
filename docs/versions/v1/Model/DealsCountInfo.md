@@ -13,4 +13,4 @@ Name | Type | Description | Notes
 **lost_deals_count** | **int** | The count of lost deals related with the item | [optional]
 **related_lost_deals_count** | **int** | The count of related lost deals related with the item | [optional]
 
-[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

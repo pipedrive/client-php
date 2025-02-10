@@ -9,4 +9,4 @@ Name | Type | Description | Notes
 **company_id** | **int** | Pipedrive company ID |
 **marketplace_client_id** | **string** | Pipedrive Marketplace client ID of the installed integration |
 
-[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

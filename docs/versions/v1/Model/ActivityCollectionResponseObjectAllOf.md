@@ -31,4 +31,4 @@ Name | Type | Description | Notes
 **location_postal_code** | **string** | A subfield of the location field. Indicates ZIP/postal code. |
 **location_formatted_address** | **string** | A subfield of the location field. Indicates full/combined address. |
 
-[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
