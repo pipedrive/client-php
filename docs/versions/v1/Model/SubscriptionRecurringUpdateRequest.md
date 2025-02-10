@@ -10,4 +10,4 @@ Name | Type | Description | Notes
 **update_deal_value** | **bool** | Indicates that the deal value must be set to recurring subscription&#39;s MRR value | [optional]
 **effective_date** | **\DateTime** | All payments after that date will be affected. Format: YYYY-MM-DD |
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

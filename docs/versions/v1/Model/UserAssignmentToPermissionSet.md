@@ -8,4 +8,4 @@ Name | Type | Description | Notes
 **permission_set_id** | **string** | The ID of the permission set | [optional]
 **name** | **string** | The name of the permission set | [optional]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

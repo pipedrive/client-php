@@ -9,4 +9,4 @@ Name | Type | Description | Notes
 **person** | [**\Pipedrive\versions\v1\Model\RelatedPersonData**](RelatedPersonData.md) |  | [optional]
 **organization** | [**\Pipedrive\versions\v1\Model\RelatedOrganizationData**](RelatedOrganizationData.md) |  | [optional]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

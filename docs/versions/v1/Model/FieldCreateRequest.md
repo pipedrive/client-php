@@ -9,4 +9,4 @@ Name | Type | Description | Notes
 **add_visible_flag** | **bool** | Whether the field is available in the &#39;add new&#39; modal or not (both in the web and mobile app) | [optional] [default to true]
 **field_type** | [**\Pipedrive\versions\v1\Model\FieldTypeAsString**](FieldTypeAsString.md) |  |
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

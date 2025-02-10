@@ -12,4 +12,4 @@ Name | Type | Description | Notes
 **cc_email** | **string** | The BCC email of the organization associated with the deal | [optional]
 **value** | **int** | The ID of the organization associated with the deal | [optional]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

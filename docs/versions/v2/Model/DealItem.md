@@ -34,4 +34,4 @@ Name | Type | Description | Notes
 **mrr** | **float** | Only available in Advanced and above plans  The Monthly Recurring Revenue of the deal  Null if there are no products attached to the deal | [optional]
 **acv** | **float** | Only available in Advanced and above plans  The Annual Contract Value of the deal  Null if there are no products attached to the deal | [optional]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

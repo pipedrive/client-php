@@ -10,4 +10,4 @@ Name | Type | Description | Notes
 **add_time** | **\DateTime** | The date and time of when the lead label was created. In ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ. |
 **update_time** | **\DateTime** | The date and time of when the lead label was last updated. In ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ. |
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

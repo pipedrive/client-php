@@ -10,4 +10,4 @@ Name | Type | Description | Notes
 **rotten_flag** | **bool** | Whether deals in this stage can become rotten | [optional]
 **rotten_days** | **int** | The number of days the deals not updated in this stage would become rotten. Applies only if the &#x60;rotten_flag&#x60; is set. | [optional]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

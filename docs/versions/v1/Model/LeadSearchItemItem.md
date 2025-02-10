@@ -19,4 +19,4 @@ Name | Type | Description | Notes
 **visible_to** | **int** | The visibility of the lead | [optional]
 **is_archived** | **bool** | A flag indicating whether the lead is archived or not | [optional]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
