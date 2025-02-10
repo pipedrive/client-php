@@ -53,4 +53,4 @@ Name | Type | Description | Notes
 **last_activity_date** | **string** | The date of the last activity associated with the deal | [optional]
 **edit_name** | **bool** | If the company ID of the organization and company ID of the request is same or not | [optional]
 
-[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -9,4 +9,4 @@ Name | Type | Description | Notes
 **order_nr** | **int** | Defines the order of pipelines. First order (&#x60;order_nr&#x3D;0&#x60;) is the default pipeline. | [optional]
 **active** | [**NumberBoolean**](NumberBoolean.md) | Whether this pipeline will be made inactive (hidden) or active | [optional]
 
-[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

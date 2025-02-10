@@ -29,4 +29,4 @@ Name | Type | Description | Notes
 **is_subfield** | **bool** | Whether or not the field is a subfield of another field. Only present if field is subfield. | [optional]
 **subfields** | **object[]** | The subfields of the field. Only present when the field has subfields. | [optional]
 
-[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

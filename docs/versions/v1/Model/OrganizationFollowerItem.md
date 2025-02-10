@@ -9,4 +9,4 @@ Name | Type | Description | Notes
 **id** | **int** | The ID of the follower | [optional]
 **add_time** | **\DateTime** | The date and time of adding the follower to the item | [optional]
 
-[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

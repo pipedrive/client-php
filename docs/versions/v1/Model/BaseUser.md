@@ -25,4 +25,4 @@ Name | Type | Description | Notes
 **is_you** | **bool** | Boolean that indicates if the requested user is the same which is logged in (in this case, always true) | [optional]
 **is_deleted** | **bool** | Boolean that indicates whether the user is deleted from the company | [optional]
 
-[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

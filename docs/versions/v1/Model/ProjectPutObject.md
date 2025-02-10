@@ -17,4 +17,4 @@ Name | Type | Description | Notes
 **person_id** | **float** | The ID of the person this project is associated with | [optional]
 **labels** | **int[]** | An array of IDs of the labels this project has | [optional]
 
-[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
