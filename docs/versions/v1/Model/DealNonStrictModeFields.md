@@ -10,4 +10,4 @@ Name | Type | Description | Notes
 **person_id** | [**\Pipedrive\versions\v1\Model\DealPersonDataWithId**](DealPersonDataWithId.md) |  | [optional]
 **org_id** | [**\Pipedrive\versions\v1\Model\DealOrganizationDataWithId**](DealOrganizationDataWithId.md) |  | [optional]
 
-[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

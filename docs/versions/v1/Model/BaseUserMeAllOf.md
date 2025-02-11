@@ -11,4 +11,4 @@ Name | Type | Description | Notes
 **company_industry** | **string** | The user company industry | [optional]
 **language** | [**\Pipedrive\versions\v1\Model\BaseUserMeAllOfLanguage**](BaseUserMeAllOfLanguage.md) |  | [optional]
 
-[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

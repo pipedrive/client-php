@@ -12,4 +12,4 @@ Name | Type | Description | Notes
 **active_flag** | **bool** | Whether the creator is active or not | [optional]
 **value** | **int** | The ID of the deal creator | [optional]
 
-[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -42,4 +42,4 @@ Name | Type | Description | Notes
 **item_type** | **string** | The type of the data item | [optional]
 **company_id** | **int** | The ID of the company | [optional]
 
-[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

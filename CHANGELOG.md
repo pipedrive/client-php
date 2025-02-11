@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [8.1.1](https://github.com/pipedrive/client-php/compare/8.0.1...8.1.2) (2025-02-10)
+
+### Fixed
+- Updated supported enum values for webhook types in the `GET /webhooks` endpoint
+
 ## [8.1.0](https://github.com/pipedrive/client-php/compare/8.0.0...8.1.0) (2025-02-06)
 
 ### Added

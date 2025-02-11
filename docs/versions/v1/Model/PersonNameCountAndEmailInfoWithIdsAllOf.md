@@ -8,4 +8,4 @@ Name | Type | Description | Notes
 **org_id** | **int** | The ID of the organization related to the person | [optional]
 **merge_what_id** | **int** | The ID of the person with what the main person was merged | [optional]
 
-[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

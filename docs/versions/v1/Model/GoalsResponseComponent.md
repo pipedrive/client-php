@@ -15,4 +15,4 @@ Name | Type | Description | Notes
 **is_active** | **bool** | Whether the goal is currently active or not |
 **report_ids** | **string[]** | The IDs of the reports that belong to the goal |
 
-[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

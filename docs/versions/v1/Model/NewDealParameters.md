@@ -18,4 +18,4 @@ Name | Type | Description | Notes
 **channel_id** | **string** | The optional ID to further distinguish the Marketing channel. If omitted, &#x60;channel_id&#x60; will be set to null. | [optional]
 **add_time** | **string** | The optional creation date &amp; time of the deal in UTC. Format: YYYY-MM-DD HH:MM:SS | [optional]
 
-[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

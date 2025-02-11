@@ -9,4 +9,4 @@ Name | Type | Description | Notes
 **product_id** | **int** | The ID of the product | [optional]
 **add_time** | **string** | The follower creation time. Format: YYYY-MM-DD HH:MM:SS | [optional]
 
-[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -32,4 +32,4 @@ Name | Type | Description | Notes
 **priority** | **int** | The priority of the activity. Mappable to a specific string using activityFields API. | [optional]
 **note** | **string** | The note of the activity | [optional]
 
-[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
