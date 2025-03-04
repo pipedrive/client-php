@@ -38,7 +38,7 @@ use Pipedrive\versions\v1\ObjectSerializer;
  * AdditionalData Class Doc Comment
  *
  * @category Class
- * @description The additional data of the list
+ * @description The pagination details of the list
  * @package  Pipedrive\versions\v1
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -57,7 +57,7 @@ class AdditionalData implements ModelInterface, ArrayAccess, JsonSerializable
       *
       * @var string
       */
-    protected static string $openAPIModelName = 'additional-data';
+    protected static string $openAPIModelName = 'AdditionalData';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -67,6 +67,7 @@ class AdditionalData implements ModelInterface, ArrayAccess, JsonSerializable
       * @phpsalm-var array<string, string>
       */
     protected static array $openAPITypes = [
+        'next_start' => 'int',
         'start' => 'int',
         'limit' => 'int',
         'more_items_in_collection' => 'bool'
@@ -80,6 +81,7 @@ class AdditionalData implements ModelInterface, ArrayAccess, JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'next_start' => null,
         'start' => null,
         'limit' => null,
         'more_items_in_collection' => null
@@ -116,6 +118,7 @@ class AdditionalData implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'next_start' => 'next_start',
         'start' => 'start',
         'limit' => 'limit',
         'more_items_in_collection' => 'more_items_in_collection'
@@ -127,6 +130,7 @@ class AdditionalData implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'next_start' => 'setNextStart',
         'start' => 'setStart',
         'limit' => 'setLimit',
         'more_items_in_collection' => 'setMoreItemsInCollection'
@@ -138,6 +142,7 @@ class AdditionalData implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'next_start' => 'getNextStart',
         'start' => 'getStart',
         'limit' => 'getLimit',
         'more_items_in_collection' => 'getMoreItemsInCollection'
@@ -210,6 +215,7 @@ class AdditionalData implements ModelInterface, ArrayAccess, JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->container['next_start'] = $data['next_start'] ?? null;
         $this->container['start'] = $data['start'] ?? null;
         $this->container['limit'] = $data['limit'] ?? null;
         $this->container['more_items_in_collection'] = $data['more_items_in_collection'] ?? null;
@@ -240,6 +246,30 @@ class AdditionalData implements ModelInterface, ArrayAccess, JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets next_start
+     *
+     * @return int|null
+     */
+    public function getNextStart()
+    {
+        return $this->container['next_start'];
+    }
+
+    /**
+     * Sets next_start
+     *
+     * @param int|null $next_start Next pagination start
+     *
+     * @return self
+     */
+    public function setNextStart($next_start): self
+    {
+        $this->container['next_start'] = $next_start;
+
+        return $this;
+    }
 
     /**
      * Gets start
