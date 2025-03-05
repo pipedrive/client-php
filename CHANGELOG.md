@@ -13,7 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 -  Fixed AdditionalData object schema
 
-## [8.1.1](https://github.com/pipedrive/client-php/compare/8.0.1...8.1.2) (2025-02-10)
+## [8.1.2](https://github.com/pipedrive/client-php/compare/8.0.1...8.1.2) (2025-02-10)
 
 ### Fixed
 - Updated supported enum values for webhook types in the `GET /webhooks` endpoint
