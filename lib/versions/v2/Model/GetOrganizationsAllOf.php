@@ -66,7 +66,8 @@ class GetOrganizationsAllOf implements ModelInterface, ArrayAccess, JsonSerializ
       * @phpsalm-var array<string, string>
       */
     protected static array $openAPITypes = [
-        'data' => '\Pipedrive\versions\v2\Model\OrganizationItem[]'
+        'data' => '\Pipedrive\versions\v2\Model\OrganizationItem[]',
+        'additional_data' => '\Pipedrive\versions\v2\Model\AdditionalDataWithCursorPagination'
     ];
 
     /**
@@ -77,7 +78,8 @@ class GetOrganizationsAllOf implements ModelInterface, ArrayAccess, JsonSerializ
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'data' => null
+        'data' => null,
+        'additional_data' => null
     ];
 
     /**
@@ -111,7 +113,8 @@ class GetOrganizationsAllOf implements ModelInterface, ArrayAccess, JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data'
+        'data' => 'data',
+        'additional_data' => 'additional_data'
     ];
 
     /**
@@ -120,7 +123,8 @@ class GetOrganizationsAllOf implements ModelInterface, ArrayAccess, JsonSerializ
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData'
+        'data' => 'setData',
+        'additional_data' => 'setAdditionalData'
     ];
 
     /**
@@ -129,7 +133,8 @@ class GetOrganizationsAllOf implements ModelInterface, ArrayAccess, JsonSerializ
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData'
+        'data' => 'getData',
+        'additional_data' => 'getAdditionalData'
     ];
 
     /**
@@ -200,6 +205,7 @@ class GetOrganizationsAllOf implements ModelInterface, ArrayAccess, JsonSerializ
     public function __construct(array $data = null)
     {
         $this->container['data'] = $data['data'] ?? null;
+        $this->container['additional_data'] = $data['additional_data'] ?? null;
     }
 
     /**
@@ -248,6 +254,30 @@ class GetOrganizationsAllOf implements ModelInterface, ArrayAccess, JsonSerializ
     public function setData($data): self
     {
         $this->container['data'] = $data;
+
+        return $this;
+    }
+
+    /**
+     * Gets additional_data
+     *
+     * @return \Pipedrive\versions\v2\Model\AdditionalDataWithCursorPagination|null
+     */
+    public function getAdditionalData()
+    {
+        return $this->container['additional_data'];
+    }
+
+    /**
+     * Sets additional_data
+     *
+     * @param \Pipedrive\versions\v2\Model\AdditionalDataWithCursorPagination|null $additional_data additional_data
+     *
+     * @return self
+     */
+    public function setAdditionalData($additional_data): self
+    {
+        $this->container['additional_data'] = $additional_data;
 
         return $this;
     }

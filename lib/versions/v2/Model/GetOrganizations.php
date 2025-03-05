@@ -67,7 +67,8 @@ class GetOrganizations implements ModelInterface, ArrayAccess, JsonSerializable
       */
     protected static array $openAPITypes = [
         'success' => 'bool',
-        'data' => '\Pipedrive\versions\v2\Model\OrganizationItem[]'
+        'data' => '\Pipedrive\versions\v2\Model\OrganizationItem[]',
+        'additional_data' => '\Pipedrive\versions\v2\Model\AdditionalDataWithCursorPagination'
     ];
 
     /**
@@ -79,7 +80,8 @@ class GetOrganizations implements ModelInterface, ArrayAccess, JsonSerializable
       */
     protected static $openAPIFormats = [
         'success' => null,
-        'data' => null
+        'data' => null,
+        'additional_data' => null
     ];
 
     /**
@@ -114,7 +116,8 @@ class GetOrganizations implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static $attributeMap = [
         'success' => 'success',
-        'data' => 'data'
+        'data' => 'data',
+        'additional_data' => 'additional_data'
     ];
 
     /**
@@ -124,7 +127,8 @@ class GetOrganizations implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static $setters = [
         'success' => 'setSuccess',
-        'data' => 'setData'
+        'data' => 'setData',
+        'additional_data' => 'setAdditionalData'
     ];
 
     /**
@@ -134,7 +138,8 @@ class GetOrganizations implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static $getters = [
         'success' => 'getSuccess',
-        'data' => 'getData'
+        'data' => 'getData',
+        'additional_data' => 'getAdditionalData'
     ];
 
     /**
@@ -206,6 +211,7 @@ class GetOrganizations implements ModelInterface, ArrayAccess, JsonSerializable
     {
         $this->container['success'] = $data['success'] ?? null;
         $this->container['data'] = $data['data'] ?? null;
+        $this->container['additional_data'] = $data['additional_data'] ?? null;
     }
 
     /**
@@ -278,6 +284,30 @@ class GetOrganizations implements ModelInterface, ArrayAccess, JsonSerializable
     public function setData($data): self
     {
         $this->container['data'] = $data;
+
+        return $this;
+    }
+
+    /**
+     * Gets additional_data
+     *
+     * @return \Pipedrive\versions\v2\Model\AdditionalDataWithCursorPagination|null
+     */
+    public function getAdditionalData()
+    {
+        return $this->container['additional_data'];
+    }
+
+    /**
+     * Sets additional_data
+     *
+     * @param \Pipedrive\versions\v2\Model\AdditionalDataWithCursorPagination|null $additional_data additional_data
+     *
+     * @return self
+     */
+    public function setAdditionalData($additional_data): self
+    {
+        $this->container['additional_data'] = $additional_data;
 
         return $this;
     }
