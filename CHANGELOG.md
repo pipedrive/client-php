@@ -6,6 +6,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Added
+- Added deal_id, person_id, org_id and lead_id quick filters for GET /api/v2/activities endpoint.
+- Added AdditionalData to the v2 schemas:
+  - deal
+  - stage
+  - pipeline
+  - activity
+
+## [8.1.4](https://github.com/pipedrive/client-php/compare/8.1.3...8.1.4) (2025-03-11)
+
+### Added
 -  Added AdditionalData object schema to GetOrganizations and GetPersons data
 
 ## [8.1.3](https://github.com/pipedrive/client-php/compare/8.1.2...8.1.3) (2025-03-05)
