@@ -144,7 +144,7 @@ Name | Type | Description  | Notes
 ## `getActivities()`
 
 ```php
-getActivities($filter_id, $ids, $owner_id, $deal_id, $lead_id, $person_id, $org_id, $updated_since, $updated_until, $sort_by, $sort_direction, $include_fields, $limit, $cursor): \Pipedrive\versions\v2\Model\GetActivities
+getActivities($filter_id, $ids, $owner_id, $updated_since, $updated_until, $sort_by, $sort_direction, $include_fields, $limit, $cursor): \Pipedrive\versions\v2\Model\GetActivities
 ```
 
 Get all activities
@@ -176,10 +176,6 @@ $apiInstance = new Pipedrive\versions\v2\Api\ActivitiesApi(
 $filter_id = 56; // int | If supplied, only activities matching the specified filter are returned
 $ids = 'ids_example'; // string | Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
 $owner_id = 56; // int | If supplied, only activities owned by the specified user are returned. If filter_id is provided, this is ignored.
-$deal_id = 56; // int | If supplied, only activities linked to the specified deal are returned. If filter_id is provided, this is ignored.
-$lead_id = 'lead_id_example'; // string | If supplied, only activities linked to the specified lead are returned. If filter_id is provided, this is ignored.
-$person_id = 56; // int | If supplied, only activities whose primary participant is the given person are returned. If filter_id is provided, this is ignored.
-$org_id = 56; // int | If supplied, only activities linked to the specified organization are returned. If filter_id is provided, this is ignored.
 $updated_since = 'updated_since_example'; // string | If set, only activities with an `update_time` later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
 $updated_until = 'updated_until_example'; // string | If set, only activities with an `update_time` earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
 $sort_by = 'id'; // string | The field to sort by. Supported fields: `id`, `update_time`, `add_time`.
@@ -189,7 +185,7 @@ $limit = 100; // int | For pagination, the limit of entries to be returned. If n
 $cursor = 'cursor_example'; // string | For pagination, the marker (an opaque string value) representing the first item on the next page
 
 try {
-    $result = $apiInstance->getActivities($filter_id, $ids, $owner_id, $deal_id, $lead_id, $person_id, $org_id, $updated_since, $updated_until, $sort_by, $sort_direction, $include_fields, $limit, $cursor);
+    $result = $apiInstance->getActivities($filter_id, $ids, $owner_id, $updated_since, $updated_until, $sort_by, $sort_direction, $include_fields, $limit, $cursor);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ActivitiesApi->getActivities: ', $e->getMessage(), PHP_EOL;
@@ -203,10 +199,6 @@ Name | Type | Description  | Notes
  **filter_id** | **int**| If supplied, only activities matching the specified filter are returned | [optional]
  **ids** | **string**| Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. | [optional]
  **owner_id** | **int**| If supplied, only activities owned by the specified user are returned. If filter_id is provided, this is ignored. | [optional]
- **deal_id** | **int**| If supplied, only activities linked to the specified deal are returned. If filter_id is provided, this is ignored. | [optional]
- **lead_id** | **string**| If supplied, only activities linked to the specified lead are returned. If filter_id is provided, this is ignored. | [optional]
- **person_id** | **int**| If supplied, only activities whose primary participant is the given person are returned. If filter_id is provided, this is ignored. | [optional]
- **org_id** | **int**| If supplied, only activities linked to the specified organization are returned. If filter_id is provided, this is ignored. | [optional]
  **updated_since** | **string**| If set, only activities with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z. | [optional]
  **updated_until** | **string**| If set, only activities with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z. | [optional]
  **sort_by** | **string**| The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;. | [optional] [default to &#39;id&#39;]
