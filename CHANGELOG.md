@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Added
+- Added `GET /v2/deals/installments` endpoint to fetch all installments added to a list of deals with cursor pagination
+- Added `POST /v2/deals/{id}/installments` endpoint to add an installment to a deal
+- Added `PATCH /v2/deals/{id}/installments/{installment_id}` endpoint to edit an installment
+- Added `DELETE /v2/deals/{id}/installments/{installment_id}` endpoint to delete an installment
+### Added
 - Added deal_id, person_id, org_id and lead_id quick filters for GET /api/v2/activities endpoint.
 - Added AdditionalData to the v2 schemas:
   - deal
