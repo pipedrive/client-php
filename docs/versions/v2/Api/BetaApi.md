@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**deleteAdditionalDiscount()**](BetaApi.md#deleteAdditionalDiscount) | **DELETE** /deals/{id}/discounts/{discount_id} | Delete a discount from a deal
 [**deleteDeal()**](BetaApi.md#deleteDeal) | **DELETE** /deals/{id} | Delete a deal
 [**deleteDealProduct()**](BetaApi.md#deleteDealProduct) | **DELETE** /deals/{id}/products/{product_attachment_id} | Delete an attached product from a deal
+[**deleteInstallment()**](BetaApi.md#deleteInstallment) | **DELETE** /deals/{id}/installments/{installment_id} | Delete an installment from a deal
 [**deleteOrganization()**](BetaApi.md#deleteOrganization) | **DELETE** /organizations/{id} | Delete a organization
 [**deletePerson()**](BetaApi.md#deletePerson) | **DELETE** /persons/{id} | Delete a person
 [**getActivities()**](BetaApi.md#getActivities) | **GET** /activities | Get all activities
@@ -22,11 +23,13 @@ Method | HTTP request | Description
 [**getDealProducts()**](BetaApi.md#getDealProducts) | **GET** /deals/{id}/products | List products attached to a deal
 [**getDeals()**](BetaApi.md#getDeals) | **GET** /deals | Get all deals
 [**getDealsProducts()**](BetaApi.md#getDealsProducts) | **GET** /deals/products | Get deal products of several deals
+[**getInstallments()**](BetaApi.md#getInstallments) | **GET** /deals/installments | List installments added to a list of deals
 [**getOrganization()**](BetaApi.md#getOrganization) | **GET** /organizations/{id} | Get details of a organization
 [**getOrganizations()**](BetaApi.md#getOrganizations) | **GET** /organizations | Get all organizations
 [**getPerson()**](BetaApi.md#getPerson) | **GET** /persons/{id} | Get details of a person
 [**getPersons()**](BetaApi.md#getPersons) | **GET** /persons | Get all persons
 [**postAdditionalDiscount()**](BetaApi.md#postAdditionalDiscount) | **POST** /deals/{id}/discounts | Add a discount to a deal
+[**postInstallment()**](BetaApi.md#postInstallment) | **POST** /deals/{id}/installments | Add an installment to a deal
 [**searchDeals()**](BetaApi.md#searchDeals) | **GET** /deals/search | Search deals
 [**searchItem()**](BetaApi.md#searchItem) | **GET** /itemSearch | Perform a search from multiple item types
 [**searchItemByField()**](BetaApi.md#searchItemByField) | **GET** /itemSearch/field | Perform a search using a specific field from an item type
@@ -37,6 +40,7 @@ Method | HTTP request | Description
 [**updateAdditionalDiscount()**](BetaApi.md#updateAdditionalDiscount) | **PATCH** /deals/{id}/discounts/{discount_id} | Update a discount added to a deal
 [**updateDeal()**](BetaApi.md#updateDeal) | **PATCH** /deals/{id} | Update a deal
 [**updateDealProduct()**](BetaApi.md#updateDealProduct) | **PATCH** /deals/{id}/products/{product_attachment_id} | Update the product attached to a deal
+[**updateInstallment()**](BetaApi.md#updateInstallment) | **PATCH** /deals/{id}/installments/{installment_id} | Update an installment added to a deal
 [**updateOrganization()**](BetaApi.md#updateOrganization) | **PATCH** /organizations/{id} | Update a organization
 [**updatePerson()**](BetaApi.md#updatePerson) | **PATCH** /persons/{id} | Update a person
 
@@ -618,6 +622,73 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Pipedrive\versions\v2\Model\DeleteDealProduct**](../Model/DeleteDealProduct.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+## `deleteInstallment()`
+
+```php
+deleteInstallment($id, $installment_id): \Pipedrive\versions\v2\Model\DeleteInstallmentResponse
+```
+
+Delete an installment from a deal
+
+Removes an installment from a deal.  Only available in Advanced and above plans.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key
+$config = (new Pipedrive\versions\v2\Configuration())->setApiKey('api_token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = (new Pipedrive\versions\v2\Configuration())->setApiKeyPrefix('api_token', 'Bearer');
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = (new Pipedrive\versions\v2\Configuration())->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Pipedrive\versions\v2\Api\BetaApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int | The ID of the deal
+$installment_id = 56; // int | The ID of the installment
+
+try {
+    $result = $apiInstance->deleteInstallment($id, $installment_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling BetaApi->deleteInstallment: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The ID of the deal |
+ **installment_id** | **int**| The ID of the installment |
+
+### Return type
+
+[**\Pipedrive\versions\v2\Model\DeleteInstallmentResponse**](../Model/DeleteInstallmentResponse.md)
 
 ### Authorization
 
@@ -1295,6 +1366,79 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to README]](../README.md)
 
+## `getInstallments()`
+
+```php
+getInstallments($deal_ids, $cursor, $limit, $sort_by, $sort_direction): \Pipedrive\versions\v2\Model\InstallmentsResponse
+```
+
+List installments added to a list of deals
+
+Lists installments attached to a list of deals.  Only available in Advanced and above plans.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key
+$config = (new Pipedrive\versions\v2\Configuration())->setApiKey('api_token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = (new Pipedrive\versions\v2\Configuration())->setApiKeyPrefix('api_token', 'Bearer');
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = (new Pipedrive\versions\v2\Configuration())->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Pipedrive\versions\v2\Api\BetaApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$deal_ids = array(56); // int[] | An array of integers with the IDs of the deals for which the attached installments will be returned. A maximum of 100 deal IDs can be provided.
+$cursor = 'cursor_example'; // string | For pagination, the marker (an opaque string value) representing the first item on the next page
+$limit = 100; // int | For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+$sort_by = 'id'; // string | The field to sort by. Supported fields: `id`, `billing_date`, `deal_id`.
+$sort_direction = 'asc'; // string | The sorting direction. Supported values: `asc`, `desc`.
+
+try {
+    $result = $apiInstance->getInstallments($deal_ids, $cursor, $limit, $sort_by, $sort_direction);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling BetaApi->getInstallments: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **deal_ids** | [**int[]**](../Model/int.md)| An array of integers with the IDs of the deals for which the attached installments will be returned. A maximum of 100 deal IDs can be provided. |
+ **cursor** | **string**| For pagination, the marker (an opaque string value) representing the first item on the next page | [optional]
+ **limit** | **int**| For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. | [optional]
+ **sort_by** | **string**| The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;billing_date&#x60;, &#x60;deal_id&#x60;. | [optional] [default to &#39;id&#39;]
+ **sort_direction** | **string**| The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;. | [optional] [default to &#39;asc&#39;]
+
+### Return type
+
+[**\Pipedrive\versions\v2\Model\InstallmentsResponse**](../Model/InstallmentsResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
 ## `getOrganization()`
 
 ```php
@@ -1658,6 +1802,73 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Pipedrive\versions\v2\Model\AddAdditionalDiscountResponse**](../Model/AddAdditionalDiscountResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+## `postInstallment()`
+
+```php
+postInstallment($id, $body): \Pipedrive\versions\v2\Model\AddInstallmentResponse
+```
+
+Add an installment to a deal
+
+Adds an installment to a deal.  An installment can only be added if the deal includes at least one one-time product.  If the deal contains at least one recurring product, adding installments is not allowed.  Only available in Advanced and above plans.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key
+$config = (new Pipedrive\versions\v2\Configuration())->setApiKey('api_token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = (new Pipedrive\versions\v2\Configuration())->setApiKeyPrefix('api_token', 'Bearer');
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = (new Pipedrive\versions\v2\Configuration())->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Pipedrive\versions\v2\Api\BetaApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int | The ID of the deal
+$body = new \stdClass; // object
+
+try {
+    $result = $apiInstance->postInstallment($id, $body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling BetaApi->postInstallment: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The ID of the deal |
+ **body** | **object**|  | [optional]
+
+### Return type
+
+[**\Pipedrive\versions\v2\Model\AddInstallmentResponse**](../Model/AddInstallmentResponse.md)
 
 ### Authorization
 
@@ -2394,6 +2605,75 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Pipedrive\versions\v2\Model\AddDealProductResponse**](../Model/AddDealProductResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+## `updateInstallment()`
+
+```php
+updateInstallment($id, $installment_id, $body): \Pipedrive\versions\v2\Model\UpdateInstallmentResponse
+```
+
+Update an installment added to a deal
+
+Edits an installment added to a deal.  Only available in Advanced and above plans.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key
+$config = (new Pipedrive\versions\v2\Configuration())->setApiKey('api_token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = (new Pipedrive\versions\v2\Configuration())->setApiKeyPrefix('api_token', 'Bearer');
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = (new Pipedrive\versions\v2\Configuration())->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Pipedrive\versions\v2\Api\BetaApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int | The ID of the deal
+$installment_id = 56; // int | The ID of the installment
+$body = new \stdClass; // object
+
+try {
+    $result = $apiInstance->updateInstallment($id, $installment_id, $body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling BetaApi->updateInstallment: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The ID of the deal |
+ **installment_id** | **int**| The ID of the installment |
+ **body** | **object**|  | [optional]
+
+### Return type
+
+[**\Pipedrive\versions\v2\Model\UpdateInstallmentResponse**](../Model/UpdateInstallmentResponse.md)
 
 ### Authorization
 
