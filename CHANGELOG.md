@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Added `POST /v2/deals/{id}/installments` endpoint to add an installment to a deal
 - Added `PATCH /v2/deals/{id}/installments/{installment_id}` endpoint to edit an installment
 - Added `DELETE /v2/deals/{id}/installments/{installment_id}` endpoint to delete an installment
+
+[8.1.5](https://github.com/pipedrive/client-php/compare/8.1.4...8.1.5) (2025-03-17)
+
 ### Added
 - Added deal_id, person_id, org_id and lead_id quick filters for GET /api/v2/activities endpoint.
 - Added AdditionalData to the v2 schemas:
