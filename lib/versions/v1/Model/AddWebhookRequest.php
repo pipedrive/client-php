@@ -209,14 +209,13 @@ class AddWebhookRequest implements ModelInterface, ArrayAccess, JsonSerializable
         return self::$openAPIModelName;
     }
 
-    const EVENT_ACTION_ADDED = 'added';
-    const EVENT_ACTION_UPDATED = 'updated';
-    const EVENT_ACTION_MERGED = 'merged';
-    const EVENT_ACTION_DELETED = 'deleted';
+    const EVENT_ACTION_CREATE = 'create';
+    const EVENT_ACTION_CHANGE = 'change';
+    const EVENT_ACTION_DELETE = 'delete';
     const EVENT_ACTION_STAR = '*';
     const EVENT_OBJECT_ACTIVITY = 'activity';
-    const EVENT_OBJECT_ACTIVITY_TYPE = 'activityType';
     const EVENT_OBJECT_DEAL = 'deal';
+    const EVENT_OBJECT_LEAD = 'lead';
     const EVENT_OBJECT_NOTE = 'note';
     const EVENT_OBJECT_ORGANIZATION = 'organization';
     const EVENT_OBJECT_PERSON = 'person';
@@ -238,10 +237,9 @@ class AddWebhookRequest implements ModelInterface, ArrayAccess, JsonSerializable
     public function getEventActionAllowableValues(): array
     {
         return [
-            self::EVENT_ACTION_ADDED,
-            self::EVENT_ACTION_UPDATED,
-            self::EVENT_ACTION_MERGED,
-            self::EVENT_ACTION_DELETED,
+            self::EVENT_ACTION_CREATE,
+            self::EVENT_ACTION_CHANGE,
+            self::EVENT_ACTION_DELETE,
             self::EVENT_ACTION_STAR,
         ];
     }
@@ -257,8 +255,8 @@ class AddWebhookRequest implements ModelInterface, ArrayAccess, JsonSerializable
     {
         return [
             self::EVENT_OBJECT_ACTIVITY,
-            self::EVENT_OBJECT_ACTIVITY_TYPE,
             self::EVENT_OBJECT_DEAL,
+            self::EVENT_OBJECT_LEAD,
             self::EVENT_OBJECT_NOTE,
             self::EVENT_OBJECT_ORGANIZATION,
             self::EVENT_OBJECT_PERSON,
@@ -310,7 +308,7 @@ class AddWebhookRequest implements ModelInterface, ArrayAccess, JsonSerializable
         $this->container['user_id'] = $data['user_id'] ?? null;
         $this->container['http_auth_user'] = $data['http_auth_user'] ?? null;
         $this->container['http_auth_password'] = $data['http_auth_password'] ?? null;
-        $this->container['version'] = $data['version'] ?? '1.0';
+        $this->container['version'] = $data['version'] ?? '2.0';
     }
 
     /**
@@ -552,7 +550,7 @@ class AddWebhookRequest implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets version
      *
-     * @param string|null $version The webhook's version. NB! Webhooks v2 will become the default from March 17th, 2025. See <a href=\"https://developers.pipedrive.com/changelog/post/breaking-change-webhooks-v2-will-become-the-new-default-version\" target=\"_blank\" rel=\"noopener noreferrer\">this Changelog post</a> for more details.
+     * @param string|null $version The webhook's version. NB! Webhooks v2 is the default from March 17th, 2025. See <a href=\"https://developers.pipedrive.com/changelog/post/breaking-change-webhooks-v2-will-become-the-new-default-version\" target=\"_blank\" rel=\"noopener noreferrer\">this Changelog post</a> for more details.
      *
      * @return self
      */

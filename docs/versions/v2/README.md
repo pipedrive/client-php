@@ -270,56 +270,29 @@ Class | Method | HTTP request | Description
 *ActivitiesApi* | [**getActivities**](Api/ActivitiesApi.md#getactivities) | **GET** /activities | Get all activities
 *ActivitiesApi* | [**getActivity**](Api/ActivitiesApi.md#getactivity) | **GET** /activities/{id} | Get details of an activity
 *ActivitiesApi* | [**updateActivity**](Api/ActivitiesApi.md#updateactivity) | **PATCH** /activities/{id} | Update an activity
-*BetaApi* | [**addActivity**](Api/BetaApi.md#addactivity) | **POST** /activities | Add a new activity
-*BetaApi* | [**addDeal**](Api/BetaApi.md#adddeal) | **POST** /deals | Add a new deal
-*BetaApi* | [**addDealProduct**](Api/BetaApi.md#adddealproduct) | **POST** /deals/{id}/products | Add a product to a deal
-*BetaApi* | [**addOrganization**](Api/BetaApi.md#addorganization) | **POST** /organizations | Add a new organization
-*BetaApi* | [**addPerson**](Api/BetaApi.md#addperson) | **POST** /persons | Add a new person
-*BetaApi* | [**deleteActivity**](Api/BetaApi.md#deleteactivity) | **DELETE** /activities/{id} | Delete an activity
-*BetaApi* | [**deleteAdditionalDiscount**](Api/BetaApi.md#deleteadditionaldiscount) | **DELETE** /deals/{id}/discounts/{discount_id} | Delete a discount from a deal
-*BetaApi* | [**deleteDeal**](Api/BetaApi.md#deletedeal) | **DELETE** /deals/{id} | Delete a deal
-*BetaApi* | [**deleteDealProduct**](Api/BetaApi.md#deletedealproduct) | **DELETE** /deals/{id}/products/{product_attachment_id} | Delete an attached product from a deal
-*BetaApi* | [**deleteOrganization**](Api/BetaApi.md#deleteorganization) | **DELETE** /organizations/{id} | Delete a organization
-*BetaApi* | [**deletePerson**](Api/BetaApi.md#deleteperson) | **DELETE** /persons/{id} | Delete a person
-*BetaApi* | [**getActivities**](Api/BetaApi.md#getactivities) | **GET** /activities | Get all activities
-*BetaApi* | [**getActivity**](Api/BetaApi.md#getactivity) | **GET** /activities/{id} | Get details of an activity
-*BetaApi* | [**getAdditionalDiscounts**](Api/BetaApi.md#getadditionaldiscounts) | **GET** /deals/{id}/discounts | List discounts added to a deal
-*BetaApi* | [**getDeal**](Api/BetaApi.md#getdeal) | **GET** /deals/{id} | Get details of a deal
-*BetaApi* | [**getDealProducts**](Api/BetaApi.md#getdealproducts) | **GET** /deals/{id}/products | List products attached to a deal
-*BetaApi* | [**getDeals**](Api/BetaApi.md#getdeals) | **GET** /deals | Get all deals
-*BetaApi* | [**getDealsProducts**](Api/BetaApi.md#getdealsproducts) | **GET** /deals/products | Get deal products of several deals
-*BetaApi* | [**getOrganization**](Api/BetaApi.md#getorganization) | **GET** /organizations/{id} | Get details of a organization
-*BetaApi* | [**getOrganizations**](Api/BetaApi.md#getorganizations) | **GET** /organizations | Get all organizations
-*BetaApi* | [**getPerson**](Api/BetaApi.md#getperson) | **GET** /persons/{id} | Get details of a person
-*BetaApi* | [**getPersons**](Api/BetaApi.md#getpersons) | **GET** /persons | Get all persons
-*BetaApi* | [**postAdditionalDiscount**](Api/BetaApi.md#postadditionaldiscount) | **POST** /deals/{id}/discounts | Add a discount to a deal
-*BetaApi* | [**searchDeals**](Api/BetaApi.md#searchdeals) | **GET** /deals/search | Search deals
-*BetaApi* | [**searchItem**](Api/BetaApi.md#searchitem) | **GET** /itemSearch | Perform a search from multiple item types
-*BetaApi* | [**searchItemByField**](Api/BetaApi.md#searchitembyfield) | **GET** /itemSearch/field | Perform a search using a specific field from an item type
-*BetaApi* | [**searchLeads**](Api/BetaApi.md#searchleads) | **GET** /leads/search | Search leads
-*BetaApi* | [**searchOrganization**](Api/BetaApi.md#searchorganization) | **GET** /organizations/search | Search organizations
-*BetaApi* | [**searchPersons**](Api/BetaApi.md#searchpersons) | **GET** /persons/search | Search persons
-*BetaApi* | [**updateActivity**](Api/BetaApi.md#updateactivity) | **PATCH** /activities/{id} | Update an activity
-*BetaApi* | [**updateAdditionalDiscount**](Api/BetaApi.md#updateadditionaldiscount) | **PATCH** /deals/{id}/discounts/{discount_id} | Update a discount added to a deal
-*BetaApi* | [**updateDeal**](Api/BetaApi.md#updatedeal) | **PATCH** /deals/{id} | Update a deal
-*BetaApi* | [**updateDealProduct**](Api/BetaApi.md#updatedealproduct) | **PATCH** /deals/{id}/products/{product_attachment_id} | Update the product attached to a deal
-*BetaApi* | [**updateOrganization**](Api/BetaApi.md#updateorganization) | **PATCH** /organizations/{id} | Update a organization
-*BetaApi* | [**updatePerson**](Api/BetaApi.md#updateperson) | **PATCH** /persons/{id} | Update a person
+*BetaApi* | [**deleteInstallment**](Api/BetaApi.md#deleteinstallment) | **DELETE** /deals/{id}/installments/{installment_id} | Delete an installment from a deal
+*BetaApi* | [**getInstallments**](Api/BetaApi.md#getinstallments) | **GET** /deals/installments | List installments added to a list of deals
+*BetaApi* | [**postInstallment**](Api/BetaApi.md#postinstallment) | **POST** /deals/{id}/installments | Add an installment to a deal
+*BetaApi* | [**updateInstallment**](Api/BetaApi.md#updateinstallment) | **PATCH** /deals/{id}/installments/{installment_id} | Update an installment added to a deal
 *DealsApi* | [**addDeal**](Api/DealsApi.md#adddeal) | **POST** /deals | Add a new deal
 *DealsApi* | [**addDealProduct**](Api/DealsApi.md#adddealproduct) | **POST** /deals/{id}/products | Add a product to a deal
 *DealsApi* | [**deleteAdditionalDiscount**](Api/DealsApi.md#deleteadditionaldiscount) | **DELETE** /deals/{id}/discounts/{discount_id} | Delete a discount from a deal
 *DealsApi* | [**deleteDeal**](Api/DealsApi.md#deletedeal) | **DELETE** /deals/{id} | Delete a deal
 *DealsApi* | [**deleteDealProduct**](Api/DealsApi.md#deletedealproduct) | **DELETE** /deals/{id}/products/{product_attachment_id} | Delete an attached product from a deal
+*DealsApi* | [**deleteInstallment**](Api/DealsApi.md#deleteinstallment) | **DELETE** /deals/{id}/installments/{installment_id} | Delete an installment from a deal
 *DealsApi* | [**getAdditionalDiscounts**](Api/DealsApi.md#getadditionaldiscounts) | **GET** /deals/{id}/discounts | List discounts added to a deal
 *DealsApi* | [**getDeal**](Api/DealsApi.md#getdeal) | **GET** /deals/{id} | Get details of a deal
 *DealsApi* | [**getDealProducts**](Api/DealsApi.md#getdealproducts) | **GET** /deals/{id}/products | List products attached to a deal
 *DealsApi* | [**getDeals**](Api/DealsApi.md#getdeals) | **GET** /deals | Get all deals
 *DealsApi* | [**getDealsProducts**](Api/DealsApi.md#getdealsproducts) | **GET** /deals/products | Get deal products of several deals
+*DealsApi* | [**getInstallments**](Api/DealsApi.md#getinstallments) | **GET** /deals/installments | List installments added to a list of deals
 *DealsApi* | [**postAdditionalDiscount**](Api/DealsApi.md#postadditionaldiscount) | **POST** /deals/{id}/discounts | Add a discount to a deal
+*DealsApi* | [**postInstallment**](Api/DealsApi.md#postinstallment) | **POST** /deals/{id}/installments | Add an installment to a deal
 *DealsApi* | [**searchDeals**](Api/DealsApi.md#searchdeals) | **GET** /deals/search | Search deals
 *DealsApi* | [**updateAdditionalDiscount**](Api/DealsApi.md#updateadditionaldiscount) | **PATCH** /deals/{id}/discounts/{discount_id} | Update a discount added to a deal
 *DealsApi* | [**updateDeal**](Api/DealsApi.md#updatedeal) | **PATCH** /deals/{id} | Update a deal
 *DealsApi* | [**updateDealProduct**](Api/DealsApi.md#updatedealproduct) | **PATCH** /deals/{id}/products/{product_attachment_id} | Update the product attached to a deal
+*DealsApi* | [**updateInstallment**](Api/DealsApi.md#updateinstallment) | **PATCH** /deals/{id}/installments/{installment_id} | Update an installment added to a deal
 *ItemSearchApi* | [**searchItem**](Api/ItemSearchApi.md#searchitem) | **GET** /itemSearch | Perform a search from multiple item types
 *ItemSearchApi* | [**searchItemByField**](Api/ItemSearchApi.md#searchitembyfield) | **GET** /itemSearch/field | Perform a search using a specific field from an item type
 *LeadsApi* | [**searchLeads**](Api/LeadsApi.md#searchleads) | **GET** /leads/search | Search leads
@@ -366,6 +339,7 @@ Class | Method | HTTP request | Description
  - [ActivityRequestBody](Model/ActivityRequestBody.md)
  - [AddAdditionalDiscountResponse](Model/AddAdditionalDiscountResponse.md)
  - [AddDealProductResponse](Model/AddDealProductResponse.md)
+ - [AddInstallmentResponse](Model/AddInstallmentResponse.md)
  - [AddProductRequestBody](Model/AddProductRequestBody.md)
  - [AdditionalDataWithCursorPagination](Model/AdditionalDataWithCursorPagination.md)
  - [AdditionalDiscountRequestBody](Model/AdditionalDiscountRequestBody.md)
@@ -377,6 +351,7 @@ Class | Method | HTTP request | Description
  - [BaseDealProductAllOf1](Model/BaseDealProductAllOf1.md)
  - [BaseDealProductAllOf2](Model/BaseDealProductAllOf2.md)
  - [BaseDealProductAllOf3](Model/BaseDealProductAllOf3.md)
+ - [BaseInstallment](Model/BaseInstallment.md)
  - [BaseProduct](Model/BaseProduct.md)
  - [BaseProductAllOf](Model/BaseProductAllOf.md)
  - [BaseProductAllOf1](Model/BaseProductAllOf1.md)
@@ -401,6 +376,8 @@ Class | Method | HTTP request | Description
  - [DeleteDealProductData](Model/DeleteDealProductData.md)
  - [DeleteDealResponse](Model/DeleteDealResponse.md)
  - [DeleteDealResponseData](Model/DeleteDealResponseData.md)
+ - [DeleteInstallmentResponse](Model/DeleteInstallmentResponse.md)
+ - [DeleteInstallmentResponseData](Model/DeleteInstallmentResponseData.md)
  - [DeleteOrganizationResponse](Model/DeleteOrganizationResponse.md)
  - [DeleteOrganizationResponseData](Model/DeleteOrganizationResponseData.md)
  - [DeletePersonResponse](Model/DeletePersonResponse.md)
@@ -434,6 +411,8 @@ Class | Method | HTTP request | Description
  - [GetPipelines](Model/GetPipelines.md)
  - [GetPipelinesAllOf](Model/GetPipelinesAllOf.md)
  - [GetStages](Model/GetStages.md)
+ - [InstallmentRequestBody](Model/InstallmentRequestBody.md)
+ - [InstallmentsResponse](Model/InstallmentsResponse.md)
  - [ItemSearchFieldResponse](Model/ItemSearchFieldResponse.md)
  - [ItemSearchFieldResponseAllOf](Model/ItemSearchFieldResponseAllOf.md)
  - [ItemSearchItem](Model/ItemSearchItem.md)
@@ -492,6 +471,7 @@ Class | Method | HTTP request | Description
  - [StageRequestBody](Model/StageRequestBody.md)
  - [UpdateAdditionalDiscountResponse](Model/UpdateAdditionalDiscountResponse.md)
  - [UpdateDealProductRequestBody](Model/UpdateDealProductRequestBody.md)
+ - [UpdateInstallmentResponse](Model/UpdateInstallmentResponse.md)
  - [UpdateProductRequestBody](Model/UpdateProductRequestBody.md)
  - [UpdateProductResponse](Model/UpdateProductResponse.md)
  - [UpsertActivityResponseData](Model/UpsertActivityResponseData.md)

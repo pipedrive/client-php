@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Changed
+- Updated Webhooks endpoints to v2, including available event_action and event_object properties
 ### Added
 - Added deal_id, person_id, org_id and lead_id quick filters for GET /api/v2/activities endpoint.
 - Added AdditionalData to the v2 schemas:
