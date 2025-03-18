@@ -6,6 +6,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Added
+- Notice informing the users of the upcoming Subscriptions API deprecation:
+  - `GET /v1/subscriptions/{id}`
+  - `GET /v1/subscriptions/find/{dealId}`
+  - `GET /v1/subscriptions/{id}/payments`
+  - `POST /v1/subscriptions/recurring`
+  - `POST /v1/subscriptions/installment`
+  - `PUT /v1/subscriptions/recurring/{id}`
+  - `PUT /v1/subscriptions/installment/{id}`
+  - `PUT /v1/subscriptions/recurring/{id}/cancel`
+  - `DELETE /v1/subscriptions/{id}`
+### Added
 - Added `GET /v2/deals/installments` endpoint to fetch all installments added to a list of deals with cursor pagination
 - Added `POST /v2/deals/{id}/installments` endpoint to add an installment to a deal
 - Added `PATCH /v2/deals/{id}/installments/{installment_id}` endpoint to edit an installment

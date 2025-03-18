@@ -132,6 +132,7 @@ class SubscriptionsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\SubscriptionsIdResponse
+     * @deprecated
      */
     public function addRecurringSubscription($subscription_recurring_create_request = null)
     {
@@ -149,6 +150,7 @@ class SubscriptionsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\SubscriptionsIdResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function addRecurringSubscriptionWithHttpInfo($subscription_recurring_create_request = null)
     {
@@ -249,6 +251,7 @@ class SubscriptionsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function addRecurringSubscriptionAsync($subscription_recurring_create_request = null): PromiseInterface
     {
@@ -269,6 +272,7 @@ class SubscriptionsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function addRecurringSubscriptionAsyncWithHttpInfo($subscription_recurring_create_request = null): PromiseInterface
     {
@@ -316,6 +320,7 @@ class SubscriptionsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function addRecurringSubscriptionRequest($subscription_recurring_create_request = null): Request
     {
@@ -419,6 +424,7 @@ class SubscriptionsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\SubscriptionsIdResponse
+     * @deprecated
      */
     public function addSubscriptionInstallment($subscription_installment_create_request = null)
     {
@@ -436,6 +442,7 @@ class SubscriptionsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\SubscriptionsIdResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function addSubscriptionInstallmentWithHttpInfo($subscription_installment_create_request = null)
     {
@@ -536,6 +543,7 @@ class SubscriptionsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function addSubscriptionInstallmentAsync($subscription_installment_create_request = null): PromiseInterface
     {
@@ -556,6 +564,7 @@ class SubscriptionsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function addSubscriptionInstallmentAsyncWithHttpInfo($subscription_installment_create_request = null): PromiseInterface
     {
@@ -603,6 +612,7 @@ class SubscriptionsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function addSubscriptionInstallmentRequest($subscription_installment_create_request = null): Request
     {
@@ -707,6 +717,7 @@ class SubscriptionsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\SubscriptionsIdResponse
+     * @deprecated
      */
     public function cancelRecurringSubscription($id, $subscription_recurring_cancel_request = null)
     {
@@ -725,6 +736,7 @@ class SubscriptionsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\SubscriptionsIdResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function cancelRecurringSubscriptionWithHttpInfo($id, $subscription_recurring_cancel_request = null)
     {
@@ -826,6 +838,7 @@ class SubscriptionsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function cancelRecurringSubscriptionAsync($id, $subscription_recurring_cancel_request = null): PromiseInterface
     {
@@ -847,6 +860,7 @@ class SubscriptionsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function cancelRecurringSubscriptionAsyncWithHttpInfo($id, $subscription_recurring_cancel_request = null): PromiseInterface
     {
@@ -895,6 +909,7 @@ class SubscriptionsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function cancelRecurringSubscriptionRequest($id, $subscription_recurring_cancel_request = null): Request
     {
@@ -1013,6 +1028,7 @@ class SubscriptionsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\SubscriptionsIdResponse
+     * @deprecated
      */
     public function deleteSubscription($id)
     {
@@ -1030,6 +1046,7 @@ class SubscriptionsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\SubscriptionsIdResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function deleteSubscriptionWithHttpInfo($id)
     {
@@ -1130,6 +1147,7 @@ class SubscriptionsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function deleteSubscriptionAsync($id): PromiseInterface
     {
@@ -1150,6 +1168,7 @@ class SubscriptionsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function deleteSubscriptionAsyncWithHttpInfo($id): PromiseInterface
     {
@@ -1197,6 +1216,7 @@ class SubscriptionsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function deleteSubscriptionRequest($id): Request
     {
@@ -1309,6 +1329,7 @@ class SubscriptionsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\SubscriptionsIdResponse
+     * @deprecated
      */
     public function findSubscriptionByDeal($deal_id)
     {
@@ -1326,6 +1347,7 @@ class SubscriptionsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\SubscriptionsIdResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function findSubscriptionByDealWithHttpInfo($deal_id)
     {
@@ -1426,6 +1448,7 @@ class SubscriptionsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function findSubscriptionByDealAsync($deal_id): PromiseInterface
     {
@@ -1446,6 +1469,7 @@ class SubscriptionsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function findSubscriptionByDealAsyncWithHttpInfo($deal_id): PromiseInterface
     {
@@ -1493,6 +1517,7 @@ class SubscriptionsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function findSubscriptionByDealRequest($deal_id): Request
     {
@@ -1605,6 +1630,7 @@ class SubscriptionsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\SubscriptionsIdResponse
+     * @deprecated
      */
     public function getSubscription($id)
     {
@@ -1622,6 +1648,7 @@ class SubscriptionsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\SubscriptionsIdResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getSubscriptionWithHttpInfo($id)
     {
@@ -1722,6 +1749,7 @@ class SubscriptionsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getSubscriptionAsync($id): PromiseInterface
     {
@@ -1742,6 +1770,7 @@ class SubscriptionsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getSubscriptionAsyncWithHttpInfo($id): PromiseInterface
     {
@@ -1789,6 +1818,7 @@ class SubscriptionsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function getSubscriptionRequest($id): Request
     {
@@ -1901,6 +1931,7 @@ class SubscriptionsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\PaymentsResponse
+     * @deprecated
      */
     public function getSubscriptionPayments($id)
     {
@@ -1918,6 +1949,7 @@ class SubscriptionsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\PaymentsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getSubscriptionPaymentsWithHttpInfo($id)
     {
@@ -2018,6 +2050,7 @@ class SubscriptionsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getSubscriptionPaymentsAsync($id): PromiseInterface
     {
@@ -2038,6 +2071,7 @@ class SubscriptionsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getSubscriptionPaymentsAsyncWithHttpInfo($id): PromiseInterface
     {
@@ -2085,6 +2119,7 @@ class SubscriptionsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function getSubscriptionPaymentsRequest($id): Request
     {
@@ -2198,6 +2233,7 @@ class SubscriptionsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\SubscriptionsIdResponse
+     * @deprecated
      */
     public function updateRecurringSubscription($id, $subscription_recurring_update_request = null)
     {
@@ -2216,6 +2252,7 @@ class SubscriptionsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\SubscriptionsIdResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function updateRecurringSubscriptionWithHttpInfo($id, $subscription_recurring_update_request = null)
     {
@@ -2317,6 +2354,7 @@ class SubscriptionsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function updateRecurringSubscriptionAsync($id, $subscription_recurring_update_request = null): PromiseInterface
     {
@@ -2338,6 +2376,7 @@ class SubscriptionsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function updateRecurringSubscriptionAsyncWithHttpInfo($id, $subscription_recurring_update_request = null): PromiseInterface
     {
@@ -2386,6 +2425,7 @@ class SubscriptionsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function updateRecurringSubscriptionRequest($id, $subscription_recurring_update_request = null): Request
     {
@@ -2505,6 +2545,7 @@ class SubscriptionsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\SubscriptionsIdResponse
+     * @deprecated
      */
     public function updateSubscriptionInstallment($id, $subscription_installment_update_request = null)
     {
@@ -2523,6 +2564,7 @@ class SubscriptionsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\SubscriptionsIdResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function updateSubscriptionInstallmentWithHttpInfo($id, $subscription_installment_update_request = null)
     {
@@ -2624,6 +2666,7 @@ class SubscriptionsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function updateSubscriptionInstallmentAsync($id, $subscription_installment_update_request = null): PromiseInterface
     {
@@ -2645,6 +2688,7 @@ class SubscriptionsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function updateSubscriptionInstallmentAsyncWithHttpInfo($id, $subscription_installment_update_request = null): PromiseInterface
     {
@@ -2693,6 +2737,7 @@ class SubscriptionsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function updateSubscriptionInstallmentRequest($id, $subscription_installment_update_request = null): Request
     {
