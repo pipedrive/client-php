@@ -270,45 +270,10 @@ Class | Method | HTTP request | Description
 *ActivitiesApi* | [**getActivities**](Api/ActivitiesApi.md#getactivities) | **GET** /activities | Get all activities
 *ActivitiesApi* | [**getActivity**](Api/ActivitiesApi.md#getactivity) | **GET** /activities/{id} | Get details of an activity
 *ActivitiesApi* | [**updateActivity**](Api/ActivitiesApi.md#updateactivity) | **PATCH** /activities/{id} | Update an activity
-*BetaApi* | [**addActivity**](Api/BetaApi.md#addactivity) | **POST** /activities | Add a new activity
-*BetaApi* | [**addDeal**](Api/BetaApi.md#adddeal) | **POST** /deals | Add a new deal
-*BetaApi* | [**addDealProduct**](Api/BetaApi.md#adddealproduct) | **POST** /deals/{id}/products | Add a product to a deal
-*BetaApi* | [**addOrganization**](Api/BetaApi.md#addorganization) | **POST** /organizations | Add a new organization
-*BetaApi* | [**addPerson**](Api/BetaApi.md#addperson) | **POST** /persons | Add a new person
-*BetaApi* | [**deleteActivity**](Api/BetaApi.md#deleteactivity) | **DELETE** /activities/{id} | Delete an activity
-*BetaApi* | [**deleteAdditionalDiscount**](Api/BetaApi.md#deleteadditionaldiscount) | **DELETE** /deals/{id}/discounts/{discount_id} | Delete a discount from a deal
-*BetaApi* | [**deleteDeal**](Api/BetaApi.md#deletedeal) | **DELETE** /deals/{id} | Delete a deal
-*BetaApi* | [**deleteDealProduct**](Api/BetaApi.md#deletedealproduct) | **DELETE** /deals/{id}/products/{product_attachment_id} | Delete an attached product from a deal
 *BetaApi* | [**deleteInstallment**](Api/BetaApi.md#deleteinstallment) | **DELETE** /deals/{id}/installments/{installment_id} | Delete an installment from a deal
-*BetaApi* | [**deleteOrganization**](Api/BetaApi.md#deleteorganization) | **DELETE** /organizations/{id} | Delete a organization
-*BetaApi* | [**deletePerson**](Api/BetaApi.md#deleteperson) | **DELETE** /persons/{id} | Delete a person
-*BetaApi* | [**getActivities**](Api/BetaApi.md#getactivities) | **GET** /activities | Get all activities
-*BetaApi* | [**getActivity**](Api/BetaApi.md#getactivity) | **GET** /activities/{id} | Get details of an activity
-*BetaApi* | [**getAdditionalDiscounts**](Api/BetaApi.md#getadditionaldiscounts) | **GET** /deals/{id}/discounts | List discounts added to a deal
-*BetaApi* | [**getDeal**](Api/BetaApi.md#getdeal) | **GET** /deals/{id} | Get details of a deal
-*BetaApi* | [**getDealProducts**](Api/BetaApi.md#getdealproducts) | **GET** /deals/{id}/products | List products attached to a deal
-*BetaApi* | [**getDeals**](Api/BetaApi.md#getdeals) | **GET** /deals | Get all deals
-*BetaApi* | [**getDealsProducts**](Api/BetaApi.md#getdealsproducts) | **GET** /deals/products | Get deal products of several deals
 *BetaApi* | [**getInstallments**](Api/BetaApi.md#getinstallments) | **GET** /deals/installments | List installments added to a list of deals
-*BetaApi* | [**getOrganization**](Api/BetaApi.md#getorganization) | **GET** /organizations/{id} | Get details of a organization
-*BetaApi* | [**getOrganizations**](Api/BetaApi.md#getorganizations) | **GET** /organizations | Get all organizations
-*BetaApi* | [**getPerson**](Api/BetaApi.md#getperson) | **GET** /persons/{id} | Get details of a person
-*BetaApi* | [**getPersons**](Api/BetaApi.md#getpersons) | **GET** /persons | Get all persons
-*BetaApi* | [**postAdditionalDiscount**](Api/BetaApi.md#postadditionaldiscount) | **POST** /deals/{id}/discounts | Add a discount to a deal
 *BetaApi* | [**postInstallment**](Api/BetaApi.md#postinstallment) | **POST** /deals/{id}/installments | Add an installment to a deal
-*BetaApi* | [**searchDeals**](Api/BetaApi.md#searchdeals) | **GET** /deals/search | Search deals
-*BetaApi* | [**searchItem**](Api/BetaApi.md#searchitem) | **GET** /itemSearch | Perform a search from multiple item types
-*BetaApi* | [**searchItemByField**](Api/BetaApi.md#searchitembyfield) | **GET** /itemSearch/field | Perform a search using a specific field from an item type
-*BetaApi* | [**searchLeads**](Api/BetaApi.md#searchleads) | **GET** /leads/search | Search leads
-*BetaApi* | [**searchOrganization**](Api/BetaApi.md#searchorganization) | **GET** /organizations/search | Search organizations
-*BetaApi* | [**searchPersons**](Api/BetaApi.md#searchpersons) | **GET** /persons/search | Search persons
-*BetaApi* | [**updateActivity**](Api/BetaApi.md#updateactivity) | **PATCH** /activities/{id} | Update an activity
-*BetaApi* | [**updateAdditionalDiscount**](Api/BetaApi.md#updateadditionaldiscount) | **PATCH** /deals/{id}/discounts/{discount_id} | Update a discount added to a deal
-*BetaApi* | [**updateDeal**](Api/BetaApi.md#updatedeal) | **PATCH** /deals/{id} | Update a deal
-*BetaApi* | [**updateDealProduct**](Api/BetaApi.md#updatedealproduct) | **PATCH** /deals/{id}/products/{product_attachment_id} | Update the product attached to a deal
 *BetaApi* | [**updateInstallment**](Api/BetaApi.md#updateinstallment) | **PATCH** /deals/{id}/installments/{installment_id} | Update an installment added to a deal
-*BetaApi* | [**updateOrganization**](Api/BetaApi.md#updateorganization) | **PATCH** /organizations/{id} | Update a organization
-*BetaApi* | [**updatePerson**](Api/BetaApi.md#updateperson) | **PATCH** /persons/{id} | Update a person
 *DealsApi* | [**addDeal**](Api/DealsApi.md#adddeal) | **POST** /deals | Add a new deal
 *DealsApi* | [**addDealProduct**](Api/DealsApi.md#adddealproduct) | **POST** /deals/{id}/products | Add a product to a deal
 *DealsApi* | [**deleteAdditionalDiscount**](Api/DealsApi.md#deleteadditionaldiscount) | **DELETE** /deals/{id}/discounts/{discount_id} | Delete a discount from a deal
