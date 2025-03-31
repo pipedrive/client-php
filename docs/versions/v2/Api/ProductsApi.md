@@ -5,10 +5,14 @@ All URIs are relative to https://api.pipedrive.com/api/v2.
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addProduct()**](ProductsApi.md#addProduct) | **POST** /products | Add a product
+[**addProductFollower()**](ProductsApi.md#addProductFollower) | **POST** /products/{id}/followers | Add a follower to a product
 [**addProductVariation()**](ProductsApi.md#addProductVariation) | **POST** /products/{id}/variations | Add a product variation
 [**deleteProduct()**](ProductsApi.md#deleteProduct) | **DELETE** /products/{id} | Delete a product
+[**deleteProductFollower()**](ProductsApi.md#deleteProductFollower) | **DELETE** /products/{id}/followers/{follower_id} | Delete a follower from a product
 [**deleteProductVariation()**](ProductsApi.md#deleteProductVariation) | **DELETE** /products/{id}/variations/{product_variation_id} | Delete a product variation
 [**getProduct()**](ProductsApi.md#getProduct) | **GET** /products/{id} | Get one product
+[**getProductFollowers()**](ProductsApi.md#getProductFollowers) | **GET** /products/{id}/followers | List followers of a product
+[**getProductFollowersChangelog()**](ProductsApi.md#getProductFollowersChangelog) | **GET** /products/{id}/followers/changelog | List followers changelog of a product
 [**getProductVariations()**](ProductsApi.md#getProductVariations) | **GET** /products/{id}/variations | Get all product variations
 [**getProducts()**](ProductsApi.md#getProducts) | **GET** /products | Get all products
 [**searchProducts()**](ProductsApi.md#searchProducts) | **GET** /products/search | Search products
@@ -67,6 +71,73 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Pipedrive\versions\v2\Model\ProductResponse**](../Model/ProductResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+## `addProductFollower()`
+
+```php
+addProductFollower($id, $follower_request_body): \Pipedrive\versions\v2\Model\PostFollower
+```
+
+Add a follower to a product
+
+Adds a user as a follower to the product.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key
+$config = (new Pipedrive\versions\v2\Configuration())->setApiKey('api_token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = (new Pipedrive\versions\v2\Configuration())->setApiKeyPrefix('api_token', 'Bearer');
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = (new Pipedrive\versions\v2\Configuration())->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Pipedrive\versions\v2\Api\ProductsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int | The ID of the product
+$follower_request_body = new \Pipedrive\versions\v2\Model\FollowerRequestBody(); // \Pipedrive\versions\v2\Model\FollowerRequestBody
+
+try {
+    $result = $apiInstance->addProductFollower($id, $follower_request_body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ProductsApi->addProductFollower: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The ID of the product |
+ **follower_request_body** | [**\Pipedrive\versions\v2\Model\FollowerRequestBody**](../Model/FollowerRequestBody.md)|  | [optional]
+
+### Return type
+
+[**\Pipedrive\versions\v2\Model\PostFollower**](../Model/PostFollower.md)
 
 ### Authorization
 
@@ -213,6 +284,73 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to README]](../README.md)
 
+## `deleteProductFollower()`
+
+```php
+deleteProductFollower($id, $follower_id): \Pipedrive\versions\v2\Model\DeleteFollowerResponse
+```
+
+Delete a follower from a product
+
+Deletes a user follower from the product.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key
+$config = (new Pipedrive\versions\v2\Configuration())->setApiKey('api_token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = (new Pipedrive\versions\v2\Configuration())->setApiKeyPrefix('api_token', 'Bearer');
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = (new Pipedrive\versions\v2\Configuration())->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Pipedrive\versions\v2\Api\ProductsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int | The ID of the product
+$follower_id = 56; // int | The ID of the following user
+
+try {
+    $result = $apiInstance->deleteProductFollower($id, $follower_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ProductsApi->deleteProductFollower: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The ID of the product |
+ **follower_id** | **int**| The ID of the following user |
+
+### Return type
+
+[**\Pipedrive\versions\v2\Model\DeleteFollowerResponse**](../Model/DeleteFollowerResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
 ## `deleteProductVariation()`
 
 ```php
@@ -331,6 +469,144 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Pipedrive\versions\v2\Model\ProductResponse**](../Model/ProductResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+## `getProductFollowers()`
+
+```php
+getProductFollowers($id, $limit, $cursor): \Pipedrive\versions\v2\Model\GetFollowers
+```
+
+List followers of a product
+
+Lists users who are following the product.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key
+$config = (new Pipedrive\versions\v2\Configuration())->setApiKey('api_token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = (new Pipedrive\versions\v2\Configuration())->setApiKeyPrefix('api_token', 'Bearer');
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = (new Pipedrive\versions\v2\Configuration())->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Pipedrive\versions\v2\Api\ProductsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int | The ID of the product
+$limit = 100; // int | For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+$cursor = 'cursor_example'; // string | For pagination, the marker (an opaque string value) representing the first item on the next page
+
+try {
+    $result = $apiInstance->getProductFollowers($id, $limit, $cursor);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ProductsApi->getProductFollowers: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The ID of the product |
+ **limit** | **int**| For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. | [optional]
+ **cursor** | **string**| For pagination, the marker (an opaque string value) representing the first item on the next page | [optional]
+
+### Return type
+
+[**\Pipedrive\versions\v2\Model\GetFollowers**](../Model/GetFollowers.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+## `getProductFollowersChangelog()`
+
+```php
+getProductFollowersChangelog($id, $limit, $cursor): \Pipedrive\versions\v2\Model\GetFollowerChangelogs
+```
+
+List followers changelog of a product
+
+Lists changelogs about users have followed the product.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key
+$config = (new Pipedrive\versions\v2\Configuration())->setApiKey('api_token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = (new Pipedrive\versions\v2\Configuration())->setApiKeyPrefix('api_token', 'Bearer');
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = (new Pipedrive\versions\v2\Configuration())->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Pipedrive\versions\v2\Api\ProductsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int | The ID of the product
+$limit = 100; // int | For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+$cursor = 'cursor_example'; // string | For pagination, the marker (an opaque string value) representing the first item on the next page
+
+try {
+    $result = $apiInstance->getProductFollowersChangelog($id, $limit, $cursor);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ProductsApi->getProductFollowersChangelog: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The ID of the product |
+ **limit** | **int**| For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. | [optional]
+ **cursor** | **string**| For pagination, the marker (an opaque string value) representing the first item on the next page | [optional]
+
+### Return type
+
+[**\Pipedrive\versions\v2\Model\GetFollowerChangelogs**](../Model/GetFollowerChangelogs.md)
 
 ### Authorization
 

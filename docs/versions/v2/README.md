@@ -270,53 +270,22 @@ Class | Method | HTTP request | Description
 *ActivitiesApi* | [**getActivities**](Api/ActivitiesApi.md#getactivities) | **GET** /activities | Get all activities
 *ActivitiesApi* | [**getActivity**](Api/ActivitiesApi.md#getactivity) | **GET** /activities/{id} | Get details of an activity
 *ActivitiesApi* | [**updateActivity**](Api/ActivitiesApi.md#updateactivity) | **PATCH** /activities/{id} | Update an activity
-*BetaApi* | [**addActivity**](Api/BetaApi.md#addactivity) | **POST** /activities | Add a new activity
-*BetaApi* | [**addDeal**](Api/BetaApi.md#adddeal) | **POST** /deals | Add a new deal
-*BetaApi* | [**addDealProduct**](Api/BetaApi.md#adddealproduct) | **POST** /deals/{id}/products | Add a product to a deal
-*BetaApi* | [**addOrganization**](Api/BetaApi.md#addorganization) | **POST** /organizations | Add a new organization
-*BetaApi* | [**addPerson**](Api/BetaApi.md#addperson) | **POST** /persons | Add a new person
-*BetaApi* | [**deleteActivity**](Api/BetaApi.md#deleteactivity) | **DELETE** /activities/{id} | Delete an activity
-*BetaApi* | [**deleteAdditionalDiscount**](Api/BetaApi.md#deleteadditionaldiscount) | **DELETE** /deals/{id}/discounts/{discount_id} | Delete a discount from a deal
-*BetaApi* | [**deleteDeal**](Api/BetaApi.md#deletedeal) | **DELETE** /deals/{id} | Delete a deal
-*BetaApi* | [**deleteDealProduct**](Api/BetaApi.md#deletedealproduct) | **DELETE** /deals/{id}/products/{product_attachment_id} | Delete an attached product from a deal
 *BetaApi* | [**deleteInstallment**](Api/BetaApi.md#deleteinstallment) | **DELETE** /deals/{id}/installments/{installment_id} | Delete an installment from a deal
-*BetaApi* | [**deleteOrganization**](Api/BetaApi.md#deleteorganization) | **DELETE** /organizations/{id} | Delete a organization
-*BetaApi* | [**deletePerson**](Api/BetaApi.md#deleteperson) | **DELETE** /persons/{id} | Delete a person
-*BetaApi* | [**getActivities**](Api/BetaApi.md#getactivities) | **GET** /activities | Get all activities
-*BetaApi* | [**getActivity**](Api/BetaApi.md#getactivity) | **GET** /activities/{id} | Get details of an activity
-*BetaApi* | [**getAdditionalDiscounts**](Api/BetaApi.md#getadditionaldiscounts) | **GET** /deals/{id}/discounts | List discounts added to a deal
-*BetaApi* | [**getDeal**](Api/BetaApi.md#getdeal) | **GET** /deals/{id} | Get details of a deal
-*BetaApi* | [**getDealProducts**](Api/BetaApi.md#getdealproducts) | **GET** /deals/{id}/products | List products attached to a deal
-*BetaApi* | [**getDeals**](Api/BetaApi.md#getdeals) | **GET** /deals | Get all deals
-*BetaApi* | [**getDealsProducts**](Api/BetaApi.md#getdealsproducts) | **GET** /deals/products | Get deal products of several deals
 *BetaApi* | [**getInstallments**](Api/BetaApi.md#getinstallments) | **GET** /deals/installments | List installments added to a list of deals
-*BetaApi* | [**getOrganization**](Api/BetaApi.md#getorganization) | **GET** /organizations/{id} | Get details of a organization
-*BetaApi* | [**getOrganizations**](Api/BetaApi.md#getorganizations) | **GET** /organizations | Get all organizations
-*BetaApi* | [**getPerson**](Api/BetaApi.md#getperson) | **GET** /persons/{id} | Get details of a person
-*BetaApi* | [**getPersons**](Api/BetaApi.md#getpersons) | **GET** /persons | Get all persons
-*BetaApi* | [**postAdditionalDiscount**](Api/BetaApi.md#postadditionaldiscount) | **POST** /deals/{id}/discounts | Add a discount to a deal
 *BetaApi* | [**postInstallment**](Api/BetaApi.md#postinstallment) | **POST** /deals/{id}/installments | Add an installment to a deal
-*BetaApi* | [**searchDeals**](Api/BetaApi.md#searchdeals) | **GET** /deals/search | Search deals
-*BetaApi* | [**searchItem**](Api/BetaApi.md#searchitem) | **GET** /itemSearch | Perform a search from multiple item types
-*BetaApi* | [**searchItemByField**](Api/BetaApi.md#searchitembyfield) | **GET** /itemSearch/field | Perform a search using a specific field from an item type
-*BetaApi* | [**searchLeads**](Api/BetaApi.md#searchleads) | **GET** /leads/search | Search leads
-*BetaApi* | [**searchOrganization**](Api/BetaApi.md#searchorganization) | **GET** /organizations/search | Search organizations
-*BetaApi* | [**searchPersons**](Api/BetaApi.md#searchpersons) | **GET** /persons/search | Search persons
-*BetaApi* | [**updateActivity**](Api/BetaApi.md#updateactivity) | **PATCH** /activities/{id} | Update an activity
-*BetaApi* | [**updateAdditionalDiscount**](Api/BetaApi.md#updateadditionaldiscount) | **PATCH** /deals/{id}/discounts/{discount_id} | Update a discount added to a deal
-*BetaApi* | [**updateDeal**](Api/BetaApi.md#updatedeal) | **PATCH** /deals/{id} | Update a deal
-*BetaApi* | [**updateDealProduct**](Api/BetaApi.md#updatedealproduct) | **PATCH** /deals/{id}/products/{product_attachment_id} | Update the product attached to a deal
 *BetaApi* | [**updateInstallment**](Api/BetaApi.md#updateinstallment) | **PATCH** /deals/{id}/installments/{installment_id} | Update an installment added to a deal
-*BetaApi* | [**updateOrganization**](Api/BetaApi.md#updateorganization) | **PATCH** /organizations/{id} | Update a organization
-*BetaApi* | [**updatePerson**](Api/BetaApi.md#updateperson) | **PATCH** /persons/{id} | Update a person
 *DealsApi* | [**addDeal**](Api/DealsApi.md#adddeal) | **POST** /deals | Add a new deal
+*DealsApi* | [**addDealFollower**](Api/DealsApi.md#adddealfollower) | **POST** /deals/{id}/followers | Add a follower to a deal
 *DealsApi* | [**addDealProduct**](Api/DealsApi.md#adddealproduct) | **POST** /deals/{id}/products | Add a product to a deal
 *DealsApi* | [**deleteAdditionalDiscount**](Api/DealsApi.md#deleteadditionaldiscount) | **DELETE** /deals/{id}/discounts/{discount_id} | Delete a discount from a deal
 *DealsApi* | [**deleteDeal**](Api/DealsApi.md#deletedeal) | **DELETE** /deals/{id} | Delete a deal
+*DealsApi* | [**deleteDealFollower**](Api/DealsApi.md#deletedealfollower) | **DELETE** /deals/{id}/followers/{follower_id} | Delete a follower from a deal
 *DealsApi* | [**deleteDealProduct**](Api/DealsApi.md#deletedealproduct) | **DELETE** /deals/{id}/products/{product_attachment_id} | Delete an attached product from a deal
 *DealsApi* | [**deleteInstallment**](Api/DealsApi.md#deleteinstallment) | **DELETE** /deals/{id}/installments/{installment_id} | Delete an installment from a deal
 *DealsApi* | [**getAdditionalDiscounts**](Api/DealsApi.md#getadditionaldiscounts) | **GET** /deals/{id}/discounts | List discounts added to a deal
 *DealsApi* | [**getDeal**](Api/DealsApi.md#getdeal) | **GET** /deals/{id} | Get details of a deal
+*DealsApi* | [**getDealFollowers**](Api/DealsApi.md#getdealfollowers) | **GET** /deals/{id}/followers | List followers of a deal
+*DealsApi* | [**getDealFollowersChangelog**](Api/DealsApi.md#getdealfollowerschangelog) | **GET** /deals/{id}/followers/changelog | List followers changelog of a deal
 *DealsApi* | [**getDealProducts**](Api/DealsApi.md#getdealproducts) | **GET** /deals/{id}/products | List products attached to a deal
 *DealsApi* | [**getDeals**](Api/DealsApi.md#getdeals) | **GET** /deals | Get all deals
 *DealsApi* | [**getDealsProducts**](Api/DealsApi.md#getdealsproducts) | **GET** /deals/products | Get deal products of several deals
@@ -332,14 +301,22 @@ Class | Method | HTTP request | Description
 *ItemSearchApi* | [**searchItemByField**](Api/ItemSearchApi.md#searchitembyfield) | **GET** /itemSearch/field | Perform a search using a specific field from an item type
 *LeadsApi* | [**searchLeads**](Api/LeadsApi.md#searchleads) | **GET** /leads/search | Search leads
 *OrganizationsApi* | [**addOrganization**](Api/OrganizationsApi.md#addorganization) | **POST** /organizations | Add a new organization
+*OrganizationsApi* | [**addOrganizationFollower**](Api/OrganizationsApi.md#addorganizationfollower) | **POST** /organizations/{id}/followers | Add a follower to an organization
 *OrganizationsApi* | [**deleteOrganization**](Api/OrganizationsApi.md#deleteorganization) | **DELETE** /organizations/{id} | Delete a organization
+*OrganizationsApi* | [**deleteOrganizationFollower**](Api/OrganizationsApi.md#deleteorganizationfollower) | **DELETE** /organizations/{id}/followers/{follower_id} | Delete a follower from an organization
 *OrganizationsApi* | [**getOrganization**](Api/OrganizationsApi.md#getorganization) | **GET** /organizations/{id} | Get details of a organization
+*OrganizationsApi* | [**getOrganizationFollowers**](Api/OrganizationsApi.md#getorganizationfollowers) | **GET** /organizations/{id}/followers | List followers of an organization
+*OrganizationsApi* | [**getOrganizationFollowersChangelog**](Api/OrganizationsApi.md#getorganizationfollowerschangelog) | **GET** /organizations/{id}/followers/changelog | List followers changelog of an organization
 *OrganizationsApi* | [**getOrganizations**](Api/OrganizationsApi.md#getorganizations) | **GET** /organizations | Get all organizations
 *OrganizationsApi* | [**searchOrganization**](Api/OrganizationsApi.md#searchorganization) | **GET** /organizations/search | Search organizations
 *OrganizationsApi* | [**updateOrganization**](Api/OrganizationsApi.md#updateorganization) | **PATCH** /organizations/{id} | Update a organization
 *PersonsApi* | [**addPerson**](Api/PersonsApi.md#addperson) | **POST** /persons | Add a new person
+*PersonsApi* | [**addPersonFollower**](Api/PersonsApi.md#addpersonfollower) | **POST** /persons/{id}/followers | Add a follower to a person
 *PersonsApi* | [**deletePerson**](Api/PersonsApi.md#deleteperson) | **DELETE** /persons/{id} | Delete a person
+*PersonsApi* | [**deletePersonFollower**](Api/PersonsApi.md#deletepersonfollower) | **DELETE** /persons/{id}/followers/{follower_id} | Delete a follower from a person
 *PersonsApi* | [**getPerson**](Api/PersonsApi.md#getperson) | **GET** /persons/{id} | Get details of a person
+*PersonsApi* | [**getPersonFollowers**](Api/PersonsApi.md#getpersonfollowers) | **GET** /persons/{id}/followers | List followers of a person
+*PersonsApi* | [**getPersonFollowersChangelog**](Api/PersonsApi.md#getpersonfollowerschangelog) | **GET** /persons/{id}/followers/changelog | List followers changelog of a person
 *PersonsApi* | [**getPersons**](Api/PersonsApi.md#getpersons) | **GET** /persons | Get all persons
 *PersonsApi* | [**searchPersons**](Api/PersonsApi.md#searchpersons) | **GET** /persons/search | Search persons
 *PersonsApi* | [**updatePerson**](Api/PersonsApi.md#updateperson) | **PATCH** /persons/{id} | Update a person
@@ -349,10 +326,14 @@ Class | Method | HTTP request | Description
 *PipelinesApi* | [**getPipelines**](Api/PipelinesApi.md#getpipelines) | **GET** /pipelines | Get all pipelines
 *PipelinesApi* | [**updatePipeline**](Api/PipelinesApi.md#updatepipeline) | **PATCH** /pipelines/{id} | Update a pipeline
 *ProductsApi* | [**addProduct**](Api/ProductsApi.md#addproduct) | **POST** /products | Add a product
+*ProductsApi* | [**addProductFollower**](Api/ProductsApi.md#addproductfollower) | **POST** /products/{id}/followers | Add a follower to a product
 *ProductsApi* | [**addProductVariation**](Api/ProductsApi.md#addproductvariation) | **POST** /products/{id}/variations | Add a product variation
 *ProductsApi* | [**deleteProduct**](Api/ProductsApi.md#deleteproduct) | **DELETE** /products/{id} | Delete a product
+*ProductsApi* | [**deleteProductFollower**](Api/ProductsApi.md#deleteproductfollower) | **DELETE** /products/{id}/followers/{follower_id} | Delete a follower from a product
 *ProductsApi* | [**deleteProductVariation**](Api/ProductsApi.md#deleteproductvariation) | **DELETE** /products/{id}/variations/{product_variation_id} | Delete a product variation
 *ProductsApi* | [**getProduct**](Api/ProductsApi.md#getproduct) | **GET** /products/{id} | Get one product
+*ProductsApi* | [**getProductFollowers**](Api/ProductsApi.md#getproductfollowers) | **GET** /products/{id}/followers | List followers of a product
+*ProductsApi* | [**getProductFollowersChangelog**](Api/ProductsApi.md#getproductfollowerschangelog) | **GET** /products/{id}/followers/changelog | List followers changelog of a product
 *ProductsApi* | [**getProductVariations**](Api/ProductsApi.md#getproductvariations) | **GET** /products/{id}/variations | Get all product variations
 *ProductsApi* | [**getProducts**](Api/ProductsApi.md#getproducts) | **GET** /products | Get all products
 *ProductsApi* | [**searchProducts**](Api/ProductsApi.md#searchproducts) | **GET** /products/search | Search products
@@ -363,6 +344,7 @@ Class | Method | HTTP request | Description
 *StagesApi* | [**getStage**](Api/StagesApi.md#getstage) | **GET** /stages/{id} | Get one stage
 *StagesApi* | [**getStages**](Api/StagesApi.md#getstages) | **GET** /stages | Get all stages
 *StagesApi* | [**updateStage**](Api/StagesApi.md#updatestage) | **PATCH** /stages/{id} | Update stage details
+*UsersApi* | [**getUserFollowers**](Api/UsersApi.md#getuserfollowers) | **GET** /users/{id}/followers | List followers of a user
 
 
 ## Documentation for models
@@ -411,6 +393,8 @@ Class | Method | HTTP request | Description
  - [DeleteDealProductData](Model/DeleteDealProductData.md)
  - [DeleteDealResponse](Model/DeleteDealResponse.md)
  - [DeleteDealResponseData](Model/DeleteDealResponseData.md)
+ - [DeleteFollowerResponse](Model/DeleteFollowerResponse.md)
+ - [DeleteFollowerResponseData](Model/DeleteFollowerResponseData.md)
  - [DeleteInstallmentResponse](Model/DeleteInstallmentResponse.md)
  - [DeleteInstallmentResponseData](Model/DeleteInstallmentResponseData.md)
  - [DeleteOrganizationResponse](Model/DeleteOrganizationResponse.md)
@@ -425,6 +409,9 @@ Class | Method | HTTP request | Description
  - [DeleteProductVariationData](Model/DeleteProductVariationData.md)
  - [DeleteStageResponse](Model/DeleteStageResponse.md)
  - [DeleteStageResponseData](Model/DeleteStageResponseData.md)
+ - [FollowerChangelogItem](Model/FollowerChangelogItem.md)
+ - [FollowerItem](Model/FollowerItem.md)
+ - [FollowerRequestBody](Model/FollowerRequestBody.md)
  - [GetActivities](Model/GetActivities.md)
  - [GetActivitiesAllOf](Model/GetActivitiesAllOf.md)
  - [GetDealSearchResponse](Model/GetDealSearchResponse.md)
@@ -432,6 +419,10 @@ Class | Method | HTTP request | Description
  - [GetDealSearchResponseAllOfData](Model/GetDealSearchResponseAllOfData.md)
  - [GetDeals](Model/GetDeals.md)
  - [GetDealsAllOf](Model/GetDealsAllOf.md)
+ - [GetFollowerChangelogs](Model/GetFollowerChangelogs.md)
+ - [GetFollowerChangelogsAllOf](Model/GetFollowerChangelogsAllOf.md)
+ - [GetFollowers](Model/GetFollowers.md)
+ - [GetFollowersAllOf](Model/GetFollowersAllOf.md)
  - [GetItemSearchResponseData](Model/GetItemSearchResponseData.md)
  - [GetItemSearchResponseDataData](Model/GetItemSearchResponseDataData.md)
  - [GetLeadSearchResponseData](Model/GetLeadSearchResponseData.md)
@@ -482,6 +473,8 @@ Class | Method | HTTP request | Description
  - [PersonSearchResponseAllOfData](Model/PersonSearchResponseAllOfData.md)
  - [PipelineItem](Model/PipelineItem.md)
  - [PipelineRequestBody](Model/PipelineRequestBody.md)
+ - [PostFollower](Model/PostFollower.md)
+ - [PostFollowerAllOf](Model/PostFollowerAllOf.md)
  - [PostPatchGetActivity](Model/PostPatchGetActivity.md)
  - [PostPatchGetDeal](Model/PostPatchGetDeal.md)
  - [PostPatchGetOrganization](Model/PostPatchGetOrganization.md)

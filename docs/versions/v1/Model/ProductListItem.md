@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **order_nr** | **int** | The order number of the product | [optional]
 **product_id** | **int** | The ID of the product | [optional]
 **product_variation_id** | **int** | The ID of the product variation | [optional]
-**item_price** | **int** | The price value of the product | [optional]
+**item_price** | **float** | The price value of the product | [optional]
 **discount** | **float** | The value of the discount. The &#x60;discount_type&#x60; field can be used to specify whether the value is an amount or a percentage | [optional] [default to 0]
 **discount_type** | **string** | The type of the discount&#39;s value | [optional] [default to 'percentage']
 **sum** | **float** | The sum of all the products attached to the deal | [optional]
