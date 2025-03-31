@@ -400,7 +400,7 @@ $apiInstance = new Pipedrive\versions\v1\Api\DealsApi(
     $config
 );
 $id = 56; // int | The ID of the deal
-$follower_id = 56; // int | The ID of the follower
+$follower_id = 56; // int | The ID of the relationship between the follower and the deal
 
 try {
     $result = $apiInstance->deleteDealFollower($id, $follower_id);
@@ -415,7 +415,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The ID of the deal |
- **follower_id** | **int**| The ID of the follower |
+ **follower_id** | **int**| The ID of the relationship between the follower and the deal |
 
 ### Return type
 

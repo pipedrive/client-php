@@ -1375,7 +1375,7 @@ class PersonsApi
      * Delete a follower from a person
      *
      * @param  int $id The ID of the person (required)
-     * @param  int $follower_id The ID of the follower (required)
+     * @param  int $follower_id The ID of the relationship between the follower and the person (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
@@ -1393,7 +1393,7 @@ class PersonsApi
      * Delete a follower from a person
      *
      * @param  int $id The ID of the person (required)
-     * @param  int $follower_id The ID of the follower (required)
+     * @param  int $follower_id The ID of the relationship between the follower and the person (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
@@ -1495,7 +1495,7 @@ class PersonsApi
      * Delete a follower from a person
      *
      * @param  int $id The ID of the person (required)
-     * @param  int $follower_id The ID of the follower (required)
+     * @param  int $follower_id The ID of the relationship between the follower and the person (required)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
@@ -1516,7 +1516,7 @@ class PersonsApi
      * Delete a follower from a person
      *
      * @param  int $id The ID of the person (required)
-     * @param  int $follower_id The ID of the follower (required)
+     * @param  int $follower_id The ID of the relationship between the follower and the person (required)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
@@ -1564,7 +1564,7 @@ class PersonsApi
      * Create request for operation 'deletePersonFollower'
      *
      * @param  int $id The ID of the person (required)
-     * @param  int $follower_id The ID of the follower (required)
+     * @param  int $follower_id The ID of the relationship between the follower and the person (required)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request

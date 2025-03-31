@@ -80,7 +80,7 @@ class BaseDealProductAllOf implements ModelInterface, ArrayAccess, JsonSerializa
         'discount' => 'float',
         'discount_type' => 'string',
         'quantity' => 'int',
-        'item_price' => 'int',
+        'item_price' => 'float',
         'tax_method' => 'string',
         'is_enabled' => 'bool'
     ];
@@ -727,7 +727,7 @@ class BaseDealProductAllOf implements ModelInterface, ArrayAccess, JsonSerializa
     /**
      * Gets item_price
      *
-     * @return int|null
+     * @return float|null
      */
     public function getItemPrice()
     {
@@ -737,7 +737,7 @@ class BaseDealProductAllOf implements ModelInterface, ArrayAccess, JsonSerializa
     /**
      * Sets item_price
      *
-     * @param int|null $item_price The price value of the product
+     * @param float|null $item_price The price value of the product
      *
      * @return self
      */

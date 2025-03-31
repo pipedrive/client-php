@@ -1632,7 +1632,7 @@ class DealsApi
      * Delete a follower from a deal
      *
      * @param  int $id The ID of the deal (required)
-     * @param  int $follower_id The ID of the follower (required)
+     * @param  int $follower_id The ID of the relationship between the follower and the deal (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
@@ -1650,7 +1650,7 @@ class DealsApi
      * Delete a follower from a deal
      *
      * @param  int $id The ID of the deal (required)
-     * @param  int $follower_id The ID of the follower (required)
+     * @param  int $follower_id The ID of the relationship between the follower and the deal (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
@@ -1752,7 +1752,7 @@ class DealsApi
      * Delete a follower from a deal
      *
      * @param  int $id The ID of the deal (required)
-     * @param  int $follower_id The ID of the follower (required)
+     * @param  int $follower_id The ID of the relationship between the follower and the deal (required)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
@@ -1773,7 +1773,7 @@ class DealsApi
      * Delete a follower from a deal
      *
      * @param  int $id The ID of the deal (required)
-     * @param  int $follower_id The ID of the follower (required)
+     * @param  int $follower_id The ID of the relationship between the follower and the deal (required)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
@@ -1821,7 +1821,7 @@ class DealsApi
      * Create request for operation 'deleteDealFollower'
      *
      * @param  int $id The ID of the deal (required)
-     * @param  int $follower_id The ID of the follower (required)
+     * @param  int $follower_id The ID of the relationship between the follower and the deal (required)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request

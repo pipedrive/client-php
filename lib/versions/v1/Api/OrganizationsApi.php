@@ -1018,7 +1018,7 @@ class OrganizationsApi
      * Delete a follower from an organization
      *
      * @param  int $id The ID of the organization (required)
-     * @param  int $follower_id The ID of the follower (required)
+     * @param  int $follower_id The ID of the relationship between the follower and the organization (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
@@ -1036,7 +1036,7 @@ class OrganizationsApi
      * Delete a follower from an organization
      *
      * @param  int $id The ID of the organization (required)
-     * @param  int $follower_id The ID of the follower (required)
+     * @param  int $follower_id The ID of the relationship between the follower and the organization (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
@@ -1138,7 +1138,7 @@ class OrganizationsApi
      * Delete a follower from an organization
      *
      * @param  int $id The ID of the organization (required)
-     * @param  int $follower_id The ID of the follower (required)
+     * @param  int $follower_id The ID of the relationship between the follower and the organization (required)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
@@ -1159,7 +1159,7 @@ class OrganizationsApi
      * Delete a follower from an organization
      *
      * @param  int $id The ID of the organization (required)
-     * @param  int $follower_id The ID of the follower (required)
+     * @param  int $follower_id The ID of the relationship between the follower and the organization (required)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
@@ -1207,7 +1207,7 @@ class OrganizationsApi
      * Create request for operation 'deleteOrganizationFollower'
      *
      * @param  int $id The ID of the organization (required)
-     * @param  int $follower_id The ID of the follower (required)
+     * @param  int $follower_id The ID of the relationship between the follower and the organization (required)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request

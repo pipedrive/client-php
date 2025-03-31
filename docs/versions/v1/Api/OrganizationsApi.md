@@ -256,7 +256,7 @@ $apiInstance = new Pipedrive\versions\v1\Api\OrganizationsApi(
     $config
 );
 $id = 56; // int | The ID of the organization
-$follower_id = 56; // int | The ID of the follower
+$follower_id = 56; // int | The ID of the relationship between the follower and the organization
 
 try {
     $result = $apiInstance->deleteOrganizationFollower($id, $follower_id);
@@ -271,7 +271,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The ID of the organization |
- **follower_id** | **int**| The ID of the follower |
+ **follower_id** | **int**| The ID of the relationship between the follower and the organization |
 
 ### Return type
 

@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Changed
+- Updated `item_price` field data type in products from integer -> number for products and deal products
+### Fixed
+- Added missing `partnership` value for user access apps list
 ### Added
 - Added `GET /v2/deals/installments` endpoint to fetch all installments added to a list of deals with cursor pagination
 - Added `POST /v2/deals/{id}/installments` endpoint to add an installment to a deal

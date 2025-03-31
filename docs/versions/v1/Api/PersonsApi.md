@@ -333,7 +333,7 @@ $apiInstance = new Pipedrive\versions\v1\Api\PersonsApi(
     $config
 );
 $id = 56; // int | The ID of the person
-$follower_id = 56; // int | The ID of the follower
+$follower_id = 56; // int | The ID of the relationship between the follower and the person
 
 try {
     $result = $apiInstance->deletePersonFollower($id, $follower_id);
@@ -348,7 +348,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The ID of the person |
- **follower_id** | **int**| The ID of the follower |
+ **follower_id** | **int**| The ID of the relationship between the follower and the person |
 
 ### Return type
 

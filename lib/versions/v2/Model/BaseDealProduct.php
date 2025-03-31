@@ -80,7 +80,7 @@ class BaseDealProduct implements ModelInterface, ArrayAccess, JsonSerializable
         'discount' => 'float',
         'discount_type' => 'string',
         'quantity' => 'int',
-        'item_price' => 'int',
+        'item_price' => 'float',
         'tax_method' => 'string',
         'is_enabled' => 'bool',
         'billing_frequency' => '\Pipedrive\versions\v2\Model\BillingFrequency',
@@ -745,7 +745,7 @@ class BaseDealProduct implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets item_price
      *
-     * @return int|null
+     * @return float|null
      */
     public function getItemPrice()
     {
@@ -755,7 +755,7 @@ class BaseDealProduct implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets item_price
      *
-     * @param int|null $item_price The price value of the product
+     * @param float|null $item_price The price value of the product
      *
      * @return self
      */

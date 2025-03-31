@@ -5,13 +5,17 @@ All URIs are relative to https://api.pipedrive.com/api/v2.
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addDeal()**](DealsApi.md#addDeal) | **POST** /deals | Add a new deal
+[**addDealFollower()**](DealsApi.md#addDealFollower) | **POST** /deals/{id}/followers | Add a follower to a deal
 [**addDealProduct()**](DealsApi.md#addDealProduct) | **POST** /deals/{id}/products | Add a product to a deal
 [**deleteAdditionalDiscount()**](DealsApi.md#deleteAdditionalDiscount) | **DELETE** /deals/{id}/discounts/{discount_id} | Delete a discount from a deal
 [**deleteDeal()**](DealsApi.md#deleteDeal) | **DELETE** /deals/{id} | Delete a deal
+[**deleteDealFollower()**](DealsApi.md#deleteDealFollower) | **DELETE** /deals/{id}/followers/{follower_id} | Delete a follower from a deal
 [**deleteDealProduct()**](DealsApi.md#deleteDealProduct) | **DELETE** /deals/{id}/products/{product_attachment_id} | Delete an attached product from a deal
 [**deleteInstallment()**](DealsApi.md#deleteInstallment) | **DELETE** /deals/{id}/installments/{installment_id} | Delete an installment from a deal
 [**getAdditionalDiscounts()**](DealsApi.md#getAdditionalDiscounts) | **GET** /deals/{id}/discounts | List discounts added to a deal
 [**getDeal()**](DealsApi.md#getDeal) | **GET** /deals/{id} | Get details of a deal
+[**getDealFollowers()**](DealsApi.md#getDealFollowers) | **GET** /deals/{id}/followers | List followers of a deal
+[**getDealFollowersChangelog()**](DealsApi.md#getDealFollowersChangelog) | **GET** /deals/{id}/followers/changelog | List followers changelog of a deal
 [**getDealProducts()**](DealsApi.md#getDealProducts) | **GET** /deals/{id}/products | List products attached to a deal
 [**getDeals()**](DealsApi.md#getDeals) | **GET** /deals | Get all deals
 [**getDealsProducts()**](DealsApi.md#getDealsProducts) | **GET** /deals/products | Get deal products of several deals
@@ -76,6 +80,73 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Pipedrive\versions\v2\Model\PostPatchGetDeal**](../Model/PostPatchGetDeal.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+## `addDealFollower()`
+
+```php
+addDealFollower($id, $follower_request_body): \Pipedrive\versions\v2\Model\PostFollower
+```
+
+Add a follower to a deal
+
+Adds a user as a follower to the deal.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key
+$config = (new Pipedrive\versions\v2\Configuration())->setApiKey('api_token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = (new Pipedrive\versions\v2\Configuration())->setApiKeyPrefix('api_token', 'Bearer');
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = (new Pipedrive\versions\v2\Configuration())->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Pipedrive\versions\v2\Api\DealsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int | The ID of the deal
+$follower_request_body = new \Pipedrive\versions\v2\Model\FollowerRequestBody(); // \Pipedrive\versions\v2\Model\FollowerRequestBody
+
+try {
+    $result = $apiInstance->addDealFollower($id, $follower_request_body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DealsApi->addDealFollower: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The ID of the deal |
+ **follower_request_body** | [**\Pipedrive\versions\v2\Model\FollowerRequestBody**](../Model/FollowerRequestBody.md)|  | [optional]
+
+### Return type
+
+[**\Pipedrive\versions\v2\Model\PostFollower**](../Model/PostFollower.md)
 
 ### Authorization
 
@@ -275,6 +346,73 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Pipedrive\versions\v2\Model\DeleteDealResponse**](../Model/DeleteDealResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+## `deleteDealFollower()`
+
+```php
+deleteDealFollower($id, $follower_id): \Pipedrive\versions\v2\Model\DeleteFollowerResponse
+```
+
+Delete a follower from a deal
+
+Deletes a user follower from the deal.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key
+$config = (new Pipedrive\versions\v2\Configuration())->setApiKey('api_token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = (new Pipedrive\versions\v2\Configuration())->setApiKeyPrefix('api_token', 'Bearer');
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = (new Pipedrive\versions\v2\Configuration())->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Pipedrive\versions\v2\Api\DealsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int | The ID of the deal
+$follower_id = 56; // int | The ID of the following user
+
+try {
+    $result = $apiInstance->deleteDealFollower($id, $follower_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DealsApi->deleteDealFollower: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The ID of the deal |
+ **follower_id** | **int**| The ID of the following user |
+
+### Return type
+
+[**\Pipedrive\versions\v2\Model\DeleteFollowerResponse**](../Model/DeleteFollowerResponse.md)
 
 ### Authorization
 
@@ -543,6 +681,144 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Pipedrive\versions\v2\Model\PostPatchGetDeal**](../Model/PostPatchGetDeal.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+## `getDealFollowers()`
+
+```php
+getDealFollowers($id, $limit, $cursor): \Pipedrive\versions\v2\Model\GetFollowers
+```
+
+List followers of a deal
+
+Lists users who are following the deal.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key
+$config = (new Pipedrive\versions\v2\Configuration())->setApiKey('api_token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = (new Pipedrive\versions\v2\Configuration())->setApiKeyPrefix('api_token', 'Bearer');
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = (new Pipedrive\versions\v2\Configuration())->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Pipedrive\versions\v2\Api\DealsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int | The ID of the deal
+$limit = 100; // int | For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+$cursor = 'cursor_example'; // string | For pagination, the marker (an opaque string value) representing the first item on the next page
+
+try {
+    $result = $apiInstance->getDealFollowers($id, $limit, $cursor);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DealsApi->getDealFollowers: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The ID of the deal |
+ **limit** | **int**| For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. | [optional]
+ **cursor** | **string**| For pagination, the marker (an opaque string value) representing the first item on the next page | [optional]
+
+### Return type
+
+[**\Pipedrive\versions\v2\Model\GetFollowers**](../Model/GetFollowers.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+## `getDealFollowersChangelog()`
+
+```php
+getDealFollowersChangelog($id, $limit, $cursor): \Pipedrive\versions\v2\Model\GetFollowerChangelogs
+```
+
+List followers changelog of a deal
+
+Lists changelogs about users have followed the deal.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key
+$config = (new Pipedrive\versions\v2\Configuration())->setApiKey('api_token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = (new Pipedrive\versions\v2\Configuration())->setApiKeyPrefix('api_token', 'Bearer');
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = (new Pipedrive\versions\v2\Configuration())->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Pipedrive\versions\v2\Api\DealsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int | The ID of the deal
+$limit = 100; // int | For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+$cursor = 'cursor_example'; // string | For pagination, the marker (an opaque string value) representing the first item on the next page
+
+try {
+    $result = $apiInstance->getDealFollowersChangelog($id, $limit, $cursor);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DealsApi->getDealFollowersChangelog: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The ID of the deal |
+ **limit** | **int**| For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. | [optional]
+ **cursor** | **string**| For pagination, the marker (an opaque string value) representing the first item on the next page | [optional]
+
+### Return type
+
+[**\Pipedrive\versions\v2\Model\GetFollowerChangelogs**](../Model/GetFollowerChangelogs.md)
 
 ### Authorization
 

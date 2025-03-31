@@ -71,7 +71,7 @@ class ProductListItem implements ModelInterface, ArrayAccess, JsonSerializable
         'order_nr' => 'int',
         'product_id' => 'int',
         'product_variation_id' => 'int',
-        'item_price' => 'int',
+        'item_price' => 'float',
         'discount' => 'float',
         'discount_type' => 'string',
         'sum' => 'float',
@@ -531,7 +531,7 @@ class ProductListItem implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets item_price
      *
-     * @return int|null
+     * @return float|null
      */
     public function getItemPrice()
     {
@@ -541,7 +541,7 @@ class ProductListItem implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets item_price
      *
-     * @param int|null $item_price The price value of the product
+     * @param float|null $item_price The price value of the product
      *
      * @return self
      */
