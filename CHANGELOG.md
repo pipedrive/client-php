@@ -15,12 +15,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Added missing `partnership` value for user access apps list
 
 ### Added
-- Added `GET /v2/deals/installments` endpoint to fetch all installments added to a list of deals with cursor pagination
-- Added `POST /v2/deals/{id}/installments` endpoint to add an installment to a deal
-- Added `PATCH /v2/deals/{id}/installments/{installment_id}` endpoint to edit an installment
-- Added `DELETE /v2/deals/{id}/installments/{installment_id}` endpoint to delete an installment
-
-### Added
 - Notice informing the users of the upcoming Subscriptions API deprecation:
   - `GET /v1/subscriptions/{id}`
   - `GET /v1/subscriptions/find/{dealId}`
@@ -34,6 +28,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 - Updated Webhooks endpoints to v2, including available event_action and event_object properties
+
+### Added
+- Added `GET /v2/deals/installments` endpoint to fetch all installments added to a list of deals with cursor pagination
+- Added `POST /v2/deals/{id}/installments` endpoint to add an installment to a deal
+- Added `PATCH /v2/deals/{id}/installments/{installment_id}` endpoint to edit an installment
+- Added `DELETE /v2/deals/{id}/installments/{installment_id}` endpoint to delete an installment
 
 [8.1.5](https://github.com/pipedrive/client-php/compare/8.1.4...8.1.5) (2025-03-17)
 
