@@ -269,7 +269,7 @@ Class | Method | HTTP request | Description
 *ActivitiesApi* | [**deleteActivities**](Api/ActivitiesApi.md#deleteactivities) | **DELETE** /activities | Delete multiple activities in bulk
 *ActivitiesApi* | [**deleteActivity**](Api/ActivitiesApi.md#deleteactivity) | **DELETE** /activities/{id} | Delete an activity
 *ActivitiesApi* | [**getActivities**](Api/ActivitiesApi.md#getactivities) | **GET** /activities | Get all activities assigned to a particular user
-*ActivitiesApi* | [**getActivitiesCollection**](Api/ActivitiesApi.md#getactivitiescollection) | **GET** /activities/collection | Get all activities (BETA)
+*ActivitiesApi* | [**getActivitiesCollection**](Api/ActivitiesApi.md#getactivitiescollection) | **GET** /activities/collection | Get all activities collection
 *ActivitiesApi* | [**getActivity**](Api/ActivitiesApi.md#getactivity) | **GET** /activities/{id} | Get details of an activity
 *ActivitiesApi* | [**updateActivity**](Api/ActivitiesApi.md#updateactivity) | **PUT** /activities/{id} | Update an activity
 *ActivityFieldsApi* | [**getActivityFields**](Api/ActivityFieldsApi.md#getactivityfields) | **GET** /activityFields | Get all activity fields
@@ -318,7 +318,7 @@ Class | Method | HTTP request | Description
 *DealsApi* | [**getDealUpdates**](Api/DealsApi.md#getdealupdates) | **GET** /deals/{id}/flow | List updates about a deal
 *DealsApi* | [**getDealUsers**](Api/DealsApi.md#getdealusers) | **GET** /deals/{id}/permittedUsers | List permitted users
 *DealsApi* | [**getDeals**](Api/DealsApi.md#getdeals) | **GET** /deals | Get all deals
-*DealsApi* | [**getDealsCollection**](Api/DealsApi.md#getdealscollection) | **GET** /deals/collection | Get all deals (BETA)
+*DealsApi* | [**getDealsCollection**](Api/DealsApi.md#getdealscollection) | **GET** /deals/collection | Get all deals collection
 *DealsApi* | [**getDealsSummary**](Api/DealsApi.md#getdealssummary) | **GET** /deals/summary | Get deals summary
 *DealsApi* | [**getDealsTimeline**](Api/DealsApi.md#getdealstimeline) | **GET** /deals/timeline | Get deals timeline
 *DealsApi* | [**mergeDeals**](Api/DealsApi.md#mergedeals) | **PUT** /deals/{id}/merge | Merge two deals
@@ -413,7 +413,7 @@ Class | Method | HTTP request | Description
 *OrganizationsApi* | [**getOrganizationUpdates**](Api/OrganizationsApi.md#getorganizationupdates) | **GET** /organizations/{id}/flow | List updates about an organization
 *OrganizationsApi* | [**getOrganizationUsers**](Api/OrganizationsApi.md#getorganizationusers) | **GET** /organizations/{id}/permittedUsers | List permitted users
 *OrganizationsApi* | [**getOrganizations**](Api/OrganizationsApi.md#getorganizations) | **GET** /organizations | Get all organizations
-*OrganizationsApi* | [**getOrganizationsCollection**](Api/OrganizationsApi.md#getorganizationscollection) | **GET** /organizations/collection | Get all organizations (BETA)
+*OrganizationsApi* | [**getOrganizationsCollection**](Api/OrganizationsApi.md#getorganizationscollection) | **GET** /organizations/collection | Get all organizations collection
 *OrganizationsApi* | [**mergeOrganizations**](Api/OrganizationsApi.md#mergeorganizations) | **PUT** /organizations/{id}/merge | Merge two organizations
 *OrganizationsApi* | [**searchOrganization**](Api/OrganizationsApi.md#searchorganization) | **GET** /organizations/search | Search organizations
 *OrganizationsApi* | [**updateOrganization**](Api/OrganizationsApi.md#updateorganization) | **PUT** /organizations/{id} | Update an organization
@@ -444,7 +444,7 @@ Class | Method | HTTP request | Description
 *PersonsApi* | [**getPersonUpdates**](Api/PersonsApi.md#getpersonupdates) | **GET** /persons/{id}/flow | List updates about a person
 *PersonsApi* | [**getPersonUsers**](Api/PersonsApi.md#getpersonusers) | **GET** /persons/{id}/permittedUsers | List permitted users
 *PersonsApi* | [**getPersons**](Api/PersonsApi.md#getpersons) | **GET** /persons | Get all persons
-*PersonsApi* | [**getPersonsCollection**](Api/PersonsApi.md#getpersonscollection) | **GET** /persons/collection | Get all persons (BETA)
+*PersonsApi* | [**getPersonsCollection**](Api/PersonsApi.md#getpersonscollection) | **GET** /persons/collection | Get all persons collection
 *PersonsApi* | [**mergePersons**](Api/PersonsApi.md#mergepersons) | **PUT** /persons/{id}/merge | Merge two persons
 *PersonsApi* | [**searchPersons**](Api/PersonsApi.md#searchpersons) | **GET** /persons/search | Search persons
 *PersonsApi* | [**updatePerson**](Api/PersonsApi.md#updateperson) | **PUT** /persons/{id} | Update a person

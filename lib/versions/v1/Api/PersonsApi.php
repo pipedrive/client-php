@@ -132,6 +132,7 @@ class PersonsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\AddPersonResponse
+     * @deprecated
      */
     public function addPerson($new_person = null)
     {
@@ -149,6 +150,7 @@ class PersonsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\AddPersonResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function addPersonWithHttpInfo($new_person = null)
     {
@@ -249,6 +251,7 @@ class PersonsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function addPersonAsync($new_person = null): PromiseInterface
     {
@@ -269,6 +272,7 @@ class PersonsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function addPersonAsyncWithHttpInfo($new_person = null): PromiseInterface
     {
@@ -316,6 +320,7 @@ class PersonsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function addPersonRequest($new_person = null): Request
     {
@@ -1083,6 +1088,7 @@ class PersonsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\DeletePersonResponse
+     * @deprecated
      */
     public function deletePerson($id)
     {
@@ -1100,6 +1106,7 @@ class PersonsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\DeletePersonResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function deletePersonWithHttpInfo($id)
     {
@@ -1200,6 +1207,7 @@ class PersonsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function deletePersonAsync($id): PromiseInterface
     {
@@ -1220,6 +1228,7 @@ class PersonsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function deletePersonAsyncWithHttpInfo($id): PromiseInterface
     {
@@ -1267,6 +1276,7 @@ class PersonsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function deletePersonRequest($id): Request
     {
@@ -1991,6 +2001,7 @@ class PersonsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\DeletePersonsInBulkResponse
+     * @deprecated
      */
     public function deletePersons($ids)
     {
@@ -2008,6 +2019,7 @@ class PersonsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\DeletePersonsInBulkResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function deletePersonsWithHttpInfo($ids)
     {
@@ -2108,6 +2120,7 @@ class PersonsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function deletePersonsAsync($ids): PromiseInterface
     {
@@ -2128,6 +2141,7 @@ class PersonsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function deletePersonsAsyncWithHttpInfo($ids): PromiseInterface
     {
@@ -2175,6 +2189,7 @@ class PersonsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function deletePersonsRequest($ids): Request
     {
@@ -2287,6 +2302,7 @@ class PersonsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\GetPersonDetailsResponse
+     * @deprecated
      */
     public function getPerson($id)
     {
@@ -2304,6 +2320,7 @@ class PersonsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\GetPersonDetailsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getPersonWithHttpInfo($id)
     {
@@ -2404,6 +2421,7 @@ class PersonsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getPersonAsync($id): PromiseInterface
     {
@@ -2424,6 +2442,7 @@ class PersonsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getPersonAsyncWithHttpInfo($id): PromiseInterface
     {
@@ -2471,6 +2490,7 @@ class PersonsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function getPersonRequest($id): Request
     {
@@ -2587,6 +2607,7 @@ class PersonsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\ListActivitiesResponse
+     * @deprecated
      */
     public function getPersonActivities($id, $start = 0, $limit = null, $done = null, $exclude = null)
     {
@@ -2608,6 +2629,7 @@ class PersonsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\ListActivitiesResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getPersonActivitiesWithHttpInfo($id, $start = 0, $limit = null, $done = null, $exclude = null)
     {
@@ -2712,6 +2734,7 @@ class PersonsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getPersonActivitiesAsync($id, $start = 0, $limit = null, $done = null, $exclude = null): PromiseInterface
     {
@@ -2736,6 +2759,7 @@ class PersonsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getPersonActivitiesAsyncWithHttpInfo($id, $start = 0, $limit = null, $done = null, $exclude = null): PromiseInterface
     {
@@ -2787,6 +2811,7 @@ class PersonsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function getPersonActivitiesRequest($id, $start = 0, $limit = null, $done = null, $exclude = null): Request
     {
@@ -3257,6 +3282,7 @@ class PersonsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\ListDealsResponse
+     * @deprecated
      */
     public function getPersonDeals($id, $start = 0, $limit = null, $status = 'all_not_deleted', $sort = null)
     {
@@ -3278,6 +3304,7 @@ class PersonsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\ListDealsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getPersonDealsWithHttpInfo($id, $start = 0, $limit = null, $status = 'all_not_deleted', $sort = null)
     {
@@ -3382,6 +3409,7 @@ class PersonsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getPersonDealsAsync($id, $start = 0, $limit = null, $status = 'all_not_deleted', $sort = null): PromiseInterface
     {
@@ -3406,6 +3434,7 @@ class PersonsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getPersonDealsAsyncWithHttpInfo($id, $start = 0, $limit = null, $status = 'all_not_deleted', $sort = null): PromiseInterface
     {
@@ -3457,6 +3486,7 @@ class PersonsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function getPersonDealsRequest($id, $start = 0, $limit = null, $status = 'all_not_deleted', $sort = null): Request
     {
@@ -5529,6 +5559,7 @@ class PersonsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\GetAllPersonsResponse
+     * @deprecated
      */
     public function getPersons($user_id = null, $filter_id = null, $first_char = null, $start = 0, $limit = null, $sort = null)
     {
@@ -5551,6 +5582,7 @@ class PersonsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\GetAllPersonsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getPersonsWithHttpInfo($user_id = null, $filter_id = null, $first_char = null, $start = 0, $limit = null, $sort = null)
     {
@@ -5656,6 +5688,7 @@ class PersonsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getPersonsAsync($user_id = null, $filter_id = null, $first_char = null, $start = 0, $limit = null, $sort = null): PromiseInterface
     {
@@ -5681,6 +5714,7 @@ class PersonsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getPersonsAsyncWithHttpInfo($user_id = null, $filter_id = null, $first_char = null, $start = 0, $limit = null, $sort = null): PromiseInterface
     {
@@ -5733,6 +5767,7 @@ class PersonsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function getPersonsRequest($user_id = null, $filter_id = null, $first_char = null, $start = 0, $limit = null, $sort = null): Request
     {
@@ -5871,7 +5906,7 @@ class PersonsApi
     /**
      * Operation getPersonsCollection
      *
-     * Get all persons (BETA)
+     * Get all persons collection
      *
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
@@ -5883,6 +5918,7 @@ class PersonsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\InlineResponse2001|\Pipedrive\versions\v1\Model\FailResponse
+     * @deprecated
      */
     public function getPersonsCollection($cursor = null, $limit = null, $since = null, $until = null, $owner_id = null, $first_char = null)
     {
@@ -5893,7 +5929,7 @@ class PersonsApi
     /**
      * Operation getPersonsCollectionWithHttpInfo
      *
-     * Get all persons (BETA)
+     * Get all persons collection
      *
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
@@ -5905,6 +5941,7 @@ class PersonsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\InlineResponse2001|\Pipedrive\versions\v1\Model\FailResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getPersonsCollectionWithHttpInfo($cursor = null, $limit = null, $since = null, $until = null, $owner_id = null, $first_char = null)
     {
@@ -6020,7 +6057,7 @@ class PersonsApi
     /**
      * Operation getPersonsCollectionAsync
      *
-     * Get all persons (BETA)
+     * Get all persons collection
      *
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
@@ -6031,6 +6068,7 @@ class PersonsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getPersonsCollectionAsync($cursor = null, $limit = null, $since = null, $until = null, $owner_id = null, $first_char = null): PromiseInterface
     {
@@ -6045,7 +6083,7 @@ class PersonsApi
     /**
      * Operation getPersonsCollectionAsyncWithHttpInfo
      *
-     * Get all persons (BETA)
+     * Get all persons collection
      *
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
@@ -6056,6 +6094,7 @@ class PersonsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getPersonsCollectionAsyncWithHttpInfo($cursor = null, $limit = null, $since = null, $until = null, $owner_id = null, $first_char = null): PromiseInterface
     {
@@ -6108,6 +6147,7 @@ class PersonsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function getPersonsCollectionRequest($cursor = null, $limit = null, $since = null, $until = null, $owner_id = null, $first_char = null): Request
     {
@@ -6566,6 +6606,7 @@ class PersonsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\PersonSearchResponse
+     * @deprecated
      */
     public function searchPersons($term, $fields = null, $exact_match = null, $organization_id = null, $include_fields = null, $start = 0, $limit = null)
     {
@@ -6589,6 +6630,7 @@ class PersonsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\PersonSearchResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function searchPersonsWithHttpInfo($term, $fields = null, $exact_match = null, $organization_id = null, $include_fields = null, $start = 0, $limit = null)
     {
@@ -6695,6 +6737,7 @@ class PersonsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function searchPersonsAsync($term, $fields = null, $exact_match = null, $organization_id = null, $include_fields = null, $start = 0, $limit = null): PromiseInterface
     {
@@ -6721,6 +6764,7 @@ class PersonsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function searchPersonsAsyncWithHttpInfo($term, $fields = null, $exact_match = null, $organization_id = null, $include_fields = null, $start = 0, $limit = null): PromiseInterface
     {
@@ -6774,6 +6818,7 @@ class PersonsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function searchPersonsRequest($term, $fields = null, $exact_match = null, $organization_id = null, $include_fields = null, $start = 0, $limit = null): Request
     {

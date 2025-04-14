@@ -27,7 +27,7 @@ Method | HTTP request | Description
 [**getDealUpdates()**](DealsApi.md#getDealUpdates) | **GET** /deals/{id}/flow | List updates about a deal
 [**getDealUsers()**](DealsApi.md#getDealUsers) | **GET** /deals/{id}/permittedUsers | List permitted users
 [**getDeals()**](DealsApi.md#getDeals) | **GET** /deals | Get all deals
-[**getDealsCollection()**](DealsApi.md#getDealsCollection) | **GET** /deals/collection | Get all deals (BETA)
+[**getDealsCollection()**](DealsApi.md#getDealsCollection) | **GET** /deals/collection | Get all deals collection
 [**getDealsSummary()**](DealsApi.md#getDealsSummary) | **GET** /deals/summary | Get deals summary
 [**getDealsTimeline()**](DealsApi.md#getDealsTimeline) | **GET** /deals/timeline | Get deals timeline
 [**mergeDeals()**](DealsApi.md#mergeDeals) | **PUT** /deals/{id}/merge | Merge two deals
@@ -576,7 +576,7 @@ deleteDeals($ids): \Pipedrive\versions\v1\Model\DeleteMultipleDeals
 
 Delete multiple deals in bulk
 
-Marks multiple deals as deleted. After 30 days, the deals will be permanently deleted.
+Marks multiple deals as deleted. After 30 days, the deals will be permanently deleted. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#deleteDeal\" target=\"_blank\" rel=\"noopener noreferrer\">DELETE /api/v2/deals/{id}</a> instead.
 
 ### Example
 
@@ -771,7 +771,7 @@ getDealActivities($id, $start, $limit, $done, $exclude): \Pipedrive\versions\v1\
 
 List activities associated with a deal
 
-Lists activities associated with a deal.
+Lists activities associated with a deal. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Activities#getActivities\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/activities?deal_id={id}</a> instead.
 
 ### Example
 
@@ -1256,7 +1256,7 @@ getDealPersons($id, $start, $limit): \Pipedrive\versions\v1\Model\ListPersonsRes
 
 List all persons associated with a deal
 
-Lists all persons associated with a deal, regardless of whether the person is the primary contact of the deal, or added as a participant.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field.
+Lists all persons associated with a deal, regardless of whether the person is the primary contact of the deal, or added as a participant.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Persons#getPersons\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/persons?deal_id={id}</a> instead.
 
 ### Example
 
@@ -1611,9 +1611,9 @@ Name | Type | Description  | Notes
 getDealsCollection($cursor, $limit, $since, $until, $user_id, $stage_id, $status): \Pipedrive\versions\v1\Model\GetDealsCollection
 ```
 
-Get all deals (BETA)
+Get all deals collection
 
-Returns all deals. This is a cursor-paginated endpoint that is currently in BETA. For more information, please refer to our documentation on <a href=\"https://pipedrive.readme.io/docs/core-api-concepts-pagination\" target=\"_blank\" rel=\"noopener noreferrer\">pagination</a>. Please note that only global admins (those with global permissions) can access these endpoints. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>.
+Returns all deals. Please note that only global admins (those with global permissions) can access this endpoint. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDeals\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/deals</a> instead.
 
 ### Example
 

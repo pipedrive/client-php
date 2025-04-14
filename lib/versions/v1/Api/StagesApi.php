@@ -132,6 +132,7 @@ class StagesApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\GetAddUpdateStage
+     * @deprecated
      */
     public function addStage($stage = null)
     {
@@ -149,6 +150,7 @@ class StagesApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\GetAddUpdateStage, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function addStageWithHttpInfo($stage = null)
     {
@@ -249,6 +251,7 @@ class StagesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function addStageAsync($stage = null): PromiseInterface
     {
@@ -269,6 +272,7 @@ class StagesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function addStageAsyncWithHttpInfo($stage = null): PromiseInterface
     {
@@ -316,6 +320,7 @@ class StagesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function addStageRequest($stage = null): Request
     {
@@ -419,6 +424,7 @@ class StagesApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\DeleteStageResponse
+     * @deprecated
      */
     public function deleteStage($id)
     {
@@ -436,6 +442,7 @@ class StagesApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\DeleteStageResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function deleteStageWithHttpInfo($id)
     {
@@ -536,6 +543,7 @@ class StagesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function deleteStageAsync($id): PromiseInterface
     {
@@ -556,6 +564,7 @@ class StagesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function deleteStageAsyncWithHttpInfo($id): PromiseInterface
     {
@@ -603,6 +612,7 @@ class StagesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function deleteStageRequest($id): Request
     {
@@ -715,6 +725,7 @@ class StagesApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\DeleteStagesResponse
+     * @deprecated
      */
     public function deleteStages($ids)
     {
@@ -732,6 +743,7 @@ class StagesApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\DeleteStagesResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function deleteStagesWithHttpInfo($ids)
     {
@@ -832,6 +844,7 @@ class StagesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function deleteStagesAsync($ids): PromiseInterface
     {
@@ -852,6 +865,7 @@ class StagesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function deleteStagesAsyncWithHttpInfo($ids): PromiseInterface
     {
@@ -899,6 +913,7 @@ class StagesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function deleteStagesRequest($ids): Request
     {
@@ -1012,6 +1027,7 @@ class StagesApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\GetOneStage
+     * @deprecated
      */
     public function getStage($id, $everyone = null)
     {
@@ -1030,6 +1046,7 @@ class StagesApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\GetOneStage, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getStageWithHttpInfo($id, $everyone = null)
     {
@@ -1131,6 +1148,7 @@ class StagesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getStageAsync($id, $everyone = null): PromiseInterface
     {
@@ -1152,6 +1170,7 @@ class StagesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getStageAsyncWithHttpInfo($id, $everyone = null): PromiseInterface
     {
@@ -1200,6 +1219,7 @@ class StagesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function getStageRequest($id, $everyone = null): Request
     {
@@ -1325,6 +1345,7 @@ class StagesApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\GetStageDeals
+     * @deprecated
      */
     public function getStageDeals($id, $filter_id = null, $user_id = null, $everyone = null, $start = 0, $limit = null)
     {
@@ -1347,6 +1368,7 @@ class StagesApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\GetStageDeals, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getStageDealsWithHttpInfo($id, $filter_id = null, $user_id = null, $everyone = null, $start = 0, $limit = null)
     {
@@ -1452,6 +1474,7 @@ class StagesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getStageDealsAsync($id, $filter_id = null, $user_id = null, $everyone = null, $start = 0, $limit = null): PromiseInterface
     {
@@ -1477,6 +1500,7 @@ class StagesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getStageDealsAsyncWithHttpInfo($id, $filter_id = null, $user_id = null, $everyone = null, $start = 0, $limit = null): PromiseInterface
     {
@@ -1529,6 +1553,7 @@ class StagesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function getStageDealsRequest($id, $filter_id = null, $user_id = null, $everyone = null, $start = 0, $limit = null): Request
     {
@@ -1683,6 +1708,7 @@ class StagesApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\GetStages
+     * @deprecated
      */
     public function getStages($pipeline_id = null, $start = 0, $limit = null)
     {
@@ -1702,6 +1728,7 @@ class StagesApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\GetStages, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getStagesWithHttpInfo($pipeline_id = null, $start = 0, $limit = null)
     {
@@ -1804,6 +1831,7 @@ class StagesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getStagesAsync($pipeline_id = null, $start = 0, $limit = null): PromiseInterface
     {
@@ -1826,6 +1854,7 @@ class StagesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getStagesAsyncWithHttpInfo($pipeline_id = null, $start = 0, $limit = null): PromiseInterface
     {
@@ -1875,6 +1904,7 @@ class StagesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function getStagesRequest($pipeline_id = null, $start = 0, $limit = null): Request
     {
@@ -1997,6 +2027,7 @@ class StagesApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\GetAddUpdateStage
+     * @deprecated
      */
     public function updateStage($id, $update_stage_request = null)
     {
@@ -2015,6 +2046,7 @@ class StagesApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\GetAddUpdateStage, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function updateStageWithHttpInfo($id, $update_stage_request = null)
     {
@@ -2116,6 +2148,7 @@ class StagesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function updateStageAsync($id, $update_stage_request = null): PromiseInterface
     {
@@ -2137,6 +2170,7 @@ class StagesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function updateStageAsyncWithHttpInfo($id, $update_stage_request = null): PromiseInterface
     {
@@ -2185,6 +2219,7 @@ class StagesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function updateStageRequest($id, $update_stage_request = null): Request
     {

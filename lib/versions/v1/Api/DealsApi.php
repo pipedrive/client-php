@@ -132,6 +132,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\GetAddedDeal
+     * @deprecated
      */
     public function addDeal($new_deal = null)
     {
@@ -149,6 +150,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\GetAddedDeal, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function addDealWithHttpInfo($new_deal = null)
     {
@@ -249,6 +251,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function addDealAsync($new_deal = null): PromiseInterface
     {
@@ -269,6 +272,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function addDealAsyncWithHttpInfo($new_deal = null): PromiseInterface
     {
@@ -316,6 +320,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function addDealRequest($new_deal = null): Request
     {
@@ -1034,6 +1039,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\GetAddProductAttachmentDetails
+     * @deprecated
      */
     public function addDealProduct($id, $new_deal_product = null)
     {
@@ -1052,6 +1058,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\GetAddProductAttachmentDetails, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function addDealProductWithHttpInfo($id, $new_deal_product = null)
     {
@@ -1153,6 +1160,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function addDealProductAsync($id, $new_deal_product = null): PromiseInterface
     {
@@ -1174,6 +1182,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function addDealProductAsyncWithHttpInfo($id, $new_deal_product = null): PromiseInterface
     {
@@ -1222,6 +1231,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function addDealProductRequest($id, $new_deal_product = null): Request
     {
@@ -1340,6 +1350,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\DeleteDeal
+     * @deprecated
      */
     public function deleteDeal($id)
     {
@@ -1357,6 +1368,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\DeleteDeal, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function deleteDealWithHttpInfo($id)
     {
@@ -1457,6 +1469,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function deleteDealAsync($id): PromiseInterface
     {
@@ -1477,6 +1490,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function deleteDealAsyncWithHttpInfo($id): PromiseInterface
     {
@@ -1524,6 +1538,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function deleteDealRequest($id): Request
     {
@@ -2269,6 +2284,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\DeleteDealProduct
+     * @deprecated
      */
     public function deleteDealProduct($id, $product_attachment_id)
     {
@@ -2287,6 +2303,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\DeleteDealProduct, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function deleteDealProductWithHttpInfo($id, $product_attachment_id)
     {
@@ -2388,6 +2405,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function deleteDealProductAsync($id, $product_attachment_id): PromiseInterface
     {
@@ -2409,6 +2427,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function deleteDealProductAsyncWithHttpInfo($id, $product_attachment_id): PromiseInterface
     {
@@ -2457,6 +2476,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function deleteDealProductRequest($id, $product_attachment_id): Request
     {
@@ -2584,6 +2604,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\DeleteMultipleDeals
+     * @deprecated
      */
     public function deleteDeals($ids)
     {
@@ -2601,6 +2622,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\DeleteMultipleDeals, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function deleteDealsWithHttpInfo($ids)
     {
@@ -2701,6 +2723,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function deleteDealsAsync($ids): PromiseInterface
     {
@@ -2721,6 +2744,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function deleteDealsAsyncWithHttpInfo($ids): PromiseInterface
     {
@@ -2768,6 +2792,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function deleteDealsRequest($ids): Request
     {
@@ -3176,6 +3201,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\GetDeal
+     * @deprecated
      */
     public function getDeal($id)
     {
@@ -3193,6 +3219,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\GetDeal, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getDealWithHttpInfo($id)
     {
@@ -3293,6 +3320,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getDealAsync($id): PromiseInterface
     {
@@ -3313,6 +3341,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getDealAsyncWithHttpInfo($id): PromiseInterface
     {
@@ -3360,6 +3389,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function getDealRequest($id): Request
     {
@@ -3476,6 +3506,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\DealListActivitiesResponse
+     * @deprecated
      */
     public function getDealActivities($id, $start = 0, $limit = null, $done = null, $exclude = null)
     {
@@ -3497,6 +3528,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\DealListActivitiesResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getDealActivitiesWithHttpInfo($id, $start = 0, $limit = null, $done = null, $exclude = null)
     {
@@ -3601,6 +3633,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getDealActivitiesAsync($id, $start = 0, $limit = null, $done = null, $exclude = null): PromiseInterface
     {
@@ -3625,6 +3658,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getDealActivitiesAsyncWithHttpInfo($id, $start = 0, $limit = null, $done = null, $exclude = null): PromiseInterface
     {
@@ -3676,6 +3710,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function getDealActivitiesRequest($id, $start = 0, $limit = null, $done = null, $exclude = null): Request
     {
@@ -5745,6 +5780,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\ListPersonsResponse
+     * @deprecated
      */
     public function getDealPersons($id, $start = 0, $limit = null)
     {
@@ -5764,6 +5800,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\ListPersonsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getDealPersonsWithHttpInfo($id, $start = 0, $limit = null)
     {
@@ -5866,6 +5903,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getDealPersonsAsync($id, $start = 0, $limit = null): PromiseInterface
     {
@@ -5888,6 +5926,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getDealPersonsAsyncWithHttpInfo($id, $start = 0, $limit = null): PromiseInterface
     {
@@ -5937,6 +5976,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function getDealPersonsRequest($id, $start = 0, $limit = null): Request
     {
@@ -6068,6 +6108,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\ListProductsResponse
+     * @deprecated
      */
     public function getDealProducts($id, $start = 0, $limit = null, $include_product_data = null)
     {
@@ -6088,6 +6129,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\ListProductsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getDealProductsWithHttpInfo($id, $start = 0, $limit = null, $include_product_data = null)
     {
@@ -6191,6 +6233,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getDealProductsAsync($id, $start = 0, $limit = null, $include_product_data = null): PromiseInterface
     {
@@ -6214,6 +6257,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getDealProductsAsyncWithHttpInfo($id, $start = 0, $limit = null, $include_product_data = null): PromiseInterface
     {
@@ -6264,6 +6308,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function getDealProductsRequest($id, $start = 0, $limit = null, $include_product_data = null): Request
     {
@@ -7051,6 +7096,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\GetDeals
+     * @deprecated
      */
     public function getDeals($user_id = null, $filter_id = null, $stage_id = null, $status = 'all_not_deleted', $start = 0, $limit = null, $sort = null, $owned_by_you = null)
     {
@@ -7075,6 +7121,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\GetDeals, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getDealsWithHttpInfo($user_id = null, $filter_id = null, $stage_id = null, $status = 'all_not_deleted', $start = 0, $limit = null, $sort = null, $owned_by_you = null)
     {
@@ -7182,6 +7229,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getDealsAsync($user_id = null, $filter_id = null, $stage_id = null, $status = 'all_not_deleted', $start = 0, $limit = null, $sort = null, $owned_by_you = null): PromiseInterface
     {
@@ -7209,6 +7257,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getDealsAsyncWithHttpInfo($user_id = null, $filter_id = null, $stage_id = null, $status = 'all_not_deleted', $start = 0, $limit = null, $sort = null, $owned_by_you = null): PromiseInterface
     {
@@ -7263,6 +7312,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function getDealsRequest($user_id = null, $filter_id = null, $stage_id = null, $status = 'all_not_deleted', $start = 0, $limit = null, $sort = null, $owned_by_you = null): Request
     {
@@ -7417,7 +7467,7 @@ class DealsApi
     /**
      * Operation getDealsCollection
      *
-     * Get all deals (BETA)
+     * Get all deals collection
      *
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
@@ -7430,6 +7480,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\GetDealsCollection|\Pipedrive\versions\v1\Model\FailResponse
+     * @deprecated
      */
     public function getDealsCollection($cursor = null, $limit = null, $since = null, $until = null, $user_id = null, $stage_id = null, $status = null)
     {
@@ -7440,7 +7491,7 @@ class DealsApi
     /**
      * Operation getDealsCollectionWithHttpInfo
      *
-     * Get all deals (BETA)
+     * Get all deals collection
      *
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
@@ -7453,6 +7504,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\GetDealsCollection|\Pipedrive\versions\v1\Model\FailResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getDealsCollectionWithHttpInfo($cursor = null, $limit = null, $since = null, $until = null, $user_id = null, $stage_id = null, $status = null)
     {
@@ -7568,7 +7620,7 @@ class DealsApi
     /**
      * Operation getDealsCollectionAsync
      *
-     * Get all deals (BETA)
+     * Get all deals collection
      *
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
@@ -7580,6 +7632,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getDealsCollectionAsync($cursor = null, $limit = null, $since = null, $until = null, $user_id = null, $stage_id = null, $status = null): PromiseInterface
     {
@@ -7594,7 +7647,7 @@ class DealsApi
     /**
      * Operation getDealsCollectionAsyncWithHttpInfo
      *
-     * Get all deals (BETA)
+     * Get all deals collection
      *
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
@@ -7606,6 +7659,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getDealsCollectionAsyncWithHttpInfo($cursor = null, $limit = null, $since = null, $until = null, $user_id = null, $stage_id = null, $status = null): PromiseInterface
     {
@@ -7659,6 +7713,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function getDealsCollectionRequest($cursor = null, $limit = null, $since = null, $until = null, $user_id = null, $stage_id = null, $status = null): Request
     {
@@ -8889,6 +8944,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\DealSearchResponse
+     * @deprecated
      */
     public function searchDeals($term, $fields = null, $exact_match = null, $person_id = null, $organization_id = null, $status = null, $include_fields = null, $start = 0, $limit = null)
     {
@@ -8914,6 +8970,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\DealSearchResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function searchDealsWithHttpInfo($term, $fields = null, $exact_match = null, $person_id = null, $organization_id = null, $status = null, $include_fields = null, $start = 0, $limit = null)
     {
@@ -9022,6 +9079,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function searchDealsAsync($term, $fields = null, $exact_match = null, $person_id = null, $organization_id = null, $status = null, $include_fields = null, $start = 0, $limit = null): PromiseInterface
     {
@@ -9050,6 +9108,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function searchDealsAsyncWithHttpInfo($term, $fields = null, $exact_match = null, $person_id = null, $organization_id = null, $status = null, $include_fields = null, $start = 0, $limit = null): PromiseInterface
     {
@@ -9105,6 +9164,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function searchDealsRequest($term, $fields = null, $exact_match = null, $person_id = null, $organization_id = null, $status = null, $include_fields = null, $start = 0, $limit = null): Request
     {
@@ -9282,6 +9342,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\GetAddedDeal
+     * @deprecated
      */
     public function updateDeal($id, $update_deal_request = null)
     {
@@ -9300,6 +9361,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\GetAddedDeal, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function updateDealWithHttpInfo($id, $update_deal_request = null)
     {
@@ -9401,6 +9463,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function updateDealAsync($id, $update_deal_request = null): PromiseInterface
     {
@@ -9422,6 +9485,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function updateDealAsyncWithHttpInfo($id, $update_deal_request = null): PromiseInterface
     {
@@ -9470,6 +9534,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function updateDealRequest($id, $update_deal_request = null): Request
     {
@@ -9590,6 +9655,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\GetProductAttachmentDetails
+     * @deprecated
      */
     public function updateDealProduct($id, $product_attachment_id, $update_deal_product = null)
     {
@@ -9609,6 +9675,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\GetProductAttachmentDetails, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function updateDealProductWithHttpInfo($id, $product_attachment_id, $update_deal_product = null)
     {
@@ -9711,6 +9778,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function updateDealProductAsync($id, $product_attachment_id, $update_deal_product = null): PromiseInterface
     {
@@ -9733,6 +9801,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function updateDealProductAsyncWithHttpInfo($id, $product_attachment_id, $update_deal_product = null): PromiseInterface
     {
@@ -9782,6 +9851,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function updateDealProductRequest($id, $product_attachment_id, $update_deal_product = null): Request
     {
