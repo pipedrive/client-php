@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**deleteActivities()**](ActivitiesApi.md#deleteActivities) | **DELETE** /activities | Delete multiple activities in bulk
 [**deleteActivity()**](ActivitiesApi.md#deleteActivity) | **DELETE** /activities/{id} | Delete an activity
 [**getActivities()**](ActivitiesApi.md#getActivities) | **GET** /activities | Get all activities assigned to a particular user
-[**getActivitiesCollection()**](ActivitiesApi.md#getActivitiesCollection) | **GET** /activities/collection | Get all activities (BETA)
+[**getActivitiesCollection()**](ActivitiesApi.md#getActivitiesCollection) | **GET** /activities/collection | Get all activities collection
 [**getActivity()**](ActivitiesApi.md#getActivity) | **GET** /activities/{id} | Get details of an activity
 [**updateActivity()**](ActivitiesApi.md#updateActivity) | **PUT** /activities/{id} | Update an activity
 
@@ -86,7 +86,7 @@ deleteActivities($ids): \Pipedrive\versions\v1\Model\DeleteActivitiesResponse
 
 Delete multiple activities in bulk
 
-Marks multiple activities as deleted. After 30 days, the activities will be permanently deleted.
+Marks multiple activities as deleted. After 30 days, the activities will be permanently deleted. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Activities#deleteActivity\" target=\"_blank\" rel=\"noopener noreferrer\">DELETE /api/v2/activities/{id}</a> instead.
 
 ### Example
 
@@ -293,9 +293,9 @@ Name | Type | Description  | Notes
 getActivitiesCollection($cursor, $limit, $since, $until, $user_id, $done, $type): \Pipedrive\versions\v1\Model\GetActivitiesCollectionResponse
 ```
 
-Get all activities (BETA)
+Get all activities collection
 
-Returns all activities. This is a cursor-paginated endpoint that is currently in BETA. For more information, please refer to our documentation on <a href=\"https://pipedrive.readme.io/docs/core-api-concepts-pagination\" target=\"_blank\" rel=\"noopener noreferrer\">pagination</a>. Please note that only global admins (those with global permissions) can access these endpoints. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>.
+Returns all activities. Please note that only global admins (those with global permissions) can access this endpoint. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Activities#getActivities\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/activities</a> instead.
 
 ### Example
 

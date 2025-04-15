@@ -22,7 +22,7 @@ Method | HTTP request | Description
 [**getPersonUpdates()**](PersonsApi.md#getPersonUpdates) | **GET** /persons/{id}/flow | List updates about a person
 [**getPersonUsers()**](PersonsApi.md#getPersonUsers) | **GET** /persons/{id}/permittedUsers | List permitted users
 [**getPersons()**](PersonsApi.md#getPersons) | **GET** /persons | Get all persons
-[**getPersonsCollection()**](PersonsApi.md#getPersonsCollection) | **GET** /persons/collection | Get all persons (BETA)
+[**getPersonsCollection()**](PersonsApi.md#getPersonsCollection) | **GET** /persons/collection | Get all persons collection
 [**mergePersons()**](PersonsApi.md#mergePersons) | **PUT** /persons/{id}/merge | Merge two persons
 [**searchPersons()**](PersonsApi.md#searchPersons) | **GET** /persons/search | Search persons
 [**updatePerson()**](PersonsApi.md#updatePerson) | **PUT** /persons/{id} | Update a person
@@ -440,7 +440,7 @@ deletePersons($ids): \Pipedrive\versions\v1\Model\DeletePersonsInBulkResponse
 
 Delete multiple persons in bulk
 
-Marks multiple persons as deleted. After 30 days, the persons will be permanently deleted.
+Marks multiple persons as deleted. After 30 days, the persons will be permanently deleted. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Persons#deletePerson\" target=\"_blank\" rel=\"noopener noreferrer\">DELETE /api/v2/persons/{id}</a> instead.
 
 ### Example
 
@@ -570,7 +570,7 @@ getPersonActivities($id, $start, $limit, $done, $exclude): \Pipedrive\versions\v
 
 List activities associated with a person
 
-Lists activities associated with a person.
+Lists activities associated with a person. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Activities#getActivities\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/activities?person_id={id}</a> instead.
 
 ### Example
 
@@ -712,7 +712,7 @@ getPersonDeals($id, $start, $limit, $status, $sort): \Pipedrive\versions\v1\Mode
 
 List deals associated with a person
 
-Lists deals associated with a person.
+Lists deals associated with a person. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDeals\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/deals?person_id={id}</a> instead.
 
 ### Example
 
@@ -1270,9 +1270,9 @@ Name | Type | Description  | Notes
 getPersonsCollection($cursor, $limit, $since, $until, $owner_id, $first_char): \Pipedrive\versions\v1\Model\InlineResponse2001
 ```
 
-Get all persons (BETA)
+Get all persons collection
 
-Returns all persons. This is a cursor-paginated endpoint that is currently in BETA. For more information, please refer to our documentation on <a href=\"https://pipedrive.readme.io/docs/core-api-concepts-pagination\" target=\"_blank\" rel=\"noopener noreferrer\">pagination</a>. Please note that only global admins (those with global permissions) can access these endpoints. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>.
+Returns all persons. Please note that only global admins (those with global permissions) can access this endpoint. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Persons#getPersons\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/persons</a> instead.
 
 ### Example
 

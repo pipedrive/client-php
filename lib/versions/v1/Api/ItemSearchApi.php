@@ -139,6 +139,7 @@ class ItemSearchApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\ItemSearchResponse
+     * @deprecated
      */
     public function searchItem($term, $item_types = null, $fields = null, $search_for_related_items = null, $exact_match = null, $include_fields = null, $start = 0, $limit = null)
     {
@@ -163,6 +164,7 @@ class ItemSearchApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\ItemSearchResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function searchItemWithHttpInfo($term, $item_types = null, $fields = null, $search_for_related_items = null, $exact_match = null, $include_fields = null, $start = 0, $limit = null)
     {
@@ -270,6 +272,7 @@ class ItemSearchApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function searchItemAsync($term, $item_types = null, $fields = null, $search_for_related_items = null, $exact_match = null, $include_fields = null, $start = 0, $limit = null): PromiseInterface
     {
@@ -297,6 +300,7 @@ class ItemSearchApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function searchItemAsyncWithHttpInfo($term, $item_types = null, $fields = null, $search_for_related_items = null, $exact_match = null, $include_fields = null, $start = 0, $limit = null): PromiseInterface
     {
@@ -351,6 +355,7 @@ class ItemSearchApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function searchItemRequest($term, $item_types = null, $fields = null, $search_for_related_items = null, $exact_match = null, $include_fields = null, $start = 0, $limit = null): Request
     {
@@ -525,6 +530,7 @@ class ItemSearchApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\ItemSearchFieldResponse
+     * @deprecated
      */
     public function searchItemByField($term, $field_type, $field_key, $exact_match = false, $return_item_ids = null, $start = null, $limit = null)
     {
@@ -548,6 +554,7 @@ class ItemSearchApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\ItemSearchFieldResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function searchItemByFieldWithHttpInfo($term, $field_type, $field_key, $exact_match = false, $return_item_ids = null, $start = null, $limit = null)
     {
@@ -654,6 +661,7 @@ class ItemSearchApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function searchItemByFieldAsync($term, $field_type, $field_key, $exact_match = false, $return_item_ids = null, $start = null, $limit = null): PromiseInterface
     {
@@ -680,6 +688,7 @@ class ItemSearchApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function searchItemByFieldAsyncWithHttpInfo($term, $field_type, $field_key, $exact_match = false, $return_item_ids = null, $start = null, $limit = null): PromiseInterface
     {
@@ -733,6 +742,7 @@ class ItemSearchApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function searchItemByFieldRequest($term, $field_type, $field_key, $exact_match = false, $return_item_ids = null, $start = null, $limit = null): Request
     {

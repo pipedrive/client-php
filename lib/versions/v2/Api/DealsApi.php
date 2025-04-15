@@ -2880,6 +2880,490 @@ class DealsApi
     }
 
     /**
+     * Operation getArchivedDeals
+     *
+     * Get all archived deals
+     *
+     * @param  int|null $filter_id If supplied, only deals matching the specified filter are returned (optional)
+     * @param  string|null $ids Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
+     * @param  int|null $owner_id If supplied, only deals owned by the specified user are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  int|null $person_id If supplied, only deals linked to the specified person are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  int|null $org_id If supplied, only deals linked to the specified organization are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  int|null $pipeline_id If supplied, only deals in the specified pipeline are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  int|null $stage_id If supplied, only deals in the specified stage are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  string|null $status Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included. Multiple statuses can be included as a comma separated array. If filter_id is provided, this is ignored. (optional)
+     * @param  string|null $updated_since If set, only deals with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z. (optional)
+     * @param  string|null $updated_until If set, only deals with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z. (optional)
+     * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;. (optional, default to 'id')
+     * @param  string|'asc' $sort_direction The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;. (optional, default to 'asc')
+     * @param  string|null $include_fields Optional comma separated string array of additional fields to include (optional)
+     * @param  string|null $custom_fields Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
+     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
+     * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException|GuzzleException
+     * @return \Pipedrive\versions\v2\Model\GetDeals
+     */
+    public function getArchivedDeals($filter_id = null, $ids = null, $owner_id = null, $person_id = null, $org_id = null, $pipeline_id = null, $stage_id = null, $status = null, $updated_since = null, $updated_until = null, $sort_by = 'id', $sort_direction = 'asc', $include_fields = null, $custom_fields = null, $limit = null, $cursor = null)
+    {
+        list($response) = $this->getArchivedDealsWithHttpInfo($filter_id, $ids, $owner_id, $person_id, $org_id, $pipeline_id, $stage_id, $status, $updated_since, $updated_until, $sort_by, $sort_direction, $include_fields, $custom_fields, $limit, $cursor);
+        return $response;
+    }
+
+    /**
+     * Operation getArchivedDealsWithHttpInfo
+     *
+     * Get all archived deals
+     *
+     * @param  int|null $filter_id If supplied, only deals matching the specified filter are returned (optional)
+     * @param  string|null $ids Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
+     * @param  int|null $owner_id If supplied, only deals owned by the specified user are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  int|null $person_id If supplied, only deals linked to the specified person are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  int|null $org_id If supplied, only deals linked to the specified organization are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  int|null $pipeline_id If supplied, only deals in the specified pipeline are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  int|null $stage_id If supplied, only deals in the specified stage are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  string|null $status Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included. Multiple statuses can be included as a comma separated array. If filter_id is provided, this is ignored. (optional)
+     * @param  string|null $updated_since If set, only deals with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z. (optional)
+     * @param  string|null $updated_until If set, only deals with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z. (optional)
+     * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;. (optional, default to 'id')
+     * @param  string|'asc' $sort_direction The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;. (optional, default to 'asc')
+     * @param  string|null $include_fields Optional comma separated string array of additional fields to include (optional)
+     * @param  string|null $custom_fields Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
+     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
+     * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException|GuzzleException
+     * @return array<mixed> of \Pipedrive\versions\v2\Model\GetDeals, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getArchivedDealsWithHttpInfo($filter_id = null, $ids = null, $owner_id = null, $person_id = null, $org_id = null, $pipeline_id = null, $stage_id = null, $status = null, $updated_since = null, $updated_until = null, $sort_by = 'id', $sort_direction = 'asc', $include_fields = null, $custom_fields = null, $limit = null, $cursor = null)
+    {
+        $request = $this->getArchivedDealsRequest($filter_id, $ids, $owner_id, $person_id, $org_id, $pipeline_id, $stage_id, $status, $updated_since, $updated_until, $sort_by, $sort_direction, $include_fields, $custom_fields, $limit, $cursor);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                if ($e->getCode() === 401 && $this->config->isRefreshPossible()) {
+                    $this->config->refreshToken();
+                    $request = $this->getArchivedDealsRequest($filter_id, $ids, $owner_id, $person_id, $org_id, $pipeline_id, $stage_id, $status, $updated_since, $updated_until, $sort_by, $sort_direction, $include_fields, $custom_fields, $limit, $cursor);
+                    $response = $this->client->send($request, $options);
+                } else {
+                    throw new ApiException(
+                        "[{$e->getCode()}] {$e->getMessage()}",
+                        (int) $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    );
+                }
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    /* @phpstan-ignore-next-line */
+                    if ('\Pipedrive\versions\v2\Model\GetDeals' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Pipedrive\versions\v2\Model\GetDeals', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            /* @phpstan-ignore-next-line */
+            if ('\Pipedrive\versions\v2\Model\GetDeals' === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, '\Pipedrive\versions\v2\Model\GetDeals', []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pipedrive\versions\v2\Model\GetDeals',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getArchivedDealsAsync
+     *
+     * Get all archived deals
+     *
+     * @param  int|null $filter_id If supplied, only deals matching the specified filter are returned (optional)
+     * @param  string|null $ids Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
+     * @param  int|null $owner_id If supplied, only deals owned by the specified user are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  int|null $person_id If supplied, only deals linked to the specified person are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  int|null $org_id If supplied, only deals linked to the specified organization are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  int|null $pipeline_id If supplied, only deals in the specified pipeline are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  int|null $stage_id If supplied, only deals in the specified stage are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  string|null $status Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included. Multiple statuses can be included as a comma separated array. If filter_id is provided, this is ignored. (optional)
+     * @param  string|null $updated_since If set, only deals with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z. (optional)
+     * @param  string|null $updated_until If set, only deals with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z. (optional)
+     * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;. (optional, default to 'id')
+     * @param  string|'asc' $sort_direction The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;. (optional, default to 'asc')
+     * @param  string|null $include_fields Optional comma separated string array of additional fields to include (optional)
+     * @param  string|null $custom_fields Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
+     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
+     * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
+     *
+     * @throws InvalidArgumentException|OAuthProviderException
+     * @return PromiseInterface
+     */
+    public function getArchivedDealsAsync($filter_id = null, $ids = null, $owner_id = null, $person_id = null, $org_id = null, $pipeline_id = null, $stage_id = null, $status = null, $updated_since = null, $updated_until = null, $sort_by = 'id', $sort_direction = 'asc', $include_fields = null, $custom_fields = null, $limit = null, $cursor = null): PromiseInterface
+    {
+        return $this->getArchivedDealsAsyncWithHttpInfo($filter_id, $ids, $owner_id, $person_id, $org_id, $pipeline_id, $stage_id, $status, $updated_since, $updated_until, $sort_by, $sort_direction, $include_fields, $custom_fields, $limit, $cursor)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getArchivedDealsAsyncWithHttpInfo
+     *
+     * Get all archived deals
+     *
+     * @param  int|null $filter_id If supplied, only deals matching the specified filter are returned (optional)
+     * @param  string|null $ids Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
+     * @param  int|null $owner_id If supplied, only deals owned by the specified user are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  int|null $person_id If supplied, only deals linked to the specified person are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  int|null $org_id If supplied, only deals linked to the specified organization are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  int|null $pipeline_id If supplied, only deals in the specified pipeline are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  int|null $stage_id If supplied, only deals in the specified stage are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  string|null $status Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included. Multiple statuses can be included as a comma separated array. If filter_id is provided, this is ignored. (optional)
+     * @param  string|null $updated_since If set, only deals with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z. (optional)
+     * @param  string|null $updated_until If set, only deals with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z. (optional)
+     * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;. (optional, default to 'id')
+     * @param  string|'asc' $sort_direction The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;. (optional, default to 'asc')
+     * @param  string|null $include_fields Optional comma separated string array of additional fields to include (optional)
+     * @param  string|null $custom_fields Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
+     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
+     * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
+     *
+     * @throws InvalidArgumentException|OAuthProviderException
+     * @return PromiseInterface
+     */
+    public function getArchivedDealsAsyncWithHttpInfo($filter_id = null, $ids = null, $owner_id = null, $person_id = null, $org_id = null, $pipeline_id = null, $stage_id = null, $status = null, $updated_since = null, $updated_until = null, $sort_by = 'id', $sort_direction = 'asc', $include_fields = null, $custom_fields = null, $limit = null, $cursor = null): PromiseInterface
+    {
+        $returnType = '\Pipedrive\versions\v2\Model\GetDeals';
+        $request = $this->getArchivedDealsRequest($filter_id, $ids, $owner_id, $person_id, $org_id, $pipeline_id, $stage_id, $status, $updated_since, $updated_until, $sort_by, $sort_direction, $include_fields, $custom_fields, $limit, $cursor);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    /* @phpstan-ignore-next-line */
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getArchivedDeals'
+     *
+     * @param  int|null $filter_id If supplied, only deals matching the specified filter are returned (optional)
+     * @param  string|null $ids Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
+     * @param  int|null $owner_id If supplied, only deals owned by the specified user are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  int|null $person_id If supplied, only deals linked to the specified person are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  int|null $org_id If supplied, only deals linked to the specified organization are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  int|null $pipeline_id If supplied, only deals in the specified pipeline are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  int|null $stage_id If supplied, only deals in the specified stage are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  string|null $status Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included. Multiple statuses can be included as a comma separated array. If filter_id is provided, this is ignored. (optional)
+     * @param  string|null $updated_since If set, only deals with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z. (optional)
+     * @param  string|null $updated_until If set, only deals with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z. (optional)
+     * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;. (optional, default to 'id')
+     * @param  string|'asc' $sort_direction The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;. (optional, default to 'asc')
+     * @param  string|null $include_fields Optional comma separated string array of additional fields to include (optional)
+     * @param  string|null $custom_fields Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
+     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
+     * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
+     *
+     * @throws InvalidArgumentException|OAuthProviderException
+     * @return Request
+     */
+    public function getArchivedDealsRequest($filter_id = null, $ids = null, $owner_id = null, $person_id = null, $org_id = null, $pipeline_id = null, $stage_id = null, $status = null, $updated_since = null, $updated_until = null, $sort_by = 'id', $sort_direction = 'asc', $include_fields = null, $custom_fields = null, $limit = null, $cursor = null): Request
+    {
+
+        $resourcePath = '/deals/archived';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($filter_id)) {
+            $filter_id = ObjectSerializer::serializeCollection($filter_id, '', true);
+        }
+        if ($filter_id !== null) {
+            $queryParams['filter_id'] = $filter_id;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($ids)) {
+            $ids = ObjectSerializer::serializeCollection($ids, '', true);
+        }
+        if ($ids !== null) {
+            $queryParams['ids'] = $ids;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($owner_id)) {
+            $owner_id = ObjectSerializer::serializeCollection($owner_id, '', true);
+        }
+        if ($owner_id !== null) {
+            $queryParams['owner_id'] = $owner_id;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($person_id)) {
+            $person_id = ObjectSerializer::serializeCollection($person_id, '', true);
+        }
+        if ($person_id !== null) {
+            $queryParams['person_id'] = $person_id;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($org_id)) {
+            $org_id = ObjectSerializer::serializeCollection($org_id, '', true);
+        }
+        if ($org_id !== null) {
+            $queryParams['org_id'] = $org_id;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($pipeline_id)) {
+            $pipeline_id = ObjectSerializer::serializeCollection($pipeline_id, '', true);
+        }
+        if ($pipeline_id !== null) {
+            $queryParams['pipeline_id'] = $pipeline_id;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($stage_id)) {
+            $stage_id = ObjectSerializer::serializeCollection($stage_id, '', true);
+        }
+        if ($stage_id !== null) {
+            $queryParams['stage_id'] = $stage_id;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($status)) {
+            $status = ObjectSerializer::serializeCollection($status, '', true);
+        }
+        if ($status !== null) {
+            $queryParams['status'] = $status;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($updated_since)) {
+            $updated_since = ObjectSerializer::serializeCollection($updated_since, '', true);
+        }
+        if ($updated_since !== null) {
+            $queryParams['updated_since'] = $updated_since;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($updated_until)) {
+            $updated_until = ObjectSerializer::serializeCollection($updated_until, '', true);
+        }
+        if ($updated_until !== null) {
+            $queryParams['updated_until'] = $updated_until;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($sort_by)) {
+            $sort_by = ObjectSerializer::serializeCollection($sort_by, '', true);
+        }
+        if ($sort_by !== null) {
+            $queryParams['sort_by'] = $sort_by;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($sort_direction)) {
+            $sort_direction = ObjectSerializer::serializeCollection($sort_direction, '', true);
+        }
+        if ($sort_direction !== null) {
+            $queryParams['sort_direction'] = $sort_direction;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($include_fields)) {
+            $include_fields = ObjectSerializer::serializeCollection($include_fields, '', true);
+        }
+        if ($include_fields !== null) {
+            $queryParams['include_fields'] = $include_fields;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($custom_fields)) {
+            $custom_fields = ObjectSerializer::serializeCollection($custom_fields, '', true);
+        }
+        if ($custom_fields !== null) {
+            $queryParams['custom_fields'] = $custom_fields;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($limit)) {
+            $limit = ObjectSerializer::serializeCollection($limit, '', true);
+        }
+        if ($limit !== null) {
+            $queryParams['limit'] = $limit;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($cursor)) {
+            $cursor = ObjectSerializer::serializeCollection($cursor, '', true);
+        }
+        if ($cursor !== null) {
+            $queryParams['cursor'] = $cursor;
+        }
+
+
+
+
+        /* @phpstan-ignore-next-line */
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            /* @phpstan-ignore-next-line */
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = Utils::jsonEncode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('api_token');
+        if ($apiKey !== null) {
+            $queryParams['api_token'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            // If access token is expired
+            if ($this->config->isRefreshPossible() && $this->config->getExpiresAt() <= time()) {
+                $this->config->refreshToken();
+            }
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = Query::build($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation getDeal
      *
      * Get details of a deal

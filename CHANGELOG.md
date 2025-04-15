@@ -5,6 +5,22 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Added archived deals/leads endpoints:
+  - `GET /v1/deals/archived`
+  - `GET /v2/deals/archived`
+  - `GET /v1/deals/timeline/archived`
+  - `GET /v1/deals/summary/archived`
+  - `GET /v1/leads/archived`
+- Added `is_archived` and `archive_time` properties to deals endpoints response
+### Changed
+- Updated non archived deals/leads endpoint description to specify that following endpoints do not return archived items:
+  - `GET /v1/deals`
+  - `GET /v2/deals`
+  - `GET /v1/deals/timeline`
+  - `GET /v1/deals/summary`
+  - `GET /v1/leads`
+- Removed deprecated `archived_status` query parameter from leads endpoints
 
 [9.0.0](https://github.com/pipedrive/client-php/compare/8.1.5...9.0.0) (2025-03-31)
 
