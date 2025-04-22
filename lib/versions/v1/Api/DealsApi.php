@@ -132,6 +132,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\GetAddedDeal
+     * @deprecated
      */
     public function addDeal($new_deal = null)
     {
@@ -149,6 +150,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\GetAddedDeal, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function addDealWithHttpInfo($new_deal = null)
     {
@@ -249,6 +251,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function addDealAsync($new_deal = null): PromiseInterface
     {
@@ -269,6 +272,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function addDealAsyncWithHttpInfo($new_deal = null): PromiseInterface
     {
@@ -316,6 +320,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function addDealRequest($new_deal = null): Request
     {
@@ -1034,6 +1039,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\GetAddProductAttachmentDetails
+     * @deprecated
      */
     public function addDealProduct($id, $new_deal_product = null)
     {
@@ -1052,6 +1058,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\GetAddProductAttachmentDetails, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function addDealProductWithHttpInfo($id, $new_deal_product = null)
     {
@@ -1153,6 +1160,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function addDealProductAsync($id, $new_deal_product = null): PromiseInterface
     {
@@ -1174,6 +1182,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function addDealProductAsyncWithHttpInfo($id, $new_deal_product = null): PromiseInterface
     {
@@ -1222,6 +1231,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function addDealProductRequest($id, $new_deal_product = null): Request
     {
@@ -1340,6 +1350,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\DeleteDeal
+     * @deprecated
      */
     public function deleteDeal($id)
     {
@@ -1357,6 +1368,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\DeleteDeal, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function deleteDealWithHttpInfo($id)
     {
@@ -1457,6 +1469,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function deleteDealAsync($id): PromiseInterface
     {
@@ -1477,6 +1490,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function deleteDealAsyncWithHttpInfo($id): PromiseInterface
     {
@@ -1524,6 +1538,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function deleteDealRequest($id): Request
     {
@@ -2269,6 +2284,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\DeleteDealProduct
+     * @deprecated
      */
     public function deleteDealProduct($id, $product_attachment_id)
     {
@@ -2287,6 +2303,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\DeleteDealProduct, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function deleteDealProductWithHttpInfo($id, $product_attachment_id)
     {
@@ -2388,6 +2405,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function deleteDealProductAsync($id, $product_attachment_id): PromiseInterface
     {
@@ -2409,6 +2427,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function deleteDealProductAsyncWithHttpInfo($id, $product_attachment_id): PromiseInterface
     {
@@ -2457,6 +2476,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function deleteDealProductRequest($id, $product_attachment_id): Request
     {
@@ -2584,6 +2604,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\DeleteMultipleDeals
+     * @deprecated
      */
     public function deleteDeals($ids)
     {
@@ -2601,6 +2622,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\DeleteMultipleDeals, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function deleteDealsWithHttpInfo($ids)
     {
@@ -2701,6 +2723,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function deleteDealsAsync($ids): PromiseInterface
     {
@@ -2721,6 +2744,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function deleteDealsAsyncWithHttpInfo($ids): PromiseInterface
     {
@@ -2768,6 +2792,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function deleteDealsRequest($ids): Request
     {
@@ -3167,6 +3192,1215 @@ class DealsApi
     }
 
     /**
+     * Operation getArchivedDeals
+     *
+     * Get all archived deals
+     *
+     * @param  int|null $user_id If supplied, only deals matching the given user will be returned. However, &#x60;filter_id&#x60; and &#x60;owned_by_you&#x60; takes precedence over &#x60;user_id&#x60; when supplied. (optional)
+     * @param  int|null $filter_id The ID of the filter to use (optional)
+     * @param  int|null $person_id If supplied, only deals linked to the specified person are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  int|null $org_id If supplied, only deals linked to the specified organization are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  int|null $product_id If supplied, only deals linked to the specified product are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  int|null $pipeline_id If supplied, only deals in the specified pipeline are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  int|null $stage_id If supplied, only deals in the specified stage are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  string|'all_not_deleted' $status Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included. (optional, default to 'all_not_deleted')
+     * @param  int|0 $start Pagination start (optional, default to 0)
+     * @param  int|null $limit Items shown per page (optional)
+     * @param  string|null $sort The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). (optional)
+     * @param  \Pipedrive\versions\v1\Model\NumberBoolean|null $owned_by_you When supplied, only deals owned by you are returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;owned_by_you&#x60; when both are supplied. (optional)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException|GuzzleException
+     * @return \Pipedrive\versions\v1\Model\GetDeals
+     * @deprecated
+     */
+    public function getArchivedDeals($user_id = null, $filter_id = null, $person_id = null, $org_id = null, $product_id = null, $pipeline_id = null, $stage_id = null, $status = 'all_not_deleted', $start = 0, $limit = null, $sort = null, $owned_by_you = null)
+    {
+        list($response) = $this->getArchivedDealsWithHttpInfo($user_id, $filter_id, $person_id, $org_id, $product_id, $pipeline_id, $stage_id, $status, $start, $limit, $sort, $owned_by_you);
+        return $response;
+    }
+
+    /**
+     * Operation getArchivedDealsWithHttpInfo
+     *
+     * Get all archived deals
+     *
+     * @param  int|null $user_id If supplied, only deals matching the given user will be returned. However, &#x60;filter_id&#x60; and &#x60;owned_by_you&#x60; takes precedence over &#x60;user_id&#x60; when supplied. (optional)
+     * @param  int|null $filter_id The ID of the filter to use (optional)
+     * @param  int|null $person_id If supplied, only deals linked to the specified person are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  int|null $org_id If supplied, only deals linked to the specified organization are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  int|null $product_id If supplied, only deals linked to the specified product are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  int|null $pipeline_id If supplied, only deals in the specified pipeline are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  int|null $stage_id If supplied, only deals in the specified stage are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  string|'all_not_deleted' $status Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included. (optional, default to 'all_not_deleted')
+     * @param  int|0 $start Pagination start (optional, default to 0)
+     * @param  int|null $limit Items shown per page (optional)
+     * @param  string|null $sort The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). (optional)
+     * @param  \Pipedrive\versions\v1\Model\NumberBoolean|null $owned_by_you When supplied, only deals owned by you are returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;owned_by_you&#x60; when both are supplied. (optional)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException|GuzzleException
+     * @return array<mixed> of \Pipedrive\versions\v1\Model\GetDeals, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
+     */
+    public function getArchivedDealsWithHttpInfo($user_id = null, $filter_id = null, $person_id = null, $org_id = null, $product_id = null, $pipeline_id = null, $stage_id = null, $status = 'all_not_deleted', $start = 0, $limit = null, $sort = null, $owned_by_you = null)
+    {
+        $request = $this->getArchivedDealsRequest($user_id, $filter_id, $person_id, $org_id, $product_id, $pipeline_id, $stage_id, $status, $start, $limit, $sort, $owned_by_you);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                if ($e->getCode() === 401 && $this->config->isRefreshPossible()) {
+                    $this->config->refreshToken();
+                    $request = $this->getArchivedDealsRequest($user_id, $filter_id, $person_id, $org_id, $product_id, $pipeline_id, $stage_id, $status, $start, $limit, $sort, $owned_by_you);
+                    $response = $this->client->send($request, $options);
+                } else {
+                    throw new ApiException(
+                        "[{$e->getCode()}] {$e->getMessage()}",
+                        (int) $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    );
+                }
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    /* @phpstan-ignore-next-line */
+                    if ('\Pipedrive\versions\v1\Model\GetDeals' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Pipedrive\versions\v1\Model\GetDeals', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            /* @phpstan-ignore-next-line */
+            if ('\Pipedrive\versions\v1\Model\GetDeals' === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, '\Pipedrive\versions\v1\Model\GetDeals', []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pipedrive\versions\v1\Model\GetDeals',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getArchivedDealsAsync
+     *
+     * Get all archived deals
+     *
+     * @param  int|null $user_id If supplied, only deals matching the given user will be returned. However, &#x60;filter_id&#x60; and &#x60;owned_by_you&#x60; takes precedence over &#x60;user_id&#x60; when supplied. (optional)
+     * @param  int|null $filter_id The ID of the filter to use (optional)
+     * @param  int|null $person_id If supplied, only deals linked to the specified person are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  int|null $org_id If supplied, only deals linked to the specified organization are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  int|null $product_id If supplied, only deals linked to the specified product are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  int|null $pipeline_id If supplied, only deals in the specified pipeline are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  int|null $stage_id If supplied, only deals in the specified stage are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  string|'all_not_deleted' $status Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included. (optional, default to 'all_not_deleted')
+     * @param  int|0 $start Pagination start (optional, default to 0)
+     * @param  int|null $limit Items shown per page (optional)
+     * @param  string|null $sort The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). (optional)
+     * @param  \Pipedrive\versions\v1\Model\NumberBoolean|null $owned_by_you When supplied, only deals owned by you are returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;owned_by_you&#x60; when both are supplied. (optional)
+     *
+     * @throws InvalidArgumentException|OAuthProviderException
+     * @return PromiseInterface
+     * @deprecated
+     */
+    public function getArchivedDealsAsync($user_id = null, $filter_id = null, $person_id = null, $org_id = null, $product_id = null, $pipeline_id = null, $stage_id = null, $status = 'all_not_deleted', $start = 0, $limit = null, $sort = null, $owned_by_you = null): PromiseInterface
+    {
+        return $this->getArchivedDealsAsyncWithHttpInfo($user_id, $filter_id, $person_id, $org_id, $product_id, $pipeline_id, $stage_id, $status, $start, $limit, $sort, $owned_by_you)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getArchivedDealsAsyncWithHttpInfo
+     *
+     * Get all archived deals
+     *
+     * @param  int|null $user_id If supplied, only deals matching the given user will be returned. However, &#x60;filter_id&#x60; and &#x60;owned_by_you&#x60; takes precedence over &#x60;user_id&#x60; when supplied. (optional)
+     * @param  int|null $filter_id The ID of the filter to use (optional)
+     * @param  int|null $person_id If supplied, only deals linked to the specified person are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  int|null $org_id If supplied, only deals linked to the specified organization are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  int|null $product_id If supplied, only deals linked to the specified product are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  int|null $pipeline_id If supplied, only deals in the specified pipeline are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  int|null $stage_id If supplied, only deals in the specified stage are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  string|'all_not_deleted' $status Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included. (optional, default to 'all_not_deleted')
+     * @param  int|0 $start Pagination start (optional, default to 0)
+     * @param  int|null $limit Items shown per page (optional)
+     * @param  string|null $sort The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). (optional)
+     * @param  \Pipedrive\versions\v1\Model\NumberBoolean|null $owned_by_you When supplied, only deals owned by you are returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;owned_by_you&#x60; when both are supplied. (optional)
+     *
+     * @throws InvalidArgumentException|OAuthProviderException
+     * @return PromiseInterface
+     * @deprecated
+     */
+    public function getArchivedDealsAsyncWithHttpInfo($user_id = null, $filter_id = null, $person_id = null, $org_id = null, $product_id = null, $pipeline_id = null, $stage_id = null, $status = 'all_not_deleted', $start = 0, $limit = null, $sort = null, $owned_by_you = null): PromiseInterface
+    {
+        $returnType = '\Pipedrive\versions\v1\Model\GetDeals';
+        $request = $this->getArchivedDealsRequest($user_id, $filter_id, $person_id, $org_id, $product_id, $pipeline_id, $stage_id, $status, $start, $limit, $sort, $owned_by_you);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    /* @phpstan-ignore-next-line */
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getArchivedDeals'
+     *
+     * @param  int|null $user_id If supplied, only deals matching the given user will be returned. However, &#x60;filter_id&#x60; and &#x60;owned_by_you&#x60; takes precedence over &#x60;user_id&#x60; when supplied. (optional)
+     * @param  int|null $filter_id The ID of the filter to use (optional)
+     * @param  int|null $person_id If supplied, only deals linked to the specified person are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  int|null $org_id If supplied, only deals linked to the specified organization are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  int|null $product_id If supplied, only deals linked to the specified product are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  int|null $pipeline_id If supplied, only deals in the specified pipeline are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  int|null $stage_id If supplied, only deals in the specified stage are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  string|'all_not_deleted' $status Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included. (optional, default to 'all_not_deleted')
+     * @param  int|0 $start Pagination start (optional, default to 0)
+     * @param  int|null $limit Items shown per page (optional)
+     * @param  string|null $sort The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). (optional)
+     * @param  \Pipedrive\versions\v1\Model\NumberBoolean|null $owned_by_you When supplied, only deals owned by you are returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;owned_by_you&#x60; when both are supplied. (optional)
+     *
+     * @throws InvalidArgumentException|OAuthProviderException
+     * @return Request
+     * @deprecated
+     */
+    public function getArchivedDealsRequest($user_id = null, $filter_id = null, $person_id = null, $org_id = null, $product_id = null, $pipeline_id = null, $stage_id = null, $status = 'all_not_deleted', $start = 0, $limit = null, $sort = null, $owned_by_you = null): Request
+    {
+
+        $resourcePath = '/deals/archived';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($user_id)) {
+            $user_id = ObjectSerializer::serializeCollection($user_id, '', true);
+        }
+        if ($user_id !== null) {
+            $queryParams['user_id'] = $user_id;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($filter_id)) {
+            $filter_id = ObjectSerializer::serializeCollection($filter_id, '', true);
+        }
+        if ($filter_id !== null) {
+            $queryParams['filter_id'] = $filter_id;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($person_id)) {
+            $person_id = ObjectSerializer::serializeCollection($person_id, '', true);
+        }
+        if ($person_id !== null) {
+            $queryParams['person_id'] = $person_id;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($org_id)) {
+            $org_id = ObjectSerializer::serializeCollection($org_id, '', true);
+        }
+        if ($org_id !== null) {
+            $queryParams['org_id'] = $org_id;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($product_id)) {
+            $product_id = ObjectSerializer::serializeCollection($product_id, '', true);
+        }
+        if ($product_id !== null) {
+            $queryParams['product_id'] = $product_id;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($pipeline_id)) {
+            $pipeline_id = ObjectSerializer::serializeCollection($pipeline_id, '', true);
+        }
+        if ($pipeline_id !== null) {
+            $queryParams['pipeline_id'] = $pipeline_id;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($stage_id)) {
+            $stage_id = ObjectSerializer::serializeCollection($stage_id, '', true);
+        }
+        if ($stage_id !== null) {
+            $queryParams['stage_id'] = $stage_id;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($status)) {
+            $status = ObjectSerializer::serializeCollection($status, '', true);
+        }
+        if ($status !== null) {
+            $queryParams['status'] = $status;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($start)) {
+            $start = ObjectSerializer::serializeCollection($start, '', true);
+        }
+        if ($start !== null) {
+            $queryParams['start'] = $start;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($limit)) {
+            $limit = ObjectSerializer::serializeCollection($limit, '', true);
+        }
+        if ($limit !== null) {
+            $queryParams['limit'] = $limit;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($sort)) {
+            $sort = ObjectSerializer::serializeCollection($sort, '', true);
+        }
+        if ($sort !== null) {
+            $queryParams['sort'] = $sort;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($owned_by_you)) {
+            $owned_by_you = ObjectSerializer::serializeCollection($owned_by_you, '', true);
+        }
+        if ($owned_by_you !== null) {
+            $queryParams['owned_by_you'] = $owned_by_you;
+        }
+
+
+
+
+        /* @phpstan-ignore-next-line */
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            /* @phpstan-ignore-next-line */
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = Utils::jsonEncode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('api_token');
+        if ($apiKey !== null) {
+            $queryParams['api_token'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            // If access token is expired
+            if ($this->config->isRefreshPossible() && $this->config->getExpiresAt() <= time()) {
+                $this->config->refreshToken();
+            }
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = Query::build($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getArchivedDealsSummary
+     *
+     * Get archived deals summary
+     *
+     * @param  string|null $status Only fetch deals with a specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. (optional)
+     * @param  int|null $filter_id &lt;code&gt;user_id&lt;/code&gt; will not be considered. Only deals matching the given filter will be returned. (optional)
+     * @param  int|null $user_id Only deals matching the given user will be returned. &#x60;user_id&#x60; will not be considered if you use &#x60;filter_id&#x60;. (optional)
+     * @param  int|null $pipeline_id Only deals within the given pipeline will be returned (optional)
+     * @param  int|null $stage_id Only deals within the given stage will be returned (optional)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException|GuzzleException
+     * @return \Pipedrive\versions\v1\Model\GetDealsSummary
+     * @deprecated
+     */
+    public function getArchivedDealsSummary($status = null, $filter_id = null, $user_id = null, $pipeline_id = null, $stage_id = null)
+    {
+        list($response) = $this->getArchivedDealsSummaryWithHttpInfo($status, $filter_id, $user_id, $pipeline_id, $stage_id);
+        return $response;
+    }
+
+    /**
+     * Operation getArchivedDealsSummaryWithHttpInfo
+     *
+     * Get archived deals summary
+     *
+     * @param  string|null $status Only fetch deals with a specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. (optional)
+     * @param  int|null $filter_id &lt;code&gt;user_id&lt;/code&gt; will not be considered. Only deals matching the given filter will be returned. (optional)
+     * @param  int|null $user_id Only deals matching the given user will be returned. &#x60;user_id&#x60; will not be considered if you use &#x60;filter_id&#x60;. (optional)
+     * @param  int|null $pipeline_id Only deals within the given pipeline will be returned (optional)
+     * @param  int|null $stage_id Only deals within the given stage will be returned (optional)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException|GuzzleException
+     * @return array<mixed> of \Pipedrive\versions\v1\Model\GetDealsSummary, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
+     */
+    public function getArchivedDealsSummaryWithHttpInfo($status = null, $filter_id = null, $user_id = null, $pipeline_id = null, $stage_id = null)
+    {
+        $request = $this->getArchivedDealsSummaryRequest($status, $filter_id, $user_id, $pipeline_id, $stage_id);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                if ($e->getCode() === 401 && $this->config->isRefreshPossible()) {
+                    $this->config->refreshToken();
+                    $request = $this->getArchivedDealsSummaryRequest($status, $filter_id, $user_id, $pipeline_id, $stage_id);
+                    $response = $this->client->send($request, $options);
+                } else {
+                    throw new ApiException(
+                        "[{$e->getCode()}] {$e->getMessage()}",
+                        (int) $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    );
+                }
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    /* @phpstan-ignore-next-line */
+                    if ('\Pipedrive\versions\v1\Model\GetDealsSummary' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Pipedrive\versions\v1\Model\GetDealsSummary', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            /* @phpstan-ignore-next-line */
+            if ('\Pipedrive\versions\v1\Model\GetDealsSummary' === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, '\Pipedrive\versions\v1\Model\GetDealsSummary', []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pipedrive\versions\v1\Model\GetDealsSummary',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getArchivedDealsSummaryAsync
+     *
+     * Get archived deals summary
+     *
+     * @param  string|null $status Only fetch deals with a specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. (optional)
+     * @param  int|null $filter_id &lt;code&gt;user_id&lt;/code&gt; will not be considered. Only deals matching the given filter will be returned. (optional)
+     * @param  int|null $user_id Only deals matching the given user will be returned. &#x60;user_id&#x60; will not be considered if you use &#x60;filter_id&#x60;. (optional)
+     * @param  int|null $pipeline_id Only deals within the given pipeline will be returned (optional)
+     * @param  int|null $stage_id Only deals within the given stage will be returned (optional)
+     *
+     * @throws InvalidArgumentException|OAuthProviderException
+     * @return PromiseInterface
+     * @deprecated
+     */
+    public function getArchivedDealsSummaryAsync($status = null, $filter_id = null, $user_id = null, $pipeline_id = null, $stage_id = null): PromiseInterface
+    {
+        return $this->getArchivedDealsSummaryAsyncWithHttpInfo($status, $filter_id, $user_id, $pipeline_id, $stage_id)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getArchivedDealsSummaryAsyncWithHttpInfo
+     *
+     * Get archived deals summary
+     *
+     * @param  string|null $status Only fetch deals with a specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. (optional)
+     * @param  int|null $filter_id &lt;code&gt;user_id&lt;/code&gt; will not be considered. Only deals matching the given filter will be returned. (optional)
+     * @param  int|null $user_id Only deals matching the given user will be returned. &#x60;user_id&#x60; will not be considered if you use &#x60;filter_id&#x60;. (optional)
+     * @param  int|null $pipeline_id Only deals within the given pipeline will be returned (optional)
+     * @param  int|null $stage_id Only deals within the given stage will be returned (optional)
+     *
+     * @throws InvalidArgumentException|OAuthProviderException
+     * @return PromiseInterface
+     * @deprecated
+     */
+    public function getArchivedDealsSummaryAsyncWithHttpInfo($status = null, $filter_id = null, $user_id = null, $pipeline_id = null, $stage_id = null): PromiseInterface
+    {
+        $returnType = '\Pipedrive\versions\v1\Model\GetDealsSummary';
+        $request = $this->getArchivedDealsSummaryRequest($status, $filter_id, $user_id, $pipeline_id, $stage_id);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    /* @phpstan-ignore-next-line */
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getArchivedDealsSummary'
+     *
+     * @param  string|null $status Only fetch deals with a specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. (optional)
+     * @param  int|null $filter_id &lt;code&gt;user_id&lt;/code&gt; will not be considered. Only deals matching the given filter will be returned. (optional)
+     * @param  int|null $user_id Only deals matching the given user will be returned. &#x60;user_id&#x60; will not be considered if you use &#x60;filter_id&#x60;. (optional)
+     * @param  int|null $pipeline_id Only deals within the given pipeline will be returned (optional)
+     * @param  int|null $stage_id Only deals within the given stage will be returned (optional)
+     *
+     * @throws InvalidArgumentException|OAuthProviderException
+     * @return Request
+     * @deprecated
+     */
+    public function getArchivedDealsSummaryRequest($status = null, $filter_id = null, $user_id = null, $pipeline_id = null, $stage_id = null): Request
+    {
+
+        $resourcePath = '/deals/summary/archived';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($status)) {
+            $status = ObjectSerializer::serializeCollection($status, '', true);
+        }
+        if ($status !== null) {
+            $queryParams['status'] = $status;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($filter_id)) {
+            $filter_id = ObjectSerializer::serializeCollection($filter_id, '', true);
+        }
+        if ($filter_id !== null) {
+            $queryParams['filter_id'] = $filter_id;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($user_id)) {
+            $user_id = ObjectSerializer::serializeCollection($user_id, '', true);
+        }
+        if ($user_id !== null) {
+            $queryParams['user_id'] = $user_id;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($pipeline_id)) {
+            $pipeline_id = ObjectSerializer::serializeCollection($pipeline_id, '', true);
+        }
+        if ($pipeline_id !== null) {
+            $queryParams['pipeline_id'] = $pipeline_id;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($stage_id)) {
+            $stage_id = ObjectSerializer::serializeCollection($stage_id, '', true);
+        }
+        if ($stage_id !== null) {
+            $queryParams['stage_id'] = $stage_id;
+        }
+
+
+
+
+        /* @phpstan-ignore-next-line */
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            /* @phpstan-ignore-next-line */
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = Utils::jsonEncode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('api_token');
+        if ($apiKey !== null) {
+            $queryParams['api_token'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            // If access token is expired
+            if ($this->config->isRefreshPossible() && $this->config->getExpiresAt() <= time()) {
+                $this->config->refreshToken();
+            }
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = Query::build($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getArchivedDealsTimeline
+     *
+     * Get archived deals timeline
+     *
+     * @param  \DateTime $start_date The date when the first interval starts. Format: YYYY-MM-DD. (required)
+     * @param  string $interval The type of the interval&lt;table&gt;&lt;tr&gt;&lt;th&gt;Value&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;day&#x60;&lt;/td&gt;&lt;td&gt;Day&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;week&#x60;&lt;/td&gt;&lt;td&gt;A full week (7 days) starting from &#x60;start_date&#x60;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;month&#x60;&lt;/td&gt;&lt;td&gt;A full month (depending on the number of days in given month) starting from &#x60;start_date&#x60;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;quarter&#x60;&lt;/td&gt;&lt;td&gt;A full quarter (3 months) starting from &#x60;start_date&#x60;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt; (required)
+     * @param  int $amount The number of given intervals, starting from &#x60;start_date&#x60;, to fetch. E.g. 3 (months). (required)
+     * @param  string $field_key The date field key which deals will be retrieved from (required)
+     * @param  int|null $user_id If supplied, only deals matching the given user will be returned (optional)
+     * @param  int|null $pipeline_id If supplied, only deals matching the given pipeline will be returned (optional)
+     * @param  int|null $filter_id If supplied, only deals matching the given filter will be returned (optional)
+     * @param  \Pipedrive\versions\v1\Model\NumberBoolean|null $exclude_deals Whether to exclude deals list (1) or not (0). Note that when deals are excluded, the timeline summary (counts and values) is still returned. (optional)
+     * @param  string|null $totals_convert_currency The 3-letter currency code of any of the supported currencies. When supplied, &#x60;totals_converted&#x60; is returned per each interval which contains the currency-converted total amounts in the given currency. You may also set this parameter to &#x60;default_currency&#x60; in which case the user&#39;s default currency is used. (optional)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException|GuzzleException
+     * @return \Pipedrive\versions\v1\Model\GetDealsTimeline
+     * @deprecated
+     */
+    public function getArchivedDealsTimeline($start_date, $interval, $amount, $field_key, $user_id = null, $pipeline_id = null, $filter_id = null, $exclude_deals = null, $totals_convert_currency = null)
+    {
+        list($response) = $this->getArchivedDealsTimelineWithHttpInfo($start_date, $interval, $amount, $field_key, $user_id, $pipeline_id, $filter_id, $exclude_deals, $totals_convert_currency);
+        return $response;
+    }
+
+    /**
+     * Operation getArchivedDealsTimelineWithHttpInfo
+     *
+     * Get archived deals timeline
+     *
+     * @param  \DateTime $start_date The date when the first interval starts. Format: YYYY-MM-DD. (required)
+     * @param  string $interval The type of the interval&lt;table&gt;&lt;tr&gt;&lt;th&gt;Value&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;day&#x60;&lt;/td&gt;&lt;td&gt;Day&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;week&#x60;&lt;/td&gt;&lt;td&gt;A full week (7 days) starting from &#x60;start_date&#x60;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;month&#x60;&lt;/td&gt;&lt;td&gt;A full month (depending on the number of days in given month) starting from &#x60;start_date&#x60;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;quarter&#x60;&lt;/td&gt;&lt;td&gt;A full quarter (3 months) starting from &#x60;start_date&#x60;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt; (required)
+     * @param  int $amount The number of given intervals, starting from &#x60;start_date&#x60;, to fetch. E.g. 3 (months). (required)
+     * @param  string $field_key The date field key which deals will be retrieved from (required)
+     * @param  int|null $user_id If supplied, only deals matching the given user will be returned (optional)
+     * @param  int|null $pipeline_id If supplied, only deals matching the given pipeline will be returned (optional)
+     * @param  int|null $filter_id If supplied, only deals matching the given filter will be returned (optional)
+     * @param  \Pipedrive\versions\v1\Model\NumberBoolean|null $exclude_deals Whether to exclude deals list (1) or not (0). Note that when deals are excluded, the timeline summary (counts and values) is still returned. (optional)
+     * @param  string|null $totals_convert_currency The 3-letter currency code of any of the supported currencies. When supplied, &#x60;totals_converted&#x60; is returned per each interval which contains the currency-converted total amounts in the given currency. You may also set this parameter to &#x60;default_currency&#x60; in which case the user&#39;s default currency is used. (optional)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException|GuzzleException
+     * @return array<mixed> of \Pipedrive\versions\v1\Model\GetDealsTimeline, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
+     */
+    public function getArchivedDealsTimelineWithHttpInfo($start_date, $interval, $amount, $field_key, $user_id = null, $pipeline_id = null, $filter_id = null, $exclude_deals = null, $totals_convert_currency = null)
+    {
+        $request = $this->getArchivedDealsTimelineRequest($start_date, $interval, $amount, $field_key, $user_id, $pipeline_id, $filter_id, $exclude_deals, $totals_convert_currency);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                if ($e->getCode() === 401 && $this->config->isRefreshPossible()) {
+                    $this->config->refreshToken();
+                    $request = $this->getArchivedDealsTimelineRequest($start_date, $interval, $amount, $field_key, $user_id, $pipeline_id, $filter_id, $exclude_deals, $totals_convert_currency);
+                    $response = $this->client->send($request, $options);
+                } else {
+                    throw new ApiException(
+                        "[{$e->getCode()}] {$e->getMessage()}",
+                        (int) $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    );
+                }
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    /* @phpstan-ignore-next-line */
+                    if ('\Pipedrive\versions\v1\Model\GetDealsTimeline' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Pipedrive\versions\v1\Model\GetDealsTimeline', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            /* @phpstan-ignore-next-line */
+            if ('\Pipedrive\versions\v1\Model\GetDealsTimeline' === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, '\Pipedrive\versions\v1\Model\GetDealsTimeline', []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pipedrive\versions\v1\Model\GetDealsTimeline',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getArchivedDealsTimelineAsync
+     *
+     * Get archived deals timeline
+     *
+     * @param  \DateTime $start_date The date when the first interval starts. Format: YYYY-MM-DD. (required)
+     * @param  string $interval The type of the interval&lt;table&gt;&lt;tr&gt;&lt;th&gt;Value&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;day&#x60;&lt;/td&gt;&lt;td&gt;Day&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;week&#x60;&lt;/td&gt;&lt;td&gt;A full week (7 days) starting from &#x60;start_date&#x60;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;month&#x60;&lt;/td&gt;&lt;td&gt;A full month (depending on the number of days in given month) starting from &#x60;start_date&#x60;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;quarter&#x60;&lt;/td&gt;&lt;td&gt;A full quarter (3 months) starting from &#x60;start_date&#x60;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt; (required)
+     * @param  int $amount The number of given intervals, starting from &#x60;start_date&#x60;, to fetch. E.g. 3 (months). (required)
+     * @param  string $field_key The date field key which deals will be retrieved from (required)
+     * @param  int|null $user_id If supplied, only deals matching the given user will be returned (optional)
+     * @param  int|null $pipeline_id If supplied, only deals matching the given pipeline will be returned (optional)
+     * @param  int|null $filter_id If supplied, only deals matching the given filter will be returned (optional)
+     * @param  \Pipedrive\versions\v1\Model\NumberBoolean|null $exclude_deals Whether to exclude deals list (1) or not (0). Note that when deals are excluded, the timeline summary (counts and values) is still returned. (optional)
+     * @param  string|null $totals_convert_currency The 3-letter currency code of any of the supported currencies. When supplied, &#x60;totals_converted&#x60; is returned per each interval which contains the currency-converted total amounts in the given currency. You may also set this parameter to &#x60;default_currency&#x60; in which case the user&#39;s default currency is used. (optional)
+     *
+     * @throws InvalidArgumentException|OAuthProviderException
+     * @return PromiseInterface
+     * @deprecated
+     */
+    public function getArchivedDealsTimelineAsync($start_date, $interval, $amount, $field_key, $user_id = null, $pipeline_id = null, $filter_id = null, $exclude_deals = null, $totals_convert_currency = null): PromiseInterface
+    {
+        return $this->getArchivedDealsTimelineAsyncWithHttpInfo($start_date, $interval, $amount, $field_key, $user_id, $pipeline_id, $filter_id, $exclude_deals, $totals_convert_currency)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getArchivedDealsTimelineAsyncWithHttpInfo
+     *
+     * Get archived deals timeline
+     *
+     * @param  \DateTime $start_date The date when the first interval starts. Format: YYYY-MM-DD. (required)
+     * @param  string $interval The type of the interval&lt;table&gt;&lt;tr&gt;&lt;th&gt;Value&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;day&#x60;&lt;/td&gt;&lt;td&gt;Day&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;week&#x60;&lt;/td&gt;&lt;td&gt;A full week (7 days) starting from &#x60;start_date&#x60;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;month&#x60;&lt;/td&gt;&lt;td&gt;A full month (depending on the number of days in given month) starting from &#x60;start_date&#x60;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;quarter&#x60;&lt;/td&gt;&lt;td&gt;A full quarter (3 months) starting from &#x60;start_date&#x60;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt; (required)
+     * @param  int $amount The number of given intervals, starting from &#x60;start_date&#x60;, to fetch. E.g. 3 (months). (required)
+     * @param  string $field_key The date field key which deals will be retrieved from (required)
+     * @param  int|null $user_id If supplied, only deals matching the given user will be returned (optional)
+     * @param  int|null $pipeline_id If supplied, only deals matching the given pipeline will be returned (optional)
+     * @param  int|null $filter_id If supplied, only deals matching the given filter will be returned (optional)
+     * @param  \Pipedrive\versions\v1\Model\NumberBoolean|null $exclude_deals Whether to exclude deals list (1) or not (0). Note that when deals are excluded, the timeline summary (counts and values) is still returned. (optional)
+     * @param  string|null $totals_convert_currency The 3-letter currency code of any of the supported currencies. When supplied, &#x60;totals_converted&#x60; is returned per each interval which contains the currency-converted total amounts in the given currency. You may also set this parameter to &#x60;default_currency&#x60; in which case the user&#39;s default currency is used. (optional)
+     *
+     * @throws InvalidArgumentException|OAuthProviderException
+     * @return PromiseInterface
+     * @deprecated
+     */
+    public function getArchivedDealsTimelineAsyncWithHttpInfo($start_date, $interval, $amount, $field_key, $user_id = null, $pipeline_id = null, $filter_id = null, $exclude_deals = null, $totals_convert_currency = null): PromiseInterface
+    {
+        $returnType = '\Pipedrive\versions\v1\Model\GetDealsTimeline';
+        $request = $this->getArchivedDealsTimelineRequest($start_date, $interval, $amount, $field_key, $user_id, $pipeline_id, $filter_id, $exclude_deals, $totals_convert_currency);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    /* @phpstan-ignore-next-line */
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getArchivedDealsTimeline'
+     *
+     * @param  \DateTime $start_date The date when the first interval starts. Format: YYYY-MM-DD. (required)
+     * @param  string $interval The type of the interval&lt;table&gt;&lt;tr&gt;&lt;th&gt;Value&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;day&#x60;&lt;/td&gt;&lt;td&gt;Day&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;week&#x60;&lt;/td&gt;&lt;td&gt;A full week (7 days) starting from &#x60;start_date&#x60;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;month&#x60;&lt;/td&gt;&lt;td&gt;A full month (depending on the number of days in given month) starting from &#x60;start_date&#x60;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;quarter&#x60;&lt;/td&gt;&lt;td&gt;A full quarter (3 months) starting from &#x60;start_date&#x60;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt; (required)
+     * @param  int $amount The number of given intervals, starting from &#x60;start_date&#x60;, to fetch. E.g. 3 (months). (required)
+     * @param  string $field_key The date field key which deals will be retrieved from (required)
+     * @param  int|null $user_id If supplied, only deals matching the given user will be returned (optional)
+     * @param  int|null $pipeline_id If supplied, only deals matching the given pipeline will be returned (optional)
+     * @param  int|null $filter_id If supplied, only deals matching the given filter will be returned (optional)
+     * @param  \Pipedrive\versions\v1\Model\NumberBoolean|null $exclude_deals Whether to exclude deals list (1) or not (0). Note that when deals are excluded, the timeline summary (counts and values) is still returned. (optional)
+     * @param  string|null $totals_convert_currency The 3-letter currency code of any of the supported currencies. When supplied, &#x60;totals_converted&#x60; is returned per each interval which contains the currency-converted total amounts in the given currency. You may also set this parameter to &#x60;default_currency&#x60; in which case the user&#39;s default currency is used. (optional)
+     *
+     * @throws InvalidArgumentException|OAuthProviderException
+     * @return Request
+     * @deprecated
+     */
+    public function getArchivedDealsTimelineRequest($start_date, $interval, $amount, $field_key, $user_id = null, $pipeline_id = null, $filter_id = null, $exclude_deals = null, $totals_convert_currency = null): Request
+    {
+        // verify the required parameter 'start_date' is set
+        /* @phpstan-ignore-next-line */
+        if ($start_date === null || (is_array($start_date) && count($start_date) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $start_date when calling getArchivedDealsTimeline'
+            );
+        }
+        // verify the required parameter 'interval' is set
+        /* @phpstan-ignore-next-line */
+        if ($interval === null || (is_array($interval) && count($interval) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $interval when calling getArchivedDealsTimeline'
+            );
+        }
+        // verify the required parameter 'amount' is set
+        /* @phpstan-ignore-next-line */
+        if ($amount === null || (is_array($amount) && count($amount) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $amount when calling getArchivedDealsTimeline'
+            );
+        }
+        // verify the required parameter 'field_key' is set
+        /* @phpstan-ignore-next-line */
+        if ($field_key === null || (is_array($field_key) && count($field_key) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $field_key when calling getArchivedDealsTimeline'
+            );
+        }
+
+        $resourcePath = '/deals/timeline/archived';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($start_date)) {
+            $start_date = ObjectSerializer::serializeCollection($start_date, '', true);
+        }
+        if ($start_date !== null) {
+            $queryParams['start_date'] = $start_date;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($interval)) {
+            $interval = ObjectSerializer::serializeCollection($interval, '', true);
+        }
+        if ($interval !== null) {
+            $queryParams['interval'] = $interval;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($amount)) {
+            $amount = ObjectSerializer::serializeCollection($amount, '', true);
+        }
+        if ($amount !== null) {
+            $queryParams['amount'] = $amount;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($field_key)) {
+            $field_key = ObjectSerializer::serializeCollection($field_key, '', true);
+        }
+        if ($field_key !== null) {
+            $queryParams['field_key'] = $field_key;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($user_id)) {
+            $user_id = ObjectSerializer::serializeCollection($user_id, '', true);
+        }
+        if ($user_id !== null) {
+            $queryParams['user_id'] = $user_id;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($pipeline_id)) {
+            $pipeline_id = ObjectSerializer::serializeCollection($pipeline_id, '', true);
+        }
+        if ($pipeline_id !== null) {
+            $queryParams['pipeline_id'] = $pipeline_id;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($filter_id)) {
+            $filter_id = ObjectSerializer::serializeCollection($filter_id, '', true);
+        }
+        if ($filter_id !== null) {
+            $queryParams['filter_id'] = $filter_id;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($exclude_deals)) {
+            $exclude_deals = ObjectSerializer::serializeCollection($exclude_deals, '', true);
+        }
+        if ($exclude_deals !== null) {
+            $queryParams['exclude_deals'] = $exclude_deals;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($totals_convert_currency)) {
+            $totals_convert_currency = ObjectSerializer::serializeCollection($totals_convert_currency, '', true);
+        }
+        if ($totals_convert_currency !== null) {
+            $queryParams['totals_convert_currency'] = $totals_convert_currency;
+        }
+
+
+
+
+        /* @phpstan-ignore-next-line */
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            /* @phpstan-ignore-next-line */
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = Utils::jsonEncode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('api_token');
+        if ($apiKey !== null) {
+            $queryParams['api_token'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            // If access token is expired
+            if ($this->config->isRefreshPossible() && $this->config->getExpiresAt() <= time()) {
+                $this->config->refreshToken();
+            }
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = Query::build($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation getDeal
      *
      * Get details of a deal
@@ -3176,6 +4410,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\GetDeal
+     * @deprecated
      */
     public function getDeal($id)
     {
@@ -3193,6 +4428,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\GetDeal, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getDealWithHttpInfo($id)
     {
@@ -3293,6 +4529,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getDealAsync($id): PromiseInterface
     {
@@ -3313,6 +4550,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getDealAsyncWithHttpInfo($id): PromiseInterface
     {
@@ -3360,6 +4598,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function getDealRequest($id): Request
     {
@@ -3476,6 +4715,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\DealListActivitiesResponse
+     * @deprecated
      */
     public function getDealActivities($id, $start = 0, $limit = null, $done = null, $exclude = null)
     {
@@ -3497,6 +4737,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\DealListActivitiesResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getDealActivitiesWithHttpInfo($id, $start = 0, $limit = null, $done = null, $exclude = null)
     {
@@ -3601,6 +4842,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getDealActivitiesAsync($id, $start = 0, $limit = null, $done = null, $exclude = null): PromiseInterface
     {
@@ -3625,6 +4867,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getDealActivitiesAsyncWithHttpInfo($id, $start = 0, $limit = null, $done = null, $exclude = null): PromiseInterface
     {
@@ -3676,6 +4919,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function getDealActivitiesRequest($id, $start = 0, $limit = null, $done = null, $exclude = null): Request
     {
@@ -5745,6 +6989,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\ListPersonsResponse
+     * @deprecated
      */
     public function getDealPersons($id, $start = 0, $limit = null)
     {
@@ -5764,6 +7009,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\ListPersonsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getDealPersonsWithHttpInfo($id, $start = 0, $limit = null)
     {
@@ -5866,6 +7112,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getDealPersonsAsync($id, $start = 0, $limit = null): PromiseInterface
     {
@@ -5888,6 +7135,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getDealPersonsAsyncWithHttpInfo($id, $start = 0, $limit = null): PromiseInterface
     {
@@ -5937,6 +7185,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function getDealPersonsRequest($id, $start = 0, $limit = null): Request
     {
@@ -6068,6 +7317,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\ListProductsResponse
+     * @deprecated
      */
     public function getDealProducts($id, $start = 0, $limit = null, $include_product_data = null)
     {
@@ -6088,6 +7338,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\ListProductsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getDealProductsWithHttpInfo($id, $start = 0, $limit = null, $include_product_data = null)
     {
@@ -6191,6 +7442,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getDealProductsAsync($id, $start = 0, $limit = null, $include_product_data = null): PromiseInterface
     {
@@ -6214,6 +7466,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getDealProductsAsyncWithHttpInfo($id, $start = 0, $limit = null, $include_product_data = null): PromiseInterface
     {
@@ -6264,6 +7517,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function getDealProductsRequest($id, $start = 0, $limit = null, $include_product_data = null): Request
     {
@@ -7051,6 +8305,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\GetDeals
+     * @deprecated
      */
     public function getDeals($user_id = null, $filter_id = null, $stage_id = null, $status = 'all_not_deleted', $start = 0, $limit = null, $sort = null, $owned_by_you = null)
     {
@@ -7075,6 +8330,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\GetDeals, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getDealsWithHttpInfo($user_id = null, $filter_id = null, $stage_id = null, $status = 'all_not_deleted', $start = 0, $limit = null, $sort = null, $owned_by_you = null)
     {
@@ -7182,6 +8438,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getDealsAsync($user_id = null, $filter_id = null, $stage_id = null, $status = 'all_not_deleted', $start = 0, $limit = null, $sort = null, $owned_by_you = null): PromiseInterface
     {
@@ -7209,6 +8466,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getDealsAsyncWithHttpInfo($user_id = null, $filter_id = null, $stage_id = null, $status = 'all_not_deleted', $start = 0, $limit = null, $sort = null, $owned_by_you = null): PromiseInterface
     {
@@ -7263,6 +8521,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function getDealsRequest($user_id = null, $filter_id = null, $stage_id = null, $status = 'all_not_deleted', $start = 0, $limit = null, $sort = null, $owned_by_you = null): Request
     {
@@ -7417,7 +8676,7 @@ class DealsApi
     /**
      * Operation getDealsCollection
      *
-     * Get all deals (BETA)
+     * Get all deals collection
      *
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
@@ -7430,6 +8689,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\GetDealsCollection|\Pipedrive\versions\v1\Model\FailResponse
+     * @deprecated
      */
     public function getDealsCollection($cursor = null, $limit = null, $since = null, $until = null, $user_id = null, $stage_id = null, $status = null)
     {
@@ -7440,7 +8700,7 @@ class DealsApi
     /**
      * Operation getDealsCollectionWithHttpInfo
      *
-     * Get all deals (BETA)
+     * Get all deals collection
      *
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
@@ -7453,6 +8713,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\GetDealsCollection|\Pipedrive\versions\v1\Model\FailResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getDealsCollectionWithHttpInfo($cursor = null, $limit = null, $since = null, $until = null, $user_id = null, $stage_id = null, $status = null)
     {
@@ -7568,7 +8829,7 @@ class DealsApi
     /**
      * Operation getDealsCollectionAsync
      *
-     * Get all deals (BETA)
+     * Get all deals collection
      *
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
@@ -7580,6 +8841,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getDealsCollectionAsync($cursor = null, $limit = null, $since = null, $until = null, $user_id = null, $stage_id = null, $status = null): PromiseInterface
     {
@@ -7594,7 +8856,7 @@ class DealsApi
     /**
      * Operation getDealsCollectionAsyncWithHttpInfo
      *
-     * Get all deals (BETA)
+     * Get all deals collection
      *
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
@@ -7606,6 +8868,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getDealsCollectionAsyncWithHttpInfo($cursor = null, $limit = null, $since = null, $until = null, $user_id = null, $stage_id = null, $status = null): PromiseInterface
     {
@@ -7659,6 +8922,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function getDealsCollectionRequest($cursor = null, $limit = null, $since = null, $until = null, $user_id = null, $stage_id = null, $status = null): Request
     {
@@ -8889,6 +10153,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\DealSearchResponse
+     * @deprecated
      */
     public function searchDeals($term, $fields = null, $exact_match = null, $person_id = null, $organization_id = null, $status = null, $include_fields = null, $start = 0, $limit = null)
     {
@@ -8914,6 +10179,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\DealSearchResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function searchDealsWithHttpInfo($term, $fields = null, $exact_match = null, $person_id = null, $organization_id = null, $status = null, $include_fields = null, $start = 0, $limit = null)
     {
@@ -9022,6 +10288,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function searchDealsAsync($term, $fields = null, $exact_match = null, $person_id = null, $organization_id = null, $status = null, $include_fields = null, $start = 0, $limit = null): PromiseInterface
     {
@@ -9050,6 +10317,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function searchDealsAsyncWithHttpInfo($term, $fields = null, $exact_match = null, $person_id = null, $organization_id = null, $status = null, $include_fields = null, $start = 0, $limit = null): PromiseInterface
     {
@@ -9105,6 +10373,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function searchDealsRequest($term, $fields = null, $exact_match = null, $person_id = null, $organization_id = null, $status = null, $include_fields = null, $start = 0, $limit = null): Request
     {
@@ -9282,6 +10551,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\GetAddedDeal
+     * @deprecated
      */
     public function updateDeal($id, $update_deal_request = null)
     {
@@ -9300,6 +10570,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\GetAddedDeal, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function updateDealWithHttpInfo($id, $update_deal_request = null)
     {
@@ -9401,6 +10672,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function updateDealAsync($id, $update_deal_request = null): PromiseInterface
     {
@@ -9422,6 +10694,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function updateDealAsyncWithHttpInfo($id, $update_deal_request = null): PromiseInterface
     {
@@ -9470,6 +10743,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function updateDealRequest($id, $update_deal_request = null): Request
     {
@@ -9590,6 +10864,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\GetProductAttachmentDetails
+     * @deprecated
      */
     public function updateDealProduct($id, $product_attachment_id, $update_deal_product = null)
     {
@@ -9609,6 +10884,7 @@ class DealsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\GetProductAttachmentDetails, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function updateDealProductWithHttpInfo($id, $product_attachment_id, $update_deal_product = null)
     {
@@ -9711,6 +10987,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function updateDealProductAsync($id, $product_attachment_id, $update_deal_product = null): PromiseInterface
     {
@@ -9733,6 +11010,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function updateDealProductAsyncWithHttpInfo($id, $product_attachment_id, $update_deal_product = null): PromiseInterface
     {
@@ -9782,6 +11060,7 @@ class DealsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function updateDealProductRequest($id, $product_attachment_id, $update_deal_product = null): Request
     {

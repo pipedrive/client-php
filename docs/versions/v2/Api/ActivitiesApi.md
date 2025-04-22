@@ -144,7 +144,7 @@ Name | Type | Description  | Notes
 ## `getActivities()`
 
 ```php
-getActivities($filter_id, $ids, $owner_id, $deal_id, $lead_id, $person_id, $org_id, $updated_since, $updated_until, $sort_by, $sort_direction, $include_fields, $limit, $cursor): \Pipedrive\versions\v2\Model\GetActivities
+getActivities($filter_id, $ids, $owner_id, $deal_id, $lead_id, $person_id, $org_id, $done, $updated_since, $updated_until, $sort_by, $sort_direction, $include_fields, $limit, $cursor): \Pipedrive\versions\v2\Model\GetActivities
 ```
 
 Get all activities
@@ -180,16 +180,17 @@ $deal_id = 56; // int | If supplied, only activities linked to the specified dea
 $lead_id = 'lead_id_example'; // string | If supplied, only activities linked to the specified lead are returned. If filter_id is provided, this is ignored.
 $person_id = 56; // int | If supplied, only activities whose primary participant is the given person are returned. If filter_id is provided, this is ignored.
 $org_id = 56; // int | If supplied, only activities linked to the specified organization are returned. If filter_id is provided, this is ignored.
+$done = True; // bool | If supplied, only activities with specified 'done' flag value are returned
 $updated_since = 'updated_since_example'; // string | If set, only activities with an `update_time` later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
 $updated_until = 'updated_until_example'; // string | If set, only activities with an `update_time` earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
-$sort_by = 'id'; // string | The field to sort by. Supported fields: `id`, `update_time`, `add_time`.
+$sort_by = 'id'; // string | The field to sort by. Supported fields: `id`, `update_time`, `add_time`, `due_date`.
 $sort_direction = 'asc'; // string | The sorting direction. Supported values: `asc`, `desc`.
 $include_fields = 'include_fields_example'; // string | Optional comma separated string array of additional fields to include
 $limit = 100; // int | For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
 $cursor = 'cursor_example'; // string | For pagination, the marker (an opaque string value) representing the first item on the next page
 
 try {
-    $result = $apiInstance->getActivities($filter_id, $ids, $owner_id, $deal_id, $lead_id, $person_id, $org_id, $updated_since, $updated_until, $sort_by, $sort_direction, $include_fields, $limit, $cursor);
+    $result = $apiInstance->getActivities($filter_id, $ids, $owner_id, $deal_id, $lead_id, $person_id, $org_id, $done, $updated_since, $updated_until, $sort_by, $sort_direction, $include_fields, $limit, $cursor);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ActivitiesApi->getActivities: ', $e->getMessage(), PHP_EOL;
@@ -207,9 +208,10 @@ Name | Type | Description  | Notes
  **lead_id** | **string**| If supplied, only activities linked to the specified lead are returned. If filter_id is provided, this is ignored. | [optional]
  **person_id** | **int**| If supplied, only activities whose primary participant is the given person are returned. If filter_id is provided, this is ignored. | [optional]
  **org_id** | **int**| If supplied, only activities linked to the specified organization are returned. If filter_id is provided, this is ignored. | [optional]
+ **done** | **bool**| If supplied, only activities with specified &#39;done&#39; flag value are returned | [optional]
  **updated_since** | **string**| If set, only activities with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z. | [optional]
  **updated_until** | **string**| If set, only activities with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z. | [optional]
- **sort_by** | **string**| The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;. | [optional] [default to &#39;id&#39;]
+ **sort_by** | **string**| The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;, &#x60;due_date&#x60;. | [optional] [default to &#39;id&#39;]
  **sort_direction** | **string**| The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;. | [optional] [default to &#39;asc&#39;]
  **include_fields** | **string**| Optional comma separated string array of additional fields to include | [optional]
  **limit** | **int**| For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. | [optional]

@@ -132,6 +132,7 @@ class ActivitiesApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\AddActivityResponse
+     * @deprecated
      */
     public function addActivity($activity_post_object = null)
     {
@@ -149,6 +150,7 @@ class ActivitiesApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\AddActivityResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function addActivityWithHttpInfo($activity_post_object = null)
     {
@@ -249,6 +251,7 @@ class ActivitiesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function addActivityAsync($activity_post_object = null): PromiseInterface
     {
@@ -269,6 +272,7 @@ class ActivitiesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function addActivityAsyncWithHttpInfo($activity_post_object = null): PromiseInterface
     {
@@ -316,6 +320,7 @@ class ActivitiesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function addActivityRequest($activity_post_object = null): Request
     {
@@ -419,6 +424,7 @@ class ActivitiesApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\DeleteActivitiesResponse
+     * @deprecated
      */
     public function deleteActivities($ids)
     {
@@ -436,6 +442,7 @@ class ActivitiesApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\DeleteActivitiesResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function deleteActivitiesWithHttpInfo($ids)
     {
@@ -536,6 +543,7 @@ class ActivitiesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function deleteActivitiesAsync($ids): PromiseInterface
     {
@@ -556,6 +564,7 @@ class ActivitiesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function deleteActivitiesAsyncWithHttpInfo($ids): PromiseInterface
     {
@@ -603,6 +612,7 @@ class ActivitiesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function deleteActivitiesRequest($ids): Request
     {
@@ -715,6 +725,7 @@ class ActivitiesApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\DeleteActivityResponse
+     * @deprecated
      */
     public function deleteActivity($id)
     {
@@ -732,6 +743,7 @@ class ActivitiesApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\DeleteActivityResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function deleteActivityWithHttpInfo($id)
     {
@@ -832,6 +844,7 @@ class ActivitiesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function deleteActivityAsync($id): PromiseInterface
     {
@@ -852,6 +865,7 @@ class ActivitiesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function deleteActivityAsyncWithHttpInfo($id): PromiseInterface
     {
@@ -899,6 +913,7 @@ class ActivitiesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function deleteActivityRequest($id): Request
     {
@@ -1018,6 +1033,7 @@ class ActivitiesApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\GetActivitiesResponse
+     * @deprecated
      */
     public function getActivities($user_id = null, $filter_id = null, $type = null, $limit = null, $start = null, $start_date = null, $end_date = null, $done = null)
     {
@@ -1042,6 +1058,7 @@ class ActivitiesApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\GetActivitiesResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getActivitiesWithHttpInfo($user_id = null, $filter_id = null, $type = null, $limit = null, $start = null, $start_date = null, $end_date = null, $done = null)
     {
@@ -1149,6 +1166,7 @@ class ActivitiesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getActivitiesAsync($user_id = null, $filter_id = null, $type = null, $limit = null, $start = null, $start_date = null, $end_date = null, $done = null): PromiseInterface
     {
@@ -1176,6 +1194,7 @@ class ActivitiesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getActivitiesAsyncWithHttpInfo($user_id = null, $filter_id = null, $type = null, $limit = null, $start = null, $start_date = null, $end_date = null, $done = null): PromiseInterface
     {
@@ -1230,6 +1249,7 @@ class ActivitiesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function getActivitiesRequest($user_id = null, $filter_id = null, $type = null, $limit = null, $start = null, $start_date = null, $end_date = null, $done = null): Request
     {
@@ -1384,7 +1404,7 @@ class ActivitiesApi
     /**
      * Operation getActivitiesCollection
      *
-     * Get all activities (BETA)
+     * Get all activities collection
      *
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
@@ -1397,6 +1417,7 @@ class ActivitiesApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\GetActivitiesCollectionResponse|\Pipedrive\versions\v1\Model\FailResponse
+     * @deprecated
      */
     public function getActivitiesCollection($cursor = null, $limit = null, $since = null, $until = null, $user_id = null, $done = null, $type = null)
     {
@@ -1407,7 +1428,7 @@ class ActivitiesApi
     /**
      * Operation getActivitiesCollectionWithHttpInfo
      *
-     * Get all activities (BETA)
+     * Get all activities collection
      *
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
@@ -1420,6 +1441,7 @@ class ActivitiesApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\GetActivitiesCollectionResponse|\Pipedrive\versions\v1\Model\FailResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getActivitiesCollectionWithHttpInfo($cursor = null, $limit = null, $since = null, $until = null, $user_id = null, $done = null, $type = null)
     {
@@ -1535,7 +1557,7 @@ class ActivitiesApi
     /**
      * Operation getActivitiesCollectionAsync
      *
-     * Get all activities (BETA)
+     * Get all activities collection
      *
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
@@ -1547,6 +1569,7 @@ class ActivitiesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getActivitiesCollectionAsync($cursor = null, $limit = null, $since = null, $until = null, $user_id = null, $done = null, $type = null): PromiseInterface
     {
@@ -1561,7 +1584,7 @@ class ActivitiesApi
     /**
      * Operation getActivitiesCollectionAsyncWithHttpInfo
      *
-     * Get all activities (BETA)
+     * Get all activities collection
      *
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
@@ -1573,6 +1596,7 @@ class ActivitiesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getActivitiesCollectionAsyncWithHttpInfo($cursor = null, $limit = null, $since = null, $until = null, $user_id = null, $done = null, $type = null): PromiseInterface
     {
@@ -1626,6 +1650,7 @@ class ActivitiesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function getActivitiesCollectionRequest($cursor = null, $limit = null, $since = null, $until = null, $user_id = null, $done = null, $type = null): Request
     {
@@ -1779,6 +1804,7 @@ class ActivitiesApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\GetActivityResponse
+     * @deprecated
      */
     public function getActivity($id)
     {
@@ -1796,6 +1822,7 @@ class ActivitiesApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\GetActivityResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getActivityWithHttpInfo($id)
     {
@@ -1896,6 +1923,7 @@ class ActivitiesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getActivityAsync($id): PromiseInterface
     {
@@ -1916,6 +1944,7 @@ class ActivitiesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getActivityAsyncWithHttpInfo($id): PromiseInterface
     {
@@ -1963,6 +1992,7 @@ class ActivitiesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function getActivityRequest($id): Request
     {
@@ -2076,6 +2106,7 @@ class ActivitiesApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\UpdateActivityResponse
+     * @deprecated
      */
     public function updateActivity($id, $activity_put_object = null)
     {
@@ -2094,6 +2125,7 @@ class ActivitiesApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\UpdateActivityResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function updateActivityWithHttpInfo($id, $activity_put_object = null)
     {
@@ -2195,6 +2227,7 @@ class ActivitiesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function updateActivityAsync($id, $activity_put_object = null): PromiseInterface
     {
@@ -2216,6 +2249,7 @@ class ActivitiesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function updateActivityAsyncWithHttpInfo($id, $activity_put_object = null): PromiseInterface
     {
@@ -2264,6 +2298,7 @@ class ActivitiesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function updateActivityRequest($id, $activity_put_object = null): Request
     {

@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Added option to use `sort_by=due_date` sorting for `GET /api/v2/activities`
+- Added option to use `done=true/false` quick filter for `GET /api/v2/activities`
+### Changed
 
 [9.0.0](https://github.com/pipedrive/client-php/compare/8.1.5...9.0.0) (2025-03-31)
 

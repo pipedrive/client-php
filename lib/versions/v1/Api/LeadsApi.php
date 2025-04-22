@@ -727,6 +727,373 @@ class LeadsApi
     }
 
     /**
+     * Operation getArchivedLeads
+     *
+     * Get all archived leads
+     *
+     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. (optional)
+     * @param  int|null $start For pagination, the position that represents the first result for the page (optional)
+     * @param  int|null $owner_id If supplied, only leads matching the given user will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;owner_id&#x60; when supplied. (optional)
+     * @param  int|null $person_id If supplied, only leads matching the given person will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;person_id&#x60; when supplied. (optional)
+     * @param  int|null $organization_id If supplied, only leads matching the given organization will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;organization_id&#x60; when supplied. (optional)
+     * @param  int|null $filter_id The ID of the filter to use (optional)
+     * @param  string|null $sort The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). (optional)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException|GuzzleException
+     * @return \Pipedrive\versions\v1\Model\GetLeadsResponse
+     */
+    public function getArchivedLeads($limit = null, $start = null, $owner_id = null, $person_id = null, $organization_id = null, $filter_id = null, $sort = null)
+    {
+        list($response) = $this->getArchivedLeadsWithHttpInfo($limit, $start, $owner_id, $person_id, $organization_id, $filter_id, $sort);
+        return $response;
+    }
+
+    /**
+     * Operation getArchivedLeadsWithHttpInfo
+     *
+     * Get all archived leads
+     *
+     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. (optional)
+     * @param  int|null $start For pagination, the position that represents the first result for the page (optional)
+     * @param  int|null $owner_id If supplied, only leads matching the given user will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;owner_id&#x60; when supplied. (optional)
+     * @param  int|null $person_id If supplied, only leads matching the given person will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;person_id&#x60; when supplied. (optional)
+     * @param  int|null $organization_id If supplied, only leads matching the given organization will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;organization_id&#x60; when supplied. (optional)
+     * @param  int|null $filter_id The ID of the filter to use (optional)
+     * @param  string|null $sort The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). (optional)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException|GuzzleException
+     * @return array<mixed> of \Pipedrive\versions\v1\Model\GetLeadsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getArchivedLeadsWithHttpInfo($limit = null, $start = null, $owner_id = null, $person_id = null, $organization_id = null, $filter_id = null, $sort = null)
+    {
+        $request = $this->getArchivedLeadsRequest($limit, $start, $owner_id, $person_id, $organization_id, $filter_id, $sort);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                if ($e->getCode() === 401 && $this->config->isRefreshPossible()) {
+                    $this->config->refreshToken();
+                    $request = $this->getArchivedLeadsRequest($limit, $start, $owner_id, $person_id, $organization_id, $filter_id, $sort);
+                    $response = $this->client->send($request, $options);
+                } else {
+                    throw new ApiException(
+                        "[{$e->getCode()}] {$e->getMessage()}",
+                        (int) $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    );
+                }
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    /* @phpstan-ignore-next-line */
+                    if ('\Pipedrive\versions\v1\Model\GetLeadsResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Pipedrive\versions\v1\Model\GetLeadsResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            /* @phpstan-ignore-next-line */
+            if ('\Pipedrive\versions\v1\Model\GetLeadsResponse' === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, '\Pipedrive\versions\v1\Model\GetLeadsResponse', []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pipedrive\versions\v1\Model\GetLeadsResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getArchivedLeadsAsync
+     *
+     * Get all archived leads
+     *
+     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. (optional)
+     * @param  int|null $start For pagination, the position that represents the first result for the page (optional)
+     * @param  int|null $owner_id If supplied, only leads matching the given user will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;owner_id&#x60; when supplied. (optional)
+     * @param  int|null $person_id If supplied, only leads matching the given person will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;person_id&#x60; when supplied. (optional)
+     * @param  int|null $organization_id If supplied, only leads matching the given organization will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;organization_id&#x60; when supplied. (optional)
+     * @param  int|null $filter_id The ID of the filter to use (optional)
+     * @param  string|null $sort The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). (optional)
+     *
+     * @throws InvalidArgumentException|OAuthProviderException
+     * @return PromiseInterface
+     */
+    public function getArchivedLeadsAsync($limit = null, $start = null, $owner_id = null, $person_id = null, $organization_id = null, $filter_id = null, $sort = null): PromiseInterface
+    {
+        return $this->getArchivedLeadsAsyncWithHttpInfo($limit, $start, $owner_id, $person_id, $organization_id, $filter_id, $sort)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getArchivedLeadsAsyncWithHttpInfo
+     *
+     * Get all archived leads
+     *
+     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. (optional)
+     * @param  int|null $start For pagination, the position that represents the first result for the page (optional)
+     * @param  int|null $owner_id If supplied, only leads matching the given user will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;owner_id&#x60; when supplied. (optional)
+     * @param  int|null $person_id If supplied, only leads matching the given person will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;person_id&#x60; when supplied. (optional)
+     * @param  int|null $organization_id If supplied, only leads matching the given organization will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;organization_id&#x60; when supplied. (optional)
+     * @param  int|null $filter_id The ID of the filter to use (optional)
+     * @param  string|null $sort The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). (optional)
+     *
+     * @throws InvalidArgumentException|OAuthProviderException
+     * @return PromiseInterface
+     */
+    public function getArchivedLeadsAsyncWithHttpInfo($limit = null, $start = null, $owner_id = null, $person_id = null, $organization_id = null, $filter_id = null, $sort = null): PromiseInterface
+    {
+        $returnType = '\Pipedrive\versions\v1\Model\GetLeadsResponse';
+        $request = $this->getArchivedLeadsRequest($limit, $start, $owner_id, $person_id, $organization_id, $filter_id, $sort);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    /* @phpstan-ignore-next-line */
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getArchivedLeads'
+     *
+     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. (optional)
+     * @param  int|null $start For pagination, the position that represents the first result for the page (optional)
+     * @param  int|null $owner_id If supplied, only leads matching the given user will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;owner_id&#x60; when supplied. (optional)
+     * @param  int|null $person_id If supplied, only leads matching the given person will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;person_id&#x60; when supplied. (optional)
+     * @param  int|null $organization_id If supplied, only leads matching the given organization will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;organization_id&#x60; when supplied. (optional)
+     * @param  int|null $filter_id The ID of the filter to use (optional)
+     * @param  string|null $sort The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). (optional)
+     *
+     * @throws InvalidArgumentException|OAuthProviderException
+     * @return Request
+     */
+    public function getArchivedLeadsRequest($limit = null, $start = null, $owner_id = null, $person_id = null, $organization_id = null, $filter_id = null, $sort = null): Request
+    {
+
+        $resourcePath = '/leads/archived';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($limit)) {
+            $limit = ObjectSerializer::serializeCollection($limit, '', true);
+        }
+        if ($limit !== null) {
+            $queryParams['limit'] = $limit;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($start)) {
+            $start = ObjectSerializer::serializeCollection($start, '', true);
+        }
+        if ($start !== null) {
+            $queryParams['start'] = $start;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($owner_id)) {
+            $owner_id = ObjectSerializer::serializeCollection($owner_id, '', true);
+        }
+        if ($owner_id !== null) {
+            $queryParams['owner_id'] = $owner_id;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($person_id)) {
+            $person_id = ObjectSerializer::serializeCollection($person_id, '', true);
+        }
+        if ($person_id !== null) {
+            $queryParams['person_id'] = $person_id;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($organization_id)) {
+            $organization_id = ObjectSerializer::serializeCollection($organization_id, '', true);
+        }
+        if ($organization_id !== null) {
+            $queryParams['organization_id'] = $organization_id;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($filter_id)) {
+            $filter_id = ObjectSerializer::serializeCollection($filter_id, '', true);
+        }
+        if ($filter_id !== null) {
+            $queryParams['filter_id'] = $filter_id;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($sort)) {
+            $sort = ObjectSerializer::serializeCollection($sort, '', true);
+        }
+        if ($sort !== null) {
+            $queryParams['sort'] = $sort;
+        }
+
+
+
+
+        /* @phpstan-ignore-next-line */
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            /* @phpstan-ignore-next-line */
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = Utils::jsonEncode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('api_token');
+        if ($apiKey !== null) {
+            $queryParams['api_token'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            // If access token is expired
+            if ($this->config->isRefreshPossible() && $this->config->getExpiresAt() <= time()) {
+                $this->config->refreshToken();
+            }
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = Query::build($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation getLead
      *
      * Get one lead
@@ -1346,7 +1713,6 @@ class LeadsApi
      *
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. (optional)
      * @param  int|null $start For pagination, the position that represents the first result for the page (optional)
-     * @param  string|null $archived_status Filtering based on the archived status of a lead. If not provided, &#x60;All&#x60; is used. (optional)
      * @param  int|null $owner_id If supplied, only leads matching the given user will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;owner_id&#x60; when supplied. (optional)
      * @param  int|null $person_id If supplied, only leads matching the given person will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;person_id&#x60; when supplied. (optional)
      * @param  int|null $organization_id If supplied, only leads matching the given organization will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;organization_id&#x60; when supplied. (optional)
@@ -1357,9 +1723,9 @@ class LeadsApi
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\GetLeadsResponse
      */
-    public function getLeads($limit = null, $start = null, $archived_status = null, $owner_id = null, $person_id = null, $organization_id = null, $filter_id = null, $sort = null)
+    public function getLeads($limit = null, $start = null, $owner_id = null, $person_id = null, $organization_id = null, $filter_id = null, $sort = null)
     {
-        list($response) = $this->getLeadsWithHttpInfo($limit, $start, $archived_status, $owner_id, $person_id, $organization_id, $filter_id, $sort);
+        list($response) = $this->getLeadsWithHttpInfo($limit, $start, $owner_id, $person_id, $organization_id, $filter_id, $sort);
         return $response;
     }
 
@@ -1370,7 +1736,6 @@ class LeadsApi
      *
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. (optional)
      * @param  int|null $start For pagination, the position that represents the first result for the page (optional)
-     * @param  string|null $archived_status Filtering based on the archived status of a lead. If not provided, &#x60;All&#x60; is used. (optional)
      * @param  int|null $owner_id If supplied, only leads matching the given user will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;owner_id&#x60; when supplied. (optional)
      * @param  int|null $person_id If supplied, only leads matching the given person will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;person_id&#x60; when supplied. (optional)
      * @param  int|null $organization_id If supplied, only leads matching the given organization will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;organization_id&#x60; when supplied. (optional)
@@ -1381,9 +1746,9 @@ class LeadsApi
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\GetLeadsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getLeadsWithHttpInfo($limit = null, $start = null, $archived_status = null, $owner_id = null, $person_id = null, $organization_id = null, $filter_id = null, $sort = null)
+    public function getLeadsWithHttpInfo($limit = null, $start = null, $owner_id = null, $person_id = null, $organization_id = null, $filter_id = null, $sort = null)
     {
-        $request = $this->getLeadsRequest($limit, $start, $archived_status, $owner_id, $person_id, $organization_id, $filter_id, $sort);
+        $request = $this->getLeadsRequest($limit, $start, $owner_id, $person_id, $organization_id, $filter_id, $sort);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1392,7 +1757,7 @@ class LeadsApi
             } catch (RequestException $e) {
                 if ($e->getCode() === 401 && $this->config->isRefreshPossible()) {
                     $this->config->refreshToken();
-                    $request = $this->getLeadsRequest($limit, $start, $archived_status, $owner_id, $person_id, $organization_id, $filter_id, $sort);
+                    $request = $this->getLeadsRequest($limit, $start, $owner_id, $person_id, $organization_id, $filter_id, $sort);
                     $response = $this->client->send($request, $options);
                 } else {
                     throw new ApiException(
@@ -1478,7 +1843,6 @@ class LeadsApi
      *
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. (optional)
      * @param  int|null $start For pagination, the position that represents the first result for the page (optional)
-     * @param  string|null $archived_status Filtering based on the archived status of a lead. If not provided, &#x60;All&#x60; is used. (optional)
      * @param  int|null $owner_id If supplied, only leads matching the given user will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;owner_id&#x60; when supplied. (optional)
      * @param  int|null $person_id If supplied, only leads matching the given person will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;person_id&#x60; when supplied. (optional)
      * @param  int|null $organization_id If supplied, only leads matching the given organization will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;organization_id&#x60; when supplied. (optional)
@@ -1488,9 +1852,9 @@ class LeadsApi
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
      */
-    public function getLeadsAsync($limit = null, $start = null, $archived_status = null, $owner_id = null, $person_id = null, $organization_id = null, $filter_id = null, $sort = null): PromiseInterface
+    public function getLeadsAsync($limit = null, $start = null, $owner_id = null, $person_id = null, $organization_id = null, $filter_id = null, $sort = null): PromiseInterface
     {
-        return $this->getLeadsAsyncWithHttpInfo($limit, $start, $archived_status, $owner_id, $person_id, $organization_id, $filter_id, $sort)
+        return $this->getLeadsAsyncWithHttpInfo($limit, $start, $owner_id, $person_id, $organization_id, $filter_id, $sort)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1505,7 +1869,6 @@ class LeadsApi
      *
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. (optional)
      * @param  int|null $start For pagination, the position that represents the first result for the page (optional)
-     * @param  string|null $archived_status Filtering based on the archived status of a lead. If not provided, &#x60;All&#x60; is used. (optional)
      * @param  int|null $owner_id If supplied, only leads matching the given user will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;owner_id&#x60; when supplied. (optional)
      * @param  int|null $person_id If supplied, only leads matching the given person will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;person_id&#x60; when supplied. (optional)
      * @param  int|null $organization_id If supplied, only leads matching the given organization will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;organization_id&#x60; when supplied. (optional)
@@ -1515,10 +1878,10 @@ class LeadsApi
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
      */
-    public function getLeadsAsyncWithHttpInfo($limit = null, $start = null, $archived_status = null, $owner_id = null, $person_id = null, $organization_id = null, $filter_id = null, $sort = null): PromiseInterface
+    public function getLeadsAsyncWithHttpInfo($limit = null, $start = null, $owner_id = null, $person_id = null, $organization_id = null, $filter_id = null, $sort = null): PromiseInterface
     {
         $returnType = '\Pipedrive\versions\v1\Model\GetLeadsResponse';
-        $request = $this->getLeadsRequest($limit, $start, $archived_status, $owner_id, $person_id, $organization_id, $filter_id, $sort);
+        $request = $this->getLeadsRequest($limit, $start, $owner_id, $person_id, $organization_id, $filter_id, $sort);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1559,7 +1922,6 @@ class LeadsApi
      *
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. (optional)
      * @param  int|null $start For pagination, the position that represents the first result for the page (optional)
-     * @param  string|null $archived_status Filtering based on the archived status of a lead. If not provided, &#x60;All&#x60; is used. (optional)
      * @param  int|null $owner_id If supplied, only leads matching the given user will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;owner_id&#x60; when supplied. (optional)
      * @param  int|null $person_id If supplied, only leads matching the given person will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;person_id&#x60; when supplied. (optional)
      * @param  int|null $organization_id If supplied, only leads matching the given organization will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;organization_id&#x60; when supplied. (optional)
@@ -1569,7 +1931,7 @@ class LeadsApi
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
      */
-    public function getLeadsRequest($limit = null, $start = null, $archived_status = null, $owner_id = null, $person_id = null, $organization_id = null, $filter_id = null, $sort = null): Request
+    public function getLeadsRequest($limit = null, $start = null, $owner_id = null, $person_id = null, $organization_id = null, $filter_id = null, $sort = null): Request
     {
 
         $resourcePath = '/leads';
@@ -1594,14 +1956,6 @@ class LeadsApi
         }
         if ($start !== null) {
             $queryParams['start'] = $start;
-        }
-        // query params
-        /* @phpstan-ignore-next-line */
-        if (is_array($archived_status)) {
-            $archived_status = ObjectSerializer::serializeCollection($archived_status, '', true);
-        }
-        if ($archived_status !== null) {
-            $queryParams['archived_status'] = $archived_status;
         }
         // query params
         /* @phpstan-ignore-next-line */
