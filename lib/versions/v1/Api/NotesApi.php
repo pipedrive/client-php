@@ -2272,6 +2272,7 @@ class NotesApi
      * @param  int|null $deal_id The ID of the deal which notes to fetch. If omitted, notes about all deals will be returned. (optional)
      * @param  int|null $person_id The ID of the person whose notes to fetch. If omitted, notes about all persons will be returned. (optional)
      * @param  int|null $org_id The ID of the organization which notes to fetch. If omitted, notes about all organizations will be returned. (optional)
+     * @param  int|null $project_id The ID of the project which notes to fetch. If omitted, notes about all projects will be returned. (optional)
      * @param  int|0 $start Pagination start (optional, default to 0)
      * @param  int|null $limit Items shown per page (optional)
      * @param  string|null $sort The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). Supported fields: &#x60;id&#x60;, &#x60;user_id&#x60;, &#x60;deal_id&#x60;, &#x60;person_id&#x60;, &#x60;org_id&#x60;, &#x60;content&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;. (optional)
@@ -2281,14 +2282,15 @@ class NotesApi
      * @param  \Pipedrive\versions\v1\Model\NumberBoolean|null $pinned_to_deal_flag If set, the results are filtered by note to deal pinning state (optional)
      * @param  \Pipedrive\versions\v1\Model\NumberBoolean|null $pinned_to_organization_flag If set, the results are filtered by note to organization pinning state (optional)
      * @param  \Pipedrive\versions\v1\Model\NumberBoolean|null $pinned_to_person_flag If set, the results are filtered by note to person pinning state (optional)
+     * @param  \Pipedrive\versions\v1\Model\NumberBoolean|null $pinned_to_project_flag If set, the results are filtered by note to project pinning state (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\GetNotes
      */
-    public function getNotes($user_id = null, $lead_id = null, $deal_id = null, $person_id = null, $org_id = null, $start = 0, $limit = null, $sort = null, $start_date = null, $end_date = null, $pinned_to_lead_flag = null, $pinned_to_deal_flag = null, $pinned_to_organization_flag = null, $pinned_to_person_flag = null)
+    public function getNotes($user_id = null, $lead_id = null, $deal_id = null, $person_id = null, $org_id = null, $project_id = null, $start = 0, $limit = null, $sort = null, $start_date = null, $end_date = null, $pinned_to_lead_flag = null, $pinned_to_deal_flag = null, $pinned_to_organization_flag = null, $pinned_to_person_flag = null, $pinned_to_project_flag = null)
     {
-        list($response) = $this->getNotesWithHttpInfo($user_id, $lead_id, $deal_id, $person_id, $org_id, $start, $limit, $sort, $start_date, $end_date, $pinned_to_lead_flag, $pinned_to_deal_flag, $pinned_to_organization_flag, $pinned_to_person_flag);
+        list($response) = $this->getNotesWithHttpInfo($user_id, $lead_id, $deal_id, $person_id, $org_id, $project_id, $start, $limit, $sort, $start_date, $end_date, $pinned_to_lead_flag, $pinned_to_deal_flag, $pinned_to_organization_flag, $pinned_to_person_flag, $pinned_to_project_flag);
         return $response;
     }
 
@@ -2302,6 +2304,7 @@ class NotesApi
      * @param  int|null $deal_id The ID of the deal which notes to fetch. If omitted, notes about all deals will be returned. (optional)
      * @param  int|null $person_id The ID of the person whose notes to fetch. If omitted, notes about all persons will be returned. (optional)
      * @param  int|null $org_id The ID of the organization which notes to fetch. If omitted, notes about all organizations will be returned. (optional)
+     * @param  int|null $project_id The ID of the project which notes to fetch. If omitted, notes about all projects will be returned. (optional)
      * @param  int|0 $start Pagination start (optional, default to 0)
      * @param  int|null $limit Items shown per page (optional)
      * @param  string|null $sort The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). Supported fields: &#x60;id&#x60;, &#x60;user_id&#x60;, &#x60;deal_id&#x60;, &#x60;person_id&#x60;, &#x60;org_id&#x60;, &#x60;content&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;. (optional)
@@ -2311,14 +2314,15 @@ class NotesApi
      * @param  \Pipedrive\versions\v1\Model\NumberBoolean|null $pinned_to_deal_flag If set, the results are filtered by note to deal pinning state (optional)
      * @param  \Pipedrive\versions\v1\Model\NumberBoolean|null $pinned_to_organization_flag If set, the results are filtered by note to organization pinning state (optional)
      * @param  \Pipedrive\versions\v1\Model\NumberBoolean|null $pinned_to_person_flag If set, the results are filtered by note to person pinning state (optional)
+     * @param  \Pipedrive\versions\v1\Model\NumberBoolean|null $pinned_to_project_flag If set, the results are filtered by note to project pinning state (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\GetNotes, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getNotesWithHttpInfo($user_id = null, $lead_id = null, $deal_id = null, $person_id = null, $org_id = null, $start = 0, $limit = null, $sort = null, $start_date = null, $end_date = null, $pinned_to_lead_flag = null, $pinned_to_deal_flag = null, $pinned_to_organization_flag = null, $pinned_to_person_flag = null)
+    public function getNotesWithHttpInfo($user_id = null, $lead_id = null, $deal_id = null, $person_id = null, $org_id = null, $project_id = null, $start = 0, $limit = null, $sort = null, $start_date = null, $end_date = null, $pinned_to_lead_flag = null, $pinned_to_deal_flag = null, $pinned_to_organization_flag = null, $pinned_to_person_flag = null, $pinned_to_project_flag = null)
     {
-        $request = $this->getNotesRequest($user_id, $lead_id, $deal_id, $person_id, $org_id, $start, $limit, $sort, $start_date, $end_date, $pinned_to_lead_flag, $pinned_to_deal_flag, $pinned_to_organization_flag, $pinned_to_person_flag);
+        $request = $this->getNotesRequest($user_id, $lead_id, $deal_id, $person_id, $org_id, $project_id, $start, $limit, $sort, $start_date, $end_date, $pinned_to_lead_flag, $pinned_to_deal_flag, $pinned_to_organization_flag, $pinned_to_person_flag, $pinned_to_project_flag);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2327,7 +2331,7 @@ class NotesApi
             } catch (RequestException $e) {
                 if ($e->getCode() === 401 && $this->config->isRefreshPossible()) {
                     $this->config->refreshToken();
-                    $request = $this->getNotesRequest($user_id, $lead_id, $deal_id, $person_id, $org_id, $start, $limit, $sort, $start_date, $end_date, $pinned_to_lead_flag, $pinned_to_deal_flag, $pinned_to_organization_flag, $pinned_to_person_flag);
+                    $request = $this->getNotesRequest($user_id, $lead_id, $deal_id, $person_id, $org_id, $project_id, $start, $limit, $sort, $start_date, $end_date, $pinned_to_lead_flag, $pinned_to_deal_flag, $pinned_to_organization_flag, $pinned_to_person_flag, $pinned_to_project_flag);
                     $response = $this->client->send($request, $options);
                 } else {
                     throw new ApiException(
@@ -2416,6 +2420,7 @@ class NotesApi
      * @param  int|null $deal_id The ID of the deal which notes to fetch. If omitted, notes about all deals will be returned. (optional)
      * @param  int|null $person_id The ID of the person whose notes to fetch. If omitted, notes about all persons will be returned. (optional)
      * @param  int|null $org_id The ID of the organization which notes to fetch. If omitted, notes about all organizations will be returned. (optional)
+     * @param  int|null $project_id The ID of the project which notes to fetch. If omitted, notes about all projects will be returned. (optional)
      * @param  int|0 $start Pagination start (optional, default to 0)
      * @param  int|null $limit Items shown per page (optional)
      * @param  string|null $sort The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). Supported fields: &#x60;id&#x60;, &#x60;user_id&#x60;, &#x60;deal_id&#x60;, &#x60;person_id&#x60;, &#x60;org_id&#x60;, &#x60;content&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;. (optional)
@@ -2425,13 +2430,14 @@ class NotesApi
      * @param  \Pipedrive\versions\v1\Model\NumberBoolean|null $pinned_to_deal_flag If set, the results are filtered by note to deal pinning state (optional)
      * @param  \Pipedrive\versions\v1\Model\NumberBoolean|null $pinned_to_organization_flag If set, the results are filtered by note to organization pinning state (optional)
      * @param  \Pipedrive\versions\v1\Model\NumberBoolean|null $pinned_to_person_flag If set, the results are filtered by note to person pinning state (optional)
+     * @param  \Pipedrive\versions\v1\Model\NumberBoolean|null $pinned_to_project_flag If set, the results are filtered by note to project pinning state (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
      */
-    public function getNotesAsync($user_id = null, $lead_id = null, $deal_id = null, $person_id = null, $org_id = null, $start = 0, $limit = null, $sort = null, $start_date = null, $end_date = null, $pinned_to_lead_flag = null, $pinned_to_deal_flag = null, $pinned_to_organization_flag = null, $pinned_to_person_flag = null): PromiseInterface
+    public function getNotesAsync($user_id = null, $lead_id = null, $deal_id = null, $person_id = null, $org_id = null, $project_id = null, $start = 0, $limit = null, $sort = null, $start_date = null, $end_date = null, $pinned_to_lead_flag = null, $pinned_to_deal_flag = null, $pinned_to_organization_flag = null, $pinned_to_person_flag = null, $pinned_to_project_flag = null): PromiseInterface
     {
-        return $this->getNotesAsyncWithHttpInfo($user_id, $lead_id, $deal_id, $person_id, $org_id, $start, $limit, $sort, $start_date, $end_date, $pinned_to_lead_flag, $pinned_to_deal_flag, $pinned_to_organization_flag, $pinned_to_person_flag)
+        return $this->getNotesAsyncWithHttpInfo($user_id, $lead_id, $deal_id, $person_id, $org_id, $project_id, $start, $limit, $sort, $start_date, $end_date, $pinned_to_lead_flag, $pinned_to_deal_flag, $pinned_to_organization_flag, $pinned_to_person_flag, $pinned_to_project_flag)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2449,6 +2455,7 @@ class NotesApi
      * @param  int|null $deal_id The ID of the deal which notes to fetch. If omitted, notes about all deals will be returned. (optional)
      * @param  int|null $person_id The ID of the person whose notes to fetch. If omitted, notes about all persons will be returned. (optional)
      * @param  int|null $org_id The ID of the organization which notes to fetch. If omitted, notes about all organizations will be returned. (optional)
+     * @param  int|null $project_id The ID of the project which notes to fetch. If omitted, notes about all projects will be returned. (optional)
      * @param  int|0 $start Pagination start (optional, default to 0)
      * @param  int|null $limit Items shown per page (optional)
      * @param  string|null $sort The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). Supported fields: &#x60;id&#x60;, &#x60;user_id&#x60;, &#x60;deal_id&#x60;, &#x60;person_id&#x60;, &#x60;org_id&#x60;, &#x60;content&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;. (optional)
@@ -2458,14 +2465,15 @@ class NotesApi
      * @param  \Pipedrive\versions\v1\Model\NumberBoolean|null $pinned_to_deal_flag If set, the results are filtered by note to deal pinning state (optional)
      * @param  \Pipedrive\versions\v1\Model\NumberBoolean|null $pinned_to_organization_flag If set, the results are filtered by note to organization pinning state (optional)
      * @param  \Pipedrive\versions\v1\Model\NumberBoolean|null $pinned_to_person_flag If set, the results are filtered by note to person pinning state (optional)
+     * @param  \Pipedrive\versions\v1\Model\NumberBoolean|null $pinned_to_project_flag If set, the results are filtered by note to project pinning state (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
      */
-    public function getNotesAsyncWithHttpInfo($user_id = null, $lead_id = null, $deal_id = null, $person_id = null, $org_id = null, $start = 0, $limit = null, $sort = null, $start_date = null, $end_date = null, $pinned_to_lead_flag = null, $pinned_to_deal_flag = null, $pinned_to_organization_flag = null, $pinned_to_person_flag = null): PromiseInterface
+    public function getNotesAsyncWithHttpInfo($user_id = null, $lead_id = null, $deal_id = null, $person_id = null, $org_id = null, $project_id = null, $start = 0, $limit = null, $sort = null, $start_date = null, $end_date = null, $pinned_to_lead_flag = null, $pinned_to_deal_flag = null, $pinned_to_organization_flag = null, $pinned_to_person_flag = null, $pinned_to_project_flag = null): PromiseInterface
     {
         $returnType = '\Pipedrive\versions\v1\Model\GetNotes';
-        $request = $this->getNotesRequest($user_id, $lead_id, $deal_id, $person_id, $org_id, $start, $limit, $sort, $start_date, $end_date, $pinned_to_lead_flag, $pinned_to_deal_flag, $pinned_to_organization_flag, $pinned_to_person_flag);
+        $request = $this->getNotesRequest($user_id, $lead_id, $deal_id, $person_id, $org_id, $project_id, $start, $limit, $sort, $start_date, $end_date, $pinned_to_lead_flag, $pinned_to_deal_flag, $pinned_to_organization_flag, $pinned_to_person_flag, $pinned_to_project_flag);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2509,6 +2517,7 @@ class NotesApi
      * @param  int|null $deal_id The ID of the deal which notes to fetch. If omitted, notes about all deals will be returned. (optional)
      * @param  int|null $person_id The ID of the person whose notes to fetch. If omitted, notes about all persons will be returned. (optional)
      * @param  int|null $org_id The ID of the organization which notes to fetch. If omitted, notes about all organizations will be returned. (optional)
+     * @param  int|null $project_id The ID of the project which notes to fetch. If omitted, notes about all projects will be returned. (optional)
      * @param  int|0 $start Pagination start (optional, default to 0)
      * @param  int|null $limit Items shown per page (optional)
      * @param  string|null $sort The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). Supported fields: &#x60;id&#x60;, &#x60;user_id&#x60;, &#x60;deal_id&#x60;, &#x60;person_id&#x60;, &#x60;org_id&#x60;, &#x60;content&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;. (optional)
@@ -2518,11 +2527,12 @@ class NotesApi
      * @param  \Pipedrive\versions\v1\Model\NumberBoolean|null $pinned_to_deal_flag If set, the results are filtered by note to deal pinning state (optional)
      * @param  \Pipedrive\versions\v1\Model\NumberBoolean|null $pinned_to_organization_flag If set, the results are filtered by note to organization pinning state (optional)
      * @param  \Pipedrive\versions\v1\Model\NumberBoolean|null $pinned_to_person_flag If set, the results are filtered by note to person pinning state (optional)
+     * @param  \Pipedrive\versions\v1\Model\NumberBoolean|null $pinned_to_project_flag If set, the results are filtered by note to project pinning state (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
      */
-    public function getNotesRequest($user_id = null, $lead_id = null, $deal_id = null, $person_id = null, $org_id = null, $start = 0, $limit = null, $sort = null, $start_date = null, $end_date = null, $pinned_to_lead_flag = null, $pinned_to_deal_flag = null, $pinned_to_organization_flag = null, $pinned_to_person_flag = null): Request
+    public function getNotesRequest($user_id = null, $lead_id = null, $deal_id = null, $person_id = null, $org_id = null, $project_id = null, $start = 0, $limit = null, $sort = null, $start_date = null, $end_date = null, $pinned_to_lead_flag = null, $pinned_to_deal_flag = null, $pinned_to_organization_flag = null, $pinned_to_person_flag = null, $pinned_to_project_flag = null): Request
     {
 
         $resourcePath = '/notes';
@@ -2571,6 +2581,14 @@ class NotesApi
         }
         if ($org_id !== null) {
             $queryParams['org_id'] = $org_id;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($project_id)) {
+            $project_id = ObjectSerializer::serializeCollection($project_id, '', true);
+        }
+        if ($project_id !== null) {
+            $queryParams['project_id'] = $project_id;
         }
         // query params
         /* @phpstan-ignore-next-line */
@@ -2643,6 +2661,14 @@ class NotesApi
         }
         if ($pinned_to_person_flag !== null) {
             $queryParams['pinned_to_person_flag'] = $pinned_to_person_flag;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($pinned_to_project_flag)) {
+            $pinned_to_project_flag = ObjectSerializer::serializeCollection($pinned_to_project_flag, '', true);
+        }
+        if ($pinned_to_project_flag !== null) {
+            $queryParams['pinned_to_project_flag'] = $pinned_to_project_flag;
         }
 
 

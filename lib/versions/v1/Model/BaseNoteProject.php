@@ -1,6 +1,6 @@
 <?php
 /**
- * NoteConnectToParams
+ * BaseNoteProject
  *
  * PHP version 7.3
  *
@@ -35,9 +35,10 @@ use Pipedrive\versions\v1\Traits\RawData;
 use Pipedrive\versions\v1\ObjectSerializer;
 
 /**
- * NoteConnectToParams Class Doc Comment
+ * BaseNoteProject Class Doc Comment
  *
  * @category Class
+ * @description The project the note is attached to
  * @package  Pipedrive\versions\v1
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -45,7 +46,7 @@ use Pipedrive\versions\v1\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class NoteConnectToParams implements ModelInterface, ArrayAccess, JsonSerializable
+class BaseNoteProject implements ModelInterface, ArrayAccess, JsonSerializable
 {
     use RawData;
 
@@ -56,7 +57,7 @@ class NoteConnectToParams implements ModelInterface, ArrayAccess, JsonSerializab
       *
       * @var string
       */
-    protected static string $openAPIModelName = 'NoteConnectToParams';
+    protected static string $openAPIModelName = 'BaseNote_project';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -66,11 +67,7 @@ class NoteConnectToParams implements ModelInterface, ArrayAccess, JsonSerializab
       * @phpsalm-var array<string, string>
       */
     protected static array $openAPITypes = [
-        'lead_id' => 'string',
-        'deal_id' => 'int',
-        'person_id' => 'int',
-        'org_id' => 'int',
-        'project_id' => 'int'
+        'title' => 'string'
     ];
 
     /**
@@ -81,11 +78,7 @@ class NoteConnectToParams implements ModelInterface, ArrayAccess, JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'lead_id' => 'uuid',
-        'deal_id' => null,
-        'person_id' => null,
-        'org_id' => null,
-        'project_id' => null
+        'title' => null
     ];
 
     /**
@@ -119,11 +112,7 @@ class NoteConnectToParams implements ModelInterface, ArrayAccess, JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'lead_id' => 'lead_id',
-        'deal_id' => 'deal_id',
-        'person_id' => 'person_id',
-        'org_id' => 'org_id',
-        'project_id' => 'project_id'
+        'title' => 'title'
     ];
 
     /**
@@ -132,11 +121,7 @@ class NoteConnectToParams implements ModelInterface, ArrayAccess, JsonSerializab
      * @var string[]
      */
     protected static $setters = [
-        'lead_id' => 'setLeadId',
-        'deal_id' => 'setDealId',
-        'person_id' => 'setPersonId',
-        'org_id' => 'setOrgId',
-        'project_id' => 'setProjectId'
+        'title' => 'setTitle'
     ];
 
     /**
@@ -145,11 +130,7 @@ class NoteConnectToParams implements ModelInterface, ArrayAccess, JsonSerializab
      * @var string[]
      */
     protected static $getters = [
-        'lead_id' => 'getLeadId',
-        'deal_id' => 'getDealId',
-        'person_id' => 'getPersonId',
-        'org_id' => 'getOrgId',
-        'project_id' => 'getProjectId'
+        'title' => 'getTitle'
     ];
 
     /**
@@ -219,11 +200,7 @@ class NoteConnectToParams implements ModelInterface, ArrayAccess, JsonSerializab
      */
     public function __construct(array $data = null)
     {
-        $this->container['lead_id'] = $data['lead_id'] ?? null;
-        $this->container['deal_id'] = $data['deal_id'] ?? null;
-        $this->container['person_id'] = $data['person_id'] ?? null;
-        $this->container['org_id'] = $data['org_id'] ?? null;
-        $this->container['project_id'] = $data['project_id'] ?? null;
+        $this->container['title'] = $data['title'] ?? null;
     }
 
     /**
@@ -253,121 +230,25 @@ class NoteConnectToParams implements ModelInterface, ArrayAccess, JsonSerializab
 
 
     /**
-     * Gets lead_id
+     * Gets title
      *
      * @return string|null
      */
-    public function getLeadId()
+    public function getTitle()
     {
-        return $this->container['lead_id'];
+        return $this->container['title'];
     }
 
     /**
-     * Sets lead_id
+     * Sets title
      *
-     * @param string|null $lead_id The ID of the lead the note will be attached to
+     * @param string|null $title The title of the project the note is attached to
      *
      * @return self
      */
-    public function setLeadId($lead_id): self
+    public function setTitle($title): self
     {
-        $this->container['lead_id'] = $lead_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets deal_id
-     *
-     * @return int|null
-     */
-    public function getDealId()
-    {
-        return $this->container['deal_id'];
-    }
-
-    /**
-     * Sets deal_id
-     *
-     * @param int|null $deal_id The ID of the deal the note will be attached to
-     *
-     * @return self
-     */
-    public function setDealId($deal_id): self
-    {
-        $this->container['deal_id'] = $deal_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets person_id
-     *
-     * @return int|null
-     */
-    public function getPersonId()
-    {
-        return $this->container['person_id'];
-    }
-
-    /**
-     * Sets person_id
-     *
-     * @param int|null $person_id The ID of the person the note will be attached to
-     *
-     * @return self
-     */
-    public function setPersonId($person_id): self
-    {
-        $this->container['person_id'] = $person_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets org_id
-     *
-     * @return int|null
-     */
-    public function getOrgId()
-    {
-        return $this->container['org_id'];
-    }
-
-    /**
-     * Sets org_id
-     *
-     * @param int|null $org_id The ID of the organization the note will be attached to
-     *
-     * @return self
-     */
-    public function setOrgId($org_id): self
-    {
-        $this->container['org_id'] = $org_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets project_id
-     *
-     * @return int|null
-     */
-    public function getProjectId()
-    {
-        return $this->container['project_id'];
-    }
-
-    /**
-     * Sets project_id
-     *
-     * @param int|null $project_id The ID of the project the note will be attached to
-     *
-     * @return self
-     */
-    public function setProjectId($project_id): self
-    {
-        $this->container['project_id'] = $project_id;
+        $this->container['title'] = $title;
 
         return $this;
     }

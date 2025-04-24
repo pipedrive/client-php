@@ -132,6 +132,7 @@ class PipelinesApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\AddNewPipeline
+     * @deprecated
      */
     public function addPipeline($pipeline = null)
     {
@@ -149,6 +150,7 @@ class PipelinesApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\AddNewPipeline, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function addPipelineWithHttpInfo($pipeline = null)
     {
@@ -249,6 +251,7 @@ class PipelinesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function addPipelineAsync($pipeline = null): PromiseInterface
     {
@@ -269,6 +272,7 @@ class PipelinesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function addPipelineAsyncWithHttpInfo($pipeline = null): PromiseInterface
     {
@@ -316,6 +320,7 @@ class PipelinesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function addPipelineRequest($pipeline = null): Request
     {
@@ -419,6 +424,7 @@ class PipelinesApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\DeletePipelineResponse
+     * @deprecated
      */
     public function deletePipeline($id)
     {
@@ -436,6 +442,7 @@ class PipelinesApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\DeletePipelineResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function deletePipelineWithHttpInfo($id)
     {
@@ -536,6 +543,7 @@ class PipelinesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function deletePipelineAsync($id): PromiseInterface
     {
@@ -556,6 +564,7 @@ class PipelinesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function deletePipelineAsyncWithHttpInfo($id): PromiseInterface
     {
@@ -603,6 +612,7 @@ class PipelinesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function deletePipelineRequest($id): Request
     {
@@ -716,6 +726,7 @@ class PipelinesApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\GetOnePipeline
+     * @deprecated
      */
     public function getPipeline($id, $totals_convert_currency = null)
     {
@@ -734,6 +745,7 @@ class PipelinesApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\GetOnePipeline, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getPipelineWithHttpInfo($id, $totals_convert_currency = null)
     {
@@ -835,6 +847,7 @@ class PipelinesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getPipelineAsync($id, $totals_convert_currency = null): PromiseInterface
     {
@@ -856,6 +869,7 @@ class PipelinesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getPipelineAsyncWithHttpInfo($id, $totals_convert_currency = null): PromiseInterface
     {
@@ -904,6 +918,7 @@ class PipelinesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function getPipelineRequest($id, $totals_convert_currency = null): Request
     {
@@ -1381,6 +1396,7 @@ class PipelinesApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\GetStageDeals
+     * @deprecated
      */
     public function getPipelineDeals($id, $filter_id = null, $user_id = null, $everyone = null, $stage_id = null, $start = 0, $limit = null, $get_summary = null, $totals_convert_currency = null)
     {
@@ -1406,6 +1422,7 @@ class PipelinesApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\GetStageDeals, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getPipelineDealsWithHttpInfo($id, $filter_id = null, $user_id = null, $everyone = null, $stage_id = null, $start = 0, $limit = null, $get_summary = null, $totals_convert_currency = null)
     {
@@ -1514,6 +1531,7 @@ class PipelinesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getPipelineDealsAsync($id, $filter_id = null, $user_id = null, $everyone = null, $stage_id = null, $start = 0, $limit = null, $get_summary = null, $totals_convert_currency = null): PromiseInterface
     {
@@ -1542,6 +1560,7 @@ class PipelinesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getPipelineDealsAsyncWithHttpInfo($id, $filter_id = null, $user_id = null, $everyone = null, $stage_id = null, $start = 0, $limit = null, $get_summary = null, $totals_convert_currency = null): PromiseInterface
     {
@@ -1597,6 +1616,7 @@ class PipelinesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function getPipelineDealsRequest($id, $filter_id = null, $user_id = null, $everyone = null, $stage_id = null, $start = 0, $limit = null, $get_summary = null, $totals_convert_currency = null): Request
     {
@@ -2121,6 +2141,7 @@ class PipelinesApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\GetAllPipelines
+     * @deprecated
      */
     public function getPipelines()
     {
@@ -2137,6 +2158,7 @@ class PipelinesApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\GetAllPipelines, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getPipelinesWithHttpInfo()
     {
@@ -2236,6 +2258,7 @@ class PipelinesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getPipelinesAsync(): PromiseInterface
     {
@@ -2255,6 +2278,7 @@ class PipelinesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getPipelinesAsyncWithHttpInfo(): PromiseInterface
     {
@@ -2301,6 +2325,7 @@ class PipelinesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function getPipelinesRequest(): Request
     {
@@ -2399,6 +2424,7 @@ class PipelinesApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\EditPipeline
+     * @deprecated
      */
     public function updatePipeline($id, $pipeline = null)
     {
@@ -2417,6 +2443,7 @@ class PipelinesApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\EditPipeline, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function updatePipelineWithHttpInfo($id, $pipeline = null)
     {
@@ -2518,6 +2545,7 @@ class PipelinesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function updatePipelineAsync($id, $pipeline = null): PromiseInterface
     {
@@ -2539,6 +2567,7 @@ class PipelinesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function updatePipelineAsyncWithHttpInfo($id, $pipeline = null): PromiseInterface
     {
@@ -2587,6 +2616,7 @@ class PipelinesApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function updatePipelineRequest($id, $pipeline = null): Request
     {

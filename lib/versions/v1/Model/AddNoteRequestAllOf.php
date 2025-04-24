@@ -70,7 +70,8 @@ class AddNoteRequestAllOf implements ModelInterface, ArrayAccess, JsonSerializab
         'lead_id' => 'string',
         'deal_id' => 'int',
         'person_id' => 'int',
-        'org_id' => 'int'
+        'org_id' => 'int',
+        'project_id' => 'int'
     ];
 
     /**
@@ -85,7 +86,8 @@ class AddNoteRequestAllOf implements ModelInterface, ArrayAccess, JsonSerializab
         'lead_id' => 'uuid',
         'deal_id' => null,
         'person_id' => null,
-        'org_id' => null
+        'org_id' => null,
+        'project_id' => null
     ];
 
     /**
@@ -123,7 +125,8 @@ class AddNoteRequestAllOf implements ModelInterface, ArrayAccess, JsonSerializab
         'lead_id' => 'lead_id',
         'deal_id' => 'deal_id',
         'person_id' => 'person_id',
-        'org_id' => 'org_id'
+        'org_id' => 'org_id',
+        'project_id' => 'project_id'
     ];
 
     /**
@@ -136,7 +139,8 @@ class AddNoteRequestAllOf implements ModelInterface, ArrayAccess, JsonSerializab
         'lead_id' => 'setLeadId',
         'deal_id' => 'setDealId',
         'person_id' => 'setPersonId',
-        'org_id' => 'setOrgId'
+        'org_id' => 'setOrgId',
+        'project_id' => 'setProjectId'
     ];
 
     /**
@@ -149,7 +153,8 @@ class AddNoteRequestAllOf implements ModelInterface, ArrayAccess, JsonSerializab
         'lead_id' => 'getLeadId',
         'deal_id' => 'getDealId',
         'person_id' => 'getPersonId',
-        'org_id' => 'getOrgId'
+        'org_id' => 'getOrgId',
+        'project_id' => 'getProjectId'
     ];
 
     /**
@@ -224,6 +229,7 @@ class AddNoteRequestAllOf implements ModelInterface, ArrayAccess, JsonSerializab
         $this->container['deal_id'] = $data['deal_id'] ?? null;
         $this->container['person_id'] = $data['person_id'] ?? null;
         $this->container['org_id'] = $data['org_id'] ?? null;
+        $this->container['project_id'] = $data['project_id'] ?? null;
     }
 
     /**
@@ -292,7 +298,7 @@ class AddNoteRequestAllOf implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets lead_id
      *
-     * @param string|null $lead_id The ID of the lead the note will be attached to. This property is required unless one of (`deal_id/person_id/org_id`) is specified.
+     * @param string|null $lead_id The ID of the lead the note will be attached to. This property is required unless one of (`deal_id/person_id/org_id/project_id`) is specified.
      *
      * @return self
      */
@@ -316,7 +322,7 @@ class AddNoteRequestAllOf implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets deal_id
      *
-     * @param int|null $deal_id The ID of the deal the note will be attached to. This property is required unless one of (`lead_id/person_id/org_id`) is specified.
+     * @param int|null $deal_id The ID of the deal the note will be attached to. This property is required unless one of (`lead_id/person_id/org_id/project_id`) is specified.
      *
      * @return self
      */
@@ -340,7 +346,7 @@ class AddNoteRequestAllOf implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets person_id
      *
-     * @param int|null $person_id The ID of the person this note will be attached to. This property is required unless one of (`deal_id/lead_id/org_id`) is specified.
+     * @param int|null $person_id The ID of the person this note will be attached to. This property is required unless one of (`deal_id/lead_id/org_id/project_id`) is specified.
      *
      * @return self
      */
@@ -364,13 +370,37 @@ class AddNoteRequestAllOf implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets org_id
      *
-     * @param int|null $org_id The ID of the organization this note will be attached to. This property is required unless one of (`deal_id/lead_id/person_id`) is specified.
+     * @param int|null $org_id The ID of the organization this note will be attached to. This property is required unless one of (`deal_id/lead_id/person_id/project_id`) is specified.
      *
      * @return self
      */
     public function setOrgId($org_id): self
     {
         $this->container['org_id'] = $org_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_id
+     *
+     * @return int|null
+     */
+    public function getProjectId()
+    {
+        return $this->container['project_id'];
+    }
+
+    /**
+     * Sets project_id
+     *
+     * @param int|null $project_id The ID of the project the note will be attached to. This property is required unless one of (`deal_id/lead_id/person_id/org_id`) is specified.
+     *
+     * @return self
+     */
+    public function setProjectId($project_id): self
+    {
+        $this->container['project_id'] = $project_id;
 
         return $this;
     }

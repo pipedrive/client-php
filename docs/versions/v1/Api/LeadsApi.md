@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addLead()**](LeadsApi.md#addLead) | **POST** /leads | Add a lead
 [**deleteLead()**](LeadsApi.md#deleteLead) | **DELETE** /leads/{id} | Delete a lead
+[**getArchivedLeads()**](LeadsApi.md#getArchivedLeads) | **GET** /leads/archived | Get all archived leads
 [**getLead()**](LeadsApi.md#getLead) | **GET** /leads/{id} | Get one lead
 [**getLeadUsers()**](LeadsApi.md#getLeadUsers) | **GET** /leads/{id}/permittedUsers | List permitted users
 [**getLeads()**](LeadsApi.md#getLeads) | **GET** /leads | Get all leads
@@ -129,6 +130,83 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Pipedrive\versions\v1\Model\GetLeadIdResponse**](../Model/GetLeadIdResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+## `getArchivedLeads()`
+
+```php
+getArchivedLeads($limit, $start, $owner_id, $person_id, $organization_id, $filter_id, $sort): \Pipedrive\versions\v1\Model\GetLeadsResponse
+```
+
+Get all archived leads
+
+Returns multiple archived leads. Leads are sorted by the time they were created, from oldest to newest. Pagination can be controlled using `limit` and `start` query parameters. If a lead contains custom fields, the fields' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field's value hasn't been set for the lead, it won't appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields' structure from deals.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key
+$config = (new Pipedrive\versions\v1\Configuration())->setApiKey('api_token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = (new Pipedrive\versions\v1\Configuration())->setApiKeyPrefix('api_token', 'Bearer');
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = (new Pipedrive\versions\v1\Configuration())->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Pipedrive\versions\v1\Api\LeadsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$limit = 100; // int | For pagination, the limit of entries to be returned. If not provided, 100 items will be returned.
+$start = 0; // int | For pagination, the position that represents the first result for the page
+$owner_id = 1; // int | If supplied, only leads matching the given user will be returned. However, `filter_id` takes precedence over `owner_id` when supplied.
+$person_id = 1; // int | If supplied, only leads matching the given person will be returned. However, `filter_id` takes precedence over `person_id` when supplied.
+$organization_id = 1; // int | If supplied, only leads matching the given organization will be returned. However, `filter_id` takes precedence over `organization_id` when supplied.
+$filter_id = 1; // int | The ID of the filter to use
+$sort = 'sort_example'; // string | The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
+
+try {
+    $result = $apiInstance->getArchivedLeads($limit, $start, $owner_id, $person_id, $organization_id, $filter_id, $sort);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling LeadsApi->getArchivedLeads: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **int**| For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. | [optional]
+ **start** | **int**| For pagination, the position that represents the first result for the page | [optional]
+ **owner_id** | **int**| If supplied, only leads matching the given user will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;owner_id&#x60; when supplied. | [optional]
+ **person_id** | **int**| If supplied, only leads matching the given person will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;person_id&#x60; when supplied. | [optional]
+ **organization_id** | **int**| If supplied, only leads matching the given organization will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;organization_id&#x60; when supplied. | [optional]
+ **filter_id** | **int**| The ID of the filter to use | [optional]
+ **sort** | **string**| The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). | [optional]
+
+### Return type
+
+[**\Pipedrive\versions\v1\Model\GetLeadsResponse**](../Model/GetLeadsResponse.md)
 
 ### Authorization
 
@@ -276,12 +354,12 @@ Name | Type | Description  | Notes
 ## `getLeads()`
 
 ```php
-getLeads($limit, $start, $archived_status, $owner_id, $person_id, $organization_id, $filter_id, $sort): \Pipedrive\versions\v1\Model\GetLeadsResponse
+getLeads($limit, $start, $owner_id, $person_id, $organization_id, $filter_id, $sort): \Pipedrive\versions\v1\Model\GetLeadsResponse
 ```
 
 Get all leads
 
-Returns multiple leads. Leads are sorted by the time they were created, from oldest to newest. Pagination can be controlled using `limit` and `start` query parameters. If a lead contains custom fields, the fields' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field's value hasn't been set for the lead, it won't appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields' structure from deals.
+Returns multiple not archived leads. Leads are sorted by the time they were created, from oldest to newest. Pagination can be controlled using `limit` and `start` query parameters. If a lead contains custom fields, the fields' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field's value hasn't been set for the lead, it won't appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields' structure from deals.
 
 ### Example
 
@@ -307,7 +385,6 @@ $apiInstance = new Pipedrive\versions\v1\Api\LeadsApi(
 );
 $limit = 100; // int | For pagination, the limit of entries to be returned. If not provided, 100 items will be returned.
 $start = 0; // int | For pagination, the position that represents the first result for the page
-$archived_status = 'archived_status_example'; // string | Filtering based on the archived status of a lead. If not provided, `All` is used.
 $owner_id = 1; // int | If supplied, only leads matching the given user will be returned. However, `filter_id` takes precedence over `owner_id` when supplied.
 $person_id = 1; // int | If supplied, only leads matching the given person will be returned. However, `filter_id` takes precedence over `person_id` when supplied.
 $organization_id = 1; // int | If supplied, only leads matching the given organization will be returned. However, `filter_id` takes precedence over `organization_id` when supplied.
@@ -315,7 +392,7 @@ $filter_id = 1; // int | The ID of the filter to use
 $sort = 'sort_example'; // string | The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
 
 try {
-    $result = $apiInstance->getLeads($limit, $start, $archived_status, $owner_id, $person_id, $organization_id, $filter_id, $sort);
+    $result = $apiInstance->getLeads($limit, $start, $owner_id, $person_id, $organization_id, $filter_id, $sort);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LeadsApi->getLeads: ', $e->getMessage(), PHP_EOL;
@@ -328,7 +405,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **int**| For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. | [optional]
  **start** | **int**| For pagination, the position that represents the first result for the page | [optional]
- **archived_status** | **string**| Filtering based on the archived status of a lead. If not provided, &#x60;All&#x60; is used. | [optional]
  **owner_id** | **int**| If supplied, only leads matching the given user will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;owner_id&#x60; when supplied. | [optional]
  **person_id** | **int**| If supplied, only leads matching the given person will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;person_id&#x60; when supplied. | [optional]
  **organization_id** | **int**| If supplied, only leads matching the given organization will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;organization_id&#x60; when supplied. | [optional]

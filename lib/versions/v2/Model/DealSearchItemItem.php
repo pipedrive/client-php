@@ -78,7 +78,8 @@ class DealSearchItemItem implements ModelInterface, ArrayAccess, JsonSerializabl
         'person' => '\Pipedrive\versions\v2\Model\DealSearchItemItemPerson',
         'organization' => '\Pipedrive\versions\v2\Model\DealSearchItemItemOrganization',
         'custom_fields' => 'string[]',
-        'notes' => 'string[]'
+        'notes' => 'string[]',
+        'is_archived' => 'bool'
     ];
 
     /**
@@ -101,7 +102,8 @@ class DealSearchItemItem implements ModelInterface, ArrayAccess, JsonSerializabl
         'person' => null,
         'organization' => null,
         'custom_fields' => null,
-        'notes' => null
+        'notes' => null,
+        'is_archived' => null
     ];
 
     /**
@@ -147,7 +149,8 @@ class DealSearchItemItem implements ModelInterface, ArrayAccess, JsonSerializabl
         'person' => 'person',
         'organization' => 'organization',
         'custom_fields' => 'custom_fields',
-        'notes' => 'notes'
+        'notes' => 'notes',
+        'is_archived' => 'is_archived'
     ];
 
     /**
@@ -168,7 +171,8 @@ class DealSearchItemItem implements ModelInterface, ArrayAccess, JsonSerializabl
         'person' => 'setPerson',
         'organization' => 'setOrganization',
         'custom_fields' => 'setCustomFields',
-        'notes' => 'setNotes'
+        'notes' => 'setNotes',
+        'is_archived' => 'setIsArchived'
     ];
 
     /**
@@ -189,7 +193,8 @@ class DealSearchItemItem implements ModelInterface, ArrayAccess, JsonSerializabl
         'person' => 'getPerson',
         'organization' => 'getOrganization',
         'custom_fields' => 'getCustomFields',
-        'notes' => 'getNotes'
+        'notes' => 'getNotes',
+        'is_archived' => 'getIsArchived'
     ];
 
     /**
@@ -272,6 +277,7 @@ class DealSearchItemItem implements ModelInterface, ArrayAccess, JsonSerializabl
         $this->container['organization'] = $data['organization'] ?? null;
         $this->container['custom_fields'] = $data['custom_fields'] ?? null;
         $this->container['notes'] = $data['notes'] ?? null;
+        $this->container['is_archived'] = $data['is_archived'] ?? null;
     }
 
     /**
@@ -608,6 +614,30 @@ class DealSearchItemItem implements ModelInterface, ArrayAccess, JsonSerializabl
     public function setNotes($notes): self
     {
         $this->container['notes'] = $notes;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_archived
+     *
+     * @return bool|null
+     */
+    public function getIsArchived()
+    {
+        return $this->container['is_archived'];
+    }
+
+    /**
+     * Sets is_archived
+     *
+     * @param bool|null $is_archived A flag indicating whether the deal is archived or not
+     *
+     * @return self
+     */
+    public function setIsArchived($is_archived): self
+    {
+        $this->container['is_archived'] = $is_archived;
 
         return $this;
     }

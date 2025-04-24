@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Added `project_id` and `pinned_to_project_flag` query parameter to the GET `/notes` endpoint
+- Added `project_id` and `pinned_to_project_flag` request bodies to the POST/PUT `/notes` endpoint
+- Added `project_id` and `pinned_to_project_flag` to success responses of GET/POST/PUT
 
 [9.0.0](https://github.com/pipedrive/client-php/compare/8.1.5...9.0.0) (2025-03-31)
 

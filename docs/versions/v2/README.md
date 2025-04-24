@@ -270,20 +270,27 @@ Class | Method | HTTP request | Description
 *ActivitiesApi* | [**getActivities**](Api/ActivitiesApi.md#getactivities) | **GET** /activities | Get all activities
 *ActivitiesApi* | [**getActivity**](Api/ActivitiesApi.md#getactivity) | **GET** /activities/{id} | Get details of an activity
 *ActivitiesApi* | [**updateActivity**](Api/ActivitiesApi.md#updateactivity) | **PATCH** /activities/{id} | Update an activity
+*BetaApi* | [**convertDealToLead**](Api/BetaApi.md#convertdealtolead) | **POST** /deals/{id}/convert/lead | Convert a deal to a lead (BETA)
+*BetaApi* | [**convertLeadToDeal**](Api/BetaApi.md#convertleadtodeal) | **POST** /leads/{id}/convert/deal | Convert a lead to a deal (BETA)
 *BetaApi* | [**deleteInstallment**](Api/BetaApi.md#deleteinstallment) | **DELETE** /deals/{id}/installments/{installment_id} | Delete an installment from a deal
+*BetaApi* | [**getDealConversionStatus**](Api/BetaApi.md#getdealconversionstatus) | **GET** /deals/{id}/convert/status/{conversion_id} | Get Deal conversion status (BETA)
 *BetaApi* | [**getInstallments**](Api/BetaApi.md#getinstallments) | **GET** /deals/installments | List installments added to a list of deals
+*BetaApi* | [**getLeadConversionStatus**](Api/BetaApi.md#getleadconversionstatus) | **GET** /leads/{id}/convert/status/{conversion_id} | Get Lead conversion status (BETA)
 *BetaApi* | [**postInstallment**](Api/BetaApi.md#postinstallment) | **POST** /deals/{id}/installments | Add an installment to a deal
 *BetaApi* | [**updateInstallment**](Api/BetaApi.md#updateinstallment) | **PATCH** /deals/{id}/installments/{installment_id} | Update an installment added to a deal
 *DealsApi* | [**addDeal**](Api/DealsApi.md#adddeal) | **POST** /deals | Add a new deal
 *DealsApi* | [**addDealFollower**](Api/DealsApi.md#adddealfollower) | **POST** /deals/{id}/followers | Add a follower to a deal
 *DealsApi* | [**addDealProduct**](Api/DealsApi.md#adddealproduct) | **POST** /deals/{id}/products | Add a product to a deal
+*DealsApi* | [**convertDealToLead**](Api/DealsApi.md#convertdealtolead) | **POST** /deals/{id}/convert/lead | Convert a deal to a lead (BETA)
 *DealsApi* | [**deleteAdditionalDiscount**](Api/DealsApi.md#deleteadditionaldiscount) | **DELETE** /deals/{id}/discounts/{discount_id} | Delete a discount from a deal
 *DealsApi* | [**deleteDeal**](Api/DealsApi.md#deletedeal) | **DELETE** /deals/{id} | Delete a deal
 *DealsApi* | [**deleteDealFollower**](Api/DealsApi.md#deletedealfollower) | **DELETE** /deals/{id}/followers/{follower_id} | Delete a follower from a deal
 *DealsApi* | [**deleteDealProduct**](Api/DealsApi.md#deletedealproduct) | **DELETE** /deals/{id}/products/{product_attachment_id} | Delete an attached product from a deal
 *DealsApi* | [**deleteInstallment**](Api/DealsApi.md#deleteinstallment) | **DELETE** /deals/{id}/installments/{installment_id} | Delete an installment from a deal
 *DealsApi* | [**getAdditionalDiscounts**](Api/DealsApi.md#getadditionaldiscounts) | **GET** /deals/{id}/discounts | List discounts added to a deal
+*DealsApi* | [**getArchivedDeals**](Api/DealsApi.md#getarchiveddeals) | **GET** /deals/archived | Get all archived deals
 *DealsApi* | [**getDeal**](Api/DealsApi.md#getdeal) | **GET** /deals/{id} | Get details of a deal
+*DealsApi* | [**getDealConversionStatus**](Api/DealsApi.md#getdealconversionstatus) | **GET** /deals/{id}/convert/status/{conversion_id} | Get Deal conversion status (BETA)
 *DealsApi* | [**getDealFollowers**](Api/DealsApi.md#getdealfollowers) | **GET** /deals/{id}/followers | List followers of a deal
 *DealsApi* | [**getDealFollowersChangelog**](Api/DealsApi.md#getdealfollowerschangelog) | **GET** /deals/{id}/followers/changelog | List followers changelog of a deal
 *DealsApi* | [**getDealProducts**](Api/DealsApi.md#getdealproducts) | **GET** /deals/{id}/products | List products attached to a deal
@@ -299,6 +306,8 @@ Class | Method | HTTP request | Description
 *DealsApi* | [**updateInstallment**](Api/DealsApi.md#updateinstallment) | **PATCH** /deals/{id}/installments/{installment_id} | Update an installment added to a deal
 *ItemSearchApi* | [**searchItem**](Api/ItemSearchApi.md#searchitem) | **GET** /itemSearch | Perform a search from multiple item types
 *ItemSearchApi* | [**searchItemByField**](Api/ItemSearchApi.md#searchitembyfield) | **GET** /itemSearch/field | Perform a search using a specific field from an item type
+*LeadsApi* | [**convertLeadToDeal**](Api/LeadsApi.md#convertleadtodeal) | **POST** /leads/{id}/convert/deal | Convert a lead to a deal (BETA)
+*LeadsApi* | [**getLeadConversionStatus**](Api/LeadsApi.md#getleadconversionstatus) | **GET** /leads/{id}/convert/status/{conversion_id} | Get Lead conversion status (BETA)
 *LeadsApi* | [**searchLeads**](Api/LeadsApi.md#searchleads) | **GET** /leads/search | Search leads
 *OrganizationsApi* | [**addOrganization**](Api/OrganizationsApi.md#addorganization) | **POST** /organizations | Add a new organization
 *OrganizationsApi* | [**addOrganizationFollower**](Api/OrganizationsApi.md#addorganizationfollower) | **POST** /organizations/{id}/followers | Add a follower to an organization
@@ -355,6 +364,8 @@ Class | Method | HTTP request | Description
  - [ActivityItemParticipants](Model/ActivityItemParticipants.md)
  - [ActivityRequestBody](Model/ActivityRequestBody.md)
  - [AddAdditionalDiscountResponse](Model/AddAdditionalDiscountResponse.md)
+ - [AddConvertDealToLeadResponse](Model/AddConvertDealToLeadResponse.md)
+ - [AddConvertLeadToDealResponse](Model/AddConvertLeadToDealResponse.md)
  - [AddDealProductResponse](Model/AddDealProductResponse.md)
  - [AddInstallmentResponse](Model/AddInstallmentResponse.md)
  - [AddProductRequestBody](Model/AddProductRequestBody.md)
@@ -375,6 +386,7 @@ Class | Method | HTTP request | Description
  - [BaseResponse](Model/BaseResponse.md)
  - [BillingFrequency](Model/BillingFrequency.md)
  - [BillingFrequency1](Model/BillingFrequency1.md)
+ - [ConvertEntityResponse](Model/ConvertEntityResponse.md)
  - [DealItem](Model/DealItem.md)
  - [DealProductRequestBody](Model/DealProductRequestBody.md)
  - [DealRequestBody](Model/DealRequestBody.md)
@@ -414,6 +426,7 @@ Class | Method | HTTP request | Description
  - [FollowerRequestBody](Model/FollowerRequestBody.md)
  - [GetActivities](Model/GetActivities.md)
  - [GetActivitiesAllOf](Model/GetActivitiesAllOf.md)
+ - [GetConvertResponse](Model/GetConvertResponse.md)
  - [GetDealSearchResponse](Model/GetDealSearchResponse.md)
  - [GetDealSearchResponseAllOf](Model/GetDealSearchResponseAllOf.md)
  - [GetDealSearchResponseAllOfData](Model/GetDealSearchResponseAllOfData.md)
@@ -437,6 +450,7 @@ Class | Method | HTTP request | Description
  - [GetPipelines](Model/GetPipelines.md)
  - [GetPipelinesAllOf](Model/GetPipelinesAllOf.md)
  - [GetStages](Model/GetStages.md)
+ - [InlineObject](Model/InlineObject.md)
  - [InstallmentRequestBody](Model/InstallmentRequestBody.md)
  - [InstallmentsResponse](Model/InstallmentsResponse.md)
  - [ItemSearchFieldResponse](Model/ItemSearchFieldResponse.md)

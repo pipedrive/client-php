@@ -78,6 +78,7 @@ class DealItem implements ModelInterface, ArrayAccess, JsonSerializable
         'add_time' => 'string',
         'update_time' => 'string',
         'stage_change_time' => 'string',
+        'is_archived' => 'bool',
         'is_deleted' => 'bool',
         'status' => 'string',
         'probability' => 'float',
@@ -117,6 +118,7 @@ class DealItem implements ModelInterface, ArrayAccess, JsonSerializable
         'add_time' => null,
         'update_time' => null,
         'stage_change_time' => null,
+        'is_archived' => null,
         'is_deleted' => null,
         'status' => null,
         'probability' => null,
@@ -179,6 +181,7 @@ class DealItem implements ModelInterface, ArrayAccess, JsonSerializable
         'add_time' => 'add_time',
         'update_time' => 'update_time',
         'stage_change_time' => 'stage_change_time',
+        'is_archived' => 'is_archived',
         'is_deleted' => 'is_deleted',
         'status' => 'status',
         'probability' => 'probability',
@@ -216,6 +219,7 @@ class DealItem implements ModelInterface, ArrayAccess, JsonSerializable
         'add_time' => 'setAddTime',
         'update_time' => 'setUpdateTime',
         'stage_change_time' => 'setStageChangeTime',
+        'is_archived' => 'setIsArchived',
         'is_deleted' => 'setIsDeleted',
         'status' => 'setStatus',
         'probability' => 'setProbability',
@@ -253,6 +257,7 @@ class DealItem implements ModelInterface, ArrayAccess, JsonSerializable
         'add_time' => 'getAddTime',
         'update_time' => 'getUpdateTime',
         'stage_change_time' => 'getStageChangeTime',
+        'is_archived' => 'getIsArchived',
         'is_deleted' => 'getIsDeleted',
         'status' => 'getStatus',
         'probability' => 'getProbability',
@@ -351,6 +356,7 @@ class DealItem implements ModelInterface, ArrayAccess, JsonSerializable
         $this->container['add_time'] = $data['add_time'] ?? null;
         $this->container['update_time'] = $data['update_time'] ?? null;
         $this->container['stage_change_time'] = $data['stage_change_time'] ?? null;
+        $this->container['is_archived'] = $data['is_archived'] ?? null;
         $this->container['is_deleted'] = $data['is_deleted'] ?? null;
         $this->container['status'] = $data['status'] ?? null;
         $this->container['probability'] = $data['probability'] ?? null;
@@ -680,6 +686,30 @@ class DealItem implements ModelInterface, ArrayAccess, JsonSerializable
     public function setStageChangeTime($stage_change_time): self
     {
         $this->container['stage_change_time'] = $stage_change_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_archived
+     *
+     * @return bool|null
+     */
+    public function getIsArchived()
+    {
+        return $this->container['is_archived'];
+    }
+
+    /**
+     * Sets is_archived
+     *
+     * @param bool|null $is_archived Whether the deal is archived or not
+     *
+     * @return self
+     */
+    public function setIsArchived($is_archived): self
+    {
+        $this->container['is_archived'] = $is_archived;
 
         return $this;
     }
