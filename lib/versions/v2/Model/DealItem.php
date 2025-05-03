@@ -96,7 +96,7 @@ class DealItem implements ModelInterface, ArrayAccess, JsonSerializable
         'arr' => 'float',
         'mrr' => 'float',
         'acv' => 'float',
-        'custom_fields' => 'array<string, mixed>'
+        'custom_fields' => 'array<string,mixed>'
     ];
 
     /**
