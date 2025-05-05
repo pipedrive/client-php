@@ -70,6 +70,7 @@ class ActivityItem implements ModelInterface, ArrayAccess, JsonSerializable
         'subject' => 'string',
         'type' => 'string',
         'owner_id' => 'int',
+        'creator_user_id' => 'int',
         'is_deleted' => 'bool',
         'add_time' => 'string',
         'update_time' => 'string',
@@ -107,6 +108,7 @@ class ActivityItem implements ModelInterface, ArrayAccess, JsonSerializable
         'subject' => null,
         'type' => null,
         'owner_id' => null,
+        'creator_user_id' => null,
         'is_deleted' => null,
         'add_time' => null,
         'update_time' => null,
@@ -167,6 +169,7 @@ class ActivityItem implements ModelInterface, ArrayAccess, JsonSerializable
         'subject' => 'subject',
         'type' => 'type',
         'owner_id' => 'owner_id',
+        'creator_user_id' => 'creator_user_id',
         'is_deleted' => 'is_deleted',
         'add_time' => 'add_time',
         'update_time' => 'update_time',
@@ -202,6 +205,7 @@ class ActivityItem implements ModelInterface, ArrayAccess, JsonSerializable
         'subject' => 'setSubject',
         'type' => 'setType',
         'owner_id' => 'setOwnerId',
+        'creator_user_id' => 'setCreatorUserId',
         'is_deleted' => 'setIsDeleted',
         'add_time' => 'setAddTime',
         'update_time' => 'setUpdateTime',
@@ -237,6 +241,7 @@ class ActivityItem implements ModelInterface, ArrayAccess, JsonSerializable
         'subject' => 'getSubject',
         'type' => 'getType',
         'owner_id' => 'getOwnerId',
+        'creator_user_id' => 'getCreatorUserId',
         'is_deleted' => 'getIsDeleted',
         'add_time' => 'getAddTime',
         'update_time' => 'getUpdateTime',
@@ -333,6 +338,7 @@ class ActivityItem implements ModelInterface, ArrayAccess, JsonSerializable
         $this->container['subject'] = $data['subject'] ?? null;
         $this->container['type'] = $data['type'] ?? null;
         $this->container['owner_id'] = $data['owner_id'] ?? null;
+        $this->container['creator_user_id'] = $data['creator_user_id'] ?? null;
         $this->container['is_deleted'] = $data['is_deleted'] ?? null;
         $this->container['add_time'] = $data['add_time'] ?? null;
         $this->container['update_time'] = $data['update_time'] ?? null;
@@ -476,6 +482,30 @@ class ActivityItem implements ModelInterface, ArrayAccess, JsonSerializable
     public function setOwnerId($owner_id): self
     {
         $this->container['owner_id'] = $owner_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets creator_user_id
+     *
+     * @return int|null
+     */
+    public function getCreatorUserId()
+    {
+        return $this->container['creator_user_id'];
+    }
+
+    /**
+     * Sets creator_user_id
+     *
+     * @param int|null $creator_user_id The ID of the user who created the activity
+     *
+     * @return self
+     */
+    public function setCreatorUserId($creator_user_id): self
+    {
+        $this->container['creator_user_id'] = $creator_user_id;
 
         return $this;
     }

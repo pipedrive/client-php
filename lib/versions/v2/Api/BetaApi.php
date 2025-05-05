@@ -123,6 +123,651 @@ class BetaApi
     }
 
     /**
+     * Operation convertDealToLead
+     *
+     * Convert a deal to a lead (BETA)
+     *
+     * @param  int $id The ID of the deal to convert (required)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException|GuzzleException
+     * @return \Pipedrive\versions\v2\Model\AddConvertDealToLeadResponse|\Pipedrive\versions\v2\Model\GetConvertResponse
+     */
+    public function convertDealToLead($id)
+    {
+        list($response) = $this->convertDealToLeadWithHttpInfo($id);
+        return $response;
+    }
+
+    /**
+     * Operation convertDealToLeadWithHttpInfo
+     *
+     * Convert a deal to a lead (BETA)
+     *
+     * @param  int $id The ID of the deal to convert (required)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException|GuzzleException
+     * @return array<mixed> of \Pipedrive\versions\v2\Model\AddConvertDealToLeadResponse|\Pipedrive\versions\v2\Model\GetConvertResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function convertDealToLeadWithHttpInfo($id)
+    {
+        $request = $this->convertDealToLeadRequest($id);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                if ($e->getCode() === 401 && $this->config->isRefreshPossible()) {
+                    $this->config->refreshToken();
+                    $request = $this->convertDealToLeadRequest($id);
+                    $response = $this->client->send($request, $options);
+                } else {
+                    throw new ApiException(
+                        "[{$e->getCode()}] {$e->getMessage()}",
+                        (int) $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    );
+                }
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    /* @phpstan-ignore-next-line */
+                    if ('\Pipedrive\versions\v2\Model\AddConvertDealToLeadResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Pipedrive\versions\v2\Model\AddConvertDealToLeadResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    /* @phpstan-ignore-next-line */
+                    if ('\Pipedrive\versions\v2\Model\GetConvertResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Pipedrive\versions\v2\Model\GetConvertResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            /* @phpstan-ignore-next-line */
+            if ('\Pipedrive\versions\v2\Model\AddConvertDealToLeadResponse' === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, '\Pipedrive\versions\v2\Model\AddConvertDealToLeadResponse', []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pipedrive\versions\v2\Model\AddConvertDealToLeadResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pipedrive\versions\v2\Model\GetConvertResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation convertDealToLeadAsync
+     *
+     * Convert a deal to a lead (BETA)
+     *
+     * @param  int $id The ID of the deal to convert (required)
+     *
+     * @throws InvalidArgumentException|OAuthProviderException
+     * @return PromiseInterface
+     */
+    public function convertDealToLeadAsync($id): PromiseInterface
+    {
+        return $this->convertDealToLeadAsyncWithHttpInfo($id)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation convertDealToLeadAsyncWithHttpInfo
+     *
+     * Convert a deal to a lead (BETA)
+     *
+     * @param  int $id The ID of the deal to convert (required)
+     *
+     * @throws InvalidArgumentException|OAuthProviderException
+     * @return PromiseInterface
+     */
+    public function convertDealToLeadAsyncWithHttpInfo($id): PromiseInterface
+    {
+        $returnType = '\Pipedrive\versions\v2\Model\AddConvertDealToLeadResponse';
+        $request = $this->convertDealToLeadRequest($id);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    /* @phpstan-ignore-next-line */
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'convertDealToLead'
+     *
+     * @param  int $id The ID of the deal to convert (required)
+     *
+     * @throws InvalidArgumentException|OAuthProviderException
+     * @return Request
+     */
+    public function convertDealToLeadRequest($id): Request
+    {
+        // verify the required parameter 'id' is set
+        /* @phpstan-ignore-next-line */
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling convertDealToLead'
+            );
+        }
+
+        $resourcePath = '/deals/{id}/convert/lead';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        /* @phpstan-ignore-next-line */
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            /* @phpstan-ignore-next-line */
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = Utils::jsonEncode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('api_token');
+        if ($apiKey !== null) {
+            $queryParams['api_token'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            // If access token is expired
+            if ($this->config->isRefreshPossible() && $this->config->getExpiresAt() <= time()) {
+                $this->config->refreshToken();
+            }
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = Query::build($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation convertLeadToDeal
+     *
+     * Convert a lead to a deal (BETA)
+     *
+     * @param  string $id The ID of the lead to convert (required)
+     * @param  \Pipedrive\versions\v2\Model\InlineObject|null $inline_object inline_object (optional)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException|GuzzleException
+     * @return \Pipedrive\versions\v2\Model\AddConvertLeadToDealResponse|\Pipedrive\versions\v2\Model\GetConvertResponse
+     */
+    public function convertLeadToDeal($id, $inline_object = null)
+    {
+        list($response) = $this->convertLeadToDealWithHttpInfo($id, $inline_object);
+        return $response;
+    }
+
+    /**
+     * Operation convertLeadToDealWithHttpInfo
+     *
+     * Convert a lead to a deal (BETA)
+     *
+     * @param  string $id The ID of the lead to convert (required)
+     * @param  \Pipedrive\versions\v2\Model\InlineObject|null $inline_object (optional)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException|GuzzleException
+     * @return array<mixed> of \Pipedrive\versions\v2\Model\AddConvertLeadToDealResponse|\Pipedrive\versions\v2\Model\GetConvertResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function convertLeadToDealWithHttpInfo($id, $inline_object = null)
+    {
+        $request = $this->convertLeadToDealRequest($id, $inline_object);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                if ($e->getCode() === 401 && $this->config->isRefreshPossible()) {
+                    $this->config->refreshToken();
+                    $request = $this->convertLeadToDealRequest($id, $inline_object);
+                    $response = $this->client->send($request, $options);
+                } else {
+                    throw new ApiException(
+                        "[{$e->getCode()}] {$e->getMessage()}",
+                        (int) $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    );
+                }
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    /* @phpstan-ignore-next-line */
+                    if ('\Pipedrive\versions\v2\Model\AddConvertLeadToDealResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Pipedrive\versions\v2\Model\AddConvertLeadToDealResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    /* @phpstan-ignore-next-line */
+                    if ('\Pipedrive\versions\v2\Model\GetConvertResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Pipedrive\versions\v2\Model\GetConvertResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            /* @phpstan-ignore-next-line */
+            if ('\Pipedrive\versions\v2\Model\AddConvertLeadToDealResponse' === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, '\Pipedrive\versions\v2\Model\AddConvertLeadToDealResponse', []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pipedrive\versions\v2\Model\AddConvertLeadToDealResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pipedrive\versions\v2\Model\GetConvertResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation convertLeadToDealAsync
+     *
+     * Convert a lead to a deal (BETA)
+     *
+     * @param  string $id The ID of the lead to convert (required)
+     * @param  \Pipedrive\versions\v2\Model\InlineObject|null $inline_object (optional)
+     *
+     * @throws InvalidArgumentException|OAuthProviderException
+     * @return PromiseInterface
+     */
+    public function convertLeadToDealAsync($id, $inline_object = null): PromiseInterface
+    {
+        return $this->convertLeadToDealAsyncWithHttpInfo($id, $inline_object)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation convertLeadToDealAsyncWithHttpInfo
+     *
+     * Convert a lead to a deal (BETA)
+     *
+     * @param  string $id The ID of the lead to convert (required)
+     * @param  \Pipedrive\versions\v2\Model\InlineObject|null $inline_object (optional)
+     *
+     * @throws InvalidArgumentException|OAuthProviderException
+     * @return PromiseInterface
+     */
+    public function convertLeadToDealAsyncWithHttpInfo($id, $inline_object = null): PromiseInterface
+    {
+        $returnType = '\Pipedrive\versions\v2\Model\AddConvertLeadToDealResponse';
+        $request = $this->convertLeadToDealRequest($id, $inline_object);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    /* @phpstan-ignore-next-line */
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'convertLeadToDeal'
+     *
+     * @param  string $id The ID of the lead to convert (required)
+     * @param  \Pipedrive\versions\v2\Model\InlineObject|null $inline_object (optional)
+     *
+     * @throws InvalidArgumentException|OAuthProviderException
+     * @return Request
+     */
+    public function convertLeadToDealRequest($id, $inline_object = null): Request
+    {
+        // verify the required parameter 'id' is set
+        /* @phpstan-ignore-next-line */
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling convertLeadToDeal'
+            );
+        }
+
+        $resourcePath = '/leads/{id}/convert/deal';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        /* @phpstan-ignore-next-line */
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($inline_object)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($inline_object));
+            } else {
+                $httpBody = $inline_object;
+            }
+        } elseif (count($formParams) > 0) {
+            /* @phpstan-ignore-next-line */
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = Utils::jsonEncode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('api_token');
+        if ($apiKey !== null) {
+            $queryParams['api_token'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            // If access token is expired
+            if ($this->config->isRefreshPossible() && $this->config->getExpiresAt() <= time()) {
+                $this->config->refreshToken();
+            }
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = Query::build($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation deleteInstallment
      *
      * Delete an installment from a deal
@@ -439,6 +1084,270 @@ class BetaApi
     }
 
     /**
+     * Operation getDealConversionStatus
+     *
+     * Get Deal conversion status (BETA)
+     *
+     * @param  int $id The ID of a deal (required)
+     * @param  string $conversion_id The ID of the conversion (required)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException|GuzzleException
+     * @return void
+     */
+    public function getDealConversionStatus($id, $conversion_id)
+    {
+        $this->getDealConversionStatusWithHttpInfo($id, $conversion_id);
+    }
+
+    /**
+     * Operation getDealConversionStatusWithHttpInfo
+     *
+     * Get Deal conversion status (BETA)
+     *
+     * @param  int $id The ID of a deal (required)
+     * @param  string $conversion_id The ID of the conversion (required)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException|GuzzleException
+     * @return array<mixed> of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getDealConversionStatusWithHttpInfo($id, $conversion_id)
+    {
+        $request = $this->getDealConversionStatusRequest($id, $conversion_id);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                if ($e->getCode() === 401 && $this->config->isRefreshPossible()) {
+                    $this->config->refreshToken();
+                    $request = $this->getDealConversionStatusRequest($id, $conversion_id);
+                    $response = $this->client->send($request, $options);
+                } else {
+                    throw new ApiException(
+                        "[{$e->getCode()}] {$e->getMessage()}",
+                        (int) $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    );
+                }
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pipedrive\versions\v2\Model\GetConvertResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getDealConversionStatusAsync
+     *
+     * Get Deal conversion status (BETA)
+     *
+     * @param  int $id The ID of a deal (required)
+     * @param  string $conversion_id The ID of the conversion (required)
+     *
+     * @throws InvalidArgumentException|OAuthProviderException
+     * @return PromiseInterface
+     */
+    public function getDealConversionStatusAsync($id, $conversion_id): PromiseInterface
+    {
+        return $this->getDealConversionStatusAsyncWithHttpInfo($id, $conversion_id)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getDealConversionStatusAsyncWithHttpInfo
+     *
+     * Get Deal conversion status (BETA)
+     *
+     * @param  int $id The ID of a deal (required)
+     * @param  string $conversion_id The ID of the conversion (required)
+     *
+     * @throws InvalidArgumentException|OAuthProviderException
+     * @return PromiseInterface
+     */
+    public function getDealConversionStatusAsyncWithHttpInfo($id, $conversion_id): PromiseInterface
+    {
+        $returnType = '';
+        $request = $this->getDealConversionStatusRequest($id, $conversion_id);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getDealConversionStatus'
+     *
+     * @param  int $id The ID of a deal (required)
+     * @param  string $conversion_id The ID of the conversion (required)
+     *
+     * @throws InvalidArgumentException|OAuthProviderException
+     * @return Request
+     */
+    public function getDealConversionStatusRequest($id, $conversion_id): Request
+    {
+        // verify the required parameter 'id' is set
+        /* @phpstan-ignore-next-line */
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getDealConversionStatus'
+            );
+        }
+        // verify the required parameter 'conversion_id' is set
+        /* @phpstan-ignore-next-line */
+        if ($conversion_id === null || (is_array($conversion_id) && count($conversion_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $conversion_id when calling getDealConversionStatus'
+            );
+        }
+
+        $resourcePath = '/deals/{id}/convert/status/{conversion_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($conversion_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'conversion_id' . '}',
+                ObjectSerializer::toPathValue($conversion_id),
+                $resourcePath
+            );
+        }
+
+
+        /* @phpstan-ignore-next-line */
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            /* @phpstan-ignore-next-line */
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = Utils::jsonEncode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('api_token');
+        if ($apiKey !== null) {
+            $queryParams['api_token'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            // If access token is expired
+            if ($this->config->isRefreshPossible() && $this->config->getExpiresAt() <= time()) {
+                $this->config->refreshToken();
+            }
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = Query::build($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation getInstallments
      *
      * List installments added to a list of deals
@@ -712,6 +1621,270 @@ class BetaApi
         }
 
 
+
+
+        /* @phpstan-ignore-next-line */
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            /* @phpstan-ignore-next-line */
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = Utils::jsonEncode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('api_token');
+        if ($apiKey !== null) {
+            $queryParams['api_token'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            // If access token is expired
+            if ($this->config->isRefreshPossible() && $this->config->getExpiresAt() <= time()) {
+                $this->config->refreshToken();
+            }
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = Query::build($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getLeadConversionStatus
+     *
+     * Get Lead conversion status (BETA)
+     *
+     * @param  string $id The ID of a lead (required)
+     * @param  string $conversion_id The ID of the conversion (required)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException|GuzzleException
+     * @return void
+     */
+    public function getLeadConversionStatus($id, $conversion_id)
+    {
+        $this->getLeadConversionStatusWithHttpInfo($id, $conversion_id);
+    }
+
+    /**
+     * Operation getLeadConversionStatusWithHttpInfo
+     *
+     * Get Lead conversion status (BETA)
+     *
+     * @param  string $id The ID of a lead (required)
+     * @param  string $conversion_id The ID of the conversion (required)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException|GuzzleException
+     * @return array<mixed> of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getLeadConversionStatusWithHttpInfo($id, $conversion_id)
+    {
+        $request = $this->getLeadConversionStatusRequest($id, $conversion_id);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                if ($e->getCode() === 401 && $this->config->isRefreshPossible()) {
+                    $this->config->refreshToken();
+                    $request = $this->getLeadConversionStatusRequest($id, $conversion_id);
+                    $response = $this->client->send($request, $options);
+                } else {
+                    throw new ApiException(
+                        "[{$e->getCode()}] {$e->getMessage()}",
+                        (int) $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    );
+                }
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pipedrive\versions\v2\Model\GetConvertResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getLeadConversionStatusAsync
+     *
+     * Get Lead conversion status (BETA)
+     *
+     * @param  string $id The ID of a lead (required)
+     * @param  string $conversion_id The ID of the conversion (required)
+     *
+     * @throws InvalidArgumentException|OAuthProviderException
+     * @return PromiseInterface
+     */
+    public function getLeadConversionStatusAsync($id, $conversion_id): PromiseInterface
+    {
+        return $this->getLeadConversionStatusAsyncWithHttpInfo($id, $conversion_id)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getLeadConversionStatusAsyncWithHttpInfo
+     *
+     * Get Lead conversion status (BETA)
+     *
+     * @param  string $id The ID of a lead (required)
+     * @param  string $conversion_id The ID of the conversion (required)
+     *
+     * @throws InvalidArgumentException|OAuthProviderException
+     * @return PromiseInterface
+     */
+    public function getLeadConversionStatusAsyncWithHttpInfo($id, $conversion_id): PromiseInterface
+    {
+        $returnType = '';
+        $request = $this->getLeadConversionStatusRequest($id, $conversion_id);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getLeadConversionStatus'
+     *
+     * @param  string $id The ID of a lead (required)
+     * @param  string $conversion_id The ID of the conversion (required)
+     *
+     * @throws InvalidArgumentException|OAuthProviderException
+     * @return Request
+     */
+    public function getLeadConversionStatusRequest($id, $conversion_id): Request
+    {
+        // verify the required parameter 'id' is set
+        /* @phpstan-ignore-next-line */
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getLeadConversionStatus'
+            );
+        }
+        // verify the required parameter 'conversion_id' is set
+        /* @phpstan-ignore-next-line */
+        if ($conversion_id === null || (is_array($conversion_id) && count($conversion_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $conversion_id when calling getLeadConversionStatus'
+            );
+        }
+
+        $resourcePath = '/leads/{id}/convert/status/{conversion_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($conversion_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'conversion_id' . '}',
+                ObjectSerializer::toPathValue($conversion_id),
+                $resourcePath
+            );
+        }
 
 
         /* @phpstan-ignore-next-line */

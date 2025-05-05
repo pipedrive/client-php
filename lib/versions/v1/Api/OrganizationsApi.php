@@ -132,6 +132,7 @@ class OrganizationsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\OrganizationPostResponse
+     * @deprecated
      */
     public function addOrganization($new_organization = null)
     {
@@ -149,6 +150,7 @@ class OrganizationsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\OrganizationPostResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function addOrganizationWithHttpInfo($new_organization = null)
     {
@@ -249,6 +251,7 @@ class OrganizationsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function addOrganizationAsync($new_organization = null): PromiseInterface
     {
@@ -269,6 +272,7 @@ class OrganizationsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function addOrganizationAsyncWithHttpInfo($new_organization = null): PromiseInterface
     {
@@ -316,6 +320,7 @@ class OrganizationsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function addOrganizationRequest($new_organization = null): Request
     {
@@ -726,6 +731,7 @@ class OrganizationsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\OrganizationDeleteResponse
+     * @deprecated
      */
     public function deleteOrganization($id)
     {
@@ -743,6 +749,7 @@ class OrganizationsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\OrganizationDeleteResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function deleteOrganizationWithHttpInfo($id)
     {
@@ -843,6 +850,7 @@ class OrganizationsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function deleteOrganizationAsync($id): PromiseInterface
     {
@@ -863,6 +871,7 @@ class OrganizationsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function deleteOrganizationAsyncWithHttpInfo($id): PromiseInterface
     {
@@ -910,6 +919,7 @@ class OrganizationsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function deleteOrganizationRequest($id): Request
     {
@@ -1338,6 +1348,7 @@ class OrganizationsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\OrganizationsDeleteResponse
+     * @deprecated
      */
     public function deleteOrganizations($ids)
     {
@@ -1355,6 +1366,7 @@ class OrganizationsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\OrganizationsDeleteResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function deleteOrganizationsWithHttpInfo($ids)
     {
@@ -1455,6 +1467,7 @@ class OrganizationsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function deleteOrganizationsAsync($ids): PromiseInterface
     {
@@ -1475,6 +1488,7 @@ class OrganizationsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function deleteOrganizationsAsyncWithHttpInfo($ids): PromiseInterface
     {
@@ -1522,6 +1536,7 @@ class OrganizationsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function deleteOrganizationsRequest($ids): Request
     {
@@ -1634,6 +1649,7 @@ class OrganizationsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\OrganizationDetailsGetResponse
+     * @deprecated
      */
     public function getOrganization($id)
     {
@@ -1651,6 +1667,7 @@ class OrganizationsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\OrganizationDetailsGetResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getOrganizationWithHttpInfo($id)
     {
@@ -1751,6 +1768,7 @@ class OrganizationsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getOrganizationAsync($id): PromiseInterface
     {
@@ -1771,6 +1789,7 @@ class OrganizationsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getOrganizationAsyncWithHttpInfo($id): PromiseInterface
     {
@@ -1818,6 +1837,7 @@ class OrganizationsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function getOrganizationRequest($id): Request
     {
@@ -1934,6 +1954,7 @@ class OrganizationsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\ListActivitiesResponse
+     * @deprecated
      */
     public function getOrganizationActivities($id, $start = 0, $limit = null, $done = null, $exclude = null)
     {
@@ -1955,6 +1976,7 @@ class OrganizationsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\ListActivitiesResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getOrganizationActivitiesWithHttpInfo($id, $start = 0, $limit = null, $done = null, $exclude = null)
     {
@@ -2059,6 +2081,7 @@ class OrganizationsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getOrganizationActivitiesAsync($id, $start = 0, $limit = null, $done = null, $exclude = null): PromiseInterface
     {
@@ -2083,6 +2106,7 @@ class OrganizationsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getOrganizationActivitiesAsyncWithHttpInfo($id, $start = 0, $limit = null, $done = null, $exclude = null): PromiseInterface
     {
@@ -2134,6 +2158,7 @@ class OrganizationsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function getOrganizationActivitiesRequest($id, $start = 0, $limit = null, $done = null, $exclude = null): Request
     {
@@ -2605,6 +2630,7 @@ class OrganizationsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\ListDealsResponse
+     * @deprecated
      */
     public function getOrganizationDeals($id, $start = 0, $limit = null, $status = 'all_not_deleted', $sort = null, $only_primary_association = null)
     {
@@ -2627,6 +2653,7 @@ class OrganizationsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\ListDealsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getOrganizationDealsWithHttpInfo($id, $start = 0, $limit = null, $status = 'all_not_deleted', $sort = null, $only_primary_association = null)
     {
@@ -2732,6 +2759,7 @@ class OrganizationsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getOrganizationDealsAsync($id, $start = 0, $limit = null, $status = 'all_not_deleted', $sort = null, $only_primary_association = null): PromiseInterface
     {
@@ -2757,6 +2785,7 @@ class OrganizationsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getOrganizationDealsAsyncWithHttpInfo($id, $start = 0, $limit = null, $status = 'all_not_deleted', $sort = null, $only_primary_association = null): PromiseInterface
     {
@@ -2809,6 +2838,7 @@ class OrganizationsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function getOrganizationDealsRequest($id, $start = 0, $limit = null, $status = 'all_not_deleted', $sort = null, $only_primary_association = null): Request
     {
@@ -3920,6 +3950,7 @@ class OrganizationsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\ListPersonsResponse
+     * @deprecated
      */
     public function getOrganizationPersons($id, $start = 0, $limit = null)
     {
@@ -3939,6 +3970,7 @@ class OrganizationsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\ListPersonsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getOrganizationPersonsWithHttpInfo($id, $start = 0, $limit = null)
     {
@@ -4041,6 +4073,7 @@ class OrganizationsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getOrganizationPersonsAsync($id, $start = 0, $limit = null): PromiseInterface
     {
@@ -4063,6 +4096,7 @@ class OrganizationsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getOrganizationPersonsAsyncWithHttpInfo($id, $start = 0, $limit = null): PromiseInterface
     {
@@ -4112,6 +4146,7 @@ class OrganizationsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function getOrganizationPersonsRequest($id, $start = 0, $limit = null): Request
     {
@@ -4889,6 +4924,7 @@ class OrganizationsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\AllOrganizationsGetResponse
+     * @deprecated
      */
     public function getOrganizations($user_id = null, $filter_id = null, $first_char = null, $start = 0, $limit = null, $sort = null)
     {
@@ -4911,6 +4947,7 @@ class OrganizationsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\AllOrganizationsGetResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getOrganizationsWithHttpInfo($user_id = null, $filter_id = null, $first_char = null, $start = 0, $limit = null, $sort = null)
     {
@@ -5016,6 +5053,7 @@ class OrganizationsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getOrganizationsAsync($user_id = null, $filter_id = null, $first_char = null, $start = 0, $limit = null, $sort = null): PromiseInterface
     {
@@ -5041,6 +5079,7 @@ class OrganizationsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getOrganizationsAsyncWithHttpInfo($user_id = null, $filter_id = null, $first_char = null, $start = 0, $limit = null, $sort = null): PromiseInterface
     {
@@ -5093,6 +5132,7 @@ class OrganizationsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function getOrganizationsRequest($user_id = null, $filter_id = null, $first_char = null, $start = 0, $limit = null, $sort = null): Request
     {
@@ -5231,7 +5271,7 @@ class OrganizationsApi
     /**
      * Operation getOrganizationsCollection
      *
-     * Get all organizations (BETA)
+     * Get all organizations collection
      *
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
@@ -5243,6 +5283,7 @@ class OrganizationsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\InlineResponse200|\Pipedrive\versions\v1\Model\FailResponse
+     * @deprecated
      */
     public function getOrganizationsCollection($cursor = null, $limit = null, $since = null, $until = null, $owner_id = null, $first_char = null)
     {
@@ -5253,7 +5294,7 @@ class OrganizationsApi
     /**
      * Operation getOrganizationsCollectionWithHttpInfo
      *
-     * Get all organizations (BETA)
+     * Get all organizations collection
      *
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
@@ -5265,6 +5306,7 @@ class OrganizationsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\InlineResponse200|\Pipedrive\versions\v1\Model\FailResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getOrganizationsCollectionWithHttpInfo($cursor = null, $limit = null, $since = null, $until = null, $owner_id = null, $first_char = null)
     {
@@ -5380,7 +5422,7 @@ class OrganizationsApi
     /**
      * Operation getOrganizationsCollectionAsync
      *
-     * Get all organizations (BETA)
+     * Get all organizations collection
      *
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
@@ -5391,6 +5433,7 @@ class OrganizationsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getOrganizationsCollectionAsync($cursor = null, $limit = null, $since = null, $until = null, $owner_id = null, $first_char = null): PromiseInterface
     {
@@ -5405,7 +5448,7 @@ class OrganizationsApi
     /**
      * Operation getOrganizationsCollectionAsyncWithHttpInfo
      *
-     * Get all organizations (BETA)
+     * Get all organizations collection
      *
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
@@ -5416,6 +5459,7 @@ class OrganizationsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getOrganizationsCollectionAsyncWithHttpInfo($cursor = null, $limit = null, $since = null, $until = null, $owner_id = null, $first_char = null): PromiseInterface
     {
@@ -5468,6 +5512,7 @@ class OrganizationsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function getOrganizationsCollectionRequest($cursor = null, $limit = null, $since = null, $until = null, $owner_id = null, $first_char = null): Request
     {
@@ -5924,6 +5969,7 @@ class OrganizationsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\OrganizationSearchResponse
+     * @deprecated
      */
     public function searchOrganization($term, $fields = null, $exact_match = null, $start = 0, $limit = null)
     {
@@ -5945,6 +5991,7 @@ class OrganizationsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\OrganizationSearchResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function searchOrganizationWithHttpInfo($term, $fields = null, $exact_match = null, $start = 0, $limit = null)
     {
@@ -6049,6 +6096,7 @@ class OrganizationsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function searchOrganizationAsync($term, $fields = null, $exact_match = null, $start = 0, $limit = null): PromiseInterface
     {
@@ -6073,6 +6121,7 @@ class OrganizationsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function searchOrganizationAsyncWithHttpInfo($term, $fields = null, $exact_match = null, $start = 0, $limit = null): PromiseInterface
     {
@@ -6124,6 +6173,7 @@ class OrganizationsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function searchOrganizationRequest($term, $fields = null, $exact_match = null, $start = 0, $limit = null): Request
     {
@@ -6269,6 +6319,7 @@ class OrganizationsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\OrganizationUpdateResponse
+     * @deprecated
      */
     public function updateOrganization($id, $update_organization = null)
     {
@@ -6287,6 +6338,7 @@ class OrganizationsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\OrganizationUpdateResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function updateOrganizationWithHttpInfo($id, $update_organization = null)
     {
@@ -6388,6 +6440,7 @@ class OrganizationsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function updateOrganizationAsync($id, $update_organization = null): PromiseInterface
     {
@@ -6409,6 +6462,7 @@ class OrganizationsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function updateOrganizationAsyncWithHttpInfo($id, $update_organization = null): PromiseInterface
     {
@@ -6457,6 +6511,7 @@ class OrganizationsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function updateOrganizationRequest($id, $update_organization = null): Request
     {

@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **subject** | **string** | The subject of the activity | [optional]
 **type** | **string** | The type of the activity | [optional]
 **owner_id** | **int** | The ID of the user who owns the activity | [optional]
+**creator_user_id** | **int** | The ID of the user who created the activity | [optional]
 **is_deleted** | **bool** | Whether the activity is deleted or not | [optional]
 **add_time** | **string** | The creation date and time of the activity | [optional]
 **update_time** | **string** | The last updated date and time of the activity | [optional]

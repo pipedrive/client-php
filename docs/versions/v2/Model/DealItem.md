@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **add_time** | **string** | The creation date and time of the deal | [optional]
 **update_time** | **string** | The last updated date and time of the deal | [optional]
 **stage_change_time** | **string** | The last updated date and time of the deal stage | [optional]
+**is_archived** | **bool** | Whether the deal is archived or not | [optional]
 **is_deleted** | **bool** | Whether the deal is deleted or not | [optional]
 **status** | **string** | The status of the deal | [optional]
 **probability** | **float** | The success probability percentage of the deal | [optional]

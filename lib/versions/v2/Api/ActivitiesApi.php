@@ -717,9 +717,10 @@ class ActivitiesApi
      * @param  string|null $lead_id If supplied, only activities linked to the specified lead are returned. If filter_id is provided, this is ignored. (optional)
      * @param  int|null $person_id If supplied, only activities whose primary participant is the given person are returned. If filter_id is provided, this is ignored. (optional)
      * @param  int|null $org_id If supplied, only activities linked to the specified organization are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  bool|null $done If supplied, only activities with specified &#39;done&#39; flag value are returned (optional)
      * @param  string|null $updated_since If set, only activities with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z. (optional)
      * @param  string|null $updated_until If set, only activities with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z. (optional)
-     * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;. (optional, default to 'id')
+     * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;, &#x60;due_date&#x60;. (optional, default to 'id')
      * @param  string|'asc' $sort_direction The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;. (optional, default to 'asc')
      * @param  string|null $include_fields Optional comma separated string array of additional fields to include (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
@@ -729,9 +730,9 @@ class ActivitiesApi
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v2\Model\GetActivities
      */
-    public function getActivities($filter_id = null, $ids = null, $owner_id = null, $deal_id = null, $lead_id = null, $person_id = null, $org_id = null, $updated_since = null, $updated_until = null, $sort_by = 'id', $sort_direction = 'asc', $include_fields = null, $limit = null, $cursor = null)
+    public function getActivities($filter_id = null, $ids = null, $owner_id = null, $deal_id = null, $lead_id = null, $person_id = null, $org_id = null, $done = null, $updated_since = null, $updated_until = null, $sort_by = 'id', $sort_direction = 'asc', $include_fields = null, $limit = null, $cursor = null)
     {
-        list($response) = $this->getActivitiesWithHttpInfo($filter_id, $ids, $owner_id, $deal_id, $lead_id, $person_id, $org_id, $updated_since, $updated_until, $sort_by, $sort_direction, $include_fields, $limit, $cursor);
+        list($response) = $this->getActivitiesWithHttpInfo($filter_id, $ids, $owner_id, $deal_id, $lead_id, $person_id, $org_id, $done, $updated_since, $updated_until, $sort_by, $sort_direction, $include_fields, $limit, $cursor);
         return $response;
     }
 
@@ -747,9 +748,10 @@ class ActivitiesApi
      * @param  string|null $lead_id If supplied, only activities linked to the specified lead are returned. If filter_id is provided, this is ignored. (optional)
      * @param  int|null $person_id If supplied, only activities whose primary participant is the given person are returned. If filter_id is provided, this is ignored. (optional)
      * @param  int|null $org_id If supplied, only activities linked to the specified organization are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  bool|null $done If supplied, only activities with specified &#39;done&#39; flag value are returned (optional)
      * @param  string|null $updated_since If set, only activities with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z. (optional)
      * @param  string|null $updated_until If set, only activities with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z. (optional)
-     * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;. (optional, default to 'id')
+     * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;, &#x60;due_date&#x60;. (optional, default to 'id')
      * @param  string|'asc' $sort_direction The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;. (optional, default to 'asc')
      * @param  string|null $include_fields Optional comma separated string array of additional fields to include (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
@@ -759,9 +761,9 @@ class ActivitiesApi
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v2\Model\GetActivities, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getActivitiesWithHttpInfo($filter_id = null, $ids = null, $owner_id = null, $deal_id = null, $lead_id = null, $person_id = null, $org_id = null, $updated_since = null, $updated_until = null, $sort_by = 'id', $sort_direction = 'asc', $include_fields = null, $limit = null, $cursor = null)
+    public function getActivitiesWithHttpInfo($filter_id = null, $ids = null, $owner_id = null, $deal_id = null, $lead_id = null, $person_id = null, $org_id = null, $done = null, $updated_since = null, $updated_until = null, $sort_by = 'id', $sort_direction = 'asc', $include_fields = null, $limit = null, $cursor = null)
     {
-        $request = $this->getActivitiesRequest($filter_id, $ids, $owner_id, $deal_id, $lead_id, $person_id, $org_id, $updated_since, $updated_until, $sort_by, $sort_direction, $include_fields, $limit, $cursor);
+        $request = $this->getActivitiesRequest($filter_id, $ids, $owner_id, $deal_id, $lead_id, $person_id, $org_id, $done, $updated_since, $updated_until, $sort_by, $sort_direction, $include_fields, $limit, $cursor);
 
         try {
             $options = $this->createHttpClientOption();
@@ -770,7 +772,7 @@ class ActivitiesApi
             } catch (RequestException $e) {
                 if ($e->getCode() === 401 && $this->config->isRefreshPossible()) {
                     $this->config->refreshToken();
-                    $request = $this->getActivitiesRequest($filter_id, $ids, $owner_id, $deal_id, $lead_id, $person_id, $org_id, $updated_since, $updated_until, $sort_by, $sort_direction, $include_fields, $limit, $cursor);
+                    $request = $this->getActivitiesRequest($filter_id, $ids, $owner_id, $deal_id, $lead_id, $person_id, $org_id, $done, $updated_since, $updated_until, $sort_by, $sort_direction, $include_fields, $limit, $cursor);
                     $response = $this->client->send($request, $options);
                 } else {
                     throw new ApiException(
@@ -861,9 +863,10 @@ class ActivitiesApi
      * @param  string|null $lead_id If supplied, only activities linked to the specified lead are returned. If filter_id is provided, this is ignored. (optional)
      * @param  int|null $person_id If supplied, only activities whose primary participant is the given person are returned. If filter_id is provided, this is ignored. (optional)
      * @param  int|null $org_id If supplied, only activities linked to the specified organization are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  bool|null $done If supplied, only activities with specified &#39;done&#39; flag value are returned (optional)
      * @param  string|null $updated_since If set, only activities with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z. (optional)
      * @param  string|null $updated_until If set, only activities with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z. (optional)
-     * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;. (optional, default to 'id')
+     * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;, &#x60;due_date&#x60;. (optional, default to 'id')
      * @param  string|'asc' $sort_direction The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;. (optional, default to 'asc')
      * @param  string|null $include_fields Optional comma separated string array of additional fields to include (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
@@ -872,9 +875,9 @@ class ActivitiesApi
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
      */
-    public function getActivitiesAsync($filter_id = null, $ids = null, $owner_id = null, $deal_id = null, $lead_id = null, $person_id = null, $org_id = null, $updated_since = null, $updated_until = null, $sort_by = 'id', $sort_direction = 'asc', $include_fields = null, $limit = null, $cursor = null): PromiseInterface
+    public function getActivitiesAsync($filter_id = null, $ids = null, $owner_id = null, $deal_id = null, $lead_id = null, $person_id = null, $org_id = null, $done = null, $updated_since = null, $updated_until = null, $sort_by = 'id', $sort_direction = 'asc', $include_fields = null, $limit = null, $cursor = null): PromiseInterface
     {
-        return $this->getActivitiesAsyncWithHttpInfo($filter_id, $ids, $owner_id, $deal_id, $lead_id, $person_id, $org_id, $updated_since, $updated_until, $sort_by, $sort_direction, $include_fields, $limit, $cursor)
+        return $this->getActivitiesAsyncWithHttpInfo($filter_id, $ids, $owner_id, $deal_id, $lead_id, $person_id, $org_id, $done, $updated_since, $updated_until, $sort_by, $sort_direction, $include_fields, $limit, $cursor)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -894,9 +897,10 @@ class ActivitiesApi
      * @param  string|null $lead_id If supplied, only activities linked to the specified lead are returned. If filter_id is provided, this is ignored. (optional)
      * @param  int|null $person_id If supplied, only activities whose primary participant is the given person are returned. If filter_id is provided, this is ignored. (optional)
      * @param  int|null $org_id If supplied, only activities linked to the specified organization are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  bool|null $done If supplied, only activities with specified &#39;done&#39; flag value are returned (optional)
      * @param  string|null $updated_since If set, only activities with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z. (optional)
      * @param  string|null $updated_until If set, only activities with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z. (optional)
-     * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;. (optional, default to 'id')
+     * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;, &#x60;due_date&#x60;. (optional, default to 'id')
      * @param  string|'asc' $sort_direction The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;. (optional, default to 'asc')
      * @param  string|null $include_fields Optional comma separated string array of additional fields to include (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
@@ -905,10 +909,10 @@ class ActivitiesApi
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
      */
-    public function getActivitiesAsyncWithHttpInfo($filter_id = null, $ids = null, $owner_id = null, $deal_id = null, $lead_id = null, $person_id = null, $org_id = null, $updated_since = null, $updated_until = null, $sort_by = 'id', $sort_direction = 'asc', $include_fields = null, $limit = null, $cursor = null): PromiseInterface
+    public function getActivitiesAsyncWithHttpInfo($filter_id = null, $ids = null, $owner_id = null, $deal_id = null, $lead_id = null, $person_id = null, $org_id = null, $done = null, $updated_since = null, $updated_until = null, $sort_by = 'id', $sort_direction = 'asc', $include_fields = null, $limit = null, $cursor = null): PromiseInterface
     {
         $returnType = '\Pipedrive\versions\v2\Model\GetActivities';
-        $request = $this->getActivitiesRequest($filter_id, $ids, $owner_id, $deal_id, $lead_id, $person_id, $org_id, $updated_since, $updated_until, $sort_by, $sort_direction, $include_fields, $limit, $cursor);
+        $request = $this->getActivitiesRequest($filter_id, $ids, $owner_id, $deal_id, $lead_id, $person_id, $org_id, $done, $updated_since, $updated_until, $sort_by, $sort_direction, $include_fields, $limit, $cursor);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -954,9 +958,10 @@ class ActivitiesApi
      * @param  string|null $lead_id If supplied, only activities linked to the specified lead are returned. If filter_id is provided, this is ignored. (optional)
      * @param  int|null $person_id If supplied, only activities whose primary participant is the given person are returned. If filter_id is provided, this is ignored. (optional)
      * @param  int|null $org_id If supplied, only activities linked to the specified organization are returned. If filter_id is provided, this is ignored. (optional)
+     * @param  bool|null $done If supplied, only activities with specified &#39;done&#39; flag value are returned (optional)
      * @param  string|null $updated_since If set, only activities with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z. (optional)
      * @param  string|null $updated_until If set, only activities with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z. (optional)
-     * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;. (optional, default to 'id')
+     * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;, &#x60;due_date&#x60;. (optional, default to 'id')
      * @param  string|'asc' $sort_direction The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;. (optional, default to 'asc')
      * @param  string|null $include_fields Optional comma separated string array of additional fields to include (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
@@ -965,7 +970,7 @@ class ActivitiesApi
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
      */
-    public function getActivitiesRequest($filter_id = null, $ids = null, $owner_id = null, $deal_id = null, $lead_id = null, $person_id = null, $org_id = null, $updated_since = null, $updated_until = null, $sort_by = 'id', $sort_direction = 'asc', $include_fields = null, $limit = null, $cursor = null): Request
+    public function getActivitiesRequest($filter_id = null, $ids = null, $owner_id = null, $deal_id = null, $lead_id = null, $person_id = null, $org_id = null, $done = null, $updated_since = null, $updated_until = null, $sort_by = 'id', $sort_direction = 'asc', $include_fields = null, $limit = null, $cursor = null): Request
     {
 
         $resourcePath = '/activities';
@@ -1030,6 +1035,14 @@ class ActivitiesApi
         }
         if ($org_id !== null) {
             $queryParams['org_id'] = $org_id;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($done)) {
+            $done = ObjectSerializer::serializeCollection($done, '', true);
+        }
+        if ($done !== null) {
+            $queryParams['done'] = $done;
         }
         // query params
         /* @phpstan-ignore-next-line */
