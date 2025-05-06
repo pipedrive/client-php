@@ -132,6 +132,7 @@ class ProductsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\ProductResponse
+     * @deprecated
      */
     public function addProduct($add_product_request_body = null)
     {
@@ -149,6 +150,7 @@ class ProductsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\ProductResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function addProductWithHttpInfo($add_product_request_body = null)
     {
@@ -249,6 +251,7 @@ class ProductsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function addProductAsync($add_product_request_body = null): PromiseInterface
     {
@@ -269,6 +272,7 @@ class ProductsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function addProductAsyncWithHttpInfo($add_product_request_body = null): PromiseInterface
     {
@@ -316,6 +320,7 @@ class ProductsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function addProductRequest($add_product_request_body = null): Request
     {
@@ -726,6 +731,7 @@ class ProductsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\DeleteProductResponse
+     * @deprecated
      */
     public function deleteProduct($id)
     {
@@ -743,6 +749,7 @@ class ProductsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\DeleteProductResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function deleteProductWithHttpInfo($id)
     {
@@ -843,6 +850,7 @@ class ProductsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function deleteProductAsync($id): PromiseInterface
     {
@@ -863,6 +871,7 @@ class ProductsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function deleteProductAsyncWithHttpInfo($id): PromiseInterface
     {
@@ -910,6 +919,7 @@ class ProductsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function deleteProductRequest($id): Request
     {
@@ -1338,6 +1348,7 @@ class ProductsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\ProductResponse
+     * @deprecated
      */
     public function getProduct($id)
     {
@@ -1355,6 +1366,7 @@ class ProductsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\ProductResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getProductWithHttpInfo($id)
     {
@@ -1455,6 +1467,7 @@ class ProductsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getProductAsync($id): PromiseInterface
     {
@@ -1475,6 +1488,7 @@ class ProductsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getProductAsyncWithHttpInfo($id): PromiseInterface
     {
@@ -1522,6 +1536,7 @@ class ProductsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function getProductRequest($id): Request
     {
@@ -2932,6 +2947,7 @@ class ProductsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\ProductsResponse
+     * @deprecated
      */
     public function getProducts($user_id = null, $filter_id = null, $ids = null, $first_char = null, $get_summary = null, $start = 0, $limit = null)
     {
@@ -2955,6 +2971,7 @@ class ProductsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\ProductsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getProductsWithHttpInfo($user_id = null, $filter_id = null, $ids = null, $first_char = null, $get_summary = null, $start = 0, $limit = null)
     {
@@ -3061,6 +3078,7 @@ class ProductsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getProductsAsync($user_id = null, $filter_id = null, $ids = null, $first_char = null, $get_summary = null, $start = 0, $limit = null): PromiseInterface
     {
@@ -3087,6 +3105,7 @@ class ProductsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function getProductsAsyncWithHttpInfo($user_id = null, $filter_id = null, $ids = null, $first_char = null, $get_summary = null, $start = 0, $limit = null): PromiseInterface
     {
@@ -3140,6 +3159,7 @@ class ProductsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function getProductsRequest($user_id = null, $filter_id = null, $ids = null, $first_char = null, $get_summary = null, $start = 0, $limit = null): Request
     {
@@ -3298,6 +3318,7 @@ class ProductsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\ProductSearchResponse
+     * @deprecated
      */
     public function searchProducts($term, $fields = null, $exact_match = null, $include_fields = null, $start = 0, $limit = null)
     {
@@ -3320,6 +3341,7 @@ class ProductsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\ProductSearchResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function searchProductsWithHttpInfo($term, $fields = null, $exact_match = null, $include_fields = null, $start = 0, $limit = null)
     {
@@ -3425,6 +3447,7 @@ class ProductsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function searchProductsAsync($term, $fields = null, $exact_match = null, $include_fields = null, $start = 0, $limit = null): PromiseInterface
     {
@@ -3450,6 +3473,7 @@ class ProductsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function searchProductsAsyncWithHttpInfo($term, $fields = null, $exact_match = null, $include_fields = null, $start = 0, $limit = null): PromiseInterface
     {
@@ -3502,6 +3526,7 @@ class ProductsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function searchProductsRequest($term, $fields = null, $exact_match = null, $include_fields = null, $start = 0, $limit = null): Request
     {
@@ -3655,6 +3680,7 @@ class ProductsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\UpdateProductResponse
+     * @deprecated
      */
     public function updateProduct($id, $update_product_request_body = null)
     {
@@ -3673,6 +3699,7 @@ class ProductsApi
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\UpdateProductResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function updateProductWithHttpInfo($id, $update_product_request_body = null)
     {
@@ -3774,6 +3801,7 @@ class ProductsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function updateProductAsync($id, $update_product_request_body = null): PromiseInterface
     {
@@ -3795,6 +3823,7 @@ class ProductsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
+     * @deprecated
      */
     public function updateProductAsyncWithHttpInfo($id, $update_product_request_body = null): PromiseInterface
     {
@@ -3843,6 +3872,7 @@ class ProductsApi
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
+     * @deprecated
      */
     public function updateProductRequest($id, $update_product_request_body = null): Request
     {

@@ -17,5 +17,6 @@ Name | Type | Description | Notes
 **organization** | [**\Pipedrive\versions\v2\Model\DealSearchItemItemOrganization**](DealSearchItemItemOrganization.md) |  | [optional]
 **custom_fields** | **string[]** | Custom fields | [optional]
 **notes** | **string[]** | An array of notes | [optional]
+**is_archived** | **bool** | A flag indicating whether the deal is archived or not | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

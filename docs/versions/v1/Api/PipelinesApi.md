@@ -290,7 +290,7 @@ getPipelineDeals($id, $filter_id, $user_id, $everyone, $stage_id, $start, $limit
 
 Get deals in a pipeline
 
-Lists deals in a specific pipeline across all its stages. If no parameters are provided open deals owned by the authorized user will be returned.
+Lists deals in a specific pipeline across all its stages. If no parameters are provided open deals owned by the authorized user will be returned. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDeals\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/deals?pipeline_id={id}</a> instead.
 
 ### Example
 

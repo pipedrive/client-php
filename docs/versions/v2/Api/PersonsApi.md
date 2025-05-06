@@ -24,7 +24,7 @@ addPerson($person_request_body): \Pipedrive\versions\v2\Model\PostPatchGetPerson
 
 Add a new person
 
-Adds a new person.
+Adds a new person. If the company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `marketing_status` field.
 
 ### Example
 
@@ -659,7 +659,7 @@ updatePerson($id, $person_request_body): \Pipedrive\versions\v2\Model\PostPatchG
 
 Update a person
 
-Updates the properties of a person.
+Updates the properties of a person. <br>If the company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `marketing_status` field.
 
 ### Example
 

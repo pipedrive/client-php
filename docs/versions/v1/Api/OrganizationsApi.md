@@ -20,7 +20,7 @@ Method | HTTP request | Description
 [**getOrganizationUpdates()**](OrganizationsApi.md#getOrganizationUpdates) | **GET** /organizations/{id}/flow | List updates about an organization
 [**getOrganizationUsers()**](OrganizationsApi.md#getOrganizationUsers) | **GET** /organizations/{id}/permittedUsers | List permitted users
 [**getOrganizations()**](OrganizationsApi.md#getOrganizations) | **GET** /organizations | Get all organizations
-[**getOrganizationsCollection()**](OrganizationsApi.md#getOrganizationsCollection) | **GET** /organizations/collection | Get all organizations (BETA)
+[**getOrganizationsCollection()**](OrganizationsApi.md#getOrganizationsCollection) | **GET** /organizations/collection | Get all organizations collection
 [**mergeOrganizations()**](OrganizationsApi.md#mergeOrganizations) | **PUT** /organizations/{id}/merge | Merge two organizations
 [**searchOrganization()**](OrganizationsApi.md#searchOrganization) | **GET** /organizations/search | Search organizations
 [**updateOrganization()**](OrganizationsApi.md#updateOrganization) | **PUT** /organizations/{id} | Update an organization
@@ -298,7 +298,7 @@ deleteOrganizations($ids): \Pipedrive\versions\v1\Model\OrganizationsDeleteRespo
 
 Delete multiple organizations in bulk
 
-Marks multiple organizations as deleted. After 30 days, the organizations will be permanently deleted.
+Marks multiple organizations as deleted. After 30 days, the organizations will be permanently deleted. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Organizations#deleteOrganization\" target=\"_blank\" rel=\"noopener noreferrer\">DELETE /api/v2/organizations/{id}</a> instead.
 
 ### Example
 
@@ -428,7 +428,7 @@ getOrganizationActivities($id, $start, $limit, $done, $exclude): \Pipedrive\vers
 
 List activities associated with an organization
 
-Lists activities associated with an organization.
+Lists activities associated with an organization. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Activities#getActivities\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/activities?org_id={id}</a> instead.
 
 ### Example
 
@@ -570,7 +570,7 @@ getOrganizationDeals($id, $start, $limit, $status, $sort, $only_primary_associat
 
 List deals associated with an organization
 
-Lists deals associated with an organization.
+Lists deals associated with an organization. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDeals\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/deals?org_id={id}</a> instead.
 
 ### Example
 
@@ -850,7 +850,7 @@ getOrganizationPersons($id, $start, $limit): \Pipedrive\versions\v1\Model\ListPe
 
 List persons of an organization
 
-Lists persons associated with an organization.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field.
+Lists persons associated with an organization.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Persons#getPersons\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/persons?org_id={id}</a> instead.
 
 ### Example
 
@@ -1130,9 +1130,9 @@ Name | Type | Description  | Notes
 getOrganizationsCollection($cursor, $limit, $since, $until, $owner_id, $first_char): \Pipedrive\versions\v1\Model\InlineResponse200
 ```
 
-Get all organizations (BETA)
+Get all organizations collection
 
-Returns all organizations. This is a cursor-paginated endpoint that is currently in BETA. For more information, please refer to our documentation on <a href=\"https://pipedrive.readme.io/docs/core-api-concepts-pagination\" target=\"_blank\" rel=\"noopener noreferrer\">pagination</a>. Please note that only global admins (those with global permissions) can access these endpoints. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>.
+Returns all organizations. Please note that only global admins (those with global permissions) can access this endpoint. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Organizations#getOrganizations\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/organizations</a> instead.
 
 ### Example
 

@@ -74,7 +74,8 @@ class PersonRequestBody implements ModelInterface, ArrayAccess, JsonSerializable
         'emails' => '\Pipedrive\versions\v2\Model\PersonRequestBodyEmails[]',
         'phones' => '\Pipedrive\versions\v2\Model\PersonRequestBodyPhones[]',
         'visible_to' => 'int',
-        'label_ids' => 'int[]'
+        'label_ids' => 'int[]',
+        'marketing_status' => 'string'
     ];
 
     /**
@@ -93,7 +94,8 @@ class PersonRequestBody implements ModelInterface, ArrayAccess, JsonSerializable
         'emails' => null,
         'phones' => null,
         'visible_to' => null,
-        'label_ids' => null
+        'label_ids' => null,
+        'marketing_status' => null
     ];
 
     /**
@@ -135,7 +137,8 @@ class PersonRequestBody implements ModelInterface, ArrayAccess, JsonSerializable
         'emails' => 'emails',
         'phones' => 'phones',
         'visible_to' => 'visible_to',
-        'label_ids' => 'label_ids'
+        'label_ids' => 'label_ids',
+        'marketing_status' => 'marketing_status'
     ];
 
     /**
@@ -152,7 +155,8 @@ class PersonRequestBody implements ModelInterface, ArrayAccess, JsonSerializable
         'emails' => 'setEmails',
         'phones' => 'setPhones',
         'visible_to' => 'setVisibleTo',
-        'label_ids' => 'setLabelIds'
+        'label_ids' => 'setLabelIds',
+        'marketing_status' => 'setMarketingStatus'
     ];
 
     /**
@@ -169,7 +173,8 @@ class PersonRequestBody implements ModelInterface, ArrayAccess, JsonSerializable
         'emails' => 'getEmails',
         'phones' => 'getPhones',
         'visible_to' => 'getVisibleTo',
-        'label_ids' => 'getLabelIds'
+        'label_ids' => 'getLabelIds',
+        'marketing_status' => 'getMarketingStatus'
     ];
 
     /**
@@ -219,6 +224,27 @@ class PersonRequestBody implements ModelInterface, ArrayAccess, JsonSerializable
         return self::$openAPIModelName;
     }
 
+    const MARKETING_STATUS_NO_CONSENT = 'no_consent';
+    const MARKETING_STATUS_UNSUBSCRIBED = 'unsubscribed';
+    const MARKETING_STATUS_SUBSCRIBED = 'subscribed';
+    const MARKETING_STATUS_ARCHIVED = 'archived';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @phpstan-return  array<string|int>
+     * @phpsalm-return  array<string|int>
+     * @return (string|int)[]
+     */
+    public function getMarketingStatusAllowableValues(): array
+    {
+        return [
+            self::MARKETING_STATUS_NO_CONSENT,
+            self::MARKETING_STATUS_UNSUBSCRIBED,
+            self::MARKETING_STATUS_SUBSCRIBED,
+            self::MARKETING_STATUS_ARCHIVED,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -248,6 +274,7 @@ class PersonRequestBody implements ModelInterface, ArrayAccess, JsonSerializable
         $this->container['phones'] = $data['phones'] ?? null;
         $this->container['visible_to'] = $data['visible_to'] ?? null;
         $this->container['label_ids'] = $data['label_ids'] ?? null;
+        $this->container['marketing_status'] = $data['marketing_status'] ?? null;
     }
 
     /**
@@ -260,6 +287,15 @@ class PersonRequestBody implements ModelInterface, ArrayAccess, JsonSerializable
     public function listInvalidProperties(): array
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getMarketingStatusAllowableValues();
+        if (!is_null($this->container['marketing_status']) && !in_array($this->container['marketing_status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'marketing_status', must be one of '%s'",
+                $this->container['marketing_status'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -488,6 +524,40 @@ class PersonRequestBody implements ModelInterface, ArrayAccess, JsonSerializable
     public function setLabelIds($label_ids): self
     {
         $this->container['label_ids'] = $label_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets marketing_status
+     *
+     * @return string|null
+     */
+    public function getMarketingStatus()
+    {
+        return $this->container['marketing_status'];
+    }
+
+    /**
+     * Sets marketing_status
+     *
+     * @param string|null $marketing_status If the person does not have a valid email address, then the marketing status is **not set** and `no_consent` is returned for the `marketing_status` value when the new person is created. If the change is forbidden, the status will remain unchanged for every call that tries to modify the marketing status. Please be aware that it is only allowed **once** to change the marketing status from an old status to a new one.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`no_consent`</td><td>The customer has not given consent to receive any marketing communications</td></tr><tr><td>`unsubscribed`</td><td>The customers have unsubscribed from ALL marketing communications</td></tr><tr><td>`subscribed`</td><td>The customers are subscribed and are counted towards marketing caps</td></tr><tr><td>`archived`</td><td>The customers with `subscribed` status can be moved to `archived` to save consent, but they are not paid for</td></tr></table>
+     *
+     * @return self
+     */
+    public function setMarketingStatus($marketing_status): self
+    {
+        $allowedValues = $this->getMarketingStatusAllowableValues();
+        if (!is_null($marketing_status) && !in_array($marketing_status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'marketing_status', must be one of '%s'",
+                    $marketing_status,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['marketing_status'] = $marketing_status;
 
         return $this;
     }

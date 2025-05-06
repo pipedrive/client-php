@@ -151,7 +151,7 @@ deleteStages($ids): \Pipedrive\versions\v1\Model\DeleteStagesResponse
 
 Delete multiple stages in bulk
 
-Marks multiple stages as deleted.
+Marks multiple stages as deleted. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Stages#deleteStage\" target=\"_blank\" rel=\"noopener noreferrer\">DELETE /api/v2/stages/{id}</a> instead.
 
 ### Example
 
@@ -283,7 +283,7 @@ getStageDeals($id, $filter_id, $user_id, $everyone, $start, $limit): \Pipedrive\
 
 Get deals in a stage
 
-Lists deals in a specific stage. If no parameters are provided open deals owned by the authorized user will be returned.
+Lists deals in a specific stage. If no parameters are provided open deals owned by the authorized user will be returned. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDeals\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/deals?stage_id={id}</a> instead.
 
 ### Example
 
