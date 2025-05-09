@@ -14,7 +14,7 @@ use Pipedrive\versions\v1\Configuration;
 require_once('/path/to/client/vendor/autoload.php');
 
 // Configure API key authorization: api_key
-$config = (new Pipedrive\versions\v1\Configuration())->setApiKey('api_token', 'YOUR_API_KEY');
+$config = (new Pipedrive\versions\v1\Configuration())->setApiKey('x-api-token', 'YOUR_API_KEY');
 
 $apiInstance = new Pipedrive\versions\v1\Api\ActivitiesApi(
 // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -1371,8 +1371,8 @@ Class | Method | HTTP request | Description
 
 
 - **Type**: API key
-- **API key parameter name**: api_token
-- **Location**: URL query string
+- **API key parameter name**: x-api-token
+- **Location**: HTTP header
 
 
 
