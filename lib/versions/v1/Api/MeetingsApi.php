@@ -427,9 +427,9 @@ class MeetingsApi
         }
 
         // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('api_token');
+        $apiKey = $this->config->getApiKeyWithPrefix('x-api-token');
         if ($apiKey !== null) {
-            $queryParams['api_token'] = $apiKey;
+            $headers['x-api-token'] = $apiKey;
         }
         // this endpoint requires OAuth (access token)
         if ($this->config->getAccessToken() !== null) {
@@ -735,9 +735,9 @@ class MeetingsApi
         }
 
         // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('api_token');
+        $apiKey = $this->config->getApiKeyWithPrefix('x-api-token');
         if ($apiKey !== null) {
-            $queryParams['api_token'] = $apiKey;
+            $headers['x-api-token'] = $apiKey;
         }
         // this endpoint requires OAuth (access token)
         if ($this->config->getAccessToken() !== null) {
