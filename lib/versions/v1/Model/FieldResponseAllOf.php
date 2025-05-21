@@ -213,9 +213,6 @@ class FieldResponseAllOf implements ModelInterface, ArrayAccess, JsonSerializabl
     {
         $invalidProperties = [];
 
-        if ($this->container['data'] === null) {
-            $invalidProperties[] = "'data' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -234,7 +231,7 @@ class FieldResponseAllOf implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Gets data
      *
-     * @return \Pipedrive\versions\v1\Model\Field
+     * @return \Pipedrive\versions\v1\Model\Field|null
      */
     public function getData()
     {
@@ -244,7 +241,7 @@ class FieldResponseAllOf implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Sets data
      *
-     * @param \Pipedrive\versions\v1\Model\Field $data data
+     * @param \Pipedrive\versions\v1\Model\Field|null $data data
      *
      * @return self
      */
