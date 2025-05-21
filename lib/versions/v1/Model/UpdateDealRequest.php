@@ -75,6 +75,7 @@ class UpdateDealRequest implements ModelInterface, ArrayAccess, JsonSerializable
         'org_id' => 'int',
         'pipeline_id' => 'int',
         'stage_id' => 'int',
+        'is_archived' => 'bool',
         'status' => 'string',
         'channel' => 'int',
         'channel_id' => 'string',
@@ -104,6 +105,7 @@ class UpdateDealRequest implements ModelInterface, ArrayAccess, JsonSerializable
         'org_id' => null,
         'pipeline_id' => null,
         'stage_id' => null,
+        'is_archived' => null,
         'status' => null,
         'channel' => null,
         'channel_id' => null,
@@ -156,6 +158,7 @@ class UpdateDealRequest implements ModelInterface, ArrayAccess, JsonSerializable
         'org_id' => 'org_id',
         'pipeline_id' => 'pipeline_id',
         'stage_id' => 'stage_id',
+        'is_archived' => 'is_archived',
         'status' => 'status',
         'channel' => 'channel',
         'channel_id' => 'channel_id',
@@ -183,6 +186,7 @@ class UpdateDealRequest implements ModelInterface, ArrayAccess, JsonSerializable
         'org_id' => 'setOrgId',
         'pipeline_id' => 'setPipelineId',
         'stage_id' => 'setStageId',
+        'is_archived' => 'setIsArchived',
         'status' => 'setStatus',
         'channel' => 'setChannel',
         'channel_id' => 'setChannelId',
@@ -210,6 +214,7 @@ class UpdateDealRequest implements ModelInterface, ArrayAccess, JsonSerializable
         'org_id' => 'getOrgId',
         'pipeline_id' => 'getPipelineId',
         'stage_id' => 'getStageId',
+        'is_archived' => 'getIsArchived',
         'status' => 'getStatus',
         'channel' => 'getChannel',
         'channel_id' => 'getChannelId',
@@ -319,6 +324,7 @@ class UpdateDealRequest implements ModelInterface, ArrayAccess, JsonSerializable
         $this->container['org_id'] = $data['org_id'] ?? null;
         $this->container['pipeline_id'] = $data['pipeline_id'] ?? null;
         $this->container['stage_id'] = $data['stage_id'] ?? null;
+        $this->container['is_archived'] = $data['is_archived'] ?? null;
         $this->container['status'] = $data['status'] ?? null;
         $this->container['channel'] = $data['channel'] ?? null;
         $this->container['channel_id'] = $data['channel_id'] ?? null;
@@ -578,6 +584,30 @@ class UpdateDealRequest implements ModelInterface, ArrayAccess, JsonSerializable
     public function setStageId($stage_id): self
     {
         $this->container['stage_id'] = $stage_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_archived
+     *
+     * @return bool|null
+     */
+    public function getIsArchived()
+    {
+        return $this->container['is_archived'];
+    }
+
+    /**
+     * Sets is_archived
+     *
+     * @param bool|null $is_archived Whether the deal is archived or not
+     *
+     * @return self
+     */
+    public function setIsArchived($is_archived): self
+    {
+        $this->container['is_archived'] = $is_archived;
 
         return $this;
     }

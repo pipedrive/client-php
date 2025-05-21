@@ -80,6 +80,7 @@ class DealStrictWithMergeId implements ModelInterface, ArrayAccess, JsonSerializ
         'stage_change_time' => 'string',
         'active' => 'bool',
         'deleted' => 'bool',
+        'is_archived' => 'bool',
         'status' => 'string',
         'probability' => 'float',
         'next_activity_date' => 'string',
@@ -158,6 +159,7 @@ class DealStrictWithMergeId implements ModelInterface, ArrayAccess, JsonSerializ
         'stage_change_time' => null,
         'active' => null,
         'deleted' => null,
+        'is_archived' => null,
         'status' => null,
         'probability' => null,
         'next_activity_date' => null,
@@ -259,6 +261,7 @@ class DealStrictWithMergeId implements ModelInterface, ArrayAccess, JsonSerializ
         'stage_change_time' => 'stage_change_time',
         'active' => 'active',
         'deleted' => 'deleted',
+        'is_archived' => 'is_archived',
         'status' => 'status',
         'probability' => 'probability',
         'next_activity_date' => 'next_activity_date',
@@ -335,6 +338,7 @@ class DealStrictWithMergeId implements ModelInterface, ArrayAccess, JsonSerializ
         'stage_change_time' => 'setStageChangeTime',
         'active' => 'setActive',
         'deleted' => 'setDeleted',
+        'is_archived' => 'setIsArchived',
         'status' => 'setStatus',
         'probability' => 'setProbability',
         'next_activity_date' => 'setNextActivityDate',
@@ -411,6 +415,7 @@ class DealStrictWithMergeId implements ModelInterface, ArrayAccess, JsonSerializ
         'stage_change_time' => 'getStageChangeTime',
         'active' => 'getActive',
         'deleted' => 'getDeleted',
+        'is_archived' => 'getIsArchived',
         'status' => 'getStatus',
         'probability' => 'getProbability',
         'next_activity_date' => 'getNextActivityDate',
@@ -548,6 +553,7 @@ class DealStrictWithMergeId implements ModelInterface, ArrayAccess, JsonSerializ
         $this->container['stage_change_time'] = $data['stage_change_time'] ?? null;
         $this->container['active'] = $data['active'] ?? null;
         $this->container['deleted'] = $data['deleted'] ?? null;
+        $this->container['is_archived'] = $data['is_archived'] ?? null;
         $this->container['status'] = $data['status'] ?? null;
         $this->container['probability'] = $data['probability'] ?? null;
         $this->container['next_activity_date'] = $data['next_activity_date'] ?? null;
@@ -962,6 +968,30 @@ class DealStrictWithMergeId implements ModelInterface, ArrayAccess, JsonSerializ
     public function setDeleted($deleted): self
     {
         $this->container['deleted'] = $deleted;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_archived
+     *
+     * @return bool|null
+     */
+    public function getIsArchived()
+    {
+        return $this->container['is_archived'];
+    }
+
+    /**
+     * Sets is_archived
+     *
+     * @param bool|null $is_archived Whether the deal is archived or not
+     *
+     * @return self
+     */
+    public function setIsArchived($is_archived): self
+    {
+        $this->container['is_archived'] = $is_archived;
 
         return $this;
     }
