@@ -78,6 +78,8 @@ class DealRequestBody implements ModelInterface, ArrayAccess, JsonSerializable
         'update_time' => 'string',
         'stage_change_time' => 'string',
         'is_deleted' => 'bool',
+        'is_archived' => 'bool',
+        'archive_time' => 'string',
         'status' => 'string',
         'probability' => 'float',
         'lost_reason' => 'string',
@@ -109,6 +111,8 @@ class DealRequestBody implements ModelInterface, ArrayAccess, JsonSerializable
         'update_time' => null,
         'stage_change_time' => null,
         'is_deleted' => null,
+        'is_archived' => null,
+        'archive_time' => null,
         'status' => null,
         'probability' => null,
         'lost_reason' => null,
@@ -163,6 +167,8 @@ class DealRequestBody implements ModelInterface, ArrayAccess, JsonSerializable
         'update_time' => 'update_time',
         'stage_change_time' => 'stage_change_time',
         'is_deleted' => 'is_deleted',
+        'is_archived' => 'is_archived',
+        'archive_time' => 'archive_time',
         'status' => 'status',
         'probability' => 'probability',
         'lost_reason' => 'lost_reason',
@@ -192,6 +198,8 @@ class DealRequestBody implements ModelInterface, ArrayAccess, JsonSerializable
         'update_time' => 'setUpdateTime',
         'stage_change_time' => 'setStageChangeTime',
         'is_deleted' => 'setIsDeleted',
+        'is_archived' => 'setIsArchived',
+        'archive_time' => 'setArchiveTime',
         'status' => 'setStatus',
         'probability' => 'setProbability',
         'lost_reason' => 'setLostReason',
@@ -221,6 +229,8 @@ class DealRequestBody implements ModelInterface, ArrayAccess, JsonSerializable
         'update_time' => 'getUpdateTime',
         'stage_change_time' => 'getStageChangeTime',
         'is_deleted' => 'getIsDeleted',
+        'is_archived' => 'getIsArchived',
+        'archive_time' => 'getArchiveTime',
         'status' => 'getStatus',
         'probability' => 'getProbability',
         'lost_reason' => 'getLostReason',
@@ -311,6 +321,8 @@ class DealRequestBody implements ModelInterface, ArrayAccess, JsonSerializable
         $this->container['update_time'] = $data['update_time'] ?? null;
         $this->container['stage_change_time'] = $data['stage_change_time'] ?? null;
         $this->container['is_deleted'] = $data['is_deleted'] ?? null;
+        $this->container['is_archived'] = $data['is_archived'] ?? null;
+        $this->container['archive_time'] = $data['archive_time'] ?? null;
         $this->container['status'] = $data['status'] ?? null;
         $this->container['probability'] = $data['probability'] ?? null;
         $this->container['lost_reason'] = $data['lost_reason'] ?? null;
@@ -632,6 +644,54 @@ class DealRequestBody implements ModelInterface, ArrayAccess, JsonSerializable
     public function setIsDeleted($is_deleted): self
     {
         $this->container['is_deleted'] = $is_deleted;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_archived
+     *
+     * @return bool|null
+     */
+    public function getIsArchived()
+    {
+        return $this->container['is_archived'];
+    }
+
+    /**
+     * Sets is_archived
+     *
+     * @param bool|null $is_archived Whether the deal is archived or not
+     *
+     * @return self
+     */
+    public function setIsArchived($is_archived): self
+    {
+        $this->container['is_archived'] = $is_archived;
+
+        return $this;
+    }
+
+    /**
+     * Gets archive_time
+     *
+     * @return string|null
+     */
+    public function getArchiveTime()
+    {
+        return $this->container['archive_time'];
+    }
+
+    /**
+     * Sets archive_time
+     *
+     * @param string|null $archive_time The optional date and time of archiving the deal in UTC. Format: YYYY-MM-DD HH:MM:SS. If omitted and `is_archived` is true, it will be set to the current date and time.
+     *
+     * @return self
+     */
+    public function setArchiveTime($archive_time): self
+    {
+        $this->container['archive_time'] = $archive_time;
 
         return $this;
     }
