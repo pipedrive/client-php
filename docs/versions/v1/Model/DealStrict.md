@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **stage_change_time** | **string** | The last updated date and time of the deal stage | [optional]
 **active** | **bool** | Whether the deal is active or not | [optional]
 **deleted** | **bool** | Whether the deal is deleted or not | [optional]
+**is_archived** | **bool** | Whether the deal is archived or not | [optional]
 **status** | **string** | The status of the deal | [optional]
 **probability** | **float** | The success probability percentage of the deal | [optional]
 **next_activity_date** | **string** | The date of the next activity associated with the deal | [optional]
