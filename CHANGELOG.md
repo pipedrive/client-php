@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [11.1.0](https://github.com/pipedrive/client-php/compare/11.0.0...11.1.1) (2025-05-26)
+### Fixed
+- Fixed the OAuth scopes of Deal to Lead conversion and Lead to Deal conversion endpoints
+### Added
+- Added `smart_bcc_email` to optional `include_fields` in Deals API v2
+- Added `is_archived` to request bodies of POST `deals` endpoints and PUT/PATCH `/deals/:id` endpoints
+- Added `archive_time` to request bodies of POST `deals` endpoints
+
 ## [11.0.0](https://github.com/pipedrive/client-php/compare/10.0.0...11.0.0) (2025-05-09)
 
 ### Changed
