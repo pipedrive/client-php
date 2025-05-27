@@ -12,7 +12,7 @@ Please do not leave this blank!
 Summary of the change or issues fixed.
 -->
 
-## Type of PR?
+## Type of PR
 
 <!-- Remove the comment blocks to uncomment all applicable types -->
 
