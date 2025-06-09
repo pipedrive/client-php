@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [11.1.1](https://github.com/pipedrive/client-php/compare/11.1.0...11.1.1) (2025-06-09)
+
+### Added
+- Documented `address` property in the Organization v2 API for add and update endpoints:
+  - `POST /v2/organizations`
+  - `PATCH /v2/organizations/{id}`
+
 ## [11.1.0](https://github.com/pipedrive/client-php/compare/11.0.0...11.1.1) (2025-05-26)
 ### Fixed
 - Fixed the OAuth scopes of Deal to Lead conversion and Lead to Deal conversion endpoints
