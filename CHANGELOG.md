@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [11.1.1](https://github.com/pipedrive/client-php/compare/11.1.0...11.1.1) (2025-06-09)
+
 ### Added
 - Documented `address` property in the Organization v2 API for add and update endpoints:
   - `POST /v2/organizations`
