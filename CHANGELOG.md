@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [12.0.0](https://github.com/pipedrive/client-php/compare/11.1.1...12.0.0) (2025-06-17)
+
 ### Removed
 - Removed `deals_summary` from `GET /v1/stages/:id` and `GET /v1/pipelines/:id`
 - Removed `totals_convert_currency` query parameter from `GET /v1/pipelines/:id`
