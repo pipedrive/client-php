@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [12.0.1](https://github.com/pipedrive/client-php/compare/12.0.0...12.0.1) (2025-06-25)
+
+### Fixed
+- Removed not supported `add_time`, `update_time` and `stage_change_time` from `PATCH /v2/deals/:id` request body
+
 ## [12.0.0](https://github.com/pipedrive/client-php/compare/11.1.1...12.0.0) (2025-06-17)
 
 ### Removed
