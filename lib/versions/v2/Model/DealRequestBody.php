@@ -74,9 +74,6 @@ class DealRequestBody implements ModelInterface, ArrayAccess, JsonSerializable
         'stage_id' => 'int',
         'value' => 'float',
         'currency' => 'string',
-        'add_time' => 'string',
-        'update_time' => 'string',
-        'stage_change_time' => 'string',
         'is_deleted' => 'bool',
         'is_archived' => 'bool',
         'archive_time' => 'string',
@@ -107,9 +104,6 @@ class DealRequestBody implements ModelInterface, ArrayAccess, JsonSerializable
         'stage_id' => null,
         'value' => null,
         'currency' => null,
-        'add_time' => null,
-        'update_time' => null,
-        'stage_change_time' => null,
         'is_deleted' => null,
         'is_archived' => null,
         'archive_time' => null,
@@ -163,9 +157,6 @@ class DealRequestBody implements ModelInterface, ArrayAccess, JsonSerializable
         'stage_id' => 'stage_id',
         'value' => 'value',
         'currency' => 'currency',
-        'add_time' => 'add_time',
-        'update_time' => 'update_time',
-        'stage_change_time' => 'stage_change_time',
         'is_deleted' => 'is_deleted',
         'is_archived' => 'is_archived',
         'archive_time' => 'archive_time',
@@ -194,9 +185,6 @@ class DealRequestBody implements ModelInterface, ArrayAccess, JsonSerializable
         'stage_id' => 'setStageId',
         'value' => 'setValue',
         'currency' => 'setCurrency',
-        'add_time' => 'setAddTime',
-        'update_time' => 'setUpdateTime',
-        'stage_change_time' => 'setStageChangeTime',
         'is_deleted' => 'setIsDeleted',
         'is_archived' => 'setIsArchived',
         'archive_time' => 'setArchiveTime',
@@ -225,9 +213,6 @@ class DealRequestBody implements ModelInterface, ArrayAccess, JsonSerializable
         'stage_id' => 'getStageId',
         'value' => 'getValue',
         'currency' => 'getCurrency',
-        'add_time' => 'getAddTime',
-        'update_time' => 'getUpdateTime',
-        'stage_change_time' => 'getStageChangeTime',
         'is_deleted' => 'getIsDeleted',
         'is_archived' => 'getIsArchived',
         'archive_time' => 'getArchiveTime',
@@ -317,9 +302,6 @@ class DealRequestBody implements ModelInterface, ArrayAccess, JsonSerializable
         $this->container['stage_id'] = $data['stage_id'] ?? null;
         $this->container['value'] = $data['value'] ?? null;
         $this->container['currency'] = $data['currency'] ?? null;
-        $this->container['add_time'] = $data['add_time'] ?? null;
-        $this->container['update_time'] = $data['update_time'] ?? null;
-        $this->container['stage_change_time'] = $data['stage_change_time'] ?? null;
         $this->container['is_deleted'] = $data['is_deleted'] ?? null;
         $this->container['is_archived'] = $data['is_archived'] ?? null;
         $this->container['archive_time'] = $data['archive_time'] ?? null;
@@ -548,78 +530,6 @@ class DealRequestBody implements ModelInterface, ArrayAccess, JsonSerializable
     public function setCurrency($currency): self
     {
         $this->container['currency'] = $currency;
-
-        return $this;
-    }
-
-    /**
-     * Gets add_time
-     *
-     * @return string|null
-     */
-    public function getAddTime()
-    {
-        return $this->container['add_time'];
-    }
-
-    /**
-     * Sets add_time
-     *
-     * @param string|null $add_time The creation date and time of the deal
-     *
-     * @return self
-     */
-    public function setAddTime($add_time): self
-    {
-        $this->container['add_time'] = $add_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets update_time
-     *
-     * @return string|null
-     */
-    public function getUpdateTime()
-    {
-        return $this->container['update_time'];
-    }
-
-    /**
-     * Sets update_time
-     *
-     * @param string|null $update_time The last updated date and time of the deal
-     *
-     * @return self
-     */
-    public function setUpdateTime($update_time): self
-    {
-        $this->container['update_time'] = $update_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets stage_change_time
-     *
-     * @return string|null
-     */
-    public function getStageChangeTime()
-    {
-        return $this->container['stage_change_time'];
-    }
-
-    /**
-     * Sets stage_change_time
-     *
-     * @param string|null $stage_change_time The last updated date and time of the deal stage
-     *
-     * @return self
-     */
-    public function setStageChangeTime($stage_change_time): self
-    {
-        $this->container['stage_change_time'] = $stage_change_time;
 
         return $this;
     }

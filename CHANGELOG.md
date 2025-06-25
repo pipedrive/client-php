@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Fixed
+- Removed not supported `add_time`, `update_time` and `stage_change_time` from `PATCH /v2/deals/:id` request body
 
 ## [12.0.0](https://github.com/pipedrive/client-php/compare/11.1.1...12.0.0) (2025-06-17)
 
