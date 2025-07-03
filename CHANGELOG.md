@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Added `custom_fields` type to `deal`, `person`, `organization`, `product` schemas
 
 ## [12.0.1](https://github.com/pipedrive/client-php/compare/12.0.0...12.0.1) (2025-06-25)
 
