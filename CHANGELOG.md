@@ -5,6 +5,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Removed
+- Removed all endpoints of the Subscriptions feature
+  - GET /v1/subscriptions/{id} 
+  - GET /v1/subscriptions/find/{dealId}
+  - GET /v1/subscriptions/{id}/payments
+  - POST /v1/subscriptions/recurring
+  - POST /v1/subscriptions/installment
+  - PUT /v1/subscriptions/recurring/{id}
+  - PUT /v1/subscriptions/installment/{id}
+  - PUT /v1/subscriptions/recurring/{id}/cancel
+  - DELETE /v1/subscriptions/{id}
 
 ## [12.0.2](https://github.com/pipedrive/client-php/compare/12.0.1...12.0.2) (2025-07-07)
 

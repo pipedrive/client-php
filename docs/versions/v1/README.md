@@ -516,15 +516,6 @@ Class | Method | HTTP request | Description
 *StagesApi* | [**getStageDeals**](Api/StagesApi.md#getstagedeals) | **GET** /stages/{id}/deals | Get deals in a stage
 *StagesApi* | [**getStages**](Api/StagesApi.md#getstages) | **GET** /stages | Get all stages
 *StagesApi* | [**updateStage**](Api/StagesApi.md#updatestage) | **PUT** /stages/{id} | Update stage details
-*SubscriptionsApi* | [**addRecurringSubscription**](Api/SubscriptionsApi.md#addrecurringsubscription) | **POST** /subscriptions/recurring | Add a recurring subscription
-*SubscriptionsApi* | [**addSubscriptionInstallment**](Api/SubscriptionsApi.md#addsubscriptioninstallment) | **POST** /subscriptions/installment | Add an installment subscription
-*SubscriptionsApi* | [**cancelRecurringSubscription**](Api/SubscriptionsApi.md#cancelrecurringsubscription) | **PUT** /subscriptions/recurring/{id}/cancel | Cancel a recurring subscription
-*SubscriptionsApi* | [**deleteSubscription**](Api/SubscriptionsApi.md#deletesubscription) | **DELETE** /subscriptions/{id} | Delete a subscription
-*SubscriptionsApi* | [**findSubscriptionByDeal**](Api/SubscriptionsApi.md#findsubscriptionbydeal) | **GET** /subscriptions/find/{dealId} | Find subscription by deal
-*SubscriptionsApi* | [**getSubscription**](Api/SubscriptionsApi.md#getsubscription) | **GET** /subscriptions/{id} | Get details of a subscription
-*SubscriptionsApi* | [**getSubscriptionPayments**](Api/SubscriptionsApi.md#getsubscriptionpayments) | **GET** /subscriptions/{id}/payments | Get all payments of a subscription
-*SubscriptionsApi* | [**updateRecurringSubscription**](Api/SubscriptionsApi.md#updaterecurringsubscription) | **PUT** /subscriptions/recurring/{id} | Update a recurring subscription
-*SubscriptionsApi* | [**updateSubscriptionInstallment**](Api/SubscriptionsApi.md#updatesubscriptioninstallment) | **PUT** /subscriptions/installment/{id} | Update an installment subscription
 *TasksApi* | [**addTask**](Api/TasksApi.md#addtask) | **POST** /tasks | Add a task
 *TasksApi* | [**deleteTask**](Api/TasksApi.md#deletetask) | **DELETE** /tasks/{id} | Delete a task
 *TasksApi* | [**getTask**](Api/TasksApi.md#gettask) | **GET** /tasks/{id} | Get details of a task
@@ -949,7 +940,6 @@ Class | Method | HTTP request | Description
  - [GetRolesAllOf](Model/GetRolesAllOf.md)
  - [GetStageDeals](Model/GetStageDeals.md)
  - [GetStages](Model/GetStages.md)
- - [GetSubscriptionsIdResponseData](Model/GetSubscriptionsIdResponseData.md)
  - [GetTaskResponse](Model/GetTaskResponse.md)
  - [GetTasksResponse](Model/GetTasksResponse.md)
  - [GetUserConnectionsResponseData](Model/GetUserConnectionsResponseData.md)
@@ -1136,9 +1126,6 @@ Class | Method | HTTP request | Description
  - [Params](Model/Params.md)
  - [ParticipantsChangelog](Model/ParticipantsChangelog.md)
  - [ParticipantsChangelogItem](Model/ParticipantsChangelogItem.md)
- - [PaymentItem](Model/PaymentItem.md)
- - [PaymentsResponse](Model/PaymentsResponse.md)
- - [PaymentsResponseAllOf](Model/PaymentsResponseAllOf.md)
  - [PermissionSets](Model/PermissionSets.md)
  - [PermissionSetsAllOf](Model/PermissionSetsAllOf.md)
  - [PermissionSetsItem](Model/PermissionSetsItem.md)
@@ -1268,13 +1255,6 @@ Class | Method | HTTP request | Description
  - [SubRoleAllOf](Model/SubRoleAllOf.md)
  - [SubscriptionAddonsResponse](Model/SubscriptionAddonsResponse.md)
  - [SubscriptionAddonsResponseAllOf](Model/SubscriptionAddonsResponseAllOf.md)
- - [SubscriptionInstallmentCreateRequest](Model/SubscriptionInstallmentCreateRequest.md)
- - [SubscriptionInstallmentUpdateRequest](Model/SubscriptionInstallmentUpdateRequest.md)
- - [SubscriptionItem](Model/SubscriptionItem.md)
- - [SubscriptionRecurringCancelRequest](Model/SubscriptionRecurringCancelRequest.md)
- - [SubscriptionRecurringCreateRequest](Model/SubscriptionRecurringCreateRequest.md)
- - [SubscriptionRecurringUpdateRequest](Model/SubscriptionRecurringUpdateRequest.md)
- - [SubscriptionsIdResponse](Model/SubscriptionsIdResponse.md)
  - [TaskId](Model/TaskId.md)
  - [TaskMandatoryObjectFragment](Model/TaskMandatoryObjectFragment.md)
  - [TaskNotChangeableObjectFragment](Model/TaskNotChangeableObjectFragment.md)
