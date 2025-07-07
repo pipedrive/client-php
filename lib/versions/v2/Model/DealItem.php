@@ -95,7 +95,8 @@ class DealItem implements ModelInterface, ArrayAccess, JsonSerializable
         'channel_id' => 'string',
         'arr' => 'float',
         'mrr' => 'float',
-        'acv' => 'float'
+        'acv' => 'float',
+        'custom_fields' => 'array<string,OneOfStringNumberMap>'
     ];
 
     /**
@@ -135,7 +136,8 @@ class DealItem implements ModelInterface, ArrayAccess, JsonSerializable
         'channel_id' => null,
         'arr' => null,
         'mrr' => null,
-        'acv' => null
+        'acv' => null,
+        'custom_fields' => null
     ];
 
     /**
@@ -198,7 +200,8 @@ class DealItem implements ModelInterface, ArrayAccess, JsonSerializable
         'channel_id' => 'channel_id',
         'arr' => 'arr',
         'mrr' => 'mrr',
-        'acv' => 'acv'
+        'acv' => 'acv',
+        'custom_fields' => 'custom_fields'
     ];
 
     /**
@@ -236,7 +239,8 @@ class DealItem implements ModelInterface, ArrayAccess, JsonSerializable
         'channel_id' => 'setChannelId',
         'arr' => 'setArr',
         'mrr' => 'setMrr',
-        'acv' => 'setAcv'
+        'acv' => 'setAcv',
+        'custom_fields' => 'setCustomFields'
     ];
 
     /**
@@ -274,7 +278,8 @@ class DealItem implements ModelInterface, ArrayAccess, JsonSerializable
         'channel_id' => 'getChannelId',
         'arr' => 'getArr',
         'mrr' => 'getMrr',
-        'acv' => 'getAcv'
+        'acv' => 'getAcv',
+        'custom_fields' => 'getCustomFields'
     ];
 
     /**
@@ -374,6 +379,7 @@ class DealItem implements ModelInterface, ArrayAccess, JsonSerializable
         $this->container['arr'] = $data['arr'] ?? null;
         $this->container['mrr'] = $data['mrr'] ?? null;
         $this->container['acv'] = $data['acv'] ?? null;
+        $this->container['custom_fields'] = $data['custom_fields'] ?? null;
     }
 
     /**
@@ -1118,6 +1124,30 @@ class DealItem implements ModelInterface, ArrayAccess, JsonSerializable
     public function setAcv($acv): self
     {
         $this->container['acv'] = $acv;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_fields
+     *
+     * @return array<string,OneOfStringNumberMap>|null
+     */
+    public function getCustomFields()
+    {
+        return $this->container['custom_fields'];
+    }
+
+    /**
+     * Sets custom_fields
+     *
+     * @param array<string,OneOfStringNumberMap>|null $custom_fields A map of custom fields with hash-based keys
+     *
+     * @return self
+     */
+    public function setCustomFields($custom_fields): self
+    {
+        $this->container['custom_fields'] = $custom_fields;
 
         return $this;
     }

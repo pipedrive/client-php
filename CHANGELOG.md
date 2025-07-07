@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [12.0.2](https://github.com/pipedrive/client-php/compare/12.0.1...12.0.2) (2025-07-07)
+
+### Added
+- Added `custom_fields` type to `deal`, `person`, `organization`, `product` schemas
+
 ## [12.0.1](https://github.com/pipedrive/client-php/compare/12.0.0...12.0.1) (2025-06-25)
 
 ### Fixed
