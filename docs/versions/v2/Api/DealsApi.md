@@ -570,7 +570,7 @@ deleteInstallment($id, $installment_id): \Pipedrive\versions\v2\Model\DeleteInst
 
 Delete an installment from a deal
 
-Removes an installment from a deal.  Only available in Advanced and above plans.
+Removes an installment from a deal.  Only available in Growth and above plans.
 
 ### Example
 
@@ -1311,7 +1311,7 @@ getInstallments($deal_ids, $cursor, $limit, $sort_by, $sort_direction): \Pipedri
 
 List installments added to a list of deals
 
-Lists installments attached to a list of deals.  Only available in Advanced and above plans.
+Lists installments attached to a list of deals.  Only available in Growth and above plans.
 
 ### Example
 
@@ -1451,7 +1451,7 @@ postInstallment($id, $body): \Pipedrive\versions\v2\Model\AddInstallmentResponse
 
 Add an installment to a deal
 
-Adds an installment to a deal.  An installment can only be added if the deal includes at least one one-time product.  If the deal contains at least one recurring product, adding installments is not allowed.  Only available in Advanced and above plans.
+Adds an installment to a deal.  An installment can only be added if the deal includes at least one one-time product.  If the deal contains at least one recurring product, adding installments is not allowed.  Only available in Growth and above plans.
 
 ### Example
 
@@ -1804,7 +1804,7 @@ updateInstallment($id, $installment_id, $body): \Pipedrive\versions\v2\Model\Upd
 
 Update an installment added to a deal
 
-Edits an installment added to a deal.  Only available in Advanced and above plans.
+Edits an installment added to a deal.  Only available in Growth and above plans.
 
 ### Example
 
