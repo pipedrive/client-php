@@ -75,7 +75,7 @@ class OrganizationItem implements ModelInterface, ArrayAccess, JsonSerializable
         'visible_to' => 'int',
         'address' => '\Pipedrive\versions\v2\Model\OrganizationItemAddress',
         'label_ids' => 'int[]',
-        'custom_fields' => 'array<string,OneOfStringNumberMap>'
+        'custom_fields' => 'array<string,object>'
     ];
 
     /**
@@ -501,7 +501,7 @@ class OrganizationItem implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets custom_fields
      *
-     * @return array<string,OneOfStringNumberMap>|null
+     * @return array<string,object>|null
      */
     public function getCustomFields()
     {
@@ -511,7 +511,7 @@ class OrganizationItem implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets custom_fields
      *
-     * @param array<string,OneOfStringNumberMap>|null $custom_fields A map of custom fields with hash-based keys
+     * @param array<string,object>|null $custom_fields A map of custom fields with hash-based keys
      *
      * @return self
      */
