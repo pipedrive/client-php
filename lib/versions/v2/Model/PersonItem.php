@@ -85,7 +85,7 @@ class PersonItem implements ModelInterface, ArrayAccess, JsonSerializable
         'im' => '\Pipedrive\versions\v2\Model\PersonItemIm[]',
         'birthday' => 'string',
         'job_title' => 'string',
-        'custom_fields' => 'array<string,OneOfStringNumberMap>'
+        'custom_fields' => 'array<string,object>'
     ];
 
     /**
@@ -801,7 +801,7 @@ class PersonItem implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets custom_fields
      *
-     * @return array<string,OneOfStringNumberMap>|null
+     * @return array<string,object>|null
      */
     public function getCustomFields()
     {
@@ -811,7 +811,7 @@ class PersonItem implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets custom_fields
      *
-     * @param array<string,OneOfStringNumberMap>|null $custom_fields A map of custom fields with hash-based keys
+     * @param array<string,object>|null $custom_fields A map of custom fields with hash-based keys
      *
      * @return self
      */
