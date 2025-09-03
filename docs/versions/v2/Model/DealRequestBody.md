@@ -24,5 +24,6 @@ Name | Type | Description | Notes
 **lost_time** | **string** | The date and time of changing the deal status as lost. Can only be set if deal status is lost. | [optional]
 **expected_close_date** | **\DateTime** | The expected close date of the deal | [optional]
 **label_ids** | **int[]** | The IDs of labels assigned to the deal | [optional]
+**custom_fields** | [**array<string,OneOfStringNumberMap>**](OneOfStringNumberMap.md) | A map of custom fields with hash-based keys | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

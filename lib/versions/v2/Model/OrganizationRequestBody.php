@@ -72,7 +72,8 @@ class OrganizationRequestBody implements ModelInterface, ArrayAccess, JsonSerial
         'update_time' => 'string',
         'visible_to' => 'int',
         'label_ids' => 'int[]',
-        'address' => '\Pipedrive\versions\v2\Model\OrganizationItemAddress'
+        'address' => '\Pipedrive\versions\v2\Model\OrganizationItemAddress',
+        'custom_fields' => 'array<string,OneOfStringNumberMap>'
     ];
 
     /**
@@ -89,7 +90,8 @@ class OrganizationRequestBody implements ModelInterface, ArrayAccess, JsonSerial
         'update_time' => null,
         'visible_to' => null,
         'label_ids' => null,
-        'address' => null
+        'address' => null,
+        'custom_fields' => null
     ];
 
     /**
@@ -129,7 +131,8 @@ class OrganizationRequestBody implements ModelInterface, ArrayAccess, JsonSerial
         'update_time' => 'update_time',
         'visible_to' => 'visible_to',
         'label_ids' => 'label_ids',
-        'address' => 'address'
+        'address' => 'address',
+        'custom_fields' => 'custom_fields'
     ];
 
     /**
@@ -144,7 +147,8 @@ class OrganizationRequestBody implements ModelInterface, ArrayAccess, JsonSerial
         'update_time' => 'setUpdateTime',
         'visible_to' => 'setVisibleTo',
         'label_ids' => 'setLabelIds',
-        'address' => 'setAddress'
+        'address' => 'setAddress',
+        'custom_fields' => 'setCustomFields'
     ];
 
     /**
@@ -159,7 +163,8 @@ class OrganizationRequestBody implements ModelInterface, ArrayAccess, JsonSerial
         'update_time' => 'getUpdateTime',
         'visible_to' => 'getVisibleTo',
         'label_ids' => 'getLabelIds',
-        'address' => 'getAddress'
+        'address' => 'getAddress',
+        'custom_fields' => 'getCustomFields'
     ];
 
     /**
@@ -236,6 +241,7 @@ class OrganizationRequestBody implements ModelInterface, ArrayAccess, JsonSerial
         $this->container['visible_to'] = $data['visible_to'] ?? null;
         $this->container['label_ids'] = $data['label_ids'] ?? null;
         $this->container['address'] = $data['address'] ?? null;
+        $this->container['custom_fields'] = $data['custom_fields'] ?? null;
     }
 
     /**
@@ -428,6 +434,30 @@ class OrganizationRequestBody implements ModelInterface, ArrayAccess, JsonSerial
     public function setAddress($address): self
     {
         $this->container['address'] = $address;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_fields
+     *
+     * @return array<string,OneOfStringNumberMap>|null
+     */
+    public function getCustomFields()
+    {
+        return $this->container['custom_fields'];
+    }
+
+    /**
+     * Sets custom_fields
+     *
+     * @param array<string,OneOfStringNumberMap>|null $custom_fields A map of custom fields with hash-based keys
+     *
+     * @return self
+     */
+    public function setCustomFields($custom_fields): self
+    {
+        $this->container['custom_fields'] = $custom_fields;
 
         return $this;
     }

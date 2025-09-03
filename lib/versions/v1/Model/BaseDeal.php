@@ -1981,7 +1981,7 @@ class BaseDeal implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets arr
      *
-     * @param float|null $arr Only available in Advanced and above plans  The Annual Recurring Revenue of the deal  Null if there are no products attached to the deal
+     * @param float|null $arr Only available in Growth and above plans  The Annual Recurring Revenue of the deal  Null if there are no products attached to the deal
      *
      * @return self
      */
@@ -2005,7 +2005,7 @@ class BaseDeal implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets mrr
      *
-     * @param float|null $mrr Only available in Advanced and above plans  The Monthly Recurring Revenue of the deal  Null if there are no products attached to the deal
+     * @param float|null $mrr Only available in Growth and above plans  The Monthly Recurring Revenue of the deal  Null if there are no products attached to the deal
      *
      * @return self
      */
@@ -2029,7 +2029,7 @@ class BaseDeal implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets acv
      *
-     * @param float|null $acv Only available in Advanced and above plans  The Annual Contract Value of the deal  Null if there are no products attached to the deal
+     * @param float|null $acv Only available in Growth and above plans  The Annual Contract Value of the deal  Null if there are no products attached to the deal
      *
      * @return self
      */
@@ -2053,7 +2053,7 @@ class BaseDeal implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets arr_currency
      *
-     * @param string|null $arr_currency Only available in Advanced and above plans  The Currency for Annual Recurring Revenue of the deal  If the `arr` is null, this will also be null
+     * @param string|null $arr_currency Only available in Growth and above plans  The Currency for Annual Recurring Revenue of the deal  If the `arr` is null, this will also be null
      *
      * @return self
      */
@@ -2077,7 +2077,7 @@ class BaseDeal implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets mrr_currency
      *
-     * @param string|null $mrr_currency Only available in Advanced and above plans  The Currency for Monthly Recurring Revenue of the deal  If the `mrr` is null, this will also be null
+     * @param string|null $mrr_currency Only available in Growth and above plans  The Currency for Monthly Recurring Revenue of the deal  If the `mrr` is null, this will also be null
      *
      * @return self
      */
@@ -2101,7 +2101,7 @@ class BaseDeal implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets acv_currency
      *
-     * @param string|null $acv_currency Only available in Advanced and above plans  The Currency for Annual Contract Value of the deal  If the `acv` is null, this will also be null
+     * @param string|null $acv_currency Only available in Growth and above plans  The Currency for Annual Contract Value of the deal  If the `acv` is null, this will also be null
      *
      * @return self
      */
