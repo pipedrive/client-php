@@ -73,7 +73,7 @@ class OrganizationRequestBody implements ModelInterface, ArrayAccess, JsonSerial
         'visible_to' => 'int',
         'label_ids' => 'int[]',
         'address' => '\Pipedrive\versions\v2\Model\OrganizationItemAddress',
-        'custom_fields' => 'array<string,OneOfStringNumberMap>'
+        'custom_fields' => 'array<string,object>'
     ];
 
     /**
@@ -441,7 +441,7 @@ class OrganizationRequestBody implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Gets custom_fields
      *
-     * @return array<string,OneOfStringNumberMap>|null
+     * @return array<string,object>|null
      */
     public function getCustomFields()
     {
@@ -451,7 +451,7 @@ class OrganizationRequestBody implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Sets custom_fields
      *
-     * @param array<string,OneOfStringNumberMap>|null $custom_fields A map of custom fields with hash-based keys
+     * @param array<string,object>|null $custom_fields An object where each key represents a custom field. All custom fields are referenced as randomly generated 40-character hashes
      *
      * @return self
      */
