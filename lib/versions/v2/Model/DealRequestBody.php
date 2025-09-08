@@ -85,7 +85,8 @@ class DealRequestBody implements ModelInterface, ArrayAccess, JsonSerializable
         'won_time' => 'string',
         'lost_time' => 'string',
         'expected_close_date' => '\DateTime',
-        'label_ids' => 'int[]'
+        'label_ids' => 'int[]',
+        'custom_fields' => 'array<string,OneOfStringNumberMap>'
     ];
 
     /**
@@ -115,7 +116,8 @@ class DealRequestBody implements ModelInterface, ArrayAccess, JsonSerializable
         'won_time' => null,
         'lost_time' => null,
         'expected_close_date' => 'date',
-        'label_ids' => null
+        'label_ids' => null,
+        'custom_fields' => null
     ];
 
     /**
@@ -168,7 +170,8 @@ class DealRequestBody implements ModelInterface, ArrayAccess, JsonSerializable
         'won_time' => 'won_time',
         'lost_time' => 'lost_time',
         'expected_close_date' => 'expected_close_date',
-        'label_ids' => 'label_ids'
+        'label_ids' => 'label_ids',
+        'custom_fields' => 'custom_fields'
     ];
 
     /**
@@ -196,7 +199,8 @@ class DealRequestBody implements ModelInterface, ArrayAccess, JsonSerializable
         'won_time' => 'setWonTime',
         'lost_time' => 'setLostTime',
         'expected_close_date' => 'setExpectedCloseDate',
-        'label_ids' => 'setLabelIds'
+        'label_ids' => 'setLabelIds',
+        'custom_fields' => 'setCustomFields'
     ];
 
     /**
@@ -224,7 +228,8 @@ class DealRequestBody implements ModelInterface, ArrayAccess, JsonSerializable
         'won_time' => 'getWonTime',
         'lost_time' => 'getLostTime',
         'expected_close_date' => 'getExpectedCloseDate',
-        'label_ids' => 'getLabelIds'
+        'label_ids' => 'getLabelIds',
+        'custom_fields' => 'getCustomFields'
     ];
 
     /**
@@ -314,6 +319,7 @@ class DealRequestBody implements ModelInterface, ArrayAccess, JsonSerializable
         $this->container['lost_time'] = $data['lost_time'] ?? null;
         $this->container['expected_close_date'] = $data['expected_close_date'] ?? null;
         $this->container['label_ids'] = $data['label_ids'] ?? null;
+        $this->container['custom_fields'] = $data['custom_fields'] ?? null;
     }
 
     /**
@@ -818,6 +824,30 @@ class DealRequestBody implements ModelInterface, ArrayAccess, JsonSerializable
     public function setLabelIds($label_ids): self
     {
         $this->container['label_ids'] = $label_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_fields
+     *
+     * @return array<string,OneOfStringNumberMap>|null
+     */
+    public function getCustomFields()
+    {
+        return $this->container['custom_fields'];
+    }
+
+    /**
+     * Sets custom_fields
+     *
+     * @param array<string,OneOfStringNumberMap>|null $custom_fields A map of custom fields with hash-based keys
+     *
+     * @return self
+     */
+    public function setCustomFields($custom_fields): self
+    {
+        $this->container['custom_fields'] = $custom_fields;
 
         return $this;
     }

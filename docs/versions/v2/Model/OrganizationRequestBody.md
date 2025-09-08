@@ -11,5 +11,6 @@ Name | Type | Description | Notes
 **visible_to** | **int** | The visibility of the organization | [optional]
 **label_ids** | **int[]** | The IDs of labels assigned to the organization | [optional]
 **address** | [**\Pipedrive\versions\v2\Model\OrganizationItemAddress**](OrganizationItemAddress.md) |  | [optional]
+**custom_fields** | [**array<string,OneOfStringNumberMap>**](OneOfStringNumberMap.md) | A map of custom fields with hash-based keys | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

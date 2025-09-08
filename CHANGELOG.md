@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [13.2.1](https://github.com/pipedrive/client-php/compare/13.2.0...13.2.1) (2025-09-08)
+
+### Added
+- Documented the `custom_fields` in /v2 api for create organization and update deal
+
 ## [13.2.0](https://github.com/pipedrive/client-php/compare/13.1.0...13.2.0) (2025-09-08)
 
 ### Added
