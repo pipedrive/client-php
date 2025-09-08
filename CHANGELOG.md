@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [13.2.0](https://github.com/pipedrive/client-php/compare/13.1.0...13.2.0) (2025-09-08)
+
+### Added
+- Documented the `name` property in the Webhooks API for the following endpoints:
+  - `GET /v1/webhooks`
+  - `POST /v1/webhooks`
+
 ## [13.1.0](https://github.com/pipedrive/client-php/compare/13.0.0...13.1.0) (2025-09-08)
 
 ### Added
