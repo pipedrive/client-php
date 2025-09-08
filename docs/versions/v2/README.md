@@ -273,11 +273,15 @@ Class | Method | HTTP request | Description
 *BetaApi* | [**convertDealToLead**](Api/BetaApi.md#convertdealtolead) | **POST** /deals/{id}/convert/lead | Convert a deal to a lead (BETA)
 *BetaApi* | [**convertLeadToDeal**](Api/BetaApi.md#convertleadtodeal) | **POST** /leads/{id}/convert/deal | Convert a lead to a deal (BETA)
 *BetaApi* | [**deleteInstallment**](Api/BetaApi.md#deleteinstallment) | **DELETE** /deals/{id}/installments/{installment_id} | Delete an installment from a deal
+*BetaApi* | [**deleteProductImage**](Api/BetaApi.md#deleteproductimage) | **DELETE** /products/{id}/images | Delete an image of a product
 *BetaApi* | [**getDealConversionStatus**](Api/BetaApi.md#getdealconversionstatus) | **GET** /deals/{id}/convert/status/{conversion_id} | Get Deal conversion status (BETA)
 *BetaApi* | [**getInstallments**](Api/BetaApi.md#getinstallments) | **GET** /deals/installments | List installments added to a list of deals
 *BetaApi* | [**getLeadConversionStatus**](Api/BetaApi.md#getleadconversionstatus) | **GET** /leads/{id}/convert/status/{conversion_id} | Get Lead conversion status (BETA)
+*BetaApi* | [**getProductImage**](Api/BetaApi.md#getproductimage) | **GET** /products/{id}/images | Get image of a product
 *BetaApi* | [**postInstallment**](Api/BetaApi.md#postinstallment) | **POST** /deals/{id}/installments | Add an installment to a deal
 *BetaApi* | [**updateInstallment**](Api/BetaApi.md#updateinstallment) | **PATCH** /deals/{id}/installments/{installment_id} | Update an installment added to a deal
+*BetaApi* | [**updateProductImage**](Api/BetaApi.md#updateproductimage) | **PUT** /products/{id}/images | Update an image for a product
+*BetaApi* | [**uploadProductImage**](Api/BetaApi.md#uploadproductimage) | **POST** /products/{id}/images | Upload an image for a product
 *DealsApi* | [**addDeal**](Api/DealsApi.md#adddeal) | **POST** /deals | Add a new deal
 *DealsApi* | [**addDealFollower**](Api/DealsApi.md#adddealfollower) | **POST** /deals/{id}/followers | Add a follower to a deal
 *DealsApi* | [**addDealProduct**](Api/DealsApi.md#adddealproduct) | **POST** /deals/{id}/products | Add a product to a deal
@@ -339,15 +343,19 @@ Class | Method | HTTP request | Description
 *ProductsApi* | [**addProductVariation**](Api/ProductsApi.md#addproductvariation) | **POST** /products/{id}/variations | Add a product variation
 *ProductsApi* | [**deleteProduct**](Api/ProductsApi.md#deleteproduct) | **DELETE** /products/{id} | Delete a product
 *ProductsApi* | [**deleteProductFollower**](Api/ProductsApi.md#deleteproductfollower) | **DELETE** /products/{id}/followers/{follower_id} | Delete a follower from a product
+*ProductsApi* | [**deleteProductImage**](Api/ProductsApi.md#deleteproductimage) | **DELETE** /products/{id}/images | Delete an image of a product
 *ProductsApi* | [**deleteProductVariation**](Api/ProductsApi.md#deleteproductvariation) | **DELETE** /products/{id}/variations/{product_variation_id} | Delete a product variation
 *ProductsApi* | [**getProduct**](Api/ProductsApi.md#getproduct) | **GET** /products/{id} | Get one product
 *ProductsApi* | [**getProductFollowers**](Api/ProductsApi.md#getproductfollowers) | **GET** /products/{id}/followers | List followers of a product
 *ProductsApi* | [**getProductFollowersChangelog**](Api/ProductsApi.md#getproductfollowerschangelog) | **GET** /products/{id}/followers/changelog | List followers changelog of a product
+*ProductsApi* | [**getProductImage**](Api/ProductsApi.md#getproductimage) | **GET** /products/{id}/images | Get image of a product
 *ProductsApi* | [**getProductVariations**](Api/ProductsApi.md#getproductvariations) | **GET** /products/{id}/variations | Get all product variations
 *ProductsApi* | [**getProducts**](Api/ProductsApi.md#getproducts) | **GET** /products | Get all products
 *ProductsApi* | [**searchProducts**](Api/ProductsApi.md#searchproducts) | **GET** /products/search | Search products
 *ProductsApi* | [**updateProduct**](Api/ProductsApi.md#updateproduct) | **PATCH** /products/{id} | Update a product
+*ProductsApi* | [**updateProductImage**](Api/ProductsApi.md#updateproductimage) | **PUT** /products/{id}/images | Update an image for a product
 *ProductsApi* | [**updateProductVariation**](Api/ProductsApi.md#updateproductvariation) | **PATCH** /products/{id}/variations/{product_variation_id} | Update a product variation
+*ProductsApi* | [**uploadProductImage**](Api/ProductsApi.md#uploadproductimage) | **POST** /products/{id}/images | Upload an image for a product
 *StagesApi* | [**addStage**](Api/StagesApi.md#addstage) | **POST** /stages | Add a new stage
 *StagesApi* | [**deleteStage**](Api/StagesApi.md#deletestage) | **DELETE** /stages/{id} | Delete a stage
 *StagesApi* | [**getStage**](Api/StagesApi.md#getstage) | **GET** /stages/{id} | Get one stage
@@ -368,6 +376,7 @@ Class | Method | HTTP request | Description
  - [AddConvertLeadToDealResponse](Model/AddConvertLeadToDealResponse.md)
  - [AddDealProductResponse](Model/AddDealProductResponse.md)
  - [AddInstallmentResponse](Model/AddInstallmentResponse.md)
+ - [AddProductImageResponse](Model/AddProductImageResponse.md)
  - [AddProductRequestBody](Model/AddProductRequestBody.md)
  - [AdditionalDataWithCursorPagination](Model/AdditionalDataWithCursorPagination.md)
  - [AdditionalDiscountRequestBody](Model/AdditionalDiscountRequestBody.md)
@@ -383,6 +392,7 @@ Class | Method | HTTP request | Description
  - [BaseProduct](Model/BaseProduct.md)
  - [BaseProductAllOf](Model/BaseProductAllOf.md)
  - [BaseProductAllOf1](Model/BaseProductAllOf1.md)
+ - [BaseProductImage](Model/BaseProductImage.md)
  - [BaseResponse](Model/BaseResponse.md)
  - [BillingFrequency](Model/BillingFrequency.md)
  - [BillingFrequency1](Model/BillingFrequency1.md)
@@ -415,6 +425,8 @@ Class | Method | HTTP request | Description
  - [DeletePersonResponseData](Model/DeletePersonResponseData.md)
  - [DeletePipelineResponse](Model/DeletePipelineResponse.md)
  - [DeletePipelineResponseData](Model/DeletePipelineResponseData.md)
+ - [DeleteProductImageResponse](Model/DeleteProductImageResponse.md)
+ - [DeleteProductImageResponseData](Model/DeleteProductImageResponseData.md)
  - [DeleteProductResponse](Model/DeleteProductResponse.md)
  - [DeleteProductResponseData](Model/DeleteProductResponseData.md)
  - [DeleteProductVariation](Model/DeleteProductVariation.md)
@@ -495,6 +507,8 @@ Class | Method | HTTP request | Description
  - [PostPatchGetPerson](Model/PostPatchGetPerson.md)
  - [PostPatchGetPipeline](Model/PostPatchGetPipeline.md)
  - [PostPatchGetStage](Model/PostPatchGetStage.md)
+ - [ProductImageResponse](Model/ProductImageResponse.md)
+ - [ProductImageResponseData](Model/ProductImageResponseData.md)
  - [ProductRequest](Model/ProductRequest.md)
  - [ProductResponse](Model/ProductResponse.md)
  - [ProductSearchItem](Model/ProductSearchItem.md)
@@ -514,6 +528,7 @@ Class | Method | HTTP request | Description
  - [UpdateAdditionalDiscountResponse](Model/UpdateAdditionalDiscountResponse.md)
  - [UpdateDealProductRequestBody](Model/UpdateDealProductRequestBody.md)
  - [UpdateInstallmentResponse](Model/UpdateInstallmentResponse.md)
+ - [UpdateProductImageResponse](Model/UpdateProductImageResponse.md)
  - [UpdateProductRequestBody](Model/UpdateProductRequestBody.md)
  - [UpdateProductResponse](Model/UpdateProductResponse.md)
  - [UpsertActivityResponseData](Model/UpsertActivityResponseData.md)
