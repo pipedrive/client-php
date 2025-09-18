@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Changed
+- Removed deprecated `person_name`, `organization_name`, and `email` lead fields from itemSearch endpoints
 
 ## [13.2.2](https://github.com/pipedrive/client-php/compare/13.2.1...13.2.2) (2025-09-08)
 
