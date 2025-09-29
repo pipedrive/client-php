@@ -285,12 +285,14 @@ Class | Method | HTTP request | Description
 *DealsApi* | [**addDeal**](Api/DealsApi.md#adddeal) | **POST** /deals | Add a new deal
 *DealsApi* | [**addDealFollower**](Api/DealsApi.md#adddealfollower) | **POST** /deals/{id}/followers | Add a follower to a deal
 *DealsApi* | [**addDealProduct**](Api/DealsApi.md#adddealproduct) | **POST** /deals/{id}/products | Add a product to a deal
+*DealsApi* | [**addManyDealProducts**](Api/DealsApi.md#addmanydealproducts) | **POST** /deals/{id}/products/bulk | Add multiple products to a deal
 *DealsApi* | [**convertDealToLead**](Api/DealsApi.md#convertdealtolead) | **POST** /deals/{id}/convert/lead | Convert a deal to a lead (BETA)
 *DealsApi* | [**deleteAdditionalDiscount**](Api/DealsApi.md#deleteadditionaldiscount) | **DELETE** /deals/{id}/discounts/{discount_id} | Delete a discount from a deal
 *DealsApi* | [**deleteDeal**](Api/DealsApi.md#deletedeal) | **DELETE** /deals/{id} | Delete a deal
 *DealsApi* | [**deleteDealFollower**](Api/DealsApi.md#deletedealfollower) | **DELETE** /deals/{id}/followers/{follower_id} | Delete a follower from a deal
 *DealsApi* | [**deleteDealProduct**](Api/DealsApi.md#deletedealproduct) | **DELETE** /deals/{id}/products/{product_attachment_id} | Delete an attached product from a deal
 *DealsApi* | [**deleteInstallment**](Api/DealsApi.md#deleteinstallment) | **DELETE** /deals/{id}/installments/{installment_id} | Delete an installment from a deal
+*DealsApi* | [**deleteManyDealProducts**](Api/DealsApi.md#deletemanydealproducts) | **DELETE** /deals/{id}/products | Delete many products from a deal
 *DealsApi* | [**getAdditionalDiscounts**](Api/DealsApi.md#getadditionaldiscounts) | **GET** /deals/{id}/discounts | List discounts added to a deal
 *DealsApi* | [**getArchivedDeals**](Api/DealsApi.md#getarchiveddeals) | **GET** /deals/archived | Get all archived deals
 *DealsApi* | [**getDeal**](Api/DealsApi.md#getdeal) | **GET** /deals/{id} | Get details of a deal
@@ -397,6 +399,8 @@ Class | Method | HTTP request | Description
  - [BillingFrequency](Model/BillingFrequency.md)
  - [BillingFrequency1](Model/BillingFrequency1.md)
  - [ConvertEntityResponse](Model/ConvertEntityResponse.md)
+ - [CreateManyDealProductRequestBody](Model/CreateManyDealProductRequestBody.md)
+ - [CreateManyDealProductResponse](Model/CreateManyDealProductResponse.md)
  - [DealItem](Model/DealItem.md)
  - [DealProductRequestBody](Model/DealProductRequestBody.md)
  - [DealRequestBody](Model/DealRequestBody.md)
@@ -419,6 +423,9 @@ Class | Method | HTTP request | Description
  - [DeleteFollowerResponseData](Model/DeleteFollowerResponseData.md)
  - [DeleteInstallmentResponse](Model/DeleteInstallmentResponse.md)
  - [DeleteInstallmentResponseData](Model/DeleteInstallmentResponseData.md)
+ - [DeleteManyDealProductResponse](Model/DeleteManyDealProductResponse.md)
+ - [DeleteManyDealProductResponseAdditionalData](Model/DeleteManyDealProductResponseAdditionalData.md)
+ - [DeleteManyDealProductResponseData](Model/DeleteManyDealProductResponseData.md)
  - [DeleteOrganizationResponse](Model/DeleteOrganizationResponse.md)
  - [DeleteOrganizationResponseData](Model/DeleteOrganizationResponseData.md)
  - [DeletePersonResponse](Model/DeletePersonResponse.md)

@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+-   Added `POST /deals/{id}/products/bulk` endpoint for creating multiple deal products at once (max 100 per request)
+-   Added `DELETE /deals/{id}/products` endpoint for deleting multiple deal products at once (max 100 per request)
 
 ## [13.2.2](https://github.com/pipedrive/client-php/compare/13.2.1...13.2.2) (2025-09-08)
 
