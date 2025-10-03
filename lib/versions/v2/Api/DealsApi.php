@@ -5534,7 +5534,7 @@ class DealsApi
      * @param  int $id The ID of the deal (required)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
-     * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;. (optional, default to 'id')
+     * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;, &#x60;order_nr&#x60;. (optional, default to 'id')
      * @param  string|'asc' $sort_direction The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;. (optional, default to 'asc')
      *
      * @throws ApiException on non-2xx response
@@ -5555,7 +5555,7 @@ class DealsApi
      * @param  int $id The ID of the deal (required)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
-     * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;. (optional, default to 'id')
+     * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;, &#x60;order_nr&#x60;. (optional, default to 'id')
      * @param  string|'asc' $sort_direction The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;. (optional, default to 'asc')
      *
      * @throws ApiException on non-2xx response
@@ -5660,7 +5660,7 @@ class DealsApi
      * @param  int $id The ID of the deal (required)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
-     * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;. (optional, default to 'id')
+     * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;, &#x60;order_nr&#x60;. (optional, default to 'id')
      * @param  string|'asc' $sort_direction The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;. (optional, default to 'asc')
      *
      * @throws InvalidArgumentException|OAuthProviderException
@@ -5684,7 +5684,7 @@ class DealsApi
      * @param  int $id The ID of the deal (required)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
-     * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;. (optional, default to 'id')
+     * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;, &#x60;order_nr&#x60;. (optional, default to 'id')
      * @param  string|'asc' $sort_direction The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;. (optional, default to 'asc')
      *
      * @throws InvalidArgumentException|OAuthProviderException
@@ -5735,7 +5735,7 @@ class DealsApi
      * @param  int $id The ID of the deal (required)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
-     * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;. (optional, default to 'id')
+     * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;, &#x60;order_nr&#x60;. (optional, default to 'id')
      * @param  string|'asc' $sort_direction The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;. (optional, default to 'asc')
      *
      * @throws InvalidArgumentException|OAuthProviderException
@@ -6366,7 +6366,7 @@ class DealsApi
      * @param  int[] $deal_ids An array of integers with the IDs of the deals for which the attached products will be returned. A maximum of 100 deal IDs can be provided. (required)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
-     * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;deal_id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;. (optional, default to 'id')
+     * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;deal_id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;, &#x60;order_nr&#x60;. (optional, default to 'id')
      * @param  string|'asc' $sort_direction The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;. (optional, default to 'asc')
      *
      * @throws ApiException on non-2xx response
@@ -6387,7 +6387,7 @@ class DealsApi
      * @param  int[] $deal_ids An array of integers with the IDs of the deals for which the attached products will be returned. A maximum of 100 deal IDs can be provided. (required)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
-     * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;deal_id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;. (optional, default to 'id')
+     * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;deal_id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;, &#x60;order_nr&#x60;. (optional, default to 'id')
      * @param  string|'asc' $sort_direction The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;. (optional, default to 'asc')
      *
      * @throws ApiException on non-2xx response
@@ -6492,7 +6492,7 @@ class DealsApi
      * @param  int[] $deal_ids An array of integers with the IDs of the deals for which the attached products will be returned. A maximum of 100 deal IDs can be provided. (required)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
-     * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;deal_id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;. (optional, default to 'id')
+     * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;deal_id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;, &#x60;order_nr&#x60;. (optional, default to 'id')
      * @param  string|'asc' $sort_direction The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;. (optional, default to 'asc')
      *
      * @throws InvalidArgumentException|OAuthProviderException
@@ -6516,7 +6516,7 @@ class DealsApi
      * @param  int[] $deal_ids An array of integers with the IDs of the deals for which the attached products will be returned. A maximum of 100 deal IDs can be provided. (required)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
-     * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;deal_id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;. (optional, default to 'id')
+     * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;deal_id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;, &#x60;order_nr&#x60;. (optional, default to 'id')
      * @param  string|'asc' $sort_direction The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;. (optional, default to 'asc')
      *
      * @throws InvalidArgumentException|OAuthProviderException
@@ -6567,7 +6567,7 @@ class DealsApi
      * @param  int[] $deal_ids An array of integers with the IDs of the deals for which the attached products will be returned. A maximum of 100 deal IDs can be provided. (required)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
-     * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;deal_id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;. (optional, default to 'id')
+     * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;deal_id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;, &#x60;order_nr&#x60;. (optional, default to 'id')
      * @param  string|'asc' $sort_direction The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;. (optional, default to 'asc')
      *
      * @throws InvalidArgumentException|OAuthProviderException

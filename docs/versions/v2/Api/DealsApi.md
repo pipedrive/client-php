@@ -1233,7 +1233,7 @@ $apiInstance = new Pipedrive\versions\v2\Api\DealsApi(
 $id = 56; // int | The ID of the deal
 $cursor = 'cursor_example'; // string | For pagination, the marker (an opaque string value) representing the first item on the next page
 $limit = 100; // int | For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-$sort_by = 'id'; // string | The field to sort by. Supported fields: `id`, `add_time`, `update_time`.
+$sort_by = 'id'; // string | The field to sort by. Supported fields: `id`, `add_time`, `update_time`, `order_nr`.
 $sort_direction = 'asc'; // string | The sorting direction. Supported values: `asc`, `desc`.
 
 try {
@@ -1251,7 +1251,7 @@ Name | Type | Description  | Notes
  **id** | **int**| The ID of the deal |
  **cursor** | **string**| For pagination, the marker (an opaque string value) representing the first item on the next page | [optional]
  **limit** | **int**| For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. | [optional]
- **sort_by** | **string**| The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;. | [optional] [default to &#39;id&#39;]
+ **sort_by** | **string**| The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;, &#x60;order_nr&#x60;. | [optional] [default to &#39;id&#39;]
  **sort_direction** | **string**| The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;. | [optional] [default to &#39;asc&#39;]
 
 ### Return type
@@ -1401,7 +1401,7 @@ $apiInstance = new Pipedrive\versions\v2\Api\DealsApi(
 $deal_ids = array(56); // int[] | An array of integers with the IDs of the deals for which the attached products will be returned. A maximum of 100 deal IDs can be provided.
 $cursor = 'cursor_example'; // string | For pagination, the marker (an opaque string value) representing the first item on the next page
 $limit = 100; // int | For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-$sort_by = 'id'; // string | The field to sort by. Supported fields: `id`, `deal_id`, `add_time`, `update_time`.
+$sort_by = 'id'; // string | The field to sort by. Supported fields: `id`, `deal_id`, `add_time`, `update_time`, `order_nr`.
 $sort_direction = 'asc'; // string | The sorting direction. Supported values: `asc`, `desc`.
 
 try {
@@ -1419,7 +1419,7 @@ Name | Type | Description  | Notes
  **deal_ids** | [**int[]**](../Model/int.md)| An array of integers with the IDs of the deals for which the attached products will be returned. A maximum of 100 deal IDs can be provided. |
  **cursor** | **string**| For pagination, the marker (an opaque string value) representing the first item on the next page | [optional]
  **limit** | **int**| For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. | [optional]
- **sort_by** | **string**| The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;deal_id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;. | [optional] [default to &#39;id&#39;]
+ **sort_by** | **string**| The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;deal_id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;, &#x60;order_nr&#x60;. | [optional] [default to &#39;id&#39;]
  **sort_direction** | **string**| The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;. | [optional] [default to &#39;asc&#39;]
 
 ### Return type

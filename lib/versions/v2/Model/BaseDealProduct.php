@@ -73,6 +73,7 @@ class BaseDealProduct implements ModelInterface, ArrayAccess, JsonSerializable
         'name' => 'string',
         'product_id' => 'int',
         'product_variation_id' => 'int',
+        'order_nr' => 'int',
         'add_time' => 'string',
         'update_time' => 'string',
         'comments' => 'string',
@@ -103,6 +104,7 @@ class BaseDealProduct implements ModelInterface, ArrayAccess, JsonSerializable
         'name' => null,
         'product_id' => null,
         'product_variation_id' => null,
+        'order_nr' => null,
         'add_time' => null,
         'update_time' => null,
         'comments' => null,
@@ -156,6 +158,7 @@ class BaseDealProduct implements ModelInterface, ArrayAccess, JsonSerializable
         'name' => 'name',
         'product_id' => 'product_id',
         'product_variation_id' => 'product_variation_id',
+        'order_nr' => 'order_nr',
         'add_time' => 'add_time',
         'update_time' => 'update_time',
         'comments' => 'comments',
@@ -184,6 +187,7 @@ class BaseDealProduct implements ModelInterface, ArrayAccess, JsonSerializable
         'name' => 'setName',
         'product_id' => 'setProductId',
         'product_variation_id' => 'setProductVariationId',
+        'order_nr' => 'setOrderNr',
         'add_time' => 'setAddTime',
         'update_time' => 'setUpdateTime',
         'comments' => 'setComments',
@@ -212,6 +216,7 @@ class BaseDealProduct implements ModelInterface, ArrayAccess, JsonSerializable
         'name' => 'getName',
         'product_id' => 'getProductId',
         'product_variation_id' => 'getProductVariationId',
+        'order_nr' => 'getOrderNr',
         'add_time' => 'getAddTime',
         'update_time' => 'getUpdateTime',
         'comments' => 'getComments',
@@ -337,6 +342,7 @@ class BaseDealProduct implements ModelInterface, ArrayAccess, JsonSerializable
         $this->container['name'] = $data['name'] ?? null;
         $this->container['product_id'] = $data['product_id'] ?? null;
         $this->container['product_variation_id'] = $data['product_variation_id'] ?? null;
+        $this->container['order_nr'] = $data['order_nr'] ?? null;
         $this->container['add_time'] = $data['add_time'] ?? null;
         $this->container['update_time'] = $data['update_time'] ?? null;
         $this->container['comments'] = $data['comments'] ?? null;
@@ -560,6 +566,30 @@ class BaseDealProduct implements ModelInterface, ArrayAccess, JsonSerializable
     public function setProductVariationId($product_variation_id): self
     {
         $this->container['product_variation_id'] = $product_variation_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets order_nr
+     *
+     * @return int|null
+     */
+    public function getOrderNr()
+    {
+        return $this->container['order_nr'];
+    }
+
+    /**
+     * Sets order_nr
+     *
+     * @param int|null $order_nr The order number of the product within the deal
+     *
+     * @return self
+     */
+    public function setOrderNr($order_nr): self
+    {
+        $this->container['order_nr'] = $order_nr;
 
         return $this;
     }

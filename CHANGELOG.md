@@ -5,24 +5,24 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [14.2.0](https://github.com/pipedrive/client-php/compare/14.1.0...14.2.0) (2025-10-03)
+
+## [14.1.0](https://github.com/pipedrive/client-php/compare/14.0.0...14.1.0) (2025-10-03)
+
 ### Added
 -   Added `POST /deals/{id}/products/bulk` endpoint for creating multiple deal products at once (max 100 per request)
 -   Added `DELETE /deals/{id}/products` endpoint for deleting multiple deal products at once (max 100 per request)
 
+## [14.0.0](https://github.com/pipedrive/client-php/compare/13.2.5...14.0.0) (2025-10-03)
+
 ### Changed
 - Removed deprecated `person_name`, `organization_name`, and `email` lead fields from itemSearch endpoints
 
+## [13.2.5](https://github.com/pipedrive/client-php/compare/13.2.3...13.2.5) (2025-10-03)
+
 ### Fixed
 - Fixed incorrect description for max `limit` parameter in itemSearch v2 endpoint
-
-### Fixed
-- Fixed incorrect `custom_fields` schema implementations by using the proper shared definition from `custom-fields.yaml`
-
-## [14.1.0](https://github.com/pipedrive/client-php/compare/14.0.0...14.1.0) (2025-10-03)
-
-## [14.0.0](https://github.com/pipedrive/client-php/compare/13.2.5...14.0.0) (2025-10-03)
-
-## [13.2.5](https://github.com/pipedrive/client-php/compare/13.2.4...13.2.5) (2025-10-03)
 
 ## [13.2.3](https://github.com/pipedrive/client-php/compare/13.2.2...13.2.3) (2025-10-03)
 
