@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 - Fixed incorrect `custom_fields` schema implementations by using the proper shared definition from `custom-fields.yaml`
 
+## [13.2.5](https://github.com/pipedrive/client-php/compare/13.2.4...13.2.5) (2025-10-03)
+
 ## [13.2.3](https://github.com/pipedrive/client-php/compare/13.2.2...13.2.3) (2025-10-03)
 
 ## [13.2.2](https://github.com/pipedrive/client-php/compare/13.2.1...13.2.2) (2025-09-08)
