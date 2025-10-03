@@ -46,7 +46,7 @@ $fields = 'fields_example'; // string | A comma-separated string array. The fiel
 $search_for_related_items = True; // bool | When enabled, the response will include up to 100 newest related leads and 100 newest related deals for each found person and organization and up to 100 newest related persons for each found organization
 $exact_match = True; // bool | When enabled, only full exact matches against the given term are returned. It is <b>not</b> case sensitive.
 $include_fields = 'include_fields_example'; // string | A comma-separated string array. Supports including optional fields in the results which are not provided by default.
-$limit = 100; // int | For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+$limit = 100; // int | For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed.
 $cursor = 'cursor_example'; // string | For pagination, the marker (an opaque string value) representing the first item on the next page
 
 try {
@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
  **search_for_related_items** | **bool**| When enabled, the response will include up to 100 newest related leads and 100 newest related deals for each found person and organization and up to 100 newest related persons for each found organization | [optional]
  **exact_match** | **bool**| When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive. | [optional]
  **include_fields** | **string**| A comma-separated string array. Supports including optional fields in the results which are not provided by default. | [optional]
- **limit** | **int**| For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. | [optional]
+ **limit** | **int**| For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed. | [optional]
  **cursor** | **string**| For pagination, the marker (an opaque string value) representing the first item on the next page | [optional]
 
 ### Return type
