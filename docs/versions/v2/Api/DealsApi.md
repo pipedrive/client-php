@@ -7,12 +7,14 @@ Method | HTTP request | Description
 [**addDeal()**](DealsApi.md#addDeal) | **POST** /deals | Add a new deal
 [**addDealFollower()**](DealsApi.md#addDealFollower) | **POST** /deals/{id}/followers | Add a follower to a deal
 [**addDealProduct()**](DealsApi.md#addDealProduct) | **POST** /deals/{id}/products | Add a product to a deal
+[**addManyDealProducts()**](DealsApi.md#addManyDealProducts) | **POST** /deals/{id}/products/bulk | Add multiple products to a deal
 [**convertDealToLead()**](DealsApi.md#convertDealToLead) | **POST** /deals/{id}/convert/lead | Convert a deal to a lead (BETA)
 [**deleteAdditionalDiscount()**](DealsApi.md#deleteAdditionalDiscount) | **DELETE** /deals/{id}/discounts/{discount_id} | Delete a discount from a deal
 [**deleteDeal()**](DealsApi.md#deleteDeal) | **DELETE** /deals/{id} | Delete a deal
 [**deleteDealFollower()**](DealsApi.md#deleteDealFollower) | **DELETE** /deals/{id}/followers/{follower_id} | Delete a follower from a deal
 [**deleteDealProduct()**](DealsApi.md#deleteDealProduct) | **DELETE** /deals/{id}/products/{product_attachment_id} | Delete an attached product from a deal
 [**deleteInstallment()**](DealsApi.md#deleteInstallment) | **DELETE** /deals/{id}/installments/{installment_id} | Delete an installment from a deal
+[**deleteManyDealProducts()**](DealsApi.md#deleteManyDealProducts) | **DELETE** /deals/{id}/products | Delete many products from a deal
 [**getAdditionalDiscounts()**](DealsApi.md#getAdditionalDiscounts) | **GET** /deals/{id}/discounts | List discounts added to a deal
 [**getArchivedDeals()**](DealsApi.md#getArchivedDeals) | **GET** /deals/archived | Get all archived deals
 [**getDeal()**](DealsApi.md#getDeal) | **GET** /deals/{id} | Get details of a deal
@@ -231,6 +233,73 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to README]](../README.md)
 
+## `addManyDealProducts()`
+
+```php
+addManyDealProducts($id, $create_many_deal_product_request_body): \Pipedrive\versions\v2\Model\CreateManyDealProductResponse
+```
+
+Add multiple products to a deal
+
+Adds multiple products to a deal in a single request. Maximum of 100 products allowed per request.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key
+$config = (new Pipedrive\versions\v2\Configuration())->setApiKey('x-api-token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = (new Pipedrive\versions\v2\Configuration())->setApiKeyPrefix('x-api-token', 'Bearer');
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = (new Pipedrive\versions\v2\Configuration())->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Pipedrive\versions\v2\Api\DealsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int | The ID of the deal
+$create_many_deal_product_request_body = new \Pipedrive\versions\v2\Model\CreateManyDealProductRequestBody(); // \Pipedrive\versions\v2\Model\CreateManyDealProductRequestBody
+
+try {
+    $result = $apiInstance->addManyDealProducts($id, $create_many_deal_product_request_body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DealsApi->addManyDealProducts: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The ID of the deal |
+ **create_many_deal_product_request_body** | [**\Pipedrive\versions\v2\Model\CreateManyDealProductRequestBody**](../Model/CreateManyDealProductRequestBody.md)|  | [optional]
+
+### Return type
+
+[**\Pipedrive\versions\v2\Model\CreateManyDealProductResponse**](../Model/CreateManyDealProductResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
 ## `convertDealToLead()`
 
 ```php
@@ -329,7 +398,7 @@ $apiInstance = new Pipedrive\versions\v2\Api\DealsApi(
     $config
 );
 $id = 56; // int | The ID of the deal
-$discount_id = 56; // int | The ID of the discount
+$discount_id = 'discount_id_example'; // string | The ID of the discount
 
 try {
     $result = $apiInstance->deleteAdditionalDiscount($id, $discount_id);
@@ -344,7 +413,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The ID of the deal |
- **discount_id** | **int**| The ID of the discount |
+ **discount_id** | **string**| The ID of the discount |
 
 ### Return type
 
@@ -615,6 +684,73 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Pipedrive\versions\v2\Model\DeleteInstallmentResponse**](../Model/DeleteInstallmentResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+## `deleteManyDealProducts()`
+
+```php
+deleteManyDealProducts($id, $ids): \Pipedrive\versions\v2\Model\DeleteManyDealProductResponse
+```
+
+Delete many products from a deal
+
+Deletes multiple products from a deal. If no product IDs are specified, up to 100 products will be removed from the deal. A maximum of 100 product IDs can be provided per request.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key
+$config = (new Pipedrive\versions\v2\Configuration())->setApiKey('x-api-token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = (new Pipedrive\versions\v2\Configuration())->setApiKeyPrefix('x-api-token', 'Bearer');
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = (new Pipedrive\versions\v2\Configuration())->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Pipedrive\versions\v2\Api\DealsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int | The ID of the deal
+$ids = 1,2,3; // string | Comma-separated list of deal product IDs to delete. If not provided, all deal products will be deleted up to 100 items. Maximum 100 IDs allowed.
+
+try {
+    $result = $apiInstance->deleteManyDealProducts($id, $ids);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DealsApi->deleteManyDealProducts: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The ID of the deal |
+ **ids** | **string**| Comma-separated list of deal product IDs to delete. If not provided, all deal products will be deleted up to 100 items. Maximum 100 IDs allowed. | [optional]
+
+### Return type
+
+[**\Pipedrive\versions\v2\Model\DeleteManyDealProductResponse**](../Model/DeleteManyDealProductResponse.md)
 
 ### Authorization
 
@@ -1624,7 +1760,7 @@ $apiInstance = new Pipedrive\versions\v2\Api\DealsApi(
     $config
 );
 $id = 56; // int | The ID of the deal
-$discount_id = 56; // int | The ID of the discount
+$discount_id = 'discount_id_example'; // string | The ID of the discount
 $body = new \stdClass; // object
 
 try {
@@ -1640,7 +1776,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The ID of the deal |
- **discount_id** | **int**| The ID of the discount |
+ **discount_id** | **string**| The ID of the discount |
  **body** | **object**|  | [optional]
 
 ### Return type
