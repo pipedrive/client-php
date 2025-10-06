@@ -5,8 +5,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+## Added
+- Added `is_archived` field in search response schemas for deals and leads
 ### Fixed
 -   Fixed PHP SDK v2 Configuration to use correct `/v2` API endpoints after OAuth token refresh instead of defaulting to `/v1`
+
+## [14.3.0](https://github.com/pipedrive/client-php/compare/14.2.1...14.3.0) (2025-10-06)
 
 ## [14.2.1](https://github.com/pipedrive/client-php/compare/14.2.0...14.2.1) (2025-10-03)
 
