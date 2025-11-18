@@ -5,20 +5,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
-### Fixed
-<<<<<<< HEAD
-- Prepared `nullable: true` to fields that can return null values in schemas for Field and Roles schemas
-=======
-<<<<<<< HEAD
-- Fixed return type for `filesApi.downloadFile` function
-=======
-- Corrected `FieldResponse` schema to use `GetField` instead of `Field` to ensure GET responses accurately reflect all field types returned by the API
->>>>>>> origin/master
->>>>>>> origin/master
-## Added
+### Added
 - Added `is_archived` field in search response schemas for deals and leads
+
 ### Fixed
--   Fixed PHP SDK v2 Configuration to use correct `/v2` API endpoints after OAuth token refresh instead of defaulting to `/v1`
+- Prepared `nullable: true` to fields that can return null values in schemas for Field and Roles schemas
+- Fixed return type for `filesApi.downloadFile` function
+- Corrected `FieldResponse` schema to use `GetField` instead of `Field` to ensure GET responses accurately reflect all field types returned by the API
+- Fixed PHP SDK v2 Configuration to use correct `/v2` API endpoints after OAuth token refresh instead of defaulting to `/v1`
 
 ## [14.3.3](https://github.com/pipedrive/client-php/compare/14.3.2...14.3.3) (2025-11-18)
 
