@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Added `deal_id` query parameter to the GET `/v2/persons` endpoint
 ### Fixed
 <<<<<<< HEAD
 - Prepared `nullable: true` to fields that can return null values in schemas for Field and Roles schemas
