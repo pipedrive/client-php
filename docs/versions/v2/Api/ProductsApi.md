@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**deleteProductFollower()**](ProductsApi.md#deleteProductFollower) | **DELETE** /products/{id}/followers/{follower_id} | Delete a follower from a product
 [**deleteProductImage()**](ProductsApi.md#deleteProductImage) | **DELETE** /products/{id}/images | Delete an image of a product
 [**deleteProductVariation()**](ProductsApi.md#deleteProductVariation) | **DELETE** /products/{id}/variations/{product_variation_id} | Delete a product variation
+[**duplicateProduct()**](ProductsApi.md#duplicateProduct) | **POST** /products/{id}/duplicate | Duplicate a product
 [**getProduct()**](ProductsApi.md#getProduct) | **GET** /products/{id} | Get one product
 [**getProductFollowers()**](ProductsApi.md#getProductFollowers) | **GET** /products/{id}/followers | List followers of a product
 [**getProductFollowersChangelog()**](ProductsApi.md#getProductFollowersChangelog) | **GET** /products/{id}/followers/changelog | List followers changelog of a product
@@ -473,6 +474,71 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Pipedrive\versions\v2\Model\DeleteProductVariation**](../Model/DeleteProductVariation.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+## `duplicateProduct()`
+
+```php
+duplicateProduct($id): \Pipedrive\versions\v2\Model\ProductResponse
+```
+
+Duplicate a product
+
+Creates a duplicate of an existing product including all variations, prices, and custom fields.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key
+$config = (new Pipedrive\versions\v2\Configuration())->setApiKey('x-api-token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = (new Pipedrive\versions\v2\Configuration())->setApiKeyPrefix('x-api-token', 'Bearer');
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = (new Pipedrive\versions\v2\Configuration())->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Pipedrive\versions\v2\Api\ProductsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int | The ID of the product
+
+try {
+    $result = $apiInstance->duplicateProduct($id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ProductsApi->duplicateProduct: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The ID of the product |
+
+### Return type
+
+[**\Pipedrive\versions\v2\Model\ProductResponse**](../Model/ProductResponse.md)
 
 ### Authorization
 

@@ -347,6 +347,7 @@ Class | Method | HTTP request | Description
 *ProductsApi* | [**deleteProductFollower**](Api/ProductsApi.md#deleteproductfollower) | **DELETE** /products/{id}/followers/{follower_id} | Delete a follower from a product
 *ProductsApi* | [**deleteProductImage**](Api/ProductsApi.md#deleteproductimage) | **DELETE** /products/{id}/images | Delete an image of a product
 *ProductsApi* | [**deleteProductVariation**](Api/ProductsApi.md#deleteproductvariation) | **DELETE** /products/{id}/variations/{product_variation_id} | Delete a product variation
+*ProductsApi* | [**duplicateProduct**](Api/ProductsApi.md#duplicateproduct) | **POST** /products/{id}/duplicate | Duplicate a product
 *ProductsApi* | [**getProduct**](Api/ProductsApi.md#getproduct) | **GET** /products/{id} | Get one product
 *ProductsApi* | [**getProductFollowers**](Api/ProductsApi.md#getproductfollowers) | **GET** /products/{id}/followers | List followers of a product
 *ProductsApi* | [**getProductFollowersChangelog**](Api/ProductsApi.md#getproductfollowerschangelog) | **GET** /products/{id}/followers/changelog | List followers changelog of a product
