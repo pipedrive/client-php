@@ -674,7 +674,7 @@ class Configuration
         }
 
         if (property_exists($oAuthToken, 'api_domain') && $oAuthToken->api_domain !== null) {
-            $this->setHost($oAuthToken->api_domain.'/v2');
+            $this->setHost($oAuthToken->api_domain.'/api/v2');
         }
 
         if (is_callable($this->getOAuthTokenUpdateCallback())) {
@@ -847,7 +847,7 @@ class Configuration
     {
         return [
             [
-                "url" => "https://api.pipedrive.com/v2",
+                "url" => "https://api.pipedrive.com/api/v2",
                 "description" => "No description provided",
             ]
         ];
