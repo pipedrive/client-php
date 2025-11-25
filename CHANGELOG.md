@@ -6,6 +6,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [14.4.0](https://github.com/pipedrive/client-php/compare/14.3.3...14.4.0) (2025-11-25)
+
+### Fixed
+- API v2 configuration for the host base path: `/api/v2` instead of `/v2`. With this, API v1 configuration also changed from `/v1` to `/api/v1`, but this does not break backward compatibility as both `/api/v1` and `/v1` paths are supported for API v1.
+
+### Added
+
+- Added `POST /products/{id}/duplicate` endpoint for duplicating an existing product
+- Added `deal_id` query parameter to the GET `/v2/persons` endpoint
+- Added `GET /v1/leadFields` endpoint for fetching all lead fields
+
 ## [14.3.3](https://github.com/pipedrive/client-php/compare/14.3.2...14.3.3) (2025-11-18)
 
 ### Fixed

@@ -350,6 +350,7 @@ Class | Method | HTTP request | Description
 *GoalsApi* | [**updateGoal**](Api/GoalsApi.md#updategoal) | **PUT** /goals/{id} | Update existing goal
 *ItemSearchApi* | [**searchItem**](Api/ItemSearchApi.md#searchitem) | **GET** /itemSearch | Perform a search from multiple item types
 *ItemSearchApi* | [**searchItemByField**](Api/ItemSearchApi.md#searchitembyfield) | **GET** /itemSearch/field | Perform a search using a specific field from an item type
+*LeadFieldsApi* | [**getLeadFields**](Api/LeadFieldsApi.md#getleadfields) | **GET** /leadFields | Get all lead fields
 *LeadLabelsApi* | [**addLeadLabel**](Api/LeadLabelsApi.md#addleadlabel) | **POST** /leadLabels | Add a lead label
 *LeadLabelsApi* | [**deleteLeadLabel**](Api/LeadLabelsApi.md#deleteleadlabel) | **DELETE** /leadLabels/{id} | Delete a lead label
 *LeadLabelsApi* | [**getLeadLabels**](Api/LeadLabelsApi.md#getleadlabels) | **GET** /leadLabels | Get all lead labels
