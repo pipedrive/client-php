@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [14.6.0](https://github.com/pipedrive/client-php/compare/14.5.0...14.6.0) (2025-12-05)
+
+### Added
+- Added three new OAuth2 scopes for field management:
+  - `deal-fields:full` - Allows applications to create, read, update and delete deal fields
+  - `product-fields:full` - Allows applications to create, read, update and delete product fields
+  - `contact-fields:full` - Allows applications to create, read, update and delete person and organization fields
+
 ## [14.5.0](https://github.com/pipedrive/client-php/compare/14.4.0...14.5.0) (2025-12-02)
 
 ### Added
