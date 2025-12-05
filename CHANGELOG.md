@@ -5,11 +5,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [14.6.0](https://github.com/pipedrive/client-php/compare/14.5.0...14.6.0) (2025-12-05)
+
 ### Added
 - Added three new OAuth2 scopes for field management:
-  - `deal-fields:full` - Allows applications to create, read, update and delete deal fields (applied to 6 endpoints: GET/POST/DELETE /dealFields and GET/PUT/DELETE /dealFields/{id})
-  - `product-fields:full` - Allows applications to create, read, update and delete product fields (applied to 6 endpoints: GET/POST/DELETE /productFields and GET/PUT/DELETE /productFields/{id})
-  - `contact-fields:full` - Allows applications to create, read, update and delete person and organization fields (applied to 12 endpoints: GET/POST/DELETE /personFields, GET/PUT/DELETE /personFields/{id}, GET/POST/DELETE /organizationFields, and GET/PUT/DELETE /organizationFields/{id})
+  - `deal-fields:full` - Allows applications to create, read, update and delete deal fields
+  - `product-fields:full` - Allows applications to create, read, update and delete product fields
+  - `contact-fields:full` - Allows applications to create, read, update and delete person and organization fields
 
 ## [14.5.0](https://github.com/pipedrive/client-php/compare/14.4.0...14.5.0) (2025-12-02)
 
