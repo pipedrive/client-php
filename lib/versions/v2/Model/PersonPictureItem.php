@@ -1,6 +1,6 @@
 <?php
 /**
- * PipelineItem
+ * PersonPictureItem
  *
  * PHP version 7.3
  *
@@ -35,7 +35,7 @@ use Pipedrive\versions\v2\Traits\RawData;
 use Pipedrive\versions\v2\ObjectSerializer;
 
 /**
- * PipelineItem Class Doc Comment
+ * PersonPictureItem Class Doc Comment
  *
  * @category Class
  * @package  Pipedrive\versions\v2
@@ -45,7 +45,7 @@ use Pipedrive\versions\v2\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class PipelineItem implements ModelInterface, ArrayAccess, JsonSerializable
+class PersonPictureItem implements ModelInterface, ArrayAccess, JsonSerializable
 {
     use RawData;
 
@@ -56,7 +56,7 @@ class PipelineItem implements ModelInterface, ArrayAccess, JsonSerializable
       *
       * @var string
       */
-    protected static string $openAPIModelName = 'PipelineItem';
+    protected static string $openAPIModelName = 'PersonPictureItem';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -67,12 +67,12 @@ class PipelineItem implements ModelInterface, ArrayAccess, JsonSerializable
       */
     protected static array $openAPITypes = [
         'id' => 'int',
-        'name' => 'string',
-        'order_nr' => 'int',
-        'is_deleted' => 'bool',
-        'is_deal_probability_enabled' => 'bool',
-        'add_time' => 'string',
-        'update_time' => 'string'
+        'item_type' => 'string',
+        'item_id' => 'int',
+        'added_by_user_id' => 'int',
+        'active_flag' => 'bool',
+        'file_size' => 'int',
+        'pictures' => '\Pipedrive\versions\v2\Model\PersonPictureItemPictures'
     ];
 
     /**
@@ -84,12 +84,12 @@ class PipelineItem implements ModelInterface, ArrayAccess, JsonSerializable
       */
     protected static $openAPIFormats = [
         'id' => null,
-        'name' => null,
-        'order_nr' => null,
-        'is_deleted' => null,
-        'is_deal_probability_enabled' => null,
-        'add_time' => null,
-        'update_time' => null
+        'item_type' => null,
+        'item_id' => null,
+        'added_by_user_id' => null,
+        'active_flag' => null,
+        'file_size' => null,
+        'pictures' => null
     ];
 
     /**
@@ -124,12 +124,12 @@ class PipelineItem implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'name' => 'name',
-        'order_nr' => 'order_nr',
-        'is_deleted' => 'is_deleted',
-        'is_deal_probability_enabled' => 'is_deal_probability_enabled',
-        'add_time' => 'add_time',
-        'update_time' => 'update_time'
+        'item_type' => 'item_type',
+        'item_id' => 'item_id',
+        'added_by_user_id' => 'added_by_user_id',
+        'active_flag' => 'active_flag',
+        'file_size' => 'file_size',
+        'pictures' => 'pictures'
     ];
 
     /**
@@ -139,12 +139,12 @@ class PipelineItem implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static $setters = [
         'id' => 'setId',
-        'name' => 'setName',
-        'order_nr' => 'setOrderNr',
-        'is_deleted' => 'setIsDeleted',
-        'is_deal_probability_enabled' => 'setIsDealProbabilityEnabled',
-        'add_time' => 'setAddTime',
-        'update_time' => 'setUpdateTime'
+        'item_type' => 'setItemType',
+        'item_id' => 'setItemId',
+        'added_by_user_id' => 'setAddedByUserId',
+        'active_flag' => 'setActiveFlag',
+        'file_size' => 'setFileSize',
+        'pictures' => 'setPictures'
     ];
 
     /**
@@ -154,12 +154,12 @@ class PipelineItem implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static $getters = [
         'id' => 'getId',
-        'name' => 'getName',
-        'order_nr' => 'getOrderNr',
-        'is_deleted' => 'getIsDeleted',
-        'is_deal_probability_enabled' => 'getIsDealProbabilityEnabled',
-        'add_time' => 'getAddTime',
-        'update_time' => 'getUpdateTime'
+        'item_type' => 'getItemType',
+        'item_id' => 'getItemId',
+        'added_by_user_id' => 'getAddedByUserId',
+        'active_flag' => 'getActiveFlag',
+        'file_size' => 'getFileSize',
+        'pictures' => 'getPictures'
     ];
 
     /**
@@ -230,12 +230,12 @@ class PipelineItem implements ModelInterface, ArrayAccess, JsonSerializable
     public function __construct(array $data = null)
     {
         $this->container['id'] = $data['id'] ?? null;
-        $this->container['name'] = $data['name'] ?? null;
-        $this->container['order_nr'] = $data['order_nr'] ?? null;
-        $this->container['is_deleted'] = $data['is_deleted'] ?? null;
-        $this->container['is_deal_probability_enabled'] = $data['is_deal_probability_enabled'] ?? null;
-        $this->container['add_time'] = $data['add_time'] ?? null;
-        $this->container['update_time'] = $data['update_time'] ?? null;
+        $this->container['item_type'] = $data['item_type'] ?? null;
+        $this->container['item_id'] = $data['item_id'] ?? null;
+        $this->container['added_by_user_id'] = $data['added_by_user_id'] ?? null;
+        $this->container['active_flag'] = $data['active_flag'] ?? null;
+        $this->container['file_size'] = $data['file_size'] ?? null;
+        $this->container['pictures'] = $data['pictures'] ?? null;
     }
 
     /**
@@ -277,7 +277,7 @@ class PipelineItem implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets id
      *
-     * @param int|null $id The ID of the pipeline
+     * @param int|null $id The ID of the picture.
      *
      * @return self
      */
@@ -289,145 +289,145 @@ class PipelineItem implements ModelInterface, ArrayAccess, JsonSerializable
     }
 
     /**
-     * Gets name
+     * Gets item_type
      *
      * @return string|null
      */
-    public function getName()
+    public function getItemType()
     {
-        return $this->container['name'];
+        return $this->container['item_type'];
     }
 
     /**
-     * Sets name
+     * Sets item_type
      *
-     * @param string|null $name The name of the pipeline
+     * @param string|null $item_type The type of item the picture is associated with.
      *
      * @return self
      */
-    public function setName($name): self
+    public function setItemType($item_type): self
     {
-        $this->container['name'] = $name;
+        $this->container['item_type'] = $item_type;
 
         return $this;
     }
 
     /**
-     * Gets order_nr
+     * Gets item_id
      *
      * @return int|null
      */
-    public function getOrderNr()
+    public function getItemId()
     {
-        return $this->container['order_nr'];
+        return $this->container['item_id'];
     }
 
     /**
-     * Sets order_nr
+     * Sets item_id
      *
-     * @param int|null $order_nr Defines the order of pipelines. The pipeline with the lowest `order_nr` is considered the default.
+     * @param int|null $item_id The ID of the person this picture belongs to.
      *
      * @return self
      */
-    public function setOrderNr($order_nr): self
+    public function setItemId($item_id): self
     {
-        $this->container['order_nr'] = $order_nr;
+        $this->container['item_id'] = $item_id;
 
         return $this;
     }
 
     /**
-     * Gets is_deleted
+     * Gets added_by_user_id
+     *
+     * @return int|null
+     */
+    public function getAddedByUserId()
+    {
+        return $this->container['added_by_user_id'];
+    }
+
+    /**
+     * Sets added_by_user_id
+     *
+     * @param int|null $added_by_user_id The ID of the user who added the picture.
+     *
+     * @return self
+     */
+    public function setAddedByUserId($added_by_user_id): self
+    {
+        $this->container['added_by_user_id'] = $added_by_user_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets active_flag
      *
      * @return bool|null
      */
-    public function getIsDeleted()
+    public function getActiveFlag()
     {
-        return $this->container['is_deleted'];
+        return $this->container['active_flag'];
     }
 
     /**
-     * Sets is_deleted
+     * Sets active_flag
      *
-     * @param bool|null $is_deleted Whether this pipeline is marked as deleted or not
+     * @param bool|null $active_flag Whether the picture is active or not.
      *
      * @return self
      */
-    public function setIsDeleted($is_deleted): self
+    public function setActiveFlag($active_flag): self
     {
-        $this->container['is_deleted'] = $is_deleted;
+        $this->container['active_flag'] = $active_flag;
 
         return $this;
     }
 
     /**
-     * Gets is_deal_probability_enabled
+     * Gets file_size
      *
-     * @return bool|null
+     * @return int|null
      */
-    public function getIsDealProbabilityEnabled()
+    public function getFileSize()
     {
-        return $this->container['is_deal_probability_enabled'];
+        return $this->container['file_size'];
     }
 
     /**
-     * Sets is_deal_probability_enabled
+     * Sets file_size
      *
-     * @param bool|null $is_deal_probability_enabled Whether deal probability is disabled or enabled for this pipeline
+     * @param int|null $file_size The file size in bytes.
      *
      * @return self
      */
-    public function setIsDealProbabilityEnabled($is_deal_probability_enabled): self
+    public function setFileSize($file_size): self
     {
-        $this->container['is_deal_probability_enabled'] = $is_deal_probability_enabled;
+        $this->container['file_size'] = $file_size;
 
         return $this;
     }
 
     /**
-     * Gets add_time
+     * Gets pictures
      *
-     * @return string|null
+     * @return \Pipedrive\versions\v2\Model\PersonPictureItemPictures|null
      */
-    public function getAddTime()
+    public function getPictures()
     {
-        return $this->container['add_time'];
+        return $this->container['pictures'];
     }
 
     /**
-     * Sets add_time
+     * Sets pictures
      *
-     * @param string|null $add_time The pipeline creation time
+     * @param \Pipedrive\versions\v2\Model\PersonPictureItemPictures|null $pictures pictures
      *
      * @return self
      */
-    public function setAddTime($add_time): self
+    public function setPictures($pictures): self
     {
-        $this->container['add_time'] = $add_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets update_time
-     *
-     * @return string|null
-     */
-    public function getUpdateTime()
-    {
-        return $this->container['update_time'];
-    }
-
-    /**
-     * Sets update_time
-     *
-     * @param string|null $update_time The pipeline update time
-     *
-     * @return self
-     */
-    public function setUpdateTime($update_time): self
-    {
-        $this->container['update_time'] = $update_time;
+        $this->container['pictures'] = $pictures;
 
         return $this;
     }

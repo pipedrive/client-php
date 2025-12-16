@@ -1,6 +1,6 @@
 <?php
 /**
- * PipelineItem
+ * PersonPictureResponse
  *
  * PHP version 7.3
  *
@@ -35,7 +35,7 @@ use Pipedrive\versions\v2\Traits\RawData;
 use Pipedrive\versions\v2\ObjectSerializer;
 
 /**
- * PipelineItem Class Doc Comment
+ * PersonPictureResponse Class Doc Comment
  *
  * @category Class
  * @package  Pipedrive\versions\v2
@@ -45,7 +45,7 @@ use Pipedrive\versions\v2\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class PipelineItem implements ModelInterface, ArrayAccess, JsonSerializable
+class PersonPictureResponse implements ModelInterface, ArrayAccess, JsonSerializable
 {
     use RawData;
 
@@ -56,7 +56,7 @@ class PipelineItem implements ModelInterface, ArrayAccess, JsonSerializable
       *
       * @var string
       */
-    protected static string $openAPIModelName = 'PipelineItem';
+    protected static string $openAPIModelName = 'PersonPictureResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -66,13 +66,8 @@ class PipelineItem implements ModelInterface, ArrayAccess, JsonSerializable
       * @phpsalm-var array<string, string>
       */
     protected static array $openAPITypes = [
-        'id' => 'int',
-        'name' => 'string',
-        'order_nr' => 'int',
-        'is_deleted' => 'bool',
-        'is_deal_probability_enabled' => 'bool',
-        'add_time' => 'string',
-        'update_time' => 'string'
+        'success' => 'bool',
+        'data' => '\Pipedrive\versions\v2\Model\PersonPictureItem'
     ];
 
     /**
@@ -83,13 +78,8 @@ class PipelineItem implements ModelInterface, ArrayAccess, JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'name' => null,
-        'order_nr' => null,
-        'is_deleted' => null,
-        'is_deal_probability_enabled' => null,
-        'add_time' => null,
-        'update_time' => null
+        'success' => null,
+        'data' => null
     ];
 
     /**
@@ -123,13 +113,8 @@ class PipelineItem implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'name' => 'name',
-        'order_nr' => 'order_nr',
-        'is_deleted' => 'is_deleted',
-        'is_deal_probability_enabled' => 'is_deal_probability_enabled',
-        'add_time' => 'add_time',
-        'update_time' => 'update_time'
+        'success' => 'success',
+        'data' => 'data'
     ];
 
     /**
@@ -138,13 +123,8 @@ class PipelineItem implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'name' => 'setName',
-        'order_nr' => 'setOrderNr',
-        'is_deleted' => 'setIsDeleted',
-        'is_deal_probability_enabled' => 'setIsDealProbabilityEnabled',
-        'add_time' => 'setAddTime',
-        'update_time' => 'setUpdateTime'
+        'success' => 'setSuccess',
+        'data' => 'setData'
     ];
 
     /**
@@ -153,13 +133,8 @@ class PipelineItem implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'name' => 'getName',
-        'order_nr' => 'getOrderNr',
-        'is_deleted' => 'getIsDeleted',
-        'is_deal_probability_enabled' => 'getIsDealProbabilityEnabled',
-        'add_time' => 'getAddTime',
-        'update_time' => 'getUpdateTime'
+        'success' => 'getSuccess',
+        'data' => 'getData'
     ];
 
     /**
@@ -229,13 +204,8 @@ class PipelineItem implements ModelInterface, ArrayAccess, JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = $data['id'] ?? null;
-        $this->container['name'] = $data['name'] ?? null;
-        $this->container['order_nr'] = $data['order_nr'] ?? null;
-        $this->container['is_deleted'] = $data['is_deleted'] ?? null;
-        $this->container['is_deal_probability_enabled'] = $data['is_deal_probability_enabled'] ?? null;
-        $this->container['add_time'] = $data['add_time'] ?? null;
-        $this->container['update_time'] = $data['update_time'] ?? null;
+        $this->container['success'] = $data['success'] ?? null;
+        $this->container['data'] = $data['data'] ?? null;
     }
 
     /**
@@ -265,169 +235,49 @@ class PipelineItem implements ModelInterface, ArrayAccess, JsonSerializable
 
 
     /**
-     * Gets id
-     *
-     * @return int|null
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param int|null $id The ID of the pipeline
-     *
-     * @return self
-     */
-    public function setId($id): self
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string|null
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string|null $name The name of the pipeline
-     *
-     * @return self
-     */
-    public function setName($name): self
-    {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets order_nr
-     *
-     * @return int|null
-     */
-    public function getOrderNr()
-    {
-        return $this->container['order_nr'];
-    }
-
-    /**
-     * Sets order_nr
-     *
-     * @param int|null $order_nr Defines the order of pipelines. The pipeline with the lowest `order_nr` is considered the default.
-     *
-     * @return self
-     */
-    public function setOrderNr($order_nr): self
-    {
-        $this->container['order_nr'] = $order_nr;
-
-        return $this;
-    }
-
-    /**
-     * Gets is_deleted
+     * Gets success
      *
      * @return bool|null
      */
-    public function getIsDeleted()
+    public function getSuccess()
     {
-        return $this->container['is_deleted'];
+        return $this->container['success'];
     }
 
     /**
-     * Sets is_deleted
+     * Sets success
      *
-     * @param bool|null $is_deleted Whether this pipeline is marked as deleted or not
+     * @param bool|null $success If the response is successful or not
      *
      * @return self
      */
-    public function setIsDeleted($is_deleted): self
+    public function setSuccess($success): self
     {
-        $this->container['is_deleted'] = $is_deleted;
+        $this->container['success'] = $success;
 
         return $this;
     }
 
     /**
-     * Gets is_deal_probability_enabled
+     * Gets data
      *
-     * @return bool|null
+     * @return \Pipedrive\versions\v2\Model\PersonPictureItem|null
      */
-    public function getIsDealProbabilityEnabled()
+    public function getData()
     {
-        return $this->container['is_deal_probability_enabled'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets is_deal_probability_enabled
+     * Sets data
      *
-     * @param bool|null $is_deal_probability_enabled Whether deal probability is disabled or enabled for this pipeline
+     * @param \Pipedrive\versions\v2\Model\PersonPictureItem|null $data data
      *
      * @return self
      */
-    public function setIsDealProbabilityEnabled($is_deal_probability_enabled): self
+    public function setData($data): self
     {
-        $this->container['is_deal_probability_enabled'] = $is_deal_probability_enabled;
-
-        return $this;
-    }
-
-    /**
-     * Gets add_time
-     *
-     * @return string|null
-     */
-    public function getAddTime()
-    {
-        return $this->container['add_time'];
-    }
-
-    /**
-     * Sets add_time
-     *
-     * @param string|null $add_time The pipeline creation time
-     *
-     * @return self
-     */
-    public function setAddTime($add_time): self
-    {
-        $this->container['add_time'] = $add_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets update_time
-     *
-     * @return string|null
-     */
-    public function getUpdateTime()
-    {
-        return $this->container['update_time'];
-    }
-
-    /**
-     * Sets update_time
-     *
-     * @param string|null $update_time The pipeline update time
-     *
-     * @return self
-     */
-    public function setUpdateTime($update_time): self
-    {
-        $this->container['update_time'] = $update_time;
+        $this->container['data'] = $data;
 
         return $this;
     }
