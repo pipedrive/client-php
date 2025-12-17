@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Added `GET /api/v2/persons/{id}/picture` endpoint to retrieve picture information for a specific person, including ID, file size, and URLs for both 128x128 (thumbnail) and 512x512 (full-size) versions of the person's profile picture
 
 ## [14.6.0](https://github.com/pipedrive/client-php/compare/14.5.0...14.6.0) (2025-12-05)
 
