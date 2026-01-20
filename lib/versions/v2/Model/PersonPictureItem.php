@@ -1,6 +1,6 @@
 <?php
 /**
- * OrganizationItemAddress
+ * PersonPictureItem
  *
  * PHP version 7.3
  *
@@ -35,7 +35,7 @@ use Pipedrive\versions\v2\Traits\RawData;
 use Pipedrive\versions\v2\ObjectSerializer;
 
 /**
- * OrganizationItemAddress Class Doc Comment
+ * PersonPictureItem Class Doc Comment
  *
  * @category Class
  * @package  Pipedrive\versions\v2
@@ -45,7 +45,7 @@ use Pipedrive\versions\v2\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class OrganizationItemAddress implements ModelInterface, ArrayAccess, JsonSerializable
+class PersonPictureItem implements ModelInterface, ArrayAccess, JsonSerializable
 {
     use RawData;
 
@@ -56,7 +56,7 @@ class OrganizationItemAddress implements ModelInterface, ArrayAccess, JsonSerial
       *
       * @var string
       */
-    protected static string $openAPIModelName = 'OrganizationItemAddress';
+    protected static string $openAPIModelName = 'PersonPictureItem';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -66,16 +66,13 @@ class OrganizationItemAddress implements ModelInterface, ArrayAccess, JsonSerial
       * @phpsalm-var array<string, string>
       */
     protected static array $openAPITypes = [
-        'value' => 'string',
-        'country' => 'string',
-        'admin_area_level_1' => 'string',
-        'admin_area_level_2' => 'string',
-        'locality' => 'string',
-        'sublocality' => 'string',
-        'route' => 'string',
-        'street_number' => 'string',
-        'subpremise' => 'string',
-        'postal_code' => 'string'
+        'id' => 'int',
+        'item_type' => 'string',
+        'item_id' => 'int',
+        'added_by_user_id' => 'int',
+        'active_flag' => 'bool',
+        'file_size' => 'int',
+        'pictures' => '\Pipedrive\versions\v2\Model\PersonPictureItemPictures'
     ];
 
     /**
@@ -86,16 +83,13 @@ class OrganizationItemAddress implements ModelInterface, ArrayAccess, JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'value' => null,
-        'country' => null,
-        'admin_area_level_1' => null,
-        'admin_area_level_2' => null,
-        'locality' => null,
-        'sublocality' => null,
-        'route' => null,
-        'street_number' => null,
-        'subpremise' => null,
-        'postal_code' => null
+        'id' => null,
+        'item_type' => null,
+        'item_id' => null,
+        'added_by_user_id' => null,
+        'active_flag' => null,
+        'file_size' => null,
+        'pictures' => null
     ];
 
     /**
@@ -129,16 +123,13 @@ class OrganizationItemAddress implements ModelInterface, ArrayAccess, JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'value' => 'value',
-        'country' => 'country',
-        'admin_area_level_1' => 'admin_area_level_1',
-        'admin_area_level_2' => 'admin_area_level_2',
-        'locality' => 'locality',
-        'sublocality' => 'sublocality',
-        'route' => 'route',
-        'street_number' => 'street_number',
-        'subpremise' => 'subpremise',
-        'postal_code' => 'postal_code'
+        'id' => 'id',
+        'item_type' => 'item_type',
+        'item_id' => 'item_id',
+        'added_by_user_id' => 'added_by_user_id',
+        'active_flag' => 'active_flag',
+        'file_size' => 'file_size',
+        'pictures' => 'pictures'
     ];
 
     /**
@@ -147,16 +138,13 @@ class OrganizationItemAddress implements ModelInterface, ArrayAccess, JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'value' => 'setValue',
-        'country' => 'setCountry',
-        'admin_area_level_1' => 'setAdminAreaLevel1',
-        'admin_area_level_2' => 'setAdminAreaLevel2',
-        'locality' => 'setLocality',
-        'sublocality' => 'setSublocality',
-        'route' => 'setRoute',
-        'street_number' => 'setStreetNumber',
-        'subpremise' => 'setSubpremise',
-        'postal_code' => 'setPostalCode'
+        'id' => 'setId',
+        'item_type' => 'setItemType',
+        'item_id' => 'setItemId',
+        'added_by_user_id' => 'setAddedByUserId',
+        'active_flag' => 'setActiveFlag',
+        'file_size' => 'setFileSize',
+        'pictures' => 'setPictures'
     ];
 
     /**
@@ -165,16 +153,13 @@ class OrganizationItemAddress implements ModelInterface, ArrayAccess, JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'value' => 'getValue',
-        'country' => 'getCountry',
-        'admin_area_level_1' => 'getAdminAreaLevel1',
-        'admin_area_level_2' => 'getAdminAreaLevel2',
-        'locality' => 'getLocality',
-        'sublocality' => 'getSublocality',
-        'route' => 'getRoute',
-        'street_number' => 'getStreetNumber',
-        'subpremise' => 'getSubpremise',
-        'postal_code' => 'getPostalCode'
+        'id' => 'getId',
+        'item_type' => 'getItemType',
+        'item_id' => 'getItemId',
+        'added_by_user_id' => 'getAddedByUserId',
+        'active_flag' => 'getActiveFlag',
+        'file_size' => 'getFileSize',
+        'pictures' => 'getPictures'
     ];
 
     /**
@@ -244,16 +229,13 @@ class OrganizationItemAddress implements ModelInterface, ArrayAccess, JsonSerial
      */
     public function __construct(array $data = null)
     {
-        $this->container['value'] = $data['value'] ?? null;
-        $this->container['country'] = $data['country'] ?? null;
-        $this->container['admin_area_level_1'] = $data['admin_area_level_1'] ?? null;
-        $this->container['admin_area_level_2'] = $data['admin_area_level_2'] ?? null;
-        $this->container['locality'] = $data['locality'] ?? null;
-        $this->container['sublocality'] = $data['sublocality'] ?? null;
-        $this->container['route'] = $data['route'] ?? null;
-        $this->container['street_number'] = $data['street_number'] ?? null;
-        $this->container['subpremise'] = $data['subpremise'] ?? null;
-        $this->container['postal_code'] = $data['postal_code'] ?? null;
+        $this->container['id'] = $data['id'] ?? null;
+        $this->container['item_type'] = $data['item_type'] ?? null;
+        $this->container['item_id'] = $data['item_id'] ?? null;
+        $this->container['added_by_user_id'] = $data['added_by_user_id'] ?? null;
+        $this->container['active_flag'] = $data['active_flag'] ?? null;
+        $this->container['file_size'] = $data['file_size'] ?? null;
+        $this->container['pictures'] = $data['pictures'] ?? null;
     }
 
     /**
@@ -283,241 +265,169 @@ class OrganizationItemAddress implements ModelInterface, ArrayAccess, JsonSerial
 
 
     /**
-     * Gets value
+     * Gets id
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getValue()
+    public function getId()
     {
-        return $this->container['value'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets value
+     * Sets id
      *
-     * @param string|null $value The full address of the organization
+     * @param int|null $id The ID of the picture.
      *
      * @return self
      */
-    public function setValue($value): self
+    public function setId($id): self
     {
-        $this->container['value'] = $value;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets country
+     * Gets item_type
      *
      * @return string|null
      */
-    public function getCountry()
+    public function getItemType()
     {
-        return $this->container['country'];
+        return $this->container['item_type'];
     }
 
     /**
-     * Sets country
+     * Sets item_type
      *
-     * @param string|null $country Country of the organization
+     * @param string|null $item_type The type of item the picture is associated with.
      *
      * @return self
      */
-    public function setCountry($country): self
+    public function setItemType($item_type): self
     {
-        $this->container['country'] = $country;
+        $this->container['item_type'] = $item_type;
 
         return $this;
     }
 
     /**
-     * Gets admin_area_level_1
+     * Gets item_id
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getAdminAreaLevel1()
+    public function getItemId()
     {
-        return $this->container['admin_area_level_1'];
+        return $this->container['item_id'];
     }
 
     /**
-     * Sets admin_area_level_1
+     * Sets item_id
      *
-     * @param string|null $admin_area_level_1 Admin area level 1 (e.g. state) of the organization
+     * @param int|null $item_id The ID of the person this picture belongs to.
      *
      * @return self
      */
-    public function setAdminAreaLevel1($admin_area_level_1): self
+    public function setItemId($item_id): self
     {
-        $this->container['admin_area_level_1'] = $admin_area_level_1;
+        $this->container['item_id'] = $item_id;
 
         return $this;
     }
 
     /**
-     * Gets admin_area_level_2
+     * Gets added_by_user_id
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getAdminAreaLevel2()
+    public function getAddedByUserId()
     {
-        return $this->container['admin_area_level_2'];
+        return $this->container['added_by_user_id'];
     }
 
     /**
-     * Sets admin_area_level_2
+     * Sets added_by_user_id
      *
-     * @param string|null $admin_area_level_2 Admin area level 2 (e.g. county) of the organization
+     * @param int|null $added_by_user_id The ID of the user who added the picture.
      *
      * @return self
      */
-    public function setAdminAreaLevel2($admin_area_level_2): self
+    public function setAddedByUserId($added_by_user_id): self
     {
-        $this->container['admin_area_level_2'] = $admin_area_level_2;
+        $this->container['added_by_user_id'] = $added_by_user_id;
 
         return $this;
     }
 
     /**
-     * Gets locality
+     * Gets active_flag
      *
-     * @return string|null
+     * @return bool|null
      */
-    public function getLocality()
+    public function getActiveFlag()
     {
-        return $this->container['locality'];
+        return $this->container['active_flag'];
     }
 
     /**
-     * Sets locality
+     * Sets active_flag
      *
-     * @param string|null $locality Locality (e.g. city) of the organization
+     * @param bool|null $active_flag Whether the picture is active or not.
      *
      * @return self
      */
-    public function setLocality($locality): self
+    public function setActiveFlag($active_flag): self
     {
-        $this->container['locality'] = $locality;
+        $this->container['active_flag'] = $active_flag;
 
         return $this;
     }
 
     /**
-     * Gets sublocality
+     * Gets file_size
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getSublocality()
+    public function getFileSize()
     {
-        return $this->container['sublocality'];
+        return $this->container['file_size'];
     }
 
     /**
-     * Sets sublocality
+     * Sets file_size
      *
-     * @param string|null $sublocality Sublocality (e.g. neighborhood) of the organization
+     * @param int|null $file_size The file size in bytes.
      *
      * @return self
      */
-    public function setSublocality($sublocality): self
+    public function setFileSize($file_size): self
     {
-        $this->container['sublocality'] = $sublocality;
+        $this->container['file_size'] = $file_size;
 
         return $this;
     }
 
     /**
-     * Gets route
+     * Gets pictures
      *
-     * @return string|null
+     * @return \Pipedrive\versions\v2\Model\PersonPictureItemPictures|null
      */
-    public function getRoute()
+    public function getPictures()
     {
-        return $this->container['route'];
+        return $this->container['pictures'];
     }
 
     /**
-     * Sets route
+     * Sets pictures
      *
-     * @param string|null $route Route (e.g. street) of the organization
+     * @param \Pipedrive\versions\v2\Model\PersonPictureItemPictures|null $pictures pictures
      *
      * @return self
      */
-    public function setRoute($route): self
+    public function setPictures($pictures): self
     {
-        $this->container['route'] = $route;
-
-        return $this;
-    }
-
-    /**
-     * Gets street_number
-     *
-     * @return string|null
-     */
-    public function getStreetNumber()
-    {
-        return $this->container['street_number'];
-    }
-
-    /**
-     * Sets street_number
-     *
-     * @param string|null $street_number Street number of the organization
-     *
-     * @return self
-     */
-    public function setStreetNumber($street_number): self
-    {
-        $this->container['street_number'] = $street_number;
-
-        return $this;
-    }
-
-    /**
-     * Gets subpremise
-     *
-     * @return string|null
-     */
-    public function getSubpremise()
-    {
-        return $this->container['subpremise'];
-    }
-
-    /**
-     * Sets subpremise
-     *
-     * @param string|null $subpremise Subpremise (e.g. apartment/suite number) of the organization
-     *
-     * @return self
-     */
-    public function setSubpremise($subpremise): self
-    {
-        $this->container['subpremise'] = $subpremise;
-
-        return $this;
-    }
-
-    /**
-     * Gets postal_code
-     *
-     * @return string|null
-     */
-    public function getPostalCode()
-    {
-        return $this->container['postal_code'];
-    }
-
-    /**
-     * Sets postal_code
-     *
-     * @param string|null $postal_code Postal code of the organization
-     *
-     * @return self
-     */
-    public function setPostalCode($postal_code): self
-    {
-        $this->container['postal_code'] = $postal_code;
+        $this->container['pictures'] = $pictures;
 
         return $this;
     }
