@@ -9,6 +9,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Added `updated_since` query parameter to `GET /v1/leads` endpoint to filter leads by their `update_time`
 - Added `updated_since` query parameter to `GET /v1/notes` endpoint to filter notes by their `update_time`
 
+## [14.9.0](https://github.com/pipedrive/client-php/compare/14.8.0...14.9.0) (2026-01-27)
+
+### Added
+- Added three new visibility flags to ui_visibility in organization fields v2 endpoints: org_detail_visible_flag, person_detail_visible_flag, and deal_detail_visible_flag
+
+## [14.8.0](https://github.com/pipedrive/client-php/compare/14.7.1...14.8.0) (2026-01-27)
+
+## [14.7.1](https://github.com/pipedrive/client-php/compare/14.7.0...14.7.1) (2026-01-27)
+
+### Added
+- Added `subpremise` field to address structures in API v2 (`ActivityItemLocation`, `OrganizationItemAddress`, `PersonItemPostalAddress`) to support apartment/suite numbers
+
 ## [14.7.0](https://github.com/pipedrive/client-php/compare/14.6.1...14.7.0) (2026-01-27)
 
 ### Added
