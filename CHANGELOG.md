@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 - Removed `is_selected` from `/api/v2/pipelines` response, the field was never returned
 
+## [14.6.1](https://github.com/pipedrive/client-php/compare/14.6.0...14.6.1) (2026-01-27)
+
 ## [14.6.0](https://github.com/pipedrive/client-php/compare/14.5.0...14.6.0) (2025-12-05)
 
 ### Added
