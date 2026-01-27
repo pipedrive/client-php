@@ -19,6 +19,8 @@ Please use the single delete endpoints instead, for example `DELETE /api/v2/acti
 - Added `updated_since` query parameter to `GET /v1/leads` endpoint to filter leads by their `update_time`
 - Added `updated_since` query parameter to `GET /v1/notes` endpoint to filter notes by their `update_time`
 
+## [15.1.0](https://github.com/pipedrive/client-php/compare/15.0.0...15.1.0) (2026-01-27)
+
 ## [15.0.0](https://github.com/pipedrive/client-php/compare/14.9.0...15.0.0) (2026-01-27)
 
 ## [14.9.0](https://github.com/pipedrive/client-php/compare/14.8.0...14.9.0) (2026-01-27)
