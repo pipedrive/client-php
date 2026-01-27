@@ -5,6 +5,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Removed
+- Removed deprecated bulk delete endpoints:
+  - `DELETE /v1/activities`
+  - `DELETE /v1/activityTypes`
+  - `DELETE /v1/deals`
+  - `DELETE /v1/organizations`
+  - `DELETE /v1/persons`
+  - `DELETE /v1/stages`
+Please use the single delete endpoints instead, for example `DELETE /api/v2/activities/{id}`.
+
+## [15.0.0](https://github.com/pipedrive/client-php/compare/14.9.0...15.0.0) (2026-01-27)
 
 ## [14.9.0](https://github.com/pipedrive/client-php/compare/14.8.0...14.9.0) (2026-01-27)
 
