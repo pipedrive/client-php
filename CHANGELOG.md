@@ -15,6 +15,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   - `DELETE /v1/stages`
 Please use the single delete endpoints instead, for example `DELETE /api/v2/activities/{id}`.
 
+## [15.0.0](https://github.com/pipedrive/client-php/compare/14.9.0...15.0.0) (2026-01-27)
+
 ## [14.9.0](https://github.com/pipedrive/client-php/compare/14.8.0...14.9.0) (2026-01-27)
 
 ### Added
