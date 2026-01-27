@@ -8,6 +8,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - Added `GET /api/v2/persons/{id}/picture` endpoint to retrieve picture information for a specific person, including ID, file size, and URLs for both 128x128 (thumbnail) and 512x512 (full-size) versions of the person's profile picture
 
+## [14.7.0](https://github.com/pipedrive/client-php/compare/14.6.1...14.7.0) (2026-01-27)
+
+### Added
+- Added `GET /api/v2/persons/{id}/picture` endpoint to retrieve picture information for a specific person, including ID, file size, and URLs for both 128x128 (thumbnail) and 512x512 (full-size) versions of the person's profile picture
+
+## [14.6.1](https://github.com/pipedrive/client-php/compare/14.6.0...14.6.1) (2026-01-27)
+
+### Fixed
+- Removed `is_selected` from `/api/v2/pipelines` response, the field was never returned
+
 ## [14.6.0](https://github.com/pipedrive/client-php/compare/14.5.0...14.6.0) (2025-12-05)
 
 ### Added
