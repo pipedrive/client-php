@@ -5,6 +5,22 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Changed
+- Removed beta labels from v2 lead/deal conversion endpoints:
+  - `GET /api/v2/leads/{id}/convert/status/{conversion_id}`
+  - `POST /api/v2/leads/{id}/convert`
+  - `GET /api/v2/deals/{id}/convert/status/{conversion_id}`
+  - `POST /api/v2/deals/{id}/convert`
+- Removed beta labels from v2 deal installments endpoints:
+  - `GET /api/v2/deals/installments`
+  - `POST /api/v2/deals/{id}/installments`
+  - `PATCH /api/v2/deals/{id}/installments/{installment_id}`
+  - `DELETE /api/v2/deals/{id}/installments/{installment_id}`
+- Removed beta labels from v2 product images endpoints:
+  - `GET /api/v2/products/{id}/images`
+  - `POST /api/v2/products/{id}/images`
+  - `PUT /api/v2/products/{id}/images`
+  - `DELETE /api/v2/products/{id}/images`
 ### Removed
 - Removed deprecated bulk delete endpoints:
   - `DELETE /v1/activities`
