@@ -71,8 +71,8 @@ class PersonRequestBody implements ModelInterface, ArrayAccess, JsonSerializable
         'org_id' => 'int',
         'add_time' => 'string',
         'update_time' => 'string',
-        'emails' => '\Pipedrive\versions\v2\Model\PersonRequestBodyEmails[]',
-        'phones' => '\Pipedrive\versions\v2\Model\PersonRequestBodyPhones[]',
+        'emails' => '\Pipedrive\versions\v2\Model\PersonItemEmails[]',
+        'phones' => '\Pipedrive\versions\v2\Model\PersonItemPhones[]',
         'visible_to' => 'int',
         'label_ids' => 'int[]',
         'marketing_status' => 'string'
@@ -435,7 +435,7 @@ class PersonRequestBody implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets emails
      *
-     * @return \Pipedrive\versions\v2\Model\PersonRequestBodyEmails[]|null
+     * @return \Pipedrive\versions\v2\Model\PersonItemEmails[]|null
      */
     public function getEmails()
     {
@@ -445,7 +445,7 @@ class PersonRequestBody implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets emails
      *
-     * @param \Pipedrive\versions\v2\Model\PersonRequestBodyEmails[]|null $emails The emails of the person
+     * @param \Pipedrive\versions\v2\Model\PersonItemEmails[]|null $emails The emails of the person
      *
      * @return self
      */
@@ -459,7 +459,7 @@ class PersonRequestBody implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets phones
      *
-     * @return \Pipedrive\versions\v2\Model\PersonRequestBodyPhones[]|null
+     * @return \Pipedrive\versions\v2\Model\PersonItemPhones[]|null
      */
     public function getPhones()
     {
@@ -469,7 +469,7 @@ class PersonRequestBody implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets phones
      *
-     * @param \Pipedrive\versions\v2\Model\PersonRequestBodyPhones[]|null $phones The phones of the person
+     * @param \Pipedrive\versions\v2\Model\PersonItemPhones[]|null $phones The phones of the person
      *
      * @return self
      */
