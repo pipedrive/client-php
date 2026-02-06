@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [15.3.0](https://github.com/pipedrive/client-php/compare/15.2.0...15.3.0) (2026-02-06)
+
 ### Added
 - Added `custom_fields` property to the Person entity request schema in v2 endpoints that will fix types in endpoints:
     - `POST /api/v2/persons`
