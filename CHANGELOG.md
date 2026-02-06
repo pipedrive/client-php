@@ -6,6 +6,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [15.3.0](https://github.com/pipedrive/client-php/compare/15.2.0...15.3.0) (2026-02-06)
+
+### Added
+- Added `custom_fields` property to the Person entity request schema in v2 endpoints that will fix types in endpoints:
+    - `POST /api/v2/persons`
+    - `PATCH /api/v2/persons/{id}`
+- Added `custom_fields` property to the Product entity request schema in v2 endpoints that will fix types in endpoints:
+    - `POST /api/v2/products`
+    - `PATCH /api/v2/products/{id}`
+
 ## [15.2.0](https://github.com/pipedrive/client-php/compare/15.1.1...15.2.0) (2026-02-06)
 
 ### Fixed
