@@ -6,6 +6,28 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [15.2.0](https://github.com/pipedrive/client-php/compare/15.1.1...15.2.0) (2026-02-06)
+
+### Fixed
+- Fixed incorrect type definitions for `label` fields in v2 Persons API request schema (`PersonRequestBody`). The `label` field for both `phones` and `emails` arrays was incorrectly typed as `boolean` instead of `string`, causing SDK type generation issues. Labels now correctly accept string values like 'work', 'home', 'mobile', and 'other'.
+
+### Changed
+- Removed beta labels from v2 lead/deal conversion endpoints:
+    - `GET /api/v2/leads/{id}/convert/status/{conversion_id}`
+    - `POST /api/v2/leads/{id}/convert`
+    - `GET /api/v2/deals/{id}/convert/status/{conversion_id}`
+    - `POST /api/v2/deals/{id}/convert`
+- Removed beta labels from v2 deal installments endpoints:
+    - `GET /api/v2/deals/installments`
+    - `POST /api/v2/deals/{id}/installments`
+    - `PATCH /api/v2/deals/{id}/installments/{installment_id}`
+    - `DELETE /api/v2/deals/{id}/installments/{installment_id}`
+- Removed beta labels from v2 product images endpoints:
+    - `GET /api/v2/products/{id}/images`
+    - `POST /api/v2/products/{id}/images`
+    - `PUT /api/v2/products/{id}/images`
+    - `DELETE /api/v2/products/{id}/images`
+
 ## [15.1.1](https://github.com/pipedrive/client-php/compare/15.1.0...15.1.1) (2026-02-06)
 
 ### Added
