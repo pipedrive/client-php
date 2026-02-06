@@ -1,6 +1,6 @@
 <?php
 /**
- * OrganizationItemAddress
+ * PersonPictureResponse
  *
  * PHP version 7.3
  *
@@ -35,7 +35,7 @@ use Pipedrive\versions\v2\Traits\RawData;
 use Pipedrive\versions\v2\ObjectSerializer;
 
 /**
- * OrganizationItemAddress Class Doc Comment
+ * PersonPictureResponse Class Doc Comment
  *
  * @category Class
  * @package  Pipedrive\versions\v2
@@ -45,7 +45,7 @@ use Pipedrive\versions\v2\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class OrganizationItemAddress implements ModelInterface, ArrayAccess, JsonSerializable
+class PersonPictureResponse implements ModelInterface, ArrayAccess, JsonSerializable
 {
     use RawData;
 
@@ -56,7 +56,7 @@ class OrganizationItemAddress implements ModelInterface, ArrayAccess, JsonSerial
       *
       * @var string
       */
-    protected static string $openAPIModelName = 'OrganizationItemAddress';
+    protected static string $openAPIModelName = 'PersonPictureResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -66,16 +66,8 @@ class OrganizationItemAddress implements ModelInterface, ArrayAccess, JsonSerial
       * @phpsalm-var array<string, string>
       */
     protected static array $openAPITypes = [
-        'value' => 'string',
-        'country' => 'string',
-        'admin_area_level_1' => 'string',
-        'admin_area_level_2' => 'string',
-        'locality' => 'string',
-        'sublocality' => 'string',
-        'route' => 'string',
-        'street_number' => 'string',
-        'subpremise' => 'string',
-        'postal_code' => 'string'
+        'success' => 'bool',
+        'data' => '\Pipedrive\versions\v2\Model\PersonPictureItem'
     ];
 
     /**
@@ -86,16 +78,8 @@ class OrganizationItemAddress implements ModelInterface, ArrayAccess, JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'value' => null,
-        'country' => null,
-        'admin_area_level_1' => null,
-        'admin_area_level_2' => null,
-        'locality' => null,
-        'sublocality' => null,
-        'route' => null,
-        'street_number' => null,
-        'subpremise' => null,
-        'postal_code' => null
+        'success' => null,
+        'data' => null
     ];
 
     /**
@@ -129,16 +113,8 @@ class OrganizationItemAddress implements ModelInterface, ArrayAccess, JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'value' => 'value',
-        'country' => 'country',
-        'admin_area_level_1' => 'admin_area_level_1',
-        'admin_area_level_2' => 'admin_area_level_2',
-        'locality' => 'locality',
-        'sublocality' => 'sublocality',
-        'route' => 'route',
-        'street_number' => 'street_number',
-        'subpremise' => 'subpremise',
-        'postal_code' => 'postal_code'
+        'success' => 'success',
+        'data' => 'data'
     ];
 
     /**
@@ -147,16 +123,8 @@ class OrganizationItemAddress implements ModelInterface, ArrayAccess, JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'value' => 'setValue',
-        'country' => 'setCountry',
-        'admin_area_level_1' => 'setAdminAreaLevel1',
-        'admin_area_level_2' => 'setAdminAreaLevel2',
-        'locality' => 'setLocality',
-        'sublocality' => 'setSublocality',
-        'route' => 'setRoute',
-        'street_number' => 'setStreetNumber',
-        'subpremise' => 'setSubpremise',
-        'postal_code' => 'setPostalCode'
+        'success' => 'setSuccess',
+        'data' => 'setData'
     ];
 
     /**
@@ -165,16 +133,8 @@ class OrganizationItemAddress implements ModelInterface, ArrayAccess, JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'value' => 'getValue',
-        'country' => 'getCountry',
-        'admin_area_level_1' => 'getAdminAreaLevel1',
-        'admin_area_level_2' => 'getAdminAreaLevel2',
-        'locality' => 'getLocality',
-        'sublocality' => 'getSublocality',
-        'route' => 'getRoute',
-        'street_number' => 'getStreetNumber',
-        'subpremise' => 'getSubpremise',
-        'postal_code' => 'getPostalCode'
+        'success' => 'getSuccess',
+        'data' => 'getData'
     ];
 
     /**
@@ -244,16 +204,8 @@ class OrganizationItemAddress implements ModelInterface, ArrayAccess, JsonSerial
      */
     public function __construct(array $data = null)
     {
-        $this->container['value'] = $data['value'] ?? null;
-        $this->container['country'] = $data['country'] ?? null;
-        $this->container['admin_area_level_1'] = $data['admin_area_level_1'] ?? null;
-        $this->container['admin_area_level_2'] = $data['admin_area_level_2'] ?? null;
-        $this->container['locality'] = $data['locality'] ?? null;
-        $this->container['sublocality'] = $data['sublocality'] ?? null;
-        $this->container['route'] = $data['route'] ?? null;
-        $this->container['street_number'] = $data['street_number'] ?? null;
-        $this->container['subpremise'] = $data['subpremise'] ?? null;
-        $this->container['postal_code'] = $data['postal_code'] ?? null;
+        $this->container['success'] = $data['success'] ?? null;
+        $this->container['data'] = $data['data'] ?? null;
     }
 
     /**
@@ -283,241 +235,49 @@ class OrganizationItemAddress implements ModelInterface, ArrayAccess, JsonSerial
 
 
     /**
-     * Gets value
+     * Gets success
      *
-     * @return string|null
+     * @return bool|null
      */
-    public function getValue()
+    public function getSuccess()
     {
-        return $this->container['value'];
+        return $this->container['success'];
     }
 
     /**
-     * Sets value
+     * Sets success
      *
-     * @param string|null $value The full address of the organization
+     * @param bool|null $success If the response is successful or not
      *
      * @return self
      */
-    public function setValue($value): self
+    public function setSuccess($success): self
     {
-        $this->container['value'] = $value;
+        $this->container['success'] = $success;
 
         return $this;
     }
 
     /**
-     * Gets country
+     * Gets data
      *
-     * @return string|null
+     * @return \Pipedrive\versions\v2\Model\PersonPictureItem|null
      */
-    public function getCountry()
+    public function getData()
     {
-        return $this->container['country'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets country
+     * Sets data
      *
-     * @param string|null $country Country of the organization
+     * @param \Pipedrive\versions\v2\Model\PersonPictureItem|null $data data
      *
      * @return self
      */
-    public function setCountry($country): self
+    public function setData($data): self
     {
-        $this->container['country'] = $country;
-
-        return $this;
-    }
-
-    /**
-     * Gets admin_area_level_1
-     *
-     * @return string|null
-     */
-    public function getAdminAreaLevel1()
-    {
-        return $this->container['admin_area_level_1'];
-    }
-
-    /**
-     * Sets admin_area_level_1
-     *
-     * @param string|null $admin_area_level_1 Admin area level 1 (e.g. state) of the organization
-     *
-     * @return self
-     */
-    public function setAdminAreaLevel1($admin_area_level_1): self
-    {
-        $this->container['admin_area_level_1'] = $admin_area_level_1;
-
-        return $this;
-    }
-
-    /**
-     * Gets admin_area_level_2
-     *
-     * @return string|null
-     */
-    public function getAdminAreaLevel2()
-    {
-        return $this->container['admin_area_level_2'];
-    }
-
-    /**
-     * Sets admin_area_level_2
-     *
-     * @param string|null $admin_area_level_2 Admin area level 2 (e.g. county) of the organization
-     *
-     * @return self
-     */
-    public function setAdminAreaLevel2($admin_area_level_2): self
-    {
-        $this->container['admin_area_level_2'] = $admin_area_level_2;
-
-        return $this;
-    }
-
-    /**
-     * Gets locality
-     *
-     * @return string|null
-     */
-    public function getLocality()
-    {
-        return $this->container['locality'];
-    }
-
-    /**
-     * Sets locality
-     *
-     * @param string|null $locality Locality (e.g. city) of the organization
-     *
-     * @return self
-     */
-    public function setLocality($locality): self
-    {
-        $this->container['locality'] = $locality;
-
-        return $this;
-    }
-
-    /**
-     * Gets sublocality
-     *
-     * @return string|null
-     */
-    public function getSublocality()
-    {
-        return $this->container['sublocality'];
-    }
-
-    /**
-     * Sets sublocality
-     *
-     * @param string|null $sublocality Sublocality (e.g. neighborhood) of the organization
-     *
-     * @return self
-     */
-    public function setSublocality($sublocality): self
-    {
-        $this->container['sublocality'] = $sublocality;
-
-        return $this;
-    }
-
-    /**
-     * Gets route
-     *
-     * @return string|null
-     */
-    public function getRoute()
-    {
-        return $this->container['route'];
-    }
-
-    /**
-     * Sets route
-     *
-     * @param string|null $route Route (e.g. street) of the organization
-     *
-     * @return self
-     */
-    public function setRoute($route): self
-    {
-        $this->container['route'] = $route;
-
-        return $this;
-    }
-
-    /**
-     * Gets street_number
-     *
-     * @return string|null
-     */
-    public function getStreetNumber()
-    {
-        return $this->container['street_number'];
-    }
-
-    /**
-     * Sets street_number
-     *
-     * @param string|null $street_number Street number of the organization
-     *
-     * @return self
-     */
-    public function setStreetNumber($street_number): self
-    {
-        $this->container['street_number'] = $street_number;
-
-        return $this;
-    }
-
-    /**
-     * Gets subpremise
-     *
-     * @return string|null
-     */
-    public function getSubpremise()
-    {
-        return $this->container['subpremise'];
-    }
-
-    /**
-     * Sets subpremise
-     *
-     * @param string|null $subpremise Subpremise (e.g. apartment/suite number) of the organization
-     *
-     * @return self
-     */
-    public function setSubpremise($subpremise): self
-    {
-        $this->container['subpremise'] = $subpremise;
-
-        return $this;
-    }
-
-    /**
-     * Gets postal_code
-     *
-     * @return string|null
-     */
-    public function getPostalCode()
-    {
-        return $this->container['postal_code'];
-    }
-
-    /**
-     * Sets postal_code
-     *
-     * @param string|null $postal_code Postal code of the organization
-     *
-     * @return self
-     */
-    public function setPostalCode($postal_code): self
-    {
-        $this->container['postal_code'] = $postal_code;
+        $this->container['data'] = $data;
 
         return $this;
     }
