@@ -5,6 +5,23 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [15.1.1](https://github.com/pipedrive/client-php/compare/15.1.0...15.1.1) (2026-02-06)
+
+### Added
+- Documented three new OAuth2 scopes for field management in v1 README:
+  - `deal-fields:full` - Allows applications to create, read, update and delete deal fields
+  - `product-fields:full` - Allows applications to create, read, update and delete product fields
+  - `contact-fields:full` - Allows applications to create, read, update and delete person and organization fields
+
+## [15.1.0](https://github.com/pipedrive/client-php/compare/15.0.0...15.1.0) (2026-01-27)
+
+### Added
+- Added `updated_since` query parameter to `GET /v1/leads` endpoint to filter leads by their `update_time`
+- Added `updated_since` query parameter to `GET /v1/notes` endpoint to filter notes by their `update_time`
+
+## [15.0.0](https://github.com/pipedrive/client-php/compare/14.9.0...15.0.0) (2026-01-27)
+
 ### Removed
 - Removed deprecated bulk delete endpoints:
   - `DELETE /v1/activities`
@@ -15,20 +32,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   - `DELETE /v1/stages`
 Please use the single delete endpoints instead, for example `DELETE /api/v2/activities/{id}`.
 
-### Added
-- Added `updated_since` query parameter to `GET /v1/leads` endpoint to filter leads by their `update_time`
-- Added `updated_since` query parameter to `GET /v1/notes` endpoint to filter notes by their `update_time`
-
-## [15.1.0](https://github.com/pipedrive/client-php/compare/15.0.0...15.1.0) (2026-01-27)
-
-## [15.0.0](https://github.com/pipedrive/client-php/compare/14.9.0...15.0.0) (2026-01-27)
-
 ## [14.9.0](https://github.com/pipedrive/client-php/compare/14.8.0...14.9.0) (2026-01-27)
 
 ### Added
-- Added three new visibility flags to ui_visibility in organization fields v2 endpoints: org_detail_visible_flag, person_detail_visible_flag, and deal_detail_visible_flag
+- Added three new visibility flags to `ui_visibility` in organization fields v2 endpoints: `org_detail_visible_flag`, `person_detail_visible_flag`, and `deal_detail_visible_flag`
 
 ## [14.8.0](https://github.com/pipedrive/client-php/compare/14.7.1...14.8.0) (2026-01-27)
+
+### Added
+- Added `smart_bcc_email` to optional `include_fields` in Persons and Organizations API v2
 
 ## [14.7.1](https://github.com/pipedrive/client-php/compare/14.7.0...14.7.1) (2026-01-27)
 
