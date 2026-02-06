@@ -7,6 +7,40 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Fixed
 - Fixed incorrect type definitions for `label` fields in v2 Persons API request schema (`PersonRequestBody`). The `label` field for both `phones` and `emails` arrays was incorrectly typed as `boolean` instead of `string`, causing SDK type generation issues. Labels now correctly accept string values like 'work', 'home', 'mobile', and 'other'.
+
+### Changed
+- Removed beta labels from v2 lead/deal conversion endpoints:
+    - `GET /api/v2/leads/{id}/convert/status/{conversion_id}`
+    - `POST /api/v2/leads/{id}/convert`
+    - `GET /api/v2/deals/{id}/convert/status/{conversion_id}`
+    - `POST /api/v2/deals/{id}/convert`
+- Removed beta labels from v2 deal installments endpoints:
+    - `GET /api/v2/deals/installments`
+    - `POST /api/v2/deals/{id}/installments`
+    - `PATCH /api/v2/deals/{id}/installments/{installment_id}`
+    - `DELETE /api/v2/deals/{id}/installments/{installment_id}`
+- Removed beta labels from v2 product images endpoints:
+    - `GET /api/v2/products/{id}/images`
+    - `POST /api/v2/products/{id}/images`
+    - `PUT /api/v2/products/{id}/images`
+    - `DELETE /api/v2/products/{id}/images`
+
+## [15.1.1](https://github.com/pipedrive/client-php/compare/15.1.0...15.1.1) (2026-02-06)
+
+### Added
+- Documented three new OAuth2 scopes for field management in v1 README:
+  - `deal-fields:full` - Allows applications to create, read, update and delete deal fields
+  - `product-fields:full` - Allows applications to create, read, update and delete product fields
+  - `contact-fields:full` - Allows applications to create, read, update and delete person and organization fields
+
+## [15.1.0](https://github.com/pipedrive/client-php/compare/15.0.0...15.1.0) (2026-01-27)
+
+### Added
+- Added `updated_since` query parameter to `GET /v1/leads` endpoint to filter leads by their `update_time`
+- Added `updated_since` query parameter to `GET /v1/notes` endpoint to filter notes by their `update_time`
+
+## [15.0.0](https://github.com/pipedrive/client-php/compare/14.9.0...15.0.0) (2026-01-27)
+
 ### Removed
 - Removed deprecated bulk delete endpoints:
   - `DELETE /v1/activities`
@@ -17,20 +51,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   - `DELETE /v1/stages`
 Please use the single delete endpoints instead, for example `DELETE /api/v2/activities/{id}`.
 
-### Added
-- Added `updated_since` query parameter to `GET /v1/leads` endpoint to filter leads by their `update_time`
-- Added `updated_since` query parameter to `GET /v1/notes` endpoint to filter notes by their `update_time`
-
-## [15.1.0](https://github.com/pipedrive/client-php/compare/15.0.0...15.1.0) (2026-01-27)
-
-## [15.0.0](https://github.com/pipedrive/client-php/compare/14.9.0...15.0.0) (2026-01-27)
-
 ## [14.9.0](https://github.com/pipedrive/client-php/compare/14.8.0...14.9.0) (2026-01-27)
 
 ### Added
-- Added three new visibility flags to ui_visibility in organization fields v2 endpoints: org_detail_visible_flag, person_detail_visible_flag, and deal_detail_visible_flag
+- Added three new visibility flags to `ui_visibility` in organization fields v2 endpoints: `org_detail_visible_flag`, `person_detail_visible_flag`, and `deal_detail_visible_flag`
 
 ## [14.8.0](https://github.com/pipedrive/client-php/compare/14.7.1...14.8.0) (2026-01-27)
+
+### Added
+- Added `smart_bcc_email` to optional `include_fields` in Persons and Organizations API v2
 
 ## [14.7.1](https://github.com/pipedrive/client-php/compare/14.7.0...14.7.1) (2026-01-27)
 
