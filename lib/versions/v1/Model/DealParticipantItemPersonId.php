@@ -1,6 +1,6 @@
 <?php
 /**
- * DealParticipants
+ * DealParticipantItemPersonId
  *
  * PHP version 7.3
  *
@@ -35,9 +35,10 @@ use Pipedrive\versions\v1\Traits\RawData;
 use Pipedrive\versions\v1\ObjectSerializer;
 
 /**
- * DealParticipants Class Doc Comment
+ * DealParticipantItemPersonId Class Doc Comment
  *
  * @category Class
+ * @description The person data associated with the participant
  * @package  Pipedrive\versions\v1
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -45,7 +46,7 @@ use Pipedrive\versions\v1\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class DealParticipants implements ModelInterface, ArrayAccess, JsonSerializable
+class DealParticipantItemPersonId implements ModelInterface, ArrayAccess, JsonSerializable
 {
     use RawData;
 
@@ -56,7 +57,7 @@ class DealParticipants implements ModelInterface, ArrayAccess, JsonSerializable
       *
       * @var string
       */
-    protected static string $openAPIModelName = 'DealParticipants';
+    protected static string $openAPIModelName = 'DealParticipantItem_person_id';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -66,10 +67,13 @@ class DealParticipants implements ModelInterface, ArrayAccess, JsonSerializable
       * @phpsalm-var array<string, string>
       */
     protected static array $openAPITypes = [
-        'success' => 'bool',
-        'data' => '\Pipedrive\versions\v1\Model\DealParticipantItem[]',
-        'additional_data' => '\Pipedrive\versions\v1\Model\AdditionalData',
-        'related_objects' => '\Pipedrive\versions\v1\Model\GetDealsRelatedObjects'
+        'active_flag' => 'bool',
+        'name' => 'string',
+        'email' => '\Pipedrive\versions\v1\Model\DealParticipantItemPersonIdEmail[]',
+        'phone' => '\Pipedrive\versions\v1\Model\BasePersonItemPhone[]',
+        'owner_id' => 'int',
+        'company_id' => 'int',
+        'value' => 'int'
     ];
 
     /**
@@ -80,10 +84,13 @@ class DealParticipants implements ModelInterface, ArrayAccess, JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'success' => null,
-        'data' => null,
-        'additional_data' => null,
-        'related_objects' => null
+        'active_flag' => null,
+        'name' => null,
+        'email' => null,
+        'phone' => null,
+        'owner_id' => null,
+        'company_id' => null,
+        'value' => null
     ];
 
     /**
@@ -117,10 +124,13 @@ class DealParticipants implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'success' => 'success',
-        'data' => 'data',
-        'additional_data' => 'additional_data',
-        'related_objects' => 'related_objects'
+        'active_flag' => 'active_flag',
+        'name' => 'name',
+        'email' => 'email',
+        'phone' => 'phone',
+        'owner_id' => 'owner_id',
+        'company_id' => 'company_id',
+        'value' => 'value'
     ];
 
     /**
@@ -129,10 +139,13 @@ class DealParticipants implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'success' => 'setSuccess',
-        'data' => 'setData',
-        'additional_data' => 'setAdditionalData',
-        'related_objects' => 'setRelatedObjects'
+        'active_flag' => 'setActiveFlag',
+        'name' => 'setName',
+        'email' => 'setEmail',
+        'phone' => 'setPhone',
+        'owner_id' => 'setOwnerId',
+        'company_id' => 'setCompanyId',
+        'value' => 'setValue'
     ];
 
     /**
@@ -141,10 +154,13 @@ class DealParticipants implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'success' => 'getSuccess',
-        'data' => 'getData',
-        'additional_data' => 'getAdditionalData',
-        'related_objects' => 'getRelatedObjects'
+        'active_flag' => 'getActiveFlag',
+        'name' => 'getName',
+        'email' => 'getEmail',
+        'phone' => 'getPhone',
+        'owner_id' => 'getOwnerId',
+        'company_id' => 'getCompanyId',
+        'value' => 'getValue'
     ];
 
     /**
@@ -214,10 +230,13 @@ class DealParticipants implements ModelInterface, ArrayAccess, JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['success'] = $data['success'] ?? null;
-        $this->container['data'] = $data['data'] ?? null;
-        $this->container['additional_data'] = $data['additional_data'] ?? null;
-        $this->container['related_objects'] = $data['related_objects'] ?? null;
+        $this->container['active_flag'] = $data['active_flag'] ?? null;
+        $this->container['name'] = $data['name'] ?? null;
+        $this->container['email'] = $data['email'] ?? null;
+        $this->container['phone'] = $data['phone'] ?? null;
+        $this->container['owner_id'] = $data['owner_id'] ?? null;
+        $this->container['company_id'] = $data['company_id'] ?? null;
+        $this->container['value'] = $data['value'] ?? null;
     }
 
     /**
@@ -247,97 +266,169 @@ class DealParticipants implements ModelInterface, ArrayAccess, JsonSerializable
 
 
     /**
-     * Gets success
+     * Gets active_flag
      *
      * @return bool|null
      */
-    public function getSuccess()
+    public function getActiveFlag()
     {
-        return $this->container['success'];
+        return $this->container['active_flag'];
     }
 
     /**
-     * Sets success
+     * Sets active_flag
      *
-     * @param bool|null $success If the request was successful or not
+     * @param bool|null $active_flag Whether the person is active or not
      *
      * @return self
      */
-    public function setSuccess($success): self
+    public function setActiveFlag($active_flag): self
     {
-        $this->container['success'] = $success;
+        $this->container['active_flag'] = $active_flag;
 
         return $this;
     }
 
     /**
-     * Gets data
+     * Gets name
      *
-     * @return \Pipedrive\versions\v1\Model\DealParticipantItem[]|null
+     * @return string|null
      */
-    public function getData()
+    public function getName()
     {
-        return $this->container['data'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets data
+     * Sets name
      *
-     * @param \Pipedrive\versions\v1\Model\DealParticipantItem[]|null $data The array of participants
+     * @param string|null $name The name of the person
      *
      * @return self
      */
-    public function setData($data): self
+    public function setName($name): self
     {
-        $this->container['data'] = $data;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets additional_data
+     * Gets email
      *
-     * @return \Pipedrive\versions\v1\Model\AdditionalData|null
+     * @return \Pipedrive\versions\v1\Model\DealParticipantItemPersonIdEmail[]|null
      */
-    public function getAdditionalData()
+    public function getEmail()
     {
-        return $this->container['additional_data'];
+        return $this->container['email'];
     }
 
     /**
-     * Sets additional_data
+     * Sets email
      *
-     * @param \Pipedrive\versions\v1\Model\AdditionalData|null $additional_data additional_data
+     * @param \Pipedrive\versions\v1\Model\DealParticipantItemPersonIdEmail[]|null $email An email address as a string or an array of email objects related to the person. The structure of the array is as follows: `[{ \"value\": \"mail@example.com\", \"primary\": \"true\", \"label\": \"main\" }]`. Please note that only `value` is required.
      *
      * @return self
      */
-    public function setAdditionalData($additional_data): self
+    public function setEmail($email): self
     {
-        $this->container['additional_data'] = $additional_data;
+        $this->container['email'] = $email;
 
         return $this;
     }
 
     /**
-     * Gets related_objects
+     * Gets phone
      *
-     * @return \Pipedrive\versions\v1\Model\GetDealsRelatedObjects|null
+     * @return \Pipedrive\versions\v1\Model\BasePersonItemPhone[]|null
      */
-    public function getRelatedObjects()
+    public function getPhone()
     {
-        return $this->container['related_objects'];
+        return $this->container['phone'];
     }
 
     /**
-     * Sets related_objects
+     * Sets phone
      *
-     * @param \Pipedrive\versions\v1\Model\GetDealsRelatedObjects|null $related_objects related_objects
+     * @param \Pipedrive\versions\v1\Model\BasePersonItemPhone[]|null $phone A phone number supplied as a string or an array of phone objects related to the person. The structure of the array is as follows: `[{ \"value\": \"12345\", \"primary\": \"true\", \"label\": \"mobile\" }]`. Please note that only `value` is required.
      *
      * @return self
      */
-    public function setRelatedObjects($related_objects): self
+    public function setPhone($phone): self
     {
-        $this->container['related_objects'] = $related_objects;
+        $this->container['phone'] = $phone;
+
+        return $this;
+    }
+
+    /**
+     * Gets owner_id
+     *
+     * @return int|null
+     */
+    public function getOwnerId()
+    {
+        return $this->container['owner_id'];
+    }
+
+    /**
+     * Sets owner_id
+     *
+     * @param int|null $owner_id The ID of the owner of the person
+     *
+     * @return self
+     */
+    public function setOwnerId($owner_id): self
+    {
+        $this->container['owner_id'] = $owner_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets company_id
+     *
+     * @return int|null
+     */
+    public function getCompanyId()
+    {
+        return $this->container['company_id'];
+    }
+
+    /**
+     * Sets company_id
+     *
+     * @param int|null $company_id The ID of the company related to the person
+     *
+     * @return self
+     */
+    public function setCompanyId($company_id): self
+    {
+        $this->container['company_id'] = $company_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets value
+     *
+     * @return int|null
+     */
+    public function getValue()
+    {
+        return $this->container['value'];
+    }
+
+    /**
+     * Sets value
+     *
+     * @param int|null $value The ID of the person
+     *
+     * @return self
+     */
+    public function setValue($value): self
+    {
+        $this->container['value'] = $value;
 
         return $this;
     }

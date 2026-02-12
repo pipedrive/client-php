@@ -711,6 +711,10 @@ Class | Method | HTTP request | Description
  - [DealOrganizationDataWithId](Model/DealOrganizationDataWithId.md)
  - [DealOrganizationDataWithIdAllOf](Model/DealOrganizationDataWithIdAllOf.md)
  - [DealParticipantCountInfo](Model/DealParticipantCountInfo.md)
+ - [DealParticipantItem](Model/DealParticipantItem.md)
+ - [DealParticipantItemPersonId](Model/DealParticipantItemPersonId.md)
+ - [DealParticipantItemPersonIdEmail](Model/DealParticipantItemPersonIdEmail.md)
+ - [DealParticipantItemRelatedItemData](Model/DealParticipantItemRelatedItemData.md)
  - [DealParticipants](Model/DealParticipants.md)
  - [DealParticipantsChangelog](Model/DealParticipantsChangelog.md)
  - [DealPersonData](Model/DealPersonData.md)
@@ -1370,7 +1374,4 @@ Class | Method | HTTP request | Description
 - **goals:full**: Create, read, update and delete goals
 - **video-calls**: Allows application to register as a video call integration provider and create conference links
 - **messengers-integration**: Allows application to register as a messengers integration provider and allows them to deliver incoming messages and their statuses
-- **deal-fields:full**: Create, read, update and delete deal fields
-- **product-fields:full**: Create, read, update and delete product fields
-- **contact-fields:full**: Create, read, update and delete person and organization fields
 

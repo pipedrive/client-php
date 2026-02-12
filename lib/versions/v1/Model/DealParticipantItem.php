@@ -1,6 +1,6 @@
 <?php
 /**
- * DealParticipants
+ * DealParticipantItem
  *
  * PHP version 7.3
  *
@@ -35,7 +35,7 @@ use Pipedrive\versions\v1\Traits\RawData;
 use Pipedrive\versions\v1\ObjectSerializer;
 
 /**
- * DealParticipants Class Doc Comment
+ * DealParticipantItem Class Doc Comment
  *
  * @category Class
  * @package  Pipedrive\versions\v1
@@ -45,7 +45,7 @@ use Pipedrive\versions\v1\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class DealParticipants implements ModelInterface, ArrayAccess, JsonSerializable
+class DealParticipantItem implements ModelInterface, ArrayAccess, JsonSerializable
 {
     use RawData;
 
@@ -56,7 +56,7 @@ class DealParticipants implements ModelInterface, ArrayAccess, JsonSerializable
       *
       * @var string
       */
-    protected static string $openAPIModelName = 'DealParticipants';
+    protected static string $openAPIModelName = 'DealParticipantItem';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -66,10 +66,15 @@ class DealParticipants implements ModelInterface, ArrayAccess, JsonSerializable
       * @phpsalm-var array<string, string>
       */
     protected static array $openAPITypes = [
-        'success' => 'bool',
-        'data' => '\Pipedrive\versions\v1\Model\DealParticipantItem[]',
-        'additional_data' => '\Pipedrive\versions\v1\Model\AdditionalData',
-        'related_objects' => '\Pipedrive\versions\v1\Model\GetDealsRelatedObjects'
+        'id' => 'int',
+        'person_id' => '\Pipedrive\versions\v1\Model\DealParticipantItemPersonId',
+        'add_time' => 'string',
+        'active_flag' => 'bool',
+        'related_item_data' => '\Pipedrive\versions\v1\Model\DealParticipantItemRelatedItemData',
+        'person' => '\Pipedrive\versions\v1\Model\PersonItem',
+        'added_by_user_id' => '\Pipedrive\versions\v1\Model\User',
+        'related_item_type' => 'string',
+        'related_item_id' => 'int'
     ];
 
     /**
@@ -80,10 +85,15 @@ class DealParticipants implements ModelInterface, ArrayAccess, JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'success' => null,
-        'data' => null,
-        'additional_data' => null,
-        'related_objects' => null
+        'id' => null,
+        'person_id' => null,
+        'add_time' => null,
+        'active_flag' => null,
+        'related_item_data' => null,
+        'person' => null,
+        'added_by_user_id' => null,
+        'related_item_type' => null,
+        'related_item_id' => null
     ];
 
     /**
@@ -117,10 +127,15 @@ class DealParticipants implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'success' => 'success',
-        'data' => 'data',
-        'additional_data' => 'additional_data',
-        'related_objects' => 'related_objects'
+        'id' => 'id',
+        'person_id' => 'person_id',
+        'add_time' => 'add_time',
+        'active_flag' => 'active_flag',
+        'related_item_data' => 'related_item_data',
+        'person' => 'person',
+        'added_by_user_id' => 'added_by_user_id',
+        'related_item_type' => 'related_item_type',
+        'related_item_id' => 'related_item_id'
     ];
 
     /**
@@ -129,10 +144,15 @@ class DealParticipants implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'success' => 'setSuccess',
-        'data' => 'setData',
-        'additional_data' => 'setAdditionalData',
-        'related_objects' => 'setRelatedObjects'
+        'id' => 'setId',
+        'person_id' => 'setPersonId',
+        'add_time' => 'setAddTime',
+        'active_flag' => 'setActiveFlag',
+        'related_item_data' => 'setRelatedItemData',
+        'person' => 'setPerson',
+        'added_by_user_id' => 'setAddedByUserId',
+        'related_item_type' => 'setRelatedItemType',
+        'related_item_id' => 'setRelatedItemId'
     ];
 
     /**
@@ -141,10 +161,15 @@ class DealParticipants implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'success' => 'getSuccess',
-        'data' => 'getData',
-        'additional_data' => 'getAdditionalData',
-        'related_objects' => 'getRelatedObjects'
+        'id' => 'getId',
+        'person_id' => 'getPersonId',
+        'add_time' => 'getAddTime',
+        'active_flag' => 'getActiveFlag',
+        'related_item_data' => 'getRelatedItemData',
+        'person' => 'getPerson',
+        'added_by_user_id' => 'getAddedByUserId',
+        'related_item_type' => 'getRelatedItemType',
+        'related_item_id' => 'getRelatedItemId'
     ];
 
     /**
@@ -214,10 +239,15 @@ class DealParticipants implements ModelInterface, ArrayAccess, JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['success'] = $data['success'] ?? null;
-        $this->container['data'] = $data['data'] ?? null;
-        $this->container['additional_data'] = $data['additional_data'] ?? null;
-        $this->container['related_objects'] = $data['related_objects'] ?? null;
+        $this->container['id'] = $data['id'] ?? null;
+        $this->container['person_id'] = $data['person_id'] ?? null;
+        $this->container['add_time'] = $data['add_time'] ?? null;
+        $this->container['active_flag'] = $data['active_flag'] ?? null;
+        $this->container['related_item_data'] = $data['related_item_data'] ?? null;
+        $this->container['person'] = $data['person'] ?? null;
+        $this->container['added_by_user_id'] = $data['added_by_user_id'] ?? null;
+        $this->container['related_item_type'] = $data['related_item_type'] ?? null;
+        $this->container['related_item_id'] = $data['related_item_id'] ?? null;
     }
 
     /**
@@ -247,97 +277,217 @@ class DealParticipants implements ModelInterface, ArrayAccess, JsonSerializable
 
 
     /**
-     * Gets success
+     * Gets id
+     *
+     * @return int|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param int|null $id The ID of the participant
+     *
+     * @return self
+     */
+    public function setId($id): self
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets person_id
+     *
+     * @return \Pipedrive\versions\v1\Model\DealParticipantItemPersonId|null
+     */
+    public function getPersonId()
+    {
+        return $this->container['person_id'];
+    }
+
+    /**
+     * Sets person_id
+     *
+     * @param \Pipedrive\versions\v1\Model\DealParticipantItemPersonId|null $person_id person_id
+     *
+     * @return self
+     */
+    public function setPersonId($person_id): self
+    {
+        $this->container['person_id'] = $person_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets add_time
+     *
+     * @return string|null
+     */
+    public function getAddTime()
+    {
+        return $this->container['add_time'];
+    }
+
+    /**
+     * Sets add_time
+     *
+     * @param string|null $add_time The date and time when the participant was added. Format: YYYY-MM-DD HH:MM:SS
+     *
+     * @return self
+     */
+    public function setAddTime($add_time): self
+    {
+        $this->container['add_time'] = $add_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets active_flag
      *
      * @return bool|null
      */
-    public function getSuccess()
+    public function getActiveFlag()
     {
-        return $this->container['success'];
+        return $this->container['active_flag'];
     }
 
     /**
-     * Sets success
+     * Sets active_flag
      *
-     * @param bool|null $success If the request was successful or not
+     * @param bool|null $active_flag Whether the participant is active or not
      *
      * @return self
      */
-    public function setSuccess($success): self
+    public function setActiveFlag($active_flag): self
     {
-        $this->container['success'] = $success;
+        $this->container['active_flag'] = $active_flag;
 
         return $this;
     }
 
     /**
-     * Gets data
+     * Gets related_item_data
      *
-     * @return \Pipedrive\versions\v1\Model\DealParticipantItem[]|null
+     * @return \Pipedrive\versions\v1\Model\DealParticipantItemRelatedItemData|null
      */
-    public function getData()
+    public function getRelatedItemData()
     {
-        return $this->container['data'];
+        return $this->container['related_item_data'];
     }
 
     /**
-     * Sets data
+     * Sets related_item_data
      *
-     * @param \Pipedrive\versions\v1\Model\DealParticipantItem[]|null $data The array of participants
+     * @param \Pipedrive\versions\v1\Model\DealParticipantItemRelatedItemData|null $related_item_data related_item_data
      *
      * @return self
      */
-    public function setData($data): self
+    public function setRelatedItemData($related_item_data): self
     {
-        $this->container['data'] = $data;
+        $this->container['related_item_data'] = $related_item_data;
 
         return $this;
     }
 
     /**
-     * Gets additional_data
+     * Gets person
      *
-     * @return \Pipedrive\versions\v1\Model\AdditionalData|null
+     * @return \Pipedrive\versions\v1\Model\PersonItem|null
      */
-    public function getAdditionalData()
+    public function getPerson()
     {
-        return $this->container['additional_data'];
+        return $this->container['person'];
     }
 
     /**
-     * Sets additional_data
+     * Sets person
      *
-     * @param \Pipedrive\versions\v1\Model\AdditionalData|null $additional_data additional_data
+     * @param \Pipedrive\versions\v1\Model\PersonItem|null $person person
      *
      * @return self
      */
-    public function setAdditionalData($additional_data): self
+    public function setPerson($person): self
     {
-        $this->container['additional_data'] = $additional_data;
+        $this->container['person'] = $person;
 
         return $this;
     }
 
     /**
-     * Gets related_objects
+     * Gets added_by_user_id
      *
-     * @return \Pipedrive\versions\v1\Model\GetDealsRelatedObjects|null
+     * @return \Pipedrive\versions\v1\Model\User|null
      */
-    public function getRelatedObjects()
+    public function getAddedByUserId()
     {
-        return $this->container['related_objects'];
+        return $this->container['added_by_user_id'];
     }
 
     /**
-     * Sets related_objects
+     * Sets added_by_user_id
      *
-     * @param \Pipedrive\versions\v1\Model\GetDealsRelatedObjects|null $related_objects related_objects
+     * @param \Pipedrive\versions\v1\Model\User|null $added_by_user_id added_by_user_id
      *
      * @return self
      */
-    public function setRelatedObjects($related_objects): self
+    public function setAddedByUserId($added_by_user_id): self
     {
-        $this->container['related_objects'] = $related_objects;
+        $this->container['added_by_user_id'] = $added_by_user_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets related_item_type
+     *
+     * @return string|null
+     */
+    public function getRelatedItemType()
+    {
+        return $this->container['related_item_type'];
+    }
+
+    /**
+     * Sets related_item_type
+     *
+     * @param string|null $related_item_type The type of the related item
+     *
+     * @return self
+     */
+    public function setRelatedItemType($related_item_type): self
+    {
+        $this->container['related_item_type'] = $related_item_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets related_item_id
+     *
+     * @return int|null
+     */
+    public function getRelatedItemId()
+    {
+        return $this->container['related_item_id'];
+    }
+
+    /**
+     * Sets related_item_id
+     *
+     * @param int|null $related_item_id The ID of the related item
+     *
+     * @return self
+     */
+    public function setRelatedItemId($related_item_id): self
+    {
+        $this->container['related_item_id'] = $related_item_id;
 
         return $this;
     }
