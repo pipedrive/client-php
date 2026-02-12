@@ -1,6 +1,6 @@
 <?php
 /**
- * DealParticipants
+ * DealParticipantItemRelatedItemData
  *
  * PHP version 7.3
  *
@@ -35,9 +35,10 @@ use Pipedrive\versions\v1\Traits\RawData;
 use Pipedrive\versions\v1\ObjectSerializer;
 
 /**
- * DealParticipants Class Doc Comment
+ * DealParticipantItemRelatedItemData Class Doc Comment
  *
  * @category Class
+ * @description Information about the related deal
  * @package  Pipedrive\versions\v1
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -45,7 +46,7 @@ use Pipedrive\versions\v1\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class DealParticipants implements ModelInterface, ArrayAccess, JsonSerializable
+class DealParticipantItemRelatedItemData implements ModelInterface, ArrayAccess, JsonSerializable
 {
     use RawData;
 
@@ -56,7 +57,7 @@ class DealParticipants implements ModelInterface, ArrayAccess, JsonSerializable
       *
       * @var string
       */
-    protected static string $openAPIModelName = 'DealParticipants';
+    protected static string $openAPIModelName = 'DealParticipantItem_related_item_data';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -66,10 +67,8 @@ class DealParticipants implements ModelInterface, ArrayAccess, JsonSerializable
       * @phpsalm-var array<string, string>
       */
     protected static array $openAPITypes = [
-        'success' => 'bool',
-        'data' => '\Pipedrive\versions\v1\Model\DealParticipantItem[]',
-        'additional_data' => '\Pipedrive\versions\v1\Model\AdditionalData',
-        'related_objects' => '\Pipedrive\versions\v1\Model\GetDealsRelatedObjects'
+        'deal_id' => 'int',
+        'title' => 'string'
     ];
 
     /**
@@ -80,10 +79,8 @@ class DealParticipants implements ModelInterface, ArrayAccess, JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'success' => null,
-        'data' => null,
-        'additional_data' => null,
-        'related_objects' => null
+        'deal_id' => null,
+        'title' => null
     ];
 
     /**
@@ -117,10 +114,8 @@ class DealParticipants implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'success' => 'success',
-        'data' => 'data',
-        'additional_data' => 'additional_data',
-        'related_objects' => 'related_objects'
+        'deal_id' => 'deal_id',
+        'title' => 'title'
     ];
 
     /**
@@ -129,10 +124,8 @@ class DealParticipants implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'success' => 'setSuccess',
-        'data' => 'setData',
-        'additional_data' => 'setAdditionalData',
-        'related_objects' => 'setRelatedObjects'
+        'deal_id' => 'setDealId',
+        'title' => 'setTitle'
     ];
 
     /**
@@ -141,10 +134,8 @@ class DealParticipants implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'success' => 'getSuccess',
-        'data' => 'getData',
-        'additional_data' => 'getAdditionalData',
-        'related_objects' => 'getRelatedObjects'
+        'deal_id' => 'getDealId',
+        'title' => 'getTitle'
     ];
 
     /**
@@ -214,10 +205,8 @@ class DealParticipants implements ModelInterface, ArrayAccess, JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['success'] = $data['success'] ?? null;
-        $this->container['data'] = $data['data'] ?? null;
-        $this->container['additional_data'] = $data['additional_data'] ?? null;
-        $this->container['related_objects'] = $data['related_objects'] ?? null;
+        $this->container['deal_id'] = $data['deal_id'] ?? null;
+        $this->container['title'] = $data['title'] ?? null;
     }
 
     /**
@@ -247,97 +236,49 @@ class DealParticipants implements ModelInterface, ArrayAccess, JsonSerializable
 
 
     /**
-     * Gets success
+     * Gets deal_id
      *
-     * @return bool|null
+     * @return int|null
      */
-    public function getSuccess()
+    public function getDealId()
     {
-        return $this->container['success'];
+        return $this->container['deal_id'];
     }
 
     /**
-     * Sets success
+     * Sets deal_id
      *
-     * @param bool|null $success If the request was successful or not
+     * @param int|null $deal_id The ID of the deal
      *
      * @return self
      */
-    public function setSuccess($success): self
+    public function setDealId($deal_id): self
     {
-        $this->container['success'] = $success;
+        $this->container['deal_id'] = $deal_id;
 
         return $this;
     }
 
     /**
-     * Gets data
+     * Gets title
      *
-     * @return \Pipedrive\versions\v1\Model\DealParticipantItem[]|null
+     * @return string|null
      */
-    public function getData()
+    public function getTitle()
     {
-        return $this->container['data'];
+        return $this->container['title'];
     }
 
     /**
-     * Sets data
+     * Sets title
      *
-     * @param \Pipedrive\versions\v1\Model\DealParticipantItem[]|null $data The array of participants
+     * @param string|null $title The title of the deal
      *
      * @return self
      */
-    public function setData($data): self
+    public function setTitle($title): self
     {
-        $this->container['data'] = $data;
-
-        return $this;
-    }
-
-    /**
-     * Gets additional_data
-     *
-     * @return \Pipedrive\versions\v1\Model\AdditionalData|null
-     */
-    public function getAdditionalData()
-    {
-        return $this->container['additional_data'];
-    }
-
-    /**
-     * Sets additional_data
-     *
-     * @param \Pipedrive\versions\v1\Model\AdditionalData|null $additional_data additional_data
-     *
-     * @return self
-     */
-    public function setAdditionalData($additional_data): self
-    {
-        $this->container['additional_data'] = $additional_data;
-
-        return $this;
-    }
-
-    /**
-     * Gets related_objects
-     *
-     * @return \Pipedrive\versions\v1\Model\GetDealsRelatedObjects|null
-     */
-    public function getRelatedObjects()
-    {
-        return $this->container['related_objects'];
-    }
-
-    /**
-     * Sets related_objects
-     *
-     * @param \Pipedrive\versions\v1\Model\GetDealsRelatedObjects|null $related_objects related_objects
-     *
-     * @return self
-     */
-    public function setRelatedObjects($related_objects): self
-    {
-        $this->container['related_objects'] = $related_objects;
+        $this->container['title'] = $title;
 
         return $this;
     }
