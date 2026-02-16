@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 - Fixed `GET /v1/deals/{id}/participants` and `POST /v1/deals/{id}/participants` response schemas to accurately represent the API response structure. Added `DealParticipantItem` schema with proper nesting of `email` and `phone` fields within `person_id` object, replacing incorrect `PersonItem` reference.
 
+## [15.4.0](https://github.com/pipedrive/client-php/compare/15.3.0...15.4.0) (2026-02-16)
+
 ## [15.3.0](https://github.com/pipedrive/client-php/compare/15.2.0...15.3.0) (2026-02-06)
 
 ### Added
