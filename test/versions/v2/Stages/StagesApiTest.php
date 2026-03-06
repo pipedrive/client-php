@@ -3,8 +3,8 @@
 use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
-use Pipedrive\versions\v1\Api\StagesApi;
-use Pipedrive\versions\v1\Configuration;
+use Pipedrive\versions\v2\Api\StagesApi;
+use Pipedrive\versions\v2\Configuration;
 use Pipedrive\Tests\Unit\TestCase;
 
 uses(TestCase::class)->group('unit');
@@ -17,12 +17,11 @@ test('get stage details with correct type casting', function () {
         new Response(200, [], json_encode([
             'data' => [
                 'id' => '1',
-                'rotten_flag' => 0,
-                'active_flag' => 1,
-                'rotten_days' => null,
+                'is_deal_rot_enabled' => false,
+                'is_deleted' => false,
+                'days_to_rotten' => null,
                 'update_time' => null,
                 'name' => 'Qualified',
-                'pipeline_name' => 'Pipeline',
             ],
         ])),
     );
@@ -36,10 +35,10 @@ test('get stage details with correct type casting', function () {
 
     $result = $apiInstance->getStage(1)->getData();
 
-    expect($mock->getLastRequest()->getUri())->toEqual('https://api.pipedrive.com/v1/stages/1')
+    expect($mock->getLastRequest()->getUri())->toEqual('https://api.pipedrive.com/api/v2/stages/1')
         ->and($result->getId())->toBe(1)
-        ->and($result->getRottenFlag())->toBe(false)
-        ->and($result->getActiveFlag())->toBe(true)
-        ->and($result->getRottenDays())->toBe(null)
+        ->and($result->getIsDealRotEnabled())->toBe(false)
+        ->and($result->getIsDeleted())->toBe(false)
+        ->and($result->getDaysToRotten())->toBe(null)
         ->and($result->getUpdateTime())->toBe(null);
-})->skip('Replaced by v2 test');
+});
