@@ -36,7 +36,7 @@ it('lists deals', function () {
 
     expect($mock->getLastRequest()->getUri()->getQuery())->toEqual('user_id=42&filter_id=100&stage_id=1&status=open&start=0')
         ->and($result->getData())->toHaveLength(1);
-});
+})->skip('Replaced by v2 test');
 
 it('fetches one deal', function () {
     $config = new Configuration();
@@ -62,7 +62,7 @@ it('fetches one deal', function () {
 
     expect($mock->getLastRequest()->getUri())->toEqual('https://api.pipedrive.com/v1/deals/1')
         ->and($result->getData()->getId())->toBe(1);
-});
+})->skip('Replaced by v2 test');
 
 it('attach a product to a deal', function () {
     $config = new Configuration();
@@ -110,7 +110,7 @@ it('attach a product to a deal', function () {
 
     expect($mock->getLastRequest()->getUri())->toEqual('https://api.pipedrive.com/v1/deals/1/products')
         ->and($result->getData()->getId())->toBe(777);
-});
+})->skip('Replaced by v2 test');
 
 it('update a product attached to a deal', function () {
     $config = new Configuration();
@@ -163,7 +163,7 @@ it('update a product attached to a deal', function () {
         ->and($result->getData()->getId())->toBe(777);
 
     expect($mock->getLastRequest()->getBody()->getContents())->toEqual(json_encode($update_deal_product));
-});
+})->skip('Replaced by v2 test');
 
 
 it('lists deals with raw data', function () {
@@ -196,4 +196,4 @@ it('lists deals with raw data', function () {
         ->and($rawData[0]->id)->toEqual(42)
         ->and($rawData[0])->toHaveProperty('65d4f7b19e743082034fe9b866138uea6d7cc941')
         ->and($rawData[0]->{'65d4f7b19e743082034fe9b866138uea6d7cc941'})->toEqual('custom');
-});
+})->skip('Replaced by v2 test');
