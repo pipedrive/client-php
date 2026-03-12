@@ -1,6 +1,6 @@
 <?php
 /**
- * ProjectMandatoryObjectFragment
+ * PictureDataWithID2
  *
  * PHP version 7.3
  *
@@ -35,7 +35,7 @@ use Pipedrive\versions\v1\Traits\RawData;
 use Pipedrive\versions\v1\ObjectSerializer;
 
 /**
- * ProjectMandatoryObjectFragment Class Doc Comment
+ * PictureDataWithID2 Class Doc Comment
  *
  * @category Class
  * @package  Pipedrive\versions\v1
@@ -45,7 +45,7 @@ use Pipedrive\versions\v1\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ProjectMandatoryObjectFragment implements ModelInterface, ArrayAccess, JsonSerializable
+class PictureDataWithID2 implements ModelInterface, ArrayAccess, JsonSerializable
 {
     use RawData;
 
@@ -56,7 +56,7 @@ class ProjectMandatoryObjectFragment implements ModelInterface, ArrayAccess, Jso
       *
       * @var string
       */
-    protected static string $openAPIModelName = 'ProjectMandatoryObjectFragment';
+    protected static string $openAPIModelName = 'PictureDataWithID_2';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -66,7 +66,7 @@ class ProjectMandatoryObjectFragment implements ModelInterface, ArrayAccess, Jso
       * @phpsalm-var array<string, string>
       */
     protected static array $openAPITypes = [
-        'title' => 'string'
+        'id' => 'int'
     ];
 
     /**
@@ -77,7 +77,7 @@ class ProjectMandatoryObjectFragment implements ModelInterface, ArrayAccess, Jso
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'title' => null
+        'id' => null
     ];
 
     /**
@@ -111,7 +111,7 @@ class ProjectMandatoryObjectFragment implements ModelInterface, ArrayAccess, Jso
      * @var string[]
      */
     protected static $attributeMap = [
-        'title' => 'title'
+        'id' => 'id'
     ];
 
     /**
@@ -120,7 +120,7 @@ class ProjectMandatoryObjectFragment implements ModelInterface, ArrayAccess, Jso
      * @var string[]
      */
     protected static $setters = [
-        'title' => 'setTitle'
+        'id' => 'setId'
     ];
 
     /**
@@ -129,7 +129,7 @@ class ProjectMandatoryObjectFragment implements ModelInterface, ArrayAccess, Jso
      * @var string[]
      */
     protected static $getters = [
-        'title' => 'getTitle'
+        'id' => 'getId'
     ];
 
     /**
@@ -199,7 +199,7 @@ class ProjectMandatoryObjectFragment implements ModelInterface, ArrayAccess, Jso
      */
     public function __construct(array $data = null)
     {
-        $this->container['title'] = $data['title'] ?? null;
+        $this->container['id'] = $data['id'] ?? null;
     }
 
     /**
@@ -229,25 +229,25 @@ class ProjectMandatoryObjectFragment implements ModelInterface, ArrayAccess, Jso
 
 
     /**
-     * Gets title
+     * Gets id
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getTitle()
+    public function getId()
     {
-        return $this->container['title'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets title
+     * Sets id
      *
-     * @param string|null $title The title of the project
+     * @param int|null $id The ID of the picture associated with the item
      *
      * @return self
      */
-    public function setTitle($title): self
+    public function setId($id): self
     {
-        $this->container['title'] = $title;
+        $this->container['id'] = $id;
 
         return $this;
     }

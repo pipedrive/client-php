@@ -1,10 +1,9 @@
-# # PostPatchGetPerson
+# # PictureDataWithID2
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**success** | **bool** | If the response is successful or not | [optional]
-**data** | [**\Pipedrive\versions\v2\Model\PersonItem**](PersonItem.md) |  | [optional]
+**id** | **int** | The ID of the picture associated with the item | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

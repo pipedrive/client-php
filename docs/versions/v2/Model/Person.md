@@ -1,4 +1,4 @@
-# # PersonItem
+# # Person
 
 ## Properties
 
