@@ -1,6 +1,6 @@
 <?php
 /**
- * PersonItem
+ * Person
  *
  * PHP version 7.3
  *
@@ -35,7 +35,7 @@ use Pipedrive\versions\v2\Traits\RawData;
 use Pipedrive\versions\v2\ObjectSerializer;
 
 /**
- * PersonItem Class Doc Comment
+ * Person Class Doc Comment
  *
  * @category Class
  * @package  Pipedrive\versions\v2
@@ -45,7 +45,7 @@ use Pipedrive\versions\v2\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class PersonItem implements ModelInterface, ArrayAccess, JsonSerializable
+class Person implements ModelInterface, ArrayAccess, JsonSerializable
 {
     use RawData;
 
@@ -56,7 +56,7 @@ class PersonItem implements ModelInterface, ArrayAccess, JsonSerializable
       *
       * @var string
       */
-    protected static string $openAPIModelName = 'PersonItem';
+    protected static string $openAPIModelName = 'Person';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

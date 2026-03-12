@@ -1,6 +1,6 @@
 <?php
 /**
- * DealItem
+ * Deal
  *
  * PHP version 7.3
  *
@@ -35,7 +35,7 @@ use Pipedrive\versions\v2\Traits\RawData;
 use Pipedrive\versions\v2\ObjectSerializer;
 
 /**
- * DealItem Class Doc Comment
+ * Deal Class Doc Comment
  *
  * @category Class
  * @package  Pipedrive\versions\v2
@@ -45,7 +45,7 @@ use Pipedrive\versions\v2\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class DealItem implements ModelInterface, ArrayAccess, JsonSerializable
+class Deal implements ModelInterface, ArrayAccess, JsonSerializable
 {
     use RawData;
 
@@ -56,7 +56,7 @@ class DealItem implements ModelInterface, ArrayAccess, JsonSerializable
       *
       * @var string
       */
-    protected static string $openAPIModelName = 'DealItem';
+    protected static string $openAPIModelName = 'Deal';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
