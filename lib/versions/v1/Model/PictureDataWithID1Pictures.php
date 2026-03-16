@@ -1,6 +1,6 @@
 <?php
 /**
- * ProjectMandatoryObjectFragment
+ * PictureDataWithID1Pictures
  *
  * PHP version 7.3
  *
@@ -35,7 +35,7 @@ use Pipedrive\versions\v1\Traits\RawData;
 use Pipedrive\versions\v1\ObjectSerializer;
 
 /**
- * ProjectMandatoryObjectFragment Class Doc Comment
+ * PictureDataWithID1Pictures Class Doc Comment
  *
  * @category Class
  * @package  Pipedrive\versions\v1
@@ -45,7 +45,7 @@ use Pipedrive\versions\v1\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ProjectMandatoryObjectFragment implements ModelInterface, ArrayAccess, JsonSerializable
+class PictureDataWithID1Pictures implements ModelInterface, ArrayAccess, JsonSerializable
 {
     use RawData;
 
@@ -56,7 +56,7 @@ class ProjectMandatoryObjectFragment implements ModelInterface, ArrayAccess, Jso
       *
       * @var string
       */
-    protected static string $openAPIModelName = 'ProjectMandatoryObjectFragment';
+    protected static string $openAPIModelName = 'PictureDataWithID_1_pictures';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -66,7 +66,8 @@ class ProjectMandatoryObjectFragment implements ModelInterface, ArrayAccess, Jso
       * @phpsalm-var array<string, string>
       */
     protected static array $openAPITypes = [
-        'title' => 'string'
+        '_128' => 'string',
+        '_512' => 'string'
     ];
 
     /**
@@ -77,7 +78,8 @@ class ProjectMandatoryObjectFragment implements ModelInterface, ArrayAccess, Jso
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'title' => null
+        '_128' => null,
+        '_512' => null
     ];
 
     /**
@@ -111,7 +113,8 @@ class ProjectMandatoryObjectFragment implements ModelInterface, ArrayAccess, Jso
      * @var string[]
      */
     protected static $attributeMap = [
-        'title' => 'title'
+        '_128' => '128',
+        '_512' => '512'
     ];
 
     /**
@@ -120,7 +123,8 @@ class ProjectMandatoryObjectFragment implements ModelInterface, ArrayAccess, Jso
      * @var string[]
      */
     protected static $setters = [
-        'title' => 'setTitle'
+        '_128' => 'set128',
+        '_512' => 'set512'
     ];
 
     /**
@@ -129,7 +133,8 @@ class ProjectMandatoryObjectFragment implements ModelInterface, ArrayAccess, Jso
      * @var string[]
      */
     protected static $getters = [
-        'title' => 'getTitle'
+        '_128' => 'get128',
+        '_512' => 'get512'
     ];
 
     /**
@@ -199,7 +204,8 @@ class ProjectMandatoryObjectFragment implements ModelInterface, ArrayAccess, Jso
      */
     public function __construct(array $data = null)
     {
-        $this->container['title'] = $data['title'] ?? null;
+        $this->container['_128'] = $data['_128'] ?? null;
+        $this->container['_512'] = $data['_512'] ?? null;
     }
 
     /**
@@ -229,25 +235,49 @@ class ProjectMandatoryObjectFragment implements ModelInterface, ArrayAccess, Jso
 
 
     /**
-     * Gets title
+     * Gets _128
      *
      * @return string|null
      */
-    public function getTitle()
+    public function get128()
     {
-        return $this->container['title'];
+        return $this->container['_128'];
     }
 
     /**
-     * Sets title
+     * Sets _128
      *
-     * @param string|null $title The title of the project
+     * @param string|null $_128 The URL of the 128*128 picture
      *
      * @return self
      */
-    public function setTitle($title): self
+    public function set128($_128): self
     {
-        $this->container['title'] = $title;
+        $this->container['_128'] = $_128;
+
+        return $this;
+    }
+
+    /**
+     * Gets _512
+     *
+     * @return string|null
+     */
+    public function get512()
+    {
+        return $this->container['_512'];
+    }
+
+    /**
+     * Sets _512
+     *
+     * @param string|null $_512 The URL of the 512*512 picture
+     *
+     * @return self
+     */
+    public function set512($_512): self
+    {
+        $this->container['_512'] = $_512;
 
         return $this;
     }
