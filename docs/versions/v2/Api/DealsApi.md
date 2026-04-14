@@ -1520,7 +1520,7 @@ postAdditionalDiscount($id, $body): \Pipedrive\versions\v2\Model\AddAdditionalDi
 
 Add a discount to a deal
 
-Adds a discount to a deal changing, the deal value if the deal has one-time products attached.
+Adds a discount to a deal, changing the deal value if the deal has one-time products attached.
 
 ### Example
 
