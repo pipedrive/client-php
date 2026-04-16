@@ -12,6 +12,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   - `POST /v1/filters`
   - When set to `true`, each condition in the response includes a `field_code` field identifying the field by its code name. The value is `null` if the field code cannot be resolved.
 
+## [15.5.0](https://github.com/pipedrive/client-php/compare/15.4.0...15.5.0) (2026-04-16)
+
 ## [15.4.0](https://github.com/pipedrive/client-php/compare/15.3.0...15.4.0) (2026-02-16)
 
 ### Fixed
