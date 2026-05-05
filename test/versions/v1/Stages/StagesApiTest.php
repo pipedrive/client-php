@@ -42,4 +42,4 @@ test('get stage details with correct type casting', function () {
         ->and($result->getActiveFlag())->toBe(true)
         ->and($result->getRottenDays())->toBe(null)
         ->and($result->getUpdateTime())->toBe(null);
-});
+})->skip('Replaced by v2 test');
