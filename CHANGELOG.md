@@ -6,13 +6,20 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Added
+<<<<<<< HEAD
+- Added `source_deal_id` field to Lead schema to track the deal ID when a lead is converted from a deal
+- Added `source_lead_id` field to v2 Deal schema to track the lead ID when a deal is converted from a lead
+=======
 - Added `include_field_code` query parameter to Filters endpoints:
   - `GET /v1/filters/{id}`
   - `PUT /v1/filters/{id}`
   - `POST /v1/filters`
   - When set to `true`, each condition in the response includes a `field_code` field identifying the field by its code name. The value is `null` if the field code cannot be resolved.
 
+## [15.6.0](https://github.com/pipedrive/client-php/compare/15.5.0...15.6.0) (2026-05-05)
+
 ## [15.5.0](https://github.com/pipedrive/client-php/compare/15.4.0...15.5.0) (2026-04-16)
+>>>>>>> origin/master
 
 ## [15.4.0](https://github.com/pipedrive/client-php/compare/15.3.0...15.4.0) (2026-02-16)
 
