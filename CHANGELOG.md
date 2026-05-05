@@ -434,7 +434,7 @@ $config = (new Pipedrive\versions\v1\Configuration())->setApiKey('x-api-token', 
 
 ### Added
 
-- Added “pipeline_id” query parameter to GET /api/v1/deals/summary endpoint
+- Added "pipeline_id" query parameter to GET /api/v1/deals/summary endpoint
 
 ### Changed
 
@@ -452,9 +452,9 @@ $config = (new Pipedrive\versions\v1\Configuration())->setApiKey('x-api-token', 
   - `POST` `/v2/deals/{id}/products` endpoint
   - `PATCH` `/v2/deals/{id}/products/{product_attachment_id}` endpoint
   - `DELETE` `/v2/deals/{id}/products/{product_attachment_id}` endpoint
-- Added the field “notes” to product prices in the body and response for v1 and v2
-- Added the field “overhead_cost” to the product variation prices in the response for v1
-- Added the field “direct_cost” to the product variation prices in the response and body for v2
+- Added the field "notes" to product prices in the body and response for v1 and v2
+- Added the field "overhead_cost" to the product variation prices in the response for v1
+- Added the field "direct_cost" to the product variation prices in the response and body for v2
 - Add "custom_fields" query paremeter to GET /api/v2/products
 
 ### Changed
