@@ -15,6 +15,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Added project fields v2 API
 - Added `include_option_labels` parameter for v2 GET deal, person and organization endpoints
 - Added `include_labels` parameter to v2 GET deal, person, and organization endpoints
+- Added `source_deal_id` field to Lead schema to track the deal ID when a lead is converted from a deal
+- Added `source_lead_id` field to v2 Deal schema to track the lead ID when a lead is converted from a lead
 - Added `include_field_code` query parameter to Filters endpoints:
   - `GET /v1/filters/{id}`
   - `PUT /v1/filters/{id}`
@@ -85,6 +87,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   - `DELETE /v1/stages/{id}` → `DELETE /api/v2/stages/{id}`
 ### Fixed
 - Made `picture_id`, `org_id`, `label`, `last_name`, `cc_email`, `last_incoming_mail_time`, and `last_outgoing_mail_time` nullable in person and organization schemas to match real API behavior
+### Changed
+- Changed `board_id` and `phase_id` to be optional in `POST /api/v1/projects`
+
+## [15.7.0](https://github.com/pipedrive/client-php/compare/15.6.0...15.7.0) (2026-05-05)
+
+## [15.6.0](https://github.com/pipedrive/client-php/compare/15.5.0...15.6.0) (2026-05-05)
 
 ## [15.5.0](https://github.com/pipedrive/client-php/compare/15.4.0...15.5.0) (2026-04-16)
 
