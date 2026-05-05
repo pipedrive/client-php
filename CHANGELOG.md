@@ -16,6 +16,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 - Changed `board_id` and `phase_id` to be optional in `POST /api/v1/projects`
 
+## [15.7.0](https://github.com/pipedrive/client-php/compare/15.6.0...15.7.0) (2026-05-05)
+
 ## [15.6.0](https://github.com/pipedrive/client-php/compare/15.5.0...15.6.0) (2026-05-05)
 
 ## [15.5.0](https://github.com/pipedrive/client-php/compare/15.4.0...15.5.0) (2026-04-16)
