@@ -37,14 +37,14 @@ trait RawData
     /**
      * @var mixed
      */
-    private mixed $rawData;
+    private $rawData;
 
     /**
      * Get raw data
      *
      * @return mixed
      */
-    public function getRawData(): mixed
+    public function getRawData()
     {
         return $this->rawData;
     }
@@ -55,7 +55,7 @@ trait RawData
      * @param mixed $rawData
      * @return void
      */
-    public function setRawData(mixed $rawData): void
+    public function setRawData($rawData): void
     {
         $this->rawData = is_object($rawData) && property_exists($rawData, 'data') ? $rawData->data : $rawData;
     }
