@@ -1,7 +1,7 @@
 <?php
 /**
  * ProjectsApi
- * PHP version 7.3
+ * PHP version 8.0
  *
  * @category Class
  * @package  Pipedrive\versions\v2
@@ -83,9 +83,9 @@ class ProjectsApi
      * @param int                  $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
      */
     public function __construct(
-        ClientInterface $client = null,
-        Configuration $config = null,
-        HeaderSelector $selector = null,
+        ?ClientInterface $client = null,
+        ?Configuration $config = null,
+        ?HeaderSelector $selector = null,
         int $hostIndex = 0
     ) {
         $this->client = $client ?: new Client();
@@ -2271,6 +2271,9 @@ class ProjectsApi
      * @param  int|null $filter_id If supplied, only projects matching the specified filter are returned (optional)
      * @param  string|null $status If supplied, includes only projects with the specified statuses. Possible values are &#x60;open&#x60;, &#x60;completed&#x60;, &#x60;canceled&#x60; and &#x60;deleted&#x60;. By default &#x60;deleted&#x60; projects are not returned. (optional)
      * @param  int|null $phase_id If supplied, only projects in the specified phase are returned (optional)
+     * @param  int|null $deal_id If supplied, only projects associated with the specified deal are returned (optional)
+     * @param  int|null $person_id If supplied, only projects associated with the specified person are returned (optional)
+     * @param  int|null $org_id If supplied, only projects associated with the specified organization are returned (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      *
@@ -2278,9 +2281,9 @@ class ProjectsApi
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v2\Model\GetProjects
      */
-    public function getProjects($filter_id = null, $status = null, $phase_id = null, $limit = null, $cursor = null)
+    public function getProjects($filter_id = null, $status = null, $phase_id = null, $deal_id = null, $person_id = null, $org_id = null, $limit = null, $cursor = null)
     {
-        list($response) = $this->getProjectsWithHttpInfo($filter_id, $status, $phase_id, $limit, $cursor);
+        list($response) = $this->getProjectsWithHttpInfo($filter_id, $status, $phase_id, $deal_id, $person_id, $org_id, $limit, $cursor);
         return $response;
     }
 
@@ -2292,6 +2295,9 @@ class ProjectsApi
      * @param  int|null $filter_id If supplied, only projects matching the specified filter are returned (optional)
      * @param  string|null $status If supplied, includes only projects with the specified statuses. Possible values are &#x60;open&#x60;, &#x60;completed&#x60;, &#x60;canceled&#x60; and &#x60;deleted&#x60;. By default &#x60;deleted&#x60; projects are not returned. (optional)
      * @param  int|null $phase_id If supplied, only projects in the specified phase are returned (optional)
+     * @param  int|null $deal_id If supplied, only projects associated with the specified deal are returned (optional)
+     * @param  int|null $person_id If supplied, only projects associated with the specified person are returned (optional)
+     * @param  int|null $org_id If supplied, only projects associated with the specified organization are returned (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      *
@@ -2299,9 +2305,9 @@ class ProjectsApi
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v2\Model\GetProjects, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getProjectsWithHttpInfo($filter_id = null, $status = null, $phase_id = null, $limit = null, $cursor = null)
+    public function getProjectsWithHttpInfo($filter_id = null, $status = null, $phase_id = null, $deal_id = null, $person_id = null, $org_id = null, $limit = null, $cursor = null)
     {
-        $request = $this->getProjectsRequest($filter_id, $status, $phase_id, $limit, $cursor);
+        $request = $this->getProjectsRequest($filter_id, $status, $phase_id, $deal_id, $person_id, $org_id, $limit, $cursor);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2310,7 +2316,7 @@ class ProjectsApi
             } catch (RequestException $e) {
                 if ($e->getCode() === 401 && $this->config->isRefreshPossible()) {
                     $this->config->refreshToken();
-                    $request = $this->getProjectsRequest($filter_id, $status, $phase_id, $limit, $cursor);
+                    $request = $this->getProjectsRequest($filter_id, $status, $phase_id, $deal_id, $person_id, $org_id, $limit, $cursor);
                     $response = $this->client->send($request, $options);
                 } else {
                     throw new ApiException(
@@ -2397,15 +2403,18 @@ class ProjectsApi
      * @param  int|null $filter_id If supplied, only projects matching the specified filter are returned (optional)
      * @param  string|null $status If supplied, includes only projects with the specified statuses. Possible values are &#x60;open&#x60;, &#x60;completed&#x60;, &#x60;canceled&#x60; and &#x60;deleted&#x60;. By default &#x60;deleted&#x60; projects are not returned. (optional)
      * @param  int|null $phase_id If supplied, only projects in the specified phase are returned (optional)
+     * @param  int|null $deal_id If supplied, only projects associated with the specified deal are returned (optional)
+     * @param  int|null $person_id If supplied, only projects associated with the specified person are returned (optional)
+     * @param  int|null $org_id If supplied, only projects associated with the specified organization are returned (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
      */
-    public function getProjectsAsync($filter_id = null, $status = null, $phase_id = null, $limit = null, $cursor = null): PromiseInterface
+    public function getProjectsAsync($filter_id = null, $status = null, $phase_id = null, $deal_id = null, $person_id = null, $org_id = null, $limit = null, $cursor = null): PromiseInterface
     {
-        return $this->getProjectsAsyncWithHttpInfo($filter_id, $status, $phase_id, $limit, $cursor)
+        return $this->getProjectsAsyncWithHttpInfo($filter_id, $status, $phase_id, $deal_id, $person_id, $org_id, $limit, $cursor)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2421,16 +2430,19 @@ class ProjectsApi
      * @param  int|null $filter_id If supplied, only projects matching the specified filter are returned (optional)
      * @param  string|null $status If supplied, includes only projects with the specified statuses. Possible values are &#x60;open&#x60;, &#x60;completed&#x60;, &#x60;canceled&#x60; and &#x60;deleted&#x60;. By default &#x60;deleted&#x60; projects are not returned. (optional)
      * @param  int|null $phase_id If supplied, only projects in the specified phase are returned (optional)
+     * @param  int|null $deal_id If supplied, only projects associated with the specified deal are returned (optional)
+     * @param  int|null $person_id If supplied, only projects associated with the specified person are returned (optional)
+     * @param  int|null $org_id If supplied, only projects associated with the specified organization are returned (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
      */
-    public function getProjectsAsyncWithHttpInfo($filter_id = null, $status = null, $phase_id = null, $limit = null, $cursor = null): PromiseInterface
+    public function getProjectsAsyncWithHttpInfo($filter_id = null, $status = null, $phase_id = null, $deal_id = null, $person_id = null, $org_id = null, $limit = null, $cursor = null): PromiseInterface
     {
         $returnType = '\Pipedrive\versions\v2\Model\GetProjects';
-        $request = $this->getProjectsRequest($filter_id, $status, $phase_id, $limit, $cursor);
+        $request = $this->getProjectsRequest($filter_id, $status, $phase_id, $deal_id, $person_id, $org_id, $limit, $cursor);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2472,13 +2484,16 @@ class ProjectsApi
      * @param  int|null $filter_id If supplied, only projects matching the specified filter are returned (optional)
      * @param  string|null $status If supplied, includes only projects with the specified statuses. Possible values are &#x60;open&#x60;, &#x60;completed&#x60;, &#x60;canceled&#x60; and &#x60;deleted&#x60;. By default &#x60;deleted&#x60; projects are not returned. (optional)
      * @param  int|null $phase_id If supplied, only projects in the specified phase are returned (optional)
+     * @param  int|null $deal_id If supplied, only projects associated with the specified deal are returned (optional)
+     * @param  int|null $person_id If supplied, only projects associated with the specified person are returned (optional)
+     * @param  int|null $org_id If supplied, only projects associated with the specified organization are returned (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
      */
-    public function getProjectsRequest($filter_id = null, $status = null, $phase_id = null, $limit = null, $cursor = null): Request
+    public function getProjectsRequest($filter_id = null, $status = null, $phase_id = null, $deal_id = null, $person_id = null, $org_id = null, $limit = null, $cursor = null): Request
     {
 
         $resourcePath = '/projects';
@@ -2511,6 +2526,30 @@ class ProjectsApi
         }
         if ($phase_id !== null) {
             $queryParams['phase_id'] = $phase_id;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($deal_id)) {
+            $deal_id = ObjectSerializer::serializeCollection($deal_id, '', true);
+        }
+        if ($deal_id !== null) {
+            $queryParams['deal_id'] = $deal_id;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($person_id)) {
+            $person_id = ObjectSerializer::serializeCollection($person_id, '', true);
+        }
+        if ($person_id !== null) {
+            $queryParams['person_id'] = $person_id;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($org_id)) {
+            $org_id = ObjectSerializer::serializeCollection($org_id, '', true);
+        }
+        if ($org_id !== null) {
+            $queryParams['org_id'] = $org_id;
         }
         // query params
         /* @phpstan-ignore-next-line */

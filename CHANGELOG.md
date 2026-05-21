@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Added
+- Added `website`, `linkedin`, `industry`, `annual_revenue`, and `employee_count` fields to v2 organization response schema (`GET /api/v2/organizations`, `GET /api/v2/organizations/{id}`) — all nullable, not included by default
+- Added `deal_id`, `person_id`, and `org_id` as optional query filter parameters to `GET /api/v2/projects`
+### Fixed
+- Fixed `BillingStartDate` format from non-standard `'YYYY-MM-DD'` to correct OAS3 `date` format in both v1 and v2 deal product schemas
+### Added
 - Added projects v2 API
 - Added project boards v2 API
 - Added project phases v2 API

@@ -1,7 +1,7 @@
 <?php
 /**
  * Configuration
- * PHP version 7.3
+ * PHP version 8.0
  *
  * @category Class
  * @package  Pipedrive\versions\v1
@@ -37,7 +37,7 @@ use Pipedrive\versions\v1\Exceptions\OAuthProviderException;
 
 /**
  * Configuration Class Doc Comment
- * PHP version 7.3
+ * PHP version 8.0
  *
  * @category Class
  * @package  Pipedrive\versions\v1

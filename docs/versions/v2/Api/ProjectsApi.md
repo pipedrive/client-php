@@ -486,7 +486,7 @@ Name | Type | Description  | Notes
 ## `getProjects()`
 
 ```php
-getProjects($filter_id, $status, $phase_id, $limit, $cursor): \Pipedrive\versions\v2\Model\GetProjects
+getProjects($filter_id, $status, $phase_id, $deal_id, $person_id, $org_id, $limit, $cursor): \Pipedrive\versions\v2\Model\GetProjects
 ```
 
 Get all projects
@@ -518,11 +518,14 @@ $apiInstance = new Pipedrive\versions\v2\Api\ProjectsApi(
 $filter_id = 56; // int | If supplied, only projects matching the specified filter are returned
 $status = open,completed; // string | If supplied, includes only projects with the specified statuses. Possible values are `open`, `completed`, `canceled` and `deleted`. By default `deleted` projects are not returned.
 $phase_id = 56; // int | If supplied, only projects in the specified phase are returned
+$deal_id = 56; // int | If supplied, only projects associated with the specified deal are returned
+$person_id = 56; // int | If supplied, only projects associated with the specified person are returned
+$org_id = 56; // int | If supplied, only projects associated with the specified organization are returned
 $limit = 100; // int | For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
 $cursor = 'cursor_example'; // string | For pagination, the marker (an opaque string value) representing the first item on the next page
 
 try {
-    $result = $apiInstance->getProjects($filter_id, $status, $phase_id, $limit, $cursor);
+    $result = $apiInstance->getProjects($filter_id, $status, $phase_id, $deal_id, $person_id, $org_id, $limit, $cursor);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProjectsApi->getProjects: ', $e->getMessage(), PHP_EOL;
@@ -536,6 +539,9 @@ Name | Type | Description  | Notes
  **filter_id** | **int**| If supplied, only projects matching the specified filter are returned | [optional]
  **status** | **string**| If supplied, includes only projects with the specified statuses. Possible values are &#x60;open&#x60;, &#x60;completed&#x60;, &#x60;canceled&#x60; and &#x60;deleted&#x60;. By default &#x60;deleted&#x60; projects are not returned. | [optional]
  **phase_id** | **int**| If supplied, only projects in the specified phase are returned | [optional]
+ **deal_id** | **int**| If supplied, only projects associated with the specified deal are returned | [optional]
+ **person_id** | **int**| If supplied, only projects associated with the specified person are returned | [optional]
+ **org_id** | **int**| If supplied, only projects associated with the specified organization are returned | [optional]
  **limit** | **int**| For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. | [optional]
  **cursor** | **string**| For pagination, the marker (an opaque string value) representing the first item on the next page | [optional]
 

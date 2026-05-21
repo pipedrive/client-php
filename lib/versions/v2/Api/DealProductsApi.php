@@ -1,7 +1,7 @@
 <?php
 /**
  * DealProductsApi
- * PHP version 7.3
+ * PHP version 8.0
  *
  * @category Class
  * @package  Pipedrive\versions\v2
@@ -83,9 +83,9 @@ class DealProductsApi
      * @param int                  $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
      */
     public function __construct(
-        ClientInterface $client = null,
-        Configuration $config = null,
-        HeaderSelector $selector = null,
+        ?ClientInterface $client = null,
+        ?Configuration $config = null,
+        ?HeaderSelector $selector = null,
         int $hostIndex = 0
     ) {
         $this->client = $client ?: new Client();
@@ -1944,7 +1944,7 @@ class DealProductsApi
         // query params
         /* @phpstan-ignore-next-line */
         if (is_array($deal_ids)) {
-            $deal_ids = ObjectSerializer::serializeCollection($deal_ids, 'csv', true);
+            $deal_ids = ObjectSerializer::serializeCollection($deal_ids, 'form', true);
         }
         if ($deal_ids !== null) {
             $queryParams['deal_ids'] = $deal_ids;
