@@ -79,7 +79,7 @@ class ProjectItem implements ModelInterface, ArrayAccess, JsonSerializable
         'person_ids' => 'int[]',
         'org_ids' => 'int[]',
         'label_ids' => 'int[]',
-        'health_status' => 'string',
+        'health_status' => 'int',
         'add_time' => 'string',
         'update_time' => 'string',
         'status_change_time' => 'string',
@@ -651,7 +651,7 @@ class ProjectItem implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets health_status
      *
-     * @return string|null
+     * @return int|null
      */
     public function getHealthStatus()
     {
@@ -661,7 +661,7 @@ class ProjectItem implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets health_status
      *
-     * @param string|null $health_status The health status of the project
+     * @param int|null $health_status The health status of the project
      *
      * @return self
      */

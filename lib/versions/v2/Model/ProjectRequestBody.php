@@ -78,6 +78,7 @@ class ProjectRequestBody implements ModelInterface, ArrayAccess, JsonSerializabl
         'person_ids' => 'int[]',
         'org_ids' => 'int[]',
         'label_ids' => 'int[]',
+        'health_status' => 'int',
         'template_id' => 'int',
         'custom_fields' => 'array<string,object>'
     ];
@@ -102,6 +103,7 @@ class ProjectRequestBody implements ModelInterface, ArrayAccess, JsonSerializabl
         'person_ids' => null,
         'org_ids' => null,
         'label_ids' => null,
+        'health_status' => null,
         'template_id' => null,
         'custom_fields' => null
     ];
@@ -149,6 +151,7 @@ class ProjectRequestBody implements ModelInterface, ArrayAccess, JsonSerializabl
         'person_ids' => 'person_ids',
         'org_ids' => 'org_ids',
         'label_ids' => 'label_ids',
+        'health_status' => 'health_status',
         'template_id' => 'template_id',
         'custom_fields' => 'custom_fields'
     ];
@@ -171,6 +174,7 @@ class ProjectRequestBody implements ModelInterface, ArrayAccess, JsonSerializabl
         'person_ids' => 'setPersonIds',
         'org_ids' => 'setOrgIds',
         'label_ids' => 'setLabelIds',
+        'health_status' => 'setHealthStatus',
         'template_id' => 'setTemplateId',
         'custom_fields' => 'setCustomFields'
     ];
@@ -193,6 +197,7 @@ class ProjectRequestBody implements ModelInterface, ArrayAccess, JsonSerializabl
         'person_ids' => 'getPersonIds',
         'org_ids' => 'getOrgIds',
         'label_ids' => 'getLabelIds',
+        'health_status' => 'getHealthStatus',
         'template_id' => 'getTemplateId',
         'custom_fields' => 'getCustomFields'
     ];
@@ -276,6 +281,7 @@ class ProjectRequestBody implements ModelInterface, ArrayAccess, JsonSerializabl
         $this->container['person_ids'] = $data['person_ids'] ?? null;
         $this->container['org_ids'] = $data['org_ids'] ?? null;
         $this->container['label_ids'] = $data['label_ids'] ?? null;
+        $this->container['health_status'] = $data['health_status'] ?? null;
         $this->container['template_id'] = $data['template_id'] ?? null;
         $this->container['custom_fields'] = $data['custom_fields'] ?? null;
     }
@@ -590,6 +596,30 @@ class ProjectRequestBody implements ModelInterface, ArrayAccess, JsonSerializabl
     public function setLabelIds($label_ids): self
     {
         $this->container['label_ids'] = $label_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets health_status
+     *
+     * @return int|null
+     */
+    public function getHealthStatus()
+    {
+        return $this->container['health_status'];
+    }
+
+    /**
+     * Sets health_status
+     *
+     * @param int|null $health_status The health status of the project
+     *
+     * @return self
+     */
+    public function setHealthStatus($health_status): self
+    {
+        $this->container['health_status'] = $health_status;
 
         return $this;
     }

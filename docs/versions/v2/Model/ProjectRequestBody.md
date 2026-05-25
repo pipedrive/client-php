@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **person_ids** | **int[]** | An array of IDs of the persons this project is associated with | [optional]
 **org_ids** | **int[]** | An array of IDs of the organizations this project is associated with | [optional]
 **label_ids** | **int[]** | An array of IDs of the labels this project has | [optional]
+**health_status** | **int** | The health status of the project | [optional]
 **template_id** | **int** | The ID of the template the project will be based on. Only used when creating a new project. | [optional]
 **custom_fields** | **array<string,object>** | An object where each key represents a custom field. All custom fields are referenced as randomly generated 40-character hashes. To clear a custom field value, set it to &#x60;null&#x60;. For multi-option fields (field type &#x60;set&#x60;), use &#x60;null&#x60; to clear the selection — sending an empty array &#x60;[]&#x60; is not supported and will result in a validation error. | [optional]
 
