@@ -80,7 +80,7 @@ class BaseDealProduct implements ModelInterface, ArrayAccess, JsonSerializable
         'currency' => 'string',
         'discount' => 'float',
         'discount_type' => 'string',
-        'quantity' => 'int',
+        'quantity' => 'float',
         'item_price' => 'float',
         'tax_method' => 'string',
         'is_enabled' => 'bool',
@@ -751,7 +751,7 @@ class BaseDealProduct implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets quantity
      *
-     * @return int|null
+     * @return float|null
      */
     public function getQuantity()
     {
@@ -761,7 +761,7 @@ class BaseDealProduct implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets quantity
      *
-     * @param int|null $quantity The quantity of the product
+     * @param float|null $quantity The quantity of the product
      *
      * @return self
      */

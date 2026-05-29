@@ -66,7 +66,7 @@ class BaseProductAllOf implements ModelInterface, ArrayAccess, JsonSerializable
       * @phpsalm-var array<string, string>
       */
     protected static array $openAPITypes = [
-        'id' => 'float',
+        'id' => 'int',
         'name' => 'string',
         'code' => 'string',
         'unit' => 'string',
@@ -75,6 +75,10 @@ class BaseProductAllOf implements ModelInterface, ArrayAccess, JsonSerializable
         'is_linkable' => 'bool',
         'visible_to' => '\Pipedrive\versions\v2\Model\VisibleTo',
         'owner_id' => 'int',
+        'add_time' => 'string',
+        'update_time' => 'string',
+        'description' => 'string',
+        'category' => 'string',
         'custom_fields' => 'array<string,object>'
     ];
 
@@ -95,6 +99,10 @@ class BaseProductAllOf implements ModelInterface, ArrayAccess, JsonSerializable
         'is_linkable' => null,
         'visible_to' => null,
         'owner_id' => null,
+        'add_time' => null,
+        'update_time' => null,
+        'description' => null,
+        'category' => null,
         'custom_fields' => null
     ];
 
@@ -138,6 +146,10 @@ class BaseProductAllOf implements ModelInterface, ArrayAccess, JsonSerializable
         'is_linkable' => 'is_linkable',
         'visible_to' => 'visible_to',
         'owner_id' => 'owner_id',
+        'add_time' => 'add_time',
+        'update_time' => 'update_time',
+        'description' => 'description',
+        'category' => 'category',
         'custom_fields' => 'custom_fields'
     ];
 
@@ -156,6 +168,10 @@ class BaseProductAllOf implements ModelInterface, ArrayAccess, JsonSerializable
         'is_linkable' => 'setIsLinkable',
         'visible_to' => 'setVisibleTo',
         'owner_id' => 'setOwnerId',
+        'add_time' => 'setAddTime',
+        'update_time' => 'setUpdateTime',
+        'description' => 'setDescription',
+        'category' => 'setCategory',
         'custom_fields' => 'setCustomFields'
     ];
 
@@ -174,6 +190,10 @@ class BaseProductAllOf implements ModelInterface, ArrayAccess, JsonSerializable
         'is_linkable' => 'getIsLinkable',
         'visible_to' => 'getVisibleTo',
         'owner_id' => 'getOwnerId',
+        'add_time' => 'getAddTime',
+        'update_time' => 'getUpdateTime',
+        'description' => 'getDescription',
+        'category' => 'getCategory',
         'custom_fields' => 'getCustomFields'
     ];
 
@@ -253,6 +273,10 @@ class BaseProductAllOf implements ModelInterface, ArrayAccess, JsonSerializable
         $this->container['is_linkable'] = $data['is_linkable'] ?? true;
         $this->container['visible_to'] = $data['visible_to'] ?? null;
         $this->container['owner_id'] = $data['owner_id'] ?? null;
+        $this->container['add_time'] = $data['add_time'] ?? null;
+        $this->container['update_time'] = $data['update_time'] ?? null;
+        $this->container['description'] = $data['description'] ?? null;
+        $this->container['category'] = $data['category'] ?? null;
         $this->container['custom_fields'] = $data['custom_fields'] ?? null;
     }
 
@@ -285,7 +309,7 @@ class BaseProductAllOf implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets id
      *
-     * @return float|null
+     * @return int|null
      */
     public function getId()
     {
@@ -295,7 +319,7 @@ class BaseProductAllOf implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets id
      *
-     * @param float|null $id The ID of the product
+     * @param int|null $id The ID of the product
      *
      * @return self
      */
@@ -487,13 +511,109 @@ class BaseProductAllOf implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets owner_id
      *
-     * @param int|null $owner_id Information about the Pipedrive user who owns the product
+     * @param int|null $owner_id The ID of the Pipedrive user who owns the product
      *
      * @return self
      */
     public function setOwnerId($owner_id): self
     {
         $this->container['owner_id'] = $owner_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets add_time
+     *
+     * @return string|null
+     */
+    public function getAddTime()
+    {
+        return $this->container['add_time'];
+    }
+
+    /**
+     * Sets add_time
+     *
+     * @param string|null $add_time The date and time when the product was added
+     *
+     * @return self
+     */
+    public function setAddTime($add_time): self
+    {
+        $this->container['add_time'] = $add_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets update_time
+     *
+     * @return string|null
+     */
+    public function getUpdateTime()
+    {
+        return $this->container['update_time'];
+    }
+
+    /**
+     * Sets update_time
+     *
+     * @param string|null $update_time The date and time when the product was last updated
+     *
+     * @return self
+     */
+    public function setUpdateTime($update_time): self
+    {
+        $this->container['update_time'] = $update_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string|null
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string|null $description The description of the product
+     *
+     * @return self
+     */
+    public function setDescription($description): self
+    {
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets category
+     *
+     * @return string|null
+     */
+    public function getCategory()
+    {
+        return $this->container['category'];
+    }
+
+    /**
+     * Sets category
+     *
+     * @param string|null $category The category of the product
+     *
+     * @return self
+     */
+    public function setCategory($category): self
+    {
+        $this->container['category'] = $category;
 
         return $this;
     }

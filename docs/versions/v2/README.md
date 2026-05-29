@@ -472,6 +472,7 @@ Class | Method | HTTP request | Description
  - [AdditionalDiscountRequestBody](Model/AdditionalDiscountRequestBody.md)
  - [AdditionalDiscountsResponse](Model/AdditionalDiscountsResponse.md)
  - [ArrayPrices](Model/ArrayPrices.md)
+ - [ArrayPricesPrices](Model/ArrayPricesPrices.md)
  - [BaseAdditionalDiscount](Model/BaseAdditionalDiscount.md)
  - [BaseDealProduct](Model/BaseDealProduct.md)
  - [BaseDealProductAllOf](Model/BaseDealProductAllOf.md)
