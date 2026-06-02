@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+- Bumped minimum PHP version requirement from 8.0 to 8.1
+
 ## [17.2.1](https://github.com/pipedrive/client-php/compare17.2.0...17.2.1) (2026-04-06)
 
 ### Fixed
