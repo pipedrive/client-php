@@ -5,9 +5,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+
+## [17.0.0](https://github.com/pipedrive/client-php/compare16.0.0...17.0.0) (2026-03-06)
+
 ### Added
 - Added `website`, `linkedin`, `industry`, `annual_revenue`, and `employee_count` fields to v2 organization response schema (`GET /api/v2/organizations`, `GET /api/v2/organizations/{id}`) — all nullable, not included by default
 - Added `deal_id`, `person_id`, and `org_id` as optional query filter parameters to `GET /api/v2/projects`
+### Changed
+- Dropped PHP 7.4 support — minimum required PHP version is now 8.0
 ### Fixed
 - Fixed `deal_ids` query parameter serialization in `GET /api/v2/deals/products` — the array is now correctly encoded as a comma-separated string (e.g. `deal_ids=1,2,3`) to match the expected backend format
 - Fixed `BillingStartDate` format from non-standard `'YYYY-MM-DD'` to correct OAS3 `date` format in both v1 and v2 deal product schemas
