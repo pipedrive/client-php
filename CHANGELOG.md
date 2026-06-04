@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [17.1.0](https://github.com/pipedrive/client-php/compare17.0.0...17.1.0) (2026-04-06)
+
+### Added
+- Added `project_id` parameter to `POST /v1/files` endpoint
+- Added `project_id` & `project_name` properties to responses in `/v1/files/*` endpoints
 
 ## [17.0.0](https://github.com/pipedrive/client-php/compare16.0.0...17.0.0) (2026-03-06)
 
