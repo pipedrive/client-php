@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **person_ids** | **int[]** | An array of IDs of the persons this project is associated with | [optional]
 **org_ids** | **int[]** | An array of IDs of the organizations this project is associated with | [optional]
 **label_ids** | **int[]** | An array of IDs of the labels this project has | [optional]
-**health_status** | **string** | The health status of the project | [optional]
+**health_status** | **int** | The health status of the project | [optional]
 **add_time** | **string** | The creation date and time of the project in ISO 8601 format | [optional]
 **update_time** | **string** | The last updated date and time of the project in ISO 8601 format | [optional]
 **status_change_time** | **string** | The date and time of the last status change of the project in ISO 8601 format | [optional]
