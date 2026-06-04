@@ -66,7 +66,7 @@ class ProductVariation implements ModelInterface, ArrayAccess, JsonSerializable
       * @phpsalm-var array<string, string>
       */
     protected static array $openAPITypes = [
-        'id' => 'float',
+        'id' => 'int',
         'name' => 'string',
         'product_id' => 'int',
         'prices' => 'object[]'
@@ -249,7 +249,7 @@ class ProductVariation implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets id
      *
-     * @return float|null
+     * @return int|null
      */
     public function getId()
     {
@@ -259,7 +259,7 @@ class ProductVariation implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets id
      *
-     * @param float|null $id The ID of the product variation
+     * @param int|null $id The ID of the product variation
      *
      * @return self
      */

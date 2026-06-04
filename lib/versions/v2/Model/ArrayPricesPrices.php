@@ -1,6 +1,6 @@
 <?php
 /**
- * ArrayPrices
+ * ArrayPricesPrices
  *
  * PHP version 8.0
  *
@@ -35,7 +35,7 @@ use Pipedrive\versions\v2\Traits\RawData;
 use Pipedrive\versions\v2\ObjectSerializer;
 
 /**
- * ArrayPrices Class Doc Comment
+ * ArrayPricesPrices Class Doc Comment
  *
  * @category Class
  * @package  Pipedrive\versions\v2
@@ -45,7 +45,7 @@ use Pipedrive\versions\v2\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ArrayPrices implements ModelInterface, ArrayAccess, JsonSerializable
+class ArrayPricesPrices implements ModelInterface, ArrayAccess, JsonSerializable
 {
     use RawData;
 
@@ -56,7 +56,7 @@ class ArrayPrices implements ModelInterface, ArrayAccess, JsonSerializable
       *
       * @var string
       */
-    protected static string $openAPIModelName = 'ArrayPrices';
+    protected static string $openAPIModelName = 'ArrayPrices_prices';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -66,7 +66,12 @@ class ArrayPrices implements ModelInterface, ArrayAccess, JsonSerializable
       * @phpsalm-var array<string, string>
       */
     protected static array $openAPITypes = [
-        'prices' => '\Pipedrive\versions\v2\Model\ArrayPricesPrices[]'
+        'product_id' => 'int',
+        'price' => 'float',
+        'currency' => 'string',
+        'cost' => 'float',
+        'direct_cost' => 'float',
+        'notes' => 'string'
     ];
 
     /**
@@ -77,7 +82,12 @@ class ArrayPrices implements ModelInterface, ArrayAccess, JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'prices' => null
+        'product_id' => null,
+        'price' => null,
+        'currency' => null,
+        'cost' => null,
+        'direct_cost' => null,
+        'notes' => null
     ];
 
     /**
@@ -111,7 +121,12 @@ class ArrayPrices implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'prices' => 'prices'
+        'product_id' => 'product_id',
+        'price' => 'price',
+        'currency' => 'currency',
+        'cost' => 'cost',
+        'direct_cost' => 'direct_cost',
+        'notes' => 'notes'
     ];
 
     /**
@@ -120,7 +135,12 @@ class ArrayPrices implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'prices' => 'setPrices'
+        'product_id' => 'setProductId',
+        'price' => 'setPrice',
+        'currency' => 'setCurrency',
+        'cost' => 'setCost',
+        'direct_cost' => 'setDirectCost',
+        'notes' => 'setNotes'
     ];
 
     /**
@@ -129,7 +149,12 @@ class ArrayPrices implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'prices' => 'getPrices'
+        'product_id' => 'getProductId',
+        'price' => 'getPrice',
+        'currency' => 'getCurrency',
+        'cost' => 'getCost',
+        'direct_cost' => 'getDirectCost',
+        'notes' => 'getNotes'
     ];
 
     /**
@@ -199,7 +224,12 @@ class ArrayPrices implements ModelInterface, ArrayAccess, JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->container['prices'] = $data['prices'] ?? null;
+        $this->container['product_id'] = $data['product_id'] ?? null;
+        $this->container['price'] = $data['price'] ?? null;
+        $this->container['currency'] = $data['currency'] ?? null;
+        $this->container['cost'] = $data['cost'] ?? null;
+        $this->container['direct_cost'] = $data['direct_cost'] ?? null;
+        $this->container['notes'] = $data['notes'] ?? null;
     }
 
     /**
@@ -229,25 +259,145 @@ class ArrayPrices implements ModelInterface, ArrayAccess, JsonSerializable
 
 
     /**
-     * Gets prices
+     * Gets product_id
      *
-     * @return \Pipedrive\versions\v2\Model\ArrayPricesPrices[]|null
+     * @return int|null
      */
-    public function getPrices()
+    public function getProductId()
     {
-        return $this->container['prices'];
+        return $this->container['product_id'];
     }
 
     /**
-     * Sets prices
+     * Sets product_id
      *
-     * @param \Pipedrive\versions\v2\Model\ArrayPricesPrices[]|null $prices The prices of the product in different currencies
+     * @param int|null $product_id The ID of the product
      *
      * @return self
      */
-    public function setPrices($prices): self
+    public function setProductId($product_id): self
     {
-        $this->container['prices'] = $prices;
+        $this->container['product_id'] = $product_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets price
+     *
+     * @return float|null
+     */
+    public function getPrice()
+    {
+        return $this->container['price'];
+    }
+
+    /**
+     * Sets price
+     *
+     * @param float|null $price The price of the product
+     *
+     * @return self
+     */
+    public function setPrice($price): self
+    {
+        $this->container['price'] = $price;
+
+        return $this;
+    }
+
+    /**
+     * Gets currency
+     *
+     * @return string|null
+     */
+    public function getCurrency()
+    {
+        return $this->container['currency'];
+    }
+
+    /**
+     * Sets currency
+     *
+     * @param string|null $currency The currency of the price
+     *
+     * @return self
+     */
+    public function setCurrency($currency): self
+    {
+        $this->container['currency'] = $currency;
+
+        return $this;
+    }
+
+    /**
+     * Gets cost
+     *
+     * @return float|null
+     */
+    public function getCost()
+    {
+        return $this->container['cost'];
+    }
+
+    /**
+     * Sets cost
+     *
+     * @param float|null $cost The cost of the product
+     *
+     * @return self
+     */
+    public function setCost($cost): self
+    {
+        $this->container['cost'] = $cost;
+
+        return $this;
+    }
+
+    /**
+     * Gets direct_cost
+     *
+     * @return float|null
+     */
+    public function getDirectCost()
+    {
+        return $this->container['direct_cost'];
+    }
+
+    /**
+     * Sets direct_cost
+     *
+     * @param float|null $direct_cost The direct cost of the product
+     *
+     * @return self
+     */
+    public function setDirectCost($direct_cost): self
+    {
+        $this->container['direct_cost'] = $direct_cost;
+
+        return $this;
+    }
+
+    /**
+     * Gets notes
+     *
+     * @return string|null
+     */
+    public function getNotes()
+    {
+        return $this->container['notes'];
+    }
+
+    /**
+     * Sets notes
+     *
+     * @param string|null $notes The notes about the price
+     *
+     * @return self
+     */
+    public function setNotes($notes): self
+    {
+        $this->container['notes'] = $notes;
 
         return $this;
     }

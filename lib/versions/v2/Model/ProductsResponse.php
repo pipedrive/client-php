@@ -67,7 +67,7 @@ class ProductsResponse implements ModelInterface, ArrayAccess, JsonSerializable
       */
     protected static array $openAPITypes = [
         'success' => 'bool',
-        'data' => '\Pipedrive\versions\v2\Model\ProductResponse[]',
+        'data' => '\Pipedrive\versions\v2\Model\ProductWithArrayPrices[]',
         'additional_data' => '\Pipedrive\versions\v2\Model\AdditionalDataWithCursorPagination'
     ];
 
@@ -267,7 +267,7 @@ class ProductsResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets data
      *
-     * @return \Pipedrive\versions\v2\Model\ProductResponse[]|null
+     * @return \Pipedrive\versions\v2\Model\ProductWithArrayPrices[]|null
      */
     public function getData()
     {
@@ -277,7 +277,7 @@ class ProductsResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets data
      *
-     * @param \Pipedrive\versions\v2\Model\ProductResponse[]|null $data Array containing data for all products
+     * @param \Pipedrive\versions\v2\Model\ProductWithArrayPrices[]|null $data Array containing data for all products
      *
      * @return self
      */
