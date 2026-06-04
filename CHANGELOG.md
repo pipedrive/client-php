@@ -5,6 +5,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+
+## [17.0.0](https://github.com/pipedrive/client-php/compare16.0.0...17.0.0) (2026-03-06)
+
+### Added
+- Added `website`, `linkedin`, `industry`, `annual_revenue`, and `employee_count` fields to v2 organization response schema (`GET /api/v2/organizations`, `GET /api/v2/organizations/{id}`) — all nullable, not included by default
+- Added `deal_id`, `person_id`, and `org_id` as optional query filter parameters to `GET /api/v2/projects`
+### Changed
+- Dropped PHP 7.4 support — minimum required PHP version is now 8.0
+### Fixed
+- Fixed `deal_ids` query parameter serialization in `GET /api/v2/deals/products` — the array is now correctly encoded as a comma-separated string (e.g. `deal_ids=1,2,3`) to match the expected backend format
+- Fixed `BillingStartDate` format from non-standard `'YYYY-MM-DD'` to correct OAS3 `date` format in both v1 and v2 deal product schemas
+
+## [16.0.0](https://github.com/pipedrive/client-php/compare/15.7.0...16.0.0) (2026-05-05)
 ### Added
 - Added projects v2 API
 - Added project boards v2 API
@@ -15,18 +29,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Added project fields v2 API
 - Added `include_option_labels` parameter for v2 GET deal, person and organization endpoints
 - Added `include_labels` parameter to v2 GET deal, person, and organization endpoints
-- Added `source_deal_id` field to Lead schema to track the deal ID when a lead is converted from a deal
-- Added `source_lead_id` field to v2 Deal schema to track the lead ID when a lead is converted from a lead
-- Added `include_field_code` query parameter to Filters endpoints:
-  - `GET /v1/filters/{id}`
-  - `PUT /v1/filters/{id}`
-  - `POST /v1/filters`
-  - When set to `true`, each condition in the response includes a `field_code` field identifying the field by its code name. The value is `null` if the field code cannot be resolved.
 - Added `assignee_ids` field to Tasks endpoints:
   - `GET /v1/tasks`
   - `GET /v1/tasks/{id}`
   - `POST /v1/tasks`
   - `PUT /v1/tasks/{id}`
+- Added `task_id` field support to Notes endpoints:
+  - `GET /v1/notes` — new `task_id` and `pinned_to_task_flag` query parameters
+  - `POST /v1/notes` — new optional `task_id` field in request body
+  - `PUT /v1/notes/{id}` — new optional `task_id` field in request body
+  - Response schema includes new `task_id`, `task` (with `title`), and `pinned_to_task_flag` fields
 ### Removed
 - Removed deprecated v1 endpoints that have v2 equivalents. See the [deprecation announcement](https://developers.pipedrive.com/changelog/post/deprecation-of-selected-api-v1-endpoints) for details. Please migrate to the corresponding v2 endpoints listed below:
   - `GET /v1/activities` → `GET /api/v2/activities`
@@ -87,16 +99,24 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   - `DELETE /v1/stages/{id}` → `DELETE /api/v2/stages/{id}`
 ### Fixed
 - Made `picture_id`, `org_id`, `label`, `last_name`, `cc_email`, `last_incoming_mail_time`, and `last_outgoing_mail_time` nullable in person and organization schemas to match real API behavior
+
+## [15.7.0](https://github.com/pipedrive/client-php/compare/15.6.0...15.7.0) (2026-05-05)
 ### Changed
 - Changed `board_id` and `phase_id` to be optional in `POST /api/v1/projects`
 
-## [16.0.0](https://github.com/pipedrive/client-php/compare/15.7.0...16.0.0) (2026-05-05)
-
-## [15.7.0](https://github.com/pipedrive/client-php/compare/15.6.0...15.7.0) (2026-05-05)
-
 ## [15.6.0](https://github.com/pipedrive/client-php/compare/15.5.0...15.6.0) (2026-05-05)
+### Added
+- Added `source_deal_id` field to Lead schema to track the deal ID when a lead is converted from a deal
+- Added `source_lead_id` field to v2 Deal schema to track the lead ID when a lead is converted from a lead
 
 ## [15.5.0](https://github.com/pipedrive/client-php/compare/15.4.0...15.5.0) (2026-04-16)
+
+### Added
+- Added `include_field_code` query parameter to Filters endpoints:
+  - `GET /v1/filters/{id}`
+  - `PUT /v1/filters/{id}`
+  - `POST /v1/filters`
+  - When set to `true`, each condition in the response includes a `field_code` field identifying the field by its code name. The value is `null` if the field code cannot be resolved.
 
 ## [15.4.0](https://github.com/pipedrive/client-php/compare/15.3.0...15.4.0) (2026-02-16)
 

@@ -15,7 +15,7 @@
     "homepage": "https://github.com/pipedrive/client-php",
     "license": "MIT",
     "require": {
-        "php": "^7.4 || ^8.0",
+        "php": "^8.0",
         "ext-curl": "*",
         "ext-json": "*",
         "ext-mbstring": "*",
