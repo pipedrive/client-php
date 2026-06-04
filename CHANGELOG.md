@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [17.2.1](https://github.com/pipedrive/client-php/compare17.2.0...17.2.1) (2026-04-06)
+
 ### Fixed
 - Fixed double-nested response schema in `GET /api/v2/products` — `data` array items were incorrectly typed as a full response wrapper object instead of the product schema
 - Added missing fields to v2 product response schema: `add_time`, `update_time`, `description`, and `category` (nullable)
