@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [17.2.0](https://github.com/pipedrive/client-php/compare17.1.0...17.2.0) (2026-04-06)
+
 ### Added
 - Added `health_status` field to v1 project response schema (`GET /v1/projects`, `GET /v1/projects/{id}`)
 - Added `health_status` as a writable field to v2 project request body (`POST /api/v2/projects`, `PATCH /api/v2/projects/{id}`)
