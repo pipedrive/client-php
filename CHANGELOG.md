@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Fixed
+- Fixed `option_id` field type in v2 field schemas (`ActivityField`, `DealField`, `OrganizationField`, `PersonField`, `ProductField`, `ProjectField`) — changed from `integer` to `integer | string` to reflect that built-in fields use string IDs
+- Removed `description` from the required fields list in `DealField` and `DealFieldItem` schemas, aligning with the rest of the v2 field schemas
 
 ## [17.3.0](https://github.com/pipedrive/client-php/compare17.2.1...17.3.0) (2026-04-06)
 
