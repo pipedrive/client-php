@@ -1,6 +1,6 @@
 <?php
 /**
- * PersonItemIm
+ * PersonItemAddress
  *
  * PHP version 8.0
  *
@@ -35,9 +35,10 @@ use Pipedrive\versions\v2\Traits\RawData;
 use Pipedrive\versions\v2\ObjectSerializer;
 
 /**
- * PersonItemIm Class Doc Comment
+ * PersonItemAddress Class Doc Comment
  *
  * @category Class
+ * @description Postal address of the person, included if contact sync is enabled for the company
  * @package  Pipedrive\versions\v2
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -45,7 +46,7 @@ use Pipedrive\versions\v2\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class PersonItemIm implements ModelInterface, ArrayAccess, JsonSerializable
+class PersonItemAddress implements ModelInterface, ArrayAccess, JsonSerializable
 {
     use RawData;
 
@@ -56,7 +57,7 @@ class PersonItemIm implements ModelInterface, ArrayAccess, JsonSerializable
       *
       * @var string
       */
-    protected static string $openAPIModelName = 'PersonItemIm';
+    protected static string $openAPIModelName = 'PersonItemAddress';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -67,8 +68,15 @@ class PersonItemIm implements ModelInterface, ArrayAccess, JsonSerializable
       */
     protected static array $openAPITypes = [
         'value' => 'string',
-        'primary' => 'bool',
-        'label' => 'string'
+        'country' => 'string',
+        'admin_area_level_1' => 'string',
+        'admin_area_level_2' => 'string',
+        'locality' => 'string',
+        'sublocality' => 'string',
+        'route' => 'string',
+        'street_number' => 'string',
+        'subpremise' => 'string',
+        'postal_code' => 'string'
     ];
 
     /**
@@ -80,8 +88,15 @@ class PersonItemIm implements ModelInterface, ArrayAccess, JsonSerializable
       */
     protected static $openAPIFormats = [
         'value' => null,
-        'primary' => null,
-        'label' => null
+        'country' => null,
+        'admin_area_level_1' => null,
+        'admin_area_level_2' => null,
+        'locality' => null,
+        'sublocality' => null,
+        'route' => null,
+        'street_number' => null,
+        'subpremise' => null,
+        'postal_code' => null
     ];
 
     /**
@@ -116,8 +131,15 @@ class PersonItemIm implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static $attributeMap = [
         'value' => 'value',
-        'primary' => 'primary',
-        'label' => 'label'
+        'country' => 'country',
+        'admin_area_level_1' => 'admin_area_level_1',
+        'admin_area_level_2' => 'admin_area_level_2',
+        'locality' => 'locality',
+        'sublocality' => 'sublocality',
+        'route' => 'route',
+        'street_number' => 'street_number',
+        'subpremise' => 'subpremise',
+        'postal_code' => 'postal_code'
     ];
 
     /**
@@ -127,8 +149,15 @@ class PersonItemIm implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static $setters = [
         'value' => 'setValue',
-        'primary' => 'setPrimary',
-        'label' => 'setLabel'
+        'country' => 'setCountry',
+        'admin_area_level_1' => 'setAdminAreaLevel1',
+        'admin_area_level_2' => 'setAdminAreaLevel2',
+        'locality' => 'setLocality',
+        'sublocality' => 'setSublocality',
+        'route' => 'setRoute',
+        'street_number' => 'setStreetNumber',
+        'subpremise' => 'setSubpremise',
+        'postal_code' => 'setPostalCode'
     ];
 
     /**
@@ -138,8 +167,15 @@ class PersonItemIm implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static $getters = [
         'value' => 'getValue',
-        'primary' => 'getPrimary',
-        'label' => 'getLabel'
+        'country' => 'getCountry',
+        'admin_area_level_1' => 'getAdminAreaLevel1',
+        'admin_area_level_2' => 'getAdminAreaLevel2',
+        'locality' => 'getLocality',
+        'sublocality' => 'getSublocality',
+        'route' => 'getRoute',
+        'street_number' => 'getStreetNumber',
+        'subpremise' => 'getSubpremise',
+        'postal_code' => 'getPostalCode'
     ];
 
     /**
@@ -210,8 +246,15 @@ class PersonItemIm implements ModelInterface, ArrayAccess, JsonSerializable
     public function __construct(?array $data = null)
     {
         $this->container['value'] = $data['value'] ?? null;
-        $this->container['primary'] = $data['primary'] ?? null;
-        $this->container['label'] = $data['label'] ?? null;
+        $this->container['country'] = $data['country'] ?? null;
+        $this->container['admin_area_level_1'] = $data['admin_area_level_1'] ?? null;
+        $this->container['admin_area_level_2'] = $data['admin_area_level_2'] ?? null;
+        $this->container['locality'] = $data['locality'] ?? null;
+        $this->container['sublocality'] = $data['sublocality'] ?? null;
+        $this->container['route'] = $data['route'] ?? null;
+        $this->container['street_number'] = $data['street_number'] ?? null;
+        $this->container['subpremise'] = $data['subpremise'] ?? null;
+        $this->container['postal_code'] = $data['postal_code'] ?? null;
     }
 
     /**
@@ -253,7 +296,7 @@ class PersonItemIm implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets value
      *
-     * @param string|null $value The instant messaging account of the person
+     * @param string|null $value The full address of the person
      *
      * @return self
      */
@@ -265,49 +308,217 @@ class PersonItemIm implements ModelInterface, ArrayAccess, JsonSerializable
     }
 
     /**
-     * Gets primary
+     * Gets country
      *
-     * @return bool|null
+     * @return string|null
      */
-    public function getPrimary()
+    public function getCountry()
     {
-        return $this->container['primary'];
+        return $this->container['country'];
     }
 
     /**
-     * Sets primary
+     * Sets country
      *
-     * @param bool|null $primary Whether the instant messaging account is primary or not
+     * @param string|null $country Country of the person
      *
      * @return self
      */
-    public function setPrimary($primary): self
+    public function setCountry($country): self
     {
-        $this->container['primary'] = $primary;
+        $this->container['country'] = $country;
 
         return $this;
     }
 
     /**
-     * Gets label
+     * Gets admin_area_level_1
      *
      * @return string|null
      */
-    public function getLabel()
+    public function getAdminAreaLevel1()
     {
-        return $this->container['label'];
+        return $this->container['admin_area_level_1'];
     }
 
     /**
-     * Sets label
+     * Sets admin_area_level_1
      *
-     * @param string|null $label The instant messaging account classification label
+     * @param string|null $admin_area_level_1 Admin area level 1 (e.g. state) of the person
      *
      * @return self
      */
-    public function setLabel($label): self
+    public function setAdminAreaLevel1($admin_area_level_1): self
     {
-        $this->container['label'] = $label;
+        $this->container['admin_area_level_1'] = $admin_area_level_1;
+
+        return $this;
+    }
+
+    /**
+     * Gets admin_area_level_2
+     *
+     * @return string|null
+     */
+    public function getAdminAreaLevel2()
+    {
+        return $this->container['admin_area_level_2'];
+    }
+
+    /**
+     * Sets admin_area_level_2
+     *
+     * @param string|null $admin_area_level_2 Admin area level 2 (e.g. county) of the person
+     *
+     * @return self
+     */
+    public function setAdminAreaLevel2($admin_area_level_2): self
+    {
+        $this->container['admin_area_level_2'] = $admin_area_level_2;
+
+        return $this;
+    }
+
+    /**
+     * Gets locality
+     *
+     * @return string|null
+     */
+    public function getLocality()
+    {
+        return $this->container['locality'];
+    }
+
+    /**
+     * Sets locality
+     *
+     * @param string|null $locality Locality (e.g. city) of the person
+     *
+     * @return self
+     */
+    public function setLocality($locality): self
+    {
+        $this->container['locality'] = $locality;
+
+        return $this;
+    }
+
+    /**
+     * Gets sublocality
+     *
+     * @return string|null
+     */
+    public function getSublocality()
+    {
+        return $this->container['sublocality'];
+    }
+
+    /**
+     * Sets sublocality
+     *
+     * @param string|null $sublocality Sublocality (e.g. neighborhood) of the person
+     *
+     * @return self
+     */
+    public function setSublocality($sublocality): self
+    {
+        $this->container['sublocality'] = $sublocality;
+
+        return $this;
+    }
+
+    /**
+     * Gets route
+     *
+     * @return string|null
+     */
+    public function getRoute()
+    {
+        return $this->container['route'];
+    }
+
+    /**
+     * Sets route
+     *
+     * @param string|null $route Route (e.g. street) of the person
+     *
+     * @return self
+     */
+    public function setRoute($route): self
+    {
+        $this->container['route'] = $route;
+
+        return $this;
+    }
+
+    /**
+     * Gets street_number
+     *
+     * @return string|null
+     */
+    public function getStreetNumber()
+    {
+        return $this->container['street_number'];
+    }
+
+    /**
+     * Sets street_number
+     *
+     * @param string|null $street_number Street number of the person
+     *
+     * @return self
+     */
+    public function setStreetNumber($street_number): self
+    {
+        $this->container['street_number'] = $street_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets subpremise
+     *
+     * @return string|null
+     */
+    public function getSubpremise()
+    {
+        return $this->container['subpremise'];
+    }
+
+    /**
+     * Sets subpremise
+     *
+     * @param string|null $subpremise Subpremise (e.g. apartment/suite number) of the person
+     *
+     * @return self
+     */
+    public function setSubpremise($subpremise): self
+    {
+        $this->container['subpremise'] = $subpremise;
+
+        return $this;
+    }
+
+    /**
+     * Gets postal_code
+     *
+     * @return string|null
+     */
+    public function getPostalCode()
+    {
+        return $this->container['postal_code'];
+    }
+
+    /**
+     * Sets postal_code
+     *
+     * @param string|null $postal_code Postal code of the person
+     *
+     * @return self
+     */
+    public function setPostalCode($postal_code): self
+    {
+        $this->container['postal_code'] = $postal_code;
 
         return $this;
     }

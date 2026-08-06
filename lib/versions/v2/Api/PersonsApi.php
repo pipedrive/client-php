@@ -127,15 +127,15 @@ class PersonsApi
      *
      * Add a new person
      *
-     * @param  \Pipedrive\versions\v2\Model\PersonRequestBody|null $person_request_body person_request_body (optional)
+     * @param  \Pipedrive\versions\v2\Model\PostPersonRequestBody|null $post_person_request_body post_person_request_body (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v2\Model\PostPatchGetPerson
      */
-    public function addPerson($person_request_body = null)
+    public function addPerson($post_person_request_body = null)
     {
-        list($response) = $this->addPersonWithHttpInfo($person_request_body);
+        list($response) = $this->addPersonWithHttpInfo($post_person_request_body);
         return $response;
     }
 
@@ -144,15 +144,15 @@ class PersonsApi
      *
      * Add a new person
      *
-     * @param  \Pipedrive\versions\v2\Model\PersonRequestBody|null $person_request_body (optional)
+     * @param  \Pipedrive\versions\v2\Model\PostPersonRequestBody|null $post_person_request_body (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v2\Model\PostPatchGetPerson, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addPersonWithHttpInfo($person_request_body = null)
+    public function addPersonWithHttpInfo($post_person_request_body = null)
     {
-        $request = $this->addPersonRequest($person_request_body);
+        $request = $this->addPersonRequest($post_person_request_body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -161,7 +161,7 @@ class PersonsApi
             } catch (RequestException $e) {
                 if ($e->getCode() === 401 && $this->config->isRefreshPossible()) {
                     $this->config->refreshToken();
-                    $request = $this->addPersonRequest($person_request_body);
+                    $request = $this->addPersonRequest($post_person_request_body);
                     $response = $this->client->send($request, $options);
                 } else {
                     throw new ApiException(
@@ -245,14 +245,14 @@ class PersonsApi
      *
      * Add a new person
      *
-     * @param  \Pipedrive\versions\v2\Model\PersonRequestBody|null $person_request_body (optional)
+     * @param  \Pipedrive\versions\v2\Model\PostPersonRequestBody|null $post_person_request_body (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
      */
-    public function addPersonAsync($person_request_body = null): PromiseInterface
+    public function addPersonAsync($post_person_request_body = null): PromiseInterface
     {
-        return $this->addPersonAsyncWithHttpInfo($person_request_body)
+        return $this->addPersonAsyncWithHttpInfo($post_person_request_body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -265,15 +265,15 @@ class PersonsApi
      *
      * Add a new person
      *
-     * @param  \Pipedrive\versions\v2\Model\PersonRequestBody|null $person_request_body (optional)
+     * @param  \Pipedrive\versions\v2\Model\PostPersonRequestBody|null $post_person_request_body (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
      */
-    public function addPersonAsyncWithHttpInfo($person_request_body = null): PromiseInterface
+    public function addPersonAsyncWithHttpInfo($post_person_request_body = null): PromiseInterface
     {
         $returnType = '\Pipedrive\versions\v2\Model\PostPatchGetPerson';
-        $request = $this->addPersonRequest($person_request_body);
+        $request = $this->addPersonRequest($post_person_request_body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -312,12 +312,12 @@ class PersonsApi
     /**
      * Create request for operation 'addPerson'
      *
-     * @param  \Pipedrive\versions\v2\Model\PersonRequestBody|null $person_request_body (optional)
+     * @param  \Pipedrive\versions\v2\Model\PostPersonRequestBody|null $post_person_request_body (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
      */
-    public function addPersonRequest($person_request_body = null): Request
+    public function addPersonRequest($post_person_request_body = null): Request
     {
 
         $resourcePath = '/persons';
@@ -344,11 +344,11 @@ class PersonsApi
         }
 
         // for model (json/xml)
-        if (isset($person_request_body)) {
+        if (isset($post_person_request_body)) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($person_request_body));
+                $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($post_person_request_body));
             } else {
-                $httpBody = $person_request_body;
+                $httpBody = $post_person_request_body;
             }
         } elseif (count($formParams) > 0) {
             /* @phpstan-ignore-next-line */
@@ -3467,15 +3467,15 @@ class PersonsApi
      * Update a person
      *
      * @param  int $id The ID of the person (required)
-     * @param  \Pipedrive\versions\v2\Model\PersonRequestBody|null $person_request_body person_request_body (optional)
+     * @param  \Pipedrive\versions\v2\Model\UpdatePersonRequestBody|null $update_person_request_body update_person_request_body (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v2\Model\PostPatchGetPerson
      */
-    public function updatePerson($id, $person_request_body = null)
+    public function updatePerson($id, $update_person_request_body = null)
     {
-        list($response) = $this->updatePersonWithHttpInfo($id, $person_request_body);
+        list($response) = $this->updatePersonWithHttpInfo($id, $update_person_request_body);
         return $response;
     }
 
@@ -3485,15 +3485,15 @@ class PersonsApi
      * Update a person
      *
      * @param  int $id The ID of the person (required)
-     * @param  \Pipedrive\versions\v2\Model\PersonRequestBody|null $person_request_body (optional)
+     * @param  \Pipedrive\versions\v2\Model\UpdatePersonRequestBody|null $update_person_request_body (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v2\Model\PostPatchGetPerson, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updatePersonWithHttpInfo($id, $person_request_body = null)
+    public function updatePersonWithHttpInfo($id, $update_person_request_body = null)
     {
-        $request = $this->updatePersonRequest($id, $person_request_body);
+        $request = $this->updatePersonRequest($id, $update_person_request_body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3502,7 +3502,7 @@ class PersonsApi
             } catch (RequestException $e) {
                 if ($e->getCode() === 401 && $this->config->isRefreshPossible()) {
                     $this->config->refreshToken();
-                    $request = $this->updatePersonRequest($id, $person_request_body);
+                    $request = $this->updatePersonRequest($id, $update_person_request_body);
                     $response = $this->client->send($request, $options);
                 } else {
                     throw new ApiException(
@@ -3587,14 +3587,14 @@ class PersonsApi
      * Update a person
      *
      * @param  int $id The ID of the person (required)
-     * @param  \Pipedrive\versions\v2\Model\PersonRequestBody|null $person_request_body (optional)
+     * @param  \Pipedrive\versions\v2\Model\UpdatePersonRequestBody|null $update_person_request_body (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
      */
-    public function updatePersonAsync($id, $person_request_body = null): PromiseInterface
+    public function updatePersonAsync($id, $update_person_request_body = null): PromiseInterface
     {
-        return $this->updatePersonAsyncWithHttpInfo($id, $person_request_body)
+        return $this->updatePersonAsyncWithHttpInfo($id, $update_person_request_body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3608,15 +3608,15 @@ class PersonsApi
      * Update a person
      *
      * @param  int $id The ID of the person (required)
-     * @param  \Pipedrive\versions\v2\Model\PersonRequestBody|null $person_request_body (optional)
+     * @param  \Pipedrive\versions\v2\Model\UpdatePersonRequestBody|null $update_person_request_body (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
      */
-    public function updatePersonAsyncWithHttpInfo($id, $person_request_body = null): PromiseInterface
+    public function updatePersonAsyncWithHttpInfo($id, $update_person_request_body = null): PromiseInterface
     {
         $returnType = '\Pipedrive\versions\v2\Model\PostPatchGetPerson';
-        $request = $this->updatePersonRequest($id, $person_request_body);
+        $request = $this->updatePersonRequest($id, $update_person_request_body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3656,12 +3656,12 @@ class PersonsApi
      * Create request for operation 'updatePerson'
      *
      * @param  int $id The ID of the person (required)
-     * @param  \Pipedrive\versions\v2\Model\PersonRequestBody|null $person_request_body (optional)
+     * @param  \Pipedrive\versions\v2\Model\UpdatePersonRequestBody|null $update_person_request_body (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
      */
-    public function updatePersonRequest($id, $person_request_body = null): Request
+    public function updatePersonRequest($id, $update_person_request_body = null): Request
     {
         // verify the required parameter 'id' is set
         /* @phpstan-ignore-next-line */
@@ -3703,11 +3703,11 @@ class PersonsApi
         }
 
         // for model (json/xml)
-        if (isset($person_request_body)) {
+        if (isset($update_person_request_body)) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($person_request_body));
+                $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($update_person_request_body));
             } else {
-                $httpBody = $person_request_body;
+                $httpBody = $update_person_request_body;
             }
         } elseif (count($formParams) > 0) {
             /* @phpstan-ignore-next-line */

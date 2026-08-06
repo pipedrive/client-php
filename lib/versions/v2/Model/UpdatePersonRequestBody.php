@@ -1,6 +1,6 @@
 <?php
 /**
- * PersonItem
+ * UpdatePersonRequestBody
  *
  * PHP version 8.0
  *
@@ -35,7 +35,7 @@ use Pipedrive\versions\v2\Traits\RawData;
 use Pipedrive\versions\v2\ObjectSerializer;
 
 /**
- * PersonItem Class Doc Comment
+ * UpdatePersonRequestBody Class Doc Comment
  *
  * @category Class
  * @package  Pipedrive\versions\v2
@@ -45,7 +45,7 @@ use Pipedrive\versions\v2\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class PersonItem implements ModelInterface, ArrayAccess, JsonSerializable
+class UpdatePersonRequestBody implements ModelInterface, ArrayAccess, JsonSerializable
 {
     use RawData;
 
@@ -56,7 +56,7 @@ class PersonItem implements ModelInterface, ArrayAccess, JsonSerializable
       *
       * @var string
       */
-    protected static string $openAPIModelName = 'PersonItem';
+    protected static string $openAPIModelName = 'UpdatePersonRequestBody';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -66,25 +66,19 @@ class PersonItem implements ModelInterface, ArrayAccess, JsonSerializable
       * @phpsalm-var array<string, string>
       */
     protected static array $openAPITypes = [
-        'id' => 'int',
         'name' => 'string',
-        'first_name' => 'string',
-        'last_name' => 'string',
         'owner_id' => 'int',
         'org_id' => 'int',
-        'add_time' => 'string',
-        'update_time' => 'string',
         'emails' => '\Pipedrive\versions\v2\Model\PersonItemEmail[]',
         'phones' => '\Pipedrive\versions\v2\Model\PersonItemPhone[]',
-        'is_deleted' => 'bool',
         'visible_to' => 'int',
         'label_ids' => 'int[]',
-        'picture_id' => 'int',
         'postal_address' => '\Pipedrive\versions\v2\Model\PersonItemAddress',
         'notes' => 'string',
         'im' => '\Pipedrive\versions\v2\Model\PersonItemIm[]',
         'birthday' => 'string',
         'job_title' => 'string',
+        'marketing_status' => 'string',
         'custom_fields' => 'array<string,object>'
     ];
 
@@ -96,25 +90,19 @@ class PersonItem implements ModelInterface, ArrayAccess, JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
         'name' => null,
-        'first_name' => null,
-        'last_name' => null,
         'owner_id' => null,
         'org_id' => null,
-        'add_time' => null,
-        'update_time' => null,
         'emails' => null,
         'phones' => null,
-        'is_deleted' => null,
         'visible_to' => null,
         'label_ids' => null,
-        'picture_id' => null,
         'postal_address' => null,
         'notes' => null,
         'im' => null,
         'birthday' => null,
         'job_title' => null,
+        'marketing_status' => null,
         'custom_fields' => null
     ];
 
@@ -149,25 +137,19 @@ class PersonItem implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
         'name' => 'name',
-        'first_name' => 'first_name',
-        'last_name' => 'last_name',
         'owner_id' => 'owner_id',
         'org_id' => 'org_id',
-        'add_time' => 'add_time',
-        'update_time' => 'update_time',
         'emails' => 'emails',
         'phones' => 'phones',
-        'is_deleted' => 'is_deleted',
         'visible_to' => 'visible_to',
         'label_ids' => 'label_ids',
-        'picture_id' => 'picture_id',
         'postal_address' => 'postal_address',
         'notes' => 'notes',
         'im' => 'im',
         'birthday' => 'birthday',
         'job_title' => 'job_title',
+        'marketing_status' => 'marketing_status',
         'custom_fields' => 'custom_fields'
     ];
 
@@ -177,25 +159,19 @@ class PersonItem implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
         'name' => 'setName',
-        'first_name' => 'setFirstName',
-        'last_name' => 'setLastName',
         'owner_id' => 'setOwnerId',
         'org_id' => 'setOrgId',
-        'add_time' => 'setAddTime',
-        'update_time' => 'setUpdateTime',
         'emails' => 'setEmails',
         'phones' => 'setPhones',
-        'is_deleted' => 'setIsDeleted',
         'visible_to' => 'setVisibleTo',
         'label_ids' => 'setLabelIds',
-        'picture_id' => 'setPictureId',
         'postal_address' => 'setPostalAddress',
         'notes' => 'setNotes',
         'im' => 'setIm',
         'birthday' => 'setBirthday',
         'job_title' => 'setJobTitle',
+        'marketing_status' => 'setMarketingStatus',
         'custom_fields' => 'setCustomFields'
     ];
 
@@ -205,25 +181,19 @@ class PersonItem implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
         'name' => 'getName',
-        'first_name' => 'getFirstName',
-        'last_name' => 'getLastName',
         'owner_id' => 'getOwnerId',
         'org_id' => 'getOrgId',
-        'add_time' => 'getAddTime',
-        'update_time' => 'getUpdateTime',
         'emails' => 'getEmails',
         'phones' => 'getPhones',
-        'is_deleted' => 'getIsDeleted',
         'visible_to' => 'getVisibleTo',
         'label_ids' => 'getLabelIds',
-        'picture_id' => 'getPictureId',
         'postal_address' => 'getPostalAddress',
         'notes' => 'getNotes',
         'im' => 'getIm',
         'birthday' => 'getBirthday',
         'job_title' => 'getJobTitle',
+        'marketing_status' => 'getMarketingStatus',
         'custom_fields' => 'getCustomFields'
     ];
 
@@ -274,6 +244,27 @@ class PersonItem implements ModelInterface, ArrayAccess, JsonSerializable
         return self::$openAPIModelName;
     }
 
+    const MARKETING_STATUS_NO_CONSENT = 'no_consent';
+    const MARKETING_STATUS_UNSUBSCRIBED = 'unsubscribed';
+    const MARKETING_STATUS_SUBSCRIBED = 'subscribed';
+    const MARKETING_STATUS_ARCHIVED = 'archived';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @phpstan-return  array<string|int>
+     * @phpsalm-return  array<string|int>
+     * @return (string|int)[]
+     */
+    public function getMarketingStatusAllowableValues(): array
+    {
+        return [
+            self::MARKETING_STATUS_NO_CONSENT,
+            self::MARKETING_STATUS_UNSUBSCRIBED,
+            self::MARKETING_STATUS_SUBSCRIBED,
+            self::MARKETING_STATUS_ARCHIVED,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -294,25 +285,19 @@ class PersonItem implements ModelInterface, ArrayAccess, JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->container['id'] = $data['id'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
-        $this->container['first_name'] = $data['first_name'] ?? null;
-        $this->container['last_name'] = $data['last_name'] ?? null;
         $this->container['owner_id'] = $data['owner_id'] ?? null;
         $this->container['org_id'] = $data['org_id'] ?? null;
-        $this->container['add_time'] = $data['add_time'] ?? null;
-        $this->container['update_time'] = $data['update_time'] ?? null;
         $this->container['emails'] = $data['emails'] ?? null;
         $this->container['phones'] = $data['phones'] ?? null;
-        $this->container['is_deleted'] = $data['is_deleted'] ?? null;
         $this->container['visible_to'] = $data['visible_to'] ?? null;
         $this->container['label_ids'] = $data['label_ids'] ?? null;
-        $this->container['picture_id'] = $data['picture_id'] ?? null;
         $this->container['postal_address'] = $data['postal_address'] ?? null;
         $this->container['notes'] = $data['notes'] ?? null;
         $this->container['im'] = $data['im'] ?? null;
         $this->container['birthday'] = $data['birthday'] ?? null;
         $this->container['job_title'] = $data['job_title'] ?? null;
+        $this->container['marketing_status'] = $data['marketing_status'] ?? null;
         $this->container['custom_fields'] = $data['custom_fields'] ?? null;
     }
 
@@ -326,6 +311,15 @@ class PersonItem implements ModelInterface, ArrayAccess, JsonSerializable
     public function listInvalidProperties(): array
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getMarketingStatusAllowableValues();
+        if (!is_null($this->container['marketing_status']) && !in_array($this->container['marketing_status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'marketing_status', must be one of '%s'",
+                $this->container['marketing_status'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -341,30 +335,6 @@ class PersonItem implements ModelInterface, ArrayAccess, JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets id
-     *
-     * @return int|null
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param int|null $id The ID of the person
-     *
-     * @return self
-     */
-    public function setId($id): self
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
 
     /**
      * Gets name
@@ -386,54 +356,6 @@ class PersonItem implements ModelInterface, ArrayAccess, JsonSerializable
     public function setName($name): self
     {
         $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets first_name
-     *
-     * @return string|null
-     */
-    public function getFirstName()
-    {
-        return $this->container['first_name'];
-    }
-
-    /**
-     * Sets first_name
-     *
-     * @param string|null $first_name The first name of the person
-     *
-     * @return self
-     */
-    public function setFirstName($first_name): self
-    {
-        $this->container['first_name'] = $first_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets last_name
-     *
-     * @return string|null
-     */
-    public function getLastName()
-    {
-        return $this->container['last_name'];
-    }
-
-    /**
-     * Sets last_name
-     *
-     * @param string|null $last_name The last name of the person
-     *
-     * @return self
-     */
-    public function setLastName($last_name): self
-    {
-        $this->container['last_name'] = $last_name;
 
         return $this;
     }
@@ -487,54 +409,6 @@ class PersonItem implements ModelInterface, ArrayAccess, JsonSerializable
     }
 
     /**
-     * Gets add_time
-     *
-     * @return string|null
-     */
-    public function getAddTime()
-    {
-        return $this->container['add_time'];
-    }
-
-    /**
-     * Sets add_time
-     *
-     * @param string|null $add_time The creation date and time of the person
-     *
-     * @return self
-     */
-    public function setAddTime($add_time): self
-    {
-        $this->container['add_time'] = $add_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets update_time
-     *
-     * @return string|null
-     */
-    public function getUpdateTime()
-    {
-        return $this->container['update_time'];
-    }
-
-    /**
-     * Sets update_time
-     *
-     * @param string|null $update_time The last updated date and time of the person
-     *
-     * @return self
-     */
-    public function setUpdateTime($update_time): self
-    {
-        $this->container['update_time'] = $update_time;
-
-        return $this;
-    }
-
-    /**
      * Gets emails
      *
      * @return \Pipedrive\versions\v2\Model\PersonItemEmail[]|null
@@ -583,30 +457,6 @@ class PersonItem implements ModelInterface, ArrayAccess, JsonSerializable
     }
 
     /**
-     * Gets is_deleted
-     *
-     * @return bool|null
-     */
-    public function getIsDeleted()
-    {
-        return $this->container['is_deleted'];
-    }
-
-    /**
-     * Sets is_deleted
-     *
-     * @param bool|null $is_deleted Whether the person is deleted or not
-     *
-     * @return self
-     */
-    public function setIsDeleted($is_deleted): self
-    {
-        $this->container['is_deleted'] = $is_deleted;
-
-        return $this;
-    }
-
-    /**
      * Gets visible_to
      *
      * @return int|null
@@ -650,30 +500,6 @@ class PersonItem implements ModelInterface, ArrayAccess, JsonSerializable
     public function setLabelIds($label_ids): self
     {
         $this->container['label_ids'] = $label_ids;
-
-        return $this;
-    }
-
-    /**
-     * Gets picture_id
-     *
-     * @return int|null
-     */
-    public function getPictureId()
-    {
-        return $this->container['picture_id'];
-    }
-
-    /**
-     * Sets picture_id
-     *
-     * @param int|null $picture_id The ID of the picture associated with the person
-     *
-     * @return self
-     */
-    public function setPictureId($picture_id): self
-    {
-        $this->container['picture_id'] = $picture_id;
 
         return $this;
     }
@@ -794,6 +620,40 @@ class PersonItem implements ModelInterface, ArrayAccess, JsonSerializable
     public function setJobTitle($job_title): self
     {
         $this->container['job_title'] = $job_title;
+
+        return $this;
+    }
+
+    /**
+     * Gets marketing_status
+     *
+     * @return string|null
+     */
+    public function getMarketingStatus()
+    {
+        return $this->container['marketing_status'];
+    }
+
+    /**
+     * Sets marketing_status
+     *
+     * @param string|null $marketing_status If the person does not have a valid email address, then the marketing status is **not set** and `no_consent` is returned for the `marketing_status` value when the new person is created. If the change is forbidden, the status will remain unchanged for every call that tries to modify the marketing status. Please be aware that it is only allowed **once** to change the marketing status from an old status to a new one.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`no_consent`</td><td>The customer has not given consent to receive any marketing communications</td></tr><tr><td>`unsubscribed`</td><td>The customers have unsubscribed from ALL marketing communications</td></tr><tr><td>`subscribed`</td><td>The customers are subscribed and are counted towards marketing caps</td></tr><tr><td>`archived`</td><td>The customers with `subscribed` status can be moved to `archived` to save consent, but they are not paid for</td></tr></table>
+     *
+     * @return self
+     */
+    public function setMarketingStatus($marketing_status): self
+    {
+        $allowedValues = $this->getMarketingStatusAllowableValues();
+        if (!is_null($marketing_status) && !in_array($marketing_status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'marketing_status', must be one of '%s'",
+                    $marketing_status,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['marketing_status'] = $marketing_status;
 
         return $this;
     }

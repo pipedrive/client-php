@@ -1,6 +1,6 @@
 <?php
 /**
- * PersonItemIm
+ * PersonItemPhone
  *
  * PHP version 8.0
  *
@@ -35,7 +35,7 @@ use Pipedrive\versions\v2\Traits\RawData;
 use Pipedrive\versions\v2\ObjectSerializer;
 
 /**
- * PersonItemIm Class Doc Comment
+ * PersonItemPhone Class Doc Comment
  *
  * @category Class
  * @package  Pipedrive\versions\v2
@@ -45,7 +45,7 @@ use Pipedrive\versions\v2\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class PersonItemIm implements ModelInterface, ArrayAccess, JsonSerializable
+class PersonItemPhone implements ModelInterface, ArrayAccess, JsonSerializable
 {
     use RawData;
 
@@ -56,7 +56,7 @@ class PersonItemIm implements ModelInterface, ArrayAccess, JsonSerializable
       *
       * @var string
       */
-    protected static string $openAPIModelName = 'PersonItemIm';
+    protected static string $openAPIModelName = 'PersonItemPhone';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -253,7 +253,7 @@ class PersonItemIm implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets value
      *
-     * @param string|null $value The instant messaging account of the person
+     * @param string|null $value The phone number of the person
      *
      * @return self
      */
@@ -277,7 +277,7 @@ class PersonItemIm implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets primary
      *
-     * @param bool|null $primary Whether the instant messaging account is primary or not
+     * @param bool|null $primary Whether the phone number is primary or not
      *
      * @return self
      */
@@ -301,7 +301,7 @@ class PersonItemIm implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets label
      *
-     * @param string|null $label The instant messaging account classification label
+     * @param string|null $label The phone number classification label
      *
      * @return self
      */
