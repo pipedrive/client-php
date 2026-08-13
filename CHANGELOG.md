@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [17.5.0](https://github.com/pipedrive/client-php/compare17.4.0...17.5.0) (2026-08-13)
+
 ### Added
 - Added `website`, `linkedin`, `industry`, `annual_revenue`, and `employee_count` as writable fields to v2 organization request body (`POST /api/v2/organizations`, `PATCH /api/v2/organizations/{id}`)
 - Added `postal_address`, `notes`, `im`, `birthday`, and `job_title` as writable fields to v2 person request body (`POST /api/v2/persons`, `PATCH /api/v2/persons/{id}`) — these fields don't exist by default and are only created when contact sync is set up for the company
