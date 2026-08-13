@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [17.5.1](https://github.com/pipedrive/client-php/compare17.5.0...17.5.1) (2026-08-13)
+
+### Fixed
+- Added missing `nova` value to the `UserAccess.app` enum (`GET /v1/users`) — accounts with Nova enabled were returning `"app": "nova"` in `user_access` entries, causing generated SDKs to throw an error during response deserialization
+- Added missing `partnership` and `nova` values to the `PermissionSetsItem.app` enum and the `app` query parameter enum (`GET /permissionSets`) — same class of error for accounts with a permission set for those apps
+
 ## [17.5.0](https://github.com/pipedrive/client-php/compare17.4.0...17.5.0) (2026-08-13)
 
 ### Added
