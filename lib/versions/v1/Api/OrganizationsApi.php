@@ -1710,14 +1710,15 @@ class OrganizationsApi
      * @param  int $id The ID of the organization (required)
      * @param  int|0 $start Pagination start (optional, default to 0)
      * @param  int|null $limit Items shown per page (optional)
+     * @param  \Pipedrive\versions\v1\Model\NumberBooleanDefault0|null $include_body Whether to include the mail message body content in the response. &#x60;0&#x60; &#x3D; Don&#39;t include, &#x60;1&#x60; &#x3D; Include. (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\ListMailMessagesResponse
      */
-    public function getOrganizationMailMessages($id, $start = 0, $limit = null)
+    public function getOrganizationMailMessages($id, $start = 0, $limit = null, $include_body = null)
     {
-        list($response) = $this->getOrganizationMailMessagesWithHttpInfo($id, $start, $limit);
+        list($response) = $this->getOrganizationMailMessagesWithHttpInfo($id, $start, $limit, $include_body);
         return $response;
     }
 
@@ -1729,14 +1730,15 @@ class OrganizationsApi
      * @param  int $id The ID of the organization (required)
      * @param  int|0 $start Pagination start (optional, default to 0)
      * @param  int|null $limit Items shown per page (optional)
+     * @param  \Pipedrive\versions\v1\Model\NumberBooleanDefault0|null $include_body Whether to include the mail message body content in the response. &#x60;0&#x60; &#x3D; Don&#39;t include, &#x60;1&#x60; &#x3D; Include. (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\ListMailMessagesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOrganizationMailMessagesWithHttpInfo($id, $start = 0, $limit = null)
+    public function getOrganizationMailMessagesWithHttpInfo($id, $start = 0, $limit = null, $include_body = null)
     {
-        $request = $this->getOrganizationMailMessagesRequest($id, $start, $limit);
+        $request = $this->getOrganizationMailMessagesRequest($id, $start, $limit, $include_body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1745,7 +1747,7 @@ class OrganizationsApi
             } catch (RequestException $e) {
                 if ($e->getCode() === 401 && $this->config->isRefreshPossible()) {
                     $this->config->refreshToken();
-                    $request = $this->getOrganizationMailMessagesRequest($id, $start, $limit);
+                    $request = $this->getOrganizationMailMessagesRequest($id, $start, $limit, $include_body);
                     $response = $this->client->send($request, $options);
                 } else {
                     throw new ApiException(
@@ -1832,13 +1834,14 @@ class OrganizationsApi
      * @param  int $id The ID of the organization (required)
      * @param  int|0 $start Pagination start (optional, default to 0)
      * @param  int|null $limit Items shown per page (optional)
+     * @param  \Pipedrive\versions\v1\Model\NumberBooleanDefault0|null $include_body Whether to include the mail message body content in the response. &#x60;0&#x60; &#x3D; Don&#39;t include, &#x60;1&#x60; &#x3D; Include. (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
      */
-    public function getOrganizationMailMessagesAsync($id, $start = 0, $limit = null): PromiseInterface
+    public function getOrganizationMailMessagesAsync($id, $start = 0, $limit = null, $include_body = null): PromiseInterface
     {
-        return $this->getOrganizationMailMessagesAsyncWithHttpInfo($id, $start, $limit)
+        return $this->getOrganizationMailMessagesAsyncWithHttpInfo($id, $start, $limit, $include_body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1854,14 +1857,15 @@ class OrganizationsApi
      * @param  int $id The ID of the organization (required)
      * @param  int|0 $start Pagination start (optional, default to 0)
      * @param  int|null $limit Items shown per page (optional)
+     * @param  \Pipedrive\versions\v1\Model\NumberBooleanDefault0|null $include_body Whether to include the mail message body content in the response. &#x60;0&#x60; &#x3D; Don&#39;t include, &#x60;1&#x60; &#x3D; Include. (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
      */
-    public function getOrganizationMailMessagesAsyncWithHttpInfo($id, $start = 0, $limit = null): PromiseInterface
+    public function getOrganizationMailMessagesAsyncWithHttpInfo($id, $start = 0, $limit = null, $include_body = null): PromiseInterface
     {
         $returnType = '\Pipedrive\versions\v1\Model\ListMailMessagesResponse';
-        $request = $this->getOrganizationMailMessagesRequest($id, $start, $limit);
+        $request = $this->getOrganizationMailMessagesRequest($id, $start, $limit, $include_body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1903,11 +1907,12 @@ class OrganizationsApi
      * @param  int $id The ID of the organization (required)
      * @param  int|0 $start Pagination start (optional, default to 0)
      * @param  int|null $limit Items shown per page (optional)
+     * @param  \Pipedrive\versions\v1\Model\NumberBooleanDefault0|null $include_body Whether to include the mail message body content in the response. &#x60;0&#x60; &#x3D; Don&#39;t include, &#x60;1&#x60; &#x3D; Include. (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
      */
-    public function getOrganizationMailMessagesRequest($id, $start = 0, $limit = null): Request
+    public function getOrganizationMailMessagesRequest($id, $start = 0, $limit = null, $include_body = null): Request
     {
         // verify the required parameter 'id' is set
         /* @phpstan-ignore-next-line */
@@ -1939,6 +1944,14 @@ class OrganizationsApi
         }
         if ($limit !== null) {
             $queryParams['limit'] = $limit;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($include_body)) {
+            $include_body = ObjectSerializer::serializeCollection($include_body, '', true);
+        }
+        if ($include_body !== null) {
+            $queryParams['include_body'] = $include_body;
         }
 
 

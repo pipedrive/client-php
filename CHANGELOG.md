@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [17.4.0](https://github.com/pipedrive/client-php/compare17.3.1...17.4.0) (2026-08-13)
+
+### Added
+- Added `include_body` query parameter to `GET /v1/deals/{id}/mailMessages`, `GET /v1/persons/{id}/mailMessages`, and `GET /v1/organizations/{id}/mailMessages` — pass `1` to include the mail message body content in the response
+- Added `body` field to `MailMessageData` schema to expose the mail message body content when `include_body=1` is used
+
 ## [17.3.1](https://github.com/pipedrive/client-php/compare17.3.0...17.3.1) (2026-08-13)
 
 ### Fixed

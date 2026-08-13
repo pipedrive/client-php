@@ -500,7 +500,7 @@ Name | Type | Description  | Notes
 ## `getPersonMailMessages()`
 
 ```php
-getPersonMailMessages($id, $start, $limit): \Pipedrive\versions\v1\Model\ListMailMessagesResponse
+getPersonMailMessages($id, $start, $limit, $include_body): \Pipedrive\versions\v1\Model\ListMailMessagesResponse
 ```
 
 List mail messages associated with a person
@@ -532,9 +532,10 @@ $apiInstance = new Pipedrive\versions\v1\Api\PersonsApi(
 $id = 56; // int | The ID of the person
 $start = 0; // int | Pagination start
 $limit = 56; // int | Items shown per page
+$include_body = new \Pipedrive\versions\v1\Model\\Pipedrive\versions\v1\Model\NumberBooleanDefault0(); // \Pipedrive\versions\v1\Model\NumberBooleanDefault0 | Whether to include the mail message body content in the response. `0` = Don't include, `1` = Include.
 
 try {
-    $result = $apiInstance->getPersonMailMessages($id, $start, $limit);
+    $result = $apiInstance->getPersonMailMessages($id, $start, $limit, $include_body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PersonsApi->getPersonMailMessages: ', $e->getMessage(), PHP_EOL;
@@ -548,6 +549,7 @@ Name | Type | Description  | Notes
  **id** | **int**| The ID of the person |
  **start** | **int**| Pagination start | [optional] [default to 0]
  **limit** | **int**| Items shown per page | [optional]
+ **include_body** | [**\Pipedrive\versions\v1\Model\NumberBooleanDefault0**](../Model/.md)| Whether to include the mail message body content in the response. &#x60;0&#x60; &#x3D; Don&#39;t include, &#x60;1&#x60; &#x3D; Include. | [optional]
 
 ### Return type
 
