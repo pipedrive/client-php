@@ -1,6 +1,6 @@
 <?php
 /**
- * PersonItem
+ * UpdateOrganizationRequestBody
  *
  * PHP version 8.0
  *
@@ -35,7 +35,7 @@ use Pipedrive\versions\v2\Traits\RawData;
 use Pipedrive\versions\v2\ObjectSerializer;
 
 /**
- * PersonItem Class Doc Comment
+ * UpdateOrganizationRequestBody Class Doc Comment
  *
  * @category Class
  * @package  Pipedrive\versions\v2
@@ -45,7 +45,7 @@ use Pipedrive\versions\v2\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class PersonItem implements ModelInterface, ArrayAccess, JsonSerializable
+class UpdateOrganizationRequestBody implements ModelInterface, ArrayAccess, JsonSerializable
 {
     use RawData;
 
@@ -56,7 +56,7 @@ class PersonItem implements ModelInterface, ArrayAccess, JsonSerializable
       *
       * @var string
       */
-    protected static string $openAPIModelName = 'PersonItem';
+    protected static string $openAPIModelName = 'UpdateOrganizationRequestBody';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -66,25 +66,16 @@ class PersonItem implements ModelInterface, ArrayAccess, JsonSerializable
       * @phpsalm-var array<string, string>
       */
     protected static array $openAPITypes = [
-        'id' => 'int',
         'name' => 'string',
-        'first_name' => 'string',
-        'last_name' => 'string',
         'owner_id' => 'int',
-        'org_id' => 'int',
-        'add_time' => 'string',
-        'update_time' => 'string',
-        'emails' => '\Pipedrive\versions\v2\Model\PersonItemEmail[]',
-        'phones' => '\Pipedrive\versions\v2\Model\PersonItemPhone[]',
-        'is_deleted' => 'bool',
         'visible_to' => 'int',
         'label_ids' => 'int[]',
-        'picture_id' => 'int',
-        'postal_address' => '\Pipedrive\versions\v2\Model\PersonItemAddress',
-        'notes' => 'string',
-        'im' => '\Pipedrive\versions\v2\Model\PersonItemIm[]',
-        'birthday' => 'string',
-        'job_title' => 'string',
+        'address' => '\Pipedrive\versions\v2\Model\OrganizationItemAddress',
+        'website' => 'string',
+        'linkedin' => 'string',
+        'industry' => 'int',
+        'annual_revenue' => 'int',
+        'employee_count' => 'int',
         'custom_fields' => 'array<string,object>'
     ];
 
@@ -96,25 +87,16 @@ class PersonItem implements ModelInterface, ArrayAccess, JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
         'name' => null,
-        'first_name' => null,
-        'last_name' => null,
         'owner_id' => null,
-        'org_id' => null,
-        'add_time' => null,
-        'update_time' => null,
-        'emails' => null,
-        'phones' => null,
-        'is_deleted' => null,
         'visible_to' => null,
         'label_ids' => null,
-        'picture_id' => null,
-        'postal_address' => null,
-        'notes' => null,
-        'im' => null,
-        'birthday' => null,
-        'job_title' => null,
+        'address' => null,
+        'website' => null,
+        'linkedin' => null,
+        'industry' => null,
+        'annual_revenue' => null,
+        'employee_count' => null,
         'custom_fields' => null
     ];
 
@@ -149,25 +131,16 @@ class PersonItem implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
         'name' => 'name',
-        'first_name' => 'first_name',
-        'last_name' => 'last_name',
         'owner_id' => 'owner_id',
-        'org_id' => 'org_id',
-        'add_time' => 'add_time',
-        'update_time' => 'update_time',
-        'emails' => 'emails',
-        'phones' => 'phones',
-        'is_deleted' => 'is_deleted',
         'visible_to' => 'visible_to',
         'label_ids' => 'label_ids',
-        'picture_id' => 'picture_id',
-        'postal_address' => 'postal_address',
-        'notes' => 'notes',
-        'im' => 'im',
-        'birthday' => 'birthday',
-        'job_title' => 'job_title',
+        'address' => 'address',
+        'website' => 'website',
+        'linkedin' => 'linkedin',
+        'industry' => 'industry',
+        'annual_revenue' => 'annual_revenue',
+        'employee_count' => 'employee_count',
         'custom_fields' => 'custom_fields'
     ];
 
@@ -177,25 +150,16 @@ class PersonItem implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
         'name' => 'setName',
-        'first_name' => 'setFirstName',
-        'last_name' => 'setLastName',
         'owner_id' => 'setOwnerId',
-        'org_id' => 'setOrgId',
-        'add_time' => 'setAddTime',
-        'update_time' => 'setUpdateTime',
-        'emails' => 'setEmails',
-        'phones' => 'setPhones',
-        'is_deleted' => 'setIsDeleted',
         'visible_to' => 'setVisibleTo',
         'label_ids' => 'setLabelIds',
-        'picture_id' => 'setPictureId',
-        'postal_address' => 'setPostalAddress',
-        'notes' => 'setNotes',
-        'im' => 'setIm',
-        'birthday' => 'setBirthday',
-        'job_title' => 'setJobTitle',
+        'address' => 'setAddress',
+        'website' => 'setWebsite',
+        'linkedin' => 'setLinkedin',
+        'industry' => 'setIndustry',
+        'annual_revenue' => 'setAnnualRevenue',
+        'employee_count' => 'setEmployeeCount',
         'custom_fields' => 'setCustomFields'
     ];
 
@@ -205,25 +169,16 @@ class PersonItem implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
         'name' => 'getName',
-        'first_name' => 'getFirstName',
-        'last_name' => 'getLastName',
         'owner_id' => 'getOwnerId',
-        'org_id' => 'getOrgId',
-        'add_time' => 'getAddTime',
-        'update_time' => 'getUpdateTime',
-        'emails' => 'getEmails',
-        'phones' => 'getPhones',
-        'is_deleted' => 'getIsDeleted',
         'visible_to' => 'getVisibleTo',
         'label_ids' => 'getLabelIds',
-        'picture_id' => 'getPictureId',
-        'postal_address' => 'getPostalAddress',
-        'notes' => 'getNotes',
-        'im' => 'getIm',
-        'birthday' => 'getBirthday',
-        'job_title' => 'getJobTitle',
+        'address' => 'getAddress',
+        'website' => 'getWebsite',
+        'linkedin' => 'getLinkedin',
+        'industry' => 'getIndustry',
+        'annual_revenue' => 'getAnnualRevenue',
+        'employee_count' => 'getEmployeeCount',
         'custom_fields' => 'getCustomFields'
     ];
 
@@ -294,25 +249,16 @@ class PersonItem implements ModelInterface, ArrayAccess, JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->container['id'] = $data['id'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
-        $this->container['first_name'] = $data['first_name'] ?? null;
-        $this->container['last_name'] = $data['last_name'] ?? null;
         $this->container['owner_id'] = $data['owner_id'] ?? null;
-        $this->container['org_id'] = $data['org_id'] ?? null;
-        $this->container['add_time'] = $data['add_time'] ?? null;
-        $this->container['update_time'] = $data['update_time'] ?? null;
-        $this->container['emails'] = $data['emails'] ?? null;
-        $this->container['phones'] = $data['phones'] ?? null;
-        $this->container['is_deleted'] = $data['is_deleted'] ?? null;
         $this->container['visible_to'] = $data['visible_to'] ?? null;
         $this->container['label_ids'] = $data['label_ids'] ?? null;
-        $this->container['picture_id'] = $data['picture_id'] ?? null;
-        $this->container['postal_address'] = $data['postal_address'] ?? null;
-        $this->container['notes'] = $data['notes'] ?? null;
-        $this->container['im'] = $data['im'] ?? null;
-        $this->container['birthday'] = $data['birthday'] ?? null;
-        $this->container['job_title'] = $data['job_title'] ?? null;
+        $this->container['address'] = $data['address'] ?? null;
+        $this->container['website'] = $data['website'] ?? null;
+        $this->container['linkedin'] = $data['linkedin'] ?? null;
+        $this->container['industry'] = $data['industry'] ?? null;
+        $this->container['annual_revenue'] = $data['annual_revenue'] ?? null;
+        $this->container['employee_count'] = $data['employee_count'] ?? null;
         $this->container['custom_fields'] = $data['custom_fields'] ?? null;
     }
 
@@ -343,30 +289,6 @@ class PersonItem implements ModelInterface, ArrayAccess, JsonSerializable
 
 
     /**
-     * Gets id
-     *
-     * @return int|null
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param int|null $id The ID of the person
-     *
-     * @return self
-     */
-    public function setId($id): self
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
      * Gets name
      *
      * @return string|null
@@ -379,61 +301,13 @@ class PersonItem implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets name
      *
-     * @param string|null $name The name of the person
+     * @param string|null $name The name of the organization
      *
      * @return self
      */
     public function setName($name): self
     {
         $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets first_name
-     *
-     * @return string|null
-     */
-    public function getFirstName()
-    {
-        return $this->container['first_name'];
-    }
-
-    /**
-     * Sets first_name
-     *
-     * @param string|null $first_name The first name of the person
-     *
-     * @return self
-     */
-    public function setFirstName($first_name): self
-    {
-        $this->container['first_name'] = $first_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets last_name
-     *
-     * @return string|null
-     */
-    public function getLastName()
-    {
-        return $this->container['last_name'];
-    }
-
-    /**
-     * Sets last_name
-     *
-     * @param string|null $last_name The last name of the person
-     *
-     * @return self
-     */
-    public function setLastName($last_name): self
-    {
-        $this->container['last_name'] = $last_name;
 
         return $this;
     }
@@ -451,157 +325,13 @@ class PersonItem implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets owner_id
      *
-     * @param int|null $owner_id The ID of the user who owns the person
+     * @param int|null $owner_id The ID of the user who owns the organization
      *
      * @return self
      */
     public function setOwnerId($owner_id): self
     {
         $this->container['owner_id'] = $owner_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets org_id
-     *
-     * @return int|null
-     */
-    public function getOrgId()
-    {
-        return $this->container['org_id'];
-    }
-
-    /**
-     * Sets org_id
-     *
-     * @param int|null $org_id The ID of the organization linked to the person
-     *
-     * @return self
-     */
-    public function setOrgId($org_id): self
-    {
-        $this->container['org_id'] = $org_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets add_time
-     *
-     * @return string|null
-     */
-    public function getAddTime()
-    {
-        return $this->container['add_time'];
-    }
-
-    /**
-     * Sets add_time
-     *
-     * @param string|null $add_time The creation date and time of the person
-     *
-     * @return self
-     */
-    public function setAddTime($add_time): self
-    {
-        $this->container['add_time'] = $add_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets update_time
-     *
-     * @return string|null
-     */
-    public function getUpdateTime()
-    {
-        return $this->container['update_time'];
-    }
-
-    /**
-     * Sets update_time
-     *
-     * @param string|null $update_time The last updated date and time of the person
-     *
-     * @return self
-     */
-    public function setUpdateTime($update_time): self
-    {
-        $this->container['update_time'] = $update_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets emails
-     *
-     * @return \Pipedrive\versions\v2\Model\PersonItemEmail[]|null
-     */
-    public function getEmails()
-    {
-        return $this->container['emails'];
-    }
-
-    /**
-     * Sets emails
-     *
-     * @param \Pipedrive\versions\v2\Model\PersonItemEmail[]|null $emails The emails of the person
-     *
-     * @return self
-     */
-    public function setEmails($emails): self
-    {
-        $this->container['emails'] = $emails;
-
-        return $this;
-    }
-
-    /**
-     * Gets phones
-     *
-     * @return \Pipedrive\versions\v2\Model\PersonItemPhone[]|null
-     */
-    public function getPhones()
-    {
-        return $this->container['phones'];
-    }
-
-    /**
-     * Sets phones
-     *
-     * @param \Pipedrive\versions\v2\Model\PersonItemPhone[]|null $phones The phones of the person
-     *
-     * @return self
-     */
-    public function setPhones($phones): self
-    {
-        $this->container['phones'] = $phones;
-
-        return $this;
-    }
-
-    /**
-     * Gets is_deleted
-     *
-     * @return bool|null
-     */
-    public function getIsDeleted()
-    {
-        return $this->container['is_deleted'];
-    }
-
-    /**
-     * Sets is_deleted
-     *
-     * @param bool|null $is_deleted Whether the person is deleted or not
-     *
-     * @return self
-     */
-    public function setIsDeleted($is_deleted): self
-    {
-        $this->container['is_deleted'] = $is_deleted;
 
         return $this;
     }
@@ -619,7 +349,7 @@ class PersonItem implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets visible_to
      *
-     * @param int|null $visible_to The visibility of the person
+     * @param int|null $visible_to The visibility of the organization
      *
      * @return self
      */
@@ -643,7 +373,7 @@ class PersonItem implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets label_ids
      *
-     * @param int[]|null $label_ids The IDs of labels assigned to the person
+     * @param int[]|null $label_ids The IDs of labels assigned to the organization
      *
      * @return self
      */
@@ -655,145 +385,145 @@ class PersonItem implements ModelInterface, ArrayAccess, JsonSerializable
     }
 
     /**
-     * Gets picture_id
+     * Gets address
+     *
+     * @return \Pipedrive\versions\v2\Model\OrganizationItemAddress|null
+     */
+    public function getAddress()
+    {
+        return $this->container['address'];
+    }
+
+    /**
+     * Sets address
+     *
+     * @param \Pipedrive\versions\v2\Model\OrganizationItemAddress|null $address address
+     *
+     * @return self
+     */
+    public function setAddress($address): self
+    {
+        $this->container['address'] = $address;
+
+        return $this;
+    }
+
+    /**
+     * Gets website
+     *
+     * @return string|null
+     */
+    public function getWebsite()
+    {
+        return $this->container['website'];
+    }
+
+    /**
+     * Sets website
+     *
+     * @param string|null $website The website of the organization
+     *
+     * @return self
+     */
+    public function setWebsite($website): self
+    {
+        $this->container['website'] = $website;
+
+        return $this;
+    }
+
+    /**
+     * Gets linkedin
+     *
+     * @return string|null
+     */
+    public function getLinkedin()
+    {
+        return $this->container['linkedin'];
+    }
+
+    /**
+     * Sets linkedin
+     *
+     * @param string|null $linkedin The LinkedIn profile URL of the organization
+     *
+     * @return self
+     */
+    public function setLinkedin($linkedin): self
+    {
+        $this->container['linkedin'] = $linkedin;
+
+        return $this;
+    }
+
+    /**
+     * Gets industry
      *
      * @return int|null
      */
-    public function getPictureId()
+    public function getIndustry()
     {
-        return $this->container['picture_id'];
+        return $this->container['industry'];
     }
 
     /**
-     * Sets picture_id
+     * Sets industry
      *
-     * @param int|null $picture_id The ID of the picture associated with the person
+     * @param int|null $industry The industry the organization belongs to
      *
      * @return self
      */
-    public function setPictureId($picture_id): self
+    public function setIndustry($industry): self
     {
-        $this->container['picture_id'] = $picture_id;
+        $this->container['industry'] = $industry;
 
         return $this;
     }
 
     /**
-     * Gets postal_address
+     * Gets annual_revenue
      *
-     * @return \Pipedrive\versions\v2\Model\PersonItemAddress|null
+     * @return int|null
      */
-    public function getPostalAddress()
+    public function getAnnualRevenue()
     {
-        return $this->container['postal_address'];
+        return $this->container['annual_revenue'];
     }
 
     /**
-     * Sets postal_address
+     * Sets annual_revenue
      *
-     * @param \Pipedrive\versions\v2\Model\PersonItemAddress|null $postal_address postal_address
+     * @param int|null $annual_revenue The annual revenue of the organization
      *
      * @return self
      */
-    public function setPostalAddress($postal_address): self
+    public function setAnnualRevenue($annual_revenue): self
     {
-        $this->container['postal_address'] = $postal_address;
+        $this->container['annual_revenue'] = $annual_revenue;
 
         return $this;
     }
 
     /**
-     * Gets notes
+     * Gets employee_count
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getNotes()
+    public function getEmployeeCount()
     {
-        return $this->container['notes'];
+        return $this->container['employee_count'];
     }
 
     /**
-     * Sets notes
+     * Sets employee_count
      *
-     * @param string|null $notes Contact sync notes of the person, maximum 10 000 characters, included if contact sync is enabled for the company
+     * @param int|null $employee_count The number of employees in the organization
      *
      * @return self
      */
-    public function setNotes($notes): self
+    public function setEmployeeCount($employee_count): self
     {
-        $this->container['notes'] = $notes;
-
-        return $this;
-    }
-
-    /**
-     * Gets im
-     *
-     * @return \Pipedrive\versions\v2\Model\PersonItemIm[]|null
-     */
-    public function getIm()
-    {
-        return $this->container['im'];
-    }
-
-    /**
-     * Sets im
-     *
-     * @param \Pipedrive\versions\v2\Model\PersonItemIm[]|null $im The instant messaging accounts of the person, included if contact sync is enabled for the company
-     *
-     * @return self
-     */
-    public function setIm($im): self
-    {
-        $this->container['im'] = $im;
-
-        return $this;
-    }
-
-    /**
-     * Gets birthday
-     *
-     * @return string|null
-     */
-    public function getBirthday()
-    {
-        return $this->container['birthday'];
-    }
-
-    /**
-     * Sets birthday
-     *
-     * @param string|null $birthday The birthday of the person, included if contact sync is enabled for the company
-     *
-     * @return self
-     */
-    public function setBirthday($birthday): self
-    {
-        $this->container['birthday'] = $birthday;
-
-        return $this;
-    }
-
-    /**
-     * Gets job_title
-     *
-     * @return string|null
-     */
-    public function getJobTitle()
-    {
-        return $this->container['job_title'];
-    }
-
-    /**
-     * Sets job_title
-     *
-     * @param string|null $job_title The job title of the person, included if contact sync is enabled for the company
-     *
-     * @return self
-     */
-    public function setJobTitle($job_title): self
-    {
-        $this->container['job_title'] = $job_title;
+        $this->container['employee_count'] = $employee_count;
 
         return $this;
     }

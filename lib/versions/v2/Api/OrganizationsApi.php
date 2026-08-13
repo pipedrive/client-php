@@ -127,15 +127,15 @@ class OrganizationsApi
      *
      * Add a new organization
      *
-     * @param  \Pipedrive\versions\v2\Model\OrganizationRequestBody|null $organization_request_body organization_request_body (optional)
+     * @param  \Pipedrive\versions\v2\Model\PostOrganizationRequestBody|null $post_organization_request_body post_organization_request_body (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v2\Model\PostPatchGetOrganization
      */
-    public function addOrganization($organization_request_body = null)
+    public function addOrganization($post_organization_request_body = null)
     {
-        list($response) = $this->addOrganizationWithHttpInfo($organization_request_body);
+        list($response) = $this->addOrganizationWithHttpInfo($post_organization_request_body);
         return $response;
     }
 
@@ -144,15 +144,15 @@ class OrganizationsApi
      *
      * Add a new organization
      *
-     * @param  \Pipedrive\versions\v2\Model\OrganizationRequestBody|null $organization_request_body (optional)
+     * @param  \Pipedrive\versions\v2\Model\PostOrganizationRequestBody|null $post_organization_request_body (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v2\Model\PostPatchGetOrganization, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addOrganizationWithHttpInfo($organization_request_body = null)
+    public function addOrganizationWithHttpInfo($post_organization_request_body = null)
     {
-        $request = $this->addOrganizationRequest($organization_request_body);
+        $request = $this->addOrganizationRequest($post_organization_request_body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -161,7 +161,7 @@ class OrganizationsApi
             } catch (RequestException $e) {
                 if ($e->getCode() === 401 && $this->config->isRefreshPossible()) {
                     $this->config->refreshToken();
-                    $request = $this->addOrganizationRequest($organization_request_body);
+                    $request = $this->addOrganizationRequest($post_organization_request_body);
                     $response = $this->client->send($request, $options);
                 } else {
                     throw new ApiException(
@@ -245,14 +245,14 @@ class OrganizationsApi
      *
      * Add a new organization
      *
-     * @param  \Pipedrive\versions\v2\Model\OrganizationRequestBody|null $organization_request_body (optional)
+     * @param  \Pipedrive\versions\v2\Model\PostOrganizationRequestBody|null $post_organization_request_body (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
      */
-    public function addOrganizationAsync($organization_request_body = null): PromiseInterface
+    public function addOrganizationAsync($post_organization_request_body = null): PromiseInterface
     {
-        return $this->addOrganizationAsyncWithHttpInfo($organization_request_body)
+        return $this->addOrganizationAsyncWithHttpInfo($post_organization_request_body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -265,15 +265,15 @@ class OrganizationsApi
      *
      * Add a new organization
      *
-     * @param  \Pipedrive\versions\v2\Model\OrganizationRequestBody|null $organization_request_body (optional)
+     * @param  \Pipedrive\versions\v2\Model\PostOrganizationRequestBody|null $post_organization_request_body (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
      */
-    public function addOrganizationAsyncWithHttpInfo($organization_request_body = null): PromiseInterface
+    public function addOrganizationAsyncWithHttpInfo($post_organization_request_body = null): PromiseInterface
     {
         $returnType = '\Pipedrive\versions\v2\Model\PostPatchGetOrganization';
-        $request = $this->addOrganizationRequest($organization_request_body);
+        $request = $this->addOrganizationRequest($post_organization_request_body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -312,12 +312,12 @@ class OrganizationsApi
     /**
      * Create request for operation 'addOrganization'
      *
-     * @param  \Pipedrive\versions\v2\Model\OrganizationRequestBody|null $organization_request_body (optional)
+     * @param  \Pipedrive\versions\v2\Model\PostOrganizationRequestBody|null $post_organization_request_body (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
      */
-    public function addOrganizationRequest($organization_request_body = null): Request
+    public function addOrganizationRequest($post_organization_request_body = null): Request
     {
 
         $resourcePath = '/organizations';
@@ -344,11 +344,11 @@ class OrganizationsApi
         }
 
         // for model (json/xml)
-        if (isset($organization_request_body)) {
+        if (isset($post_organization_request_body)) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($organization_request_body));
+                $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($post_organization_request_body));
             } else {
-                $httpBody = $organization_request_body;
+                $httpBody = $post_organization_request_body;
             }
         } elseif (count($formParams) > 0) {
             /* @phpstan-ignore-next-line */
@@ -3119,15 +3119,15 @@ class OrganizationsApi
      * Update a organization
      *
      * @param  int $id The ID of the organization (required)
-     * @param  \Pipedrive\versions\v2\Model\OrganizationRequestBody|null $organization_request_body organization_request_body (optional)
+     * @param  \Pipedrive\versions\v2\Model\UpdateOrganizationRequestBody|null $update_organization_request_body update_organization_request_body (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v2\Model\PostPatchGetOrganization
      */
-    public function updateOrganization($id, $organization_request_body = null)
+    public function updateOrganization($id, $update_organization_request_body = null)
     {
-        list($response) = $this->updateOrganizationWithHttpInfo($id, $organization_request_body);
+        list($response) = $this->updateOrganizationWithHttpInfo($id, $update_organization_request_body);
         return $response;
     }
 
@@ -3137,15 +3137,15 @@ class OrganizationsApi
      * Update a organization
      *
      * @param  int $id The ID of the organization (required)
-     * @param  \Pipedrive\versions\v2\Model\OrganizationRequestBody|null $organization_request_body (optional)
+     * @param  \Pipedrive\versions\v2\Model\UpdateOrganizationRequestBody|null $update_organization_request_body (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v2\Model\PostPatchGetOrganization, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateOrganizationWithHttpInfo($id, $organization_request_body = null)
+    public function updateOrganizationWithHttpInfo($id, $update_organization_request_body = null)
     {
-        $request = $this->updateOrganizationRequest($id, $organization_request_body);
+        $request = $this->updateOrganizationRequest($id, $update_organization_request_body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3154,7 +3154,7 @@ class OrganizationsApi
             } catch (RequestException $e) {
                 if ($e->getCode() === 401 && $this->config->isRefreshPossible()) {
                     $this->config->refreshToken();
-                    $request = $this->updateOrganizationRequest($id, $organization_request_body);
+                    $request = $this->updateOrganizationRequest($id, $update_organization_request_body);
                     $response = $this->client->send($request, $options);
                 } else {
                     throw new ApiException(
@@ -3239,14 +3239,14 @@ class OrganizationsApi
      * Update a organization
      *
      * @param  int $id The ID of the organization (required)
-     * @param  \Pipedrive\versions\v2\Model\OrganizationRequestBody|null $organization_request_body (optional)
+     * @param  \Pipedrive\versions\v2\Model\UpdateOrganizationRequestBody|null $update_organization_request_body (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
      */
-    public function updateOrganizationAsync($id, $organization_request_body = null): PromiseInterface
+    public function updateOrganizationAsync($id, $update_organization_request_body = null): PromiseInterface
     {
-        return $this->updateOrganizationAsyncWithHttpInfo($id, $organization_request_body)
+        return $this->updateOrganizationAsyncWithHttpInfo($id, $update_organization_request_body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3260,15 +3260,15 @@ class OrganizationsApi
      * Update a organization
      *
      * @param  int $id The ID of the organization (required)
-     * @param  \Pipedrive\versions\v2\Model\OrganizationRequestBody|null $organization_request_body (optional)
+     * @param  \Pipedrive\versions\v2\Model\UpdateOrganizationRequestBody|null $update_organization_request_body (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
      */
-    public function updateOrganizationAsyncWithHttpInfo($id, $organization_request_body = null): PromiseInterface
+    public function updateOrganizationAsyncWithHttpInfo($id, $update_organization_request_body = null): PromiseInterface
     {
         $returnType = '\Pipedrive\versions\v2\Model\PostPatchGetOrganization';
-        $request = $this->updateOrganizationRequest($id, $organization_request_body);
+        $request = $this->updateOrganizationRequest($id, $update_organization_request_body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3308,12 +3308,12 @@ class OrganizationsApi
      * Create request for operation 'updateOrganization'
      *
      * @param  int $id The ID of the organization (required)
-     * @param  \Pipedrive\versions\v2\Model\OrganizationRequestBody|null $organization_request_body (optional)
+     * @param  \Pipedrive\versions\v2\Model\UpdateOrganizationRequestBody|null $update_organization_request_body (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
      */
-    public function updateOrganizationRequest($id, $organization_request_body = null): Request
+    public function updateOrganizationRequest($id, $update_organization_request_body = null): Request
     {
         // verify the required parameter 'id' is set
         /* @phpstan-ignore-next-line */
@@ -3355,11 +3355,11 @@ class OrganizationsApi
         }
 
         // for model (json/xml)
-        if (isset($organization_request_body)) {
+        if (isset($update_organization_request_body)) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($organization_request_body));
+                $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($update_organization_request_body));
             } else {
-                $httpBody = $organization_request_body;
+                $httpBody = $update_organization_request_body;
             }
         } elseif (count($formParams) > 0) {
             /* @phpstan-ignore-next-line */

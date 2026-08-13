@@ -20,12 +20,12 @@ Method | HTTP request | Description
 ## `addPerson()`
 
 ```php
-addPerson($person_request_body): \Pipedrive\versions\v2\Model\PostPatchGetPerson
+addPerson($post_person_request_body): \Pipedrive\versions\v2\Model\PostPatchGetPerson
 ```
 
 Add a new person
 
-Adds a new person. If the company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `marketing_status` field.
+Adds a new person. <br>If the company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `marketing_status` field. <br>The `im`, `postal_address`, `notes`, `birthday` and `job_title` fields don’t exist by default in Pipedrive and are only created when you set up your contact sync.
 
 ### Example
 
@@ -49,10 +49,10 @@ $apiInstance = new Pipedrive\versions\v2\Api\PersonsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$person_request_body = new \Pipedrive\versions\v2\Model\PersonRequestBody(); // \Pipedrive\versions\v2\Model\PersonRequestBody
+$post_person_request_body = new \Pipedrive\versions\v2\Model\PostPersonRequestBody(); // \Pipedrive\versions\v2\Model\PostPersonRequestBody
 
 try {
-    $result = $apiInstance->addPerson($person_request_body);
+    $result = $apiInstance->addPerson($post_person_request_body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PersonsApi->addPerson: ', $e->getMessage(), PHP_EOL;
@@ -63,7 +63,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **person_request_body** | [**\Pipedrive\versions\v2\Model\PersonRequestBody**](../Model/PersonRequestBody.md)|  | [optional]
+ **post_person_request_body** | [**\Pipedrive\versions\v2\Model\PostPersonRequestBody**](../Model/PostPersonRequestBody.md)|  | [optional]
 
 ### Return type
 
@@ -730,12 +730,12 @@ Name | Type | Description  | Notes
 ## `updatePerson()`
 
 ```php
-updatePerson($id, $person_request_body): \Pipedrive\versions\v2\Model\PostPatchGetPerson
+updatePerson($id, $update_person_request_body): \Pipedrive\versions\v2\Model\PostPatchGetPerson
 ```
 
 Update a person
 
-Updates the properties of a person. <br>If the company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `marketing_status` field.
+Updates the properties of a person. <br>If the company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `marketing_status` field. <br>The `im`, `postal_address`, `notes`, `birthday` and `job_title` fields don’t exist by default in Pipedrive and are only created when you set up your contact sync.
 
 ### Example
 
@@ -760,10 +760,10 @@ $apiInstance = new Pipedrive\versions\v2\Api\PersonsApi(
     $config
 );
 $id = 56; // int | The ID of the person
-$person_request_body = new \Pipedrive\versions\v2\Model\PersonRequestBody(); // \Pipedrive\versions\v2\Model\PersonRequestBody
+$update_person_request_body = new \Pipedrive\versions\v2\Model\UpdatePersonRequestBody(); // \Pipedrive\versions\v2\Model\UpdatePersonRequestBody
 
 try {
-    $result = $apiInstance->updatePerson($id, $person_request_body);
+    $result = $apiInstance->updatePerson($id, $update_person_request_body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PersonsApi->updatePerson: ', $e->getMessage(), PHP_EOL;
@@ -775,7 +775,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The ID of the person |
- **person_request_body** | [**\Pipedrive\versions\v2\Model\PersonRequestBody**](../Model/PersonRequestBody.md)|  | [optional]
+ **update_person_request_body** | [**\Pipedrive\versions\v2\Model\UpdatePersonRequestBody**](../Model/UpdatePersonRequestBody.md)|  | [optional]
 
 ### Return type
 

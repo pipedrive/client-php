@@ -19,7 +19,7 @@ Method | HTTP request | Description
 ## `addOrganization()`
 
 ```php
-addOrganization($organization_request_body): \Pipedrive\versions\v2\Model\PostPatchGetOrganization
+addOrganization($post_organization_request_body): \Pipedrive\versions\v2\Model\PostPatchGetOrganization
 ```
 
 Add a new organization
@@ -48,10 +48,10 @@ $apiInstance = new Pipedrive\versions\v2\Api\OrganizationsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$organization_request_body = new \Pipedrive\versions\v2\Model\OrganizationRequestBody(); // \Pipedrive\versions\v2\Model\OrganizationRequestBody
+$post_organization_request_body = new \Pipedrive\versions\v2\Model\PostOrganizationRequestBody(); // \Pipedrive\versions\v2\Model\PostOrganizationRequestBody
 
 try {
-    $result = $apiInstance->addOrganization($organization_request_body);
+    $result = $apiInstance->addOrganization($post_organization_request_body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrganizationsApi->addOrganization: ', $e->getMessage(), PHP_EOL;
@@ -62,7 +62,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_request_body** | [**\Pipedrive\versions\v2\Model\OrganizationRequestBody**](../Model/OrganizationRequestBody.md)|  | [optional]
+ **post_organization_request_body** | [**\Pipedrive\versions\v2\Model\PostOrganizationRequestBody**](../Model/PostOrganizationRequestBody.md)|  | [optional]
 
 ### Return type
 
@@ -656,7 +656,7 @@ Name | Type | Description  | Notes
 ## `updateOrganization()`
 
 ```php
-updateOrganization($id, $organization_request_body): \Pipedrive\versions\v2\Model\PostPatchGetOrganization
+updateOrganization($id, $update_organization_request_body): \Pipedrive\versions\v2\Model\PostPatchGetOrganization
 ```
 
 Update a organization
@@ -686,10 +686,10 @@ $apiInstance = new Pipedrive\versions\v2\Api\OrganizationsApi(
     $config
 );
 $id = 56; // int | The ID of the organization
-$organization_request_body = new \Pipedrive\versions\v2\Model\OrganizationRequestBody(); // \Pipedrive\versions\v2\Model\OrganizationRequestBody
+$update_organization_request_body = new \Pipedrive\versions\v2\Model\UpdateOrganizationRequestBody(); // \Pipedrive\versions\v2\Model\UpdateOrganizationRequestBody
 
 try {
-    $result = $apiInstance->updateOrganization($id, $organization_request_body);
+    $result = $apiInstance->updateOrganization($id, $update_organization_request_body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrganizationsApi->updateOrganization: ', $e->getMessage(), PHP_EOL;
@@ -701,7 +701,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The ID of the organization |
- **organization_request_body** | [**\Pipedrive\versions\v2\Model\OrganizationRequestBody**](../Model/OrganizationRequestBody.md)|  | [optional]
+ **update_organization_request_body** | [**\Pipedrive\versions\v2\Model\UpdateOrganizationRequestBody**](../Model/UpdateOrganizationRequestBody.md)|  | [optional]
 
 ### Return type
 
