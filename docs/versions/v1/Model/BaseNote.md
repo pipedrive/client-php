@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **active_flag** | **bool** | Whether the note is active or deleted | [optional]
 **add_time** | **string** | The creation date and time of the note | [optional]
 **content** | **string** | The content of the note in HTML format. Subject to sanitization on the back-end. | [optional]
-**deal** | [**\Pipedrive\versions\v1\Model\BaseNoteDealTitle**](BaseNoteDealTitle.md) |  | [optional]
+**deal** | [**BaseNoteDealTitle**](BaseNoteDealTitle.md) |  | [optional]
 **lead_id** | **string** | The ID of the lead the note is attached to | [optional]
 **deal_id** | **int** | The ID of the deal the note is attached to | [optional]
 **last_update_user_id** | **int** | The ID of the user who last updated the note | [optional]
