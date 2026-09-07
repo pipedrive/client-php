@@ -84,6 +84,7 @@ class ActivityRequestBody implements ModelInterface, ArrayAccess, JsonSerializab
         'attendees' => '\Pipedrive\versions\v2\Model\ActivityItemAttendees[]',
         'public_description' => 'string',
         'priority' => 'int',
+        'outcome' => 'int',
         'note' => 'string'
     ];
 
@@ -113,6 +114,7 @@ class ActivityRequestBody implements ModelInterface, ArrayAccess, JsonSerializab
         'attendees' => null,
         'public_description' => null,
         'priority' => null,
+        'outcome' => null,
         'note' => null
     ];
 
@@ -165,6 +167,7 @@ class ActivityRequestBody implements ModelInterface, ArrayAccess, JsonSerializab
         'attendees' => 'attendees',
         'public_description' => 'public_description',
         'priority' => 'priority',
+        'outcome' => 'outcome',
         'note' => 'note'
     ];
 
@@ -192,6 +195,7 @@ class ActivityRequestBody implements ModelInterface, ArrayAccess, JsonSerializab
         'attendees' => 'setAttendees',
         'public_description' => 'setPublicDescription',
         'priority' => 'setPriority',
+        'outcome' => 'setOutcome',
         'note' => 'setNote'
     ];
 
@@ -219,6 +223,7 @@ class ActivityRequestBody implements ModelInterface, ArrayAccess, JsonSerializab
         'attendees' => 'getAttendees',
         'public_description' => 'getPublicDescription',
         'priority' => 'getPriority',
+        'outcome' => 'getOutcome',
         'note' => 'getNote'
     ];
 
@@ -307,6 +312,7 @@ class ActivityRequestBody implements ModelInterface, ArrayAccess, JsonSerializab
         $this->container['attendees'] = $data['attendees'] ?? null;
         $this->container['public_description'] = $data['public_description'] ?? null;
         $this->container['priority'] = $data['priority'] ?? null;
+        $this->container['outcome'] = $data['outcome'] ?? null;
         $this->container['note'] = $data['note'] ?? null;
     }
 
@@ -764,6 +770,30 @@ class ActivityRequestBody implements ModelInterface, ArrayAccess, JsonSerializab
     public function setPriority($priority): self
     {
         $this->container['priority'] = $priority;
+
+        return $this;
+    }
+
+    /**
+     * Gets outcome
+     *
+     * @return int|null
+     */
+    public function getOutcome()
+    {
+        return $this->container['outcome'];
+    }
+
+    /**
+     * Sets outcome
+     *
+     * @param int|null $outcome The ID of the Outcome for the activity. The available Outcome values depend on the activity type and can be retrieved using the Activity Fields API. Set to `null` to clear the Outcome.
+     *
+     * @return self
+     */
+    public function setOutcome($outcome): self
+    {
+        $this->container['outcome'] = $outcome;
 
         return $this;
     }
