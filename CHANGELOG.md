@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [17.6.0](https://github.com/pipedrive/client-php/compare17.5.2...17.6.0) (2026-09-08)
 ### Added
 - Added `outcome` field to v1 activity schema (`ActivityObjectFragment`) and v2 activity schemas (`ActivityItem`, `ActivityRequestBody`) — documents the Activity Outcome value, enabling partner integrations to read and write Outcomes on Activities via the public API
 
