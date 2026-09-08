@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [17.6.0](https://github.com/pipedrive/client-php/compare17.5.2...17.6.0) (2026-09-08)
+### Added
+- Added `outcome` field to v1 activity schema (`ActivityObjectFragment`) and v2 activity schemas (`ActivityItem`, `ActivityRequestBody`) — documents the Activity Outcome value, enabling partner integrations to read and write Outcomes on Activities via the public API
+
 ## [17.5.2](https://github.com/pipedrive/client-php/compare17.5.1...17.5.2) (2026-09-08)
 
 ### Changed
