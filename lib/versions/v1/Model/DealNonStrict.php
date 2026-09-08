@@ -69,8 +69,8 @@ class DealNonStrict implements ModelInterface, ArrayAccess, JsonSerializable
         'id' => 'int',
         'creator_user_id' => '\Pipedrive\versions\v1\Model\DealNonStrictModeFieldsCreatorUserId',
         'user_id' => '\Pipedrive\versions\v1\Model\DealUserDataWithId',
-        'person_id' => '\Pipedrive\versions\v1\Model\DealPersonDataWithId',
-        'org_id' => '\Pipedrive\versions\v1\Model\DealOrganizationDataWithId',
+        'person_id' => 'DealPersonDataWithId',
+        'org_id' => 'DealOrganizationDataWithId',
         'stage_id' => 'int',
         'title' => 'string',
         'value' => 'float',
@@ -705,7 +705,7 @@ class DealNonStrict implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets person_id
      *
-     * @return \Pipedrive\versions\v1\Model\DealPersonDataWithId|null
+     * @return DealPersonDataWithId|null
      */
     public function getPersonId()
     {
@@ -715,7 +715,7 @@ class DealNonStrict implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets person_id
      *
-     * @param \Pipedrive\versions\v1\Model\DealPersonDataWithId|null $person_id person_id
+     * @param DealPersonDataWithId|null $person_id person_id
      *
      * @return self
      */
@@ -729,7 +729,7 @@ class DealNonStrict implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets org_id
      *
-     * @return \Pipedrive\versions\v1\Model\DealOrganizationDataWithId|null
+     * @return DealOrganizationDataWithId|null
      */
     public function getOrgId()
     {
@@ -739,7 +739,7 @@ class DealNonStrict implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets org_id
      *
-     * @param \Pipedrive\versions\v1\Model\DealOrganizationDataWithId|null $org_id org_id
+     * @param DealOrganizationDataWithId|null $org_id org_id
      *
      * @return self
      */

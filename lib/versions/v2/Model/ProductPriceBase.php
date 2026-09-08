@@ -1,6 +1,6 @@
 <?php
 /**
- * ArrayPrices
+ * ProductPriceBase
  *
  * PHP version 8.0
  *
@@ -35,7 +35,7 @@ use Pipedrive\versions\v2\Traits\RawData;
 use Pipedrive\versions\v2\ObjectSerializer;
 
 /**
- * ArrayPrices Class Doc Comment
+ * ProductPriceBase Class Doc Comment
  *
  * @category Class
  * @package  Pipedrive\versions\v2
@@ -45,7 +45,7 @@ use Pipedrive\versions\v2\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ArrayPrices implements ModelInterface, ArrayAccess, JsonSerializable
+class ProductPriceBase implements ModelInterface, ArrayAccess, JsonSerializable
 {
     use RawData;
 
@@ -56,7 +56,7 @@ class ArrayPrices implements ModelInterface, ArrayAccess, JsonSerializable
       *
       * @var string
       */
-    protected static string $openAPIModelName = 'ArrayPrices';
+    protected static string $openAPIModelName = 'ProductPriceBase';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -66,7 +66,8 @@ class ArrayPrices implements ModelInterface, ArrayAccess, JsonSerializable
       * @phpsalm-var array<string, string>
       */
     protected static array $openAPITypes = [
-        'prices' => 'ProductPriceBase[]'
+        'price' => 'float',
+        'cost' => 'float'
     ];
 
     /**
@@ -77,7 +78,8 @@ class ArrayPrices implements ModelInterface, ArrayAccess, JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'prices' => null
+        'price' => null,
+        'cost' => null
     ];
 
     /**
@@ -111,7 +113,8 @@ class ArrayPrices implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'prices' => 'prices'
+        'price' => 'price',
+        'cost' => 'cost'
     ];
 
     /**
@@ -120,7 +123,8 @@ class ArrayPrices implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'prices' => 'setPrices'
+        'price' => 'setPrice',
+        'cost' => 'setCost'
     ];
 
     /**
@@ -129,7 +133,8 @@ class ArrayPrices implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'prices' => 'getPrices'
+        'price' => 'getPrice',
+        'cost' => 'getCost'
     ];
 
     /**
@@ -199,7 +204,8 @@ class ArrayPrices implements ModelInterface, ArrayAccess, JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->container['prices'] = $data['prices'] ?? null;
+        $this->container['price'] = $data['price'] ?? null;
+        $this->container['cost'] = $data['cost'] ?? null;
     }
 
     /**
@@ -229,25 +235,49 @@ class ArrayPrices implements ModelInterface, ArrayAccess, JsonSerializable
 
 
     /**
-     * Gets prices
+     * Gets price
      *
-     * @return ProductPriceBase[]|null
+     * @return float|null
      */
-    public function getPrices()
+    public function getPrice()
     {
-        return $this->container['prices'];
+        return $this->container['price'];
     }
 
     /**
-     * Sets prices
+     * Sets price
      *
-     * @param ProductPriceBase[]|null $prices The prices of the product in different currencies
+     * @param float|null $price The price of the product
      *
      * @return self
      */
-    public function setPrices($prices): self
+    public function setPrice($price): self
     {
-        $this->container['prices'] = $prices;
+        $this->container['price'] = $price;
+
+        return $this;
+    }
+
+    /**
+     * Gets cost
+     *
+     * @return float|null
+     */
+    public function getCost()
+    {
+        return $this->container['cost'];
+    }
+
+    /**
+     * Sets cost
+     *
+     * @param float|null $cost The cost of the product
+     *
+     * @return self
+     */
+    public function setCost($cost): self
+    {
+        $this->container['cost'] = $cost;
 
         return $this;
     }

@@ -1,9 +1,10 @@
-# # ArrayPrices
+# # ProductPriceBase
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**prices** | [**ProductPriceBase[]**](ProductPriceBase.md) | The prices of the product in different currencies | [optional]
+**price** | **float** | The price of the product | [optional]
+**cost** | **float** | The cost of the product | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
