@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Changed
+- Removed `deprecated: true` from LegacyTeams endpoints (`GET`/`POST /v1/legacyTeams`, `GET`/`PUT /v1/legacyTeams/{id}`, `GET`/`POST`/`DELETE /v1/legacyTeams/{id}/users`, `GET /v1/legacyTeams/user/{id}`) and updated the tag description to remove outdated deprecation notice
 
 ## [17.6.0](https://github.com/pipedrive/client-php/compare17.5.2...17.6.0) (2026-09-08)
 ### Added
