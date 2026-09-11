@@ -318,6 +318,9 @@ class PostPersonRequestBody implements ModelInterface, ArrayAccess, JsonSerializ
     {
         $invalidProperties = [];
 
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
         $allowedValues = $this->getMarketingStatusAllowableValues();
         if (!is_null($this->container['marketing_status']) && !in_array($this->container['marketing_status'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -345,7 +348,7 @@ class PostPersonRequestBody implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Gets name
      *
-     * @return string|null
+     * @return string
      */
     public function getName()
     {
@@ -355,7 +358,7 @@ class PostPersonRequestBody implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Sets name
      *
-     * @param string|null $name The name of the person
+     * @param string $name The name of the person
      *
      * @return self
      */
@@ -571,7 +574,7 @@ class PostPersonRequestBody implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Sets notes
      *
-     * @param string|null $notes Contact sync notes of the person, maximum 10 000 characters, included if contact sync is enabled for the company
+     * @param string|null $notes Contact sync notes of the person, maximum 10 000 characters. Only accepted when contact sync is enabled for the company; otherwise the request returns 403.
      *
      * @return self
      */
@@ -595,7 +598,7 @@ class PostPersonRequestBody implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Sets im
      *
-     * @param \Pipedrive\versions\v2\Model\PersonItemIm[]|null $im The instant messaging accounts of the person, included if contact sync is enabled for the company
+     * @param \Pipedrive\versions\v2\Model\PersonItemIm[]|null $im The instant messaging accounts of the person. Only accepted when contact sync is enabled for the company; otherwise the request returns 403.
      *
      * @return self
      */
@@ -619,7 +622,7 @@ class PostPersonRequestBody implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Sets birthday
      *
-     * @param string|null $birthday The birthday of the person, included if contact sync is enabled for the company
+     * @param string|null $birthday The birthday of the person. Only accepted when contact sync is enabled for the company; otherwise the request returns 403.
      *
      * @return self
      */
@@ -643,7 +646,7 @@ class PostPersonRequestBody implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Sets job_title
      *
-     * @param string|null $job_title The job title of the person, included if contact sync is enabled for the company
+     * @param string|null $job_title The job title of the person. Only accepted when contact sync is enabled for the company; otherwise the request returns 403.
      *
      * @return self
      */

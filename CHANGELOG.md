@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Fixed
+- Removed `person_id` from the v2 activity request body (`POST /api/v2/activities`, `PATCH /api/v2/activities/{id}`) — the API has always rejected it as read-only, and the schema advertised it as writable; use `participants: [{ "person_id": 123, "primary": true }]` instead. `org_id` is unaffected.
+- Added `required: [name]` to the v2 person create request body (`POST /api/v2/persons`) — a bare call previously reached the API instead of failing client-side.
+- Reworded the `im`, `notes`, `birthday`, and `job_title` field descriptions and the `addPerson`/`updatePerson` operation descriptions (which also cover `postal_address`) to disclose that these fields 403 when contact sync isn't enabled, rather than only describing when they're present on read.
 
 ## [17.6.0](https://github.com/pipedrive/client-php/compare17.5.2...17.6.0) (2026-09-08)
 ### Added
