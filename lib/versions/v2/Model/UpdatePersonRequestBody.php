@@ -541,7 +541,7 @@ class UpdatePersonRequestBody implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Sets notes
      *
-     * @param string|null $notes Contact sync notes of the person, maximum 10 000 characters, included if contact sync is enabled for the company
+     * @param string|null $notes Contact sync notes of the person, maximum 10 000 characters. Only accepted when contact sync is enabled for the company; otherwise the request returns 403.
      *
      * @return self
      */
@@ -565,7 +565,7 @@ class UpdatePersonRequestBody implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Sets im
      *
-     * @param \Pipedrive\versions\v2\Model\PersonItemIm[]|null $im The instant messaging accounts of the person, included if contact sync is enabled for the company
+     * @param \Pipedrive\versions\v2\Model\PersonItemIm[]|null $im The instant messaging accounts of the person. Only accepted when contact sync is enabled for the company; otherwise the request returns 403.
      *
      * @return self
      */
@@ -589,7 +589,7 @@ class UpdatePersonRequestBody implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Sets birthday
      *
-     * @param string|null $birthday The birthday of the person, included if contact sync is enabled for the company
+     * @param string|null $birthday The birthday of the person. Only accepted when contact sync is enabled for the company; otherwise the request returns 403.
      *
      * @return self
      */
@@ -613,7 +613,7 @@ class UpdatePersonRequestBody implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Sets job_title
      *
-     * @param string|null $job_title The job title of the person, included if contact sync is enabled for the company
+     * @param string|null $job_title The job title of the person. Only accepted when contact sync is enabled for the company; otherwise the request returns 403.
      *
      * @return self
      */
