@@ -1,6 +1,6 @@
 <?php
 /**
- * ProductSearchItemItem
+ * ActivityRequestBodyLocation
  *
  * PHP version 8.0
  *
@@ -35,9 +35,10 @@ use Pipedrive\versions\v2\Traits\RawData;
 use Pipedrive\versions\v2\ObjectSerializer;
 
 /**
- * ProductSearchItemItem Class Doc Comment
+ * ActivityRequestBodyLocation Class Doc Comment
  *
  * @category Class
+ * @description Location of the activity
  * @package  Pipedrive\versions\v2
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -45,7 +46,7 @@ use Pipedrive\versions\v2\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ProductSearchItemItem implements ModelInterface, ArrayAccess, JsonSerializable
+class ActivityRequestBodyLocation implements ModelInterface, ArrayAccess, JsonSerializable
 {
     use RawData;
 
@@ -56,7 +57,7 @@ class ProductSearchItemItem implements ModelInterface, ArrayAccess, JsonSerializ
       *
       * @var string
       */
-    protected static string $openAPIModelName = 'ProductSearchItem_item';
+    protected static string $openAPIModelName = 'ActivityRequestBody_location';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -66,13 +67,16 @@ class ProductSearchItemItem implements ModelInterface, ArrayAccess, JsonSerializ
       * @phpsalm-var array<string, string>
       */
     protected static array $openAPITypes = [
-        'id' => 'int',
-        'type' => 'string',
-        'name' => 'string',
-        'code' => 'string',
-        'visible_to' => 'int',
-        'owner' => '\Pipedrive\versions\v2\Model\ProductSearchItemItemOwner',
-        'custom_fields' => 'string[]'
+        'value' => 'string',
+        'country' => 'string',
+        'admin_area_level_1' => 'string',
+        'admin_area_level_2' => 'string',
+        'locality' => 'string',
+        'sublocality' => 'string',
+        'route' => 'string',
+        'street_number' => 'string',
+        'subpremise' => 'string',
+        'postal_code' => 'string'
     ];
 
     /**
@@ -83,13 +87,16 @@ class ProductSearchItemItem implements ModelInterface, ArrayAccess, JsonSerializ
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'type' => null,
-        'name' => null,
-        'code' => null,
-        'visible_to' => null,
-        'owner' => null,
-        'custom_fields' => null
+        'value' => null,
+        'country' => null,
+        'admin_area_level_1' => null,
+        'admin_area_level_2' => null,
+        'locality' => null,
+        'sublocality' => null,
+        'route' => null,
+        'street_number' => null,
+        'subpremise' => null,
+        'postal_code' => null
     ];
 
     /**
@@ -123,13 +130,16 @@ class ProductSearchItemItem implements ModelInterface, ArrayAccess, JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'type' => 'type',
-        'name' => 'name',
-        'code' => 'code',
-        'visible_to' => 'visible_to',
-        'owner' => 'owner',
-        'custom_fields' => 'custom_fields'
+        'value' => 'value',
+        'country' => 'country',
+        'admin_area_level_1' => 'admin_area_level_1',
+        'admin_area_level_2' => 'admin_area_level_2',
+        'locality' => 'locality',
+        'sublocality' => 'sublocality',
+        'route' => 'route',
+        'street_number' => 'street_number',
+        'subpremise' => 'subpremise',
+        'postal_code' => 'postal_code'
     ];
 
     /**
@@ -138,13 +148,16 @@ class ProductSearchItemItem implements ModelInterface, ArrayAccess, JsonSerializ
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'type' => 'setType',
-        'name' => 'setName',
-        'code' => 'setCode',
-        'visible_to' => 'setVisibleTo',
-        'owner' => 'setOwner',
-        'custom_fields' => 'setCustomFields'
+        'value' => 'setValue',
+        'country' => 'setCountry',
+        'admin_area_level_1' => 'setAdminAreaLevel1',
+        'admin_area_level_2' => 'setAdminAreaLevel2',
+        'locality' => 'setLocality',
+        'sublocality' => 'setSublocality',
+        'route' => 'setRoute',
+        'street_number' => 'setStreetNumber',
+        'subpremise' => 'setSubpremise',
+        'postal_code' => 'setPostalCode'
     ];
 
     /**
@@ -153,13 +166,16 @@ class ProductSearchItemItem implements ModelInterface, ArrayAccess, JsonSerializ
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'type' => 'getType',
-        'name' => 'getName',
-        'code' => 'getCode',
-        'visible_to' => 'getVisibleTo',
-        'owner' => 'getOwner',
-        'custom_fields' => 'getCustomFields'
+        'value' => 'getValue',
+        'country' => 'getCountry',
+        'admin_area_level_1' => 'getAdminAreaLevel1',
+        'admin_area_level_2' => 'getAdminAreaLevel2',
+        'locality' => 'getLocality',
+        'sublocality' => 'getSublocality',
+        'route' => 'getRoute',
+        'street_number' => 'getStreetNumber',
+        'subpremise' => 'getSubpremise',
+        'postal_code' => 'getPostalCode'
     ];
 
     /**
@@ -229,13 +245,16 @@ class ProductSearchItemItem implements ModelInterface, ArrayAccess, JsonSerializ
      */
     public function __construct(?array $data = null)
     {
-        $this->container['id'] = $data['id'] ?? null;
-        $this->container['type'] = $data['type'] ?? null;
-        $this->container['name'] = $data['name'] ?? null;
-        $this->container['code'] = $data['code'] ?? null;
-        $this->container['visible_to'] = $data['visible_to'] ?? null;
-        $this->container['owner'] = $data['owner'] ?? null;
-        $this->container['custom_fields'] = $data['custom_fields'] ?? null;
+        $this->container['value'] = $data['value'] ?? null;
+        $this->container['country'] = $data['country'] ?? null;
+        $this->container['admin_area_level_1'] = $data['admin_area_level_1'] ?? null;
+        $this->container['admin_area_level_2'] = $data['admin_area_level_2'] ?? null;
+        $this->container['locality'] = $data['locality'] ?? null;
+        $this->container['sublocality'] = $data['sublocality'] ?? null;
+        $this->container['route'] = $data['route'] ?? null;
+        $this->container['street_number'] = $data['street_number'] ?? null;
+        $this->container['subpremise'] = $data['subpremise'] ?? null;
+        $this->container['postal_code'] = $data['postal_code'] ?? null;
     }
 
     /**
@@ -265,169 +284,241 @@ class ProductSearchItemItem implements ModelInterface, ArrayAccess, JsonSerializ
 
 
     /**
-     * Gets id
-     *
-     * @return int|null
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param int|null $id The ID of the product
-     *
-     * @return self
-     */
-    public function setId($id): self
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
+     * Gets value
      *
      * @return string|null
      */
-    public function getType()
+    public function getValue()
     {
-        return $this->container['type'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets type
+     * Sets value
      *
-     * @param string|null $type The type of the item
+     * @param string|null $value The full address of the activity
      *
      * @return self
      */
-    public function setType($type): self
+    public function setValue($value): self
     {
-        $this->container['type'] = $type;
+        $this->container['value'] = $value;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets country
      *
      * @return string|null
      */
-    public function getName()
+    public function getCountry()
     {
-        return $this->container['name'];
+        return $this->container['country'];
     }
 
     /**
-     * Sets name
+     * Sets country
      *
-     * @param string|null $name The name of the product
+     * @param string|null $country Country of the activity
      *
      * @return self
      */
-    public function setName($name): self
+    public function setCountry($country): self
     {
-        $this->container['name'] = $name;
+        $this->container['country'] = $country;
 
         return $this;
     }
 
     /**
-     * Gets code
+     * Gets admin_area_level_1
      *
      * @return string|null
      */
-    public function getCode()
+    public function getAdminAreaLevel1()
     {
-        return $this->container['code'];
+        return $this->container['admin_area_level_1'];
     }
 
     /**
-     * Sets code
+     * Sets admin_area_level_1
      *
-     * @param string|null $code The code of the product
+     * @param string|null $admin_area_level_1 Admin area level 1 (e.g. state) of the activity
      *
      * @return self
      */
-    public function setCode($code): self
+    public function setAdminAreaLevel1($admin_area_level_1): self
     {
-        $this->container['code'] = $code;
+        $this->container['admin_area_level_1'] = $admin_area_level_1;
 
         return $this;
     }
 
     /**
-     * Gets visible_to
+     * Gets admin_area_level_2
      *
-     * @return int|null
+     * @return string|null
      */
-    public function getVisibleTo()
+    public function getAdminAreaLevel2()
     {
-        return $this->container['visible_to'];
+        return $this->container['admin_area_level_2'];
     }
 
     /**
-     * Sets visible_to
+     * Sets admin_area_level_2
      *
-     * @param int|null $visible_to The visibility of the product
+     * @param string|null $admin_area_level_2 Admin area level 2 (e.g. county) of the activity
      *
      * @return self
      */
-    public function setVisibleTo($visible_to): self
+    public function setAdminAreaLevel2($admin_area_level_2): self
     {
-        $this->container['visible_to'] = $visible_to;
+        $this->container['admin_area_level_2'] = $admin_area_level_2;
 
         return $this;
     }
 
     /**
-     * Gets owner
+     * Gets locality
      *
-     * @return \Pipedrive\versions\v2\Model\ProductSearchItemItemOwner|null
+     * @return string|null
      */
-    public function getOwner()
+    public function getLocality()
     {
-        return $this->container['owner'];
+        return $this->container['locality'];
     }
 
     /**
-     * Sets owner
+     * Sets locality
      *
-     * @param \Pipedrive\versions\v2\Model\ProductSearchItemItemOwner|null $owner owner
+     * @param string|null $locality Locality (e.g. city) of the activity
      *
      * @return self
      */
-    public function setOwner($owner): self
+    public function setLocality($locality): self
     {
-        $this->container['owner'] = $owner;
+        $this->container['locality'] = $locality;
 
         return $this;
     }
 
     /**
-     * Gets custom_fields
+     * Gets sublocality
      *
-     * @return string[]|null
+     * @return string|null
      */
-    public function getCustomFields()
+    public function getSublocality()
     {
-        return $this->container['custom_fields'];
+        return $this->container['sublocality'];
     }
 
     /**
-     * Sets custom_fields
+     * Sets sublocality
      *
-     * @param string[]|null $custom_fields The custom fields
+     * @param string|null $sublocality Sublocality (e.g. neighborhood) of the activity
      *
      * @return self
      */
-    public function setCustomFields($custom_fields): self
+    public function setSublocality($sublocality): self
     {
-        $this->container['custom_fields'] = $custom_fields;
+        $this->container['sublocality'] = $sublocality;
+
+        return $this;
+    }
+
+    /**
+     * Gets route
+     *
+     * @return string|null
+     */
+    public function getRoute()
+    {
+        return $this->container['route'];
+    }
+
+    /**
+     * Sets route
+     *
+     * @param string|null $route Route (e.g. street) of the activity
+     *
+     * @return self
+     */
+    public function setRoute($route): self
+    {
+        $this->container['route'] = $route;
+
+        return $this;
+    }
+
+    /**
+     * Gets street_number
+     *
+     * @return string|null
+     */
+    public function getStreetNumber()
+    {
+        return $this->container['street_number'];
+    }
+
+    /**
+     * Sets street_number
+     *
+     * @param string|null $street_number Street number of the activity
+     *
+     * @return self
+     */
+    public function setStreetNumber($street_number): self
+    {
+        $this->container['street_number'] = $street_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets subpremise
+     *
+     * @return string|null
+     */
+    public function getSubpremise()
+    {
+        return $this->container['subpremise'];
+    }
+
+    /**
+     * Sets subpremise
+     *
+     * @param string|null $subpremise Subpremise (e.g. apartment/suite number) of the activity
+     *
+     * @return self
+     */
+    public function setSubpremise($subpremise): self
+    {
+        $this->container['subpremise'] = $subpremise;
+
+        return $this;
+    }
+
+    /**
+     * Gets postal_code
+     *
+     * @return string|null
+     */
+    public function getPostalCode()
+    {
+        return $this->container['postal_code'];
+    }
+
+    /**
+     * Sets postal_code
+     *
+     * @param string|null $postal_code Postal code of the activity
+     *
+     * @return self
+     */
+    public function setPostalCode($postal_code): self
+    {
+        $this->container['postal_code'] = $postal_code;
 
         return $this;
     }

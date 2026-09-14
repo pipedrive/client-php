@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Fixed
+- Fixed the comma-separated `include_fields` query parameter across v2 collection/detail endpoints (`GET /api/v2/activities`, `GET /api/v2/activities/{id}`, `GET /api/v2/activityFields`, `GET /api/v2/activityFields/{field_code}`, `GET /api/v2/deals`, `GET /api/v2/deals/{id}`, `GET /api/v2/dealFields`, `GET /api/v2/dealFields/{field_code}`, `GET /api/v2/organizations`, `GET /api/v2/organizations/{id}`, `GET /api/v2/organizationFields`, `GET /api/v2/organizationFields/{field_code}`, `GET /api/v2/persons`, `GET /api/v2/persons/{id}`, `GET /api/v2/personFields`, `GET /api/v2/personFields/{field_code}`, `GET /api/v2/productFields`, and `GET /api/v2/productFields/{field_code}`) that was typed as `type: string` with an enum of comma-joined value combinations despite accepting comma-separated lists — changed to `type: array` of enumerated strings with `uniqueItems: true`, `style: form`, `explode: false`
+- Fixed the comma-separated `custom_fields` query parameter on v2 collection/detail endpoints (`GET /api/v2/deals`, `GET /api/v2/deals/archived`, `GET /api/v2/deals/{id}`, `GET /api/v2/organizations`, `GET /api/v2/organizations/{id}`, `GET /api/v2/persons`, `GET /api/v2/persons/{id}`, and `GET /api/v2/products`) and the `ids` query parameter on v2 collection endpoints (`GET /api/v2/activities`, `GET /api/v2/deals`, `GET /api/v2/deals/archived`, `GET /api/v2/organizations`, `GET /api/v2/persons`, and `GET /api/v2/products`) that were typed as `type: string` despite accepting comma-separated lists — changed to `type: array` of strings (`custom_fields` capped at 15 items, `ids` at 100) with `uniqueItems: true`, `style: form`, `explode: false`
 
 ## [17.6.0](https://github.com/pipedrive/client-php/compare17.5.2...17.6.0) (2026-09-08)
 ### Added

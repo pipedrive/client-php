@@ -1334,8 +1334,8 @@ class PersonsApi
      * Get details of a person
      *
      * @param  int $id The ID of the person (required)
-     * @param  string|null $include_fields Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled. (optional)
-     * @param  string|null $custom_fields Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
+     * @param  string[]|null $include_fields Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled. (optional)
+     * @param  string[]|null $custom_fields Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
      * @param  bool|null $include_option_labels When provided with a &#39;true&#39; value, single option and multiple option custom fields values contain objects in the form of &#39;{ id: number, label: string }&#39; instead of plain id (optional)
      * @param  bool|null $include_labels When provided with &#39;true&#39; value, response will include an array of label objects in the form of &#39;{ id: number, label: string }&#39; (optional)
      *
@@ -1355,8 +1355,8 @@ class PersonsApi
      * Get details of a person
      *
      * @param  int $id The ID of the person (required)
-     * @param  string|null $include_fields Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled. (optional)
-     * @param  string|null $custom_fields Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
+     * @param  string[]|null $include_fields Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled. (optional)
+     * @param  string[]|null $custom_fields Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
      * @param  bool|null $include_option_labels When provided with a &#39;true&#39; value, single option and multiple option custom fields values contain objects in the form of &#39;{ id: number, label: string }&#39; instead of plain id (optional)
      * @param  bool|null $include_labels When provided with &#39;true&#39; value, response will include an array of label objects in the form of &#39;{ id: number, label: string }&#39; (optional)
      *
@@ -1460,8 +1460,8 @@ class PersonsApi
      * Get details of a person
      *
      * @param  int $id The ID of the person (required)
-     * @param  string|null $include_fields Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled. (optional)
-     * @param  string|null $custom_fields Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
+     * @param  string[]|null $include_fields Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled. (optional)
+     * @param  string[]|null $custom_fields Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
      * @param  bool|null $include_option_labels When provided with a &#39;true&#39; value, single option and multiple option custom fields values contain objects in the form of &#39;{ id: number, label: string }&#39; instead of plain id (optional)
      * @param  bool|null $include_labels When provided with &#39;true&#39; value, response will include an array of label objects in the form of &#39;{ id: number, label: string }&#39; (optional)
      *
@@ -1484,8 +1484,8 @@ class PersonsApi
      * Get details of a person
      *
      * @param  int $id The ID of the person (required)
-     * @param  string|null $include_fields Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled. (optional)
-     * @param  string|null $custom_fields Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
+     * @param  string[]|null $include_fields Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled. (optional)
+     * @param  string[]|null $custom_fields Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
      * @param  bool|null $include_option_labels When provided with a &#39;true&#39; value, single option and multiple option custom fields values contain objects in the form of &#39;{ id: number, label: string }&#39; instead of plain id (optional)
      * @param  bool|null $include_labels When provided with &#39;true&#39; value, response will include an array of label objects in the form of &#39;{ id: number, label: string }&#39; (optional)
      *
@@ -1535,8 +1535,8 @@ class PersonsApi
      * Create request for operation 'getPerson'
      *
      * @param  int $id The ID of the person (required)
-     * @param  string|null $include_fields Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled. (optional)
-     * @param  string|null $custom_fields Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
+     * @param  string[]|null $include_fields Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled. (optional)
+     * @param  string[]|null $custom_fields Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
      * @param  bool|null $include_option_labels When provided with a &#39;true&#39; value, single option and multiple option custom fields values contain objects in the form of &#39;{ id: number, label: string }&#39; instead of plain id (optional)
      * @param  bool|null $include_labels When provided with &#39;true&#39; value, response will include an array of label objects in the form of &#39;{ id: number, label: string }&#39; (optional)
      *
@@ -1553,6 +1553,11 @@ class PersonsApi
             );
         }
 
+        if ($custom_fields !== null && count($custom_fields) > 15) {
+            throw new \InvalidArgumentException('invalid value for "$custom_fields" when calling PersonsApi.getPerson, number of items must be less than or equal to 15.');
+        }
+
+
         $resourcePath = '/persons/{id}';
         $formParams = [];
         $queryParams = [];
@@ -1563,7 +1568,7 @@ class PersonsApi
         // query params
         /* @phpstan-ignore-next-line */
         if (is_array($include_fields)) {
-            $include_fields = ObjectSerializer::serializeCollection($include_fields, '', true);
+            $include_fields = ObjectSerializer::serializeCollection($include_fields, 'form', true);
         }
         if ($include_fields !== null) {
             $queryParams['include_fields'] = $include_fields;
@@ -1571,7 +1576,7 @@ class PersonsApi
         // query params
         /* @phpstan-ignore-next-line */
         if (is_array($custom_fields)) {
-            $custom_fields = ObjectSerializer::serializeCollection($custom_fields, '', true);
+            $custom_fields = ObjectSerializer::serializeCollection($custom_fields, 'form', true);
         }
         if ($custom_fields !== null) {
             $queryParams['custom_fields'] = $custom_fields;
@@ -2622,7 +2627,7 @@ class PersonsApi
      * Get all persons
      *
      * @param  int|null $filter_id If supplied, only persons matching the specified filter are returned (optional)
-     * @param  string|null $ids Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
+     * @param  string[]|null $ids Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
      * @param  int|null $owner_id If supplied, only persons owned by the specified user are returned. If filter_id is provided, this is ignored. (optional)
      * @param  int|null $org_id If supplied, only persons linked to the specified organization are returned. If filter_id is provided, this is ignored. (optional)
      * @param  int|null $deal_id If supplied, only persons linked to the specified deal are returned. If filter_id is provided, this is ignored. (optional)
@@ -2630,8 +2635,8 @@ class PersonsApi
      * @param  string|null $updated_until If set, only persons with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z. (optional)
      * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;. (optional, default to 'id')
      * @param  string|'asc' $sort_direction The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;. (optional, default to 'asc')
-     * @param  string|null $include_fields Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled. (optional)
-     * @param  string|null $custom_fields Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
+     * @param  string[]|null $include_fields Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled. (optional)
+     * @param  string[]|null $custom_fields Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
      * @param  bool|null $include_option_labels When provided with a &#39;true&#39; value, single option and multiple option custom fields values contain objects in the form of &#39;{ id: number, label: string }&#39; instead of plain id (optional)
      * @param  bool|null $include_labels When provided with &#39;true&#39; value, response will include an array of label objects in the form of &#39;{ id: number, label: string }&#39; (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
@@ -2653,7 +2658,7 @@ class PersonsApi
      * Get all persons
      *
      * @param  int|null $filter_id If supplied, only persons matching the specified filter are returned (optional)
-     * @param  string|null $ids Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
+     * @param  string[]|null $ids Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
      * @param  int|null $owner_id If supplied, only persons owned by the specified user are returned. If filter_id is provided, this is ignored. (optional)
      * @param  int|null $org_id If supplied, only persons linked to the specified organization are returned. If filter_id is provided, this is ignored. (optional)
      * @param  int|null $deal_id If supplied, only persons linked to the specified deal are returned. If filter_id is provided, this is ignored. (optional)
@@ -2661,8 +2666,8 @@ class PersonsApi
      * @param  string|null $updated_until If set, only persons with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z. (optional)
      * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;. (optional, default to 'id')
      * @param  string|'asc' $sort_direction The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;. (optional, default to 'asc')
-     * @param  string|null $include_fields Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled. (optional)
-     * @param  string|null $custom_fields Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
+     * @param  string[]|null $include_fields Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled. (optional)
+     * @param  string[]|null $custom_fields Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
      * @param  bool|null $include_option_labels When provided with a &#39;true&#39; value, single option and multiple option custom fields values contain objects in the form of &#39;{ id: number, label: string }&#39; instead of plain id (optional)
      * @param  bool|null $include_labels When provided with &#39;true&#39; value, response will include an array of label objects in the form of &#39;{ id: number, label: string }&#39; (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
@@ -2768,7 +2773,7 @@ class PersonsApi
      * Get all persons
      *
      * @param  int|null $filter_id If supplied, only persons matching the specified filter are returned (optional)
-     * @param  string|null $ids Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
+     * @param  string[]|null $ids Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
      * @param  int|null $owner_id If supplied, only persons owned by the specified user are returned. If filter_id is provided, this is ignored. (optional)
      * @param  int|null $org_id If supplied, only persons linked to the specified organization are returned. If filter_id is provided, this is ignored. (optional)
      * @param  int|null $deal_id If supplied, only persons linked to the specified deal are returned. If filter_id is provided, this is ignored. (optional)
@@ -2776,8 +2781,8 @@ class PersonsApi
      * @param  string|null $updated_until If set, only persons with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z. (optional)
      * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;. (optional, default to 'id')
      * @param  string|'asc' $sort_direction The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;. (optional, default to 'asc')
-     * @param  string|null $include_fields Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled. (optional)
-     * @param  string|null $custom_fields Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
+     * @param  string[]|null $include_fields Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled. (optional)
+     * @param  string[]|null $custom_fields Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
      * @param  bool|null $include_option_labels When provided with a &#39;true&#39; value, single option and multiple option custom fields values contain objects in the form of &#39;{ id: number, label: string }&#39; instead of plain id (optional)
      * @param  bool|null $include_labels When provided with &#39;true&#39; value, response will include an array of label objects in the form of &#39;{ id: number, label: string }&#39; (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
@@ -2802,7 +2807,7 @@ class PersonsApi
      * Get all persons
      *
      * @param  int|null $filter_id If supplied, only persons matching the specified filter are returned (optional)
-     * @param  string|null $ids Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
+     * @param  string[]|null $ids Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
      * @param  int|null $owner_id If supplied, only persons owned by the specified user are returned. If filter_id is provided, this is ignored. (optional)
      * @param  int|null $org_id If supplied, only persons linked to the specified organization are returned. If filter_id is provided, this is ignored. (optional)
      * @param  int|null $deal_id If supplied, only persons linked to the specified deal are returned. If filter_id is provided, this is ignored. (optional)
@@ -2810,8 +2815,8 @@ class PersonsApi
      * @param  string|null $updated_until If set, only persons with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z. (optional)
      * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;. (optional, default to 'id')
      * @param  string|'asc' $sort_direction The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;. (optional, default to 'asc')
-     * @param  string|null $include_fields Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled. (optional)
-     * @param  string|null $custom_fields Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
+     * @param  string[]|null $include_fields Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled. (optional)
+     * @param  string[]|null $custom_fields Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
      * @param  bool|null $include_option_labels When provided with a &#39;true&#39; value, single option and multiple option custom fields values contain objects in the form of &#39;{ id: number, label: string }&#39; instead of plain id (optional)
      * @param  bool|null $include_labels When provided with &#39;true&#39; value, response will include an array of label objects in the form of &#39;{ id: number, label: string }&#39; (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
@@ -2863,7 +2868,7 @@ class PersonsApi
      * Create request for operation 'getPersons'
      *
      * @param  int|null $filter_id If supplied, only persons matching the specified filter are returned (optional)
-     * @param  string|null $ids Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
+     * @param  string[]|null $ids Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
      * @param  int|null $owner_id If supplied, only persons owned by the specified user are returned. If filter_id is provided, this is ignored. (optional)
      * @param  int|null $org_id If supplied, only persons linked to the specified organization are returned. If filter_id is provided, this is ignored. (optional)
      * @param  int|null $deal_id If supplied, only persons linked to the specified deal are returned. If filter_id is provided, this is ignored. (optional)
@@ -2871,8 +2876,8 @@ class PersonsApi
      * @param  string|null $updated_until If set, only persons with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z. (optional)
      * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;. (optional, default to 'id')
      * @param  string|'asc' $sort_direction The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;. (optional, default to 'asc')
-     * @param  string|null $include_fields Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled. (optional)
-     * @param  string|null $custom_fields Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
+     * @param  string[]|null $include_fields Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled. (optional)
+     * @param  string[]|null $custom_fields Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
      * @param  bool|null $include_option_labels When provided with a &#39;true&#39; value, single option and multiple option custom fields values contain objects in the form of &#39;{ id: number, label: string }&#39; instead of plain id (optional)
      * @param  bool|null $include_labels When provided with &#39;true&#39; value, response will include an array of label objects in the form of &#39;{ id: number, label: string }&#39; (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
@@ -2883,6 +2888,15 @@ class PersonsApi
      */
     public function getPersonsRequest($filter_id = null, $ids = null, $owner_id = null, $org_id = null, $deal_id = null, $updated_since = null, $updated_until = null, $sort_by = 'id', $sort_direction = 'asc', $include_fields = null, $custom_fields = null, $include_option_labels = null, $include_labels = null, $limit = null, $cursor = null): Request
     {
+        if ($ids !== null && count($ids) > 100) {
+            throw new \InvalidArgumentException('invalid value for "$ids" when calling PersonsApi.getPersons, number of items must be less than or equal to 100.');
+        }
+
+
+        if ($custom_fields !== null && count($custom_fields) > 15) {
+            throw new \InvalidArgumentException('invalid value for "$custom_fields" when calling PersonsApi.getPersons, number of items must be less than or equal to 15.');
+        }
+
 
         $resourcePath = '/persons';
         $formParams = [];
@@ -2902,7 +2916,7 @@ class PersonsApi
         // query params
         /* @phpstan-ignore-next-line */
         if (is_array($ids)) {
-            $ids = ObjectSerializer::serializeCollection($ids, '', true);
+            $ids = ObjectSerializer::serializeCollection($ids, 'form', true);
         }
         if ($ids !== null) {
             $queryParams['ids'] = $ids;
@@ -2966,7 +2980,7 @@ class PersonsApi
         // query params
         /* @phpstan-ignore-next-line */
         if (is_array($include_fields)) {
-            $include_fields = ObjectSerializer::serializeCollection($include_fields, '', true);
+            $include_fields = ObjectSerializer::serializeCollection($include_fields, 'form', true);
         }
         if ($include_fields !== null) {
             $queryParams['include_fields'] = $include_fields;
@@ -2974,7 +2988,7 @@ class PersonsApi
         // query params
         /* @phpstan-ignore-next-line */
         if (is_array($custom_fields)) {
-            $custom_fields = ObjectSerializer::serializeCollection($custom_fields, '', true);
+            $custom_fields = ObjectSerializer::serializeCollection($custom_fields, 'form', true);
         }
         if ($custom_fields !== null) {
             $queryParams['custom_fields'] = $custom_fields;

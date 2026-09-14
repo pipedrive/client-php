@@ -893,7 +893,7 @@ Name | Type | Description  | Notes
 ## `getProducts()`
 
 ```php
-getProducts($owner_id, $ids, $filter_id, $cursor, $limit, $sort_by, $sort_direction, $updated_since, $custom_fields): \Pipedrive\versions\v2\Model\ProductsResponse
+getProducts($owner_id, $ids, $custom_fields, $filter_id, $cursor, $limit, $sort_by, $sort_direction, $updated_since): \Pipedrive\versions\v2\Model\ProductsResponse
 ```
 
 Get all products
@@ -923,17 +923,17 @@ $apiInstance = new Pipedrive\versions\v2\Api\ProductsApi(
     $config
 );
 $owner_id = 56; // int | If supplied, only products owned by the given user will be returned
-$ids = 'ids_example'; // string | Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
+$ids = array('ids_example'); // string[] | Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
+$custom_fields = array('custom_fields_example'); // string[] | Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.<br/>A maximum of 15 keys is allowed.
 $filter_id = 56; // int | The ID of the filter to use
 $cursor = 'cursor_example'; // string | For pagination, the marker (an opaque string value) representing the first item on the next page
 $limit = 100; // int | For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
 $sort_by = 'id'; // string | The field to sort by. Supported fields: `id`, `name`, `add_time`, `update_time`.
 $sort_direction = 'asc'; // string | The sorting direction. Supported values: `asc`, `desc`.
 $updated_since = 'updated_since_example'; // string | If set, only products with an `update_time` later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
-$custom_fields = 'custom_fields_example'; // string | Comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for a smaller response.<br/>A maximum of 15 keys is allowed.
 
 try {
-    $result = $apiInstance->getProducts($owner_id, $ids, $filter_id, $cursor, $limit, $sort_by, $sort_direction, $updated_since, $custom_fields);
+    $result = $apiInstance->getProducts($owner_id, $ids, $custom_fields, $filter_id, $cursor, $limit, $sort_by, $sort_direction, $updated_since);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProductsApi->getProducts: ', $e->getMessage(), PHP_EOL;
@@ -945,14 +945,14 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner_id** | **int**| If supplied, only products owned by the given user will be returned | [optional]
- **ids** | **string**| Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. | [optional]
+ **ids** | [**string[]**](../Model/string.md)| Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. | [optional]
+ **custom_fields** | [**string[]**](../Model/string.md)| Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. | [optional]
  **filter_id** | **int**| The ID of the filter to use | [optional]
  **cursor** | **string**| For pagination, the marker (an opaque string value) representing the first item on the next page | [optional]
  **limit** | **int**| For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. | [optional]
  **sort_by** | **string**| The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;name&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;. | [optional] [default to &#39;id&#39;]
  **sort_direction** | **string**| The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;. | [optional] [default to &#39;asc&#39;]
  **updated_since** | **string**| If set, only products with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z. | [optional]
- **custom_fields** | **string**| Comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for a smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. | [optional]
 
 ### Return type
 
