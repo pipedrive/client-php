@@ -5,10 +5,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Changed
+- Removed `deprecated: true` from LegacyTeams endpoints (`GET`/`POST /v1/legacyTeams`, `GET`/`PUT /v1/legacyTeams/{id}`, `GET`/`POST`/`DELETE /v1/legacyTeams/{id}/users`, `GET /v1/legacyTeams/user/{id}`) and updated the tag description to remove outdated deprecation notice
+
 ### Fixed
 - Removed `person_id` from the v2 activity request body (`POST /api/v2/activities`, `PATCH /api/v2/activities/{id}`) — the API has always rejected it as read-only, and the schema advertised it as writable; use `participants: [{ "person_id": 123, "primary": true }]` instead. `org_id` is unaffected.
 - Added `required: [name]` to the v2 person create request body (`POST /api/v2/persons`) — a bare call previously reached the API instead of failing client-side.
 - Reworded the `im`, `notes`, `birthday`, and `job_title` field descriptions and the `addPerson`/`updatePerson` operation descriptions (which also cover `postal_address`) to disclose that these fields 403 when contact sync isn't enabled, rather than only describing when they're present on read.
+- Fixed OAuth scopes on six v2 deal sub-resource write operations (`POST /api/v2/deals/{id}/discounts`, `PATCH`/`DELETE /api/v2/deals/{id}/discounts/{discount_id}`, `POST /api/v2/deals/{id}/installments`, `PATCH`/`DELETE /api/v2/deals/{id}/installments/{installment_id}`) that incorrectly listed `deals:read` alongside `deals:full`, copied from their sibling GET operations - these are now `deals:full` only, matching their read-write nature
+
+## [17.6.3](https://github.com/pipedrive/client-php/compare/17.6.2...17.6.3) (2026-09-17)
+
+## [17.6.2](https://github.com/pipedrive/client-php/compare/17.6.1...17.6.2) (2026-09-17)
+
+## [17.6.1](https://github.com/pipedrive/client-php/compare/17.6.0...17.6.1) (2026-09-17)
 
 ## [17.6.0](https://github.com/pipedrive/client-php/compare17.5.2...17.6.0) (2026-09-08)
 ### Added
