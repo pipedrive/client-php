@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Fixed
+- Fixed the SDK sending an empty `Authorization` header alongside API key auth
+- Refresh the OAuth access token before the auth check in generated API methods, instead of only when one was already present
+
 ### Changed
 - Removed `deprecated: true` from LegacyTeams endpoints (`GET`/`POST /v1/legacyTeams`, `GET`/`PUT /v1/legacyTeams/{id}`, `GET`/`POST`/`DELETE /v1/legacyTeams/{id}/users`, `GET /v1/legacyTeams/user/{id}`) and updated the tag description to remove outdated deprecation notice
 
