@@ -1346,7 +1346,7 @@ class PersonFieldsApi
      * Get one person field
      *
      * @param  string $field_code The unique code identifying the field (required)
-     * @param  string|null $include_fields Optional comma separated string array of additional data namespaces to include in response (optional)
+     * @param  string[]|null $include_fields Optional comma separated string array of additional data namespaces to include in response (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
@@ -1364,7 +1364,7 @@ class PersonFieldsApi
      * Get one person field
      *
      * @param  string $field_code The unique code identifying the field (required)
-     * @param  string|null $include_fields Optional comma separated string array of additional data namespaces to include in response (optional)
+     * @param  string[]|null $include_fields Optional comma separated string array of additional data namespaces to include in response (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
@@ -1466,7 +1466,7 @@ class PersonFieldsApi
      * Get one person field
      *
      * @param  string $field_code The unique code identifying the field (required)
-     * @param  string|null $include_fields Optional comma separated string array of additional data namespaces to include in response (optional)
+     * @param  string[]|null $include_fields Optional comma separated string array of additional data namespaces to include in response (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
@@ -1487,7 +1487,7 @@ class PersonFieldsApi
      * Get one person field
      *
      * @param  string $field_code The unique code identifying the field (required)
-     * @param  string|null $include_fields Optional comma separated string array of additional data namespaces to include in response (optional)
+     * @param  string[]|null $include_fields Optional comma separated string array of additional data namespaces to include in response (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
@@ -1535,7 +1535,7 @@ class PersonFieldsApi
      * Create request for operation 'getPersonField'
      *
      * @param  string $field_code The unique code identifying the field (required)
-     * @param  string|null $include_fields Optional comma separated string array of additional data namespaces to include in response (optional)
+     * @param  string[]|null $include_fields Optional comma separated string array of additional data namespaces to include in response (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
@@ -1550,6 +1550,7 @@ class PersonFieldsApi
             );
         }
 
+
         $resourcePath = '/personFields/{field_code}';
         $formParams = [];
         $queryParams = [];
@@ -1560,7 +1561,7 @@ class PersonFieldsApi
         // query params
         /* @phpstan-ignore-next-line */
         if (is_array($include_fields)) {
-            $include_fields = ObjectSerializer::serializeCollection($include_fields, '', true);
+            $include_fields = ObjectSerializer::serializeCollection($include_fields, 'form', true);
         }
         if ($include_fields !== null) {
             $queryParams['include_fields'] = $include_fields;
@@ -1654,7 +1655,7 @@ class PersonFieldsApi
      *
      * Get all person fields
      *
-     * @param  string|null $include_fields Optional comma separated string array of additional data namespaces to include in response (optional)
+     * @param  string[]|null $include_fields Optional comma separated string array of additional data namespaces to include in response (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      *
@@ -1673,7 +1674,7 @@ class PersonFieldsApi
      *
      * Get all person fields
      *
-     * @param  string|null $include_fields Optional comma separated string array of additional data namespaces to include in response (optional)
+     * @param  string[]|null $include_fields Optional comma separated string array of additional data namespaces to include in response (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      *
@@ -1776,7 +1777,7 @@ class PersonFieldsApi
      *
      * Get all person fields
      *
-     * @param  string|null $include_fields Optional comma separated string array of additional data namespaces to include in response (optional)
+     * @param  string[]|null $include_fields Optional comma separated string array of additional data namespaces to include in response (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      *
@@ -1798,7 +1799,7 @@ class PersonFieldsApi
      *
      * Get all person fields
      *
-     * @param  string|null $include_fields Optional comma separated string array of additional data namespaces to include in response (optional)
+     * @param  string[]|null $include_fields Optional comma separated string array of additional data namespaces to include in response (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      *
@@ -1847,7 +1848,7 @@ class PersonFieldsApi
     /**
      * Create request for operation 'getPersonFields'
      *
-     * @param  string|null $include_fields Optional comma separated string array of additional data namespaces to include in response (optional)
+     * @param  string[]|null $include_fields Optional comma separated string array of additional data namespaces to include in response (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      *
@@ -1856,6 +1857,7 @@ class PersonFieldsApi
      */
     public function getPersonFieldsRequest($include_fields = null, $limit = null, $cursor = null): Request
     {
+
 
         $resourcePath = '/personFields';
         $formParams = [];
@@ -1867,7 +1869,7 @@ class PersonFieldsApi
         // query params
         /* @phpstan-ignore-next-line */
         if (is_array($include_fields)) {
-            $include_fields = ObjectSerializer::serializeCollection($include_fields, '', true);
+            $include_fields = ObjectSerializer::serializeCollection($include_fields, 'form', true);
         }
         if ($include_fields !== null) {
             $queryParams['include_fields'] = $include_fields;

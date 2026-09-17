@@ -4107,22 +4107,22 @@ class ProductsApi
      * Get all products
      *
      * @param  int|null $owner_id If supplied, only products owned by the given user will be returned (optional)
-     * @param  string|null $ids Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
+     * @param  string[]|null $ids Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
+     * @param  string[]|null $custom_fields Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
      * @param  int|null $filter_id The ID of the filter to use (optional)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
      * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;name&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;. (optional, default to 'id')
      * @param  string|'asc' $sort_direction The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;. (optional, default to 'asc')
      * @param  string|null $updated_since If set, only products with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z. (optional)
-     * @param  string|null $custom_fields Comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for a smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v2\Model\ProductsResponse
      */
-    public function getProducts($owner_id = null, $ids = null, $filter_id = null, $cursor = null, $limit = null, $sort_by = 'id', $sort_direction = 'asc', $updated_since = null, $custom_fields = null)
+    public function getProducts($owner_id = null, $ids = null, $custom_fields = null, $filter_id = null, $cursor = null, $limit = null, $sort_by = 'id', $sort_direction = 'asc', $updated_since = null)
     {
-        list($response) = $this->getProductsWithHttpInfo($owner_id, $ids, $filter_id, $cursor, $limit, $sort_by, $sort_direction, $updated_since, $custom_fields);
+        list($response) = $this->getProductsWithHttpInfo($owner_id, $ids, $custom_fields, $filter_id, $cursor, $limit, $sort_by, $sort_direction, $updated_since);
         return $response;
     }
 
@@ -4132,22 +4132,22 @@ class ProductsApi
      * Get all products
      *
      * @param  int|null $owner_id If supplied, only products owned by the given user will be returned (optional)
-     * @param  string|null $ids Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
+     * @param  string[]|null $ids Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
+     * @param  string[]|null $custom_fields Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
      * @param  int|null $filter_id The ID of the filter to use (optional)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
      * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;name&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;. (optional, default to 'id')
      * @param  string|'asc' $sort_direction The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;. (optional, default to 'asc')
      * @param  string|null $updated_since If set, only products with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z. (optional)
-     * @param  string|null $custom_fields Comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for a smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v2\Model\ProductsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getProductsWithHttpInfo($owner_id = null, $ids = null, $filter_id = null, $cursor = null, $limit = null, $sort_by = 'id', $sort_direction = 'asc', $updated_since = null, $custom_fields = null)
+    public function getProductsWithHttpInfo($owner_id = null, $ids = null, $custom_fields = null, $filter_id = null, $cursor = null, $limit = null, $sort_by = 'id', $sort_direction = 'asc', $updated_since = null)
     {
-        $request = $this->getProductsRequest($owner_id, $ids, $filter_id, $cursor, $limit, $sort_by, $sort_direction, $updated_since, $custom_fields);
+        $request = $this->getProductsRequest($owner_id, $ids, $custom_fields, $filter_id, $cursor, $limit, $sort_by, $sort_direction, $updated_since);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4156,7 +4156,7 @@ class ProductsApi
             } catch (RequestException $e) {
                 if ($e->getCode() === 401 && $this->config->isRefreshPossible()) {
                     $this->config->refreshToken();
-                    $request = $this->getProductsRequest($owner_id, $ids, $filter_id, $cursor, $limit, $sort_by, $sort_direction, $updated_since, $custom_fields);
+                    $request = $this->getProductsRequest($owner_id, $ids, $custom_fields, $filter_id, $cursor, $limit, $sort_by, $sort_direction, $updated_since);
                     $response = $this->client->send($request, $options);
                 } else {
                     throw new ApiException(
@@ -4241,21 +4241,21 @@ class ProductsApi
      * Get all products
      *
      * @param  int|null $owner_id If supplied, only products owned by the given user will be returned (optional)
-     * @param  string|null $ids Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
+     * @param  string[]|null $ids Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
+     * @param  string[]|null $custom_fields Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
      * @param  int|null $filter_id The ID of the filter to use (optional)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
      * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;name&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;. (optional, default to 'id')
      * @param  string|'asc' $sort_direction The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;. (optional, default to 'asc')
      * @param  string|null $updated_since If set, only products with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z. (optional)
-     * @param  string|null $custom_fields Comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for a smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
      */
-    public function getProductsAsync($owner_id = null, $ids = null, $filter_id = null, $cursor = null, $limit = null, $sort_by = 'id', $sort_direction = 'asc', $updated_since = null, $custom_fields = null): PromiseInterface
+    public function getProductsAsync($owner_id = null, $ids = null, $custom_fields = null, $filter_id = null, $cursor = null, $limit = null, $sort_by = 'id', $sort_direction = 'asc', $updated_since = null): PromiseInterface
     {
-        return $this->getProductsAsyncWithHttpInfo($owner_id, $ids, $filter_id, $cursor, $limit, $sort_by, $sort_direction, $updated_since, $custom_fields)
+        return $this->getProductsAsyncWithHttpInfo($owner_id, $ids, $custom_fields, $filter_id, $cursor, $limit, $sort_by, $sort_direction, $updated_since)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4269,22 +4269,22 @@ class ProductsApi
      * Get all products
      *
      * @param  int|null $owner_id If supplied, only products owned by the given user will be returned (optional)
-     * @param  string|null $ids Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
+     * @param  string[]|null $ids Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
+     * @param  string[]|null $custom_fields Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
      * @param  int|null $filter_id The ID of the filter to use (optional)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
      * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;name&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;. (optional, default to 'id')
      * @param  string|'asc' $sort_direction The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;. (optional, default to 'asc')
      * @param  string|null $updated_since If set, only products with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z. (optional)
-     * @param  string|null $custom_fields Comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for a smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
      */
-    public function getProductsAsyncWithHttpInfo($owner_id = null, $ids = null, $filter_id = null, $cursor = null, $limit = null, $sort_by = 'id', $sort_direction = 'asc', $updated_since = null, $custom_fields = null): PromiseInterface
+    public function getProductsAsyncWithHttpInfo($owner_id = null, $ids = null, $custom_fields = null, $filter_id = null, $cursor = null, $limit = null, $sort_by = 'id', $sort_direction = 'asc', $updated_since = null): PromiseInterface
     {
         $returnType = '\Pipedrive\versions\v2\Model\ProductsResponse';
-        $request = $this->getProductsRequest($owner_id, $ids, $filter_id, $cursor, $limit, $sort_by, $sort_direction, $updated_since, $custom_fields);
+        $request = $this->getProductsRequest($owner_id, $ids, $custom_fields, $filter_id, $cursor, $limit, $sort_by, $sort_direction, $updated_since);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4324,20 +4324,28 @@ class ProductsApi
      * Create request for operation 'getProducts'
      *
      * @param  int|null $owner_id If supplied, only products owned by the given user will be returned (optional)
-     * @param  string|null $ids Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
+     * @param  string[]|null $ids Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
+     * @param  string[]|null $custom_fields Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
      * @param  int|null $filter_id The ID of the filter to use (optional)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
      * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;name&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;. (optional, default to 'id')
      * @param  string|'asc' $sort_direction The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;. (optional, default to 'asc')
      * @param  string|null $updated_since If set, only products with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z. (optional)
-     * @param  string|null $custom_fields Comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for a smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
      */
-    public function getProductsRequest($owner_id = null, $ids = null, $filter_id = null, $cursor = null, $limit = null, $sort_by = 'id', $sort_direction = 'asc', $updated_since = null, $custom_fields = null): Request
+    public function getProductsRequest($owner_id = null, $ids = null, $custom_fields = null, $filter_id = null, $cursor = null, $limit = null, $sort_by = 'id', $sort_direction = 'asc', $updated_since = null): Request
     {
+        if ($ids !== null && count($ids) > 100) {
+            throw new \InvalidArgumentException('invalid value for "$ids" when calling ProductsApi.getProducts, number of items must be less than or equal to 100.');
+        }
+
+        if ($custom_fields !== null && count($custom_fields) > 15) {
+            throw new \InvalidArgumentException('invalid value for "$custom_fields" when calling ProductsApi.getProducts, number of items must be less than or equal to 15.');
+        }
+
 
         $resourcePath = '/products';
         $formParams = [];
@@ -4357,10 +4365,18 @@ class ProductsApi
         // query params
         /* @phpstan-ignore-next-line */
         if (is_array($ids)) {
-            $ids = ObjectSerializer::serializeCollection($ids, '', true);
+            $ids = ObjectSerializer::serializeCollection($ids, 'form', true);
         }
         if ($ids !== null) {
             $queryParams['ids'] = $ids;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($custom_fields)) {
+            $custom_fields = ObjectSerializer::serializeCollection($custom_fields, 'form', true);
+        }
+        if ($custom_fields !== null) {
+            $queryParams['custom_fields'] = $custom_fields;
         }
         // query params
         /* @phpstan-ignore-next-line */
@@ -4409,14 +4425,6 @@ class ProductsApi
         }
         if ($updated_since !== null) {
             $queryParams['updated_since'] = $updated_since;
-        }
-        // query params
-        /* @phpstan-ignore-next-line */
-        if (is_array($custom_fields)) {
-            $custom_fields = ObjectSerializer::serializeCollection($custom_fields, '', true);
-        }
-        if ($custom_fields !== null) {
-            $queryParams['custom_fields'] = $custom_fields;
         }
 
 
