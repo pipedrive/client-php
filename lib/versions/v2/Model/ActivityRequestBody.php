@@ -71,7 +71,6 @@ class ActivityRequestBody implements ModelInterface, ArrayAccess, JsonSerializab
         'owner_id' => 'int',
         'deal_id' => 'int',
         'lead_id' => 'string',
-        'person_id' => 'int',
         'org_id' => 'int',
         'project_id' => 'int',
         'due_date' => 'string',
@@ -101,7 +100,6 @@ class ActivityRequestBody implements ModelInterface, ArrayAccess, JsonSerializab
         'owner_id' => null,
         'deal_id' => null,
         'lead_id' => null,
-        'person_id' => null,
         'org_id' => null,
         'project_id' => null,
         'due_date' => null,
@@ -154,7 +152,6 @@ class ActivityRequestBody implements ModelInterface, ArrayAccess, JsonSerializab
         'owner_id' => 'owner_id',
         'deal_id' => 'deal_id',
         'lead_id' => 'lead_id',
-        'person_id' => 'person_id',
         'org_id' => 'org_id',
         'project_id' => 'project_id',
         'due_date' => 'due_date',
@@ -182,7 +179,6 @@ class ActivityRequestBody implements ModelInterface, ArrayAccess, JsonSerializab
         'owner_id' => 'setOwnerId',
         'deal_id' => 'setDealId',
         'lead_id' => 'setLeadId',
-        'person_id' => 'setPersonId',
         'org_id' => 'setOrgId',
         'project_id' => 'setProjectId',
         'due_date' => 'setDueDate',
@@ -210,7 +206,6 @@ class ActivityRequestBody implements ModelInterface, ArrayAccess, JsonSerializab
         'owner_id' => 'getOwnerId',
         'deal_id' => 'getDealId',
         'lead_id' => 'getLeadId',
-        'person_id' => 'getPersonId',
         'org_id' => 'getOrgId',
         'project_id' => 'getProjectId',
         'due_date' => 'getDueDate',
@@ -299,7 +294,6 @@ class ActivityRequestBody implements ModelInterface, ArrayAccess, JsonSerializab
         $this->container['owner_id'] = $data['owner_id'] ?? null;
         $this->container['deal_id'] = $data['deal_id'] ?? null;
         $this->container['lead_id'] = $data['lead_id'] ?? null;
-        $this->container['person_id'] = $data['person_id'] ?? null;
         $this->container['org_id'] = $data['org_id'] ?? null;
         $this->container['project_id'] = $data['project_id'] ?? null;
         $this->container['due_date'] = $data['due_date'] ?? null;
@@ -458,30 +452,6 @@ class ActivityRequestBody implements ModelInterface, ArrayAccess, JsonSerializab
     public function setLeadId($lead_id): self
     {
         $this->container['lead_id'] = $lead_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets person_id
-     *
-     * @return int|null
-     */
-    public function getPersonId()
-    {
-        return $this->container['person_id'];
-    }
-
-    /**
-     * Sets person_id
-     *
-     * @param int|null $person_id The ID of the person linked to the activity
-     *
-     * @return self
-     */
-    public function setPersonId($person_id): self
-    {
-        $this->container['person_id'] = $person_id;
 
         return $this;
     }
@@ -691,7 +661,7 @@ class ActivityRequestBody implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets participants
      *
-     * @param \Pipedrive\versions\v2\Model\ActivityItemParticipants[]|null $participants The participants of the activity
+     * @param \Pipedrive\versions\v2\Model\ActivityItemParticipants[]|null $participants The participants of the activity. Use this to set the activity's person — a primary participant (`primary: true`) sets `person_id` on the activity.
      *
      * @return self
      */
