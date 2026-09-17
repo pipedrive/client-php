@@ -12,6 +12,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 - Fixed OAuth scopes on six v2 deal sub-resource write operations (`POST /api/v2/deals/{id}/discounts`, `PATCH`/`DELETE /api/v2/deals/{id}/discounts/{discount_id}`, `POST /api/v2/deals/{id}/installments`, `PATCH`/`DELETE /api/v2/deals/{id}/installments/{installment_id}`) that incorrectly listed `deals:read` alongside `deals:full`, copied from their sibling GET operations - these are now `deals:full` only, matching their read-write nature
 
+## [17.6.3](https://github.com/pipedrive/client-php/compare/17.6.2...17.6.3) (2026-09-17)
+
 ## [17.6.2](https://github.com/pipedrive/client-php/compare/17.6.1...17.6.2) (2026-09-17)
 
 ## [17.6.1](https://github.com/pipedrive/client-php/compare/17.6.0...17.6.1) (2026-09-17)
