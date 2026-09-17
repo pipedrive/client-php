@@ -460,6 +460,7 @@ Class | Method | HTTP request | Description
  - [ActivityItemLocation](Model/ActivityItemLocation.md)
  - [ActivityItemParticipants](Model/ActivityItemParticipants.md)
  - [ActivityRequestBody](Model/ActivityRequestBody.md)
+ - [ActivityRequestBodyLocation](Model/ActivityRequestBodyLocation.md)
  - [AddAdditionalDiscountResponse](Model/AddAdditionalDiscountResponse.md)
  - [AddConvertDealToLeadResponse](Model/AddConvertDealToLeadResponse.md)
  - [AddConvertLeadToDealResponse](Model/AddConvertLeadToDealResponse.md)

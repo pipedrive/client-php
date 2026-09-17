@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **duration** | **string** | The duration of the activity | [optional]
 **busy** | **bool** | Whether the activity marks the assignee as busy or not in their calendar | [optional]
 **done** | **bool** | Whether the activity is marked as done or not | [optional]
-**location** | [**\Pipedrive\versions\v2\Model\ActivityItemLocation**](ActivityItemLocation.md) |  | [optional]
+**location** | [**\Pipedrive\versions\v2\Model\ActivityRequestBodyLocation**](ActivityRequestBodyLocation.md) |  | [optional]
 **participants** | [**\Pipedrive\versions\v2\Model\ActivityItemParticipants[]**](ActivityItemParticipants.md) | The participants of the activity. Use this to set the activity&#39;s person — a primary participant (&#x60;primary: true&#x60;) sets &#x60;person_id&#x60; on the activity. | [optional]
 **attendees** | [**\Pipedrive\versions\v2\Model\ActivityItemAttendees[]**](ActivityItemAttendees.md) | The attendees of the activity | [optional]
 **public_description** | **string** | The public description of the activity | [optional]

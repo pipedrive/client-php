@@ -78,7 +78,7 @@ class ActivityRequestBody implements ModelInterface, ArrayAccess, JsonSerializab
         'duration' => 'string',
         'busy' => 'bool',
         'done' => 'bool',
-        'location' => '\Pipedrive\versions\v2\Model\ActivityItemLocation',
+        'location' => '\Pipedrive\versions\v2\Model\ActivityRequestBodyLocation',
         'participants' => '\Pipedrive\versions\v2\Model\ActivityItemParticipants[]',
         'attendees' => '\Pipedrive\versions\v2\Model\ActivityItemAttendees[]',
         'public_description' => 'string',
@@ -627,7 +627,7 @@ class ActivityRequestBody implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Gets location
      *
-     * @return \Pipedrive\versions\v2\Model\ActivityItemLocation|null
+     * @return \Pipedrive\versions\v2\Model\ActivityRequestBodyLocation|null
      */
     public function getLocation()
     {
@@ -637,7 +637,7 @@ class ActivityRequestBody implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets location
      *
-     * @param \Pipedrive\versions\v2\Model\ActivityItemLocation|null $location location
+     * @param \Pipedrive\versions\v2\Model\ActivityRequestBodyLocation|null $location location
      *
      * @return self
      */

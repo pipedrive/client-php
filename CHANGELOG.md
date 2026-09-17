@@ -9,10 +9,21 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Removed `deprecated: true` from LegacyTeams endpoints (`GET`/`POST /v1/legacyTeams`, `GET`/`PUT /v1/legacyTeams/{id}`, `GET`/`POST`/`DELETE /v1/legacyTeams/{id}/users`, `GET /v1/legacyTeams/user/{id}`) and updated the tag description to remove outdated deprecation notice
 
 ### Fixed
+- Fixed `has_pic` field type in v1 deal creator schema (`DealNonStrictModeFields`, used by `GET`/`POST /v1/deals` and related endpoints) — changed from `boolean` to `integer` since the API returns `0`/`1`, not `true`/`false`
+- Fixed `code` field type in v2 product search results (`GET /api/v2/products/search`) — changed from `integer` to `string` and made nullable to match actual API responses
+- Fixed `value` field type in v2 deal search results (`DealSearchItem`, used by `GET /api/v2/deals/search`) — changed from `integer` to `number` and made nullable to match actual API responses
+- Marked `data` nullable in `ListProductFilesResponse` (`GET /v1/products/{id}/files`)
+- Marked `update_time` nullable in v2 deal, organization, person, and stage schemas (`DealItem`, `OrganizationItem`, `PersonItem`, `StageItem`)
+- Marked `next_cursor` nullable in v2 cursor pagination schema, used across all v2 cursor-paginated list endpoints
+- Marked several v2 activity fields nullable (`ActivityItem`): `deal_id`, `lead_id`, `person_id`, `org_id`, `project_id`, `due_time`, `duration`, `marked_as_done_time`, `location`, and all `location` address subfields (`country`, `admin_area_level_1`, `admin_area_level_2`, `locality`, `sublocality`, `route`, `street_number`, `subpremise`, `postal_code`)
+- Marked v2 `OrganizationItemAddress` and `PersonItemAddress` objects and all their subfields nullable, and marked `PersonItem.picture_id` nullable
+- Marked `person` nullable in v2 lead search results (`LeadSearchItem`) and `address` nullable in v2 organization search results (`OrganizationSearchItem`)
 - Removed `person_id` from the v2 activity request body (`POST /api/v2/activities`, `PATCH /api/v2/activities/{id}`) — the API has always rejected it as read-only, and the schema advertised it as writable; use `participants: [{ "person_id": 123, "primary": true }]` instead. `org_id` is unaffected.
 - Added `required: [name]` to the v2 person create request body (`POST /api/v2/persons`) — a bare call previously reached the API instead of failing client-side.
 - Reworded the `im`, `notes`, `birthday`, and `job_title` field descriptions and the `addPerson`/`updatePerson` operation descriptions (which also cover `postal_address`) to disclose that these fields 403 when contact sync isn't enabled, rather than only describing when they're present on read.
 - Fixed OAuth scopes on six v2 deal sub-resource write operations (`POST /api/v2/deals/{id}/discounts`, `PATCH`/`DELETE /api/v2/deals/{id}/discounts/{discount_id}`, `POST /api/v2/deals/{id}/installments`, `PATCH`/`DELETE /api/v2/deals/{id}/installments/{installment_id}`) that incorrectly listed `deals:read` alongside `deals:full`, copied from their sibling GET operations - these are now `deals:full` only, matching their read-write nature
+
+## [17.8.0](https://github.com/pipedrive/client-php/compare/17.7.0...17.8.0) (2026-09-17)
 
 ## [17.7.0](https://github.com/pipedrive/client-php/compare/17.6.3...17.7.0) (2026-09-17)
 
