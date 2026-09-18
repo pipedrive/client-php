@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [17.8.2](https://github.com/pipedrive/client-php/compare/17.8.1...17.8.2) (2026-09-18)
 ### Fixed
 - Fixed the SDK sending an empty `Authorization` header alongside API key auth
 - Refresh the OAuth access token before the auth check in generated API methods, instead of only when one was already present
