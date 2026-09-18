@@ -32,7 +32,7 @@ it('lists activities', function () {
         new Client(['handler' => $handlerStack]),
         $config,
     );
-    $result = $apiInstance->getActivities(1, '1,2,3', 1);
+    $result = $apiInstance->getActivities(1, ['1', '2', '3'], 1);
 
     expect($mock->getLastRequest()->getUri()->getQuery())->toEqual('filter_id=1&ids=1%2C2%2C3&owner_id=1&sort_by=id&sort_direction=asc')
         ->and($result->getData())->toHaveLength(1);
