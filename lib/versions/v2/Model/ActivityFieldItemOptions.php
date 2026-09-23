@@ -66,7 +66,7 @@ class ActivityFieldItemOptions implements ModelInterface, ArrayAccess, JsonSeria
       * @phpsalm-var array<string, string>
       */
     protected static array $openAPITypes = [
-        'id' => 'OneOfIntegerString',
+        'id' => 'mixed',
         'label' => 'string',
         'color' => 'string',
         'update_time' => '\DateTime',
@@ -255,7 +255,7 @@ class ActivityFieldItemOptions implements ModelInterface, ArrayAccess, JsonSeria
     /**
      * Gets id
      *
-     * @return OneOfIntegerString|null
+     * @return mixed|null
      */
     public function getId()
     {
@@ -265,7 +265,7 @@ class ActivityFieldItemOptions implements ModelInterface, ArrayAccess, JsonSeria
     /**
      * Sets id
      *
-     * @param OneOfIntegerString|null $id The option ID (integer for custom fields, string for built-in fields)
+     * @param mixed|null $id The option ID (integer for custom fields, string for built-in fields)
      *
      * @return self
      */

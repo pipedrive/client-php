@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | [**OneOfIntegerString**](OneOfIntegerString.md) | The option ID (integer for custom fields, string for built-in fields) | [optional]
+**id** | **mixed** | The option ID (integer for custom fields, string for built-in fields) | [optional]
 **label** | **string** | The option display label | [optional]
 **color** | **string** | Optional color code for the option | [optional]
 **update_time** | **\DateTime** | When the option was last updated | [optional]
