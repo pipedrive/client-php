@@ -463,11 +463,11 @@ $apiInstance = new Pipedrive\versions\v1\Api\LeadsApi(
     $config
 );
 $term = 'term_example'; // string | The search term to look for. Minimum 2 characters (or 1 if using `exact_match`). Please note that the search term has to be URL encoded.
-$fields = 'fields_example'; // string | A comma-separated string array. The fields to perform the search from. Defaults to all of them.
+$fields = array('fields_example'); // string[] | A comma-separated string array. The fields to perform the search from. Defaults to all of them.
 $exact_match = True; // bool | When enabled, only full exact matches against the given term are returned. It is <b>not</b> case sensitive.
 $person_id = 56; // int | Will filter leads by the provided person ID. The upper limit of found leads associated with the person is 2000.
 $organization_id = 56; // int | Will filter leads by the provided organization ID. The upper limit of found leads associated with the organization is 2000.
-$include_fields = 'include_fields_example'; // string | Supports including optional fields in the results which are not provided by default
+$include_fields = array('include_fields_example'); // string[] | Supports including optional fields in the results which are not provided by default
 $start = 0; // int | Pagination start. Note that the pagination is based on main results and does not include related items when using `search_for_related_items` parameter.
 $limit = 56; // int | Items shown per page
 
@@ -484,11 +484,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **term** | **string**| The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded. |
- **fields** | **string**| A comma-separated string array. The fields to perform the search from. Defaults to all of them. | [optional]
+ **fields** | [**string[]**](../Model/string.md)| A comma-separated string array. The fields to perform the search from. Defaults to all of them. | [optional]
  **exact_match** | **bool**| When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive. | [optional]
  **person_id** | **int**| Will filter leads by the provided person ID. The upper limit of found leads associated with the person is 2000. | [optional]
  **organization_id** | **int**| Will filter leads by the provided organization ID. The upper limit of found leads associated with the organization is 2000. | [optional]
- **include_fields** | **string**| Supports including optional fields in the results which are not provided by default | [optional]
+ **include_fields** | [**string[]**](../Model/string.md)| Supports including optional fields in the results which are not provided by default | [optional]
  **start** | **int**| Pagination start. Note that the pagination is based on main results and does not include related items when using &#x60;search_for_related_items&#x60; parameter. | [optional] [default to 0]
  **limit** | **int**| Items shown per page | [optional]
 

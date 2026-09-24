@@ -6,6 +6,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Fixed
+- Fixed several comma-separated query parameters that were still typed as `type: string` — changed to `type: array` with `uniqueItems: true`, `style: form`, `explode: false` (integer items unless noted):
+  - `ids` on the v1 delete-many endpoints (`DELETE /v1/dealFields`, `DELETE /v1/organizationFields`, `DELETE /v1/personFields`, `DELETE /v1/filters`, `DELETE /v1/productFields`)
+  - `exclude` on `GET /v1/activities` (`ActivityExclude`); `ActivityTypeIdsParameter`
+  - `items` on v1 activity/flow endpoints (`Items`, string items)
+  - `fields`/`include_fields` on `GET /v1/leads/search` (enumerated string items)
+  - `status` on `GET /api/v2/deals` (`DealStatus`, enumerated string items)
+  - `ids` on `DELETE /api/v2/deals/{id}/products`
+  - `fields`/`status`/`include_fields`/`item_types` parameters on `GET /api/v2/deals/search`, `GET /api/v2/itemSearch`, `GET /api/v2/leads/search`, `GET /api/v2/organizations/search`, `GET /api/v2/persons/search`, `GET /api/v2/products/search`, and `GET /api/v2/projects/search`
+### Fixed
 - Added missing v2 `field_type` enum values `participants` and `attendees` for activity fields (`ActivityFieldItem`, used by `GET /api/v2/activityFields` and `GET /api/v2/activityFields/{field_code}`) and `orgs` for project fields (`ProjectFieldItem`, used by `GET /api/v2/projectFields` and `GET /api/v2/projectFields/{field_code}`) — deserializing a field with one of these types previously threw `InvalidArgumentException`
 - Fixed a crash deserializing the option `id` field on v2 field-item options (`ActivityFieldItemOptions`) — typed as `mixed` instead of the unsupported synthetic `OneOfIntegerString` type that OpenAPI Generator 5.3.0 referenced but never generated a class for
 

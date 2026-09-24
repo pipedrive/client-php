@@ -1058,7 +1058,7 @@ class DealProductsApi
      * Delete many products from a deal
      *
      * @param  int $id The ID of the deal (required)
-     * @param  string|null $ids Comma-separated list of deal product IDs to delete. If not provided, all deal products will be deleted up to 100 items. Maximum 100 IDs allowed. (optional)
+     * @param  int[]|null $ids Comma-separated list of deal product IDs to delete. If not provided, all deal products will be deleted up to 100 items. Maximum 100 IDs allowed. (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
@@ -1076,7 +1076,7 @@ class DealProductsApi
      * Delete many products from a deal
      *
      * @param  int $id The ID of the deal (required)
-     * @param  string|null $ids Comma-separated list of deal product IDs to delete. If not provided, all deal products will be deleted up to 100 items. Maximum 100 IDs allowed. (optional)
+     * @param  int[]|null $ids Comma-separated list of deal product IDs to delete. If not provided, all deal products will be deleted up to 100 items. Maximum 100 IDs allowed. (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
@@ -1178,7 +1178,7 @@ class DealProductsApi
      * Delete many products from a deal
      *
      * @param  int $id The ID of the deal (required)
-     * @param  string|null $ids Comma-separated list of deal product IDs to delete. If not provided, all deal products will be deleted up to 100 items. Maximum 100 IDs allowed. (optional)
+     * @param  int[]|null $ids Comma-separated list of deal product IDs to delete. If not provided, all deal products will be deleted up to 100 items. Maximum 100 IDs allowed. (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
@@ -1199,7 +1199,7 @@ class DealProductsApi
      * Delete many products from a deal
      *
      * @param  int $id The ID of the deal (required)
-     * @param  string|null $ids Comma-separated list of deal product IDs to delete. If not provided, all deal products will be deleted up to 100 items. Maximum 100 IDs allowed. (optional)
+     * @param  int[]|null $ids Comma-separated list of deal product IDs to delete. If not provided, all deal products will be deleted up to 100 items. Maximum 100 IDs allowed. (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
@@ -1247,7 +1247,7 @@ class DealProductsApi
      * Create request for operation 'deleteManyDealProducts'
      *
      * @param  int $id The ID of the deal (required)
-     * @param  string|null $ids Comma-separated list of deal product IDs to delete. If not provided, all deal products will be deleted up to 100 items. Maximum 100 IDs allowed. (optional)
+     * @param  int[]|null $ids Comma-separated list of deal product IDs to delete. If not provided, all deal products will be deleted up to 100 items. Maximum 100 IDs allowed. (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
@@ -1261,6 +1261,10 @@ class DealProductsApi
                 'Missing the required parameter $id when calling deleteManyDealProducts'
             );
         }
+        if ($ids !== null && count($ids) > 100) {
+            throw new \InvalidArgumentException('invalid value for "$ids" when calling DealProductsApi.deleteManyDealProducts, number of items must be less than or equal to 100.');
+        }
+
 
         $resourcePath = '/deals/{id}/products';
         $formParams = [];
@@ -1272,7 +1276,7 @@ class DealProductsApi
         // query params
         /* @phpstan-ignore-next-line */
         if (is_array($ids)) {
-            $ids = ObjectSerializer::serializeCollection($ids, '', true);
+            $ids = ObjectSerializer::serializeCollection($ids, 'form', true);
         }
         if ($ids !== null) {
             $queryParams['ids'] = $ids;
