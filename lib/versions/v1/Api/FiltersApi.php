@@ -723,7 +723,7 @@ class FiltersApi
      *
      * Delete multiple filters in bulk
      *
-     * @param  string $ids The comma-separated filter IDs to delete (required)
+     * @param  int[] $ids The comma-separated filter IDs to delete (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
@@ -740,7 +740,7 @@ class FiltersApi
      *
      * Delete multiple filters in bulk
      *
-     * @param  string $ids The comma-separated filter IDs to delete (required)
+     * @param  int[] $ids The comma-separated filter IDs to delete (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
@@ -841,7 +841,7 @@ class FiltersApi
      *
      * Delete multiple filters in bulk
      *
-     * @param  string $ids The comma-separated filter IDs to delete (required)
+     * @param  int[] $ids The comma-separated filter IDs to delete (required)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
@@ -861,7 +861,7 @@ class FiltersApi
      *
      * Delete multiple filters in bulk
      *
-     * @param  string $ids The comma-separated filter IDs to delete (required)
+     * @param  int[] $ids The comma-separated filter IDs to delete (required)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
@@ -908,7 +908,7 @@ class FiltersApi
     /**
      * Create request for operation 'deleteFilters'
      *
-     * @param  string $ids The comma-separated filter IDs to delete (required)
+     * @param  int[] $ids The comma-separated filter IDs to delete (required)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
@@ -923,6 +923,7 @@ class FiltersApi
             );
         }
 
+
         $resourcePath = '/filters';
         $formParams = [];
         $queryParams = [];
@@ -933,7 +934,7 @@ class FiltersApi
         // query params
         /* @phpstan-ignore-next-line */
         if (is_array($ids)) {
-            $ids = ObjectSerializer::serializeCollection($ids, '', true);
+            $ids = ObjectSerializer::serializeCollection($ids, 'form', true);
         }
         if ($ids !== null) {
             $queryParams['ids'] = $ids;

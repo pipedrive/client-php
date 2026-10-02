@@ -2092,11 +2092,11 @@ class LeadsApi
      * Search leads
      *
      * @param  string $term The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded. (required)
-     * @param  string|null $fields A comma-separated string array. The fields to perform the search from. Defaults to all of them. (optional)
+     * @param  string[]|null $fields A comma-separated string array. The fields to perform the search from. Defaults to all of them. (optional)
      * @param  bool|null $exact_match When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive. (optional)
      * @param  int|null $person_id Will filter leads by the provided person ID. The upper limit of found leads associated with the person is 2000. (optional)
      * @param  int|null $organization_id Will filter leads by the provided organization ID. The upper limit of found leads associated with the organization is 2000. (optional)
-     * @param  string|null $include_fields Supports including optional fields in the results which are not provided by default (optional)
+     * @param  string[]|null $include_fields Supports including optional fields in the results which are not provided by default (optional)
      * @param  int|0 $start Pagination start. Note that the pagination is based on main results and does not include related items when using &#x60;search_for_related_items&#x60; parameter. (optional, default to 0)
      * @param  int|null $limit Items shown per page (optional)
      *
@@ -2116,11 +2116,11 @@ class LeadsApi
      * Search leads
      *
      * @param  string $term The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded. (required)
-     * @param  string|null $fields A comma-separated string array. The fields to perform the search from. Defaults to all of them. (optional)
+     * @param  string[]|null $fields A comma-separated string array. The fields to perform the search from. Defaults to all of them. (optional)
      * @param  bool|null $exact_match When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive. (optional)
      * @param  int|null $person_id Will filter leads by the provided person ID. The upper limit of found leads associated with the person is 2000. (optional)
      * @param  int|null $organization_id Will filter leads by the provided organization ID. The upper limit of found leads associated with the organization is 2000. (optional)
-     * @param  string|null $include_fields Supports including optional fields in the results which are not provided by default (optional)
+     * @param  string[]|null $include_fields Supports including optional fields in the results which are not provided by default (optional)
      * @param  int|0 $start Pagination start. Note that the pagination is based on main results and does not include related items when using &#x60;search_for_related_items&#x60; parameter. (optional, default to 0)
      * @param  int|null $limit Items shown per page (optional)
      *
@@ -2224,11 +2224,11 @@ class LeadsApi
      * Search leads
      *
      * @param  string $term The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded. (required)
-     * @param  string|null $fields A comma-separated string array. The fields to perform the search from. Defaults to all of them. (optional)
+     * @param  string[]|null $fields A comma-separated string array. The fields to perform the search from. Defaults to all of them. (optional)
      * @param  bool|null $exact_match When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive. (optional)
      * @param  int|null $person_id Will filter leads by the provided person ID. The upper limit of found leads associated with the person is 2000. (optional)
      * @param  int|null $organization_id Will filter leads by the provided organization ID. The upper limit of found leads associated with the organization is 2000. (optional)
-     * @param  string|null $include_fields Supports including optional fields in the results which are not provided by default (optional)
+     * @param  string[]|null $include_fields Supports including optional fields in the results which are not provided by default (optional)
      * @param  int|0 $start Pagination start. Note that the pagination is based on main results and does not include related items when using &#x60;search_for_related_items&#x60; parameter. (optional, default to 0)
      * @param  int|null $limit Items shown per page (optional)
      *
@@ -2251,11 +2251,11 @@ class LeadsApi
      * Search leads
      *
      * @param  string $term The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded. (required)
-     * @param  string|null $fields A comma-separated string array. The fields to perform the search from. Defaults to all of them. (optional)
+     * @param  string[]|null $fields A comma-separated string array. The fields to perform the search from. Defaults to all of them. (optional)
      * @param  bool|null $exact_match When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive. (optional)
      * @param  int|null $person_id Will filter leads by the provided person ID. The upper limit of found leads associated with the person is 2000. (optional)
      * @param  int|null $organization_id Will filter leads by the provided organization ID. The upper limit of found leads associated with the organization is 2000. (optional)
-     * @param  string|null $include_fields Supports including optional fields in the results which are not provided by default (optional)
+     * @param  string[]|null $include_fields Supports including optional fields in the results which are not provided by default (optional)
      * @param  int|0 $start Pagination start. Note that the pagination is based on main results and does not include related items when using &#x60;search_for_related_items&#x60; parameter. (optional, default to 0)
      * @param  int|null $limit Items shown per page (optional)
      *
@@ -2305,11 +2305,11 @@ class LeadsApi
      * Create request for operation 'searchLeads'
      *
      * @param  string $term The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded. (required)
-     * @param  string|null $fields A comma-separated string array. The fields to perform the search from. Defaults to all of them. (optional)
+     * @param  string[]|null $fields A comma-separated string array. The fields to perform the search from. Defaults to all of them. (optional)
      * @param  bool|null $exact_match When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive. (optional)
      * @param  int|null $person_id Will filter leads by the provided person ID. The upper limit of found leads associated with the person is 2000. (optional)
      * @param  int|null $organization_id Will filter leads by the provided organization ID. The upper limit of found leads associated with the organization is 2000. (optional)
-     * @param  string|null $include_fields Supports including optional fields in the results which are not provided by default (optional)
+     * @param  string[]|null $include_fields Supports including optional fields in the results which are not provided by default (optional)
      * @param  int|0 $start Pagination start. Note that the pagination is based on main results and does not include related items when using &#x60;search_for_related_items&#x60; parameter. (optional, default to 0)
      * @param  int|null $limit Items shown per page (optional)
      *
@@ -2325,6 +2325,8 @@ class LeadsApi
                 'Missing the required parameter $term when calling searchLeads'
             );
         }
+
+
 
         $resourcePath = '/leads/search';
         $formParams = [];
@@ -2344,7 +2346,7 @@ class LeadsApi
         // query params
         /* @phpstan-ignore-next-line */
         if (is_array($fields)) {
-            $fields = ObjectSerializer::serializeCollection($fields, '', true);
+            $fields = ObjectSerializer::serializeCollection($fields, 'form', true);
         }
         if ($fields !== null) {
             $queryParams['fields'] = $fields;
@@ -2376,7 +2378,7 @@ class LeadsApi
         // query params
         /* @phpstan-ignore-next-line */
         if (is_array($include_fields)) {
-            $include_fields = ObjectSerializer::serializeCollection($include_fields, '', true);
+            $include_fields = ObjectSerializer::serializeCollection($include_fields, 'form', true);
         }
         if ($include_fields !== null) {
             $queryParams['include_fields'] = $include_fields;

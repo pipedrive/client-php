@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Added `archive_reason` field to the Lead schema, returned by `GET /v1/leads`, `GET /v1/leads/{id}`, and `GET /v1/leads/archived` — captures the reason a lead was archived
+- Added `archive_reason` to the request body of `PATCH /v1/leads/{id}` — can only be set while archiving a lead in the same request, or on a lead that's already archived; it's automatically cleared when the lead is unarchived, and archiving without it returns a 400 error if a reason is required for the company
 ### Fixed
 - Added missing v2 `field_type` enum values `participants` and `attendees` for activity fields (`ActivityFieldItem`, used by `GET /api/v2/activityFields` and `GET /api/v2/activityFields/{field_code}`) and `orgs` for project fields (`ProjectFieldItem`, used by `GET /api/v2/projectFields` and `GET /api/v2/projectFields/{field_code}`) — deserializing a field with one of these types previously threw `InvalidArgumentException`
 - Fixed a crash deserializing the option `id` field on v2 field-item options (`ActivityFieldItemOptions`) — typed as `mixed` instead of the unsupported synthetic `OneOfIntegerString` type that OpenAPI Generator 5.3.0 referenced but never generated a class for
