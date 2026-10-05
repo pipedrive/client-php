@@ -461,7 +461,7 @@ $id = 56; // int | The ID of the organization
 $start = 0; // int | Pagination start
 $limit = 56; // int | Items shown per page
 $all_changes = 'all_changes_example'; // string | Whether to show custom field updates or not. 1 = Include custom field changes. If omitted, returns changes without custom field updates.
-$items = 'items_example'; // string | A comma-separated string for filtering out item specific updates. (Possible values - activity, plannedActivity, note, file, change, deal, follower, participant, mailMessage, mailMessageWithAttachment, invoice, activityFile, document).
+$items = array('items_example'); // string[] | A comma-separated string for filtering out item specific updates. (Possible values - activity, plannedActivity, note, file, change, deal, follower, participant, mailMessage, mailMessageWithAttachment, invoice, activityFile, document).
 
 try {
     $result = $apiInstance->getOrganizationUpdates($id, $start, $limit, $all_changes, $items);
@@ -479,7 +479,7 @@ Name | Type | Description  | Notes
  **start** | **int**| Pagination start | [optional] [default to 0]
  **limit** | **int**| Items shown per page | [optional]
  **all_changes** | **string**| Whether to show custom field updates or not. 1 &#x3D; Include custom field changes. If omitted, returns changes without custom field updates. | [optional]
- **items** | **string**| A comma-separated string for filtering out item specific updates. (Possible values - activity, plannedActivity, note, file, change, deal, follower, participant, mailMessage, mailMessageWithAttachment, invoice, activityFile, document). | [optional]
+ **items** | [**string[]**](../Model/string.md)| A comma-separated string for filtering out item specific updates. (Possible values - activity, plannedActivity, note, file, change, deal, follower, participant, mailMessage, mailMessageWithAttachment, invoice, activityFile, document). | [optional]
 
 ### Return type
 

@@ -731,7 +731,7 @@ class ProductFieldsApi
      *
      * Delete multiple product fields in bulk
      *
-     * @param  string $ids The comma-separated field IDs to delete (required)
+     * @param  int[] $ids The comma-separated field IDs to delete (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
@@ -748,7 +748,7 @@ class ProductFieldsApi
      *
      * Delete multiple product fields in bulk
      *
-     * @param  string $ids The comma-separated field IDs to delete (required)
+     * @param  int[] $ids The comma-separated field IDs to delete (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
@@ -849,7 +849,7 @@ class ProductFieldsApi
      *
      * Delete multiple product fields in bulk
      *
-     * @param  string $ids The comma-separated field IDs to delete (required)
+     * @param  int[] $ids The comma-separated field IDs to delete (required)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
@@ -869,7 +869,7 @@ class ProductFieldsApi
      *
      * Delete multiple product fields in bulk
      *
-     * @param  string $ids The comma-separated field IDs to delete (required)
+     * @param  int[] $ids The comma-separated field IDs to delete (required)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
@@ -916,7 +916,7 @@ class ProductFieldsApi
     /**
      * Create request for operation 'deleteProductFields'
      *
-     * @param  string $ids The comma-separated field IDs to delete (required)
+     * @param  int[] $ids The comma-separated field IDs to delete (required)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
@@ -931,6 +931,7 @@ class ProductFieldsApi
             );
         }
 
+
         $resourcePath = '/productFields';
         $formParams = [];
         $queryParams = [];
@@ -941,7 +942,7 @@ class ProductFieldsApi
         // query params
         /* @phpstan-ignore-next-line */
         if (is_array($ids)) {
-            $ids = ObjectSerializer::serializeCollection($ids, '', true);
+            $ids = ObjectSerializer::serializeCollection($ids, 'form', true);
         }
         if ($ids !== null) {
             $queryParams['ids'] = $ids;
