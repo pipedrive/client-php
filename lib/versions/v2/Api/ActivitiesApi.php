@@ -977,6 +977,13 @@ class ActivitiesApi
         }
 
 
+        if ($limit !== null && $limit > 500) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling ActivitiesApi.getActivities, must be smaller than or equal to 500.');
+        }
+        if ($limit !== null && $limit < 1) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling ActivitiesApi.getActivities, must be bigger than or equal to 1.');
+        }
+
 
         $resourcePath = '/activities';
         $formParams = [];

@@ -725,7 +725,7 @@ class LeadsApi
      * @param  int|null $person_id Will filter leads by the provided person ID. The upper limit of found leads associated with the person is 2000. (optional)
      * @param  int|null $organization_id Will filter leads by the provided organization ID. The upper limit of found leads associated with the organization is 2000. (optional)
      * @param  string[]|null $include_fields Supports including optional fields in the results which are not provided by default (optional)
-     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
+     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed. (optional)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      *
      * @throws ApiException on non-2xx response
@@ -749,7 +749,7 @@ class LeadsApi
      * @param  int|null $person_id Will filter leads by the provided person ID. The upper limit of found leads associated with the person is 2000. (optional)
      * @param  int|null $organization_id Will filter leads by the provided organization ID. The upper limit of found leads associated with the organization is 2000. (optional)
      * @param  string[]|null $include_fields Supports including optional fields in the results which are not provided by default (optional)
-     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
+     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed. (optional)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      *
      * @throws ApiException on non-2xx response
@@ -857,7 +857,7 @@ class LeadsApi
      * @param  int|null $person_id Will filter leads by the provided person ID. The upper limit of found leads associated with the person is 2000. (optional)
      * @param  int|null $organization_id Will filter leads by the provided organization ID. The upper limit of found leads associated with the organization is 2000. (optional)
      * @param  string[]|null $include_fields Supports including optional fields in the results which are not provided by default (optional)
-     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
+     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed. (optional)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
@@ -884,7 +884,7 @@ class LeadsApi
      * @param  int|null $person_id Will filter leads by the provided person ID. The upper limit of found leads associated with the person is 2000. (optional)
      * @param  int|null $organization_id Will filter leads by the provided organization ID. The upper limit of found leads associated with the organization is 2000. (optional)
      * @param  string[]|null $include_fields Supports including optional fields in the results which are not provided by default (optional)
-     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
+     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed. (optional)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
@@ -938,7 +938,7 @@ class LeadsApi
      * @param  int|null $person_id Will filter leads by the provided person ID. The upper limit of found leads associated with the person is 2000. (optional)
      * @param  int|null $organization_id Will filter leads by the provided organization ID. The upper limit of found leads associated with the organization is 2000. (optional)
      * @param  string[]|null $include_fields Supports including optional fields in the results which are not provided by default (optional)
-     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
+     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed. (optional)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
@@ -954,6 +954,13 @@ class LeadsApi
             );
         }
 
+
+        if ($limit !== null && $limit > 100) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling LeadsApi.searchLeads, must be smaller than or equal to 100.');
+        }
+        if ($limit !== null && $limit < 1) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling LeadsApi.searchLeads, must be bigger than or equal to 1.');
+        }
 
 
         $resourcePath = '/leads/search';

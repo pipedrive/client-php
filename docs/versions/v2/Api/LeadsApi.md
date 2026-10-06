@@ -180,7 +180,7 @@ $exact_match = True; // bool | When enabled, only full exact matches against the
 $person_id = 56; // int | Will filter leads by the provided person ID. The upper limit of found leads associated with the person is 2000.
 $organization_id = 56; // int | Will filter leads by the provided organization ID. The upper limit of found leads associated with the organization is 2000.
 $include_fields = array('include_fields_example'); // string[] | Supports including optional fields in the results which are not provided by default
-$limit = 100; // int | For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+$limit = 100; // int | For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed.
 $cursor = 'cursor_example'; // string | For pagination, the marker (an opaque string value) representing the first item on the next page
 
 try {
@@ -201,7 +201,7 @@ Name | Type | Description  | Notes
  **person_id** | **int**| Will filter leads by the provided person ID. The upper limit of found leads associated with the person is 2000. | [optional]
  **organization_id** | **int**| Will filter leads by the provided organization ID. The upper limit of found leads associated with the organization is 2000. | [optional]
  **include_fields** | [**string[]**](../Model/string.md)| Supports including optional fields in the results which are not provided by default | [optional]
- **limit** | **int**| For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. | [optional]
+ **limit** | **int**| For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed. | [optional]
  **cursor** | **string**| For pagination, the marker (an opaque string value) representing the first item on the next page | [optional]
 
 ### Return type

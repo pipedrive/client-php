@@ -2539,6 +2539,13 @@ class DealsApi
             throw new \InvalidArgumentException('invalid value for "$custom_fields" when calling DealsApi.getArchivedDeals, number of items must be less than or equal to 15.');
         }
 
+        if ($limit !== null && $limit > 500) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling DealsApi.getArchivedDeals, must be smaller than or equal to 500.');
+        }
+        if ($limit !== null && $limit < 1) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling DealsApi.getArchivedDeals, must be bigger than or equal to 1.');
+        }
+
 
         $resourcePath = '/deals/archived';
         $formParams = [];
@@ -3582,6 +3589,13 @@ class DealsApi
                 'Missing the required parameter $id when calling getDealFollowers'
             );
         }
+        if ($limit !== null && $limit > 500) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling DealsApi.getDealFollowers, must be smaller than or equal to 500.');
+        }
+        if ($limit !== null && $limit < 1) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling DealsApi.getDealFollowers, must be bigger than or equal to 1.');
+        }
+
 
         $resourcePath = '/deals/{id}/followers';
         $formParams = [];
@@ -3904,6 +3918,13 @@ class DealsApi
                 'Missing the required parameter $id when calling getDealFollowersChangelog'
             );
         }
+        if ($limit !== null && $limit > 500) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling DealsApi.getDealFollowersChangelog, must be smaller than or equal to 500.');
+        }
+        if ($limit !== null && $limit < 1) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling DealsApi.getDealFollowersChangelog, must be bigger than or equal to 1.');
+        }
+
 
         $resourcePath = '/deals/{id}/followers/changelog';
         $formParams = [];
@@ -4302,6 +4323,13 @@ class DealsApi
 
         if ($custom_fields !== null && count($custom_fields) > 15) {
             throw new \InvalidArgumentException('invalid value for "$custom_fields" when calling DealsApi.getDeals, number of items must be less than or equal to 15.');
+        }
+
+        if ($limit !== null && $limit > 500) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling DealsApi.getDeals, must be smaller than or equal to 500.');
+        }
+        if ($limit !== null && $limit < 1) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling DealsApi.getDeals, must be bigger than or equal to 1.');
         }
 
 
@@ -4851,7 +4879,7 @@ class DealsApi
      * @param  int|null $organization_id Will filter deals by the provided organization ID. The upper limit of found deals associated with the organization is 2000. (optional)
      * @param  string|null $status Will filter deals by the provided specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. The upper limit of found deals associated with the status is 2000. (optional)
      * @param  string[]|null $include_fields Supports including optional fields in the results which are not provided by default (optional)
-     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
+     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed. (optional)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      *
      * @throws ApiException on non-2xx response
@@ -4876,7 +4904,7 @@ class DealsApi
      * @param  int|null $organization_id Will filter deals by the provided organization ID. The upper limit of found deals associated with the organization is 2000. (optional)
      * @param  string|null $status Will filter deals by the provided specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. The upper limit of found deals associated with the status is 2000. (optional)
      * @param  string[]|null $include_fields Supports including optional fields in the results which are not provided by default (optional)
-     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
+     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed. (optional)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      *
      * @throws ApiException on non-2xx response
@@ -4985,7 +5013,7 @@ class DealsApi
      * @param  int|null $organization_id Will filter deals by the provided organization ID. The upper limit of found deals associated with the organization is 2000. (optional)
      * @param  string|null $status Will filter deals by the provided specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. The upper limit of found deals associated with the status is 2000. (optional)
      * @param  string[]|null $include_fields Supports including optional fields in the results which are not provided by default (optional)
-     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
+     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed. (optional)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
@@ -5013,7 +5041,7 @@ class DealsApi
      * @param  int|null $organization_id Will filter deals by the provided organization ID. The upper limit of found deals associated with the organization is 2000. (optional)
      * @param  string|null $status Will filter deals by the provided specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. The upper limit of found deals associated with the status is 2000. (optional)
      * @param  string[]|null $include_fields Supports including optional fields in the results which are not provided by default (optional)
-     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
+     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed. (optional)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
@@ -5068,7 +5096,7 @@ class DealsApi
      * @param  int|null $organization_id Will filter deals by the provided organization ID. The upper limit of found deals associated with the organization is 2000. (optional)
      * @param  string|null $status Will filter deals by the provided specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. The upper limit of found deals associated with the status is 2000. (optional)
      * @param  string[]|null $include_fields Supports including optional fields in the results which are not provided by default (optional)
-     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
+     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed. (optional)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
@@ -5084,6 +5112,13 @@ class DealsApi
             );
         }
 
+
+        if ($limit !== null && $limit > 100) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling DealsApi.searchDeals, must be smaller than or equal to 100.');
+        }
+        if ($limit !== null && $limit < 1) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling DealsApi.searchDeals, must be bigger than or equal to 1.');
+        }
 
 
         $resourcePath = '/deals/search';

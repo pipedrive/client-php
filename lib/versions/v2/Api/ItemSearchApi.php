@@ -364,6 +364,13 @@ class ItemSearchApi
 
 
 
+        if ($limit !== null && $limit > 100) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling ItemSearchApi.searchItem, must be smaller than or equal to 100.');
+        }
+        if ($limit !== null && $limit < 1) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling ItemSearchApi.searchItem, must be bigger than or equal to 1.');
+        }
+
 
         $resourcePath = '/itemSearch';
         $formParams = [];
@@ -755,6 +762,13 @@ class ItemSearchApi
                 'Missing the required parameter $field when calling searchItemByField'
             );
         }
+        if ($limit !== null && $limit > 500) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling ItemSearchApi.searchItemByField, must be smaller than or equal to 500.');
+        }
+        if ($limit !== null && $limit < 1) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling ItemSearchApi.searchItemByField, must be bigger than or equal to 1.');
+        }
+
 
         $resourcePath = '/itemSearch/field';
         $formParams = [];

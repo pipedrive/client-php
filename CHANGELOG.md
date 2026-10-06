@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [18.1.2](https://github.com/pipedrive/client-php/compare/18.1.1...18.1.2) (2026-10-06)
+### Fixed
+- Fixed the `limit` query parameter on `GET /api/v2/deals/search`, `GET /api/v2/itemSearch`, `GET /api/v2/leads/search`, `GET /api/v2/organizations/search`, `GET /api/v2/persons/search`, `GET /api/v2/products/search`, and `GET /api/v2/projects/search` — the maximum value is now documented as 100 (previously 500 on most of them) and added `minimum: 1` and `maximum: 100`
+- Add `minimum` and `maximum` to the shared `limit` query parameter used by the other v2 cursor-paginated endpoints
+
 ## [18.1.1](https://github.com/pipedrive/client-php/compare/18.1.0...18.1.1) (2026-10-06)
 ### Fixed
 - Fixed type for `status` parameter on `GET /api/v2/deals/search` endpoint

@@ -1252,7 +1252,7 @@ $fields = array('fields_example'); // string[] | A comma-separated string array.
 $exact_match = True; // bool | When enabled, only full exact matches against the given term are returned. It is <b>not</b> case sensitive.
 $person_id = 56; // int | Will filter projects by the provided person ID
 $organization_id = 56; // int | Will filter projects by the provided organization ID
-$limit = 100; // int | For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+$limit = 100; // int | For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed.
 $cursor = 'cursor_example'; // string | For pagination, the marker (an opaque string value) representing the first item on the next page
 
 try {
@@ -1272,7 +1272,7 @@ Name | Type | Description  | Notes
  **exact_match** | **bool**| When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive. | [optional]
  **person_id** | **int**| Will filter projects by the provided person ID | [optional]
  **organization_id** | **int**| Will filter projects by the provided organization ID | [optional]
- **limit** | **int**| For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. | [optional]
+ **limit** | **int**| For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed. | [optional]
  **cursor** | **string**| For pagination, the marker (an opaque string value) representing the first item on the next page | [optional]
 
 ### Return type

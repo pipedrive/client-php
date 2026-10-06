@@ -3608,6 +3608,13 @@ class BetaApi
      */
     public function getProjectFieldsRequest($limit = null, $cursor = null): Request
     {
+        if ($limit !== null && $limit > 500) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling BetaApi.getProjectFields, must be smaller than or equal to 500.');
+        }
+        if ($limit !== null && $limit < 1) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling BetaApi.getProjectFields, must be bigger than or equal to 1.');
+        }
+
 
         $resourcePath = '/projectFields';
         $formParams = [];
@@ -5395,6 +5402,13 @@ class BetaApi
      */
     public function getTasksRequest($cursor = null, $limit = null, $is_done = null, $is_milestone = null, $assignee_id = null, $project_id = null, $parent_task_id = null): Request
     {
+        if ($limit !== null && $limit > 500) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling BetaApi.getTasks, must be smaller than or equal to 500.');
+        }
+        if ($limit !== null && $limit < 1) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling BetaApi.getTasks, must be bigger than or equal to 1.');
+        }
+
 
         $resourcePath = '/tasks';
         $formParams = [];
@@ -5545,7 +5559,7 @@ class BetaApi
      * @param  bool|null $exact_match When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive. (optional)
      * @param  int|null $person_id Will filter projects by the provided person ID (optional)
      * @param  int|null $organization_id Will filter projects by the provided organization ID (optional)
-     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
+     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed. (optional)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      *
      * @throws ApiException on non-2xx response
@@ -5568,7 +5582,7 @@ class BetaApi
      * @param  bool|null $exact_match When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive. (optional)
      * @param  int|null $person_id Will filter projects by the provided person ID (optional)
      * @param  int|null $organization_id Will filter projects by the provided organization ID (optional)
-     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
+     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed. (optional)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      *
      * @throws ApiException on non-2xx response
@@ -5675,7 +5689,7 @@ class BetaApi
      * @param  bool|null $exact_match When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive. (optional)
      * @param  int|null $person_id Will filter projects by the provided person ID (optional)
      * @param  int|null $organization_id Will filter projects by the provided organization ID (optional)
-     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
+     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed. (optional)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
@@ -5701,7 +5715,7 @@ class BetaApi
      * @param  bool|null $exact_match When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive. (optional)
      * @param  int|null $person_id Will filter projects by the provided person ID (optional)
      * @param  int|null $organization_id Will filter projects by the provided organization ID (optional)
-     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
+     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed. (optional)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
@@ -5754,7 +5768,7 @@ class BetaApi
      * @param  bool|null $exact_match When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive. (optional)
      * @param  int|null $person_id Will filter projects by the provided person ID (optional)
      * @param  int|null $organization_id Will filter projects by the provided organization ID (optional)
-     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
+     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed. (optional)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
@@ -5768,6 +5782,13 @@ class BetaApi
             throw new \InvalidArgumentException(
                 'Missing the required parameter $term when calling searchProjects'
             );
+        }
+
+        if ($limit !== null && $limit > 100) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling BetaApi.searchProjects, must be smaller than or equal to 100.');
+        }
+        if ($limit !== null && $limit < 1) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling BetaApi.searchProjects, must be bigger than or equal to 1.');
         }
 
 

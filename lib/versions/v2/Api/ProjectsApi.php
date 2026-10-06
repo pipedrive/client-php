@@ -1225,6 +1225,13 @@ class ProjectsApi
      */
     public function getArchivedProjectsRequest($filter_id = null, $status = null, $phase_id = null, $limit = null, $cursor = null): Request
     {
+        if ($limit !== null && $limit > 500) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling ProjectsApi.getArchivedProjects, must be smaller than or equal to 500.');
+        }
+        if ($limit !== null && $limit < 1) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling ProjectsApi.getArchivedProjects, must be bigger than or equal to 1.');
+        }
+
 
         $resourcePath = '/projects/archived';
         $formParams = [];
@@ -1859,6 +1866,13 @@ class ProjectsApi
                 'Missing the required parameter $id when calling getProjectChangelog'
             );
         }
+        if ($limit !== null && $limit > 500) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling ProjectsApi.getProjectChangelog, must be smaller than or equal to 500.');
+        }
+        if ($limit !== null && $limit < 1) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling ProjectsApi.getProjectChangelog, must be bigger than or equal to 1.');
+        }
+
 
         $resourcePath = '/projects/{id}/changelog';
         $formParams = [];
@@ -2495,6 +2509,13 @@ class ProjectsApi
      */
     public function getProjectsRequest($filter_id = null, $status = null, $phase_id = null, $deal_id = null, $person_id = null, $org_id = null, $limit = null, $cursor = null): Request
     {
+        if ($limit !== null && $limit > 500) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling ProjectsApi.getProjects, must be smaller than or equal to 500.');
+        }
+        if ($limit !== null && $limit < 1) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling ProjectsApi.getProjects, must be bigger than or equal to 1.');
+        }
+
 
         $resourcePath = '/projects';
         $formParams = [];
@@ -2653,7 +2674,7 @@ class ProjectsApi
      * @param  bool|null $exact_match When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive. (optional)
      * @param  int|null $person_id Will filter projects by the provided person ID (optional)
      * @param  int|null $organization_id Will filter projects by the provided organization ID (optional)
-     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
+     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed. (optional)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      *
      * @throws ApiException on non-2xx response
@@ -2676,7 +2697,7 @@ class ProjectsApi
      * @param  bool|null $exact_match When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive. (optional)
      * @param  int|null $person_id Will filter projects by the provided person ID (optional)
      * @param  int|null $organization_id Will filter projects by the provided organization ID (optional)
-     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
+     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed. (optional)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      *
      * @throws ApiException on non-2xx response
@@ -2783,7 +2804,7 @@ class ProjectsApi
      * @param  bool|null $exact_match When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive. (optional)
      * @param  int|null $person_id Will filter projects by the provided person ID (optional)
      * @param  int|null $organization_id Will filter projects by the provided organization ID (optional)
-     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
+     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed. (optional)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
@@ -2809,7 +2830,7 @@ class ProjectsApi
      * @param  bool|null $exact_match When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive. (optional)
      * @param  int|null $person_id Will filter projects by the provided person ID (optional)
      * @param  int|null $organization_id Will filter projects by the provided organization ID (optional)
-     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
+     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed. (optional)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
@@ -2862,7 +2883,7 @@ class ProjectsApi
      * @param  bool|null $exact_match When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive. (optional)
      * @param  int|null $person_id Will filter projects by the provided person ID (optional)
      * @param  int|null $organization_id Will filter projects by the provided organization ID (optional)
-     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
+     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed. (optional)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
@@ -2876,6 +2897,13 @@ class ProjectsApi
             throw new \InvalidArgumentException(
                 'Missing the required parameter $term when calling searchProjects'
             );
+        }
+
+        if ($limit !== null && $limit > 100) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling ProjectsApi.searchProjects, must be smaller than or equal to 100.');
+        }
+        if ($limit !== null && $limit < 1) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling ProjectsApi.searchProjects, must be bigger than or equal to 1.');
         }
 
 

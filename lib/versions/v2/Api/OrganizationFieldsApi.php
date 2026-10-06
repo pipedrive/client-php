@@ -1858,6 +1858,13 @@ class OrganizationFieldsApi
     public function getOrganizationFieldsRequest($include_fields = null, $limit = null, $cursor = null): Request
     {
 
+        if ($limit !== null && $limit > 500) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling OrganizationFieldsApi.getOrganizationFields, must be smaller than or equal to 500.');
+        }
+        if ($limit !== null && $limit < 1) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling OrganizationFieldsApi.getOrganizationFields, must be bigger than or equal to 1.');
+        }
+
 
         $resourcePath = '/organizationFields';
         $formParams = [];

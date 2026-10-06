@@ -1895,6 +1895,13 @@ class PersonsApi
                 'Missing the required parameter $id when calling getPersonFollowers'
             );
         }
+        if ($limit !== null && $limit > 500) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling PersonsApi.getPersonFollowers, must be smaller than or equal to 500.');
+        }
+        if ($limit !== null && $limit < 1) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling PersonsApi.getPersonFollowers, must be bigger than or equal to 1.');
+        }
+
 
         $resourcePath = '/persons/{id}/followers';
         $formParams = [];
@@ -2217,6 +2224,13 @@ class PersonsApi
                 'Missing the required parameter $id when calling getPersonFollowersChangelog'
             );
         }
+        if ($limit !== null && $limit > 500) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling PersonsApi.getPersonFollowersChangelog, must be smaller than or equal to 500.');
+        }
+        if ($limit !== null && $limit < 1) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling PersonsApi.getPersonFollowersChangelog, must be bigger than or equal to 1.');
+        }
+
 
         $resourcePath = '/persons/{id}/followers/changelog';
         $formParams = [];
@@ -2897,6 +2911,13 @@ class PersonsApi
             throw new \InvalidArgumentException('invalid value for "$custom_fields" when calling PersonsApi.getPersons, number of items must be less than or equal to 15.');
         }
 
+        if ($limit !== null && $limit > 500) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling PersonsApi.getPersons, must be smaller than or equal to 500.');
+        }
+        if ($limit !== null && $limit < 1) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling PersonsApi.getPersons, must be bigger than or equal to 1.');
+        }
+
 
         $resourcePath = '/persons';
         $formParams = [];
@@ -3111,7 +3132,7 @@ class PersonsApi
      * @param  bool|null $exact_match When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive. (optional)
      * @param  int|null $organization_id Will filter persons by the provided organization ID. The upper limit of found persons associated with the organization is 2000. (optional)
      * @param  string[]|null $include_fields Supports including optional fields in the results which are not provided by default (optional)
-     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
+     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed. (optional)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      *
      * @throws ApiException on non-2xx response
@@ -3134,7 +3155,7 @@ class PersonsApi
      * @param  bool|null $exact_match When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive. (optional)
      * @param  int|null $organization_id Will filter persons by the provided organization ID. The upper limit of found persons associated with the organization is 2000. (optional)
      * @param  string[]|null $include_fields Supports including optional fields in the results which are not provided by default (optional)
-     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
+     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed. (optional)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      *
      * @throws ApiException on non-2xx response
@@ -3241,7 +3262,7 @@ class PersonsApi
      * @param  bool|null $exact_match When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive. (optional)
      * @param  int|null $organization_id Will filter persons by the provided organization ID. The upper limit of found persons associated with the organization is 2000. (optional)
      * @param  string[]|null $include_fields Supports including optional fields in the results which are not provided by default (optional)
-     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
+     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed. (optional)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
@@ -3267,7 +3288,7 @@ class PersonsApi
      * @param  bool|null $exact_match When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive. (optional)
      * @param  int|null $organization_id Will filter persons by the provided organization ID. The upper limit of found persons associated with the organization is 2000. (optional)
      * @param  string[]|null $include_fields Supports including optional fields in the results which are not provided by default (optional)
-     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
+     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed. (optional)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
@@ -3320,7 +3341,7 @@ class PersonsApi
      * @param  bool|null $exact_match When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive. (optional)
      * @param  int|null $organization_id Will filter persons by the provided organization ID. The upper limit of found persons associated with the organization is 2000. (optional)
      * @param  string[]|null $include_fields Supports including optional fields in the results which are not provided by default (optional)
-     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
+     * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed. (optional)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
@@ -3336,6 +3357,13 @@ class PersonsApi
             );
         }
 
+
+        if ($limit !== null && $limit > 100) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling PersonsApi.searchPersons, must be smaller than or equal to 100.');
+        }
+        if ($limit !== null && $limit < 1) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling PersonsApi.searchPersons, must be bigger than or equal to 1.');
+        }
 
 
         $resourcePath = '/persons/search';

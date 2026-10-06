@@ -1858,6 +1858,13 @@ class PersonFieldsApi
     public function getPersonFieldsRequest($include_fields = null, $limit = null, $cursor = null): Request
     {
 
+        if ($limit !== null && $limit > 500) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling PersonFieldsApi.getPersonFields, must be smaller than or equal to 500.');
+        }
+        if ($limit !== null && $limit < 1) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling PersonFieldsApi.getPersonFields, must be bigger than or equal to 1.');
+        }
+
 
         $resourcePath = '/personFields';
         $formParams = [];
