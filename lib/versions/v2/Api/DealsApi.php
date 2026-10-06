@@ -4849,7 +4849,7 @@ class DealsApi
      * @param  bool|null $exact_match When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive. (optional)
      * @param  int|null $person_id Will filter deals by the provided person ID. The upper limit of found deals associated with the person is 2000. (optional)
      * @param  int|null $organization_id Will filter deals by the provided organization ID. The upper limit of found deals associated with the organization is 2000. (optional)
-     * @param  string[]|null $status Will filter deals by the provided specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. The upper limit of found deals associated with the status is 2000. (optional)
+     * @param  string|null $status Will filter deals by the provided specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. The upper limit of found deals associated with the status is 2000. (optional)
      * @param  string[]|null $include_fields Supports including optional fields in the results which are not provided by default (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
@@ -4874,7 +4874,7 @@ class DealsApi
      * @param  bool|null $exact_match When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive. (optional)
      * @param  int|null $person_id Will filter deals by the provided person ID. The upper limit of found deals associated with the person is 2000. (optional)
      * @param  int|null $organization_id Will filter deals by the provided organization ID. The upper limit of found deals associated with the organization is 2000. (optional)
-     * @param  string[]|null $status Will filter deals by the provided specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. The upper limit of found deals associated with the status is 2000. (optional)
+     * @param  string|null $status Will filter deals by the provided specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. The upper limit of found deals associated with the status is 2000. (optional)
      * @param  string[]|null $include_fields Supports including optional fields in the results which are not provided by default (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
@@ -4983,7 +4983,7 @@ class DealsApi
      * @param  bool|null $exact_match When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive. (optional)
      * @param  int|null $person_id Will filter deals by the provided person ID. The upper limit of found deals associated with the person is 2000. (optional)
      * @param  int|null $organization_id Will filter deals by the provided organization ID. The upper limit of found deals associated with the organization is 2000. (optional)
-     * @param  string[]|null $status Will filter deals by the provided specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. The upper limit of found deals associated with the status is 2000. (optional)
+     * @param  string|null $status Will filter deals by the provided specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. The upper limit of found deals associated with the status is 2000. (optional)
      * @param  string[]|null $include_fields Supports including optional fields in the results which are not provided by default (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
@@ -5011,7 +5011,7 @@ class DealsApi
      * @param  bool|null $exact_match When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive. (optional)
      * @param  int|null $person_id Will filter deals by the provided person ID. The upper limit of found deals associated with the person is 2000. (optional)
      * @param  int|null $organization_id Will filter deals by the provided organization ID. The upper limit of found deals associated with the organization is 2000. (optional)
-     * @param  string[]|null $status Will filter deals by the provided specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. The upper limit of found deals associated with the status is 2000. (optional)
+     * @param  string|null $status Will filter deals by the provided specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. The upper limit of found deals associated with the status is 2000. (optional)
      * @param  string[]|null $include_fields Supports including optional fields in the results which are not provided by default (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
@@ -5066,7 +5066,7 @@ class DealsApi
      * @param  bool|null $exact_match When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive. (optional)
      * @param  int|null $person_id Will filter deals by the provided person ID. The upper limit of found deals associated with the person is 2000. (optional)
      * @param  int|null $organization_id Will filter deals by the provided organization ID. The upper limit of found deals associated with the organization is 2000. (optional)
-     * @param  string[]|null $status Will filter deals by the provided specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. The upper limit of found deals associated with the status is 2000. (optional)
+     * @param  string|null $status Will filter deals by the provided specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. The upper limit of found deals associated with the status is 2000. (optional)
      * @param  string[]|null $include_fields Supports including optional fields in the results which are not provided by default (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
@@ -5083,7 +5083,6 @@ class DealsApi
                 'Missing the required parameter $term when calling searchDeals'
             );
         }
-
 
 
 
@@ -5137,7 +5136,7 @@ class DealsApi
         // query params
         /* @phpstan-ignore-next-line */
         if (is_array($status)) {
-            $status = ObjectSerializer::serializeCollection($status, 'form', true);
+            $status = ObjectSerializer::serializeCollection($status, '', true);
         }
         if ($status !== null) {
             $queryParams['status'] = $status;
