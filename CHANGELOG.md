@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [18.1.1](https://github.com/pipedrive/client-php/compare/18.1.0...18.1.1) (2026-10-06)
+### Fixed
+- Fixed type for `status` parameter on `GET /api/v2/deals/search` endpoint
+
 ## [18.1.0](https://github.com/pipedrive/client-php/compare/18.0.0...18.1.0) (2026-10-06)
 ### Added
 - Added `archive_reason` field to the Lead schema, returned by `GET /v1/leads`, `GET /v1/leads/{id}`, and `GET /v1/leads/archived` — captures the reason a lead was archived
