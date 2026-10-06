@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [18.1.0](https://github.com/pipedrive/client-php/compare/18.0.0...18.1.0) (2026-10-06)
+### Added
+- Added `archive_reason` field to the Lead schema, returned by `GET /v1/leads`, `GET /v1/leads/{id}`, and `GET /v1/leads/archived` — captures the reason a lead was archived
+- Added `archive_reason` to the request body of `PATCH /v1/leads/{id}` — can only be set while archiving a lead in the same request, or on a lead that's already archived; it's automatically cleared when the lead is unarchived, and archiving without it returns a 400 error if a reason is required for the company
+
 ## [18.0.0](https://github.com/pipedrive/client-php/compare/17.8.3...18.0.0) (2026-10-06)
 ### Fixed
 - Fixed several comma-separated query parameters that were still typed as `type: string` — changed to `type: array` with `uniqueItems: true`, `style: form`, `explode: false` (integer items unless noted):
