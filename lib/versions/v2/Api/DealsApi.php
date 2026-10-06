@@ -5136,7 +5136,7 @@ class DealsApi
         // query params
         /* @phpstan-ignore-next-line */
         if (is_array($status)) {
-            $status = ObjectSerializer::serializeCollection($status, '', true);
+            $status = ObjectSerializer::serializeCollection($status, 'form', true);
         }
         if ($status !== null) {
             $queryParams['status'] = $status;
