@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Fixed
+- Fixed the `limit` query parameter on `GET /api/v2/deals/search`, `GET /api/v2/itemSearch`, `GET /api/v2/leads/search`, `GET /api/v2/organizations/search`, `GET /api/v2/persons/search`, `GET /api/v2/products/search`, and `GET /api/v2/projects/search` — the maximum value is now documented as 100 (previously 500 on most of them) and added `minimum: 1` and `maximum: 100`
+- Add `minimum` and `maximum` to the shared `limit` query parameter used by the other v2 cursor-paginated endpoints
+### Fixed
 - Added missing v2 `field_type` enum values `participants` and `attendees` for activity fields (`ActivityFieldItem`, used by `GET /api/v2/activityFields` and `GET /api/v2/activityFields/{field_code}`) and `orgs` for project fields (`ProjectFieldItem`, used by `GET /api/v2/projectFields` and `GET /api/v2/projectFields/{field_code}`) — deserializing a field with one of these types previously threw `InvalidArgumentException`
 - Fixed a crash deserializing the option `id` field on v2 field-item options (`ActivityFieldItemOptions`) — typed as `mixed` instead of the unsupported synthetic `OneOfIntegerString` type that OpenAPI Generator 5.3.0 referenced but never generated a class for
 

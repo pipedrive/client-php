@@ -1235,6 +1235,13 @@ class TasksApi
      */
     public function getTasksRequest($cursor = null, $limit = null, $is_done = null, $is_milestone = null, $assignee_id = null, $project_id = null, $parent_task_id = null): Request
     {
+        if ($limit !== null && $limit > 500) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling TasksApi.getTasks, must be smaller than or equal to 500.');
+        }
+        if ($limit !== null && $limit < 1) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling TasksApi.getTasks, must be bigger than or equal to 1.');
+        }
+
 
         $resourcePath = '/tasks';
         $formParams = [];

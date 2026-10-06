@@ -2046,7 +2046,7 @@ class OrganizationsApi
      * @param  int|0 $start Pagination start (optional, default to 0)
      * @param  int|null $limit Items shown per page (optional)
      * @param  string|null $all_changes Whether to show custom field updates or not. 1 &#x3D; Include custom field changes. If omitted, returns changes without custom field updates. (optional)
-     * @param  string|null $items A comma-separated string for filtering out item specific updates. (Possible values - activity, plannedActivity, note, file, change, deal, follower, participant, mailMessage, mailMessageWithAttachment, invoice, activityFile, document). (optional)
+     * @param  string[]|null $items A comma-separated string for filtering out item specific updates. (Possible values - activity, plannedActivity, note, file, change, deal, follower, participant, mailMessage, mailMessageWithAttachment, invoice, activityFile, document). (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
@@ -2067,7 +2067,7 @@ class OrganizationsApi
      * @param  int|0 $start Pagination start (optional, default to 0)
      * @param  int|null $limit Items shown per page (optional)
      * @param  string|null $all_changes Whether to show custom field updates or not. 1 &#x3D; Include custom field changes. If omitted, returns changes without custom field updates. (optional)
-     * @param  string|null $items A comma-separated string for filtering out item specific updates. (Possible values - activity, plannedActivity, note, file, change, deal, follower, participant, mailMessage, mailMessageWithAttachment, invoice, activityFile, document). (optional)
+     * @param  string[]|null $items A comma-separated string for filtering out item specific updates. (Possible values - activity, plannedActivity, note, file, change, deal, follower, participant, mailMessage, mailMessageWithAttachment, invoice, activityFile, document). (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
@@ -2172,7 +2172,7 @@ class OrganizationsApi
      * @param  int|0 $start Pagination start (optional, default to 0)
      * @param  int|null $limit Items shown per page (optional)
      * @param  string|null $all_changes Whether to show custom field updates or not. 1 &#x3D; Include custom field changes. If omitted, returns changes without custom field updates. (optional)
-     * @param  string|null $items A comma-separated string for filtering out item specific updates. (Possible values - activity, plannedActivity, note, file, change, deal, follower, participant, mailMessage, mailMessageWithAttachment, invoice, activityFile, document). (optional)
+     * @param  string[]|null $items A comma-separated string for filtering out item specific updates. (Possible values - activity, plannedActivity, note, file, change, deal, follower, participant, mailMessage, mailMessageWithAttachment, invoice, activityFile, document). (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
@@ -2196,7 +2196,7 @@ class OrganizationsApi
      * @param  int|0 $start Pagination start (optional, default to 0)
      * @param  int|null $limit Items shown per page (optional)
      * @param  string|null $all_changes Whether to show custom field updates or not. 1 &#x3D; Include custom field changes. If omitted, returns changes without custom field updates. (optional)
-     * @param  string|null $items A comma-separated string for filtering out item specific updates. (Possible values - activity, plannedActivity, note, file, change, deal, follower, participant, mailMessage, mailMessageWithAttachment, invoice, activityFile, document). (optional)
+     * @param  string[]|null $items A comma-separated string for filtering out item specific updates. (Possible values - activity, plannedActivity, note, file, change, deal, follower, participant, mailMessage, mailMessageWithAttachment, invoice, activityFile, document). (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
@@ -2247,7 +2247,7 @@ class OrganizationsApi
      * @param  int|0 $start Pagination start (optional, default to 0)
      * @param  int|null $limit Items shown per page (optional)
      * @param  string|null $all_changes Whether to show custom field updates or not. 1 &#x3D; Include custom field changes. If omitted, returns changes without custom field updates. (optional)
-     * @param  string|null $items A comma-separated string for filtering out item specific updates. (Possible values - activity, plannedActivity, note, file, change, deal, follower, participant, mailMessage, mailMessageWithAttachment, invoice, activityFile, document). (optional)
+     * @param  string[]|null $items A comma-separated string for filtering out item specific updates. (Possible values - activity, plannedActivity, note, file, change, deal, follower, participant, mailMessage, mailMessageWithAttachment, invoice, activityFile, document). (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
@@ -2261,6 +2261,7 @@ class OrganizationsApi
                 'Missing the required parameter $id when calling getOrganizationUpdates'
             );
         }
+
 
         $resourcePath = '/organizations/{id}/flow';
         $formParams = [];
@@ -2296,7 +2297,7 @@ class OrganizationsApi
         // query params
         /* @phpstan-ignore-next-line */
         if (is_array($items)) {
-            $items = ObjectSerializer::serializeCollection($items, '', true);
+            $items = ObjectSerializer::serializeCollection($items, 'form', true);
         }
         if ($items !== null) {
             $queryParams['items'] = $items;
