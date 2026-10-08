@@ -517,7 +517,7 @@ $apiInstance = new Pipedrive\versions\v2\Api\DealsApi(
     $config
 );
 $filter_id = 56; // int | If supplied, only deals matching the specified filter are returned
-$ids = array('ids_example'); // string[] | Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
+$ids = array(56); // int[] | Optional comma separated array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
 $owner_id = 56; // int | If supplied, only deals owned by the specified user are returned. If filter_id is provided, this is ignored.
 $person_id = 56; // int | If supplied, only deals linked to the specified person are returned. If filter_id is provided, this is ignored.
 $org_id = 56; // int | If supplied, only deals linked to the specified organization are returned. If filter_id is provided, this is ignored.
@@ -546,7 +546,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **filter_id** | **int**| If supplied, only deals matching the specified filter are returned | [optional]
- **ids** | [**string[]**](../Model/string.md)| Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. | [optional]
+ **ids** | [**int[]**](../Model/int.md)| Optional comma separated array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. | [optional]
  **owner_id** | **int**| If supplied, only deals owned by the specified user are returned. If filter_id is provided, this is ignored. | [optional]
  **person_id** | **int**| If supplied, only deals linked to the specified person are returned. If filter_id is provided, this is ignored. | [optional]
  **org_id** | **int**| If supplied, only deals linked to the specified organization are returned. If filter_id is provided, this is ignored. | [optional]
@@ -889,7 +889,7 @@ $apiInstance = new Pipedrive\versions\v2\Api\DealsApi(
     $config
 );
 $filter_id = 56; // int | If supplied, only deals matching the specified filter are returned
-$ids = array('ids_example'); // string[] | Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
+$ids = array(56); // int[] | Optional comma separated array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
 $owner_id = 56; // int | If supplied, only deals owned by the specified user are returned. If filter_id is provided, this is ignored.
 $person_id = 56; // int | If supplied, only deals linked to the specified person are returned. If filter_id is provided, this is ignored.
 $org_id = 56; // int | If supplied, only deals linked to the specified organization are returned. If filter_id is provided, this is ignored.
@@ -920,7 +920,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **filter_id** | **int**| If supplied, only deals matching the specified filter are returned | [optional]
- **ids** | [**string[]**](../Model/string.md)| Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. | [optional]
+ **ids** | [**int[]**](../Model/int.md)| Optional comma separated array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. | [optional]
  **owner_id** | **int**| If supplied, only deals owned by the specified user are returned. If filter_id is provided, this is ignored. | [optional]
  **person_id** | **int**| If supplied, only deals linked to the specified person are returned. If filter_id is provided, this is ignored. | [optional]
  **org_id** | **int**| If supplied, only deals linked to the specified organization are returned. If filter_id is provided, this is ignored. | [optional]

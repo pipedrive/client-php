@@ -2263,7 +2263,7 @@ class DealsApi
      * Get all archived deals
      *
      * @param  int|null $filter_id If supplied, only deals matching the specified filter are returned (optional)
-     * @param  string[]|null $ids Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
+     * @param  int[]|null $ids Optional comma separated array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
      * @param  int|null $owner_id If supplied, only deals owned by the specified user are returned. If filter_id is provided, this is ignored. (optional)
      * @param  int|null $person_id If supplied, only deals linked to the specified person are returned. If filter_id is provided, this is ignored. (optional)
      * @param  int|null $org_id If supplied, only deals linked to the specified organization are returned. If filter_id is provided, this is ignored. (optional)
@@ -2295,7 +2295,7 @@ class DealsApi
      * Get all archived deals
      *
      * @param  int|null $filter_id If supplied, only deals matching the specified filter are returned (optional)
-     * @param  string[]|null $ids Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
+     * @param  int[]|null $ids Optional comma separated array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
      * @param  int|null $owner_id If supplied, only deals owned by the specified user are returned. If filter_id is provided, this is ignored. (optional)
      * @param  int|null $person_id If supplied, only deals linked to the specified person are returned. If filter_id is provided, this is ignored. (optional)
      * @param  int|null $org_id If supplied, only deals linked to the specified organization are returned. If filter_id is provided, this is ignored. (optional)
@@ -2411,7 +2411,7 @@ class DealsApi
      * Get all archived deals
      *
      * @param  int|null $filter_id If supplied, only deals matching the specified filter are returned (optional)
-     * @param  string[]|null $ids Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
+     * @param  int[]|null $ids Optional comma separated array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
      * @param  int|null $owner_id If supplied, only deals owned by the specified user are returned. If filter_id is provided, this is ignored. (optional)
      * @param  int|null $person_id If supplied, only deals linked to the specified person are returned. If filter_id is provided, this is ignored. (optional)
      * @param  int|null $org_id If supplied, only deals linked to the specified organization are returned. If filter_id is provided, this is ignored. (optional)
@@ -2446,7 +2446,7 @@ class DealsApi
      * Get all archived deals
      *
      * @param  int|null $filter_id If supplied, only deals matching the specified filter are returned (optional)
-     * @param  string[]|null $ids Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
+     * @param  int[]|null $ids Optional comma separated array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
      * @param  int|null $owner_id If supplied, only deals owned by the specified user are returned. If filter_id is provided, this is ignored. (optional)
      * @param  int|null $person_id If supplied, only deals linked to the specified person are returned. If filter_id is provided, this is ignored. (optional)
      * @param  int|null $org_id If supplied, only deals linked to the specified organization are returned. If filter_id is provided, this is ignored. (optional)
@@ -2508,7 +2508,7 @@ class DealsApi
      * Create request for operation 'getArchivedDeals'
      *
      * @param  int|null $filter_id If supplied, only deals matching the specified filter are returned (optional)
-     * @param  string[]|null $ids Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
+     * @param  int[]|null $ids Optional comma separated array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
      * @param  int|null $owner_id If supplied, only deals owned by the specified user are returned. If filter_id is provided, this is ignored. (optional)
      * @param  int|null $person_id If supplied, only deals linked to the specified person are returned. If filter_id is provided, this is ignored. (optional)
      * @param  int|null $org_id If supplied, only deals linked to the specified organization are returned. If filter_id is provided, this is ignored. (optional)
@@ -4039,7 +4039,7 @@ class DealsApi
      * Get all deals
      *
      * @param  int|null $filter_id If supplied, only deals matching the specified filter are returned (optional)
-     * @param  string[]|null $ids Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
+     * @param  int[]|null $ids Optional comma separated array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
      * @param  int|null $owner_id If supplied, only deals owned by the specified user are returned. If filter_id is provided, this is ignored. (optional)
      * @param  int|null $person_id If supplied, only deals linked to the specified person are returned. If filter_id is provided, this is ignored. (optional)
      * @param  int|null $org_id If supplied, only deals linked to the specified organization are returned. If filter_id is provided, this is ignored. (optional)
@@ -4073,7 +4073,7 @@ class DealsApi
      * Get all deals
      *
      * @param  int|null $filter_id If supplied, only deals matching the specified filter are returned (optional)
-     * @param  string[]|null $ids Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
+     * @param  int[]|null $ids Optional comma separated array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
      * @param  int|null $owner_id If supplied, only deals owned by the specified user are returned. If filter_id is provided, this is ignored. (optional)
      * @param  int|null $person_id If supplied, only deals linked to the specified person are returned. If filter_id is provided, this is ignored. (optional)
      * @param  int|null $org_id If supplied, only deals linked to the specified organization are returned. If filter_id is provided, this is ignored. (optional)
@@ -4191,7 +4191,7 @@ class DealsApi
      * Get all deals
      *
      * @param  int|null $filter_id If supplied, only deals matching the specified filter are returned (optional)
-     * @param  string[]|null $ids Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
+     * @param  int[]|null $ids Optional comma separated array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
      * @param  int|null $owner_id If supplied, only deals owned by the specified user are returned. If filter_id is provided, this is ignored. (optional)
      * @param  int|null $person_id If supplied, only deals linked to the specified person are returned. If filter_id is provided, this is ignored. (optional)
      * @param  int|null $org_id If supplied, only deals linked to the specified organization are returned. If filter_id is provided, this is ignored. (optional)
@@ -4228,7 +4228,7 @@ class DealsApi
      * Get all deals
      *
      * @param  int|null $filter_id If supplied, only deals matching the specified filter are returned (optional)
-     * @param  string[]|null $ids Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
+     * @param  int[]|null $ids Optional comma separated array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
      * @param  int|null $owner_id If supplied, only deals owned by the specified user are returned. If filter_id is provided, this is ignored. (optional)
      * @param  int|null $person_id If supplied, only deals linked to the specified person are returned. If filter_id is provided, this is ignored. (optional)
      * @param  int|null $org_id If supplied, only deals linked to the specified organization are returned. If filter_id is provided, this is ignored. (optional)
@@ -4292,7 +4292,7 @@ class DealsApi
      * Create request for operation 'getDeals'
      *
      * @param  int|null $filter_id If supplied, only deals matching the specified filter are returned (optional)
-     * @param  string[]|null $ids Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
+     * @param  int[]|null $ids Optional comma separated array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
      * @param  int|null $owner_id If supplied, only deals owned by the specified user are returned. If filter_id is provided, this is ignored. (optional)
      * @param  int|null $person_id If supplied, only deals linked to the specified person are returned. If filter_id is provided, this is ignored. (optional)
      * @param  int|null $org_id If supplied, only deals linked to the specified organization are returned. If filter_id is provided, this is ignored. (optional)
@@ -5171,7 +5171,7 @@ class DealsApi
         // query params
         /* @phpstan-ignore-next-line */
         if (is_array($status)) {
-            $status = ObjectSerializer::serializeCollection($status, 'form', true);
+            $status = ObjectSerializer::serializeCollection($status, '', true);
         }
         if ($status !== null) {
             $queryParams['status'] = $status;

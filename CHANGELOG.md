@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Fixed
+- Fixed the `sort` query parameter on `GET /v1/leads` — removed the restrictive `enum` since custom fields and sort direction are accepted
+- Fixed the shared `ids` query parameter used by v2 collection endpoints — array items are now typed as `integer` instead of `string`
 
 ## [18.1.2](https://github.com/pipedrive/client-php/compare/18.1.1...18.1.2) (2026-10-06)
 ### Fixed

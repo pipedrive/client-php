@@ -711,7 +711,7 @@ class ActivitiesApi
      * Get all activities
      *
      * @param  int|null $filter_id If supplied, only activities matching the specified filter are returned (optional)
-     * @param  string[]|null $ids Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
+     * @param  int[]|null $ids Optional comma separated array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
      * @param  int|null $owner_id If supplied, only activities owned by the specified user are returned. If filter_id is provided, this is ignored. (optional)
      * @param  int|null $deal_id If supplied, only activities linked to the specified deal are returned. If filter_id is provided, this is ignored. (optional)
      * @param  string|null $lead_id If supplied, only activities linked to the specified lead are returned. If filter_id is provided, this is ignored. (optional)
@@ -742,7 +742,7 @@ class ActivitiesApi
      * Get all activities
      *
      * @param  int|null $filter_id If supplied, only activities matching the specified filter are returned (optional)
-     * @param  string[]|null $ids Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
+     * @param  int[]|null $ids Optional comma separated array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
      * @param  int|null $owner_id If supplied, only activities owned by the specified user are returned. If filter_id is provided, this is ignored. (optional)
      * @param  int|null $deal_id If supplied, only activities linked to the specified deal are returned. If filter_id is provided, this is ignored. (optional)
      * @param  string|null $lead_id If supplied, only activities linked to the specified lead are returned. If filter_id is provided, this is ignored. (optional)
@@ -857,7 +857,7 @@ class ActivitiesApi
      * Get all activities
      *
      * @param  int|null $filter_id If supplied, only activities matching the specified filter are returned (optional)
-     * @param  string[]|null $ids Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
+     * @param  int[]|null $ids Optional comma separated array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
      * @param  int|null $owner_id If supplied, only activities owned by the specified user are returned. If filter_id is provided, this is ignored. (optional)
      * @param  int|null $deal_id If supplied, only activities linked to the specified deal are returned. If filter_id is provided, this is ignored. (optional)
      * @param  string|null $lead_id If supplied, only activities linked to the specified lead are returned. If filter_id is provided, this is ignored. (optional)
@@ -891,7 +891,7 @@ class ActivitiesApi
      * Get all activities
      *
      * @param  int|null $filter_id If supplied, only activities matching the specified filter are returned (optional)
-     * @param  string[]|null $ids Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
+     * @param  int[]|null $ids Optional comma separated array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
      * @param  int|null $owner_id If supplied, only activities owned by the specified user are returned. If filter_id is provided, this is ignored. (optional)
      * @param  int|null $deal_id If supplied, only activities linked to the specified deal are returned. If filter_id is provided, this is ignored. (optional)
      * @param  string|null $lead_id If supplied, only activities linked to the specified lead are returned. If filter_id is provided, this is ignored. (optional)
@@ -952,7 +952,7 @@ class ActivitiesApi
      * Create request for operation 'getActivities'
      *
      * @param  int|null $filter_id If supplied, only activities matching the specified filter are returned (optional)
-     * @param  string[]|null $ids Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
+     * @param  int[]|null $ids Optional comma separated array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. (optional)
      * @param  int|null $owner_id If supplied, only activities owned by the specified user are returned. If filter_id is provided, this is ignored. (optional)
      * @param  int|null $deal_id If supplied, only activities linked to the specified deal are returned. If filter_id is provided, this is ignored. (optional)
      * @param  string|null $lead_id If supplied, only activities linked to the specified lead are returned. If filter_id is provided, this is ignored. (optional)
