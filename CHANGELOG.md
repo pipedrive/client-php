@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [19.0.1](https://github.com/pipedrive/client-php/compare/19.0.0...19.0.1) (2026-10-09)
+### Fixed
+- Fixed `nullable: true` handling for `BaseNote.deal` (`BaseNoteDealTitle`, returned by `GET /v1/notes`, `POST /v1/notes`, `GET /v1/notes/{id}`, `PUT /v1/notes/{id}`, and `GET /v1/recents`) and for the `person_id` and `org_id` fields (`DealPersonDataWithId`, `DealOrganizationDataWithId`, returned by `GET /v1/deals/archived` and `GET /v1/products/{id}/deals`)
+- Fixed v2 product `prices` item schemas (`POST /api/v2/products`, `PATCH /api/v2/products/{id}`, and other v2 product endpoints) — replaced `ProductPriceBase` by explicit named schemas `ProductPrice` (responses) and `ProductPriceRequest` (add/update product request bodies) and removed `ProductPriceBase`; fields, nullability, and required properties (`price`, `currency`) are unchanged
+
 ## [19.0.0](https://github.com/pipedrive/client-php/compare/18.1.2...19.0.0) (2026-10-09)
 ### Fixed
 - Fixed the `sort` query parameter on `GET /v1/leads` — removed the restrictive `enum` since custom fields and sort direction are accepted
