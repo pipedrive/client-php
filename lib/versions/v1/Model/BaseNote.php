@@ -70,7 +70,7 @@ class BaseNote implements ModelInterface, ArrayAccess, JsonSerializable
         'active_flag' => 'bool',
         'add_time' => 'string',
         'content' => 'string',
-        'deal' => 'BaseNoteDealTitle',
+        'deal' => '\Pipedrive\versions\v1\Model\BaseNoteDealTitle',
         'lead_id' => 'string',
         'deal_id' => 'int',
         'last_update_user_id' => 'int',
@@ -465,7 +465,7 @@ class BaseNote implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets deal
      *
-     * @return BaseNoteDealTitle|null
+     * @return \Pipedrive\versions\v1\Model\BaseNoteDealTitle|null
      */
     public function getDeal()
     {
@@ -475,7 +475,7 @@ class BaseNote implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets deal
      *
-     * @param BaseNoteDealTitle|null $deal deal
+     * @param \Pipedrive\versions\v1\Model\BaseNoteDealTitle|null $deal deal
      *
      * @return self
      */
