@@ -390,7 +390,7 @@ $person_id = 1; // int | If supplied, only leads matching the given person will 
 $organization_id = 1; // int | If supplied, only leads matching the given organization will be returned. However, `filter_id` takes precedence over `organization_id` when supplied.
 $filter_id = 1; // int | The ID of the filter to use
 $updated_since = 2025-01-01T10:20:00Z; // string | If set, only leads with an `update_time` later than or equal to this time are returned. In ISO 8601 format, e.g. 2025-01-01T10:20:00Z.
-$sort = 'sort_example'; // string | The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
+$sort = 'sort_example'; // string | The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: id, title, owner_id, creator_id, label_ids, value, source_name, was_seen, expected_close_date, next_activity_id, add_time, update_time, visible_to, and custom fields.
 
 try {
     $result = $apiInstance->getLeads($limit, $start, $owner_id, $person_id, $organization_id, $filter_id, $updated_since, $sort);
@@ -411,7 +411,7 @@ Name | Type | Description  | Notes
  **organization_id** | **int**| If supplied, only leads matching the given organization will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;organization_id&#x60; when supplied. | [optional]
  **filter_id** | **int**| The ID of the filter to use | [optional]
  **updated_since** | **string**| If set, only leads with an &#x60;update_time&#x60; later than or equal to this time are returned. In ISO 8601 format, e.g. 2025-01-01T10:20:00Z. | [optional]
- **sort** | **string**| The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). | [optional]
+ **sort** | **string**| The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). Supported fields: id, title, owner_id, creator_id, label_ids, value, source_name, was_seen, expected_close_date, next_activity_id, add_time, update_time, visible_to, and custom fields. | [optional]
 
 ### Return type
 

@@ -524,7 +524,7 @@ $apiInstance = new Pipedrive\versions\v2\Api\OrganizationsApi(
     $config
 );
 $filter_id = 56; // int | If supplied, only organizations matching the specified filter are returned
-$ids = array('ids_example'); // string[] | Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
+$ids = array(56); // int[] | Optional comma separated array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
 $owner_id = 56; // int | If supplied, only organizations owned by the specified user are returned. If filter_id is provided, this is ignored.
 $updated_since = 'updated_since_example'; // string | If set, only organizations with an `update_time` later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
 $updated_until = 'updated_until_example'; // string | If set, only organizations with an `update_time` earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
@@ -550,7 +550,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **filter_id** | **int**| If supplied, only organizations matching the specified filter are returned | [optional]
- **ids** | [**string[]**](../Model/string.md)| Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. | [optional]
+ **ids** | [**int[]**](../Model/int.md)| Optional comma separated array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. | [optional]
  **owner_id** | **int**| If supplied, only organizations owned by the specified user are returned. If filter_id is provided, this is ignored. | [optional]
  **updated_since** | **string**| If set, only organizations with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z. | [optional]
  **updated_until** | **string**| If set, only organizations with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z. | [optional]

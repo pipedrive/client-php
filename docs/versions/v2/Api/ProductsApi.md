@@ -923,7 +923,7 @@ $apiInstance = new Pipedrive\versions\v2\Api\ProductsApi(
     $config
 );
 $owner_id = 56; // int | If supplied, only products owned by the given user will be returned
-$ids = array('ids_example'); // string[] | Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
+$ids = array(56); // int[] | Optional comma separated array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
 $custom_fields = array('custom_fields_example'); // string[] | Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.<br/>A maximum of 15 keys is allowed.
 $filter_id = 56; // int | The ID of the filter to use
 $cursor = 'cursor_example'; // string | For pagination, the marker (an opaque string value) representing the first item on the next page
@@ -945,7 +945,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner_id** | **int**| If supplied, only products owned by the given user will be returned | [optional]
- **ids** | [**string[]**](../Model/string.md)| Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. | [optional]
+ **ids** | [**int[]**](../Model/int.md)| Optional comma separated array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response. | [optional]
  **custom_fields** | [**string[]**](../Model/string.md)| Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. | [optional]
  **filter_id** | **int**| The ID of the filter to use | [optional]
  **cursor** | **string**| For pagination, the marker (an opaque string value) representing the first item on the next page | [optional]
