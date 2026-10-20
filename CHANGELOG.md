@@ -5,6 +5,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Every API method now has a `WithHttpInfo` variant (e.g. `getDealWithHttpInfo`) that resolves with `{ data, status, headers }`, so the HTTP status and response headers, such as rate limit headers, can be read. The existing methods are unchanged and still return only the response body.
+- When a `WithHttpInfo` call fails, the rejected error keeps its usual fields and also carries `$response: { status, headers }`, so headers on error responses (e.g. `Retry-After` on a 429) are available too.
+- Exported the `ApiResponse<T>` type for typing these results.
+Example usage, if you want to include it:
+```typescript
+const { data, status, headers } = await api.getDealWithHttpInfo({ id: 1 });
+console.log(headers['x-ratelimit-remaining']);
+```
 
 ## [19.0.1](https://github.com/pipedrive/client-php/compare/19.0.0...19.0.1) (2026-10-09)
 ### Fixed

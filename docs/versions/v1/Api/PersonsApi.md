@@ -50,7 +50,7 @@ $apiInstance = new Pipedrive\versions\v1\Api\PersonsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 56; // int | The ID of the person
+$id = 56; // int | The unique ID of the person
 $add_person_follower_request = new \Pipedrive\versions\v1\Model\AddPersonFollowerRequest(); // \Pipedrive\versions\v1\Model\AddPersonFollowerRequest
 
 try {
@@ -65,7 +65,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The ID of the person |
+ **id** | **int**| The unique ID of the person |
  **add_person_follower_request** | [**\Pipedrive\versions\v1\Model\AddPersonFollowerRequest**](../Model/AddPersonFollowerRequest.md)|  | [optional]
 
 ### Return type
@@ -117,7 +117,7 @@ $apiInstance = new Pipedrive\versions\v1\Api\PersonsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 56; // int | The ID of the person
+$id = 56; // int | The unique ID of the person
 $file = "/path/to/file.txt"; // \SplFileObject | One image supplied in the multipart/form-data encoding
 $crop_x = 56; // int | X coordinate to where start cropping form (in pixels)
 $crop_y = 56; // int | Y coordinate to where start cropping form (in pixels)
@@ -136,7 +136,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The ID of the person |
+ **id** | **int**| The unique ID of the person |
  **file** | **\SplFileObject****\SplFileObject**| One image supplied in the multipart/form-data encoding |
  **crop_x** | **int**| X coordinate to where start cropping form (in pixels) | [optional]
  **crop_y** | **int**| Y coordinate to where start cropping form (in pixels) | [optional]
@@ -192,7 +192,7 @@ $apiInstance = new Pipedrive\versions\v1\Api\PersonsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 56; // int | The ID of the person
+$id = 56; // int | The unique ID of the person
 $follower_id = 56; // int | The ID of the relationship between the follower and the person
 
 try {
@@ -207,7 +207,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The ID of the person |
+ **id** | **int**| The unique ID of the person |
  **follower_id** | **int**| The ID of the relationship between the follower and the person |
 
 ### Return type
@@ -259,7 +259,7 @@ $apiInstance = new Pipedrive\versions\v1\Api\PersonsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 56; // int | The ID of the person
+$id = 56; // int | The unique ID of the person
 
 try {
     $result = $apiInstance->deletePersonPicture($id);
@@ -273,7 +273,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The ID of the person |
+ **id** | **int**| The unique ID of the person |
 
 ### Return type
 
@@ -324,7 +324,7 @@ $apiInstance = new Pipedrive\versions\v1\Api\PersonsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 56; // int | The ID of the person
+$id = 56; // int | The unique ID of the person
 $cursor = 'cursor_example'; // string | For pagination, the marker (an opaque string value) representing the first item on the next page
 $limit = 56; // int | Items shown per page
 
@@ -340,7 +340,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The ID of the person |
+ **id** | **int**| The unique ID of the person |
  **cursor** | **string**| For pagination, the marker (an opaque string value) representing the first item on the next page | [optional]
  **limit** | **int**| Items shown per page | [optional]
 
@@ -393,7 +393,7 @@ $apiInstance = new Pipedrive\versions\v1\Api\PersonsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 56; // int | The ID of the person
+$id = 56; // int | The unique ID of the person
 $start = 0; // int | Pagination start
 $limit = 56; // int | Items shown per page. Please note that a maximum value of 100 is allowed.
 $sort = 'sort_example'; // string | Supported fields: `id`, `update_time`
@@ -410,7 +410,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The ID of the person |
+ **id** | **int**| The unique ID of the person |
  **start** | **int**| Pagination start | [optional] [default to 0]
  **limit** | **int**| Items shown per page. Please note that a maximum value of 100 is allowed. | [optional]
  **sort** | **string**| Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60; | [optional]
@@ -464,7 +464,7 @@ $apiInstance = new Pipedrive\versions\v1\Api\PersonsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 56; // int | The ID of the person
+$id = 56; // int | The unique ID of the person
 
 try {
     $result = $apiInstance->getPersonFollowers($id);
@@ -478,7 +478,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The ID of the person |
+ **id** | **int**| The unique ID of the person |
 
 ### Return type
 
@@ -529,7 +529,7 @@ $apiInstance = new Pipedrive\versions\v1\Api\PersonsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 56; // int | The ID of the person
+$id = 56; // int | The unique ID of the person
 $start = 0; // int | Pagination start
 $limit = 56; // int | Items shown per page
 $include_body = new \Pipedrive\versions\v1\Model\\Pipedrive\versions\v1\Model\NumberBooleanDefault0(); // \Pipedrive\versions\v1\Model\NumberBooleanDefault0 | Whether to include the mail message body content in the response. `0` = Don't include, `1` = Include.
@@ -546,7 +546,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The ID of the person |
+ **id** | **int**| The unique ID of the person |
  **start** | **int**| Pagination start | [optional] [default to 0]
  **limit** | **int**| Items shown per page | [optional]
  **include_body** | [**\Pipedrive\versions\v1\Model\NumberBooleanDefault0**](../Model/.md)| Whether to include the mail message body content in the response. &#x60;0&#x60; &#x3D; Don&#39;t include, &#x60;1&#x60; &#x3D; Include. | [optional]
@@ -600,7 +600,7 @@ $apiInstance = new Pipedrive\versions\v1\Api\PersonsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 56; // int | The ID of the person
+$id = 56; // int | The unique ID of the person
 $start = 0; // int | Pagination start
 $limit = 56; // int | Items shown per page
 
@@ -616,7 +616,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The ID of the person |
+ **id** | **int**| The unique ID of the person |
  **start** | **int**| Pagination start | [optional] [default to 0]
  **limit** | **int**| Items shown per page | [optional]
 
@@ -669,7 +669,7 @@ $apiInstance = new Pipedrive\versions\v1\Api\PersonsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 56; // int | The ID of the person
+$id = 56; // int | The unique ID of the person
 $start = 0; // int | Pagination start
 $limit = 56; // int | Items shown per page
 $all_changes = 'all_changes_example'; // string | Whether to show custom field updates or not. 1 = Include custom field changes. If omitted returns changes without custom field updates.
@@ -687,7 +687,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The ID of the person |
+ **id** | **int**| The unique ID of the person |
  **start** | **int**| Pagination start | [optional] [default to 0]
  **limit** | **int**| Items shown per page | [optional]
  **all_changes** | **string**| Whether to show custom field updates or not. 1 &#x3D; Include custom field changes. If omitted returns changes without custom field updates. | [optional]
@@ -742,7 +742,7 @@ $apiInstance = new Pipedrive\versions\v1\Api\PersonsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 56; // int | The ID of the person
+$id = 56; // int | The unique ID of the person
 
 try {
     $result = $apiInstance->getPersonUsers($id);
@@ -756,7 +756,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The ID of the person |
+ **id** | **int**| The unique ID of the person |
 
 ### Return type
 
@@ -807,7 +807,7 @@ $apiInstance = new Pipedrive\versions\v1\Api\PersonsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 56; // int | The ID of the person
+$id = 56; // int | The unique ID of the person
 $merge_persons_request = new \Pipedrive\versions\v1\Model\MergePersonsRequest(); // \Pipedrive\versions\v1\Model\MergePersonsRequest
 
 try {
@@ -822,7 +822,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The ID of the person |
+ **id** | **int**| The unique ID of the person |
  **merge_persons_request** | [**\Pipedrive\versions\v1\Model\MergePersonsRequest**](../Model/MergePersonsRequest.md)|  | [optional]
 
 ### Return type
