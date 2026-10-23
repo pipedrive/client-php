@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Fixed
+- Defined the properties of the `prices` array items in product variations (`price`, `cost`, `currency`, `direct_cost`, `notes`, plus `product_variation_id` in responses), which were previously an untyped object:
+  - Responses: `GET /api/v2/products/{id}/variations`, `POST /api/v2/products/{id}/variations`, `PATCH /api/v2/products/{id}/variations/{product_variation_id}`
+  - Request bodies: `POST /api/v2/products/{id}/variations`, `PATCH /api/v2/products/{id}/variations/{product_variation_id}` (`price` and `currency` are required)
+- Changed the type of `archived_flag` from `number` to `integer` (still nullable, `0` or `1`) in `GET /v1/mailbox/mailThreads`, `GET /v1/mailbox/mailThreads/{id}` and `PUT /v1/mailbox/mailThreads/{id}` responses
 
 ## [19.0.1](https://github.com/pipedrive/client-php/compare/19.0.0...19.0.1) (2026-10-09)
 ### Fixed
