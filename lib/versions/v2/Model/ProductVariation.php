@@ -69,7 +69,7 @@ class ProductVariation implements ModelInterface, ArrayAccess, JsonSerializable
         'id' => 'int',
         'name' => 'string',
         'product_id' => 'int',
-        'prices' => 'object[]'
+        'prices' => '\Pipedrive\versions\v2\Model\ProductVariationPrice[]'
     ];
 
     /**
@@ -321,7 +321,7 @@ class ProductVariation implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets prices
      *
-     * @return object[]|null
+     * @return \Pipedrive\versions\v2\Model\ProductVariationPrice[]|null
      */
     public function getPrices()
     {
@@ -331,7 +331,7 @@ class ProductVariation implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets prices
      *
-     * @param object[]|null $prices Array of objects, each containing: product_variation_id (number), currency (string), price (number), cost (number), direct_cost (number) , notes (string)
+     * @param \Pipedrive\versions\v2\Model\ProductVariationPrice[]|null $prices Array of prices of the product variation
      *
      * @return self
      */
