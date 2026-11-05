@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Added optional `channel` and `channel_id` fields to the request bodies of `POST /api/v2/deals` and `PATCH /api/v2/deals/{id}`
+- Added optional `origin_id` field to the request body of `POST /api/v2/deals`
 
 ## [19.0.1](https://github.com/pipedrive/client-php/compare/19.0.0...19.0.1) (2026-10-09)
 ### Fixed

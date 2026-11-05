@@ -127,7 +127,7 @@ class PersonsApi
      *
      * Add a follower to a person
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      * @param  \Pipedrive\versions\v1\Model\AddPersonFollowerRequest|null $add_person_follower_request add_person_follower_request (optional)
      *
      * @throws ApiException on non-2xx response
@@ -145,7 +145,7 @@ class PersonsApi
      *
      * Add a follower to a person
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      * @param  \Pipedrive\versions\v1\Model\AddPersonFollowerRequest|null $add_person_follower_request (optional)
      *
      * @throws ApiException on non-2xx response
@@ -247,7 +247,7 @@ class PersonsApi
      *
      * Add a follower to a person
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      * @param  \Pipedrive\versions\v1\Model\AddPersonFollowerRequest|null $add_person_follower_request (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
@@ -268,7 +268,7 @@ class PersonsApi
      *
      * Add a follower to a person
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      * @param  \Pipedrive\versions\v1\Model\AddPersonFollowerRequest|null $add_person_follower_request (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
@@ -316,7 +316,7 @@ class PersonsApi
     /**
      * Create request for operation 'addPersonFollower'
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      * @param  \Pipedrive\versions\v1\Model\AddPersonFollowerRequest|null $add_person_follower_request (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
@@ -434,7 +434,7 @@ class PersonsApi
      *
      * Add person picture
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      * @param  \SplFileObject $file One image supplied in the multipart/form-data encoding (required)
      * @param  int|null $crop_x X coordinate to where start cropping form (in pixels) (optional)
      * @param  int|null $crop_y Y coordinate to where start cropping form (in pixels) (optional)
@@ -456,7 +456,7 @@ class PersonsApi
      *
      * Add person picture
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      * @param  \SplFileObject $file One image supplied in the multipart/form-data encoding (required)
      * @param  int|null $crop_x X coordinate to where start cropping form (in pixels) (optional)
      * @param  int|null $crop_y Y coordinate to where start cropping form (in pixels) (optional)
@@ -562,7 +562,7 @@ class PersonsApi
      *
      * Add person picture
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      * @param  \SplFileObject $file One image supplied in the multipart/form-data encoding (required)
      * @param  int|null $crop_x X coordinate to where start cropping form (in pixels) (optional)
      * @param  int|null $crop_y Y coordinate to where start cropping form (in pixels) (optional)
@@ -587,7 +587,7 @@ class PersonsApi
      *
      * Add person picture
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      * @param  \SplFileObject $file One image supplied in the multipart/form-data encoding (required)
      * @param  int|null $crop_x X coordinate to where start cropping form (in pixels) (optional)
      * @param  int|null $crop_y Y coordinate to where start cropping form (in pixels) (optional)
@@ -639,7 +639,7 @@ class PersonsApi
     /**
      * Create request for operation 'addPersonPicture'
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      * @param  \SplFileObject $file One image supplied in the multipart/form-data encoding (required)
      * @param  int|null $crop_x X coordinate to where start cropping form (in pixels) (optional)
      * @param  int|null $crop_y Y coordinate to where start cropping form (in pixels) (optional)
@@ -791,7 +791,7 @@ class PersonsApi
      *
      * Delete a follower from a person
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      * @param  int $follower_id The ID of the relationship between the follower and the person (required)
      *
      * @throws ApiException on non-2xx response
@@ -809,7 +809,7 @@ class PersonsApi
      *
      * Delete a follower from a person
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      * @param  int $follower_id The ID of the relationship between the follower and the person (required)
      *
      * @throws ApiException on non-2xx response
@@ -911,7 +911,7 @@ class PersonsApi
      *
      * Delete a follower from a person
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      * @param  int $follower_id The ID of the relationship between the follower and the person (required)
      *
      * @throws InvalidArgumentException|OAuthProviderException
@@ -932,7 +932,7 @@ class PersonsApi
      *
      * Delete a follower from a person
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      * @param  int $follower_id The ID of the relationship between the follower and the person (required)
      *
      * @throws InvalidArgumentException|OAuthProviderException
@@ -980,7 +980,7 @@ class PersonsApi
     /**
      * Create request for operation 'deletePersonFollower'
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      * @param  int $follower_id The ID of the relationship between the follower and the person (required)
      *
      * @throws InvalidArgumentException|OAuthProviderException
@@ -1107,7 +1107,7 @@ class PersonsApi
      *
      * Delete person picture
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
@@ -1124,7 +1124,7 @@ class PersonsApi
      *
      * Delete person picture
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
@@ -1225,7 +1225,7 @@ class PersonsApi
      *
      * Delete person picture
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
@@ -1245,7 +1245,7 @@ class PersonsApi
      *
      * Delete person picture
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
@@ -1292,7 +1292,7 @@ class PersonsApi
     /**
      * Create request for operation 'deletePersonPicture'
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
@@ -1403,7 +1403,7 @@ class PersonsApi
      *
      * List updates about person field values
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      * @param  int|null $limit Items shown per page (optional)
      *
@@ -1422,7 +1422,7 @@ class PersonsApi
      *
      * List updates about person field values
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      * @param  int|null $limit Items shown per page (optional)
      *
@@ -1525,7 +1525,7 @@ class PersonsApi
      *
      * List updates about person field values
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      * @param  int|null $limit Items shown per page (optional)
      *
@@ -1547,7 +1547,7 @@ class PersonsApi
      *
      * List updates about person field values
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      * @param  int|null $limit Items shown per page (optional)
      *
@@ -1596,7 +1596,7 @@ class PersonsApi
     /**
      * Create request for operation 'getPersonChangelog'
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      * @param  int|null $limit Items shown per page (optional)
      *
@@ -1725,7 +1725,7 @@ class PersonsApi
      *
      * List files attached to a person
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      * @param  int|0 $start Pagination start (optional, default to 0)
      * @param  int|null $limit Items shown per page. Please note that a maximum value of 100 is allowed. (optional)
      * @param  string|null $sort Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60; (optional)
@@ -1745,7 +1745,7 @@ class PersonsApi
      *
      * List files attached to a person
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      * @param  int|0 $start Pagination start (optional, default to 0)
      * @param  int|null $limit Items shown per page. Please note that a maximum value of 100 is allowed. (optional)
      * @param  string|null $sort Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60; (optional)
@@ -1849,7 +1849,7 @@ class PersonsApi
      *
      * List files attached to a person
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      * @param  int|0 $start Pagination start (optional, default to 0)
      * @param  int|null $limit Items shown per page. Please note that a maximum value of 100 is allowed. (optional)
      * @param  string|null $sort Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60; (optional)
@@ -1872,7 +1872,7 @@ class PersonsApi
      *
      * List files attached to a person
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      * @param  int|0 $start Pagination start (optional, default to 0)
      * @param  int|null $limit Items shown per page. Please note that a maximum value of 100 is allowed. (optional)
      * @param  string|null $sort Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60; (optional)
@@ -1922,7 +1922,7 @@ class PersonsApi
     /**
      * Create request for operation 'getPersonFiles'
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      * @param  int|0 $start Pagination start (optional, default to 0)
      * @param  int|null $limit Items shown per page. Please note that a maximum value of 100 is allowed. (optional)
      * @param  string|null $sort Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60; (optional)
@@ -2064,7 +2064,7 @@ class PersonsApi
      *
      * List followers of a person
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
@@ -2081,7 +2081,7 @@ class PersonsApi
      *
      * List followers of a person
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
@@ -2182,7 +2182,7 @@ class PersonsApi
      *
      * List followers of a person
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
@@ -2202,7 +2202,7 @@ class PersonsApi
      *
      * List followers of a person
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
@@ -2249,7 +2249,7 @@ class PersonsApi
     /**
      * Create request for operation 'getPersonFollowers'
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
@@ -2360,7 +2360,7 @@ class PersonsApi
      *
      * List mail messages associated with a person
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      * @param  int|0 $start Pagination start (optional, default to 0)
      * @param  int|null $limit Items shown per page (optional)
      * @param  \Pipedrive\versions\v1\Model\NumberBooleanDefault0|null $include_body Whether to include the mail message body content in the response. &#x60;0&#x60; &#x3D; Don&#39;t include, &#x60;1&#x60; &#x3D; Include. (optional)
@@ -2380,7 +2380,7 @@ class PersonsApi
      *
      * List mail messages associated with a person
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      * @param  int|0 $start Pagination start (optional, default to 0)
      * @param  int|null $limit Items shown per page (optional)
      * @param  \Pipedrive\versions\v1\Model\NumberBooleanDefault0|null $include_body Whether to include the mail message body content in the response. &#x60;0&#x60; &#x3D; Don&#39;t include, &#x60;1&#x60; &#x3D; Include. (optional)
@@ -2484,7 +2484,7 @@ class PersonsApi
      *
      * List mail messages associated with a person
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      * @param  int|0 $start Pagination start (optional, default to 0)
      * @param  int|null $limit Items shown per page (optional)
      * @param  \Pipedrive\versions\v1\Model\NumberBooleanDefault0|null $include_body Whether to include the mail message body content in the response. &#x60;0&#x60; &#x3D; Don&#39;t include, &#x60;1&#x60; &#x3D; Include. (optional)
@@ -2507,7 +2507,7 @@ class PersonsApi
      *
      * List mail messages associated with a person
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      * @param  int|0 $start Pagination start (optional, default to 0)
      * @param  int|null $limit Items shown per page (optional)
      * @param  \Pipedrive\versions\v1\Model\NumberBooleanDefault0|null $include_body Whether to include the mail message body content in the response. &#x60;0&#x60; &#x3D; Don&#39;t include, &#x60;1&#x60; &#x3D; Include. (optional)
@@ -2557,7 +2557,7 @@ class PersonsApi
     /**
      * Create request for operation 'getPersonMailMessages'
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      * @param  int|0 $start Pagination start (optional, default to 0)
      * @param  int|null $limit Items shown per page (optional)
      * @param  \Pipedrive\versions\v1\Model\NumberBooleanDefault0|null $include_body Whether to include the mail message body content in the response. &#x60;0&#x60; &#x3D; Don&#39;t include, &#x60;1&#x60; &#x3D; Include. (optional)
@@ -2695,7 +2695,7 @@ class PersonsApi
      *
      * List products associated with a person
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      * @param  int|0 $start Pagination start (optional, default to 0)
      * @param  int|null $limit Items shown per page (optional)
      *
@@ -2714,7 +2714,7 @@ class PersonsApi
      *
      * List products associated with a person
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      * @param  int|0 $start Pagination start (optional, default to 0)
      * @param  int|null $limit Items shown per page (optional)
      *
@@ -2817,7 +2817,7 @@ class PersonsApi
      *
      * List products associated with a person
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      * @param  int|0 $start Pagination start (optional, default to 0)
      * @param  int|null $limit Items shown per page (optional)
      *
@@ -2839,7 +2839,7 @@ class PersonsApi
      *
      * List products associated with a person
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      * @param  int|0 $start Pagination start (optional, default to 0)
      * @param  int|null $limit Items shown per page (optional)
      *
@@ -2888,7 +2888,7 @@ class PersonsApi
     /**
      * Create request for operation 'getPersonProducts'
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      * @param  int|0 $start Pagination start (optional, default to 0)
      * @param  int|null $limit Items shown per page (optional)
      *
@@ -3017,7 +3017,7 @@ class PersonsApi
      *
      * List updates about a person
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      * @param  int|0 $start Pagination start (optional, default to 0)
      * @param  int|null $limit Items shown per page (optional)
      * @param  string|null $all_changes Whether to show custom field updates or not. 1 &#x3D; Include custom field changes. If omitted returns changes without custom field updates. (optional)
@@ -3038,7 +3038,7 @@ class PersonsApi
      *
      * List updates about a person
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      * @param  int|0 $start Pagination start (optional, default to 0)
      * @param  int|null $limit Items shown per page (optional)
      * @param  string|null $all_changes Whether to show custom field updates or not. 1 &#x3D; Include custom field changes. If omitted returns changes without custom field updates. (optional)
@@ -3143,7 +3143,7 @@ class PersonsApi
      *
      * List updates about a person
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      * @param  int|0 $start Pagination start (optional, default to 0)
      * @param  int|null $limit Items shown per page (optional)
      * @param  string|null $all_changes Whether to show custom field updates or not. 1 &#x3D; Include custom field changes. If omitted returns changes without custom field updates. (optional)
@@ -3167,7 +3167,7 @@ class PersonsApi
      *
      * List updates about a person
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      * @param  int|0 $start Pagination start (optional, default to 0)
      * @param  int|null $limit Items shown per page (optional)
      * @param  string|null $all_changes Whether to show custom field updates or not. 1 &#x3D; Include custom field changes. If omitted returns changes without custom field updates. (optional)
@@ -3218,7 +3218,7 @@ class PersonsApi
     /**
      * Create request for operation 'getPersonUpdates'
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      * @param  int|0 $start Pagination start (optional, default to 0)
      * @param  int|null $limit Items shown per page (optional)
      * @param  string|null $all_changes Whether to show custom field updates or not. 1 &#x3D; Include custom field changes. If omitted returns changes without custom field updates. (optional)
@@ -3366,7 +3366,7 @@ class PersonsApi
      *
      * List permitted users
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
@@ -3383,7 +3383,7 @@ class PersonsApi
      *
      * List permitted users
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
@@ -3484,7 +3484,7 @@ class PersonsApi
      *
      * List permitted users
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
@@ -3504,7 +3504,7 @@ class PersonsApi
      *
      * List permitted users
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
@@ -3551,7 +3551,7 @@ class PersonsApi
     /**
      * Create request for operation 'getPersonUsers'
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
@@ -3662,7 +3662,7 @@ class PersonsApi
      *
      * Merge two persons
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      * @param  \Pipedrive\versions\v1\Model\MergePersonsRequest|null $merge_persons_request merge_persons_request (optional)
      *
      * @throws ApiException on non-2xx response
@@ -3680,7 +3680,7 @@ class PersonsApi
      *
      * Merge two persons
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      * @param  \Pipedrive\versions\v1\Model\MergePersonsRequest|null $merge_persons_request (optional)
      *
      * @throws ApiException on non-2xx response
@@ -3782,7 +3782,7 @@ class PersonsApi
      *
      * Merge two persons
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      * @param  \Pipedrive\versions\v1\Model\MergePersonsRequest|null $merge_persons_request (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
@@ -3803,7 +3803,7 @@ class PersonsApi
      *
      * Merge two persons
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      * @param  \Pipedrive\versions\v1\Model\MergePersonsRequest|null $merge_persons_request (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
@@ -3851,7 +3851,7 @@ class PersonsApi
     /**
      * Create request for operation 'mergePersons'
      *
-     * @param  int $id The ID of the person (required)
+     * @param  int $id The unique ID of the person (required)
      * @param  \Pipedrive\versions\v1\Model\MergePersonsRequest|null $merge_persons_request (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException

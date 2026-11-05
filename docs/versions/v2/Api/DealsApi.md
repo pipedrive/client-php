@@ -26,7 +26,7 @@ Method | HTTP request | Description
 ## `addDeal()`
 
 ```php
-addDeal($deal_request_body): \Pipedrive\versions\v2\Model\PostPatchGetDeal
+addDeal($deal_post_request_body): \Pipedrive\versions\v2\Model\PostPatchGetDeal
 ```
 
 Add a new deal
@@ -55,10 +55,10 @@ $apiInstance = new Pipedrive\versions\v2\Api\DealsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$deal_request_body = new \Pipedrive\versions\v2\Model\DealRequestBody(); // \Pipedrive\versions\v2\Model\DealRequestBody
+$deal_post_request_body = new \Pipedrive\versions\v2\Model\DealPostRequestBody(); // \Pipedrive\versions\v2\Model\DealPostRequestBody
 
 try {
-    $result = $apiInstance->addDeal($deal_request_body);
+    $result = $apiInstance->addDeal($deal_post_request_body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DealsApi->addDeal: ', $e->getMessage(), PHP_EOL;
@@ -69,7 +69,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **deal_request_body** | [**\Pipedrive\versions\v2\Model\DealRequestBody**](../Model/DealRequestBody.md)|  | [optional]
+ **deal_post_request_body** | [**\Pipedrive\versions\v2\Model\DealPostRequestBody**](../Model/DealPostRequestBody.md)|  | [optional]
 
 ### Return type
 

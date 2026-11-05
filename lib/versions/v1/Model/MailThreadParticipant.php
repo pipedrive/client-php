@@ -434,7 +434,7 @@ class MailThreadParticipant implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Sets linked_person_name
      *
-     * @param string|null $linked_person_name Email of the linked person
+     * @param string|null $linked_person_name Name of the linked person
      *
      * @return self
      */

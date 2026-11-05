@@ -127,15 +127,15 @@ class DealsApi
      *
      * Add a new deal
      *
-     * @param  \Pipedrive\versions\v2\Model\DealRequestBody|null $deal_request_body deal_request_body (optional)
+     * @param  \Pipedrive\versions\v2\Model\DealPostRequestBody|null $deal_post_request_body deal_post_request_body (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v2\Model\PostPatchGetDeal
      */
-    public function addDeal($deal_request_body = null)
+    public function addDeal($deal_post_request_body = null)
     {
-        list($response) = $this->addDealWithHttpInfo($deal_request_body);
+        list($response) = $this->addDealWithHttpInfo($deal_post_request_body);
         return $response;
     }
 
@@ -144,15 +144,15 @@ class DealsApi
      *
      * Add a new deal
      *
-     * @param  \Pipedrive\versions\v2\Model\DealRequestBody|null $deal_request_body (optional)
+     * @param  \Pipedrive\versions\v2\Model\DealPostRequestBody|null $deal_post_request_body (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v2\Model\PostPatchGetDeal, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addDealWithHttpInfo($deal_request_body = null)
+    public function addDealWithHttpInfo($deal_post_request_body = null)
     {
-        $request = $this->addDealRequest($deal_request_body);
+        $request = $this->addDealRequest($deal_post_request_body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -161,7 +161,7 @@ class DealsApi
             } catch (RequestException $e) {
                 if ($e->getCode() === 401 && $this->config->isRefreshPossible()) {
                     $this->config->refreshToken();
-                    $request = $this->addDealRequest($deal_request_body);
+                    $request = $this->addDealRequest($deal_post_request_body);
                     $response = $this->client->send($request, $options);
                 } else {
                     throw new ApiException(
@@ -245,14 +245,14 @@ class DealsApi
      *
      * Add a new deal
      *
-     * @param  \Pipedrive\versions\v2\Model\DealRequestBody|null $deal_request_body (optional)
+     * @param  \Pipedrive\versions\v2\Model\DealPostRequestBody|null $deal_post_request_body (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
      */
-    public function addDealAsync($deal_request_body = null): PromiseInterface
+    public function addDealAsync($deal_post_request_body = null): PromiseInterface
     {
-        return $this->addDealAsyncWithHttpInfo($deal_request_body)
+        return $this->addDealAsyncWithHttpInfo($deal_post_request_body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -265,15 +265,15 @@ class DealsApi
      *
      * Add a new deal
      *
-     * @param  \Pipedrive\versions\v2\Model\DealRequestBody|null $deal_request_body (optional)
+     * @param  \Pipedrive\versions\v2\Model\DealPostRequestBody|null $deal_post_request_body (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
      */
-    public function addDealAsyncWithHttpInfo($deal_request_body = null): PromiseInterface
+    public function addDealAsyncWithHttpInfo($deal_post_request_body = null): PromiseInterface
     {
         $returnType = '\Pipedrive\versions\v2\Model\PostPatchGetDeal';
-        $request = $this->addDealRequest($deal_request_body);
+        $request = $this->addDealRequest($deal_post_request_body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -312,12 +312,12 @@ class DealsApi
     /**
      * Create request for operation 'addDeal'
      *
-     * @param  \Pipedrive\versions\v2\Model\DealRequestBody|null $deal_request_body (optional)
+     * @param  \Pipedrive\versions\v2\Model\DealPostRequestBody|null $deal_post_request_body (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
      */
-    public function addDealRequest($deal_request_body = null): Request
+    public function addDealRequest($deal_post_request_body = null): Request
     {
 
         $resourcePath = '/deals';
@@ -344,11 +344,11 @@ class DealsApi
         }
 
         // for model (json/xml)
-        if (isset($deal_request_body)) {
+        if (isset($deal_post_request_body)) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($deal_request_body));
+                $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($deal_post_request_body));
             } else {
-                $httpBody = $deal_request_body;
+                $httpBody = $deal_post_request_body;
             }
         } elseif (count($formParams) > 0) {
             /* @phpstan-ignore-next-line */
