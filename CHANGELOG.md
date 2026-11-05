@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Added optional `timezone` parameter to `GET /v1/goals/{id}/results`. Accepts an IANA timezone name (e.g. `America/Sao_Paulo`). Defaults to the timezone of the requesting user. Period boundaries are now evaluated in the specified timezone instead of UTC, making results consistent with the Insights UI.
 
 ## [19.0.1](https://github.com/pipedrive/client-php/compare/19.0.0...19.0.1) (2026-10-09)
 ### Fixed

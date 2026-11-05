@@ -144,7 +144,7 @@ Name | Type | Description  | Notes
 ## `getGoalResult()`
 
 ```php
-getGoalResult($id, $period_start, $period_end): \Pipedrive\versions\v1\Model\GetGoalResultResponse
+getGoalResult($id, $period_start, $period_end, $timezone): \Pipedrive\versions\v1\Model\GetGoalResultResponse
 ```
 
 Get result of a goal
@@ -176,9 +176,10 @@ $apiInstance = new Pipedrive\versions\v1\Api\GoalsApi(
 $id = 'id_example'; // string | The ID of the goal that the results are looked for
 $period_start = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The start date of the period for which to find the goal's progress. Format: YYYY-MM-DD. This date must be the same or after the goal duration start date.
 $period_end = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The end date of the period for which to find the goal's progress. Format: YYYY-MM-DD. This date must be the same or before the goal duration end date.
+$timezone = 'timezone_example'; // string | The IANA timezone to use when evaluating period boundaries (e.g. `America/Sao_Paulo`). The start and end of the period are interpreted in this timezone. If omitted, defaults to the timezone of the user making the request.
 
 try {
-    $result = $apiInstance->getGoalResult($id, $period_start, $period_end);
+    $result = $apiInstance->getGoalResult($id, $period_start, $period_end, $timezone);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling GoalsApi->getGoalResult: ', $e->getMessage(), PHP_EOL;
@@ -192,6 +193,7 @@ Name | Type | Description  | Notes
  **id** | **string**| The ID of the goal that the results are looked for |
  **period_start** | **\DateTime**| The start date of the period for which to find the goal&#39;s progress. Format: YYYY-MM-DD. This date must be the same or after the goal duration start date. |
  **period_end** | **\DateTime**| The end date of the period for which to find the goal&#39;s progress. Format: YYYY-MM-DD. This date must be the same or before the goal duration end date. |
+ **timezone** | **string**| The IANA timezone to use when evaluating period boundaries (e.g. &#x60;America/Sao_Paulo&#x60;). The start and end of the period are interpreted in this timezone. If omitted, defaults to the timezone of the user making the request. | [optional]
 
 ### Return type
 
