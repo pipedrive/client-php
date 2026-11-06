@@ -8,6 +8,22 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - Added optional `timezone` parameter to `GET /v1/goals/{id}/results`. Accepts an IANA timezone name (e.g. `America/Sao_Paulo`). Defaults to the timezone of the requesting user. Period boundaries are now evaluated in the specified timezone instead of UTC, making results consistent with the Insights UI.
 
+## [19.0.3](https://github.com/pipedrive/client-php/compare/19.0.2...19.0.3) (2026-11-06)
+### Fixed
+- Defined the properties of the `prices` array items in product variations (`price`, `cost`, `currency`, `direct_cost`, `notes`, plus `product_variation_id` in responses), which were previously an untyped object:
+  - Responses: `GET /api/v2/products/{id}/variations`, `POST /api/v2/products/{id}/variations`, `PATCH /api/v2/products/{id}/variations/{product_variation_id}`
+  - Request bodies: `POST /api/v2/products/{id}/variations`, `PATCH /api/v2/products/{id}/variations/{product_variation_id}` (`price` and `currency` are required)
+- Changed the type of `archived_flag` from `number` to `integer` (still nullable, `0` or `1`) in `GET /v1/mailbox/mailThreads`, `GET /v1/mailbox/mailThreads/{id}` and `PUT /v1/mailbox/mailThreads/{id}` responses
+
+## [19.0.2](https://github.com/pipedrive/client-php/compare/19.0.1...19.0.2) (2026-11-06)
+### Fixed
+- Marked fields that can be `null` as `nullable: true` in Mailbox endpoints:
+  - `draft`, `from[].linked_person_id`, `from[].linked_person_name` (and the same for `to`, `cc`, `bcc`) in `GET /v1/mailbox/mailMessages/{id}`
+  - `template_id`, plus the same `draft` and participant `linked_person_id` / `linked_person_name` fields, in `GET /v1/deals/{id}/mailMessages`, `GET /v1/persons/{id}/mailMessages` and `GET /v1/organizations/{id}/mailMessages`
+  - `snippet_sent`, `last_message_received_timestamp`, `archived_flag`, `drafts_parties`, `parties.to[].linked_person_id` and `parties.to[].linked_person_name` (and the same for `parties.from`) in `GET /v1/mailbox/mailThreads`, `GET /v1/mailbox/mailThreads/{id}` and `PUT /v1/mailbox/mailThreads/{id}`
+  - `from[].linked_person_id` and `from[].linked_person_name` (and the same for `to`, `cc`, `bcc`) in `GET /v1/mailbox/mailThreads/{id}/mailMessages`
+  - `deal_id` and `lead_id` in the `PUT /v1/mailbox/mailThreads/{id}` request body, where `null` unlinks the deal or lead
+
 ## [19.0.1](https://github.com/pipedrive/client-php/compare/19.0.0...19.0.1) (2026-10-09)
 ### Fixed
 - Fixed `nullable: true` handling for `BaseNote.deal` (`BaseNoteDealTitle`, returned by `GET /v1/notes`, `POST /v1/notes`, `GET /v1/notes/{id}`, `PUT /v1/notes/{id}`, and `GET /v1/recents`) and for the `person_id` and `org_id` fields (`DealPersonDataWithId`, `DealOrganizationDataWithId`, returned by `GET /v1/deals/archived` and `GET /v1/products/{id}/deals`)
