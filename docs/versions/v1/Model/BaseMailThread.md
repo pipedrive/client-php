@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 **message_count** | **int** | An amount of messages | [optional]
 **has_draft_flag** | [**NumberBooleanDefault0**](NumberBooleanDefault0.md) | Whether the mail thread has any drafts | [optional]
 **has_sent_flag** | [**NumberBooleanDefault0**](NumberBooleanDefault0.md) | Whether the mail thread has messages sent | [optional]
-**archived_flag** | **int** | Whether the mail thread is archived. &#x60;null&#x60; if the mail thread has not been explicitly archived or unarchived in Pipedrive. | [optional]
+**archived_flag** | **float** | Whether the mail thread is archived. &#x60;null&#x60; if the mail thread has not been explicitly archived or unarchived in Pipedrive. | [optional]
 **shared_flag** | [**NumberBooleanDefault0**](NumberBooleanDefault0.md) | Whether the mail thread is shared | [optional]
 **external_deleted_flag** | [**NumberBooleanDefault0**](NumberBooleanDefault0.md) | Whether the mail thread has been deleted externally | [optional]
 **first_message_to_me_flag** | [**NumberBooleanDefault0**](NumberBooleanDefault0.md) | Whether the mail thread was initialized by others | [optional]
