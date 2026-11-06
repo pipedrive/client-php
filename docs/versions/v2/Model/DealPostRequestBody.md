@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **stage_id** | **int** | The ID of the deal stage | [optional]
 **value** | **float** | The value of the deal | [optional]
 **currency** | **string** | The currency associated with the deal | [optional]
+**is_deleted** | **bool** | Whether the deal is deleted or not | [optional]
 **is_archived** | **bool** | Whether the deal is archived or not | [optional]
 **archive_time** | **string** | The optional date and time of archiving the deal in UTC. Format: YYYY-MM-DD HH:MM:SS. If omitted and &#x60;is_archived&#x60; is true, it will be set to the current date and time. | [optional]
 **status** | **string** | The status of the deal | [optional]

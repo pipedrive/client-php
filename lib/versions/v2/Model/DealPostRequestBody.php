@@ -74,6 +74,7 @@ class DealPostRequestBody implements ModelInterface, ArrayAccess, JsonSerializab
         'stage_id' => 'int',
         'value' => 'float',
         'currency' => 'string',
+        'is_deleted' => 'bool',
         'is_archived' => 'bool',
         'archive_time' => 'string',
         'status' => 'string',
@@ -107,6 +108,7 @@ class DealPostRequestBody implements ModelInterface, ArrayAccess, JsonSerializab
         'stage_id' => null,
         'value' => null,
         'currency' => null,
+        'is_deleted' => null,
         'is_archived' => null,
         'archive_time' => null,
         'status' => null,
@@ -163,6 +165,7 @@ class DealPostRequestBody implements ModelInterface, ArrayAccess, JsonSerializab
         'stage_id' => 'stage_id',
         'value' => 'value',
         'currency' => 'currency',
+        'is_deleted' => 'is_deleted',
         'is_archived' => 'is_archived',
         'archive_time' => 'archive_time',
         'status' => 'status',
@@ -194,6 +197,7 @@ class DealPostRequestBody implements ModelInterface, ArrayAccess, JsonSerializab
         'stage_id' => 'setStageId',
         'value' => 'setValue',
         'currency' => 'setCurrency',
+        'is_deleted' => 'setIsDeleted',
         'is_archived' => 'setIsArchived',
         'archive_time' => 'setArchiveTime',
         'status' => 'setStatus',
@@ -225,6 +229,7 @@ class DealPostRequestBody implements ModelInterface, ArrayAccess, JsonSerializab
         'stage_id' => 'getStageId',
         'value' => 'getValue',
         'currency' => 'getCurrency',
+        'is_deleted' => 'getIsDeleted',
         'is_archived' => 'getIsArchived',
         'archive_time' => 'getArchiveTime',
         'status' => 'getStatus',
@@ -317,6 +322,7 @@ class DealPostRequestBody implements ModelInterface, ArrayAccess, JsonSerializab
         $this->container['stage_id'] = $data['stage_id'] ?? null;
         $this->container['value'] = $data['value'] ?? null;
         $this->container['currency'] = $data['currency'] ?? null;
+        $this->container['is_deleted'] = $data['is_deleted'] ?? null;
         $this->container['is_archived'] = $data['is_archived'] ?? null;
         $this->container['archive_time'] = $data['archive_time'] ?? null;
         $this->container['status'] = $data['status'] ?? null;
@@ -551,6 +557,30 @@ class DealPostRequestBody implements ModelInterface, ArrayAccess, JsonSerializab
     public function setCurrency($currency): self
     {
         $this->container['currency'] = $currency;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_deleted
+     *
+     * @return bool|null
+     */
+    public function getIsDeleted()
+    {
+        return $this->container['is_deleted'];
+    }
+
+    /**
+     * Sets is_deleted
+     *
+     * @param bool|null $is_deleted Whether the deal is deleted or not
+     *
+     * @return self
+     */
+    public function setIsDeleted($is_deleted): self
+    {
+        $this->container['is_deleted'] = $is_deleted;
 
         return $this;
     }

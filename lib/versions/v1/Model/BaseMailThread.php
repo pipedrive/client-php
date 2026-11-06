@@ -89,7 +89,7 @@ class BaseMailThread implements ModelInterface, ArrayAccess, JsonSerializable
         'message_count' => 'int',
         'has_draft_flag' => '\Pipedrive\versions\v1\Model\NumberBooleanDefault0',
         'has_sent_flag' => '\Pipedrive\versions\v1\Model\NumberBooleanDefault0',
-        'archived_flag' => 'int',
+        'archived_flag' => 'float',
         'shared_flag' => '\Pipedrive\versions\v1\Model\NumberBooleanDefault0',
         'external_deleted_flag' => '\Pipedrive\versions\v1\Model\NumberBooleanDefault0',
         'first_message_to_me_flag' => '\Pipedrive\versions\v1\Model\NumberBooleanDefault0',
@@ -1025,7 +1025,7 @@ class BaseMailThread implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets archived_flag
      *
-     * @return int|null
+     * @return float|null
      */
     public function getArchivedFlag()
     {
@@ -1035,7 +1035,7 @@ class BaseMailThread implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets archived_flag
      *
-     * @param int|null $archived_flag Whether the mail thread is archived. `null` if the mail thread has not been explicitly archived or unarchived in Pipedrive.
+     * @param float|null $archived_flag Whether the mail thread is archived. `null` if the mail thread has not been explicitly archived or unarchived in Pipedrive.
      *
      * @return self
      */
