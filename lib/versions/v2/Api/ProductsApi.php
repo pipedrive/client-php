@@ -4745,6 +4745,10 @@ class ProductsApi
                 'Missing the required parameter $term when calling searchProducts'
             );
         }
+        if (strlen($term) > 100) {
+            throw new \InvalidArgumentException('invalid length for "$term" when calling ProductsApi.searchProducts, must be smaller than or equal to 100.');
+        }
+
 
 
         if ($limit !== null && $limit > 100) {

@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Fixed
+- Corrected the `is_deleted` field in the request body of `PATCH /api/v2/deals/{id}`: it is only used to restore a deleted deal and accepts only `false`
+- Removed the `is_deleted` field from the request body of `POST /api/v2/deals`, as it is not applicable when creating a deal
+- Documented the maximum length of 100 characters for the `term` query parameter in the search endpoints: `/api/v2/deals/search`, `/api/v2/persons/search`, `/api/v2/organizations/search`, `/api/v2/products/search`, `/api/v2/leads/search`, `/api/v2/projects/search`, `/api/v2/itemSearch`, `/api/v2/itemSearch/field`
 
 ## [19.0.1](https://github.com/pipedrive/client-php/compare/19.0.0...19.0.1) (2026-10-09)
 ### Fixed

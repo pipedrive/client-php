@@ -3356,6 +3356,10 @@ class PersonsApi
                 'Missing the required parameter $term when calling searchPersons'
             );
         }
+        if (strlen($term) > 100) {
+            throw new \InvalidArgumentException('invalid length for "$term" when calling PersonsApi.searchPersons, must be smaller than or equal to 100.');
+        }
+
 
 
         if ($limit !== null && $limit > 100) {

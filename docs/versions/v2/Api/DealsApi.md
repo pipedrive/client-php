@@ -26,7 +26,7 @@ Method | HTTP request | Description
 ## `addDeal()`
 
 ```php
-addDeal($deal_request_body): \Pipedrive\versions\v2\Model\PostPatchGetDeal
+addDeal($deal_post_request_body): \Pipedrive\versions\v2\Model\PostPatchGetDeal
 ```
 
 Add a new deal
@@ -55,10 +55,10 @@ $apiInstance = new Pipedrive\versions\v2\Api\DealsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$deal_request_body = new \Pipedrive\versions\v2\Model\DealRequestBody(); // \Pipedrive\versions\v2\Model\DealRequestBody
+$deal_post_request_body = new \Pipedrive\versions\v2\Model\DealPostRequestBody(); // \Pipedrive\versions\v2\Model\DealPostRequestBody
 
 try {
-    $result = $apiInstance->addDeal($deal_request_body);
+    $result = $apiInstance->addDeal($deal_post_request_body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DealsApi->addDeal: ', $e->getMessage(), PHP_EOL;
@@ -69,7 +69,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **deal_request_body** | [**\Pipedrive\versions\v2\Model\DealRequestBody**](../Model/DealRequestBody.md)|  | [optional]
+ **deal_post_request_body** | [**\Pipedrive\versions\v2\Model\DealPostRequestBody**](../Model/DealPostRequestBody.md)|  | [optional]
 
 ### Return type
 
@@ -1175,7 +1175,7 @@ Name | Type | Description  | Notes
 ## `updateDeal()`
 
 ```php
-updateDeal($id, $deal_request_body): \Pipedrive\versions\v2\Model\PostPatchGetDeal
+updateDeal($id, $patch_deal_request_body): \Pipedrive\versions\v2\Model\PostPatchGetDeal
 ```
 
 Update a deal
@@ -1205,10 +1205,10 @@ $apiInstance = new Pipedrive\versions\v2\Api\DealsApi(
     $config
 );
 $id = 56; // int | The ID of the deal
-$deal_request_body = new \Pipedrive\versions\v2\Model\DealRequestBody(); // \Pipedrive\versions\v2\Model\DealRequestBody
+$patch_deal_request_body = new \Pipedrive\versions\v2\Model\PatchDealRequestBody(); // \Pipedrive\versions\v2\Model\PatchDealRequestBody
 
 try {
-    $result = $apiInstance->updateDeal($id, $deal_request_body);
+    $result = $apiInstance->updateDeal($id, $patch_deal_request_body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DealsApi->updateDeal: ', $e->getMessage(), PHP_EOL;
@@ -1220,7 +1220,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The ID of the deal |
- **deal_request_body** | [**\Pipedrive\versions\v2\Model\DealRequestBody**](../Model/DealRequestBody.md)|  | [optional]
+ **patch_deal_request_body** | [**\Pipedrive\versions\v2\Model\PatchDealRequestBody**](../Model/PatchDealRequestBody.md)|  | [optional]
 
 ### Return type
 
