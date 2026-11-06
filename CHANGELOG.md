@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [19.0.2](https://github.com/pipedrive/client-php/compare/19.0.1...19.0.2) (2026-11-06)
 ### Fixed
 - Marked fields that can be `null` as `nullable: true` in Mailbox endpoints:
   - `draft`, `from[].linked_person_id`, `from[].linked_person_name` (and the same for `to`, `cc`, `bcc`) in `GET /v1/mailbox/mailMessages/{id}`
