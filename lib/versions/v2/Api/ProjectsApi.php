@@ -2898,6 +2898,10 @@ class ProjectsApi
                 'Missing the required parameter $term when calling searchProjects'
             );
         }
+        if (strlen($term) > 100) {
+            throw new \InvalidArgumentException('invalid length for "$term" when calling ProjectsApi.searchProjects, must be smaller than or equal to 100.');
+        }
+
 
         if ($limit !== null && $limit > 100) {
             throw new \InvalidArgumentException('invalid value for "$limit" when calling ProjectsApi.searchProjects, must be smaller than or equal to 100.');

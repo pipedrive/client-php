@@ -5111,6 +5111,10 @@ class DealsApi
                 'Missing the required parameter $term when calling searchDeals'
             );
         }
+        if (strlen($term) > 100) {
+            throw new \InvalidArgumentException('invalid length for "$term" when calling DealsApi.searchDeals, must be smaller than or equal to 100.');
+        }
+
 
 
         if ($limit !== null && $limit > 100) {
@@ -5609,15 +5613,15 @@ class DealsApi
      * Update a deal
      *
      * @param  int $id The ID of the deal (required)
-     * @param  \Pipedrive\versions\v2\Model\DealRequestBody|null $deal_request_body deal_request_body (optional)
+     * @param  \Pipedrive\versions\v2\Model\PatchDealRequestBody|null $patch_deal_request_body patch_deal_request_body (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v2\Model\PostPatchGetDeal
      */
-    public function updateDeal($id, $deal_request_body = null)
+    public function updateDeal($id, $patch_deal_request_body = null)
     {
-        list($response) = $this->updateDealWithHttpInfo($id, $deal_request_body);
+        list($response) = $this->updateDealWithHttpInfo($id, $patch_deal_request_body);
         return $response;
     }
 
@@ -5627,15 +5631,15 @@ class DealsApi
      * Update a deal
      *
      * @param  int $id The ID of the deal (required)
-     * @param  \Pipedrive\versions\v2\Model\DealRequestBody|null $deal_request_body (optional)
+     * @param  \Pipedrive\versions\v2\Model\PatchDealRequestBody|null $patch_deal_request_body (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v2\Model\PostPatchGetDeal, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateDealWithHttpInfo($id, $deal_request_body = null)
+    public function updateDealWithHttpInfo($id, $patch_deal_request_body = null)
     {
-        $request = $this->updateDealRequest($id, $deal_request_body);
+        $request = $this->updateDealRequest($id, $patch_deal_request_body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5644,7 +5648,7 @@ class DealsApi
             } catch (RequestException $e) {
                 if ($e->getCode() === 401 && $this->config->isRefreshPossible()) {
                     $this->config->refreshToken();
-                    $request = $this->updateDealRequest($id, $deal_request_body);
+                    $request = $this->updateDealRequest($id, $patch_deal_request_body);
                     $response = $this->client->send($request, $options);
                 } else {
                     throw new ApiException(
@@ -5729,14 +5733,14 @@ class DealsApi
      * Update a deal
      *
      * @param  int $id The ID of the deal (required)
-     * @param  \Pipedrive\versions\v2\Model\DealRequestBody|null $deal_request_body (optional)
+     * @param  \Pipedrive\versions\v2\Model\PatchDealRequestBody|null $patch_deal_request_body (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
      */
-    public function updateDealAsync($id, $deal_request_body = null): PromiseInterface
+    public function updateDealAsync($id, $patch_deal_request_body = null): PromiseInterface
     {
-        return $this->updateDealAsyncWithHttpInfo($id, $deal_request_body)
+        return $this->updateDealAsyncWithHttpInfo($id, $patch_deal_request_body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5750,15 +5754,15 @@ class DealsApi
      * Update a deal
      *
      * @param  int $id The ID of the deal (required)
-     * @param  \Pipedrive\versions\v2\Model\DealRequestBody|null $deal_request_body (optional)
+     * @param  \Pipedrive\versions\v2\Model\PatchDealRequestBody|null $patch_deal_request_body (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
      */
-    public function updateDealAsyncWithHttpInfo($id, $deal_request_body = null): PromiseInterface
+    public function updateDealAsyncWithHttpInfo($id, $patch_deal_request_body = null): PromiseInterface
     {
         $returnType = '\Pipedrive\versions\v2\Model\PostPatchGetDeal';
-        $request = $this->updateDealRequest($id, $deal_request_body);
+        $request = $this->updateDealRequest($id, $patch_deal_request_body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5798,12 +5802,12 @@ class DealsApi
      * Create request for operation 'updateDeal'
      *
      * @param  int $id The ID of the deal (required)
-     * @param  \Pipedrive\versions\v2\Model\DealRequestBody|null $deal_request_body (optional)
+     * @param  \Pipedrive\versions\v2\Model\PatchDealRequestBody|null $patch_deal_request_body (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
      */
-    public function updateDealRequest($id, $deal_request_body = null): Request
+    public function updateDealRequest($id, $patch_deal_request_body = null): Request
     {
         // verify the required parameter 'id' is set
         /* @phpstan-ignore-next-line */
@@ -5845,11 +5849,11 @@ class DealsApi
         }
 
         // for model (json/xml)
-        if (isset($deal_request_body)) {
+        if (isset($patch_deal_request_body)) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($deal_request_body));
+                $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_deal_request_body));
             } else {
-                $httpBody = $deal_request_body;
+                $httpBody = $patch_deal_request_body;
             }
         } elseif (count($formParams) > 0) {
             /* @phpstan-ignore-next-line */

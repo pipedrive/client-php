@@ -3024,6 +3024,10 @@ class OrganizationsApi
                 'Missing the required parameter $term when calling searchOrganization'
             );
         }
+        if (strlen($term) > 100) {
+            throw new \InvalidArgumentException('invalid length for "$term" when calling OrganizationsApi.searchOrganization, must be smaller than or equal to 100.');
+        }
+
 
         if ($limit !== null && $limit > 100) {
             throw new \InvalidArgumentException('invalid value for "$limit" when calling OrganizationsApi.searchOrganization, must be smaller than or equal to 100.');

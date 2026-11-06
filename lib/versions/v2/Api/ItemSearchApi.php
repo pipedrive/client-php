@@ -361,6 +361,10 @@ class ItemSearchApi
                 'Missing the required parameter $term when calling searchItem'
             );
         }
+        if (strlen($term) > 100) {
+            throw new \InvalidArgumentException('invalid length for "$term" when calling ItemSearchApi.searchItem, must be smaller than or equal to 100.');
+        }
+
 
 
 
@@ -748,6 +752,10 @@ class ItemSearchApi
                 'Missing the required parameter $term when calling searchItemByField'
             );
         }
+        if (strlen($term) > 100) {
+            throw new \InvalidArgumentException('invalid length for "$term" when calling ItemSearchApi.searchItemByField, must be smaller than or equal to 100.');
+        }
+
         // verify the required parameter 'entity_type' is set
         /* @phpstan-ignore-next-line */
         if ($entity_type === null || (is_array($entity_type) && count($entity_type) === 0)) {

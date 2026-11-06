@@ -953,6 +953,10 @@ class LeadsApi
                 'Missing the required parameter $term when calling searchLeads'
             );
         }
+        if (strlen($term) > 100) {
+            throw new \InvalidArgumentException('invalid length for "$term" when calling LeadsApi.searchLeads, must be smaller than or equal to 100.');
+        }
+
 
 
         if ($limit !== null && $limit > 100) {
