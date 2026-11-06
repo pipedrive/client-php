@@ -86,6 +86,8 @@ class DealRequestBody implements ModelInterface, ArrayAccess, JsonSerializable
         'lost_time' => 'string',
         'expected_close_date' => '\DateTime',
         'label_ids' => 'int[]',
+        'channel' => 'int',
+        'channel_id' => 'string',
         'custom_fields' => 'array<string,object>'
     ];
 
@@ -117,6 +119,8 @@ class DealRequestBody implements ModelInterface, ArrayAccess, JsonSerializable
         'lost_time' => null,
         'expected_close_date' => 'date',
         'label_ids' => null,
+        'channel' => null,
+        'channel_id' => null,
         'custom_fields' => null
     ];
 
@@ -171,6 +175,8 @@ class DealRequestBody implements ModelInterface, ArrayAccess, JsonSerializable
         'lost_time' => 'lost_time',
         'expected_close_date' => 'expected_close_date',
         'label_ids' => 'label_ids',
+        'channel' => 'channel',
+        'channel_id' => 'channel_id',
         'custom_fields' => 'custom_fields'
     ];
 
@@ -200,6 +206,8 @@ class DealRequestBody implements ModelInterface, ArrayAccess, JsonSerializable
         'lost_time' => 'setLostTime',
         'expected_close_date' => 'setExpectedCloseDate',
         'label_ids' => 'setLabelIds',
+        'channel' => 'setChannel',
+        'channel_id' => 'setChannelId',
         'custom_fields' => 'setCustomFields'
     ];
 
@@ -229,6 +237,8 @@ class DealRequestBody implements ModelInterface, ArrayAccess, JsonSerializable
         'lost_time' => 'getLostTime',
         'expected_close_date' => 'getExpectedCloseDate',
         'label_ids' => 'getLabelIds',
+        'channel' => 'getChannel',
+        'channel_id' => 'getChannelId',
         'custom_fields' => 'getCustomFields'
     ];
 
@@ -319,6 +329,8 @@ class DealRequestBody implements ModelInterface, ArrayAccess, JsonSerializable
         $this->container['lost_time'] = $data['lost_time'] ?? null;
         $this->container['expected_close_date'] = $data['expected_close_date'] ?? null;
         $this->container['label_ids'] = $data['label_ids'] ?? null;
+        $this->container['channel'] = $data['channel'] ?? null;
+        $this->container['channel_id'] = $data['channel_id'] ?? null;
         $this->container['custom_fields'] = $data['custom_fields'] ?? null;
     }
 
@@ -824,6 +836,54 @@ class DealRequestBody implements ModelInterface, ArrayAccess, JsonSerializable
     public function setLabelIds($label_ids): self
     {
         $this->container['label_ids'] = $label_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets channel
+     *
+     * @return int|null
+     */
+    public function getChannel()
+    {
+        return $this->container['channel'];
+    }
+
+    /**
+     * Sets channel
+     *
+     * @param int|null $channel The ID of Marketing channel this deal was created from. Provided value must be one of the channels configured for your company. You can fetch allowed values with <a href=\"https://developers.pipedrive.com/docs/api/v1/DealFields#getDealField\" target=\"_blank\" rel=\"noopener noreferrer\">GET /v1/dealFields</a>.
+     *
+     * @return self
+     */
+    public function setChannel($channel): self
+    {
+        $this->container['channel'] = $channel;
+
+        return $this;
+    }
+
+    /**
+     * Gets channel_id
+     *
+     * @return string|null
+     */
+    public function getChannelId()
+    {
+        return $this->container['channel_id'];
+    }
+
+    /**
+     * Sets channel_id
+     *
+     * @param string|null $channel_id The optional ID to further distinguish the Marketing channel.
+     *
+     * @return self
+     */
+    public function setChannelId($channel_id): self
+    {
+        $this->container['channel_id'] = $channel_id;
 
         return $this;
     }

@@ -511,6 +511,7 @@ Class | Method | HTTP request | Description
  - [DealFieldItemUiVisibility](Model/DealFieldItemUiVisibility.md)
  - [DealFieldItemUiVisibilityShowInPipelines](Model/DealFieldItemUiVisibilityShowInPipelines.md)
  - [DealItem](Model/DealItem.md)
+ - [DealPostRequestBody](Model/DealPostRequestBody.md)
  - [DealProductRequestBody](Model/DealProductRequestBody.md)
  - [DealRequestBody](Model/DealRequestBody.md)
  - [DealSearchItem](Model/DealSearchItem.md)

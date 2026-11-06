@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [19.2.0](https://github.com/pipedrive/client-php/compare/19.1.0...19.2.0) (2026-11-06)
+### Added
+- Added optional `channel` and `channel_id` fields to the request bodies of `POST /api/v2/deals` and `PATCH /api/v2/deals/{id}`
+- Added optional `origin_id` field to the request body of `POST /api/v2/deals`
+
 ## [19.1.0](https://github.com/pipedrive/client-php/compare/19.0.3...19.1.0) (2026-11-06)
 ### Added
 - Added optional `timezone` parameter to `GET /v1/goals/{id}/results`. Accepts an IANA timezone name (e.g. `America/Sao_Paulo`). Defaults to the timezone of the requesting user. Period boundaries are now evaluated in the specified timezone instead of UTC, making results consistent with the Insights UI.
