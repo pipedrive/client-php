@@ -67,7 +67,7 @@ class ProductVariationRequestBody implements ModelInterface, ArrayAccess, JsonSe
       */
     protected static array $openAPITypes = [
         'name' => 'string',
-        'prices' => 'object[]'
+        'prices' => '\Pipedrive\versions\v2\Model\ProductVariationPriceRequest[]'
     ];
 
     /**
@@ -261,7 +261,7 @@ class ProductVariationRequestBody implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Gets prices
      *
-     * @return object[]|null
+     * @return \Pipedrive\versions\v2\Model\ProductVariationPriceRequest[]|null
      */
     public function getPrices()
     {
@@ -271,7 +271,7 @@ class ProductVariationRequestBody implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Sets prices
      *
-     * @param object[]|null $prices Array of objects, each containing: currency (string), price (number), cost (number, optional), direct_cost (number, optional), notes (string, optional). When prices is omitted altogether, a default price of 0, a default cost of 0, a default direct_cost of 0 and the user's default currency will be assigned.
+     * @param \Pipedrive\versions\v2\Model\ProductVariationPriceRequest[]|null $prices Array of prices of the product variation. When prices is omitted altogether, a default price of 0, a default cost of 0, a default direct_cost of 0 and the user's default currency will be assigned.
      *
      * @return self
      */
