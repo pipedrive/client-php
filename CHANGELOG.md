@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [19.0.3](https://github.com/pipedrive/client-php/compare/19.0.2...19.0.3) (2026-11-06)
 ### Fixed
 - Defined the properties of the `prices` array items in product variations (`price`, `cost`, `currency`, `direct_cost`, `notes`, plus `product_variation_id` in responses), which were previously an untyped object:
   - Responses: `GET /api/v2/products/{id}/variations`, `POST /api/v2/products/{id}/variations`, `PATCH /api/v2/products/{id}/variations/{product_variation_id}`
