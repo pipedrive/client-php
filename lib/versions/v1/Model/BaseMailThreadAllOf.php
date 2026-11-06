@@ -75,7 +75,7 @@ class BaseMailThreadAllOf implements ModelInterface, ArrayAccess, JsonSerializab
         'message_count' => 'int',
         'has_draft_flag' => '\Pipedrive\versions\v1\Model\NumberBooleanDefault0',
         'has_sent_flag' => '\Pipedrive\versions\v1\Model\NumberBooleanDefault0',
-        'archived_flag' => '\Pipedrive\versions\v1\Model\NumberBooleanDefault0',
+        'archived_flag' => 'float',
         'shared_flag' => '\Pipedrive\versions\v1\Model\NumberBooleanDefault0',
         'external_deleted_flag' => '\Pipedrive\versions\v1\Model\NumberBooleanDefault0',
         'first_message_to_me_flag' => '\Pipedrive\versions\v1\Model\NumberBooleanDefault0',
@@ -289,6 +289,23 @@ class BaseMailThreadAllOf implements ModelInterface, ArrayAccess, JsonSerializab
         return self::$openAPIModelName;
     }
 
+    const ARCHIVED_FLAG_0 = 0;
+    const ARCHIVED_FLAG_1 = 1;
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @phpstan-return  array<string|int>
+     * @phpsalm-return  array<string|int>
+     * @return (string|int)[]
+     */
+    public function getArchivedFlagAllowableValues(): array
+    {
+        return [
+            self::ARCHIVED_FLAG_0,
+            self::ARCHIVED_FLAG_1,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -345,6 +362,15 @@ class BaseMailThreadAllOf implements ModelInterface, ArrayAccess, JsonSerializab
     {
         $invalidProperties = [];
 
+        $allowedValues = $this->getArchivedFlagAllowableValues();
+        if (!is_null($this->container['archived_flag']) && !in_array($this->container['archived_flag'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'archived_flag', must be one of '%s'",
+                $this->container['archived_flag'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -397,7 +423,7 @@ class BaseMailThreadAllOf implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets drafts_parties
      *
-     * @param object[]|null $drafts_parties Parties of the drafted mail thread
+     * @param object[]|null $drafts_parties Parties of the drafted mail thread. `null` if the mail thread has no drafts.
      *
      * @return self
      */
@@ -579,7 +605,7 @@ class BaseMailThreadAllOf implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Gets archived_flag
      *
-     * @return \Pipedrive\versions\v1\Model\NumberBooleanDefault0|null
+     * @return float|null
      */
     public function getArchivedFlag()
     {
@@ -589,12 +615,22 @@ class BaseMailThreadAllOf implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets archived_flag
      *
-     * @param \Pipedrive\versions\v1\Model\NumberBooleanDefault0|null $archived_flag Whether the mail thread is archived
+     * @param float|null $archived_flag Whether the mail thread is archived. `null` if the mail thread has not been explicitly archived or unarchived in Pipedrive.
      *
      * @return self
      */
     public function setArchivedFlag($archived_flag): self
     {
+        $allowedValues = $this->getArchivedFlagAllowableValues();
+        if (!is_null($archived_flag) && !in_array($archived_flag, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'archived_flag', must be one of '%s'",
+                    $archived_flag,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['archived_flag'] = $archived_flag;
 
         return $this;

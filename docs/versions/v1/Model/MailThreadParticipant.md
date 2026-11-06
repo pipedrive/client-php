@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **email_address** | **string** | Email address of the mail thread participant | [optional]
 **message_time** | **float** | Message time | [optional]
 **linked_person_id** | **int** | ID of the linked person | [optional]
-**linked_person_name** | **string** | Email of the linked person | [optional]
+**linked_person_name** | **string** | Name of the linked person | [optional]
 **mail_message_party_id** | **int** | ID of the mail message party | [optional]
 **linked_organization_id** | **int** | Linked Organization ID | [optional]
 
