@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [19.1.0](https://github.com/pipedrive/client-php/compare/19.0.3...19.1.0) (2026-11-06)
+### Added
+- Added optional `timezone` parameter to `GET /v1/goals/{id}/results`. Accepts an IANA timezone name (e.g. `America/Sao_Paulo`). Defaults to the timezone of the requesting user. Period boundaries are now evaluated in the specified timezone instead of UTC, making results consistent with the Insights UI.
+
 ## [19.0.3](https://github.com/pipedrive/client-php/compare/19.0.2...19.0.3) (2026-11-06)
 ### Fixed
 - Defined the properties of the `prices` array items in product variations (`price`, `cost`, `currency`, `direct_cost`, `notes`, plus `product_variation_id` in responses), which were previously an untyped object:

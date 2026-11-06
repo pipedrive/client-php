@@ -713,14 +713,15 @@ class GoalsApi
      * @param  string $id The ID of the goal that the results are looked for (required)
      * @param  \DateTime $period_start The start date of the period for which to find the goal&#39;s progress. Format: YYYY-MM-DD. This date must be the same or after the goal duration start date. (required)
      * @param  \DateTime $period_end The end date of the period for which to find the goal&#39;s progress. Format: YYYY-MM-DD. This date must be the same or before the goal duration end date. (required)
+     * @param  string|null $timezone The IANA timezone to use when evaluating period boundaries (e.g. &#x60;America/Sao_Paulo&#x60;). The start and end of the period are interpreted in this timezone. If omitted, defaults to the timezone of the user making the request. (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v1\Model\GetGoalResultResponse
      */
-    public function getGoalResult($id, $period_start, $period_end)
+    public function getGoalResult($id, $period_start, $period_end, $timezone = null)
     {
-        list($response) = $this->getGoalResultWithHttpInfo($id, $period_start, $period_end);
+        list($response) = $this->getGoalResultWithHttpInfo($id, $period_start, $period_end, $timezone);
         return $response;
     }
 
@@ -732,14 +733,15 @@ class GoalsApi
      * @param  string $id The ID of the goal that the results are looked for (required)
      * @param  \DateTime $period_start The start date of the period for which to find the goal&#39;s progress. Format: YYYY-MM-DD. This date must be the same or after the goal duration start date. (required)
      * @param  \DateTime $period_end The end date of the period for which to find the goal&#39;s progress. Format: YYYY-MM-DD. This date must be the same or before the goal duration end date. (required)
+     * @param  string|null $timezone The IANA timezone to use when evaluating period boundaries (e.g. &#x60;America/Sao_Paulo&#x60;). The start and end of the period are interpreted in this timezone. If omitted, defaults to the timezone of the user making the request. (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v1\Model\GetGoalResultResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getGoalResultWithHttpInfo($id, $period_start, $period_end)
+    public function getGoalResultWithHttpInfo($id, $period_start, $period_end, $timezone = null)
     {
-        $request = $this->getGoalResultRequest($id, $period_start, $period_end);
+        $request = $this->getGoalResultRequest($id, $period_start, $period_end, $timezone);
 
         try {
             $options = $this->createHttpClientOption();
@@ -748,7 +750,7 @@ class GoalsApi
             } catch (RequestException $e) {
                 if ($e->getCode() === 401 && $this->config->isRefreshPossible()) {
                     $this->config->refreshToken();
-                    $request = $this->getGoalResultRequest($id, $period_start, $period_end);
+                    $request = $this->getGoalResultRequest($id, $period_start, $period_end, $timezone);
                     $response = $this->client->send($request, $options);
                 } else {
                     throw new ApiException(
@@ -835,13 +837,14 @@ class GoalsApi
      * @param  string $id The ID of the goal that the results are looked for (required)
      * @param  \DateTime $period_start The start date of the period for which to find the goal&#39;s progress. Format: YYYY-MM-DD. This date must be the same or after the goal duration start date. (required)
      * @param  \DateTime $period_end The end date of the period for which to find the goal&#39;s progress. Format: YYYY-MM-DD. This date must be the same or before the goal duration end date. (required)
+     * @param  string|null $timezone The IANA timezone to use when evaluating period boundaries (e.g. &#x60;America/Sao_Paulo&#x60;). The start and end of the period are interpreted in this timezone. If omitted, defaults to the timezone of the user making the request. (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
      */
-    public function getGoalResultAsync($id, $period_start, $period_end): PromiseInterface
+    public function getGoalResultAsync($id, $period_start, $period_end, $timezone = null): PromiseInterface
     {
-        return $this->getGoalResultAsyncWithHttpInfo($id, $period_start, $period_end)
+        return $this->getGoalResultAsyncWithHttpInfo($id, $period_start, $period_end, $timezone)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -857,14 +860,15 @@ class GoalsApi
      * @param  string $id The ID of the goal that the results are looked for (required)
      * @param  \DateTime $period_start The start date of the period for which to find the goal&#39;s progress. Format: YYYY-MM-DD. This date must be the same or after the goal duration start date. (required)
      * @param  \DateTime $period_end The end date of the period for which to find the goal&#39;s progress. Format: YYYY-MM-DD. This date must be the same or before the goal duration end date. (required)
+     * @param  string|null $timezone The IANA timezone to use when evaluating period boundaries (e.g. &#x60;America/Sao_Paulo&#x60;). The start and end of the period are interpreted in this timezone. If omitted, defaults to the timezone of the user making the request. (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
      */
-    public function getGoalResultAsyncWithHttpInfo($id, $period_start, $period_end): PromiseInterface
+    public function getGoalResultAsyncWithHttpInfo($id, $period_start, $period_end, $timezone = null): PromiseInterface
     {
         $returnType = '\Pipedrive\versions\v1\Model\GetGoalResultResponse';
-        $request = $this->getGoalResultRequest($id, $period_start, $period_end);
+        $request = $this->getGoalResultRequest($id, $period_start, $period_end, $timezone);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -906,11 +910,12 @@ class GoalsApi
      * @param  string $id The ID of the goal that the results are looked for (required)
      * @param  \DateTime $period_start The start date of the period for which to find the goal&#39;s progress. Format: YYYY-MM-DD. This date must be the same or after the goal duration start date. (required)
      * @param  \DateTime $period_end The end date of the period for which to find the goal&#39;s progress. Format: YYYY-MM-DD. This date must be the same or before the goal duration end date. (required)
+     * @param  string|null $timezone The IANA timezone to use when evaluating period boundaries (e.g. &#x60;America/Sao_Paulo&#x60;). The start and end of the period are interpreted in this timezone. If omitted, defaults to the timezone of the user making the request. (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
      */
-    public function getGoalResultRequest($id, $period_start, $period_end): Request
+    public function getGoalResultRequest($id, $period_start, $period_end, $timezone = null): Request
     {
         // verify the required parameter 'id' is set
         /* @phpstan-ignore-next-line */
@@ -956,6 +961,14 @@ class GoalsApi
         }
         if ($period_end !== null) {
             $queryParams['period.end'] = $period_end;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($timezone)) {
+            $timezone = ObjectSerializer::serializeCollection($timezone, '', true);
+        }
+        if ($timezone !== null) {
+            $queryParams['timezone'] = $timezone;
         }
 
 
