@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Documented new `track_open` and `track_click` fields on the Person object (enum: `no_preference_set`, `consent_given`, `consent_declined`). They are returned and accepted only if the company has the "Email tracking consent" setting enabled.
+### Changed
+- Updated v2 Persons endpoints to include the new fields: `GET /api/v2/persons`, `GET /api/v2/persons/{id}`, `POST /api/v2/persons` and `PATCH /api/v2/persons/{id}`. The `include_fields` query parameter now also accepts `track_open` and `track_click`.
+- Added `email_tracking_preference_change` to the possible values of the `items` query parameter of `GET /v1/persons/{id}/flow` and `GET /v1/deals/{id}/flow`, and updated the description of `GET /v1/personFields` (`getPersonFields`) to mention the new fields.
 
 ## [19.2.1](https://github.com/pipedrive/client-php/compare/19.2.0...19.2.1) (2026-11-06)
 ### Fixed
