@@ -280,7 +280,7 @@ getPersonFields($start, $limit): \Pipedrive\versions\v1\Model\FieldsResponse
 
 Get all person fields
 
-Returns data about all person fields.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field.
+Returns data about all person fields.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `marketing_status` field.<br>If the company has the Email tracking consent setting enabled, then this endpoint will also return the `track_open` and `track_click` fields.
 
 ### Example
 

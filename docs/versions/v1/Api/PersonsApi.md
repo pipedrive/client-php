@@ -645,7 +645,7 @@ getPersonUpdates($id, $start, $limit, $all_changes, $items): \Pipedrive\versions
 
 List updates about a person
 
-Lists updates about a person.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint's response will also include updates for the `marketing_status` field.
+Lists updates about a person.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint's response will also include updates for the `marketing_status` field.<br>If the company has the Email tracking consent setting enabled, the response can also include updates to `track_open` and `track_click` fields.
 
 ### Example
 
@@ -673,7 +673,7 @@ $id = 56; // int | The unique ID of the person
 $start = 0; // int | Pagination start
 $limit = 56; // int | Items shown per page
 $all_changes = 'all_changes_example'; // string | Whether to show custom field updates or not. 1 = Include custom field changes. If omitted returns changes without custom field updates.
-$items = array('items_example'); // string[] | A comma-separated string for filtering out item specific updates. (Possible values - call, activity, plannedActivity, change, note, deal, file, dealChange, personChange, organizationChange, follower, dealFollower, personFollower, organizationFollower, participant, comment, mailMessage, mailMessageWithAttachment, invoice, document, marketing_campaign_stat, marketing_status_change).
+$items = array('items_example'); // string[] | A comma-separated string for filtering out item specific updates. (Possible values - call, activity, plannedActivity, change, note, deal, file, dealChange, personChange, organizationChange, follower, dealFollower, personFollower, organizationFollower, participant, comment, mailMessage, mailMessageWithAttachment, invoice, document, marketing_campaign_stat, marketing_status_change, email_tracking_preference_change).
 
 try {
     $result = $apiInstance->getPersonUpdates($id, $start, $limit, $all_changes, $items);
@@ -691,7 +691,7 @@ Name | Type | Description  | Notes
  **start** | **int**| Pagination start | [optional] [default to 0]
  **limit** | **int**| Items shown per page | [optional]
  **all_changes** | **string**| Whether to show custom field updates or not. 1 &#x3D; Include custom field changes. If omitted returns changes without custom field updates. | [optional]
- **items** | [**string[]**](../Model/string.md)| A comma-separated string for filtering out item specific updates. (Possible values - call, activity, plannedActivity, change, note, deal, file, dealChange, personChange, organizationChange, follower, dealFollower, personFollower, organizationFollower, participant, comment, mailMessage, mailMessageWithAttachment, invoice, document, marketing_campaign_stat, marketing_status_change). | [optional]
+ **items** | [**string[]**](../Model/string.md)| A comma-separated string for filtering out item specific updates. (Possible values - call, activity, plannedActivity, change, note, deal, file, dealChange, personChange, organizationChange, follower, dealFollower, personFollower, organizationFollower, participant, comment, mailMessage, mailMessageWithAttachment, invoice, document, marketing_campaign_stat, marketing_status_change, email_tracking_preference_change). | [optional]
 
 ### Return type
 
