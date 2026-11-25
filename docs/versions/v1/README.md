@@ -76,6 +76,20 @@ $authUrl = $config->getAuthorizationPageUrl();
 header('Location: ' . filter_var($authUrl, FILTER_SANITIZE_URL));
 ```
 
+You can also pass a `state` value (recommended, to protect against CSRF) and PKCE parameters. See [Using PKCE](#using-pkce).
+
+```php
+// generate an unpredictable state per login and keep it until the user comes back
+$state = bin2hex(random_bytes(16));
+$_SESSION['oauth_state'] = $state;
+$authUrl = $config->getAuthorizationPageUrl($state);
+
+// in the redirect URI handler, reject the callback unless the state matches
+if (empty($_SESSION['oauth_state']) || !hash_equals($_SESSION['oauth_state'], $_GET['state'] ?? '')) {
+    throw new Exception('Invalid OAuth state');
+}
+```
+
 #### 2. Handle the OAuth server response
 
 Once the user responds to the consent request, the OAuth 2.0 server responds to your application's access request by redirecting the user to the redirect URI specified in `Configuration`.
@@ -99,6 +113,37 @@ After the server receives the code, it can exchange this for an *access token*. 
 ```php
 try {
     $config->authorize($_GET['code']);
+} catch (Exception $ex) {
+    // handle exception
+}
+```
+
+### Using PKCE
+
+PKCE ([RFC 7636](https://datatracker.ietf.org/doc/html/rfc7636)) protects the authorization code from being used by anyone other than the app that requested it. PKCE is optional unless your app requires it, and then the `S256` method must be used.
+
+1. Generate a code verifier and its code challenge, and keep the verifier (for example, in the session) until the user comes back to your redirect URI.
+2. Send the code challenge to the authorization page.
+3. Send the code verifier when you exchange the authorization code.
+
+```php
+use Pipedrive\versions\v1\Configuration;
+
+$state = bin2hex(random_bytes(16));
+$codeVerifier = Configuration::generateCodeVerifier();
+$_SESSION['oauth_state'] = $state;
+$_SESSION['code_verifier'] = $codeVerifier;
+
+// the code challenge method defaults to 'S256'
+$authUrl = $config->getAuthorizationPageUrl($state, Configuration::generateCodeChallenge($codeVerifier));
+header('Location: ' . filter_var($authUrl, FILTER_SANITIZE_URL));
+
+// later, in the redirect URI handler
+if (empty($_SESSION['oauth_state']) || !hash_equals($_SESSION['oauth_state'], $_GET['state'] ?? '')) {
+    throw new Exception('Invalid OAuth state');
+}
+try {
+    $config->authorize($_GET['code'], $_SESSION['code_verifier']);
 } catch (Exception $ex) {
     // handle exception
 }
