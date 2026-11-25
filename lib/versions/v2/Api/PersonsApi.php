@@ -1334,7 +1334,7 @@ class PersonsApi
      * Get details of a person
      *
      * @param  int $id The ID of the person (required)
-     * @param  string[]|null $include_fields Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled. (optional)
+     * @param  string[]|null $include_fields Optional comma separated string array of additional fields to include. &lt;br&gt;&#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled. &lt;br&gt;&#x60;track_open&#x60; and &#x60;track_click&#x60; can only be included if the company has the Email tracking consent setting enabled. (optional)
      * @param  string[]|null $custom_fields Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
      * @param  bool|null $include_option_labels When provided with a &#39;true&#39; value, single option and multiple option custom fields values contain objects in the form of &#39;{ id: number, label: string }&#39; instead of plain id (optional)
      * @param  bool|null $include_labels When provided with &#39;true&#39; value, response will include an array of label objects in the form of &#39;{ id: number, label: string }&#39; (optional)
@@ -1355,7 +1355,7 @@ class PersonsApi
      * Get details of a person
      *
      * @param  int $id The ID of the person (required)
-     * @param  string[]|null $include_fields Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled. (optional)
+     * @param  string[]|null $include_fields Optional comma separated string array of additional fields to include. &lt;br&gt;&#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled. &lt;br&gt;&#x60;track_open&#x60; and &#x60;track_click&#x60; can only be included if the company has the Email tracking consent setting enabled. (optional)
      * @param  string[]|null $custom_fields Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
      * @param  bool|null $include_option_labels When provided with a &#39;true&#39; value, single option and multiple option custom fields values contain objects in the form of &#39;{ id: number, label: string }&#39; instead of plain id (optional)
      * @param  bool|null $include_labels When provided with &#39;true&#39; value, response will include an array of label objects in the form of &#39;{ id: number, label: string }&#39; (optional)
@@ -1460,7 +1460,7 @@ class PersonsApi
      * Get details of a person
      *
      * @param  int $id The ID of the person (required)
-     * @param  string[]|null $include_fields Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled. (optional)
+     * @param  string[]|null $include_fields Optional comma separated string array of additional fields to include. &lt;br&gt;&#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled. &lt;br&gt;&#x60;track_open&#x60; and &#x60;track_click&#x60; can only be included if the company has the Email tracking consent setting enabled. (optional)
      * @param  string[]|null $custom_fields Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
      * @param  bool|null $include_option_labels When provided with a &#39;true&#39; value, single option and multiple option custom fields values contain objects in the form of &#39;{ id: number, label: string }&#39; instead of plain id (optional)
      * @param  bool|null $include_labels When provided with &#39;true&#39; value, response will include an array of label objects in the form of &#39;{ id: number, label: string }&#39; (optional)
@@ -1484,7 +1484,7 @@ class PersonsApi
      * Get details of a person
      *
      * @param  int $id The ID of the person (required)
-     * @param  string[]|null $include_fields Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled. (optional)
+     * @param  string[]|null $include_fields Optional comma separated string array of additional fields to include. &lt;br&gt;&#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled. &lt;br&gt;&#x60;track_open&#x60; and &#x60;track_click&#x60; can only be included if the company has the Email tracking consent setting enabled. (optional)
      * @param  string[]|null $custom_fields Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
      * @param  bool|null $include_option_labels When provided with a &#39;true&#39; value, single option and multiple option custom fields values contain objects in the form of &#39;{ id: number, label: string }&#39; instead of plain id (optional)
      * @param  bool|null $include_labels When provided with &#39;true&#39; value, response will include an array of label objects in the form of &#39;{ id: number, label: string }&#39; (optional)
@@ -1535,7 +1535,7 @@ class PersonsApi
      * Create request for operation 'getPerson'
      *
      * @param  int $id The ID of the person (required)
-     * @param  string[]|null $include_fields Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled. (optional)
+     * @param  string[]|null $include_fields Optional comma separated string array of additional fields to include. &lt;br&gt;&#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled. &lt;br&gt;&#x60;track_open&#x60; and &#x60;track_click&#x60; can only be included if the company has the Email tracking consent setting enabled. (optional)
      * @param  string[]|null $custom_fields Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
      * @param  bool|null $include_option_labels When provided with a &#39;true&#39; value, single option and multiple option custom fields values contain objects in the form of &#39;{ id: number, label: string }&#39; instead of plain id (optional)
      * @param  bool|null $include_labels When provided with &#39;true&#39; value, response will include an array of label objects in the form of &#39;{ id: number, label: string }&#39; (optional)
@@ -2649,7 +2649,7 @@ class PersonsApi
      * @param  string|null $updated_until If set, only persons with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z. (optional)
      * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;. (optional, default to 'id')
      * @param  string|'asc' $sort_direction The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;. (optional, default to 'asc')
-     * @param  string[]|null $include_fields Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled. (optional)
+     * @param  string[]|null $include_fields Optional comma separated string array of additional fields to include. &lt;br&gt;&#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled. &lt;br&gt;&#x60;track_open&#x60; and &#x60;track_click&#x60; can only be included if the company has the Email tracking consent setting enabled. (optional)
      * @param  string[]|null $custom_fields Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
      * @param  bool|null $include_option_labels When provided with a &#39;true&#39; value, single option and multiple option custom fields values contain objects in the form of &#39;{ id: number, label: string }&#39; instead of plain id (optional)
      * @param  bool|null $include_labels When provided with &#39;true&#39; value, response will include an array of label objects in the form of &#39;{ id: number, label: string }&#39; (optional)
@@ -2680,7 +2680,7 @@ class PersonsApi
      * @param  string|null $updated_until If set, only persons with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z. (optional)
      * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;. (optional, default to 'id')
      * @param  string|'asc' $sort_direction The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;. (optional, default to 'asc')
-     * @param  string[]|null $include_fields Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled. (optional)
+     * @param  string[]|null $include_fields Optional comma separated string array of additional fields to include. &lt;br&gt;&#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled. &lt;br&gt;&#x60;track_open&#x60; and &#x60;track_click&#x60; can only be included if the company has the Email tracking consent setting enabled. (optional)
      * @param  string[]|null $custom_fields Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
      * @param  bool|null $include_option_labels When provided with a &#39;true&#39; value, single option and multiple option custom fields values contain objects in the form of &#39;{ id: number, label: string }&#39; instead of plain id (optional)
      * @param  bool|null $include_labels When provided with &#39;true&#39; value, response will include an array of label objects in the form of &#39;{ id: number, label: string }&#39; (optional)
@@ -2795,7 +2795,7 @@ class PersonsApi
      * @param  string|null $updated_until If set, only persons with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z. (optional)
      * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;. (optional, default to 'id')
      * @param  string|'asc' $sort_direction The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;. (optional, default to 'asc')
-     * @param  string[]|null $include_fields Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled. (optional)
+     * @param  string[]|null $include_fields Optional comma separated string array of additional fields to include. &lt;br&gt;&#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled. &lt;br&gt;&#x60;track_open&#x60; and &#x60;track_click&#x60; can only be included if the company has the Email tracking consent setting enabled. (optional)
      * @param  string[]|null $custom_fields Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
      * @param  bool|null $include_option_labels When provided with a &#39;true&#39; value, single option and multiple option custom fields values contain objects in the form of &#39;{ id: number, label: string }&#39; instead of plain id (optional)
      * @param  bool|null $include_labels When provided with &#39;true&#39; value, response will include an array of label objects in the form of &#39;{ id: number, label: string }&#39; (optional)
@@ -2829,7 +2829,7 @@ class PersonsApi
      * @param  string|null $updated_until If set, only persons with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z. (optional)
      * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;. (optional, default to 'id')
      * @param  string|'asc' $sort_direction The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;. (optional, default to 'asc')
-     * @param  string[]|null $include_fields Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled. (optional)
+     * @param  string[]|null $include_fields Optional comma separated string array of additional fields to include. &lt;br&gt;&#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled. &lt;br&gt;&#x60;track_open&#x60; and &#x60;track_click&#x60; can only be included if the company has the Email tracking consent setting enabled. (optional)
      * @param  string[]|null $custom_fields Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
      * @param  bool|null $include_option_labels When provided with a &#39;true&#39; value, single option and multiple option custom fields values contain objects in the form of &#39;{ id: number, label: string }&#39; instead of plain id (optional)
      * @param  bool|null $include_labels When provided with &#39;true&#39; value, response will include an array of label objects in the form of &#39;{ id: number, label: string }&#39; (optional)
@@ -2890,7 +2890,7 @@ class PersonsApi
      * @param  string|null $updated_until If set, only persons with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z. (optional)
      * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;. (optional, default to 'id')
      * @param  string|'asc' $sort_direction The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;. (optional, default to 'asc')
-     * @param  string[]|null $include_fields Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled. (optional)
+     * @param  string[]|null $include_fields Optional comma separated string array of additional fields to include. &lt;br&gt;&#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled. &lt;br&gt;&#x60;track_open&#x60; and &#x60;track_click&#x60; can only be included if the company has the Email tracking consent setting enabled. (optional)
      * @param  string[]|null $custom_fields Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
      * @param  bool|null $include_option_labels When provided with a &#39;true&#39; value, single option and multiple option custom fields values contain objects in the form of &#39;{ id: number, label: string }&#39; instead of plain id (optional)
      * @param  bool|null $include_labels When provided with &#39;true&#39; value, response will include an array of label objects in the form of &#39;{ id: number, label: string }&#39; (optional)
