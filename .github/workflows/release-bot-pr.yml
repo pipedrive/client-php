@@ -1,0 +1,368 @@
+name: Release bot SDK PR
+
+# Releases SDK release PRs ("Build N - version-X") opened by the api-docs bot, oldest first.
+# Replaces the local `npm run release-php` script from sdk-manager:
+#   1. pick the oldest open bot release PR (or the PR given to workflow_dispatch);
+#   2. stop with a warning if it has merge conflicts, or if its CHANGELOG repeats notes of an
+#      already released version (a developer fixes the PR branch, the push retries);
+#   3. compute the version from the php-version-* label and the latest tag, add the CHANGELOG
+#      heading and, on a major, bump the user agent (.github/scripts/release.sh);
+#   4. commit "Release vX.Y.Z", merge into master, tag X.Y.Z on the merge commit and push;
+#   5. wait for the version on Packagist;
+#   6. on a major, open a PR in sdk-manager that bumps the user agent in the PHP template.
+
+on:
+  pull_request:
+    types: [opened, labeled, synchronize, reopened, closed]
+    branches:
+      - master
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: PR number to release (empty = oldest open bot release PR)
+        required: false
+        type: string
+      dry_run:
+        description: Prepare the release and show the result, but push nothing
+        required: false
+        type: boolean
+        default: false
+
+# Never run two releases at the same time, and never cancel a release in progress
+concurrency:
+  group: client-php-release
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  pull-requests: read
+
+env:
+  BOT_LOGIN: pipedrive-github-actions-bot[bot]
+  LABEL_PREFIX: php-version-
+  BASE_BRANCH: master
+  PACKAGE: pipedrive/pipedrive
+
+jobs:
+  release:
+    if: |
+      github.event_name == 'workflow_dispatch' || (
+        github.event.pull_request.user.login == 'pipedrive-github-actions-bot[bot]' && (
+          github.event.action == 'closed' || (
+            (
+              contains(github.event.pull_request.labels.*.name, 'php-version-patch') ||
+              contains(github.event.pull_request.labels.*.name, 'php-version-minor') ||
+              contains(github.event.pull_request.labels.*.name, 'php-version-major')
+            ) && (
+              github.event.action != 'labeled' ||
+              startsWith(github.event.label.name, 'php-version-')
+            )
+          )
+        )
+      )
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Find the release PR and check merge conflicts
+        id: queue
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          INPUT_PR_NUMBER: ${{ inputs.pr_number }}
+          EVENT_ACTION: ${{ github.event.action }}
+          EVENT_PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          set -euo pipefail
+
+          if [ -n "${INPUT_PR_NUMBER}" ]; then
+            number="${INPUT_PR_NUMBER}"
+            echo "Manual release of PR #${number}"
+          else
+            number=$(gh api --paginate "repos/${REPO}/pulls?state=open&base=${BASE_BRANCH}&per_page=100" \
+              --jq ".[] | select(.user.login == \"${BOT_LOGIN}\") | select(any(.labels[].name; startswith(\"${LABEL_PREFIX}\"))) | .number" \
+              | sort -n | head -n 1)
+            if [ -z "${number}" ]; then
+              echo "No open bot release PRs, nothing to do."
+              echo "action=none" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            echo "Oldest open bot release PR: #${number}"
+            if [ -n "${EVENT_PR_NUMBER}" ] && [ "${EVENT_ACTION}" != "closed" ] && [ "${EVENT_PR_NUMBER}" != "${number}" ]; then
+              echo "PR #${EVENT_PR_NUMBER} waits in the queue behind #${number}."
+            fi
+          fi
+
+          # GitHub computes mergeability asynchronously, poll while it is null
+          mergeable=null
+          for attempt in $(seq 1 12); do
+            pr=$(gh api "repos/${REPO}/pulls/${number}")
+            mergeable=$(jq -r '.mergeable' <<< "${pr}")
+            if [ "${mergeable}" != "null" ]; then
+              break
+            fi
+            echo "Mergeability of #${number} not computed yet (attempt ${attempt}), waiting..."
+            sleep 10
+          done
+
+          state=$(jq -r '.state' <<< "${pr}")
+          base=$(jq -r '.base.ref' <<< "${pr}")
+          mergeable_state=$(jq -r '.mergeable_state' <<< "${pr}")
+          bumps=$(jq -r --arg p "${LABEL_PREFIX}" '[.labels[].name | select(startswith($p)) | ltrimstr($p)] | join(" ")' <<< "${pr}")
+
+          if [ "${state}" != "open" ] || [ "${base}" != "${BASE_BRANCH}" ]; then
+            echo "::error::PR #${number} is ${state} with base ${base}, expected an open PR to ${BASE_BRANCH}."
+            exit 1
+          fi
+          case "${bumps}" in
+            patch|minor|major) ;;
+            *)
+              echo "::error::PR #${number} needs exactly one of the labels ${LABEL_PREFIX}patch|minor|major, found: '${bumps}'."
+              exit 1
+              ;;
+          esac
+
+          {
+            echo "number=${number}"
+            echo "head_sha=$(jq -r '.head.sha' <<< "${pr}")"
+            echo "head_ref=$(jq -r '.head.ref' <<< "${pr}")"
+            echo "bump=${bumps}"
+          } >> "$GITHUB_OUTPUT"
+
+          echo "PR #${number}: bump=${bumps}, mergeable=${mergeable}, mergeable_state=${mergeable_state}"
+
+          if [ "${mergeable}" = "false" ] || [ "${mergeable_state}" = "dirty" ]; then
+            echo "::warning::PR #${number} has merge conflicts, it will not be released automatically. Resolve them and push to the PR branch to retry."
+            echo "PR #${number} has merge conflicts and was not released. Resolve them and push to the PR branch to retry; later release PRs wait behind it." >> "$GITHUB_STEP_SUMMARY"
+            echo "action=conflict" >> "$GITHUB_OUTPUT"
+          elif [ "${mergeable}" = "true" ]; then
+            echo "action=release" >> "$GITHUB_OUTPUT"
+          else
+            echo "::error::Could not determine mergeability of PR #${number}, re-run the workflow later."
+            exit 1
+          fi
+
+      - name: Create GitHub App token for client-php
+        if: steps.queue.outputs.action == 'release'
+        id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ vars.PD_PUBLIC_GHA_BOT_CLIENT_ID }}
+          private-key: ${{ secrets.PD_PUBLIC_GHA_BOT_APPLICATION_PRIVATE_KEY_PEM }}
+          owner: ${{ github.repository_owner }}
+          repositories: ${{ github.event.repository.name }}
+
+      - name: Checkout ${{ env.BASE_BRANCH }}
+        if: steps.queue.outputs.action == 'release'
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ env.BASE_BRANCH }}
+          fetch-depth: 0
+          fetch-tags: true
+          persist-credentials: false
+
+      - name: Configure git
+        if: steps.queue.outputs.action == 'release'
+        shell: bash
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          APP_SLUG: ${{ steps.app-token.outputs.app-slug }}
+        run: |
+          set -euo pipefail
+          # Use the release script from the base branch, never the copy in the PR branch
+          cp .github/scripts/release.sh "${RUNNER_TEMP}/release.sh"
+          chmod +x "${RUNNER_TEMP}/release.sh"
+          user_id=$(gh api "users/${APP_SLUG}[bot]" --jq .id)
+          git config --global user.name "${APP_SLUG}[bot]"
+          git config --global user.email "${user_id}+${APP_SLUG}[bot]@users.noreply.github.com"
+
+      - name: Merge ${{ env.BASE_BRANCH }} into PR #${{ steps.queue.outputs.number }}
+        if: steps.queue.outputs.action == 'release'
+        id: merge-base
+        shell: bash
+        env:
+          PR_NUMBER: ${{ steps.queue.outputs.number }}
+          HEAD_SHA: ${{ steps.queue.outputs.head_sha }}
+        run: |
+          set -euo pipefail
+          git fetch --no-tags origin "pull/${PR_NUMBER}/head"
+          if [ "$(git rev-parse FETCH_HEAD)" != "${HEAD_SHA}" ]; then
+            echo "::warning::PR #${PR_NUMBER} changed while this run started, the run for the new push releases it."
+            echo "continue=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          if git merge-base --is-ancestor "${HEAD_SHA}" "origin/${BASE_BRANCH}"; then
+            echo "::warning::PR #${PR_NUMBER} is already merged into ${BASE_BRANCH}, nothing to release."
+            echo "continue=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git checkout -B "release-pr-${PR_NUMBER}" "${HEAD_SHA}"
+          if ! git merge --no-ff --no-edit "origin/${BASE_BRANCH}"; then
+            git merge --abort
+            echo "::warning::PR #${PR_NUMBER} conflicts with ${BASE_BRANCH}, it will not be released automatically. Resolve the conflicts and push to the PR branch to retry."
+            echo "PR #${PR_NUMBER} conflicts with ${BASE_BRANCH} and was not released." >> "$GITHUB_STEP_SUMMARY"
+            echo "continue=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "continue=true" >> "$GITHUB_OUTPUT"
+
+      - name: Prepare release (version, CHANGELOG, user agent)
+        if: steps.merge-base.outputs.continue == 'true'
+        id: prepare
+        shell: bash
+        env:
+          BUMP: ${{ steps.queue.outputs.bump }}
+          PR_NUMBER: ${{ steps.queue.outputs.number }}
+        run: |
+          set -uo pipefail
+          "${RUNNER_TEMP}/release.sh" prepare "${BUMP}"
+          status=$?
+          if [ "${status}" -eq 3 ]; then
+            # CHANGELOG repeats notes of a released version: treat it like a merge conflict
+            echo "PR #${PR_NUMBER} repeats CHANGELOG entries of a released version and was not released. Remove them on the PR branch and push to retry." >> "$GITHUB_STEP_SUMMARY"
+            echo "continue=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          elif [ "${status}" -ne 0 ]; then
+            exit "${status}"
+          fi
+          echo "continue=true" >> "$GITHUB_OUTPUT"
+          git --no-pager diff
+
+      - name: Commit "Release v${{ steps.prepare.outputs.version }}" and merge into ${{ env.BASE_BRANCH }}
+        if: steps.prepare.outputs.continue == 'true'
+        id: commit
+        shell: bash
+        env:
+          PR_NUMBER: ${{ steps.queue.outputs.number }}
+          VERSION: ${{ steps.prepare.outputs.version }}
+        run: |
+          set -euo pipefail
+          if git ls-remote --exit-code --tags origin "refs/tags/${VERSION}" > /dev/null; then
+            echo "::warning::Tag ${VERSION} already exists on origin, skipping the release of PR #${PR_NUMBER}. Check the tags and CHANGELOG.md."
+            echo "Tag ${VERSION} already exists, PR #${PR_NUMBER} was not released." >> "$GITHUB_STEP_SUMMARY"
+            echo "continue=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          git add CHANGELOG.md lib/versions/v1/Configuration.php lib/versions/v2/Configuration.php
+          if git diff --cached --quiet; then
+            echo "Release changes are already committed on the PR branch."
+          else
+            git commit -m "Release v${VERSION}"
+          fi
+
+          git checkout -B "${BASE_BRANCH}" "origin/${BASE_BRANCH}"
+          git merge --no-ff "release-pr-${PR_NUMBER}" -m "Release v${VERSION} from PR #${PR_NUMBER}"
+          git tag -a "${VERSION}" -m "Release v${VERSION}"
+          git --no-pager log --oneline --graph -5
+          git --no-pager diff --stat "origin/${BASE_BRANCH}" HEAD
+          echo "continue=true" >> "$GITHUB_OUTPUT"
+
+      - name: Push ${{ env.BASE_BRANCH }} and tag ${{ steps.prepare.outputs.version }}
+        if: steps.commit.outputs.continue == 'true' && !inputs.dry_run
+        shell: bash
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          REPO: ${{ github.repository }}
+          VERSION: ${{ steps.prepare.outputs.version }}
+          PR_NUMBER: ${{ steps.queue.outputs.number }}
+        run: |
+          set -euo pipefail
+          git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${REPO}.git"
+          # --atomic: the branch and the tag are pushed together or not at all
+          if ! git push --atomic origin "HEAD:refs/heads/${BASE_BRANCH}" "refs/tags/${VERSION}"; then
+            echo "::error::Failed to push ${BASE_BRANCH} and tag ${VERSION}. If ${BASE_BRANCH} moved, re-run the workflow. Otherwise check that the pipedrive-public-gha-bot App may bypass the branch rules of ${BASE_BRANCH}."
+            exit 1
+          fi
+          echo "Released ${VERSION} from PR #${PR_NUMBER}: https://github.com/${REPO}/releases/tag/${VERSION}" | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Dry run result
+        if: steps.commit.outputs.continue == 'true' && inputs.dry_run
+        shell: bash
+        env:
+          VERSION: ${{ steps.prepare.outputs.version }}
+          PR_NUMBER: ${{ steps.queue.outputs.number }}
+        run: |
+          echo "Dry run: would push ${BASE_BRANCH} and tag ${VERSION} for PR #${PR_NUMBER}." | tee -a "$GITHUB_STEP_SUMMARY"
+          git --no-pager show --stat HEAD
+
+      - name: Delete PR branch
+        if: steps.commit.outputs.continue == 'true' && !inputs.dry_run
+        continue-on-error: true
+        shell: bash
+        env:
+          HEAD_REF: ${{ steps.queue.outputs.head_ref }}
+        run: git push origin --delete "${HEAD_REF}" || true
+
+      - name: Wait for ${{ steps.prepare.outputs.version }} on Packagist
+        if: steps.commit.outputs.continue == 'true' && !inputs.dry_run
+        shell: bash
+        env:
+          VERSION: ${{ steps.prepare.outputs.version }}
+        run: |
+          set -uo pipefail
+          url="https://repo.packagist.org/p2/${PACKAGE}.json"
+          for attempt in $(seq 1 20); do
+            if curl -fsS "${url}" | jq -e --arg v "${VERSION}" --arg p "${PACKAGE}" '.packages[$p] | any(.version == $v)' > /dev/null; then
+              echo "${VERSION} is on Packagist: https://packagist.org/packages/${PACKAGE}#${VERSION}" | tee -a "$GITHUB_STEP_SUMMARY"
+              exit 0
+            fi
+            echo "${VERSION} not on Packagist yet (attempt ${attempt}/20), waiting 30s..."
+            sleep 30
+          done
+          echo "::warning::${VERSION} did not appear on Packagist within 10 minutes. Check https://packagist.org/packages/${PACKAGE} and its GitHub hook."
+          echo "${VERSION} did not appear on Packagist within 10 minutes." >> "$GITHUB_STEP_SUMMARY"
+
+      # The App may not be installed on sdk-manager: the steps below never fail the release
+      - name: Create GitHub App token for sdk-manager
+        if: steps.commit.outputs.continue == 'true' && !inputs.dry_run && steps.prepare.outputs.major_changed == 'true'
+        id: sdk-manager-token
+        continue-on-error: true
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ vars.PD_PUBLIC_GHA_BOT_CLIENT_ID }}
+          private-key: ${{ secrets.PD_PUBLIC_GHA_BOT_APPLICATION_PRIVATE_KEY_PEM }}
+          owner: ${{ github.repository_owner }}
+          repositories: sdk-manager
+
+      - name: Open sdk-manager PR for the ${{ steps.prepare.outputs.major }}.x user agent
+        if: steps.commit.outputs.continue == 'true' && !inputs.dry_run && steps.prepare.outputs.major_changed == 'true'
+        continue-on-error: true
+        shell: bash
+        env:
+          GH_TOKEN: ${{ steps.sdk-manager-token.outputs.token }}
+          FROM_MAJOR: ${{ steps.prepare.outputs.previous_major }}
+          TO_MAJOR: ${{ steps.prepare.outputs.major }}
+          VERSION: ${{ steps.prepare.outputs.version }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          manual="Update Pipedrive-SDK-PHP-${FROM_MAJOR}.x to Pipedrive-SDK-PHP-${TO_MAJOR}.x in pipedrive/sdk-manager kits/php/templates/Configuration.mustache by hand."
+          if [ -z "${GH_TOKEN}" ]; then
+            echo "::warning::No App token for sdk-manager. ${manual}"
+            echo "${manual}" >> "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi
+          target=pipedrive/sdk-manager
+          template=kits/php/templates/Configuration.mustache
+          branch="php-user-agent-${TO_MAJOR}.x"
+          default_branch=$(gh api "repos/${target}" --jq .default_branch)
+          dir="${RUNNER_TEMP}/sdk-manager"
+          git clone --depth 1 --branch "${default_branch}" "https://x-access-token:${GH_TOKEN}@github.com/${target}.git" "${dir}"
+          cd "${dir}"
+          if git ls-remote --exit-code --heads origin "${branch}" > /dev/null; then
+            echo "Branch ${branch} already exists in ${target}, not opening another PR."
+            exit 0
+          fi
+          "${RUNNER_TEMP}/release.sh" bump-user-agent "${FROM_MAJOR}" "${TO_MAJOR}" "${template}"
+          if git diff --quiet; then
+            echo "${template} already uses Pipedrive-SDK-PHP-${TO_MAJOR}.x."
+            exit 0
+          fi
+          git checkout -b "${branch}"
+          git commit -am "Update PHP SDK user agent to version ${TO_MAJOR}.x"
+          git push origin "${branch}"
+          body="client-php ${VERSION} was released (https://github.com/${REPO}/releases/tag/${VERSION}). This updates the user agent in the PHP template to Pipedrive-SDK-PHP-${TO_MAJOR}.x so the next generated SDK keeps it."
+          pr_url=$(gh api "repos/${target}/pulls" -f title="Update PHP SDK user agent to version ${TO_MAJOR}.x" \
+            -f head="${branch}" -f base="${default_branch}" -f body="${body}" --jq .html_url)
+          echo "Opened ${pr_url}" | tee -a "$GITHUB_STEP_SUMMARY"
