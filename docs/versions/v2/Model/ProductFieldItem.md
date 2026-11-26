@@ -11,6 +11,6 @@ Name | Type | Description | Notes
 **subfields** | [**\Pipedrive\versions\v2\Model\ActivityFieldItemSubfields[]**](ActivityFieldItemSubfields.md) | Array of subfields for complex field types (address, monetary), null for simple field types | [optional]
 **is_custom_field** | **bool** | Whether this is a user-created custom field |
 **is_optional_response_field** | **bool** | Whether this field is not returned by default in entity responses |
-**ui_visibility** | [**\Pipedrive\versions\v2\Model\ActivityFieldItemUiVisibility**](ActivityFieldItemUiVisibility.md) |  | [optional]
+**ui_visibility** | [**\Pipedrive\versions\v2\Model\ProductFieldItemUiVisibility**](ProductFieldItemUiVisibility.md) |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -5,6 +5,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Documented activity custom fields in the v2 Activities API:
+  - `custom_fields` object in the request bodies of `POST /api/v2/activities` and `PATCH /api/v2/activities/{id}` and in activity responses
+  - `custom_fields` and `include_option_labels` query parameters on `GET /api/v2/activities` and `GET /api/v2/activities/{id}`
+  - `ui_visibility.show_in_activity_types` (availability of a custom field per activity type) on `GET /api/v2/activityFields` and `GET /api/v2/activityFields/{field_code}`
+- Documented the `required_on_creation` and `required_on_completion` rules (per activity type) on `GET /api/v2/activityFields` and `GET /api/v2/activityFields/{field_code}`. They are returned when requested via the `include_fields` query parameter.
 
 ## [19.2.1](https://github.com/pipedrive/client-php/compare/19.2.0...19.2.1) (2026-11-06)
 ### Fixed

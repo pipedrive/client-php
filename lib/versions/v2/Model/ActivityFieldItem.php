@@ -73,7 +73,9 @@ class ActivityFieldItem implements ModelInterface, ArrayAccess, JsonSerializable
         'subfields' => '\Pipedrive\versions\v2\Model\ActivityFieldItemSubfields[]',
         'is_custom_field' => 'bool',
         'is_optional_response_field' => 'bool',
-        'ui_visibility' => '\Pipedrive\versions\v2\Model\ActivityFieldItemUiVisibility'
+        'ui_visibility' => '\Pipedrive\versions\v2\Model\ActivityFieldItemUiVisibility',
+        'required_on_creation' => '\Pipedrive\versions\v2\Model\ActivityFieldItemRequiredOnCreation',
+        'required_on_completion' => '\Pipedrive\versions\v2\Model\ActivityFieldItemRequiredOnCompletion'
     ];
 
     /**
@@ -91,7 +93,9 @@ class ActivityFieldItem implements ModelInterface, ArrayAccess, JsonSerializable
         'subfields' => null,
         'is_custom_field' => null,
         'is_optional_response_field' => null,
-        'ui_visibility' => null
+        'ui_visibility' => null,
+        'required_on_creation' => null,
+        'required_on_completion' => null
     ];
 
     /**
@@ -132,7 +136,9 @@ class ActivityFieldItem implements ModelInterface, ArrayAccess, JsonSerializable
         'subfields' => 'subfields',
         'is_custom_field' => 'is_custom_field',
         'is_optional_response_field' => 'is_optional_response_field',
-        'ui_visibility' => 'ui_visibility'
+        'ui_visibility' => 'ui_visibility',
+        'required_on_creation' => 'required_on_creation',
+        'required_on_completion' => 'required_on_completion'
     ];
 
     /**
@@ -148,7 +154,9 @@ class ActivityFieldItem implements ModelInterface, ArrayAccess, JsonSerializable
         'subfields' => 'setSubfields',
         'is_custom_field' => 'setIsCustomField',
         'is_optional_response_field' => 'setIsOptionalResponseField',
-        'ui_visibility' => 'setUiVisibility'
+        'ui_visibility' => 'setUiVisibility',
+        'required_on_creation' => 'setRequiredOnCreation',
+        'required_on_completion' => 'setRequiredOnCompletion'
     ];
 
     /**
@@ -164,7 +172,9 @@ class ActivityFieldItem implements ModelInterface, ArrayAccess, JsonSerializable
         'subfields' => 'getSubfields',
         'is_custom_field' => 'getIsCustomField',
         'is_optional_response_field' => 'getIsOptionalResponseField',
-        'ui_visibility' => 'getUiVisibility'
+        'ui_visibility' => 'getUiVisibility',
+        'required_on_creation' => 'getRequiredOnCreation',
+        'required_on_completion' => 'getRequiredOnCompletion'
     ];
 
     /**
@@ -325,6 +335,8 @@ class ActivityFieldItem implements ModelInterface, ArrayAccess, JsonSerializable
         $this->container['is_custom_field'] = $data['is_custom_field'] ?? null;
         $this->container['is_optional_response_field'] = $data['is_optional_response_field'] ?? null;
         $this->container['ui_visibility'] = $data['ui_visibility'] ?? null;
+        $this->container['required_on_creation'] = $data['required_on_creation'] ?? null;
+        $this->container['required_on_completion'] = $data['required_on_completion'] ?? null;
     }
 
     /**
@@ -575,6 +587,54 @@ class ActivityFieldItem implements ModelInterface, ArrayAccess, JsonSerializable
     public function setUiVisibility($ui_visibility): self
     {
         $this->container['ui_visibility'] = $ui_visibility;
+
+        return $this;
+    }
+
+    /**
+     * Gets required_on_creation
+     *
+     * @return \Pipedrive\versions\v2\Model\ActivityFieldItemRequiredOnCreation|null
+     */
+    public function getRequiredOnCreation()
+    {
+        return $this->container['required_on_creation'];
+    }
+
+    /**
+     * Sets required_on_creation
+     *
+     * @param \Pipedrive\versions\v2\Model\ActivityFieldItemRequiredOnCreation|null $required_on_creation required_on_creation
+     *
+     * @return self
+     */
+    public function setRequiredOnCreation($required_on_creation): self
+    {
+        $this->container['required_on_creation'] = $required_on_creation;
+
+        return $this;
+    }
+
+    /**
+     * Gets required_on_completion
+     *
+     * @return \Pipedrive\versions\v2\Model\ActivityFieldItemRequiredOnCompletion|null
+     */
+    public function getRequiredOnCompletion()
+    {
+        return $this->container['required_on_completion'];
+    }
+
+    /**
+     * Sets required_on_completion
+     *
+     * @param \Pipedrive\versions\v2\Model\ActivityFieldItemRequiredOnCompletion|null $required_on_completion required_on_completion
+     *
+     * @return self
+     */
+    public function setRequiredOnCompletion($required_on_completion): self
+    {
+        $this->container['required_on_completion'] = $required_on_completion;
 
         return $this;
     }

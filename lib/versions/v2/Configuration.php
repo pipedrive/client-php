@@ -29,6 +29,7 @@ namespace Pipedrive\versions\v2;
 
 use Exception;
 use GuzzleHttp\Client;
+use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Utils;
@@ -214,15 +215,69 @@ class Configuration
     }
 
     /**
+     * Builds the URL of the authorization page
+     * @param string|null $state optional opaque value returned unchanged to the redirect URI, use it to protect against CSRF
+     * @param string|null $codeChallenge optional PKCE code challenge, see generateCodeVerifier() and generateCodeChallenge()
+     * @param string $codeChallengeMethod PKCE code challenge method, 'S256' or 'plain'. Sent only when $codeChallenge is set
      * @return string
      */
-    public function getAuthorizationPageUrl(): string
-    {
+    public function getAuthorizationPageUrl(
+        ?string $state = null,
+        ?string $codeChallenge = null,
+        string $codeChallengeMethod = 'S256'
+    ): string {
         $oauthHost = $this->getOAuthHost();
         $clientId = $this->getClientId();
         $oauthRedirectUri = $this->getOauthRedirectUri();
 
-        return "{$oauthHost}/oauth/authorize?client_id={$clientId}&redirect_uri={$oauthRedirectUri}";
+        $url = "{$oauthHost}/oauth/authorize?client_id={$clientId}&redirect_uri={$oauthRedirectUri}";
+
+        $params = [];
+
+        if ($state !== null && $state !== '') {
+            $params['state'] = $state;
+        }
+
+        if ($codeChallenge !== null && $codeChallenge !== '') {
+            $params['code_challenge'] = $codeChallenge;
+            $params['code_challenge_method'] = $codeChallengeMethod;
+        }
+
+        if (!empty($params)) {
+            $url .= '&' . http_build_query($params, '', '&', PHP_QUERY_RFC3986);
+        }
+
+        return $url;
+    }
+
+    /**
+     * Generates a random PKCE code verifier (RFC 7636): 32 random bytes, base64url encoded (43 characters)
+     * Keep it until the authorization code is exchanged and pass it to authorize()
+     * @return string
+     * @throws Exception if a source of randomness is not available
+     */
+    public static function generateCodeVerifier(): string
+    {
+        return self::base64UrlEncode(random_bytes(32));
+    }
+
+    /**
+     * Derives the S256 PKCE code challenge from a code verifier: base64url(sha256($codeVerifier))
+     * @param string $codeVerifier
+     * @return string
+     */
+    public static function generateCodeChallenge(string $codeVerifier): string
+    {
+        return self::base64UrlEncode(hash('sha256', $codeVerifier, true));
+    }
+
+    /**
+     * @param string $data
+     * @return string
+     */
+    private static function base64UrlEncode(string $data): string
+    {
+        return rtrim(strtr(base64_encode($data), '+/', '-_'), '=');
     }
 
     /**
@@ -607,7 +662,7 @@ class Configuration
      */
     public function refreshToken(): object
     {
-        $client = new Client();
+        $client = $this->createOAuthHttpClient();
 
         try {
             $response = $client->request('POST', $this->getOAuthHost().'/oauth/token', [
@@ -685,24 +740,40 @@ class Configuration
     }
 
     /**
+     * Creates the HTTP client used for requests to the OAuth server
+     * @return ClientInterface
+     */
+    protected function createOAuthHttpClient(): ClientInterface
+    {
+        return new Client();
+    }
+
+    /**
      * Authorizes the authorization code sent by the server and returns OAuth 2 token
      * @param string $code Authorization code for the OAuth token
+     * @param string|null $codeVerifier PKCE code verifier, required if a code challenge was sent to the authorization page
      * @return object
      * @throws OAuthProviderException
      */
-    public function authorize(string $code): object
+    public function authorize(string $code, ?string $codeVerifier = null): object
     {
-        $client = new Client();
+        $client = $this->createOAuthHttpClient();
+
+        $formParams = [
+            'code' => $code,
+            'client_id' => $this->getClientId(),
+            'client_secret' => $this->getClientSecret(),
+            'redirect_uri' => $this->getOauthRedirectUri(),
+            'grant_type' => 'authorization_code'
+        ];
+
+        if ($codeVerifier !== null && $codeVerifier !== '') {
+            $formParams['code_verifier'] = $codeVerifier;
+        }
 
         try {
             $response = $client->request('POST', $this->getOAuthHost() . '/oauth/token', [
-                'form_params' => [
-                    'code' => $code,
-                    'client_id' => $this->getClientId(),
-                    'client_secret' => $this->getClientSecret(),
-                    'redirect_uri' => $this->getOauthRedirectUri(),
-                    'grant_type' => 'authorization_code'
-                ]
+                'form_params' => $formParams
             ]);
 
             $oAuthToken = (object) Utils::jsonDecode($response->getBody()->getContents());
@@ -732,7 +803,7 @@ class Configuration
     {
         $token = $tokenTypeHint === 'refresh_token' ? $this->getRefreshToken() : $this->getAccessToken();
 
-        $client = new Client();
+        $client = $this->createOAuthHttpClient();
 
         try {
             $client->request('POST', $this->getOAuthHost() . '/oauth/revoke', [

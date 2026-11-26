@@ -79,6 +79,8 @@ class UpdatePersonRequestBody implements ModelInterface, ArrayAccess, JsonSerial
         'birthday' => 'string',
         'job_title' => 'string',
         'marketing_status' => 'string',
+        'track_open' => 'string',
+        'track_click' => 'string',
         'custom_fields' => 'array<string,object>'
     ];
 
@@ -103,6 +105,8 @@ class UpdatePersonRequestBody implements ModelInterface, ArrayAccess, JsonSerial
         'birthday' => null,
         'job_title' => null,
         'marketing_status' => null,
+        'track_open' => null,
+        'track_click' => null,
         'custom_fields' => null
     ];
 
@@ -150,6 +154,8 @@ class UpdatePersonRequestBody implements ModelInterface, ArrayAccess, JsonSerial
         'birthday' => 'birthday',
         'job_title' => 'job_title',
         'marketing_status' => 'marketing_status',
+        'track_open' => 'track_open',
+        'track_click' => 'track_click',
         'custom_fields' => 'custom_fields'
     ];
 
@@ -172,6 +178,8 @@ class UpdatePersonRequestBody implements ModelInterface, ArrayAccess, JsonSerial
         'birthday' => 'setBirthday',
         'job_title' => 'setJobTitle',
         'marketing_status' => 'setMarketingStatus',
+        'track_open' => 'setTrackOpen',
+        'track_click' => 'setTrackClick',
         'custom_fields' => 'setCustomFields'
     ];
 
@@ -194,6 +202,8 @@ class UpdatePersonRequestBody implements ModelInterface, ArrayAccess, JsonSerial
         'birthday' => 'getBirthday',
         'job_title' => 'getJobTitle',
         'marketing_status' => 'getMarketingStatus',
+        'track_open' => 'getTrackOpen',
+        'track_click' => 'getTrackClick',
         'custom_fields' => 'getCustomFields'
     ];
 
@@ -248,6 +258,12 @@ class UpdatePersonRequestBody implements ModelInterface, ArrayAccess, JsonSerial
     const MARKETING_STATUS_UNSUBSCRIBED = 'unsubscribed';
     const MARKETING_STATUS_SUBSCRIBED = 'subscribed';
     const MARKETING_STATUS_ARCHIVED = 'archived';
+    const TRACK_OPEN_NO_PREFERENCE_SET = 'no_preference_set';
+    const TRACK_OPEN_CONSENT_GIVEN = 'consent_given';
+    const TRACK_OPEN_CONSENT_DECLINED = 'consent_declined';
+    const TRACK_CLICK_NO_PREFERENCE_SET = 'no_preference_set';
+    const TRACK_CLICK_CONSENT_GIVEN = 'consent_given';
+    const TRACK_CLICK_CONSENT_DECLINED = 'consent_declined';
 
     /**
      * Gets allowable values of the enum
@@ -263,6 +279,38 @@ class UpdatePersonRequestBody implements ModelInterface, ArrayAccess, JsonSerial
             self::MARKETING_STATUS_UNSUBSCRIBED,
             self::MARKETING_STATUS_SUBSCRIBED,
             self::MARKETING_STATUS_ARCHIVED,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @phpstan-return  array<string|int>
+     * @phpsalm-return  array<string|int>
+     * @return (string|int)[]
+     */
+    public function getTrackOpenAllowableValues(): array
+    {
+        return [
+            self::TRACK_OPEN_NO_PREFERENCE_SET,
+            self::TRACK_OPEN_CONSENT_GIVEN,
+            self::TRACK_OPEN_CONSENT_DECLINED,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @phpstan-return  array<string|int>
+     * @phpsalm-return  array<string|int>
+     * @return (string|int)[]
+     */
+    public function getTrackClickAllowableValues(): array
+    {
+        return [
+            self::TRACK_CLICK_NO_PREFERENCE_SET,
+            self::TRACK_CLICK_CONSENT_GIVEN,
+            self::TRACK_CLICK_CONSENT_DECLINED,
         ];
     }
 
@@ -298,6 +346,8 @@ class UpdatePersonRequestBody implements ModelInterface, ArrayAccess, JsonSerial
         $this->container['birthday'] = $data['birthday'] ?? null;
         $this->container['job_title'] = $data['job_title'] ?? null;
         $this->container['marketing_status'] = $data['marketing_status'] ?? null;
+        $this->container['track_open'] = $data['track_open'] ?? null;
+        $this->container['track_click'] = $data['track_click'] ?? null;
         $this->container['custom_fields'] = $data['custom_fields'] ?? null;
     }
 
@@ -317,6 +367,24 @@ class UpdatePersonRequestBody implements ModelInterface, ArrayAccess, JsonSerial
             $invalidProperties[] = sprintf(
                 "invalid value '%s' for 'marketing_status', must be one of '%s'",
                 $this->container['marketing_status'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getTrackOpenAllowableValues();
+        if (!is_null($this->container['track_open']) && !in_array($this->container['track_open'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'track_open', must be one of '%s'",
+                $this->container['track_open'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getTrackClickAllowableValues();
+        if (!is_null($this->container['track_click']) && !in_array($this->container['track_click'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'track_click', must be one of '%s'",
+                $this->container['track_click'],
                 implode("', '", $allowedValues)
             );
         }
@@ -654,6 +722,74 @@ class UpdatePersonRequestBody implements ModelInterface, ArrayAccess, JsonSerial
             );
         }
         $this->container['marketing_status'] = $marketing_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets track_open
+     *
+     * @return string|null
+     */
+    public function getTrackOpen()
+    {
+        return $this->container['track_open'];
+    }
+
+    /**
+     * Sets track_open
+     *
+     * @param string|null $track_open The email open tracking consent of the person. Only accepted if the company has the Email tracking consent setting enabled.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`no_preference_set`</td><td>The person has not set a preference</td></tr><tr><td>`consent_given`</td><td>The person has given consent</td></tr><tr><td>`consent_declined`</td><td>The person has declined consent</td></tr></table>
+     *
+     * @return self
+     */
+    public function setTrackOpen($track_open): self
+    {
+        $allowedValues = $this->getTrackOpenAllowableValues();
+        if (!is_null($track_open) && !in_array($track_open, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'track_open', must be one of '%s'",
+                    $track_open,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['track_open'] = $track_open;
+
+        return $this;
+    }
+
+    /**
+     * Gets track_click
+     *
+     * @return string|null
+     */
+    public function getTrackClick()
+    {
+        return $this->container['track_click'];
+    }
+
+    /**
+     * Sets track_click
+     *
+     * @param string|null $track_click The email link click tracking consent of the person. Only accepted if the company has the Email tracking consent setting enabled.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`no_preference_set`</td><td>The person has not set a preference</td></tr><tr><td>`consent_given`</td><td>The person has given consent</td></tr><tr><td>`consent_declined`</td><td>The person has declined consent</td></tr></table>
+     *
+     * @return self
+     */
+    public function setTrackClick($track_click): self
+    {
+        $allowedValues = $this->getTrackClickAllowableValues();
+        if (!is_null($track_click) && !in_array($track_click, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'track_click', must be one of '%s'",
+                    $track_click,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['track_click'] = $track_click;
 
         return $this;
     }
