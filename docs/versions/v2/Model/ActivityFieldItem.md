@@ -12,5 +12,7 @@ Name | Type | Description | Notes
 **is_custom_field** | **bool** | Whether this is a user-created custom field |
 **is_optional_response_field** | **bool** | Whether this field is not returned by default in entity responses |
 **ui_visibility** | [**\Pipedrive\versions\v2\Model\ActivityFieldItemUiVisibility**](ActivityFieldItemUiVisibility.md) |  | [optional]
+**required_on_creation** | [**\Pipedrive\versions\v2\Model\ActivityFieldItemRequiredOnCreation**](ActivityFieldItemRequiredOnCreation.md) |  | [optional]
+**required_on_completion** | [**\Pipedrive\versions\v2\Model\ActivityFieldItemRequiredOnCompletion**](ActivityFieldItemRequiredOnCompletion.md) |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

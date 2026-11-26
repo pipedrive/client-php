@@ -68,7 +68,8 @@ class ActivityFieldItemUiVisibility implements ModelInterface, ArrayAccess, Json
       */
     protected static array $openAPITypes = [
         'add_visible_flag' => 'bool',
-        'details_visible_flag' => 'bool'
+        'details_visible_flag' => 'bool',
+        'show_in_activity_types' => '\Pipedrive\versions\v2\Model\ActivityFieldItemUiVisibilityShowInActivityTypes'
     ];
 
     /**
@@ -80,7 +81,8 @@ class ActivityFieldItemUiVisibility implements ModelInterface, ArrayAccess, Json
       */
     protected static $openAPIFormats = [
         'add_visible_flag' => null,
-        'details_visible_flag' => null
+        'details_visible_flag' => null,
+        'show_in_activity_types' => null
     ];
 
     /**
@@ -115,7 +117,8 @@ class ActivityFieldItemUiVisibility implements ModelInterface, ArrayAccess, Json
      */
     protected static $attributeMap = [
         'add_visible_flag' => 'add_visible_flag',
-        'details_visible_flag' => 'details_visible_flag'
+        'details_visible_flag' => 'details_visible_flag',
+        'show_in_activity_types' => 'show_in_activity_types'
     ];
 
     /**
@@ -125,7 +128,8 @@ class ActivityFieldItemUiVisibility implements ModelInterface, ArrayAccess, Json
      */
     protected static $setters = [
         'add_visible_flag' => 'setAddVisibleFlag',
-        'details_visible_flag' => 'setDetailsVisibleFlag'
+        'details_visible_flag' => 'setDetailsVisibleFlag',
+        'show_in_activity_types' => 'setShowInActivityTypes'
     ];
 
     /**
@@ -135,7 +139,8 @@ class ActivityFieldItemUiVisibility implements ModelInterface, ArrayAccess, Json
      */
     protected static $getters = [
         'add_visible_flag' => 'getAddVisibleFlag',
-        'details_visible_flag' => 'getDetailsVisibleFlag'
+        'details_visible_flag' => 'getDetailsVisibleFlag',
+        'show_in_activity_types' => 'getShowInActivityTypes'
     ];
 
     /**
@@ -207,6 +212,7 @@ class ActivityFieldItemUiVisibility implements ModelInterface, ArrayAccess, Json
     {
         $this->container['add_visible_flag'] = $data['add_visible_flag'] ?? null;
         $this->container['details_visible_flag'] = $data['details_visible_flag'] ?? null;
+        $this->container['show_in_activity_types'] = $data['show_in_activity_types'] ?? null;
     }
 
     /**
@@ -279,6 +285,30 @@ class ActivityFieldItemUiVisibility implements ModelInterface, ArrayAccess, Json
     public function setDetailsVisibleFlag($details_visible_flag): self
     {
         $this->container['details_visible_flag'] = $details_visible_flag;
+
+        return $this;
+    }
+
+    /**
+     * Gets show_in_activity_types
+     *
+     * @return \Pipedrive\versions\v2\Model\ActivityFieldItemUiVisibilityShowInActivityTypes|null
+     */
+    public function getShowInActivityTypes()
+    {
+        return $this->container['show_in_activity_types'];
+    }
+
+    /**
+     * Sets show_in_activity_types
+     *
+     * @param \Pipedrive\versions\v2\Model\ActivityFieldItemUiVisibilityShowInActivityTypes|null $show_in_activity_types show_in_activity_types
+     *
+     * @return self
+     */
+    public function setShowInActivityTypes($show_in_activity_types): self
+    {
+        $this->container['show_in_activity_types'] = $show_in_activity_types;
 
         return $this;
     }
