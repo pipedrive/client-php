@@ -81,7 +81,7 @@ class DealItem implements ModelInterface, ArrayAccess, JsonSerializable
         'is_deleted' => 'bool',
         'is_archived' => 'bool',
         'status' => 'string',
-        'probability' => 'float',
+        'probability' => 'int',
         'lost_reason' => 'string',
         'visible_to' => 'int',
         'close_time' => 'string',
@@ -777,7 +777,7 @@ class DealItem implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets probability
      *
-     * @return float|null
+     * @return int|null
      */
     public function getProbability()
     {
@@ -787,7 +787,7 @@ class DealItem implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets probability
      *
-     * @param float|null $probability The success probability percentage of the deal
+     * @param int|null $probability The success probability percentage of the deal
      *
      * @return self
      */

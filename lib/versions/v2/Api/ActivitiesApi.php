@@ -723,6 +723,8 @@ class ActivitiesApi
      * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;, &#x60;due_date&#x60;. (optional, default to 'id')
      * @param  string|'asc' $sort_direction The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;. (optional, default to 'asc')
      * @param  string[]|null $include_fields Optional comma separated string array of additional fields to include (optional)
+     * @param  string[]|null $custom_fields Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
+     * @param  bool|null $include_option_labels When provided with a &#39;true&#39; value, single option and multiple option custom fields values contain objects in the form of &#39;{ id: number, label: string }&#39; instead of plain id (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      *
@@ -730,9 +732,9 @@ class ActivitiesApi
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v2\Model\GetActivities
      */
-    public function getActivities($filter_id = null, $ids = null, $owner_id = null, $deal_id = null, $lead_id = null, $person_id = null, $org_id = null, $done = null, $updated_since = null, $updated_until = null, $sort_by = 'id', $sort_direction = 'asc', $include_fields = null, $limit = null, $cursor = null)
+    public function getActivities($filter_id = null, $ids = null, $owner_id = null, $deal_id = null, $lead_id = null, $person_id = null, $org_id = null, $done = null, $updated_since = null, $updated_until = null, $sort_by = 'id', $sort_direction = 'asc', $include_fields = null, $custom_fields = null, $include_option_labels = null, $limit = null, $cursor = null)
     {
-        list($response) = $this->getActivitiesWithHttpInfo($filter_id, $ids, $owner_id, $deal_id, $lead_id, $person_id, $org_id, $done, $updated_since, $updated_until, $sort_by, $sort_direction, $include_fields, $limit, $cursor);
+        list($response) = $this->getActivitiesWithHttpInfo($filter_id, $ids, $owner_id, $deal_id, $lead_id, $person_id, $org_id, $done, $updated_since, $updated_until, $sort_by, $sort_direction, $include_fields, $custom_fields, $include_option_labels, $limit, $cursor);
         return $response;
     }
 
@@ -754,6 +756,8 @@ class ActivitiesApi
      * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;, &#x60;due_date&#x60;. (optional, default to 'id')
      * @param  string|'asc' $sort_direction The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;. (optional, default to 'asc')
      * @param  string[]|null $include_fields Optional comma separated string array of additional fields to include (optional)
+     * @param  string[]|null $custom_fields Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
+     * @param  bool|null $include_option_labels When provided with a &#39;true&#39; value, single option and multiple option custom fields values contain objects in the form of &#39;{ id: number, label: string }&#39; instead of plain id (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      *
@@ -761,9 +765,9 @@ class ActivitiesApi
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v2\Model\GetActivities, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getActivitiesWithHttpInfo($filter_id = null, $ids = null, $owner_id = null, $deal_id = null, $lead_id = null, $person_id = null, $org_id = null, $done = null, $updated_since = null, $updated_until = null, $sort_by = 'id', $sort_direction = 'asc', $include_fields = null, $limit = null, $cursor = null)
+    public function getActivitiesWithHttpInfo($filter_id = null, $ids = null, $owner_id = null, $deal_id = null, $lead_id = null, $person_id = null, $org_id = null, $done = null, $updated_since = null, $updated_until = null, $sort_by = 'id', $sort_direction = 'asc', $include_fields = null, $custom_fields = null, $include_option_labels = null, $limit = null, $cursor = null)
     {
-        $request = $this->getActivitiesRequest($filter_id, $ids, $owner_id, $deal_id, $lead_id, $person_id, $org_id, $done, $updated_since, $updated_until, $sort_by, $sort_direction, $include_fields, $limit, $cursor);
+        $request = $this->getActivitiesRequest($filter_id, $ids, $owner_id, $deal_id, $lead_id, $person_id, $org_id, $done, $updated_since, $updated_until, $sort_by, $sort_direction, $include_fields, $custom_fields, $include_option_labels, $limit, $cursor);
 
         try {
             $options = $this->createHttpClientOption();
@@ -772,7 +776,7 @@ class ActivitiesApi
             } catch (RequestException $e) {
                 if ($e->getCode() === 401 && $this->config->isRefreshPossible()) {
                     $this->config->refreshToken();
-                    $request = $this->getActivitiesRequest($filter_id, $ids, $owner_id, $deal_id, $lead_id, $person_id, $org_id, $done, $updated_since, $updated_until, $sort_by, $sort_direction, $include_fields, $limit, $cursor);
+                    $request = $this->getActivitiesRequest($filter_id, $ids, $owner_id, $deal_id, $lead_id, $person_id, $org_id, $done, $updated_since, $updated_until, $sort_by, $sort_direction, $include_fields, $custom_fields, $include_option_labels, $limit, $cursor);
                     $response = $this->client->send($request, $options);
                 } else {
                     throw new ApiException(
@@ -869,15 +873,17 @@ class ActivitiesApi
      * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;, &#x60;due_date&#x60;. (optional, default to 'id')
      * @param  string|'asc' $sort_direction The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;. (optional, default to 'asc')
      * @param  string[]|null $include_fields Optional comma separated string array of additional fields to include (optional)
+     * @param  string[]|null $custom_fields Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
+     * @param  bool|null $include_option_labels When provided with a &#39;true&#39; value, single option and multiple option custom fields values contain objects in the form of &#39;{ id: number, label: string }&#39; instead of plain id (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
      */
-    public function getActivitiesAsync($filter_id = null, $ids = null, $owner_id = null, $deal_id = null, $lead_id = null, $person_id = null, $org_id = null, $done = null, $updated_since = null, $updated_until = null, $sort_by = 'id', $sort_direction = 'asc', $include_fields = null, $limit = null, $cursor = null): PromiseInterface
+    public function getActivitiesAsync($filter_id = null, $ids = null, $owner_id = null, $deal_id = null, $lead_id = null, $person_id = null, $org_id = null, $done = null, $updated_since = null, $updated_until = null, $sort_by = 'id', $sort_direction = 'asc', $include_fields = null, $custom_fields = null, $include_option_labels = null, $limit = null, $cursor = null): PromiseInterface
     {
-        return $this->getActivitiesAsyncWithHttpInfo($filter_id, $ids, $owner_id, $deal_id, $lead_id, $person_id, $org_id, $done, $updated_since, $updated_until, $sort_by, $sort_direction, $include_fields, $limit, $cursor)
+        return $this->getActivitiesAsyncWithHttpInfo($filter_id, $ids, $owner_id, $deal_id, $lead_id, $person_id, $org_id, $done, $updated_since, $updated_until, $sort_by, $sort_direction, $include_fields, $custom_fields, $include_option_labels, $limit, $cursor)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -903,16 +909,18 @@ class ActivitiesApi
      * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;, &#x60;due_date&#x60;. (optional, default to 'id')
      * @param  string|'asc' $sort_direction The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;. (optional, default to 'asc')
      * @param  string[]|null $include_fields Optional comma separated string array of additional fields to include (optional)
+     * @param  string[]|null $custom_fields Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
+     * @param  bool|null $include_option_labels When provided with a &#39;true&#39; value, single option and multiple option custom fields values contain objects in the form of &#39;{ id: number, label: string }&#39; instead of plain id (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
      */
-    public function getActivitiesAsyncWithHttpInfo($filter_id = null, $ids = null, $owner_id = null, $deal_id = null, $lead_id = null, $person_id = null, $org_id = null, $done = null, $updated_since = null, $updated_until = null, $sort_by = 'id', $sort_direction = 'asc', $include_fields = null, $limit = null, $cursor = null): PromiseInterface
+    public function getActivitiesAsyncWithHttpInfo($filter_id = null, $ids = null, $owner_id = null, $deal_id = null, $lead_id = null, $person_id = null, $org_id = null, $done = null, $updated_since = null, $updated_until = null, $sort_by = 'id', $sort_direction = 'asc', $include_fields = null, $custom_fields = null, $include_option_labels = null, $limit = null, $cursor = null): PromiseInterface
     {
         $returnType = '\Pipedrive\versions\v2\Model\GetActivities';
-        $request = $this->getActivitiesRequest($filter_id, $ids, $owner_id, $deal_id, $lead_id, $person_id, $org_id, $done, $updated_since, $updated_until, $sort_by, $sort_direction, $include_fields, $limit, $cursor);
+        $request = $this->getActivitiesRequest($filter_id, $ids, $owner_id, $deal_id, $lead_id, $person_id, $org_id, $done, $updated_since, $updated_until, $sort_by, $sort_direction, $include_fields, $custom_fields, $include_option_labels, $limit, $cursor);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -964,18 +972,24 @@ class ActivitiesApi
      * @param  string|'id' $sort_by The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;, &#x60;due_date&#x60;. (optional, default to 'id')
      * @param  string|'asc' $sort_direction The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;. (optional, default to 'asc')
      * @param  string[]|null $include_fields Optional comma separated string array of additional fields to include (optional)
+     * @param  string[]|null $custom_fields Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
+     * @param  bool|null $include_option_labels When provided with a &#39;true&#39; value, single option and multiple option custom fields values contain objects in the form of &#39;{ id: number, label: string }&#39; instead of plain id (optional)
      * @param  int|null $limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. (optional)
      * @param  string|null $cursor For pagination, the marker (an opaque string value) representing the first item on the next page (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
      */
-    public function getActivitiesRequest($filter_id = null, $ids = null, $owner_id = null, $deal_id = null, $lead_id = null, $person_id = null, $org_id = null, $done = null, $updated_since = null, $updated_until = null, $sort_by = 'id', $sort_direction = 'asc', $include_fields = null, $limit = null, $cursor = null): Request
+    public function getActivitiesRequest($filter_id = null, $ids = null, $owner_id = null, $deal_id = null, $lead_id = null, $person_id = null, $org_id = null, $done = null, $updated_since = null, $updated_until = null, $sort_by = 'id', $sort_direction = 'asc', $include_fields = null, $custom_fields = null, $include_option_labels = null, $limit = null, $cursor = null): Request
     {
         if ($ids !== null && count($ids) > 100) {
             throw new \InvalidArgumentException('invalid value for "$ids" when calling ActivitiesApi.getActivities, number of items must be less than or equal to 100.');
         }
 
+
+        if ($custom_fields !== null && count($custom_fields) > 15) {
+            throw new \InvalidArgumentException('invalid value for "$custom_fields" when calling ActivitiesApi.getActivities, number of items must be less than or equal to 15.');
+        }
 
         if ($limit !== null && $limit > 500) {
             throw new \InvalidArgumentException('invalid value for "$limit" when calling ActivitiesApi.getActivities, must be smaller than or equal to 500.');
@@ -1098,6 +1112,22 @@ class ActivitiesApi
         }
         // query params
         /* @phpstan-ignore-next-line */
+        if (is_array($custom_fields)) {
+            $custom_fields = ObjectSerializer::serializeCollection($custom_fields, 'form', true);
+        }
+        if ($custom_fields !== null) {
+            $queryParams['custom_fields'] = $custom_fields;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($include_option_labels)) {
+            $include_option_labels = ObjectSerializer::serializeCollection($include_option_labels, '', true);
+        }
+        if ($include_option_labels !== null) {
+            $queryParams['include_option_labels'] = $include_option_labels;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
         if (is_array($limit)) {
             $limit = ObjectSerializer::serializeCollection($limit, '', true);
         }
@@ -1195,14 +1225,16 @@ class ActivitiesApi
      *
      * @param  int $id The ID of the activity (required)
      * @param  string[]|null $include_fields Optional comma separated string array of additional fields to include (optional)
+     * @param  string[]|null $custom_fields Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
+     * @param  bool|null $include_option_labels When provided with a &#39;true&#39; value, single option and multiple option custom fields values contain objects in the form of &#39;{ id: number, label: string }&#39; instead of plain id (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return \Pipedrive\versions\v2\Model\PostPatchGetActivity
      */
-    public function getActivity($id, $include_fields = null)
+    public function getActivity($id, $include_fields = null, $custom_fields = null, $include_option_labels = null)
     {
-        list($response) = $this->getActivityWithHttpInfo($id, $include_fields);
+        list($response) = $this->getActivityWithHttpInfo($id, $include_fields, $custom_fields, $include_option_labels);
         return $response;
     }
 
@@ -1213,14 +1245,16 @@ class ActivitiesApi
      *
      * @param  int $id The ID of the activity (required)
      * @param  string[]|null $include_fields Optional comma separated string array of additional fields to include (optional)
+     * @param  string[]|null $custom_fields Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
+     * @param  bool|null $include_option_labels When provided with a &#39;true&#39; value, single option and multiple option custom fields values contain objects in the form of &#39;{ id: number, label: string }&#39; instead of plain id (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException|GuzzleException
      * @return array<mixed> of \Pipedrive\versions\v2\Model\PostPatchGetActivity, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getActivityWithHttpInfo($id, $include_fields = null)
+    public function getActivityWithHttpInfo($id, $include_fields = null, $custom_fields = null, $include_option_labels = null)
     {
-        $request = $this->getActivityRequest($id, $include_fields);
+        $request = $this->getActivityRequest($id, $include_fields, $custom_fields, $include_option_labels);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1229,7 +1263,7 @@ class ActivitiesApi
             } catch (RequestException $e) {
                 if ($e->getCode() === 401 && $this->config->isRefreshPossible()) {
                     $this->config->refreshToken();
-                    $request = $this->getActivityRequest($id, $include_fields);
+                    $request = $this->getActivityRequest($id, $include_fields, $custom_fields, $include_option_labels);
                     $response = $this->client->send($request, $options);
                 } else {
                     throw new ApiException(
@@ -1315,13 +1349,15 @@ class ActivitiesApi
      *
      * @param  int $id The ID of the activity (required)
      * @param  string[]|null $include_fields Optional comma separated string array of additional fields to include (optional)
+     * @param  string[]|null $custom_fields Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
+     * @param  bool|null $include_option_labels When provided with a &#39;true&#39; value, single option and multiple option custom fields values contain objects in the form of &#39;{ id: number, label: string }&#39; instead of plain id (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
      */
-    public function getActivityAsync($id, $include_fields = null): PromiseInterface
+    public function getActivityAsync($id, $include_fields = null, $custom_fields = null, $include_option_labels = null): PromiseInterface
     {
-        return $this->getActivityAsyncWithHttpInfo($id, $include_fields)
+        return $this->getActivityAsyncWithHttpInfo($id, $include_fields, $custom_fields, $include_option_labels)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1336,14 +1372,16 @@ class ActivitiesApi
      *
      * @param  int $id The ID of the activity (required)
      * @param  string[]|null $include_fields Optional comma separated string array of additional fields to include (optional)
+     * @param  string[]|null $custom_fields Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
+     * @param  bool|null $include_option_labels When provided with a &#39;true&#39; value, single option and multiple option custom fields values contain objects in the form of &#39;{ id: number, label: string }&#39; instead of plain id (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return PromiseInterface
      */
-    public function getActivityAsyncWithHttpInfo($id, $include_fields = null): PromiseInterface
+    public function getActivityAsyncWithHttpInfo($id, $include_fields = null, $custom_fields = null, $include_option_labels = null): PromiseInterface
     {
         $returnType = '\Pipedrive\versions\v2\Model\PostPatchGetActivity';
-        $request = $this->getActivityRequest($id, $include_fields);
+        $request = $this->getActivityRequest($id, $include_fields, $custom_fields, $include_option_labels);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1384,11 +1422,13 @@ class ActivitiesApi
      *
      * @param  int $id The ID of the activity (required)
      * @param  string[]|null $include_fields Optional comma separated string array of additional fields to include (optional)
+     * @param  string[]|null $custom_fields Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. (optional)
+     * @param  bool|null $include_option_labels When provided with a &#39;true&#39; value, single option and multiple option custom fields values contain objects in the form of &#39;{ id: number, label: string }&#39; instead of plain id (optional)
      *
      * @throws InvalidArgumentException|OAuthProviderException
      * @return Request
      */
-    public function getActivityRequest($id, $include_fields = null): Request
+    public function getActivityRequest($id, $include_fields = null, $custom_fields = null, $include_option_labels = null): Request
     {
         // verify the required parameter 'id' is set
         /* @phpstan-ignore-next-line */
@@ -1396,6 +1436,10 @@ class ActivitiesApi
             throw new \InvalidArgumentException(
                 'Missing the required parameter $id when calling getActivity'
             );
+        }
+
+        if ($custom_fields !== null && count($custom_fields) > 15) {
+            throw new \InvalidArgumentException('invalid value for "$custom_fields" when calling ActivitiesApi.getActivity, number of items must be less than or equal to 15.');
         }
 
 
@@ -1413,6 +1457,22 @@ class ActivitiesApi
         }
         if ($include_fields !== null) {
             $queryParams['include_fields'] = $include_fields;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($custom_fields)) {
+            $custom_fields = ObjectSerializer::serializeCollection($custom_fields, 'form', true);
+        }
+        if ($custom_fields !== null) {
+            $queryParams['custom_fields'] = $custom_fields;
+        }
+        // query params
+        /* @phpstan-ignore-next-line */
+        if (is_array($include_option_labels)) {
+            $include_option_labels = ObjectSerializer::serializeCollection($include_option_labels, '', true);
+        }
+        if ($include_option_labels !== null) {
+            $queryParams['include_option_labels'] = $include_option_labels;
         }
 
 

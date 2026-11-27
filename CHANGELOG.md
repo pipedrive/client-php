@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Fixed
+- Fixed the v2 Deals schemas to match real API behavior:
+  - Changed `probability` from `number` to `integer` in `deals` endpoints
+  - Marked optional fields as nullable in the `POST /api/v2/deals` request body: `owner_id`, `pipeline_id`, `stage_id`, `currency`, `is_archived`, `status`, `probability`, `lost_reason`, `visible_to`, `close_time`, `won_time`, `lost_time`, `expected_close_date`, and `label_ids`
 
 ## [19.2.1](https://github.com/pipedrive/client-php/compare/19.2.0...19.2.1) (2026-11-06)
 ### Fixed

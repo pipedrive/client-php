@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **is_deleted** | **bool** | Whether the deal is deleted or not | [optional]
 **is_archived** | **bool** | Whether the deal is archived or not | [optional]
 **status** | **string** | The status of the deal | [optional]
-**probability** | **float** | The success probability percentage of the deal | [optional]
+**probability** | **int** | The success probability percentage of the deal | [optional]
 **lost_reason** | **string** | The reason for losing the deal | [optional]
 **visible_to** | **int** | The visibility of the deal | [optional]
 **close_time** | **string** | The date and time of closing the deal | [optional]

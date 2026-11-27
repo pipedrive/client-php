@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **is_archived** | **bool** | Whether the deal is archived or not | [optional]
 **archive_time** | **string** | The optional date and time of archiving the deal in UTC. Format: YYYY-MM-DD HH:MM:SS. If omitted and &#x60;is_archived&#x60; is true, it will be set to the current date and time. | [optional]
 **status** | **string** | The status of the deal | [optional]
-**probability** | **float** | The success probability percentage of the deal | [optional]
+**probability** | **int** | The success probability percentage of the deal | [optional]
 **lost_reason** | **string** | The reason for losing the deal. Can only be set if deal status is lost. | [optional]
 **visible_to** | **int** | The visibility of the deal | [optional]
 **close_time** | **string** | The date and time of closing the deal. Can only be set if deal status is won or lost. | [optional]
