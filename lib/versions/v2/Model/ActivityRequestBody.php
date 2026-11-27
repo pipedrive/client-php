@@ -84,7 +84,8 @@ class ActivityRequestBody implements ModelInterface, ArrayAccess, JsonSerializab
         'public_description' => 'string',
         'priority' => 'int',
         'outcome' => 'int',
-        'note' => 'string'
+        'note' => 'string',
+        'custom_fields' => 'array<string,object>'
     ];
 
     /**
@@ -113,7 +114,8 @@ class ActivityRequestBody implements ModelInterface, ArrayAccess, JsonSerializab
         'public_description' => null,
         'priority' => null,
         'outcome' => null,
-        'note' => null
+        'note' => null,
+        'custom_fields' => null
     ];
 
     /**
@@ -165,7 +167,8 @@ class ActivityRequestBody implements ModelInterface, ArrayAccess, JsonSerializab
         'public_description' => 'public_description',
         'priority' => 'priority',
         'outcome' => 'outcome',
-        'note' => 'note'
+        'note' => 'note',
+        'custom_fields' => 'custom_fields'
     ];
 
     /**
@@ -192,7 +195,8 @@ class ActivityRequestBody implements ModelInterface, ArrayAccess, JsonSerializab
         'public_description' => 'setPublicDescription',
         'priority' => 'setPriority',
         'outcome' => 'setOutcome',
-        'note' => 'setNote'
+        'note' => 'setNote',
+        'custom_fields' => 'setCustomFields'
     ];
 
     /**
@@ -219,7 +223,8 @@ class ActivityRequestBody implements ModelInterface, ArrayAccess, JsonSerializab
         'public_description' => 'getPublicDescription',
         'priority' => 'getPriority',
         'outcome' => 'getOutcome',
-        'note' => 'getNote'
+        'note' => 'getNote',
+        'custom_fields' => 'getCustomFields'
     ];
 
     /**
@@ -308,6 +313,7 @@ class ActivityRequestBody implements ModelInterface, ArrayAccess, JsonSerializab
         $this->container['priority'] = $data['priority'] ?? null;
         $this->container['outcome'] = $data['outcome'] ?? null;
         $this->container['note'] = $data['note'] ?? null;
+        $this->container['custom_fields'] = $data['custom_fields'] ?? null;
     }
 
     /**
@@ -788,6 +794,30 @@ class ActivityRequestBody implements ModelInterface, ArrayAccess, JsonSerializab
     public function setNote($note): self
     {
         $this->container['note'] = $note;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_fields
+     *
+     * @return array<string,object>|null
+     */
+    public function getCustomFields()
+    {
+        return $this->container['custom_fields'];
+    }
+
+    /**
+     * Sets custom_fields
+     *
+     * @param array<string,object>|null $custom_fields An object where each key represents a custom field. All custom fields are referenced as randomly generated 40-character hashes. To clear a custom field value, set it to `null`. For multi-option fields (field type `set`), use `null` to clear the selection — sending an empty array `[]` is not supported and will result in a validation error.
+     *
+     * @return self
+     */
+    public function setCustomFields($custom_fields): self
+    {
+        $this->container['custom_fields'] = $custom_fields;
 
         return $this;
     }

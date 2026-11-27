@@ -78,7 +78,7 @@ class PatchDealRequestBody implements ModelInterface, ArrayAccess, JsonSerializa
         'is_archived' => 'bool',
         'archive_time' => 'string',
         'status' => 'string',
-        'probability' => 'float',
+        'probability' => 'int',
         'lost_reason' => 'string',
         'visible_to' => 'int',
         'close_time' => 'string',
@@ -651,7 +651,7 @@ class PatchDealRequestBody implements ModelInterface, ArrayAccess, JsonSerializa
     /**
      * Gets probability
      *
-     * @return float|null
+     * @return int|null
      */
     public function getProbability()
     {
@@ -661,7 +661,7 @@ class PatchDealRequestBody implements ModelInterface, ArrayAccess, JsonSerializa
     /**
      * Sets probability
      *
-     * @param float|null $probability The success probability percentage of the deal
+     * @param int|null $probability The success probability percentage of the deal
      *
      * @return self
      */

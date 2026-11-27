@@ -25,7 +25,7 @@ addPerson($post_person_request_body): \Pipedrive\versions\v2\Model\PostPatchGetP
 
 Add a new person
 
-Adds a new person. <br>If the company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `marketing_status` field. <br>The `im`, `postal_address`, `notes`, `birthday` and `job_title` fields don't exist by default in Pipedrive and are only created when you set up your contact sync — attempting to set any of them without contact sync enabled returns a 403.
+Adds a new person.<br>The `im`, `postal_address`, `notes`, `birthday` and `job_title` fields don't exist by default in Pipedrive and are only created when you set up your contact sync — attempting to set any of them without contact sync enabled returns a 403.<br>If the company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `marketing_status` field.<br>If the company has the Email tracking consent setting enabled, then this endpoint will also accept and return the `track_open` and `track_click` fields.
 
 ### Example
 
@@ -289,7 +289,7 @@ getPerson($id, $include_fields, $custom_fields, $include_option_labels, $include
 
 Get details of a person
 
-Returns the details of a specific person. Fields `ims`, `postal_address`, `notes`, `birthday`, and `job_title` are only included if contact sync is enabled for the company.
+Returns the details of a specific person. <br>Fields `ims`, `postal_address`, `notes`, `birthday`, and `job_title` are only included if contact sync is enabled for the company.
 
 ### Example
 
@@ -314,7 +314,7 @@ $apiInstance = new Pipedrive\versions\v2\Api\PersonsApi(
     $config
 );
 $id = 56; // int | The ID of the person
-$include_fields = array('include_fields_example'); // string[] | Optional comma separated string array of additional fields to include. `marketing_status` and `doi_status` can only be included if the company has marketing app enabled.
+$include_fields = array('include_fields_example'); // string[] | Optional comma separated string array of additional fields to include. <br>`marketing_status` and `doi_status` can only be included if the company has marketing app enabled. <br>`track_open` and `track_click` can only be included if the company has the Email tracking consent setting enabled.
 $custom_fields = array('custom_fields_example'); // string[] | Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.<br/>A maximum of 15 keys is allowed.
 $include_option_labels = True; // bool | When provided with a 'true' value, single option and multiple option custom fields values contain objects in the form of '{ id: number, label: string }' instead of plain id
 $include_labels = True; // bool | When provided with 'true' value, response will include an array of label objects in the form of '{ id: number, label: string }'
@@ -332,7 +332,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The ID of the person |
- **include_fields** | [**string[]**](../Model/string.md)| Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled. | [optional]
+ **include_fields** | [**string[]**](../Model/string.md)| Optional comma separated string array of additional fields to include. &lt;br&gt;&#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled. &lt;br&gt;&#x60;track_open&#x60; and &#x60;track_click&#x60; can only be included if the company has the Email tracking consent setting enabled. | [optional]
  **custom_fields** | [**string[]**](../Model/string.md)| Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. | [optional]
  **include_option_labels** | **bool**| When provided with a &#39;true&#39; value, single option and multiple option custom fields values contain objects in the form of &#39;{ id: number, label: string }&#39; instead of plain id | [optional]
  **include_labels** | **bool**| When provided with &#39;true&#39; value, response will include an array of label objects in the form of &#39;{ id: number, label: string }&#39; | [optional]
@@ -598,7 +598,7 @@ $updated_since = 'updated_since_example'; // string | If set, only persons with 
 $updated_until = 'updated_until_example'; // string | If set, only persons with an `update_time` earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
 $sort_by = 'id'; // string | The field to sort by. Supported fields: `id`, `update_time`, `add_time`.
 $sort_direction = 'asc'; // string | The sorting direction. Supported values: `asc`, `desc`.
-$include_fields = array('include_fields_example'); // string[] | Optional comma separated string array of additional fields to include. `marketing_status` and `doi_status` can only be included if the company has marketing app enabled.
+$include_fields = array('include_fields_example'); // string[] | Optional comma separated string array of additional fields to include. <br>`marketing_status` and `doi_status` can only be included if the company has marketing app enabled. <br>`track_open` and `track_click` can only be included if the company has the Email tracking consent setting enabled.
 $custom_fields = array('custom_fields_example'); // string[] | Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.<br/>A maximum of 15 keys is allowed.
 $include_option_labels = True; // bool | When provided with a 'true' value, single option and multiple option custom fields values contain objects in the form of '{ id: number, label: string }' instead of plain id
 $include_labels = True; // bool | When provided with 'true' value, response will include an array of label objects in the form of '{ id: number, label: string }'
@@ -626,7 +626,7 @@ Name | Type | Description  | Notes
  **updated_until** | **string**| If set, only persons with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z. | [optional]
  **sort_by** | **string**| The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;. | [optional] [default to &#39;id&#39;]
  **sort_direction** | **string**| The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;. | [optional] [default to &#39;asc&#39;]
- **include_fields** | [**string[]**](../Model/string.md)| Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled. | [optional]
+ **include_fields** | [**string[]**](../Model/string.md)| Optional comma separated string array of additional fields to include. &lt;br&gt;&#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled. &lt;br&gt;&#x60;track_open&#x60; and &#x60;track_click&#x60; can only be included if the company has the Email tracking consent setting enabled. | [optional]
  **custom_fields** | [**string[]**](../Model/string.md)| Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. | [optional]
  **include_option_labels** | **bool**| When provided with a &#39;true&#39; value, single option and multiple option custom fields values contain objects in the form of &#39;{ id: number, label: string }&#39; instead of plain id | [optional]
  **include_labels** | **bool**| When provided with &#39;true&#39; value, response will include an array of label objects in the form of &#39;{ id: number, label: string }&#39; | [optional]
@@ -735,7 +735,7 @@ updatePerson($id, $update_person_request_body): \Pipedrive\versions\v2\Model\Pos
 
 Update a person
 
-Updates the properties of a person. <br>If the company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `marketing_status` field. <br>The `im`, `postal_address`, `notes`, `birthday` and `job_title` fields don't exist by default in Pipedrive and are only created when you set up your contact sync — attempting to set any of them without contact sync enabled returns a 403.
+Updates the properties of a person. <br>The `im`, `postal_address`, `notes`, `birthday` and `job_title` fields don't exist by default in Pipedrive and are only created when you set up your contact sync — attempting to set any of them without contact sync enabled returns a 403. <br>If the company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `marketing_status` field. <br>If the company has the Email tracking consent setting enabled, then this endpoint will also accept and return the `track_open` and `track_click` fields.
 
 ### Example
 

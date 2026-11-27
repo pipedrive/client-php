@@ -144,7 +144,7 @@ Name | Type | Description  | Notes
 ## `getActivities()`
 
 ```php
-getActivities($filter_id, $ids, $owner_id, $deal_id, $lead_id, $person_id, $org_id, $done, $updated_since, $updated_until, $sort_by, $sort_direction, $include_fields, $limit, $cursor): \Pipedrive\versions\v2\Model\GetActivities
+getActivities($filter_id, $ids, $owner_id, $deal_id, $lead_id, $person_id, $org_id, $done, $updated_since, $updated_until, $sort_by, $sort_direction, $include_fields, $custom_fields, $include_option_labels, $limit, $cursor): \Pipedrive\versions\v2\Model\GetActivities
 ```
 
 Get all activities
@@ -186,11 +186,13 @@ $updated_until = 'updated_until_example'; // string | If set, only activities wi
 $sort_by = 'id'; // string | The field to sort by. Supported fields: `id`, `update_time`, `add_time`, `due_date`.
 $sort_direction = 'asc'; // string | The sorting direction. Supported values: `asc`, `desc`.
 $include_fields = array('include_fields_example'); // string[] | Optional comma separated string array of additional fields to include
+$custom_fields = array('custom_fields_example'); // string[] | Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.<br/>A maximum of 15 keys is allowed.
+$include_option_labels = True; // bool | When provided with a 'true' value, single option and multiple option custom fields values contain objects in the form of '{ id: number, label: string }' instead of plain id
 $limit = 100; // int | For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
 $cursor = 'cursor_example'; // string | For pagination, the marker (an opaque string value) representing the first item on the next page
 
 try {
-    $result = $apiInstance->getActivities($filter_id, $ids, $owner_id, $deal_id, $lead_id, $person_id, $org_id, $done, $updated_since, $updated_until, $sort_by, $sort_direction, $include_fields, $limit, $cursor);
+    $result = $apiInstance->getActivities($filter_id, $ids, $owner_id, $deal_id, $lead_id, $person_id, $org_id, $done, $updated_since, $updated_until, $sort_by, $sort_direction, $include_fields, $custom_fields, $include_option_labels, $limit, $cursor);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ActivitiesApi->getActivities: ', $e->getMessage(), PHP_EOL;
@@ -214,6 +216,8 @@ Name | Type | Description  | Notes
  **sort_by** | **string**| The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;, &#x60;due_date&#x60;. | [optional] [default to &#39;id&#39;]
  **sort_direction** | **string**| The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;. | [optional] [default to &#39;asc&#39;]
  **include_fields** | [**string[]**](../Model/string.md)| Optional comma separated string array of additional fields to include | [optional]
+ **custom_fields** | [**string[]**](../Model/string.md)| Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. | [optional]
+ **include_option_labels** | **bool**| When provided with a &#39;true&#39; value, single option and multiple option custom fields values contain objects in the form of &#39;{ id: number, label: string }&#39; instead of plain id | [optional]
  **limit** | **int**| For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. | [optional]
  **cursor** | **string**| For pagination, the marker (an opaque string value) representing the first item on the next page | [optional]
 
@@ -237,7 +241,7 @@ Name | Type | Description  | Notes
 ## `getActivity()`
 
 ```php
-getActivity($id, $include_fields): \Pipedrive\versions\v2\Model\PostPatchGetActivity
+getActivity($id, $include_fields, $custom_fields, $include_option_labels): \Pipedrive\versions\v2\Model\PostPatchGetActivity
 ```
 
 Get details of an activity
@@ -268,9 +272,11 @@ $apiInstance = new Pipedrive\versions\v2\Api\ActivitiesApi(
 );
 $id = 56; // int | The ID of the activity
 $include_fields = array('include_fields_example'); // string[] | Optional comma separated string array of additional fields to include
+$custom_fields = array('custom_fields_example'); // string[] | Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.<br/>A maximum of 15 keys is allowed.
+$include_option_labels = True; // bool | When provided with a 'true' value, single option and multiple option custom fields values contain objects in the form of '{ id: number, label: string }' instead of plain id
 
 try {
-    $result = $apiInstance->getActivity($id, $include_fields);
+    $result = $apiInstance->getActivity($id, $include_fields, $custom_fields, $include_option_labels);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ActivitiesApi->getActivity: ', $e->getMessage(), PHP_EOL;
@@ -283,6 +289,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The ID of the activity |
  **include_fields** | [**string[]**](../Model/string.md)| Optional comma separated string array of additional fields to include | [optional]
+ **custom_fields** | [**string[]**](../Model/string.md)| Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed. | [optional]
+ **include_option_labels** | **bool**| When provided with a &#39;true&#39; value, single option and multiple option custom fields values contain objects in the form of &#39;{ id: number, label: string }&#39; instead of plain id | [optional]
 
 ### Return type
 

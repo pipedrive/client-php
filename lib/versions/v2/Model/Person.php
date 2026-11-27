@@ -85,6 +85,8 @@ class Person implements ModelInterface, ArrayAccess, JsonSerializable
         'im' => '\Pipedrive\versions\v2\Model\PersonItemIm[]',
         'birthday' => 'string',
         'job_title' => 'string',
+        'track_open' => 'string',
+        'track_click' => 'string',
         'custom_fields' => 'array<string,object>'
     ];
 
@@ -115,6 +117,8 @@ class Person implements ModelInterface, ArrayAccess, JsonSerializable
         'im' => null,
         'birthday' => null,
         'job_title' => null,
+        'track_open' => null,
+        'track_click' => null,
         'custom_fields' => null
     ];
 
@@ -168,6 +172,8 @@ class Person implements ModelInterface, ArrayAccess, JsonSerializable
         'im' => 'im',
         'birthday' => 'birthday',
         'job_title' => 'job_title',
+        'track_open' => 'track_open',
+        'track_click' => 'track_click',
         'custom_fields' => 'custom_fields'
     ];
 
@@ -196,6 +202,8 @@ class Person implements ModelInterface, ArrayAccess, JsonSerializable
         'im' => 'setIm',
         'birthday' => 'setBirthday',
         'job_title' => 'setJobTitle',
+        'track_open' => 'setTrackOpen',
+        'track_click' => 'setTrackClick',
         'custom_fields' => 'setCustomFields'
     ];
 
@@ -224,6 +232,8 @@ class Person implements ModelInterface, ArrayAccess, JsonSerializable
         'im' => 'getIm',
         'birthday' => 'getBirthday',
         'job_title' => 'getJobTitle',
+        'track_open' => 'getTrackOpen',
+        'track_click' => 'getTrackClick',
         'custom_fields' => 'getCustomFields'
     ];
 
@@ -274,6 +284,44 @@ class Person implements ModelInterface, ArrayAccess, JsonSerializable
         return self::$openAPIModelName;
     }
 
+    const TRACK_OPEN_NO_PREFERENCE_SET = 'no_preference_set';
+    const TRACK_OPEN_CONSENT_GIVEN = 'consent_given';
+    const TRACK_OPEN_CONSENT_DECLINED = 'consent_declined';
+    const TRACK_CLICK_NO_PREFERENCE_SET = 'no_preference_set';
+    const TRACK_CLICK_CONSENT_GIVEN = 'consent_given';
+    const TRACK_CLICK_CONSENT_DECLINED = 'consent_declined';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @phpstan-return  array<string|int>
+     * @phpsalm-return  array<string|int>
+     * @return (string|int)[]
+     */
+    public function getTrackOpenAllowableValues(): array
+    {
+        return [
+            self::TRACK_OPEN_NO_PREFERENCE_SET,
+            self::TRACK_OPEN_CONSENT_GIVEN,
+            self::TRACK_OPEN_CONSENT_DECLINED,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @phpstan-return  array<string|int>
+     * @phpsalm-return  array<string|int>
+     * @return (string|int)[]
+     */
+    public function getTrackClickAllowableValues(): array
+    {
+        return [
+            self::TRACK_CLICK_NO_PREFERENCE_SET,
+            self::TRACK_CLICK_CONSENT_GIVEN,
+            self::TRACK_CLICK_CONSENT_DECLINED,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -313,6 +361,8 @@ class Person implements ModelInterface, ArrayAccess, JsonSerializable
         $this->container['im'] = $data['im'] ?? null;
         $this->container['birthday'] = $data['birthday'] ?? null;
         $this->container['job_title'] = $data['job_title'] ?? null;
+        $this->container['track_open'] = $data['track_open'] ?? null;
+        $this->container['track_click'] = $data['track_click'] ?? null;
         $this->container['custom_fields'] = $data['custom_fields'] ?? null;
     }
 
@@ -326,6 +376,24 @@ class Person implements ModelInterface, ArrayAccess, JsonSerializable
     public function listInvalidProperties(): array
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getTrackOpenAllowableValues();
+        if (!is_null($this->container['track_open']) && !in_array($this->container['track_open'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'track_open', must be one of '%s'",
+                $this->container['track_open'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getTrackClickAllowableValues();
+        if (!is_null($this->container['track_click']) && !in_array($this->container['track_click'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'track_click', must be one of '%s'",
+                $this->container['track_click'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -794,6 +862,74 @@ class Person implements ModelInterface, ArrayAccess, JsonSerializable
     public function setJobTitle($job_title): self
     {
         $this->container['job_title'] = $job_title;
+
+        return $this;
+    }
+
+    /**
+     * Gets track_open
+     *
+     * @return string|null
+     */
+    public function getTrackOpen()
+    {
+        return $this->container['track_open'];
+    }
+
+    /**
+     * Sets track_open
+     *
+     * @param string|null $track_open The email open tracking consent of the person, included if the company has the Email tracking consent setting enabled
+     *
+     * @return self
+     */
+    public function setTrackOpen($track_open): self
+    {
+        $allowedValues = $this->getTrackOpenAllowableValues();
+        if (!is_null($track_open) && !in_array($track_open, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'track_open', must be one of '%s'",
+                    $track_open,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['track_open'] = $track_open;
+
+        return $this;
+    }
+
+    /**
+     * Gets track_click
+     *
+     * @return string|null
+     */
+    public function getTrackClick()
+    {
+        return $this->container['track_click'];
+    }
+
+    /**
+     * Sets track_click
+     *
+     * @param string|null $track_click The email link click tracking consent of the person, included if the company has the Email tracking consent setting enabled
+     *
+     * @return self
+     */
+    public function setTrackClick($track_click): self
+    {
+        $allowedValues = $this->getTrackClickAllowableValues();
+        if (!is_null($track_click) && !in_array($track_click, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'track_click', must be one of '%s'",
+                    $track_click,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['track_click'] = $track_click;
 
         return $this;
     }

@@ -73,7 +73,7 @@ class ProductFieldItem implements ModelInterface, ArrayAccess, JsonSerializable
         'subfields' => '\Pipedrive\versions\v2\Model\ActivityFieldItemSubfields[]',
         'is_custom_field' => 'bool',
         'is_optional_response_field' => 'bool',
-        'ui_visibility' => '\Pipedrive\versions\v2\Model\ActivityFieldItemUiVisibility'
+        'ui_visibility' => '\Pipedrive\versions\v2\Model\ProductFieldItemUiVisibility'
     ];
 
     /**
@@ -554,7 +554,7 @@ class ProductFieldItem implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets ui_visibility
      *
-     * @return \Pipedrive\versions\v2\Model\ActivityFieldItemUiVisibility|null
+     * @return \Pipedrive\versions\v2\Model\ProductFieldItemUiVisibility|null
      */
     public function getUiVisibility()
     {
@@ -564,7 +564,7 @@ class ProductFieldItem implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets ui_visibility
      *
-     * @param \Pipedrive\versions\v2\Model\ActivityFieldItemUiVisibility|null $ui_visibility ui_visibility
+     * @param \Pipedrive\versions\v2\Model\ProductFieldItemUiVisibility|null $ui_visibility ui_visibility
      *
      * @return self
      */
